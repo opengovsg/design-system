@@ -1,4 +1,7 @@
 {
   "name": "@opengovsg/design-system.react",
-  "description": "React components"
+  "description": "React components",
+  "dependencies": {
+    "react": "^17.0.2"
+  }
 }
