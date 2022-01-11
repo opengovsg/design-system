@@ -1,5 +1,6 @@
 {
-  "name": "@opengovsg/design-system.react",
+  "name": "@opengovsg/design-system-react",
+  "version": "0.0.1",
   "description": "React components",
   "files": [
     "build"
