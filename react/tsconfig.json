@@ -3,7 +3,6 @@
     "baseUrl": ".",
     "paths": {
       "~theme/*": ["./src/theme/*"],
-      "~typings/*": ["./src/typings/*"],
       "~/*": ["./src/*"]
     },
     "declaration": true,
