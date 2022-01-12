@@ -25,7 +25,9 @@ export default {
   ],
   plugins: [
     peerDepsExternal(),
-    resolve(),
+    resolve({
+      preferBuiltins: false,
+    }),
     commonjs(),
     cleanup({ comments: 'all' }),
     ts({
