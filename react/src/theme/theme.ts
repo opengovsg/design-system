@@ -1,12 +1,9 @@
-import { ChakraProviderProps, extendTheme } from '@chakra-ui/react'
-
+import { extendTheme } from '@chakra-ui/react'
+import { components } from './components'
 import { breakpoints } from './foundations/breakpoints'
 import { colours } from './foundations/colours'
 import { shadows } from './foundations/shadows'
-import { components } from './components'
 import { textStyles } from './textStyles'
-import { ChakraProvider } from '@chakra-ui/provider'
-import { FC } from 'react'
 
 export const theme = extendTheme({
   styles: {
@@ -36,11 +33,3 @@ export const theme = extendTheme({
   },
   components,
 })
-
-/**
- * The global provider that must be added to make all components in this design
- * system work correctly
- */
-export const ThemeProvider: FC<ChakraProviderProps> = (props) => (
-  <ChakraProvider theme={theme} {...props} />
-)

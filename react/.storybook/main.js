@@ -19,7 +19,6 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       '~': path.resolve(__dirname, '../src/'),
-      '~theme': path.resolve(__dirname, '../src/theme'),
     }
 
     return config
