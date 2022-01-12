@@ -4,13 +4,11 @@ import commonjs from '@rollup/plugin-commonjs'
 import ts from 'rollup-plugin-ts'
 import cleanup from 'rollup-plugin-cleanup'
 
-import packageJson from './package.json'
-
 export default {
   input: 'src/index.ts',
   output: [
     {
-      file: packageJson.main,
+      exports: 'named',
       dir: 'build/cjs',
       preserveModules: true,
       preserveModulesRoot: 'src',
@@ -18,7 +16,6 @@ export default {
       sourcemap: true,
     },
     {
-      file: packageJson.module,
       format: 'esm',
       sourcemap: true,
       dir: 'build',
@@ -28,9 +25,13 @@ export default {
   ],
   plugins: [
     peerDepsExternal(),
-    resolve(),
+    resolve({
+      preferBuiltins: false,
+    }),
     commonjs(),
     cleanup({ comments: 'all' }),
-    ts(),
+    ts({
+      tsconfig: 'tsconfig.build.json',
+    }),
   ],
 }
