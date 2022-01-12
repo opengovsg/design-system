@@ -28,6 +28,8 @@ export default {
     resolve(),
     commonjs(),
     cleanup({ comments: 'all' }),
-    ts(),
+    ts({
+      tsconfig: 'tsconfig.build.json',
+    }),
   ],
 }
