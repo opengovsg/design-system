@@ -9,7 +9,7 @@ export default {
   output: [
     {
       exports: 'named',
-      dir: 'build/cjs',
+      dir: 'build',
       preserveModules: true,
       preserveModulesRoot: 'src',
       format: 'cjs',
@@ -18,20 +18,18 @@ export default {
     {
       format: 'esm',
       sourcemap: true,
-      dir: 'build',
+      dir: 'build/esm',
       preserveModules: true,
       preserveModulesRoot: 'src',
     },
   ],
   plugins: [
     peerDepsExternal(),
-    resolve({
-      preferBuiltins: false,
-    }),
+    resolve(),
     commonjs(),
-    cleanup({ comments: 'all' }),
     ts({
       tsconfig: 'tsconfig.build.json',
     }),
+    cleanup({ comments: 'all' }),
   ],
 }
