@@ -1,4 +1,4 @@
-import JSZip from 'jszip'
+import { unzip } from 'unzipit'
 import { flattenDeep, uniq } from 'lodash'
 
 import type { AttachmentProps } from '../Attachment'
@@ -35,17 +35,18 @@ export const getInvalidFileExtensionsInZip = (
 ): Promise<string[]> => {
   // We wrap this checker into a closure for recursive calls.
   const checkZipForInvalidFiles = async (file: Blob): Promise<string[]> => {
-    const zip = await JSZip.loadAsync(file)
+    const { entries } = await unzip(file)
     const invalidFileExtensions: (string | string[] | Promise<string[]>)[] = []
-    zip.forEach((_relativePath, fileEntry) => {
-      if (fileEntry.dir) return
+    Object.entries(entries).forEach(([, fileEntry]) => {
+      if (fileEntry.isDirectory) return
       const fileExt = getFileExtension(fileEntry.name)
       if (isInvalidFileExtension(fileExt, accept)) {
         return invalidFileExtensions.push(fileExt)
       }
       if (fileExt === '.zip') {
+        fileEntry.blob()
         return invalidFileExtensions.push(
-          fileEntry.async('blob').then(checkZipForInvalidFiles),
+          fileEntry.blob().then(checkZipForInvalidFiles),
         )
       }
     })
