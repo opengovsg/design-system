@@ -37,6 +37,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prebuild": "rimraf build",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "typecheck": "tsc --noEmit -p tsconfig.lint.json"
   }
 }
