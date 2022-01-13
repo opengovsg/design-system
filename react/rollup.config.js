@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import ts from 'rollup-plugin-ts'
 import cleanup from 'rollup-plugin-cleanup'
+import copy from 'rollup-plugin-copy'
 
 export default {
   input: 'src/index.ts',
@@ -24,6 +25,14 @@ export default {
     },
   ],
   plugins: [
+    copy({
+      targets: [
+        {
+          src: 'src/fonts',
+          dest: 'build',
+        },
+      ],
+    }),
     peerDepsExternal(),
     resolve(),
     commonjs(),
