@@ -3,10 +3,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import ts from 'rollup-plugin-ts'
 import cleanup from 'rollup-plugin-cleanup'
-import url from '@rollup/plugin-url'
 import copy from 'rollup-plugin-copy'
-import postcss from 'rollup-plugin-postcss'
-import path from 'path'
 
 export default {
   input: 'src/index.ts',
@@ -29,20 +26,15 @@ export default {
   ],
   plugins: [
     copy({
-      targets: [{ src: ['src/fonts'], dest: 'build' }],
-    }),
-    postcss({
-      extract: path.resolve('build/fonts/inter.css'),
+      targets: [
+        {
+          src: 'src/fonts',
+          dest: 'build',
+        },
+      ],
     }),
     peerDepsExternal(),
     resolve(),
-    url({
-      // by default, rollup-plugin-url will not handle font files
-      include: ['**/*.woff', '**/*.woff2'],
-      // setting infinite limit will ensure that the files
-      // are always bundled with the code, not copied to /dist
-      limit: Infinity,
-    }),
     commonjs(),
     ts({
       tsconfig: 'tsconfig.build.json',
