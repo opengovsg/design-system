@@ -119,7 +119,7 @@ export const RestrictedFooter = ({
             mb="2rem"
             href={SOCIAL_MEDIA_LINKS.ogp}
           >
-            <Icon as={RestrictedOgpLogoFull} w="183px" />
+            <RestrictedOgpLogoFull />
           </Link>
         </Box>
 
@@ -168,7 +168,7 @@ export const RestrictedFooter = ({
               href={SOCIAL_MEDIA_LINKS.ogp}
               colorScheme={textColorScheme}
             >
-              <Icon as={RestrictedOgpLogo} />
+              <RestrictedOgpLogo />
             </Link>
           </Stack>
           <Flex
