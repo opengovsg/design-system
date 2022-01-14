@@ -29,7 +29,7 @@ type FooterLink = {
   href: string
 }
 
-export interface FooterProps {
+export interface RestrictedFooterProps {
   /** Application name to display in footer. */
   appName: string
   /** Tagline to display beside application name, if provided. */
@@ -54,18 +54,18 @@ export interface FooterProps {
  * Suggest recreating the component whilst referencing the code in here.
  * Read LICENSE.md for more information.
  */
-export const Footer = ({
+export const RestrictedFooter = ({
   appName,
   tagline,
   footerLinks,
   textColorScheme = 'secondary',
   bg = 'primary.100',
-}: FooterProps): JSX.Element => {
+}: RestrictedFooterProps): JSX.Element => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <Footer.Container bg={bg}>
-      <Footer.Section>
+    <RestrictedFooter.Container bg={bg}>
+      <RestrictedFooter.Section>
         <Stack
           flex={1}
           direction={{ base: 'column', lg: 'row' }}
@@ -102,9 +102,9 @@ export const Footer = ({
             </Link>
           ))}
         </Wrap>
-      </Footer.Section>
+      </RestrictedFooter.Section>
       <Divider color={`${textColorScheme}.300`} my="1.5rem" />
-      <Footer.Section>
+      <RestrictedFooter.Section>
         <Box>
           <Text
             textStyle="caption-1"
@@ -180,8 +180,8 @@ export const Footer = ({
             <Text>Government Technology Agency of Singapore</Text>
           </Flex>
         </Box>
-      </Footer.Section>
-    </Footer.Container>
+      </RestrictedFooter.Section>
+    </RestrictedFooter.Container>
   )
 }
 
@@ -189,7 +189,7 @@ interface FooterContainerProps extends FlexProps {
   children: React.ReactNode
 }
 
-Footer.Container = ({
+RestrictedFooter.Container = ({
   children,
   ...props
 }: FooterContainerProps): JSX.Element => {
@@ -210,7 +210,10 @@ interface FooterSectionProps extends FlexProps {
   children: React.ReactNode
 }
 
-Footer.Section = ({ children, ...props }: FooterSectionProps): JSX.Element => {
+RestrictedFooter.Section = ({
+  children,
+  ...props
+}: FooterSectionProps): JSX.Element => {
   return (
     <Flex
       align={{ base: 'normal', lg: 'center' }}
