@@ -2,18 +2,18 @@ import { Meta, Story } from '@storybook/react'
 
 import { viewports } from '~/utils/storybook'
 
-import { Footer, FooterProps } from './Footer'
+import { RestrictedFooter, RestrictedFooterProps } from './RestrictedFooter'
 
 export default {
-  title: 'Components/Footer',
-  component: Footer,
+  title: 'Components/RestrictedFooter',
+  component: RestrictedFooter,
   decorators: [],
   parameters: {
     layout: 'fullscreen',
   },
 } as Meta
 
-const defaultArgs: FooterProps = {
+const defaultArgs: RestrictedFooterProps = {
   appName: 'Form',
   tagline: 'Build secure government forms in minutes',
   footerLinks: [
@@ -36,7 +36,9 @@ const defaultArgs: FooterProps = {
   ],
 }
 
-const Template: Story<FooterProps> = (args) => <Footer {...args} />
+const Template: Story<RestrictedFooterProps> = (args) => (
+  <RestrictedFooter {...args} />
+)
 export const Default = Template.bind({})
 Default.args = defaultArgs
 

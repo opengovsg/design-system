@@ -1,2 +1,2 @@
-export * from './OgpLogo'
-export * from './OgpLogoFull'
+export * from './RestrictedOgpLogo'
+export * from './RestrictedOgpLogoFull'

@@ -8,7 +8,7 @@ import {
   Text,
   Wrap,
 } from '@chakra-ui/react'
-import { OgpLogo, OgpLogoFull } from '~/icons/brand'
+import { RestrictedOgpLogo, RestrictedOgpLogoFull } from '~/icons/brand'
 import { BxlFacebook } from '~/icons/BxlFacebook'
 import { BxlInstagram } from '~/icons/BxlInstagram'
 import { BxlLinkedin } from '~/icons/BxlLinkedin'
@@ -29,7 +29,7 @@ type FooterLink = {
   href: string
 }
 
-export interface FooterProps {
+export interface RestrictedFooterProps {
   /** Application name to display in footer. */
   appName: string
   /** Tagline to display beside application name, if provided. */
@@ -48,18 +48,24 @@ export interface FooterProps {
   bg?: string
 }
 
-export const Footer = ({
+/**
+ * Must not be used directly unless you are in the @opengovsg org as there are
+ * references to the organisation's logo in the code.
+ * Suggest recreating the component whilst referencing the code in here.
+ * Read LICENSE.md for more information.
+ */
+export const RestrictedFooter = ({
   appName,
   tagline,
   footerLinks,
   textColorScheme = 'secondary',
   bg = 'primary.100',
-}: FooterProps): JSX.Element => {
+}: RestrictedFooterProps): JSX.Element => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <Footer.Container bg={bg}>
-      <Footer.Section>
+    <RestrictedFooter.Container bg={bg}>
+      <RestrictedFooter.Section>
         <Stack
           flex={1}
           direction={{ base: 'column', lg: 'row' }}
@@ -96,9 +102,9 @@ export const Footer = ({
             </Link>
           ))}
         </Wrap>
-      </Footer.Section>
+      </RestrictedFooter.Section>
       <Divider color={`${textColorScheme}.300`} my="1.5rem" />
-      <Footer.Section>
+      <RestrictedFooter.Section>
         <Box>
           <Text
             textStyle="caption-1"
@@ -113,7 +119,7 @@ export const Footer = ({
             mb="2rem"
             href={SOCIAL_MEDIA_LINKS.ogp}
           >
-            <Icon as={OgpLogoFull} w="183px" />
+            <Icon as={RestrictedOgpLogoFull} w="183px" />
           </Link>
         </Box>
 
@@ -162,7 +168,7 @@ export const Footer = ({
               href={SOCIAL_MEDIA_LINKS.ogp}
               colorScheme={textColorScheme}
             >
-              <Icon as={OgpLogo} />
+              <Icon as={RestrictedOgpLogo} />
             </Link>
           </Stack>
           <Flex
@@ -174,8 +180,8 @@ export const Footer = ({
             <Text>Government Technology Agency of Singapore</Text>
           </Flex>
         </Box>
-      </Footer.Section>
-    </Footer.Container>
+      </RestrictedFooter.Section>
+    </RestrictedFooter.Container>
   )
 }
 
@@ -183,7 +189,7 @@ interface FooterContainerProps extends FlexProps {
   children: React.ReactNode
 }
 
-Footer.Container = ({
+RestrictedFooter.Container = ({
   children,
   ...props
 }: FooterContainerProps): JSX.Element => {
@@ -204,7 +210,10 @@ interface FooterSectionProps extends FlexProps {
   children: React.ReactNode
 }
 
-Footer.Section = ({ children, ...props }: FooterSectionProps): JSX.Element => {
+RestrictedFooter.Section = ({
+  children,
+  ...props
+}: FooterSectionProps): JSX.Element => {
   return (
     <Flex
       align={{ base: 'normal', lg: 'center' }}
