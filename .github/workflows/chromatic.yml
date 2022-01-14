@@ -4,10 +4,7 @@
 name: "Chromatic"
 
 # Event for the workflow
-on:
-  push:
-    paths:
-      - "react/**"
+on: push
 
 # List of jobs
 jobs:
