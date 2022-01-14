@@ -29,6 +29,5 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: react
           storybookBaseDir: react
-          onlyChanged: true
           autoAcceptChanges: main
           exitOnceUploaded: true
