@@ -8,7 +8,7 @@ import {
   Text,
   Wrap,
 } from '@chakra-ui/react'
-import { OgpLogo, OgpLogoFull } from '~/icons/brand'
+import { RestrictedOgpLogo, RestrictedOgpLogoFull } from '~/icons/brand'
 import { BxlFacebook } from '~/icons/BxlFacebook'
 import { BxlInstagram } from '~/icons/BxlInstagram'
 import { BxlLinkedin } from '~/icons/BxlLinkedin'
@@ -48,6 +48,12 @@ export interface FooterProps {
   bg?: string
 }
 
+/**
+ * Must not be used directly unless you are in the @opengovsg org as there are
+ * references to the organisation's logo in the code.
+ * Suggest recreating the component whilst referencing the code in here.
+ * Read LICENSE.md for more information.
+ */
 export const Footer = ({
   appName,
   tagline,
@@ -113,7 +119,7 @@ export const Footer = ({
             mb="2rem"
             href={SOCIAL_MEDIA_LINKS.ogp}
           >
-            <Icon as={OgpLogoFull} w="183px" />
+            <Icon as={RestrictedOgpLogoFull} w="183px" />
           </Link>
         </Box>
 
@@ -162,7 +168,7 @@ export const Footer = ({
               href={SOCIAL_MEDIA_LINKS.ogp}
               colorScheme={textColorScheme}
             >
-              <Icon as={OgpLogo} />
+              <Icon as={RestrictedOgpLogo} />
             </Link>
           </Stack>
           <Flex
