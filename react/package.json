@@ -3,11 +3,10 @@
   "version": "0.0.1",
   "description": "React components",
   "main": "build/index.js",
-  "module": "build/esm/index.js",
+  "module": "build/index.esm.js",
   "files": [
     "build"
   ],
-  "sideEffects": false,
   "peerDependencies": {
     "@chakra-ui/cli": "^1.7.0",
     "@chakra-ui/react": "^1.7.5",
@@ -38,6 +37,7 @@
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-ts": "^2.0.5",
+    "tslib": "^2.3.1",
     "typescript": "^4.5.4"
   },
   "scripts": {

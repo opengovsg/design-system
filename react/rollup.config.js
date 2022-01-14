@@ -1,8 +1,7 @@
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import ts from 'rollup-plugin-ts'
-import cleanup from 'rollup-plugin-cleanup'
+import typescript from 'rollup-plugin-ts'
 import copy from 'rollup-plugin-copy'
 
 export default {
@@ -14,17 +13,22 @@ export default {
       preserveModules: true,
       preserveModulesRoot: 'src',
       format: 'cjs',
-      sourcemap: true,
     },
     {
       format: 'esm',
-      sourcemap: true,
-      dir: 'build/esm',
+      entryFileNames: '[name].esm.js',
+      dir: 'build',
       preserveModules: true,
       preserveModulesRoot: 'src',
     },
   ],
   plugins: [
+    peerDepsExternal(),
+    resolve({ preferBuiltins: true }),
+    commonjs(),
+    typescript({
+      tsconfig: 'tsconfig.build.json',
+    }),
     copy({
       targets: [
         {
@@ -33,12 +37,5 @@ export default {
         },
       ],
     }),
-    peerDepsExternal(),
-    resolve(),
-    commonjs(),
-    ts({
-      tsconfig: 'tsconfig.build.json',
-    }),
-    cleanup({ comments: 'all' }),
   ],
 }
