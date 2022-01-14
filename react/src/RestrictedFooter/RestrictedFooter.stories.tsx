@@ -14,8 +14,8 @@ export default {
 } as Meta
 
 const defaultArgs: RestrictedFooterProps = {
-  appName: 'Form',
-  tagline: 'Build secure government forms in minutes',
+  appName: 'Camp',
+  tagline: `Helping to create consistent, accessible, highly usable, and delightful experiences for our public users`,
   footerLinks: [
     {
       label: 'User Guide',
