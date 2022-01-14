@@ -4,7 +4,10 @@
 name: "Chromatic"
 
 # Event for the workflow
-on: push
+on:
+  push:
+    paths:
+      - "react/**"
 
 # List of jobs
 jobs:
@@ -16,18 +19,30 @@ jobs:
         working-directory: react
     # Job steps
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Required for v2
       - name: Install dependencies
         run: npm i
-        # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
+        if: github.ref != 'refs/heads/main'
         uses: chromaui/action@v1
-        # Chromatic GitHub Action options
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: react
-          storybookBaseDir: react
-          autoAcceptChanges: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          ignoreLastBuildOnBranch: "**" # Better comparisons after rebasing
+          exitZeroOnChanges: true
           exitOnceUploaded: true
+          onlyChanged: true
+      - name: Publish to Chromatic (auto-accept changes on merge main)
+        if: github.ref == 'refs/heads/main'
+        uses: chromaui/action@v1
+        with:
+          workingDir: react
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          ignoreLastBuildOnBranch: "**"
+          exitZeroOnChanges: true
+          exitOnceUploaded: true
+          autoAcceptChanges: true # handle squash-on-merge
