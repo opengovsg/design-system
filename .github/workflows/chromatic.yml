@@ -22,11 +22,9 @@ jobs:
       - name: Install dependencies
         run: npm i
       - name: Publish to Chromatic
-        if: github.ref != 'refs/heads/main'
         uses: chromaui/action@v1
         with:
           workingDir: react
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          ignoreLastBuildOnBranch: "**" # Better comparisons after rebasing
           exitOnceUploaded: true
