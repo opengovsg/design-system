@@ -1,0 +1,61 @@
+<!--
+title: Badge
+-->
+
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { Badge } from './Badge'
+
+export const Template = (args) => <Badge {...args} />
+
+# Badge
+
+<Meta title="Components/Badge" component={Badge} />
+
+<Canvas>
+  <Story
+    name="Solid"
+    args={{
+      colorScheme: 'success',
+      children: 'Badge name',
+      variant: 'solid',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Subtle"
+    args={{
+      children: 'Badge name',
+      variant: 'subtle',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="SubtleColours"
+    args={{
+      children: 'Subtle',
+      variant: 'subtle',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="SolidColours"
+    args={{
+      children: 'Solid',
+      variant: 'solid',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

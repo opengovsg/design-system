@@ -14,6 +14,7 @@ module.exports = {
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  staticDirs: ['../storybook-resources'],
   webpackFinal: async (config) => {
     config.module.rules = [
       ...config.module.rules,
