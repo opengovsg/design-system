@@ -9,7 +9,7 @@ Canvas {
 
 story:before,
 Canvas:before {
-  content: attr(id) ' story';
+  content: attr(name) ' story';
   text-align: center;
   text-transform: capitalize;
   display: flex;
