@@ -65,6 +65,33 @@ const Example = () => (
 )
 ```
 
+## Adding types for TypeScript
+
+Using [`@chakra-ui/cli`](https://www.npmjs.com/package/@chakra-ui/cli), you can also generate types for the design system to provide autocomplete for your TypeScript code.
+
+If you are extending the theme (you used `extendTheme`):
+
+```bash
+npx @chakra-ui/cli tokens <path/to/your/theme.(js|ts)>
+```
+
+If generating for the base design system:
+
+```bash
+npx chakra-cli tokens node_modules/@opengovsg/design-system-react/build/theme/theme.js
+```
+
+> Note 🚨: If you delete the node_modules directory, you'll need to re-run the command to get proper typings again.
+
+For convenience, you can add a postinstall script to your package.json, so you don't have to think about this every time you re-install your dependencies.
+
+```json
+"scripts": {
+  "gen:theme-typings": "chakra-cli tokens node_modules/@opengovsg/design-system-react/build/theme/theme.js",
+  "postinstall": "npm run gen:theme-typings"
+}
+```
+
 ## Further reading
 
 As this design system is built on top of ChakraUI, it is (hopefully) fully compatible with ChakraUI's usage. Read [ChakraUI's documentation](https://chakra-ui.com) for all the available props and usage examples.
