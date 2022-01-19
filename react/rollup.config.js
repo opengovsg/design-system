@@ -1,8 +1,17 @@
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import typescript from 'rollup-plugin-ts'
+import ttypescript from 'ttypescript'
+import typescript from 'rollup-plugin-typescript2'
 import copy from 'rollup-plugin-copy'
+
+// this override is needed because Module format cjs does not support top-level await
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const packageJson = require('./package.json')
+
+const globals = {
+  ...packageJson.devDependencies,
+}
 
 export default {
   input: 'src/index.ts',
@@ -24,9 +33,11 @@ export default {
   ],
   plugins: [
     peerDepsExternal(),
-    resolve({ preferBuiltins: true }),
+    resolve(),
     commonjs(),
     typescript({
+      typescript: ttypescript,
+      useTsconfigDeclarationDir: true,
       tsconfig: 'tsconfig.build.json',
     }),
     copy({
@@ -38,4 +49,5 @@ export default {
       ],
     }),
   ],
+  external: Object.keys(globals),
 }

@@ -4,6 +4,7 @@
   "description": "React components",
   "main": "build/index.js",
   "module": "build/index.esm.js",
+  "sideEffects": false,
   "files": [
     "build"
   ],
@@ -30,6 +31,7 @@
     "@types/country-flag-icons": "^1.2.0",
     "@types/mdx": "^2.0.1",
     "@types/react": "^17.0.38",
+    "@zerollup/ts-transform-paths": "^1.7.18",
     "babel-loader": "^8.2.2",
     "chromatic": "^6.3.4",
     "libphonenumber-js": "^1.9.44",
@@ -38,11 +40,10 @@
     "react-icons": "^4.3.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.63.0",
-    "rollup-plugin-cleanup": "^3.2.1",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-ts": "^2.0.5",
-    "tslib": "^2.3.1",
+    "rollup-plugin-typescript2": "^0.31.1",
+    "ttypescript": "^1.5.13",
     "typescript": "^4.5.4"
   },
   "scripts": {
