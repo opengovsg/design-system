@@ -74,22 +74,6 @@ const TemplateGroup: Story<LinkProps> = (args) => (
     <Link {...args} colorScheme="neutral" />
     <Text>primary</Text>
     <Link {...args} colorScheme="primary" />
-    <Text>theme-green</Text>
-    <Link {...args} colorScheme="theme-green" />
-    <Text>theme-teal</Text>
-    <Link {...args} colorScheme="theme-teal" />
-    <Text>theme-purple</Text>
-    <Link {...args} colorScheme="theme-purple" />
-    <Text>theme-grey</Text>
-    <Link {...args} colorScheme="theme-grey" />
-    <Text>theme-yellow</Text>
-    <Link {...args} colorScheme="theme-yellow" />
-    <Text>theme-orange</Text>
-    <Link {...args} colorScheme="theme-orange" />
-    <Text>theme-red</Text>
-    <Link {...args} colorScheme="theme-red" />
-    <Text>theme-brown</Text>
-    <Link {...args} colorScheme="theme-brown" />
   </SimpleGrid>
 )
 
