@@ -1,11 +1,18 @@
 import { Meta, Story } from '@storybook/react'
 
 import { Banner, BannerProps } from './Banner'
+import DocumentationPage from './Banner.mdx'
 
 export default {
   title: 'Components/Banner',
   component: Banner,
   decorators: [],
+  parameters: {
+    backgrounds: { default: 'light' },
+    docs: {
+      page: DocumentationPage,
+    },
+  },
 } as Meta
 
 const Template: Story<BannerProps> = (args) => <Banner {...args} />

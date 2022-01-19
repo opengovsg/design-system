@@ -3,11 +3,17 @@ import { ButtonGroup, SimpleGrid, Text } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
 
 import { Button, ButtonProps } from './Button'
+import DocumentationPage from './Button.mdx'
 
 export default {
   title: 'Components/Button',
   component: Button,
-  parameters: { backgrounds: { default: 'light' } },
+  parameters: {
+    docs: {
+      page: DocumentationPage,
+    },
+    backgrounds: { default: 'light' },
+  },
 } as Meta
 
 const ButtonTemplate: Story<ButtonProps> = (args) => <Button {...args} />

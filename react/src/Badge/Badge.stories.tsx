@@ -2,11 +2,17 @@ import { SimpleGrid, Text } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
 
 import { Badge, BadgeProps } from './Badge'
+import DocumentationPage from './Badge.mdx'
 
 export default {
   title: 'Components/Badge',
   component: Badge,
   decorators: [],
+  parameters: {
+    docs: {
+      page: DocumentationPage,
+    },
+  },
 } as Meta
 
 const Template: Story<BadgeProps> = (args) => <Badge {...args} />
