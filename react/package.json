@@ -4,6 +4,8 @@
   "description": "React components",
   "main": "build/index.js",
   "module": "build/index.esm.js",
+  "homepage": "https://github.com/opengovsg/design-system/react#readme",
+  "bugs": "https://github.com/opengovsg/design-system/issues",
   "sideEffects": false,
   "files": [
     "build"
