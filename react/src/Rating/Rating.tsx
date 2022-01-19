@@ -10,7 +10,7 @@ import {
   WrapItem,
 } from '@chakra-ui/react'
 
-import { FieldColorScheme } from '~/theme/foundations/colours'
+import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { RatingOption } from './RatingOption'
 
@@ -26,7 +26,7 @@ export interface RatingProps {
   /**
    * Color scheme of the component to render. Defaults to `primary`.
    */
-  colorScheme?: FieldColorScheme
+  colorScheme?: ThemeColorScheme
   /**
    * Function called once a rating is selected.
    * @param newRating the value of the checked radio

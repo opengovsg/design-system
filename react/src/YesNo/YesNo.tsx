@@ -12,7 +12,7 @@ import {
 import pick from 'lodash/pick'
 
 import { YESNO_THEME_KEY } from '~/theme/components/Field/YesNo'
-import { FieldColorScheme } from '~/theme/foundations/colours'
+import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { YesNoOption } from './YesNoOption'
 
@@ -44,7 +44,7 @@ export interface YesNoProps {
   /**
    * Color scheme of the component to render. Defaults to `primary`.
    */
-  colorScheme?: FieldColorScheme
+  colorScheme?: ThemeColorScheme
 }
 
 /**

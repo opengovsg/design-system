@@ -46,7 +46,7 @@ import {
 import { callAll, split } from '@chakra-ui/utils'
 
 import { RADIO_THEME_KEY } from '~/theme/components/Radio'
-import { FieldColorScheme } from '~/theme/foundations/colours'
+import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { Input, InputProps } from '~/Input'
 
@@ -77,7 +77,7 @@ export interface RadioProps
   /**
    * Background and shadow colors.
    */
-  colorScheme?: FieldColorScheme
+  colorScheme?: ThemeColorScheme
   /**
    * Additional overriding styles. This is a change from the Chakra UI
    * implementation, which previously did not allow overriding styles.
