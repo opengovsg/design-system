@@ -46,8 +46,6 @@
     "typescript": "^4.5.4"
   },
   "scripts": {
-    "gen:theme-typings": "npx chakra-cli tokens src/theme/index.ts",
-    "postinstall": "npm run gen:theme-typings",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prebuild": "rimraf build",
