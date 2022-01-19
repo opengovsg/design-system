@@ -1,4 +1,4 @@
-import { SimpleGrid, Stack, Text } from '@chakra-ui/react'
+import { Stack } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
 import { viewports } from '~/utils/storybook'
 import { Rating, RatingProps } from './Rating'
@@ -37,79 +37,6 @@ const ResponsiveGroup: Story<RatingProps> = (args) => (
   </Stack>
 )
 
-const TemplateGroup: Story<RatingProps> = (args) => (
-  <SimpleGrid
-    columns={2}
-    spacing={8}
-    templateColumns="max-content auto"
-    alignItems="center"
-  >
-    <Text>primary</Text>
-    <Rating
-      {...args}
-      name={`${args.name}-p`}
-      defaultValue={-1}
-      colorScheme="primary"
-    />
-    <Text>theme-green</Text>
-    <Rating
-      {...args}
-      name={`${args.name}-tg`}
-      defaultValue={2}
-      colorScheme="theme-green"
-    />
-    <Text>theme-teal</Text>
-    <Rating
-      {...args}
-      name={`${args.name}-tt`}
-      defaultValue={3}
-      colorScheme="theme-teal"
-    />
-    <Text>theme-purple</Text>
-    <Rating
-      {...args}
-      name={`${args.name}-tp`}
-      defaultValue={4}
-      colorScheme="theme-purple"
-    />
-    <Text>theme-grey</Text>
-    <Rating
-      {...args}
-      name={`${args.name}-tgy`}
-      defaultValue={5}
-      colorScheme="theme-grey"
-    />
-    <Text>theme-yellow</Text>
-    <Rating
-      {...args}
-      name={`${args.name}-ty`}
-      defaultValue={4}
-      colorScheme="theme-yellow"
-    />
-    <Text>theme-orange</Text>
-    <Rating
-      {...args}
-      name={`${args.name}-to`}
-      defaultValue={3}
-      colorScheme="theme-orange"
-    />
-    <Text>theme-red</Text>
-    <Rating
-      {...args}
-      name={`${args.name}-tr`}
-      defaultValue={2}
-      colorScheme="theme-red"
-    />
-    <Text>theme-brown</Text>
-    <Rating
-      {...args}
-      name={`${args.name}-tb`}
-      defaultValue={1}
-      colorScheme="theme-brown"
-    />
-  </SimpleGrid>
-)
-
 export const Default = Template.bind({})
 Default.args = {
   numberOfRatings: 10,
@@ -125,27 +52,30 @@ WithHelperText.args = {
   helperText: '1: Strongly agree, 10: Strongly disagree',
 }
 
-export const VariantNumber = TemplateGroup.bind({})
+export const VariantNumber = Template.bind({})
 VariantNumber.args = {
   name: 'Test rating input',
   numberOfRatings: 5,
   variant: 'number',
+  defaultValue: 3,
 }
 VariantNumber.storyName = 'Variant/Number'
 
-export const VariantStar = TemplateGroup.bind({})
+export const VariantStar = Template.bind({})
 VariantStar.args = {
   name: 'Test rating input',
   numberOfRatings: 5,
   variant: 'star',
+  defaultValue: 2,
 }
 VariantStar.storyName = 'Variant/Star'
 
-export const VariantHeart = TemplateGroup.bind({})
+export const VariantHeart = Template.bind({})
 VariantHeart.args = {
   name: 'Test rating input',
   numberOfRatings: 5,
   variant: 'heart',
+  defaultValue: 5,
 }
 VariantHeart.storyName = 'Variant/Heart'
 

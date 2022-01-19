@@ -12,7 +12,7 @@ import {
 
 import { BxCheckAnimated } from '~/icons'
 import { CHECKBOX_THEME_KEY } from '~/theme/components/Checkbox'
-import { FieldColorScheme } from '~/theme/foundations/colours'
+import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { Input, InputProps } from '~/Input'
 
@@ -22,7 +22,7 @@ export interface CheckboxProps extends ChakraCheckboxProps {
   /**
    * Background and shadow colors of checkbox.
    */
-  colorScheme?: FieldColorScheme
+  colorScheme?: ThemeColorScheme
 }
 
 type CheckboxWithOthers = ComponentWithAs<'input', CheckboxProps> & {
@@ -60,7 +60,7 @@ export const Checkbox = forwardRef<CheckboxProps, 'input'>(
  */
 
 export interface CheckboxOthersWrapperProps {
-  colorScheme?: FieldColorScheme
+  colorScheme?: ThemeColorScheme
   size?: string
   children: ReactNode
 }

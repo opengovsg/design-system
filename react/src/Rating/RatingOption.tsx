@@ -11,7 +11,7 @@ import {
 
 import { BxHeart, BxsHeart, BxsStar, BxStar } from '~/icons'
 import { RATING_THEME_KEY } from '~/theme/components/Field/Rating'
-import { FieldColorScheme } from '~/theme/foundations/colours'
+import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 interface BaseRatingComponent {
   /**
@@ -34,7 +34,7 @@ interface BaseRatingComponent {
   /**
    * Color scheme of the component to render. Defaults to `primary`.
    */
-  colorScheme?: FieldColorScheme
+  colorScheme?: ThemeColorScheme
 }
 
 interface IconRatingComponent extends BaseRatingComponent {
@@ -110,7 +110,7 @@ interface RatingOptionProps {
   /**
    * Color scheme of the component to render. Defaults to `primary`.
    */
-  colorScheme?: FieldColorScheme
+  colorScheme?: ThemeColorScheme
   /**
    * Value of the option.
    */
