@@ -1,0 +1,7 @@
+[build]
+    base = "react/"
+    publish = "storybook-static"
+    command = "npm run build-storybook"
+[context.deploy-preview]
+    # Skip preview build if there are no changes to mdx files in react/src
+    ignore = "curl https://api.github.com/repos/jasonchong96/ogp-design-system-test/pulls/$REVIEW_ID/files | grep -L '\"filename\": \"react/src/.*.mdx\"'"
