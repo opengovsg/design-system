@@ -33,7 +33,9 @@ export default {
   ],
   plugins: [
     peerDepsExternal(),
-    resolve(),
+    resolve({
+      preferBuiltins: false,
+    }),
     commonjs(),
     typescript({
       typescript: ttypescript,
@@ -50,4 +52,5 @@ export default {
     }),
   ],
   external: Object.keys(globals),
+  treeshake: 'recommended',
 }
