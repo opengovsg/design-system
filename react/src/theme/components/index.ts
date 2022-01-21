@@ -7,6 +7,7 @@ import { Button } from './Button'
 import { Checkbox, CHECKBOX_THEME_KEY } from './Checkbox'
 import { CloseButton } from './CloseButton'
 import { Drawer } from './Drawer'
+import { DateInput, DATE_INPUT_THEME_KEY } from './DateInput'
 import { Form } from './Form'
 import { FormError } from './FormError'
 import { FormLabel } from './FormLabel'
@@ -47,6 +48,7 @@ export const components = {
   SingleCountryPhoneNumberInput,
   Textarea,
   Tabs,
+  [DATE_INPUT_THEME_KEY]: DateInput,
   [ATTACHMENT_THEME_KEY]: Attachment,
   [PAGINATION_THEME_KEY]: Pagination,
   [CHECKBOX_THEME_KEY]: Checkbox,
