@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { omit } from 'lodash'
+import omit from 'lodash/omit'
 
 export const BxCheckAnimated = ({
   isChecked,

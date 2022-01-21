@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { BiLockAlt, BiMailSend } from 'react-icons/bi'
 import { Stack, UnorderedList } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
-import { values } from 'lodash'
+import values from 'lodash/values'
 
 import { Badge } from '~/Badge'
 
