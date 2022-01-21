@@ -41,7 +41,7 @@ export const DateInput = forwardRef<DateInputProps, 'input'>(
 
     const handleDatepickerSelection = useCallback(
       (d: Date) => {
-        onChange?.(format(d, 'yyyy-MM-ddd'))
+        onChange?.(format(d, 'yyyy-MM-dd'))
       },
       [onChange],
     )
