@@ -1,9 +1,8 @@
 {
   "name": "@opengovsg/design-system-react",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "React components",
   "main": "build/index.js",
-  "module": "build/index.esm.js",
   "homepage": "https://github.com/opengovsg/design-system/react#readme",
   "bugs": "https://github.com/opengovsg/design-system/issues",
   "sideEffects": false,
@@ -14,11 +13,11 @@
   "peerDependencies": {
     "@chakra-ui/cli": "^1.7.0",
     "@chakra-ui/react": "^1.7.5",
-    "react-markdown": "^7.1.2",
     "libphonenumber-js": "^1.9.44",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "react-markdown": "^6.0.3 || ^8.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
@@ -41,6 +40,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
+    "react-markdown": "^6.0.3",
     "rimraf": "^3.0.2",
     "rollup": "^2.63.0",
     "rollup-plugin-copy": "^3.4.0",

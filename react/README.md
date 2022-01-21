@@ -92,6 +92,22 @@ For convenience, you can add a postinstall script to your package.json, so you d
 }
 ```
 
+## Common problems
+
+### I am seeing
+
+```bash
+Error [ERR_REQUIRE_ESM]: Must use import to load ES Module: /path/to/project/node_modules/react-markdown/index.js
+```
+
+> `react-markdown` is a peer dependency of this design system, and version 8 is automatically installed if your `npm` version is >= 7
+
+Your build pipeline is not configured to run ES Modules. Try using version 6 of `react-markdown`.
+
+```bash
+$ npm install react-markdown@6
+```
+
 ## Further reading
 
 As this design system is built on top of ChakraUI, it is (hopefully) fully compatible with ChakraUI's usage. Read [ChakraUI's documentation](https://chakra-ui.com) for all the available props and usage examples.

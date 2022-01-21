@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Components } from 'react-markdown'
+import { TransformOptions } from 'react-markdown'
 import { CSSObject, ListItem, OrderedList, Text } from '@chakra-ui/react'
 
 import { Link } from '~/Link'
@@ -17,13 +17,13 @@ type MdComponentStyles = {
 
 type UseMdComponentsProps = {
   styles?: MdComponentStyles
-  overrides?: Components
+  overrides?: TransformOptions['components']
 }
 
 export const useMdComponents = ({
   styles = {},
   overrides = {},
-}: UseMdComponentsProps = {}): Components => {
+}: UseMdComponentsProps = {}): TransformOptions['components'] => {
   const textStyles = useMemo(
     () => ({ ...(styles?.text ? { sx: styles.text } : {}) }),
     [styles.text],
@@ -34,7 +34,7 @@ export const useMdComponents = ({
     [styles.link],
   )
 
-  const mdComponents: Components = useMemo(
+  const mdComponents: TransformOptions['components'] = useMemo(
     () => ({
       ol: ({ node, ...props }) => (
         <OrderedList marginInlineStart="1.25rem" {...props} {...textStyles} />

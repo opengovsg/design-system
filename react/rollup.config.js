@@ -23,13 +23,6 @@ export default {
       preserveModulesRoot: 'src',
       format: 'cjs',
     },
-    {
-      format: 'esm',
-      entryFileNames: '[name].esm.js',
-      dir: 'build',
-      preserveModules: true,
-      preserveModulesRoot: 'src',
-    },
   ],
   plugins: [
     peerDepsExternal(),
