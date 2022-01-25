@@ -13,7 +13,6 @@
   "peerDependencies": {
     "@chakra-ui/cli": "^1.7.0",
     "@chakra-ui/react": "^1.7.5",
-    "libphonenumber-js": "^1.9.44",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
@@ -36,7 +35,6 @@
     "@zerollup/ts-transform-paths": "^1.7.18",
     "babel-loader": "^8.2.2",
     "chromatic": "^6.3.4",
-    "libphonenumber-js": "^1.9.44",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
@@ -58,6 +56,7 @@
   },
   "dependencies": {
     "country-flag-icons": "^1.4.19",
+    "libphonenumber-js": "^1.9.44",
     "react-dropzone": "^11.5.1",
     "simplur": "^3.0.1",
     "unzipit": "^1.4.0",
