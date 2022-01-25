@@ -116,7 +116,7 @@ Module not found: Can't resolve 'libphonenumber-js/examples.mobile.json'
 
 > `libphonenumber-js` is a peer dependency of this design system, and version 8 is automatically installed if your `npm` version is >= 7
 
-If you're on npm version 4 to 6, install `libphonenumber-js` explicitly.
+If you're on npm version 4 to 6, install `libphonenumber-js` explicitly by executing the following command.
 
 ```bash
 $ npm install libphonenumber-js
