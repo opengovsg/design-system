@@ -108,6 +108,20 @@ Your build pipeline is not configured to run ES Modules. Try using version 6 of 
 $ npm install react-markdown@6
 ```
 
+### I am seeing
+
+```bash
+Module not found: Can't resolve 'libphonenumber-js/examples.mobile.json'
+```
+
+> `libphonenumber-js` is a peer dependency of this design system, and version 8 is automatically installed if your `npm` version is >= 7
+
+If you're on npm version 4 to 6, install `libphonenumber-js` explicitly.
+
+```bash
+$ npm install libphonenumber-js
+```
+
 ## Further reading
 
 As this design system is built on top of ChakraUI, it is (hopefully) fully compatible with ChakraUI's usage. Read [ChakraUI's documentation](https://chakra-ui.com) for all the available props and usage examples.
