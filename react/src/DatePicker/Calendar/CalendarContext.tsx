@@ -15,7 +15,7 @@ import {
   isSameDay,
 } from 'date-fns'
 import { Props as DayzedProps, RenderProps, useDayzed } from 'dayzed'
-import { inRange } from 'lodash'
+import inRange from 'lodash/inRange'
 
 import { DatePickerProps } from '../DatePicker'
 import {
