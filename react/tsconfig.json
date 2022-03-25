@@ -20,7 +20,7 @@
     "jsx": "react-jsx",
     "outDir": "dist",
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

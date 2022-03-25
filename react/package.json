@@ -5,12 +5,12 @@
   "homepage": "https://github.com/opengovsg/design-system/react#readme",
   "bugs": "https://github.com/opengovsg/design-system/issues",
   "sideEffects": false,
-  "main": "dist/index.cjs.js",
+  "main": "dist/cjs/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/index.cjs.js",
+      "require": "./dist/cjs/index.cjs.js",
       "import": "./dist/index.es.js"
     },
     "./dist/fonts/inter.css": "./dist/fonts/inter.css"

@@ -1,23 +1,20 @@
 import { defineConfig } from 'vite'
-import { resolve } from 'path'
+import { resolve, isAbsolute } from 'path'
 import plugin from '@vitejs/plugin-react'
 import copy from 'rollup-plugin-copy'
 
-const packageJson = require('./package.json')
+const isExternal = (id: string) =>
+  !id.startsWith('~') && !id.startsWith('.') && !isAbsolute(id)
 
 export default defineConfig({
   plugins: [
     plugin({
       jsxRuntime: 'classic',
     }),
-    copy({
-      targets: [{ src: 'src/fonts', dest: 'dist' }],
-      hook: 'writeBundle',
-    }),
   ],
   resolve: {
     alias: {
-      '~': resolve(__dirname, 'src'),
+      '~': resolve(__dirname, './src'),
     },
   },
   build: {
@@ -28,10 +25,26 @@ export default defineConfig({
       // for UMD name: 'GlobalName'
     },
     rollupOptions: {
-      external: [
-        ...Object.keys(packageJson.peerDependencies),
-        ...Object.keys(packageJson.dependencies),
+      plugins: [
+        copy({
+          targets: [{ src: 'src/fonts', dest: 'dist' }],
+          hook: 'writeBundle',
+        }),
       ],
+      output: [
+        {
+          dir: 'dist/cjs',
+          format: 'cjs',
+        },
+        {
+          exports: 'named',
+          dir: 'dist',
+          preserveModules: true,
+          preserveModulesRoot: 'src',
+          format: 'es',
+        },
+      ],
+      external: isExternal,
     },
     target: 'esnext',
     sourcemap: true,
