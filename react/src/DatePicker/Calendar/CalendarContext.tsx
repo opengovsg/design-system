@@ -7,7 +7,7 @@ import {
   useMemo,
   useState,
 } from 'react'
-import { useKey } from 'react-use'
+import useKey from 'react-use/lib/useKey'
 import {
   addMonths,
   differenceInCalendarMonths,

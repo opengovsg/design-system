@@ -251,7 +251,6 @@ export const DateRangeInput = forwardRef<DateRangeInputProps, 'input'>(
                   <PopoverBody p={0}>
                     <DateRangePicker
                       selectedDates={datePickerDates}
-                      hoveredDate={hoveredDate}
                       isDateInRange={isDateInRange}
                       onMouseEnterHighlight={onMouseEnterHighlight}
                       onMouseLeaveCalendar={onMouseLeaveCalendar}
