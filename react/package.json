@@ -5,13 +5,14 @@
   "homepage": "https://github.com/opengovsg/design-system/react#readme",
   "bugs": "https://github.com/opengovsg/design-system/issues",
   "sideEffects": false,
-  "main": "dist/cjs/index.cjs.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cjs/design-system-react.cjs.js",
+  "module": "dist/design-system-react.es.js",
+  "types": "dist/types/index.d.ts",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.cjs.js",
-      "import": "./dist/index.es.js"
+      "require": "./dist/cjs/design-system-react.cjs.js",
+      "import": "./dist/design-system-react.es.js"
     },
     "./dist/fonts/inter.css": "./dist/fonts/inter.css"
   },
@@ -55,6 +56,7 @@
     "react-markdown": "^6.0.3",
     "rimraf": "^3.0.2",
     "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "tsc-alias": "^1.6.4",
     "typescript": "^4.5.4",
     "vite": "^2.8.0"
@@ -65,7 +67,7 @@
     "prebuild": "rimraf dist",
     "typecheck": "tsc --noEmit -p tsconfig.lint.json",
     "build": "run-p build:*",
-    "build:scripts": "vite build",
+    "build:lib": "vite build",
     "build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly && tsc-alias"
   },
   "dependencies": {

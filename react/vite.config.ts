@@ -1,17 +1,11 @@
 import { defineConfig } from 'vite'
-import { resolve, isAbsolute } from 'path'
-import plugin from '@vitejs/plugin-react'
+import { resolve } from 'path'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import copy from 'rollup-plugin-copy'
-
-const isExternal = (id: string) =>
-  !id.startsWith('~') && !id.startsWith('.') && !isAbsolute(id)
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [
-    plugin({
-      jsxRuntime: 'classic',
-    }),
-  ],
+  plugins: [react()],
   resolve: {
     alias: {
       '~': resolve(__dirname, './src'),
@@ -20,12 +14,13 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src', 'index.ts'),
-      formats: ['es', 'cjs'],
-      fileName: (ext) => `index.${ext}.js`,
+      name: 'design-system-react',
+      formats: ['cjs', 'es'],
       // for UMD name: 'GlobalName'
     },
     rollupOptions: {
       plugins: [
+        peerDepsExternal(),
         copy({
           targets: [{ src: 'src/fonts', dest: 'dist' }],
           hook: 'writeBundle',
@@ -44,9 +39,8 @@ export default defineConfig({
           format: 'es',
         },
       ],
-      external: isExternal,
     },
-    target: 'esnext',
+    target: 'es6',
     sourcemap: true,
   },
 })
