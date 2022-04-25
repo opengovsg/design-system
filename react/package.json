@@ -2,17 +2,27 @@
   "name": "@opengovsg/design-system-react",
   "version": "0.0.6",
   "description": "React components",
-  "main": "build/index.js",
   "homepage": "https://github.com/opengovsg/design-system/react#readme",
   "bugs": "https://github.com/opengovsg/design-system/issues",
   "sideEffects": false,
+  "main": "dist/cjs/design-system-react.cjs.js",
+  "module": "dist/design-system-react.es.js",
+  "types": "dist/types/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/design-system-react.cjs.js",
+      "import": "./dist/design-system-react.es.js"
+    },
+    "./dist/fonts/inter.css": "./dist/fonts/inter.css"
+  },
   "files": [
-    "build"
+    "dist"
   ],
   "license": "SEE LICENSE IN LICENSE.md",
   "peerDependencies": {
-    "@chakra-ui/cli": "^1.7.0",
-    "@chakra-ui/react": "^1.7.5",
+    "@chakra-ui/cli": "^1.9.0",
+    "@chakra-ui/react": "^1.8.6",
     "libphonenumber-js": "^1.9.44",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -21,9 +31,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
-    "@chakra-ui/react": "^1.7.5",
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@chakra-ui/react": "^1.8.6",
     "@storybook/addon-actions": "^6.4.10",
     "@storybook/addon-essentials": "^6.4.10",
     "@storybook/addon-links": "^6.4.10",
@@ -34,31 +42,33 @@
     "@types/mdx": "^2.0.1",
     "@types/react": "^17.0.38",
     "@types/uuid": "^8.3.4",
-    "@zerollup/ts-transform-paths": "^1.7.18",
+    "@vitejs/plugin-react": "^1.0.7",
     "babel-loader": "^8.2.2",
     "chromatic": "^6.3.4",
     "dayjs": "^1.10.7",
     "libphonenumber-js": "^1.9.44",
     "mockdate": "^3.0.5",
+    "npm-run-all": "^4.1.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.24.2",
     "react-icons": "^4.3.1",
     "react-markdown": "^6.0.3",
     "rimraf": "^3.0.2",
-    "rollup": "^2.63.0",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-typescript2": "^0.31.1",
-    "ttypescript": "^1.5.13",
-    "typescript": "^4.5.4"
+    "tsc-alias": "^1.6.4",
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "prebuild": "rimraf build",
-    "build": "rollup -c",
-    "typecheck": "tsc --noEmit -p tsconfig.lint.json"
+    "prebuild": "rimraf dist",
+    "typecheck": "tsc --noEmit -p tsconfig.lint.json",
+    "build": "run-p build:*",
+    "build:lib": "vite build",
+    "build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly && tsc-alias"
   },
   "dependencies": {
     "country-flag-icons": "^1.4.19",

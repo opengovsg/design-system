@@ -1,1 +1,1 @@
-export { DateInput as default } from './DateInput'
+export * from './DateInput'
