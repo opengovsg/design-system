@@ -1,6 +1,7 @@
-import { BiRightArrowAlt, BiUpload } from 'react-icons/bi'
 import { ButtonGroup, SimpleGrid, Text } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
+
+import { BxRightArrowAlt, BxUpload } from '~/icons'
 
 import { Button, ButtonProps } from './Button'
 import DocumentationPage from './Button.mdx'
@@ -29,10 +30,10 @@ const ButtonGroupTemplate: Story<ButtonProps> = (args) => {
       <Text>Default</Text>
       <ButtonGroup>
         <Button {...args}>Button</Button>
-        <Button leftIcon={<BiUpload fontSize="1.5rem" />} {...args}>
+        <Button leftIcon={<BxUpload fontSize="1.5rem" />} {...args}>
           Leading
         </Button>
-        <Button rightIcon={<BiRightArrowAlt fontSize="1.5rem" />} {...args}>
+        <Button rightIcon={<BxRightArrowAlt fontSize="1.5rem" />} {...args}>
           Trailing
         </Button>
       </ButtonGroup>
@@ -41,12 +42,12 @@ const ButtonGroupTemplate: Story<ButtonProps> = (args) => {
         <Button isActive {...args}>
           Button
         </Button>
-        <Button isActive leftIcon={<BiUpload fontSize="1.5rem" />} {...args}>
+        <Button isActive leftIcon={<BxUpload fontSize="1.5rem" />} {...args}>
           Leading
         </Button>
         <Button
           isActive
-          rightIcon={<BiRightArrowAlt fontSize="1.5rem" />}
+          rightIcon={<BxRightArrowAlt fontSize="1.5rem" />}
           {...args}
         >
           Trailing
@@ -57,12 +58,12 @@ const ButtonGroupTemplate: Story<ButtonProps> = (args) => {
         <Button isDisabled {...args}>
           Button
         </Button>
-        <Button isDisabled leftIcon={<BiUpload fontSize="1.5rem" />} {...args}>
+        <Button isDisabled leftIcon={<BxUpload fontSize="1.5rem" />} {...args}>
           Leading
         </Button>
         <Button
           isDisabled
-          rightIcon={<BiRightArrowAlt fontSize="1.5rem" />}
+          rightIcon={<BxRightArrowAlt fontSize="1.5rem" />}
           {...args}
         >
           Trailing
@@ -75,13 +76,13 @@ const ButtonGroupTemplate: Story<ButtonProps> = (args) => {
         </Button>
         <Button
           isLoading
-          leftIcon={<BiUpload fontSize="1.5rem" />}
+          leftIcon={<BxUpload fontSize="1.5rem" />}
           loadingText="Leading"
           {...args}
         ></Button>
         <Button
           isLoading
-          rightIcon={<BiRightArrowAlt fontSize="1.5rem" />}
+          rightIcon={<BxRightArrowAlt fontSize="1.5rem" />}
           loadingText="Trailing"
           spinnerPlacement="end"
           {...args}

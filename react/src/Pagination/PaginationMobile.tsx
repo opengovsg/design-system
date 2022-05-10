@@ -3,10 +3,10 @@
  */
 
 import { useCallback } from 'react'
-import { BiChevronLeft, BiChevronRight } from 'react-icons/bi'
 import { Box, IconButton, Text, useMultiStyleConfig } from '@chakra-ui/react'
 
 import { PAGINATION_THEME_KEY } from '~/theme/components/Pagination'
+import { BxChevronLeft, BxChevronRight } from '~/icons'
 
 import { PaginationProps } from './Pagination'
 
@@ -42,7 +42,7 @@ export const PaginationMobile = ({
         aria-label="Previous page"
         isDisabled={isDisablePrevPage}
         onClick={handlePageBack}
-        icon={<BiChevronLeft />}
+        icon={<BxChevronLeft />}
       />
       <Text sx={styles.text} aria-disabled={isDisabled}>
         Page {currentPage} of {totalPageCount}
@@ -52,7 +52,7 @@ export const PaginationMobile = ({
         aria-label="Next page"
         isDisabled={isDisableNextPage}
         onClick={handlePageNext}
-        icon={<BiChevronRight />}
+        icon={<BxChevronRight />}
       />
     </Box>
   )

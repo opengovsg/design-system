@@ -1,7 +1,7 @@
-import { BiBulb, BiChevronRight, BiWrench } from 'react-icons/bi'
 import { Box, Flex, Icon, Text } from '@chakra-ui/react'
 import { linkTo } from '@storybook/addon-links'
 
+import { BxChevronRight, BxBulb, BxWrench } from '~/icons'
 import { Link } from '~/Link'
 
 export const Welcome = (): JSX.Element => {
@@ -26,7 +26,7 @@ export const Welcome = (): JSX.Element => {
             every component.
           </Text>
           <Flex align="center" color="white">
-            <Icon as={BiBulb} aria-hidden mr="0.5rem" fontSize="1.5rem" />
+            <Icon as={BxBulb} aria-hidden mr="0.5rem" fontSize="1.5rem" />
             <Text textStyle="subhead-1">
               Protip: Press '/' and start typing to search for a component
             </Text>
@@ -42,7 +42,7 @@ export const Welcome = (): JSX.Element => {
           py={{ base: '1rem', md: '3.5rem', lg: '5.5rem' }}
         >
           <Flex align="center" color="white">
-            <Icon as={BiWrench} aria-hidden mr="0.5rem" fontSize="1.5rem" />
+            <Icon as={BxWrench} aria-hidden mr="0.5rem" fontSize="1.5rem" />
             <Text textStyle="subhead-1">
               Built and maintained by{' '}
               <Link href="https://open.gov.sg" isExternal colorScheme="white">
@@ -58,7 +58,7 @@ export const Welcome = (): JSX.Element => {
             aria-label="Next story"
             colorScheme="secondary"
           >
-            <BiChevronRight fontSize="4rem" />
+            <BxChevronRight fontSize="4rem" />
           </Link>
         </Flex>
       </Flex>

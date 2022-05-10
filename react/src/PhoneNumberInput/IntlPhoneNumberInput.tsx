@@ -5,7 +5,6 @@
  * application's needs.
  */
 import { ChangeEvent, FC, useCallback, useMemo } from 'react'
-import { BiChevronDown } from 'react-icons/bi'
 import {
   chakra,
   Flex,
@@ -20,6 +19,7 @@ import {
 import Flags from 'country-flag-icons/react/3x2'
 import { CountryCode } from 'libphonenumber-js/min'
 
+import { BxChevronDown } from '~/icons'
 import { Input } from '~/Input'
 
 import {
@@ -103,7 +103,7 @@ const CountrySelect: FC<CountrySelectProps> = (props) => {
           as={Flags[country]}
           sx={styles.icon}
         />
-        <Icon as={BiChevronDown} />
+        <Icon as={BxChevronDown} />
       </Flex>
       <chakra.select
         aria-label="Country selector"

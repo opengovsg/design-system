@@ -1,5 +1,4 @@
 import { useRef } from 'react'
-import { BiMinus, BiPlus } from 'react-icons/bi'
 import {
   Box,
   chakra,
@@ -12,6 +11,7 @@ import {
   useNumberInput,
 } from '@chakra-ui/react'
 
+import { BxMinus, BxPlus } from '~/icons'
 import { IconButton } from '~/IconButton'
 
 export interface NumberInputProps extends ChakraNumberInputProps {
@@ -96,7 +96,7 @@ export const NumberInput = forwardRef<NumberInputProps, 'input'>(
               aria-hidden
               aria-label="Decrement number"
               variant="clear"
-              icon={<BiMinus />}
+              icon={<BxMinus />}
               {...decProps}
             />
             <Divider __css={styles.stepperDivider} orientation="vertical" />
@@ -105,7 +105,7 @@ export const NumberInput = forwardRef<NumberInputProps, 'input'>(
               aria-hidden
               aria-label="Increment number"
               variant="clear"
-              icon={<BiPlus />}
+              icon={<BxPlus />}
               {...incProps}
             />
           </Box>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
 import {
   Box,
   chakra,
@@ -12,8 +11,7 @@ import {
   VisuallyHidden,
 } from '@chakra-ui/react'
 
-import { BxsBank } from '~/icons/BxsBank'
-import { BxsLockAlt } from '~/icons/BxsLockAlt'
+import { BxChevronDown, BxChevronUp, BxsBank, BxsLockAlt } from '~/icons'
 import { useIsMobile } from '~/hooks/useIsMobile'
 import { Link } from '~/Link'
 
@@ -151,7 +149,7 @@ export const GovtMasthead = ({
           >
             <Icon
               aria-hidden
-              as={isOpen ? BiChevronUp : BiChevronDown}
+              as={isOpen ? BxChevronUp : BxChevronDown}
               fontSize={{ base: '1rem', md: '1.25rem' }}
             />
           </HowToIdentify>

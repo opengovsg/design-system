@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
-import { BiTrash } from 'react-icons/bi'
 import { Flex, forwardRef, Text, VisuallyHidden } from '@chakra-ui/react'
 
 import { IconButton } from '~/IconButton'
 
 import { getReadableFileSize } from './utils/getReadableFileSize'
+import { BxTrash } from '~/icons'
 
 export interface AttachmentFileInfoProps {
   file: File
@@ -41,7 +41,7 @@ export const AttachmentFileInfo = forwardRef<AttachmentFileInfoProps, 'div'>(
           variant="clear"
           colorScheme="danger"
           aria-label="remove file"
-          icon={<BiTrash />}
+          icon={<BxTrash />}
           onClick={handleRemoveFile}
         />
       </Flex>

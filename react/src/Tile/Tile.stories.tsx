@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { BiLockAlt, BiMailSend } from 'react-icons/bi'
 import { Stack, UnorderedList } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
 import values from 'lodash/values'
 
 import { Badge } from '~/Badge'
+import { BxLockAlt, BxMailSend } from '~/icons'
 
 import { Tile, TileProps } from './Tile'
 
@@ -70,7 +70,7 @@ Complex.args = {
   title: 'Complex',
   subtitle: 'Receive responses in forms',
   badge: <Badge colorScheme="success">recommended</Badge>,
-  icon: BiLockAlt,
+  icon: BxLockAlt,
   listTitle: 'description',
   listItems: {
     1: 'item 1',
@@ -83,7 +83,7 @@ Simple.args = {
   variant: 'simple',
   title: 'Simple',
   subtitle: 'Receive responses in forms',
-  icon: BiMailSend,
+  icon: BxMailSend,
 }
 
 export const Playground: Story = () => {
@@ -115,7 +115,7 @@ interface StoryTileProps {
 const EmailTile = ({ onClick, isActive }: StoryTileProps) => (
   <Tile
     variant="complex"
-    icon={BiMailSend}
+    icon={BxMailSend}
     isActive={isActive}
     onClick={onClick}
     flex={1}
@@ -132,7 +132,7 @@ const EmailTile = ({ onClick, isActive }: StoryTileProps) => (
 const StorageTile = ({ onClick, isActive }: StoryTileProps) => (
   <Tile
     variant="complex"
-    icon={BiLockAlt}
+    icon={BxLockAlt}
     badge={<Badge colorScheme="success">recommended</Badge>}
     isActive={isActive}
     onClick={onClick}

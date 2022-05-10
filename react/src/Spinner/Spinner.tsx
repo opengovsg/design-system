@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-import { BiLoader } from 'react-icons/bi'
 import {
   Flex,
   FlexProps,
@@ -10,6 +9,7 @@ import {
   VisuallyHidden,
 } from '@chakra-ui/react'
 
+import { BxLoader } from '~/icons'
 interface SpinnerProps extends FlexProps {
   /**
    * The color of the spinner
@@ -62,7 +62,7 @@ export const Spinner = ({
   return (
     <Flex color={color} align="center" {...flexProps}>
       {label && <VisuallyHidden>{label}</VisuallyHidden>}
-      <Icon animation={animation} as={BiLoader} fontSize={fontSize} />
+      <Icon animation={animation} as={BxLoader} fontSize={fontSize} />
     </Flex>
   )
 }

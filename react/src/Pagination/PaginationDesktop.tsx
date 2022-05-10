@@ -3,7 +3,6 @@
  */
 
 import { useCallback } from 'react'
-import { BiChevronLeft, BiChevronRight } from 'react-icons/bi'
 import {
   Box,
   Button,
@@ -14,6 +13,7 @@ import {
 } from '@chakra-ui/react'
 
 import { PAGINATION_THEME_KEY } from '~/theme/components/Pagination'
+import { BxChevronLeft, BxChevronRight } from '~/icons'
 
 import { usePaginationRange } from './usePaginationRange'
 import { PaginationProps } from './Pagination'
@@ -93,7 +93,7 @@ export const PaginationDesktop = ({
         aria-label="Previous page"
         isDisabled={isDisablePrevPage}
         onClick={handlePageBack}
-        icon={<BiChevronLeft />}
+        icon={<BxChevronLeft />}
       />
       <HStack spacing="0.125rem">
         {paginationRange.map((p, i) => (
@@ -111,7 +111,7 @@ export const PaginationDesktop = ({
         aria-label="Next page"
         isDisabled={isDisableNextPage}
         onClick={handlePageNext}
-        icon={<BiChevronRight />}
+        icon={<BxChevronRight />}
       />
     </Box>
   )

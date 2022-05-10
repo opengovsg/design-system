@@ -1,4 +1,3 @@
-import { BiX } from 'react-icons/bi'
 import ReactMarkdown from 'react-markdown'
 import {
   Box,
@@ -10,7 +9,7 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
-import { BxsErrorCircle, BxsInfoCircle } from '~/icons'
+import { BxsErrorCircle, BxsInfoCircle, BxX } from '~/icons'
 
 import { BannerVariant } from '~/theme/components/Banner'
 import { useMdComponents } from '~/hooks/useMdComponents'
@@ -56,7 +55,7 @@ export const Banner = ({
               variant="subtle"
               colorScheme="whiteAlpha"
               __css={styles.close}
-              children={<BiX />}
+              children={<BxX />}
               onClick={onToggle}
             />
           )}

@@ -15,7 +15,7 @@ import {
   getExampleNumber,
   NationalNumber,
 } from 'libphonenumber-js'
-import defaultExamples from 'libphonenumber-js/examples.mobile.json'
+import { MOBILE_EXAMPLES } from './resources/examples'
 
 type PhoneNumberInputContextProps = {
   defaultValue?: string
@@ -32,7 +32,7 @@ type PhoneNumberInputContextProps = {
   examplePlaceholder?: 'polite' | 'aggressive' | 'off'
   /**
    * Examples to retrieve placeholder number from, if any. Defaults to
-   * `libphonenumber-js/examples.mobile.json` if none provided.
+   * `resources/examples` if none provided.
    */
   examples?: { [country in CountryCode]: NationalNumber }
   placeholder?: string
@@ -110,7 +110,7 @@ const useProvidePhoneNumberInput = ({
   defaultValue,
   defaultCountry,
   examplePlaceholder,
-  examples = defaultExamples,
+  examples = MOBILE_EXAMPLES,
   allowInternational,
   onChange,
   onBlur,
