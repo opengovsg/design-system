@@ -2,22 +2,12 @@
   "name": "@opengovsg/design-system-react",
   "version": "0.0.7-beta.0",
   "description": "React components",
+  "main": "build/index.js",
   "homepage": "https://github.com/opengovsg/design-system/react#readme",
   "bugs": "https://github.com/opengovsg/design-system/issues",
   "sideEffects": false,
-  "main": "dist/cjs/design-system-react.cjs.js",
-  "module": "dist/design-system-react.es.js",
-  "types": "dist/types/index.d.ts",
-  "type": "module",
-  "exports": {
-    ".": {
-      "require": "./dist/cjs/design-system-react.cjs.js",
-      "import": "./dist/design-system-react.es.js"
-    },
-    "./dist/fonts/inter.css": "./dist/fonts/inter.css"
-  },
   "files": [
-    "dist"
+    "build"
   ],
   "license": "SEE LICENSE IN LICENSE.md",
   "peerDependencies": {
@@ -33,6 +23,8 @@
     "@babel/core": "^7.14.6",
     "@chakra-ui/react": "^2.1.2",
     "@mdx-js/react": "^2.1.1",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "@storybook/addon-actions": "^6.5.6",
     "@storybook/addon-essentials": "^6.5.6",
     "@storybook/addon-links": "^6.5.6",
@@ -44,7 +36,7 @@
     "@types/mdx": "^2.0.1",
     "@types/react": "^18.0.11",
     "@types/uuid": "^8.3.4",
-    "@vitejs/plugin-react": "^1.0.7",
+    "@zerollup/ts-transform-paths": "^1.7.18",
     "babel-loader": "^8.2.2",
     "chromatic": "^6.3.4",
     "dayjs": "^1.10.7",
@@ -57,20 +49,19 @@
     "react-markdown": "^6.0.3",
     "react-textarea-autosize": "^8.3.4",
     "rimraf": "^3.0.2",
+    "rollup": "^2.63.0",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "tsc-alias": "^1.6.4",
-    "typescript": "^4.5.4",
-    "vite": "^2.8.0"
+    "rollup-plugin-typescript2": "^0.31.1",
+    "ttypescript": "^1.5.13",
+    "typescript": "^4.5.4"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "prebuild": "rimraf dist",
-    "typecheck": "tsc --noEmit -p tsconfig.lint.json",
-    "build": "run-p build:*",
-    "build:lib": "vite build",
-    "build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly && tsc-alias"
+    "prebuild": "rimraf build",
+    "build": "rollup -c",
+    "typecheck": "tsc --noEmit -p tsconfig.lint.json"
   },
   "dependencies": {
     "country-flag-icons": "^1.4.19",
