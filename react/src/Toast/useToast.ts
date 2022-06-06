@@ -46,11 +46,10 @@ export const useToast = ({
         duration,
         position,
         ...rest,
-        render: (props: RenderProps) =>
+        render: render ?? ((props: RenderProps) =>
           // NOTE: Because chakra expects this to be JSX, this has to be called with createElement.
           // Omitting the createElement causes a visual bug, where our own theme providers are not used.
           // Using createElement also allows the file to be pure ts rather than tsx.
-          render ??
           React.createElement(() =>
             Toast({
               status: status ?? initialStatus,
@@ -58,7 +57,8 @@ export const useToast = ({
               ...rest,
               ...props,
             }),
-          ),
+          )
+        ),
       })
 
     impl.close = toast.close
