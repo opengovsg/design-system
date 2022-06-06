@@ -18,6 +18,12 @@ export interface ButtonProps extends ChakraButtonProps {
   variant?: ThemeButtonVariant
 
   /**
+   * Specifies whether the button is full-width.
+   * If so, set button width to 100%, height to auto and padding to 15px
+   */
+  isFullWidth?: boolean
+
+  /**
    * Loading spinner font size. Defaults to `1.5rem`.
    */
   spinnerFontSize?: IconProps['fontSize']
@@ -43,10 +49,9 @@ export const Button = forwardRef<ButtonProps, 'button'>(
       <ChakraButton
         ref={ref}
         spinner={<Spinner fontSize={spinnerFontSize ?? '1.5rem'} />}
-        isFullWidth={isFullWidth}
         {...props}
         // 15px due to 1px border
-        {...(isFullWidth ? { p: '15px', h: 'auto' } : {})}
+        {...(isFullWidth ? { w: '100%', p: '15px', h: 'auto' } : {})}
       >
         <Box textStyle={textStyle}>{children}</Box>
       </ChakraButton>
