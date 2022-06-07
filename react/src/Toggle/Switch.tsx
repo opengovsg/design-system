@@ -5,7 +5,6 @@
  */
 
 import { useMemo } from 'react'
-import { BiLoader } from 'react-icons/bi'
 import { useCheckbox, UseCheckboxProps } from '@chakra-ui/checkbox'
 import { Icon, keyframes, usePrefersReducedMotion } from '@chakra-ui/react'
 import {
@@ -20,7 +19,7 @@ import {
 } from '@chakra-ui/system'
 import { cx, dataAttr } from '@chakra-ui/utils'
 
-import { BxCheck, BxLockAlt, BxX } from '~/icons'
+import { BxCheck, BxLockAlt, BxX, BxLoader } from '~/icons'
 import { TOGGLE_THEME_KEY } from '~/theme/components/Toggle'
 
 export interface SwitchProps
@@ -47,7 +46,7 @@ export interface SwitchProps
   uncheckedIcon?: (props: React.SVGProps<SVGSVGElement>) => JSX.Element
 
   /**
-   * Icon for loading switch; defaults to BiLoader.
+   * Icon for loading switch; defaults to BxLoader.
    */
   loadingIcon?: (props: React.SVGProps<SVGSVGElement>) => JSX.Element
 
@@ -63,7 +62,7 @@ export const Switch = forwardRef<SwitchProps, 'input'>(
       disabledIcon = BxLockAlt,
       checkedIcon = BxCheck,
       uncheckedIcon = BxX,
-      loadingIcon = BiLoader,
+      loadingIcon = BxLoader,
       isLoading,
       ...props
     },

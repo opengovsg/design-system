@@ -1,7 +1,8 @@
-import { BiRightArrowAlt } from 'react-icons/bi'
 import Icon from '@chakra-ui/icon'
 import { SimpleGrid, Text } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
+
+import { BxRightArrowAlt } from '~/icons'
 
 import { Link, LinkProps } from './Link'
 
@@ -46,7 +47,7 @@ VariantStandalone.args = {
   children: (
     <>
       Standalone variant link
-      <Icon as={BiRightArrowAlt} fontSize="1.5rem" ml="0.5rem" />
+      <Icon as={BxRightArrowAlt} fontSize="1.5rem" ml="0.5rem" />
     </>
   ),
   isExternal: false,

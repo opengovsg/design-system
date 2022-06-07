@@ -1,5 +1,5 @@
-import { IconType } from 'react-icons/lib'
 import {
+  As,
   Button,
   ButtonProps,
   ComponentWithAs,
@@ -31,7 +31,7 @@ export interface TileProps
   /**
    * The icon that should be displayed on the tile
    */
-  icon: IconType
+  icon: As
 
   /**
    * The components to be displayed

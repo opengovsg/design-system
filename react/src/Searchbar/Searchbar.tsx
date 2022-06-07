@@ -1,5 +1,4 @@
 import { KeyboardEvent, useCallback, useRef } from 'react'
-import { BiSearch } from 'react-icons/bi'
 import {
   Box,
   forwardRef,
@@ -14,6 +13,7 @@ import {
 
 import { SEARCHBAR_THEME_KEY } from '~/theme/components/Searchbar'
 
+import { BxSearch } from '~/icons'
 import { IconButton } from '~/IconButton'
 
 export interface SearchbarProps extends InputProps {
@@ -61,13 +61,13 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
         {isExpanded ? (
           <InputLeftElement pointerEvents="none">
             <Box __css={styles.icon}>
-              <Icon as={BiSearch} />
+              <Icon as={BxSearch} />
             </Box>
           </InputLeftElement>
         ) : (
           <IconButton
             aria-label="Expand search"
-            icon={<BiSearch />}
+            icon={<BxSearch />}
             variant="clear"
             colorScheme="secondary"
             onClick={onSearchIconClick}

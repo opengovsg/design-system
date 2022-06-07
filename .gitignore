@@ -1,5 +1,5 @@
 node_modules
-dist
+build
 build-storybook.log
 storybook-static
 .DS_Store

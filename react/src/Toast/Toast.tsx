@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-import { BiX } from 'react-icons/bi'
 import ReactMarkdown from 'react-markdown'
 import {
   Alert,
@@ -12,7 +11,7 @@ import {
   UseToastOptions,
 } from '@chakra-ui/react'
 
-import { BxsCheckCircle, BxsErrorCircle } from '~/icons'
+import { BxsCheckCircle, BxsErrorCircle, BxX } from '~/icons'
 import { useMdComponents } from '~/hooks/useMdComponents'
 
 export type ToastStatus = 'danger' | 'success' | 'warning'
@@ -89,7 +88,7 @@ export const Toast = ({
           <CloseButton
             variant="clear"
             colorScheme="secondary"
-            children={<BiX aria-hidden="true" />}
+            children={<BxX aria-hidden="true" />}
             onClick={() => {
               onClose?.()
               onCloseComplete?.()

@@ -1,4 +1,3 @@
-import { BiLinkExternal } from 'react-icons/bi'
 import {
   ComponentWithAs,
   forwardRef,
@@ -8,6 +7,8 @@ import {
   Text,
   useStyleConfig,
 } from '@chakra-ui/react'
+
+import { BxLinkExternal } from '~/icons'
 
 export interface LinkProps extends ChakraLinkProps {
   externalLinkIcon?: React.ReactElement
@@ -56,7 +57,7 @@ export const Link = forwardRef<LinkProps, 'a'>(
 
 const ExternalIcon = (): JSX.Element => {
   return (
-    <Icon aria-hidden as={BiLinkExternal} ml="0.25rem" verticalAlign="middle" />
+    <Icon aria-hidden as={BxLinkExternal} ml="0.25rem" verticalAlign="middle" />
   )
 }
 

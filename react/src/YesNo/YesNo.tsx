@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-import { BiCheck, BiX } from 'react-icons/bi'
 import {
   forwardRef,
   HStack,
@@ -15,6 +14,7 @@ import { YESNO_THEME_KEY } from '~/theme/components/Field/YesNo'
 import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { YesNoOption } from './YesNoOption'
+import { BxCheck, BxX } from '~/icons'
 
 export interface YesNoProps {
   /**
@@ -90,11 +90,11 @@ export const YesNo = forwardRef<YesNoProps, 'input'>(
           // can focus this input.
           ref={ref}
         >
-          <Icon as={BiX} __css={styles.icon} />
+          <Icon as={BxX} __css={styles.icon} />
           No
         </YesNoOption>
         <YesNoOption side="right" colorScheme={colorScheme} {...yesProps}>
-          <Icon as={BiCheck} __css={styles.icon} />
+          <Icon as={BxCheck} __css={styles.icon} />
           Yes
         </YesNoOption>
       </HStack>

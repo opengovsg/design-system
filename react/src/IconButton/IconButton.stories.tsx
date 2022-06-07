@@ -1,6 +1,7 @@
-import { BiGitMerge } from 'react-icons/bi'
 import { ButtonGroup, SimpleGrid, Text } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
+
+import { BxGitMerge } from '~/icons'
 
 import { IconButton, IconButtonProps } from './IconButton'
 
@@ -24,23 +25,23 @@ const ButtonGroupTemplate: Story<IconButtonProps> = (args) => {
     >
       <Text>Default</Text>
       <ButtonGroup alignItems="center">
-        <IconButton {...args} icon={<BiGitMerge />} size="lg" />
-        <IconButton {...args} icon={<BiGitMerge />} size="md" />
+        <IconButton {...args} icon={<BxGitMerge />} size="lg" />
+        <IconButton {...args} icon={<BxGitMerge />} size="md" />
       </ButtonGroup>
       <Text>Active</Text>
       <ButtonGroup alignItems="center">
-        <IconButton {...args} icon={<BiGitMerge />} isActive size="lg" />
-        <IconButton {...args} icon={<BiGitMerge />} isActive size="md" />
+        <IconButton {...args} icon={<BxGitMerge />} isActive size="lg" />
+        <IconButton {...args} icon={<BxGitMerge />} isActive size="md" />
       </ButtonGroup>
       <Text>Disabled</Text>
       <ButtonGroup alignItems="center">
-        <IconButton {...args} icon={<BiGitMerge />} isDisabled size="lg" />
-        <IconButton {...args} icon={<BiGitMerge />} isDisabled size="md" />
+        <IconButton {...args} icon={<BxGitMerge />} isDisabled size="lg" />
+        <IconButton {...args} icon={<BxGitMerge />} isDisabled size="md" />
       </ButtonGroup>
       <Text>Loading</Text>
       <ButtonGroup alignItems="center">
-        <IconButton {...args} icon={<BiGitMerge />} isLoading size="lg" />
-        <IconButton {...args} icon={<BiGitMerge />} isLoading size="md" />
+        <IconButton {...args} icon={<BxGitMerge />} isLoading size="lg" />
+        <IconButton {...args} icon={<BxGitMerge />} isLoading size="md" />
       </ButtonGroup>
     </SimpleGrid>
   )
@@ -49,7 +50,7 @@ const ButtonGroupTemplate: Story<IconButtonProps> = (args) => {
 export const Default = ButtonTemplate.bind({})
 Default.args = {
   'aria-label': 'Test Storybook Icon Button',
-  icon: <BiGitMerge />,
+  icon: <BxGitMerge />,
   variant: 'solid',
   size: 'md',
 }

@@ -5,7 +5,7 @@
  * application's needs.
  */
 import { forwardRef } from '@chakra-ui/react'
-import defaultExamples from 'libphonenumber-js/examples.mobile.json'
+import { MOBILE_EXAMPLES } from './resources/examples'
 import { CountryCode, NationalNumber } from 'libphonenumber-js/min'
 
 import { InputProps } from '~/Input'
@@ -56,7 +56,7 @@ export interface PhoneNumberInputProps extends BasePhoneNumberInputProps {
 
   /**
    * Examples to retrieve placeholder number from, if any. Defaults to
-   * `libphonenumber-js/examples.mobile.json` if none provided.
+   * `resources/examples` if none provided.
    */
   examples?: { [country in CountryCode]: NationalNumber }
 
@@ -77,7 +77,7 @@ export const PhoneNumberInput = forwardRef<PhoneNumberInputProps, 'input'>(
       onChange,
       onBlur,
       value,
-      examples = defaultExamples,
+      examples = MOBILE_EXAMPLES,
       examplePlaceholder = 'polite',
       ...props
     },

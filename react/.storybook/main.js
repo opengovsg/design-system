@@ -1,7 +1,6 @@
 const path = require('path')
 
 module.exports = {
-  framework: '@storybook/react',
   features: {
     emotionAlias: false,
     storyStoreV7: true,
@@ -33,6 +32,7 @@ module.exports = {
       ...config.resolve.alias,
       '~': path.resolve(__dirname, '../src/'),
     }
+
     return config
   },
 }
