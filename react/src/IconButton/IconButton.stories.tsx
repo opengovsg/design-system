@@ -12,7 +12,7 @@ export default {
 } as Meta
 
 const ButtonTemplate: Story<IconButtonProps> = (args) => (
-  <IconButton {...args} />
+  <IconButton {...args} icon={<BxGitMerge />} />
 )
 
 const ButtonGroupTemplate: Story<IconButtonProps> = (args) => {
@@ -50,7 +50,6 @@ const ButtonGroupTemplate: Story<IconButtonProps> = (args) => {
 export const Default = ButtonTemplate.bind({})
 Default.args = {
   'aria-label': 'Test Storybook Icon Button',
-  icon: <BxGitMerge />,
   variant: 'solid',
   size: 'md',
 }
