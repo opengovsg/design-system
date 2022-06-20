@@ -15,10 +15,13 @@ import {
 export const Typography: FC = () => {
   const theme = useTheme()
 
-  const prettyPrint = useCallback((theme: Record<string, string>) => {
+  const prettyPrint = useCallback((themeName: string) => {
+    const textStyles: Record<string, string> = theme.textStyles[themeName]
+    delete textStyles['fontStyle']
     return (
       <Box display="grid" textStyle="body-2">
-        {Object.entries(theme).map(([key, value]) => (
+        <Text>{themeName}</Text>
+        {Object.entries(textStyles).map(([key, value]) => (
           <Box display="inline-flex" key={key}>
             <Text color="secondary.400">{key}:&nbsp;</Text>
             <Text>{value}</Text>
@@ -74,7 +77,7 @@ export const Typography: FC = () => {
               <Text>Build forms in minutes.</Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['display-1'])}</WrapItem>
+          <WrapItem>{prettyPrint('display-1')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
@@ -83,9 +86,7 @@ export const Typography: FC = () => {
               <Text>Build forms in minutes.</Text>
             </Box>
           </WrapItem>
-          <WrapItem>
-            {prettyPrint(theme.textStyles['display-1-mobile'])}
-          </WrapItem>
+          <WrapItem>{prettyPrint('display-1-mobile')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
@@ -94,7 +95,7 @@ export const Typography: FC = () => {
               <Text>Build government forms in minutes.</Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['display-2'])}</WrapItem>
+          <WrapItem>{prettyPrint('display-2')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
@@ -103,9 +104,7 @@ export const Typography: FC = () => {
               <Text>Build government forms in minutes.</Text>
             </Box>
           </WrapItem>
-          <WrapItem>
-            {prettyPrint(theme.textStyles['display-2-mobile'])}
-          </WrapItem>
+          <WrapItem>{prettyPrint('display-2-mobile')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
@@ -114,43 +113,83 @@ export const Typography: FC = () => {
               <Text>Build forms in minutes.</Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['h1'])}</WrapItem>
+          <WrapItem>{prettyPrint('h1')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
             <Box w="43rem" textStyle="h1-mobile" color="secondary.700">
               <Text>Heading 1 mobile</Text>
-              <Text>Build government forms in minutes.</Text>
+              <Text>
+                Build government forms in minutes. Sign up with your government
+                email, and build your form in minutes.
+              </Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['h1-mobile'])}</WrapItem>
+          <WrapItem>{prettyPrint('h1-mobile')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
             <Box w="43rem" textStyle="h2" color="secondary.700">
               <Text>Heading 2</Text>
-              <Text>Build government forms in minutes.</Text>
+              <Text>
+                Build government forms in minutes. Sign up with your government
+                email, and build your form.
+              </Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['h2'])}</WrapItem>
+          <WrapItem>{prettyPrint('h2')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
             <Box w="43rem" textStyle="h3" color="secondary.700">
               <Text>Heading 3</Text>
-              <Text>Build government forms in minutes.</Text>
+              <Text>
+                Build government forms in minutes. Sign up with your government
+                email, and build your form.
+              </Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['h3'])}</WrapItem>
+          <WrapItem>{prettyPrint('h3')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
             <Box w="43rem" textStyle="h4" color="secondary.700">
               <Text>Heading 4</Text>
-              <Text>Build government forms in minutes.</Text>
+              <Text>
+                Build government forms in minutes. Sign up with your government
+                email, and build your form in minutes. It's free and no approval
+                is required.
+              </Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['h4'])}</WrapItem>
+          <WrapItem>{prettyPrint('h4')}</WrapItem>
+        </Wrap>
+        <Wrap justify="space-between">
+          <WrapItem>
+            <Box w="43rem" textStyle="h5" color="secondary.700">
+              <Text>Heading 5</Text>
+              <Text>
+                Build government forms in minutes. Sign up with your government
+                email, and build your form in minutes. It's free and no approval
+                is required.
+              </Text>
+            </Box>
+          </WrapItem>
+          <WrapItem>{prettyPrint('h5')}</WrapItem>
+        </Wrap>
+        <Wrap justify="space-between">
+          <WrapItem>
+            <Box w="43rem" textStyle="h6" color="secondary.700">
+              <Text>Heading 6</Text>
+              <Text>
+                Build government forms in minutes. Sign up with your government
+                email, and build your form in minutes. It's free and no approval
+                is required. Together let's make the Singapore government
+                paperless.
+              </Text>
+            </Box>
+          </WrapItem>
+          <WrapItem>{prettyPrint('h6')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
@@ -163,7 +202,7 @@ export const Typography: FC = () => {
               </Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['subhead-1'])}</WrapItem>
+          <WrapItem>{prettyPrint('subhead-1')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
@@ -176,7 +215,7 @@ export const Typography: FC = () => {
               </Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['subhead-2'])}</WrapItem>
+          <WrapItem>{prettyPrint('subhead-2')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
@@ -189,7 +228,7 @@ export const Typography: FC = () => {
               </Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['subhead-3'])}</WrapItem>
+          <WrapItem>{prettyPrint('subhead-3')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
@@ -202,7 +241,7 @@ export const Typography: FC = () => {
               </Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['body-1'])}</WrapItem>
+          <WrapItem>{prettyPrint('body-1')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
@@ -215,7 +254,20 @@ export const Typography: FC = () => {
               </Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['body-2'])}</WrapItem>
+          <WrapItem>{prettyPrint('body-2')}</WrapItem>
+        </Wrap>
+        <Wrap justify="space-between">
+          <WrapItem>
+            <Box w="43rem" textStyle="body-3" color="secondary.700">
+              <Text>Body 3</Text>
+              <Text maxW="33rem">
+                Sign up with your government email, and build your form in
+                minutes. It's free and no approval is required. Together let's
+                make the Singapore government paperless.
+              </Text>
+            </Box>
+          </WrapItem>
+          <WrapItem>{prettyPrint('body-3')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
@@ -228,7 +280,7 @@ export const Typography: FC = () => {
               </Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['caption-1'])}</WrapItem>
+          <WrapItem>{prettyPrint('caption-1')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
@@ -241,7 +293,7 @@ export const Typography: FC = () => {
               </Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['caption-2'])}</WrapItem>
+          <WrapItem>{prettyPrint('caption-2')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
@@ -254,7 +306,7 @@ export const Typography: FC = () => {
               </Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint(theme.textStyles['legal'])}</WrapItem>
+          <WrapItem>{prettyPrint('legal')}</WrapItem>
         </Wrap>
       </Stack>
     </Container>
