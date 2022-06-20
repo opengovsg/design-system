@@ -16,7 +16,9 @@ export const Typography: FC = () => {
   const theme = useTheme()
 
   const prettyPrint = useCallback((themeName: string) => {
-    const textStyles: Record<string, string> = theme.textStyles[themeName]
+    const textStyles: Record<string, string> = {
+      ...theme.textStyles[themeName],
+    }
     delete textStyles['fontStyle']
     return (
       <Box display="grid" textStyle="body-2">
