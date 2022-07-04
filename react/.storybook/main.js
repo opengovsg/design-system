@@ -1,5 +1,3 @@
-const path = require('path')
-
 module.exports = {
   features: {
     emotionAlias: false,
@@ -19,20 +17,14 @@ module.exports = {
     '@storybook/addon-essentials',
   ],
   staticDirs: ['./static'],
-  webpackFinal: async (config) => {
-    config.module.rules = [
-      ...config.module.rules,
-      {
-        type: 'javascript/auto',
-        test: /\.mjs$/,
-        include: /node_modules/,
-      },
-    ]
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '~': path.resolve(__dirname, '../src/'),
-    }
-
-    return config
+  framework: '@storybook/react',
+  core: {
+    builder: '@storybook/builder-vite',
+    disableTelemetry: true,
+  },
+  refs: {
+    '@chakra-ui/react': {
+      disable: true,
+    },
   },
 }

@@ -1,14 +1,5 @@
 {
   "extends": "./tsconfig",
-  "compilerOptions": {
-    "plugins": [
-      {
-        "transform": "@zerollup/ts-transform-paths",
-        "exclude": ["*"]
-      }
-    ],
-    "importHelpers": true
-  },
   "include": ["src/**/*"],
   "exclude": [
     ".storybook",
