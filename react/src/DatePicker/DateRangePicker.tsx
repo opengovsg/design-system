@@ -46,6 +46,11 @@ export interface DateRangePickerProps {
    * Called when mouse leaves the calendar.
    */
   onMouseLeaveCalendar: () => void
+
+  /**
+   * Date currently being hovered, if any.
+   */
+  hoveredDate?: Date
 }
 
 export const DateRangePicker = forwardRef<DateRangePickerProps, 'input'>(
