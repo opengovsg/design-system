@@ -1,6 +1,7 @@
 {
   "name": "root",
   "description": "Components created according to the Open Government Products design system",
+  "private": true,
   "devDependencies": {
     "lerna": "^4.0.0"
   }
