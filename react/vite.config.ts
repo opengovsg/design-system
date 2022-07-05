@@ -4,6 +4,7 @@ import dts from 'vite-plugin-dts'
 import path from 'node:path'
 import copy from 'rollup-plugin-copy'
 import tsconfigPaths from 'vite-tsconfig-paths'
+import PackageJson from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -28,11 +29,13 @@ export default defineConfig({
       fileName: (format) => `main.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: Object.keys(PackageJson.peerDependencies),
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
+          '@chakra-ui/react': 'Chakra',
+          ...PackageJson.peerDependencies,
         },
       },
     },

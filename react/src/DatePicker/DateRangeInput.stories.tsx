@@ -88,7 +88,7 @@ const PickerOnlyTemplate: Story<DateRangePickerProps> = (args) => {
       onMouseLeaveCalendar={onMouseLeaveCalendar}
       isDateInRange={isDateInRange}
       selectedDates={selectedDates}
-      hoveredDate={hoveredDate}
+      // hoveredDate={hoveredDate}
       onSelectDate={handleOnDateSelected}
     />
   )
@@ -140,7 +140,7 @@ const PlaygroundTemplate: Story<DateRangeInputProps> = (args) => {
             />
           )}
         />
-        <FormErrorMessage>{errors[name]?.message}</FormErrorMessage>
+        {/*<FormErrorMessage>{errors[name]?.message}</FormErrorMessage>*/}
       </FormControl>
       <Button type="submit">Submit</Button>
     </form>

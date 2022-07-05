@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["src/*"]
     },
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -21,6 +21,6 @@
     "jsx": "react-jsx",
     "outDir": "./build"
   },
-  "include": ["src"],
+  "include": ["src/**/*", ".storybook/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

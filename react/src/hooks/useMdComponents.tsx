@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { TransformOptions } from 'react-markdown'
+import { Options as TransformOptions } from 'react-markdown'
 import { CSSObject, ListItem, OrderedList, Text } from '@chakra-ui/react'
 
 import { Link } from '~/Link'

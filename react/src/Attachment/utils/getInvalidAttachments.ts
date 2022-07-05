@@ -19,7 +19,7 @@ export const isInvalidFileExtension = (
 ): boolean => {
   // Every extension is valid if accept array is undefined/empty.
   if (!accept) return false
-  return !accept.includes(ext.toLowerCase())
+  return !accept
 }
 
 /**
