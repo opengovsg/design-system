@@ -1,3 +1,4 @@
+const { mergeConfig } = require('vite')
 const path = require('path')
 
 module.exports = {
@@ -19,6 +20,25 @@ module.exports = {
     '@storybook/addon-essentials',
   ],
   staticDirs: ['./static'],
+  // framework: '@storybook/react',
+  core: {
+    builder: '@storybook/builder-vite',
+    disableTelemetry: true,
+  },
+  refs: {
+    '@chakra-ui/react': {
+      disable: true,
+    },
+  },
+  async viteFinal(config, { configType }) {
+    return mergeConfig(config, {
+      resolve: {
+        alias: {
+          '~': path.resolve(__dirname, '../src/'),
+        },
+      },
+    })
+  },
   webpackFinal: async (config) => {
     config.module.rules = [
       ...config.module.rules,

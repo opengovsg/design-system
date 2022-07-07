@@ -109,7 +109,7 @@ const PlaygroundTemplate: Story<DateInputProps> = (args) => {
             )
           }}
         />
-        <FormErrorMessage>{errors[name]?.message}</FormErrorMessage>
+        <FormErrorMessage>{errors[name]?.message as React.ReactNode}</FormErrorMessage>
       </FormControl>
       <Button type="submit">Submit</Button>
     </form>
