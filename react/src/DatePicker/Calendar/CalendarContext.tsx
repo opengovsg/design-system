@@ -7,7 +7,7 @@ import {
   useMemo,
   useState,
 } from 'react'
-import useKey from 'react-use/lib/useKey'
+import { useKey } from 'react-use'
 import {
   addMonths,
   differenceInCalendarMonths,
@@ -15,7 +15,7 @@ import {
   isSameDay,
 } from 'date-fns'
 import { Props as DayzedProps, RenderProps, useDayzed } from 'dayzed'
-import inRange from 'lodash/inRange'
+import { inRange } from 'lodash'
 
 import { DatePickerProps } from '../DatePicker'
 import {

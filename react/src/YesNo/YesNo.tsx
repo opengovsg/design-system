@@ -8,7 +8,7 @@ import {
   useRadioGroup,
   UseRadioGroupProps,
 } from '@chakra-ui/react'
-import pick from 'lodash/pick'
+import { pick } from 'lodash'
 
 import { YESNO_THEME_KEY } from '~/theme/components/Field/YesNo'
 import { ThemeColorScheme } from '~/theme/foundations/colours'
