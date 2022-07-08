@@ -45,7 +45,7 @@ const getSize = (value: string): PartsStyleObject<typeof parts> => {
           pt: '2rem',
           pb: '1.5rem',
           px: '1.5rem',
-          ...textStyles['h4'],
+          ...textStyles['h5'],
         },
         body: {
           flex: 'initial',

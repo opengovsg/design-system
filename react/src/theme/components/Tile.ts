@@ -46,7 +46,7 @@ export const Tile: ComponentMultiStyleConfig<typeof parts> = {
     },
     title: {
       color: 'secondary.700',
-      textStyle: 'h4',
+      textStyle: 'h5',
       mt: '1rem',
     },
     icon: {
