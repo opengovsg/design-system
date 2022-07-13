@@ -30,6 +30,7 @@ export default defineConfig({
         'react/jsx-runtime',
         'react/jsx-dev-runtime',
         'lodash.mergewith',
+        'lodash',
         ...Object.keys(PackageJson.peerDependencies),
       ],
       output: [
