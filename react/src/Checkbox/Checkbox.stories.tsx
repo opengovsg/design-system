@@ -1,6 +1,8 @@
 import { VStack } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
+
 import { viewports } from '~/utils/storybook'
+
 import { Checkbox, CheckboxProps } from './Checkbox'
 
 export default {

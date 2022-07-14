@@ -1,5 +1,7 @@
 import { Meta, Story } from '@storybook/react'
+
 import { viewports } from '~/utils/storybook'
+
 import { YesNo, YesNoProps } from './YesNo'
 
 export default {

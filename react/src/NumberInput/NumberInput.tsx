@@ -11,8 +11,8 @@ import {
   useNumberInput,
 } from '@chakra-ui/react'
 
-import { BxMinus, BxPlus } from '~/icons'
 import { IconButton } from '~/IconButton'
+import { BxMinus, BxPlus } from '~/icons'
 
 export interface NumberInputProps extends ChakraNumberInputProps {
   /**

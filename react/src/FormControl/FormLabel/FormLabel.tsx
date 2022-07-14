@@ -13,8 +13,8 @@ import {
   VisuallyHidden,
 } from '@chakra-ui/react'
 
-import { BxsHelpCircle } from '~/icons/BxsHelpCircle'
 import { useMdComponents } from '~/hooks/useMdComponents'
+import { BxsHelpCircle } from '~/icons/BxsHelpCircle'
 
 export interface FormLabelProps extends ChakraFormLabelProps {
   /**

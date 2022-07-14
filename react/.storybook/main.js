@@ -1,3 +1,4 @@
+/* eslint-env node */
 const { mergeConfig } = require('vite')
 const path = require('path')
 
@@ -15,7 +16,7 @@ module.exports = {
     '../src/**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
   addons: [
-    '@storybook/addon-docs',
+    '@storybook/addon-essentials',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
   ],
@@ -30,7 +31,7 @@ module.exports = {
       disable: true,
     },
   },
-  async viteFinal(config, { configType }) {
+  async viteFinal(config) {
     return mergeConfig(config, {
       resolve: {
         alias: {

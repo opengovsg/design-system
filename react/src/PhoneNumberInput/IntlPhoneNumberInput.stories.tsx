@@ -1,5 +1,6 @@
-import { Meta, Story } from '@storybook/react'
 import { useState } from 'react'
+import { Meta, Story } from '@storybook/react'
+
 import { PhoneNumberInput, PhoneNumberInputProps } from './PhoneNumberInput'
 
 export default {

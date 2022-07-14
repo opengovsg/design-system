@@ -11,10 +11,9 @@ import {
 } from '@chakra-ui/react'
 
 import { BxCheckAnimated } from '~/icons'
+import { Input, InputProps } from '~/Input'
 import { CHECKBOX_THEME_KEY } from '~/theme/components/Checkbox'
 import { ThemeColorScheme } from '~/theme/foundations/colours'
-
-import { Input, InputProps } from '~/Input'
 
 import { CheckboxOthersContext, useCheckboxOthers } from './useCheckboxOthers'
 

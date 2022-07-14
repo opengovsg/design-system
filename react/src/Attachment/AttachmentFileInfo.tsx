@@ -2,9 +2,9 @@ import { useMemo } from 'react'
 import { Flex, forwardRef, Text, VisuallyHidden } from '@chakra-ui/react'
 
 import { IconButton } from '~/IconButton'
+import { BxTrash } from '~/icons'
 
 import { getReadableFileSize } from './utils/getReadableFileSize'
-import { BxTrash } from '~/icons'
 
 export interface AttachmentFileInfoProps {
   file: File

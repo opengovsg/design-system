@@ -3,8 +3,8 @@ import { Meta, Story } from '@storybook/react'
 
 import { Button } from '~/Button'
 
-import { useToast, UseToastProps } from './useToast'
 import { Toast, ToastProps } from './Toast'
+import { useToast, UseToastProps } from './useToast'
 
 const ToastStateProps: Record<string, ToastProps> = {
   Warning: {

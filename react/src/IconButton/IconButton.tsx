@@ -5,10 +5,9 @@ import {
   IconButtonProps as ChakraIconButtonProps,
 } from '@chakra-ui/react'
 
+import { Spinner } from '~/Spinner'
 import { ThemeButtonVariant } from '~/theme/components/Button'
 import { ThemeColorScheme } from '~/theme/foundations/colours'
-
-import { Spinner } from '~/Spinner'
 
 export interface IconButtonProps extends ChakraIconButtonProps {
   /**
