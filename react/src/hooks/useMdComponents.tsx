@@ -36,18 +36,20 @@ export const useMdComponents = ({
 
   const mdComponents: TransformOptions['components'] = useMemo(
     () => ({
-      ol: ({ node, ...props }) => (
+      ol: (props) => (
         <OrderedList marginInlineStart="1.25rem" {...props} {...textStyles} />
       ),
-      li: ({ node, ...props }) => <ListItem {...props} {...textStyles} />,
-      a: ({ node, ...props }) => {
+      li: (props) => <ListItem {...props} {...textStyles} />,
+      a: (props) => {
         const { href } = props
         const isExternal =
-          typeof href === 'string' && !href.startsWith(window.location.origin)
+          typeof window !== 'undefined' &&
+          typeof href === 'string' &&
+          !href.startsWith(window.location.origin)
 
         return <Link {...props} isExternal={isExternal} {...linkStyles} />
       },
-      p: ({ node, ...props }) => <Text {...props} {...textStyles} />,
+      p: (props) => <Text {...props} {...textStyles} />,
       ...overrides,
     }),
     [linkStyles, overrides, textStyles],

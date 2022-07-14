@@ -1,8 +1,6 @@
 import { VStack } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
 
-import { Button } from '~/Button'
-
 import { Toggle, ToggleProps } from './Toggle'
 
 export default {

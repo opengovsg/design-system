@@ -137,7 +137,7 @@ export const Radio = forwardRef<RadioProps, 'input'>((props, ref) => {
       name,
     })
 
-  const [layoutProps, otherProps] = split(htmlProps, layoutPropNames as any)
+  const [layoutProps, otherProps] = split(htmlProps, layoutPropNames as never)
 
   const checkboxProps = getCheckboxProps(otherProps)
   const inputProps = getInputProps({}, ref)

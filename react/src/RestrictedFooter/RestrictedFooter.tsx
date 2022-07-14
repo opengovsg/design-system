@@ -3,7 +3,6 @@ import {
   Divider,
   Flex,
   FlexProps,
-  Icon,
   Stack,
   Text,
   Wrap,

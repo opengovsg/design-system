@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { SimpleGrid, Text } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
 
