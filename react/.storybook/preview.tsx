@@ -1,7 +1,9 @@
 import '../src/fonts/inter.css'
 
 import { ChakraProvider } from '@chakra-ui/react'
+
 import { theme } from '../src/theme'
+
 import { StorybookTheme } from './themes'
 
 export const parameters = {

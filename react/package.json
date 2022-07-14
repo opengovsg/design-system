@@ -29,8 +29,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "typecheck": "tsc --noEmit -p tsconfig.lint.json",
-    "lint": "eslint ./ --ignore-path .gitignore && prettier . -c",
-    "lint:fix": "eslint ./ --ignore-path .gitignore --fix && prettier . -c --write"
+    "lint": "npx eslint ./ --ignore-path .gitignore && npx prettier . -c",
+    "lint:fix": "npx eslint ./ --ignore-path .gitignore --fix && npx prettier . -c --write"
   },
   "dependencies": {
     "country-flag-icons": "^1.4.19",
