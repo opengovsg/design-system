@@ -3,6 +3,7 @@
   "plugins": ["import", "simple-import-sort", "prettier", "testing-library"],
   "extends": [
     "eslint:recommended",
+    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
     "plugin:storybook/recommended"
   ],
