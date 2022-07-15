@@ -5,7 +5,7 @@
  */
 
 import { useMemo } from 'react'
-import range from 'lodash/range'
+import { range } from 'lodash'
 
 interface UsePaginationRangeProps<T = string> {
   /**

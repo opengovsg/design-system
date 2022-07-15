@@ -12,33 +12,54 @@ export default defineConfig({
   plugins: [
     react(),
     tsconfigPaths(),
+    dts({
+      outputDir: 'build',
+    }),
     copy({
       targets: [{ src: 'src/fonts', dest: 'build' }],
       hook: 'writeBundle',
-    }),
-    dts({
-      outputDir: 'build/types',
-      insertTypesEntry: true,
     }),
   ],
   build: {
     outDir: 'build',
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'opengovsgdesignsystemreact',
-      formats: ['es', 'umd'],
-      fileName: (format) => `main.${format}.js`,
+      name: '@opengovsg/design-system-react',
     },
     rollupOptions: {
-      external: Object.keys(PackageJson.peerDependencies),
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-          '@chakra-ui/react': 'Chakra',
-          ...PackageJson.peerDependencies,
+      external: [
+        'react/jsx-runtime',
+        'react/jsx-dev-runtime',
+        'lodash.mergewith',
+        'lodash',
+        ...Object.keys(PackageJson.peerDependencies),
+      ],
+      output: [
+        {
+          format: 'umd',
+          dir: 'build',
+          entryFileNames: 'index.[format].js',
+          globals: {
+            react: 'React',
+            'react-dom': 'ReactDOM',
+            ...PackageJson.peerDependencies,
+          },
         },
-      },
+        {
+          format: 'es',
+          esModule: true,
+          preserveModules: true,
+          preserveModulesRoot: 'src',
+          exports: 'named',
+          dir: 'build',
+          entryFileNames: '[name].js',
+          globals: {
+            react: 'React',
+            'react-dom': 'ReactDOM',
+            ...PackageJson.peerDependencies,
+          },
+        },
+      ],
     },
     target: 'es6',
     sourcemap: false,

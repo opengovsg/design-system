@@ -1,6 +1,6 @@
 import { tabsAnatomy as parts } from '@chakra-ui/anatomy'
 import { getColor, PartsStyleFunction } from '@chakra-ui/theme-tools'
-import merge from 'lodash/merge'
+import { merge } from 'lodash'
 
 import { ComponentMultiStyleConfig } from '~/theme/types'
 
