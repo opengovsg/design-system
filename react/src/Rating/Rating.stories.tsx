@@ -1,6 +1,8 @@
 import { Stack } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
+
 import { viewports } from '~/utils/storybook'
+
 import { Rating, RatingProps } from './Rating'
 
 export default {

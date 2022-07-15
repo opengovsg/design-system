@@ -13,8 +13,8 @@ import {
 } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
 
-import { viewports } from '~/utils/storybook'
 import { Button } from '~/Button'
+import { viewports } from '~/utils/storybook'
 
 export default {
   title: 'Components/Modal',
@@ -36,7 +36,7 @@ export default {
 } as Meta
 
 type StoryModalProps = ModalProps & {
-  bodyContent?: any
+  bodyContent?: string
 }
 
 // Helper method to generate lorem text.

@@ -1,4 +1,5 @@
 import { Meta, Story } from '@storybook/react'
+
 import { Input, InputProps } from './Input'
 
 export default {

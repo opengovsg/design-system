@@ -1,7 +1,10 @@
 import '../src/fonts/inter.css'
 
 import { ChakraProvider } from '@chakra-ui/react'
+import { DecoratorFn } from '@storybook/react'
+
 import { theme } from '../src/theme'
+
 import { StorybookTheme } from './themes'
 
 export const parameters = {
@@ -18,7 +21,7 @@ export const parameters = {
   },
 }
 
-export const decorators = [
+export const decorators: DecoratorFn[] = [
   (storyFn) => (
     <ChakraProvider resetCSS theme={theme}>
       {storyFn()}

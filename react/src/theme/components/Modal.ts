@@ -45,7 +45,7 @@ const getSize = (value: string): PartsStyleObject<typeof parts> => {
           pt: '2rem',
           pb: '1.5rem',
           px: '1.5rem',
-          ...textStyles['h3'],
+          ...textStyles['h5'],
         },
         body: {
           flex: 'initial',
@@ -63,7 +63,7 @@ const getSize = (value: string): PartsStyleObject<typeof parts> => {
         },
         dialog: fullDialogStyle,
         header: {
-          ...textStyles['h2'],
+          ...textStyles['h4'],
           p: '1.5rem',
         },
         closeButton: {
@@ -75,7 +75,7 @@ const getSize = (value: string): PartsStyleObject<typeof parts> => {
       return {
         dialog: { maxW: '42.5rem' },
         header: {
-          ...textStyles['h2'],
+          ...textStyles['h4'],
           pt: '2rem',
           pb: '1rem',
           px: '2rem',

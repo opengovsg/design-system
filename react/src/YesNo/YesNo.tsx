@@ -10,11 +10,11 @@ import {
 } from '@chakra-ui/react'
 import { pick } from 'lodash'
 
+import { BxCheck, BxX } from '~/icons'
 import { YESNO_THEME_KEY } from '~/theme/components/Field/YesNo'
 import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { YesNoOption } from './YesNoOption'
-import { BxCheck, BxX } from '~/icons'
 
 export interface YesNoProps {
   /**

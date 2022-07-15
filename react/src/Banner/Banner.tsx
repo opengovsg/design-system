@@ -9,10 +9,9 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
-import { BxsErrorCircle, BxsInfoCircle, BxX } from '~/icons'
-
-import { BannerVariant } from '~/theme/components/Banner'
 import { useMdComponents } from '~/hooks/useMdComponents'
+import { BxsErrorCircle, BxsInfoCircle, BxX } from '~/icons'
+import { BannerVariant } from '~/theme/components/Banner'
 
 export interface BannerProps {
   variant?: BannerVariant

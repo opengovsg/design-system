@@ -45,10 +45,9 @@ import {
 } from '@chakra-ui/react'
 import { callAll, split } from '@chakra-ui/utils'
 
+import { Input, InputProps } from '~/Input'
 import { RADIO_THEME_KEY } from '~/theme/components/Radio'
 import { ThemeColorScheme } from '~/theme/foundations/colours'
-
-import { Input, InputProps } from '~/Input'
 
 import { RadioGroup } from './RadioGroup'
 import { useRadioGroupWithOthers } from './useRadioGroupWithOthers'
@@ -138,7 +137,7 @@ export const Radio = forwardRef<RadioProps, 'input'>((props, ref) => {
       name,
     })
 
-  const [layoutProps, otherProps] = split(htmlProps, layoutPropNames as any)
+  const [layoutProps, otherProps] = split(htmlProps, layoutPropNames as never)
 
   const checkboxProps = getCheckboxProps(otherProps)
   const inputProps = getInputProps({}, ref)

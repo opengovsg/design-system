@@ -5,11 +5,11 @@
  * application's needs.
  */
 import { forwardRef } from '@chakra-ui/react'
-import { MOBILE_EXAMPLES } from './resources/examples'
 import { CountryCode, NationalNumber } from 'libphonenumber-js/min'
 
 import { InputProps } from '~/Input'
 
+import { MOBILE_EXAMPLES } from './resources/examples'
 import { IntlPhoneNumberInput } from './IntlPhoneNumberInput'
 import {
   PhoneNumberInputProvider,

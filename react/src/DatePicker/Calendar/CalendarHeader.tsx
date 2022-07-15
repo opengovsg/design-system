@@ -10,9 +10,9 @@ import {
 } from '@chakra-ui/react'
 import { addMonths } from 'date-fns/esm'
 
+import { IconButton } from '~/IconButton'
 import { BxChevronLeft } from '~/icons/BxChevronLeft'
 import { BxChevronRight } from '~/icons/BxChevronRight'
-import { IconButton } from '~/IconButton'
 
 import { MONTH_NAMES } from '../utils'
 

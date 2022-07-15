@@ -2,7 +2,6 @@ import { Box, Icon, Placement, TooltipProps, VStack } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
 
 import { BxsHelpCircle } from '~/icons/BxsHelpCircle'
-
 import { viewports } from '~/utils/storybook'
 
 import { Tooltip } from './Tooltip'

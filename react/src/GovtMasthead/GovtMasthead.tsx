@@ -11,8 +11,8 @@ import {
   VisuallyHidden,
 } from '@chakra-ui/react'
 
-import { BxChevronDown, BxChevronUp, BxsBank, BxsLockAlt } from '~/icons'
 import { useIsMobile } from '~/hooks/useIsMobile'
+import { BxChevronDown, BxChevronUp, BxsBank, BxsLockAlt } from '~/icons'
 import { Link } from '~/Link'
 
 import { GovtMastheadIcon } from './GovtMastheadIcon'

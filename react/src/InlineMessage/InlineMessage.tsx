@@ -1,10 +1,9 @@
 import ReactMarkdown from 'react-markdown'
 import { Flex, FlexProps, Icon, useMultiStyleConfig } from '@chakra-ui/react'
 
+import { useMdComponents } from '~/hooks/useMdComponents'
 import { BxsErrorCircle, BxsInfoCircle } from '~/icons'
 import { InlineMessageVariant } from '~/theme/components/InlineMessage'
-
-import { useMdComponents } from '~/hooks/useMdComponents'
 
 export interface InlineMessageProps extends FlexProps {
   variant?: InlineMessageVariant

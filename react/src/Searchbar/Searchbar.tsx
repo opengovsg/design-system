@@ -11,10 +11,9 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
-import { SEARCHBAR_THEME_KEY } from '~/theme/components/Searchbar'
-
-import { BxSearch } from '~/icons'
 import { IconButton } from '~/IconButton'
+import { BxSearch } from '~/icons'
+import { SEARCHBAR_THEME_KEY } from '~/theme/components/Searchbar'
 
 export interface SearchbarProps extends InputProps {
   /**
