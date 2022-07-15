@@ -13,7 +13,7 @@ import {
 import omit from 'lodash/omit'
 import simplur from 'simplur'
 
-import { ATTACHMENT_THEME_KEY } from '~/theme/components/Field/Attachment'
+import { ATTACHMENT_THEME_KEY } from '~/theme/components/Attachment'
 import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { AttachmentDropzone } from './AttachmentDropzone'

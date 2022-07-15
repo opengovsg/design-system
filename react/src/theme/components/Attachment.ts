@@ -4,7 +4,7 @@ import { ComponentMultiStyleConfig } from '~/theme/types'
 
 import { Input } from './Input'
 
-export const ATTACHMENT_THEME_KEY = 'AttachmentField'
+export const ATTACHMENT_THEME_KEY = 'Attachment'
 
 const parts = anatomy('attachment').parts('container', 'dropzone', 'icon')
 

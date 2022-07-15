@@ -7,7 +7,7 @@ import {
 
 import { ComponentMultiStyleConfig } from '~/theme/types'
 
-export const DATE_INPUT_THEME_KEY = 'DateInput'
+export const DATEINPUT_THEME_KEY = 'DateInput'
 
 const parts = anatomy('dateinput').parts(
   'container', // overall container

@@ -6,7 +6,7 @@ import { viewports } from '~/utils/storybook'
 import { Rating, RatingProps } from './Rating'
 
 export default {
-  title: 'Components/Field/Rating',
+  title: 'Components/Rating',
   component: Rating,
   decorators: [],
 } as Meta

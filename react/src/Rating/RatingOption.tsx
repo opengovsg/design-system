@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 
 import { BxHeart, BxsHeart, BxsStar, BxStar } from '~/icons'
-import { RATING_THEME_KEY } from '~/theme/components/Field/Rating'
+import { RATING_THEME_KEY } from '~/theme/components/Rating'
 import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 interface BaseRatingComponent {

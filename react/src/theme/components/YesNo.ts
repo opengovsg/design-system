@@ -2,6 +2,8 @@ import { anatomy, getColor, SystemStyleFunction } from '@chakra-ui/theme-tools'
 
 import { ComponentMultiStyleConfig } from '~/theme/types'
 
+export const YESNO_THEME_KEY = 'YesNo'
+
 const parts = anatomy('rating').parts('option', 'container', 'icon')
 
 const outlineOptionStyle: SystemStyleFunction = (props) => {

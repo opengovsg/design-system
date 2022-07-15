@@ -2,6 +2,8 @@ import { anatomy, getColor, SystemStyleFunction } from '@chakra-ui/theme-tools'
 
 import { ComponentMultiStyleConfig } from '~/theme/types'
 
+export const RATING_THEME_KEY = 'Rating'
+
 const parts = anatomy('rating').parts('option')
 
 const getOptionThemeColor = (colorScheme: string) => {
