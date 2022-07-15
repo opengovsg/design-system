@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/system'
 import { cx, dataAttr } from '@chakra-ui/utils'
 
-import { BxCheck, BxLockAlt, BxX, BxLoader } from '~/icons'
+import { BxCheck, BxLoader, BxLockAlt, BxX } from '~/icons'
 import { TOGGLE_THEME_KEY } from '~/theme/components/Toggle'
 
 export interface SwitchProps

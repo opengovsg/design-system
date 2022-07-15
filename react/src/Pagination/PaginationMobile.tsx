@@ -5,8 +5,8 @@
 import { useCallback } from 'react'
 import { Box, IconButton, Text, useMultiStyleConfig } from '@chakra-ui/react'
 
-import { PAGINATION_THEME_KEY } from '~/theme/components/Pagination'
 import { BxChevronLeft, BxChevronRight } from '~/icons'
+import { PAGINATION_THEME_KEY } from '~/theme/components/Pagination'
 
 import { PaginationProps } from './Pagination'
 

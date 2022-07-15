@@ -4,9 +4,9 @@ import { FormControl } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
 import { isWeekend } from 'date-fns'
 
-import { mockDateDecorator } from '~/utils/storybook'
 import { Button } from '~/Button'
 import { FormErrorMessage, FormLabel } from '~/FormControl'
+import { mockDateDecorator } from '~/utils/storybook'
 
 import { DateInput, DateInputProps } from './DateInput'
 import { DatePickerProps } from './DatePicker'
@@ -109,7 +109,9 @@ const PlaygroundTemplate: Story<DateInputProps> = (args) => {
             )
           }}
         />
-        <FormErrorMessage>{errors[name]?.message as React.ReactNode}</FormErrorMessage>
+        <FormErrorMessage>
+          {errors[name]?.message as React.ReactNode}
+        </FormErrorMessage>
       </FormControl>
       <Button type="submit">Submit</Button>
     </form>

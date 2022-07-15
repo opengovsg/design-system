@@ -11,8 +11,8 @@ import {
   UseToastOptions,
 } from '@chakra-ui/react'
 
-import { BxsCheckCircle, BxsErrorCircle, BxX } from '~/icons'
 import { useMdComponents } from '~/hooks/useMdComponents'
+import { BxsCheckCircle, BxsErrorCircle, BxX } from '~/icons'
 
 export type ToastStatus = 'danger' | 'success' | 'warning'
 

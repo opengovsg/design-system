@@ -13,10 +13,9 @@ import {
 import { ComponentWithAs, forwardRef } from '@chakra-ui/system'
 import { format } from 'date-fns'
 
-import { BxCalendar } from '~/icons/BxCalendar'
 import { useIsMobile } from '~/hooks/useIsMobile'
 import { IconButton } from '~/IconButton'
-
+import { BxCalendar } from '~/icons/BxCalendar'
 import { Input, InputProps } from '~/Input'
 
 import { DatePicker, DatePickerProps } from './DatePicker'

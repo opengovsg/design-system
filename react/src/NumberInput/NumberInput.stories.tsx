@@ -1,4 +1,5 @@
 import { Meta, Story } from '@storybook/react'
+
 import { NumberInput, NumberInputProps } from './NumberInput'
 
 export default {

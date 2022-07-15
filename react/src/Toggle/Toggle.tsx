@@ -7,9 +7,8 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
-import { TOGGLE_THEME_KEY } from '~/theme/components/Toggle'
-
 import { FormLabel } from '~/FormControl'
+import { TOGGLE_THEME_KEY } from '~/theme/components/Toggle'
 
 import { Switch, SwitchProps } from './Switch'
 

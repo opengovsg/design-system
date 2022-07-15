@@ -21,8 +21,8 @@ import {
 } from '@chakra-ui/react'
 import { compareAsc } from 'date-fns'
 
-import { BxCalendar } from '~/icons/BxCalendar'
 import { IconButton } from '~/IconButton'
+import { BxCalendar } from '~/icons/BxCalendar'
 import { Input, InputProps } from '~/Input'
 
 import { DateRangePicker } from './DateRangePicker'

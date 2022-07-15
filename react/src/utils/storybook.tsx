@@ -1,9 +1,10 @@
-import { theme } from '~/theme'
 import { Box } from '@chakra-ui/react'
-
 import { DecoratorFn } from '@storybook/react'
-import mockdate from 'mockdate'
 import dayjs from 'dayjs'
+import mockdate from 'mockdate'
+
+import { theme } from '~/theme'
+
 import { init as initDayjs } from './dayjs'
 
 // Init dayjs

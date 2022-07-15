@@ -1,7 +1,7 @@
 import { Box, Flex, Icon, Text } from '@chakra-ui/react'
 import { linkTo } from '@storybook/addon-links'
 
-import { BxChevronRight, BxBulb, BxWrench } from '~/icons'
+import { BxBulb, BxChevronRight, BxWrench } from '~/icons'
 import { Link } from '~/Link'
 
 export const Welcome = (): JSX.Element => {

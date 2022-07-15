@@ -3,11 +3,11 @@ import {
   Divider,
   Flex,
   FlexProps,
-  Icon,
   Stack,
   Text,
   Wrap,
 } from '@chakra-ui/react'
+
 import { RestrictedOgpLogo, RestrictedOgpLogoFull } from '~/icons/brand'
 import { BxlFacebook } from '~/icons/BxlFacebook'
 import { BxlInstagram } from '~/icons/BxlInstagram'

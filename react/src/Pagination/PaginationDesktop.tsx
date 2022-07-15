@@ -12,11 +12,11 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
-import { PAGINATION_THEME_KEY } from '~/theme/components/Pagination'
 import { BxChevronLeft, BxChevronRight } from '~/icons'
+import { PAGINATION_THEME_KEY } from '~/theme/components/Pagination'
 
-import { usePaginationRange } from './usePaginationRange'
 import { PaginationProps } from './Pagination'
+import { usePaginationRange } from './usePaginationRange'
 
 // Separate constant to denote a separator in the pagination component.
 const SEPARATOR = '\u2026'

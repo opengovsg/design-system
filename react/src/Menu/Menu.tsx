@@ -9,11 +9,10 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
+import { Button, ButtonProps } from '~/Button'
 import { BxsChevronDown } from '~/icons/BxsChevronDown'
 import { BxsChevronUp } from '~/icons/BxsChevronUp'
-
 import { MenuVariant } from '~/theme/components/Menu'
-import { Button, ButtonProps } from '~/Button'
 
 export interface MenuButtonProps extends Omit<ButtonProps, 'isFullWidth'> {
   variant?: MenuVariant

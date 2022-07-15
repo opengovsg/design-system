@@ -1,5 +1,6 @@
-import { ChakraProvider, ChakraProviderProps } from '@chakra-ui/react'
 import { FC } from 'react'
+import { ChakraProvider, ChakraProviderProps } from '@chakra-ui/react'
+
 import { theme } from './theme'
 
 /**

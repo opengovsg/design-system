@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { SimpleGrid, Text } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
 
 import { Button } from '~/Button'
 
-import { useToast, UseToastProps } from './useToast'
 import { Toast, ToastProps } from './Toast'
+import { useToast, UseToastProps } from './useToast'
 
 const ToastStateProps: Record<string, ToastProps> = {
   Warning: {

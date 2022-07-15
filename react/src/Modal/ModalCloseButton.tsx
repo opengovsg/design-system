@@ -2,6 +2,7 @@ import {
   CloseButtonProps,
   ModalCloseButton as ChakraModalCloseButton,
 } from '@chakra-ui/react'
+
 import { BxX } from '~/icons'
 
 export type ModalCloseButtonProps = CloseButtonProps

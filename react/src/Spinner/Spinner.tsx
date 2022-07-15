@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react'
 
 import { BxLoader } from '~/icons'
+
 interface SpinnerProps extends FlexProps {
   /**
    * The color of the spinner
