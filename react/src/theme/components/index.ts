@@ -19,7 +19,7 @@ import { Menu } from './Menu'
 import { Modal } from './Modal'
 import { MultiSelect } from './MultiSelect'
 import { NumberInput } from './NumberInput'
-import { Pagination, PAGINATION_THEME_KEY } from './Pagination'
+import { Pagination } from './Pagination'
 import { PhoneNumberInput } from './PhoneNumberInput'
 import { Radio, RADIO_THEME_KEY } from './Radio'
 import { Rating } from './Rating'
@@ -61,8 +61,8 @@ export const components = {
   Textarea,
   Tabs,
   Tag,
-  [PAGINATION_THEME_KEY]: Pagination,
   Attachment,
+  Pagination,
   [CHECKBOX_THEME_KEY]: Checkbox,
   [RADIO_THEME_KEY]: Radio,
   [SEARCHBAR_THEME_KEY]: Searchbar,
