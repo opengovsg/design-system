@@ -46,7 +46,6 @@ export const Link = {
       textUnderlineOffset: '0.125rem',
     },
     standalone: {
-      display: 'inline-flex',
       p: '0.25rem',
       textUnderlineOffset: '0.125rem',
       _hover: {
