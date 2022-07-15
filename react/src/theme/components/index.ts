@@ -21,6 +21,7 @@ import { MultiSelect } from './MultiSelect'
 import { NumberInput } from './NumberInput'
 import { Pagination } from './Pagination'
 import { PhoneNumberInput } from './PhoneNumberInput'
+import { Progress } from './Progress'
 import { Radio, RADIO_THEME_KEY } from './Radio'
 import { Rating } from './Rating'
 import { Searchbar, SEARCHBAR_THEME_KEY } from './Searchbar'
@@ -56,6 +57,7 @@ export const components = {
   MultiSelect,
   NumberInput,
   PhoneNumberInput,
+  Progress,
   SingleCountryPhoneNumberInput,
   SingleSelect,
   Textarea,
