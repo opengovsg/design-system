@@ -4,7 +4,6 @@ import {
   ButtonGroup,
   Modal,
   ModalBody,
-  ModalCloseButton,
   ModalContent,
   ModalFooter,
   ModalHeader,
@@ -15,6 +14,8 @@ import { Meta, Story } from '@storybook/react'
 
 import { viewports } from '~/utils/storybook'
 import { Button } from '~/Button'
+import { ModalCloseButton } from './ModalCloseButton'
+import { useRef } from 'react'
 
 export default {
   title: 'Components/Modal',
@@ -48,10 +49,17 @@ const generateLorem = (numParagraph = 1) => {
 
 const Template: Story<StoryModalProps> = ({ bodyContent, ...args }) => {
   const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true })
+  const initialRef = useRef(null)
+
   return (
     <>
       <Button onClick={onOpen}>Open</Button>
-      <Modal {...args} isOpen={isOpen} onClose={onClose}>
+      <Modal
+        {...args}
+        isOpen={isOpen}
+        onClose={onClose}
+        initialFocusRef={initialRef}
+      >
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
@@ -64,7 +72,7 @@ const Template: Story<StoryModalProps> = ({ bodyContent, ...args }) => {
               <Button variant="clear" colorScheme="secondary" onClick={onClose}>
                 Cancel
               </Button>
-              <Button>Create workspace</Button>
+              <Button ref={initialRef}>Create workspace</Button>
             </ButtonGroup>
           </ModalFooter>
         </ModalContent>

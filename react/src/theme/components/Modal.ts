@@ -67,8 +67,10 @@ const getSize = (value: string): PartsStyleObject<typeof parts> => {
           p: '1.5rem',
         },
         closeButton: {
-          top: '1.5rem',
+          top: '1.0rem',
           insetEnd: '1.5rem',
+          w: '3rem',
+          h: '3rem',
         },
       }
     default:
@@ -81,8 +83,10 @@ const getSize = (value: string): PartsStyleObject<typeof parts> => {
           px: '2rem',
         },
         closeButton: {
-          top: '2rem',
-          insetEnd: '2rem',
+          top: '1.5rem',
+          insetEnd: '1.5rem',
+          w: '3rem',
+          h: '3rem',
         },
         body: {
           py: 0,
