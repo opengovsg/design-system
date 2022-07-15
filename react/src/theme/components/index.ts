@@ -17,6 +17,7 @@ import { Input } from './Input'
 import { Link } from './Link'
 import { Menu } from './Menu'
 import { Modal } from './Modal'
+import { MultiSelect } from './MultiSelect'
 import { NumberInput } from './NumberInput'
 import { Pagination, PAGINATION_THEME_KEY } from './Pagination'
 import { PhoneNumberInput } from './PhoneNumberInput'
@@ -24,6 +25,7 @@ import { Radio, RADIO_THEME_KEY } from './Radio'
 import { Rating } from './Rating'
 import { Searchbar, SEARCHBAR_THEME_KEY } from './Searchbar'
 import { SingleCountryPhoneNumberInput } from './SingleCountryPhoneNumberInput'
+import { SingleSelect } from './SingleSelect'
 import { Tabs } from './Tabs'
 import { Tag } from './Tag'
 import { Textarea } from './Textarea'
@@ -51,9 +53,11 @@ export const components = {
   InlineMessage,
   Modal,
   Menu,
+  MultiSelect,
   NumberInput,
   PhoneNumberInput,
   SingleCountryPhoneNumberInput,
+  SingleSelect,
   Textarea,
   Tabs,
   Tag,
