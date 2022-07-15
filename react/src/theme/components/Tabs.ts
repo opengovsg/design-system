@@ -12,7 +12,12 @@ const sizesForLineLightDarkVariant: ComponentMultiStyleConfig<
   md: {
     tab: {
       p: '0.25rem',
-      mx: '0.75rem',
+      _notFirst: {
+        ml: '0.75rem',
+      },
+      _notLast: {
+        mr: '0.75rem',
+      },
       _selected: {
         _before: {
           width: 'calc(100% - 0.5rem)',
@@ -21,7 +26,8 @@ const sizesForLineLightDarkVariant: ComponentMultiStyleConfig<
     },
     tablist: {
       // Allow bottom border to show through
-      py: '2px',
+      pb: '2px',
+      pt: '2px',
     },
   },
 }
