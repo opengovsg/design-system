@@ -9,7 +9,7 @@ import {
   VisuallyHidden,
 } from '@chakra-ui/react'
 
-import { YESNO_THEME_KEY } from '~/theme/Components/YesNo'
+import { YESNO_THEME_KEY } from '~/theme/components/YesNo'
 import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 interface YesNoOptionProps extends UseRadioProps {

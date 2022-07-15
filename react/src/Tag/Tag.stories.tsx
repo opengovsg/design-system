@@ -1,9 +1,9 @@
-import { SimpleGrid, Text } from '@chakra-ui/react'
+import { SimpleGrid, TagProps, Text } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
 
 import { BxsInfoCircle } from '~/icons'
 
-import { Tag, TagCloseButton, TagLeftIcon, TagProps, TagRightIcon } from './Tag'
+import { Tag, TagCloseButton, TagLeftIcon, TagRightIcon } from './Tag'
 
 export default {
   title: 'Components/Tag',
