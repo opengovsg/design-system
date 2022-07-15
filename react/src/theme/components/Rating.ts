@@ -2,7 +2,6 @@ import { anatomy, getColor, SystemStyleFunction } from '@chakra-ui/theme-tools'
 
 import { ComponentMultiStyleConfig } from '~/theme/types'
 
-export const RATING_THEME_KEY = 'RatingField'
 const parts = anatomy('rating').parts('option')
 
 const getOptionThemeColor = (colorScheme: string) => {
@@ -10,7 +9,7 @@ const getOptionThemeColor = (colorScheme: string) => {
     case 'theme-red':
     case 'theme-orange':
     case 'theme-yellow':
-      return `${colorScheme}.700`
+      return `${colorScheme}.600`
     default:
       return `${colorScheme}.500`
   }
@@ -92,7 +91,7 @@ const iconOptionStyle: SystemStyleFunction = (props) => {
   }
 }
 
-export const RatingField: ComponentMultiStyleConfig<typeof parts> = {
+export const Rating: ComponentMultiStyleConfig<typeof parts> = {
   parts: parts.keys,
   baseStyle: {
     option: {
