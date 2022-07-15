@@ -1,3 +1,4 @@
+import { Accordion } from './Accordion'
 import { Attachment } from './Attachment'
 import { Avatar } from './Avatar'
 import { Badge } from './Badge'
@@ -33,6 +34,7 @@ import { Tooltip } from './Tooltip'
 import { YesNo } from './YesNo'
 
 export const components = {
+  Accordion,
   Avatar,
   Badge,
   Banner,
