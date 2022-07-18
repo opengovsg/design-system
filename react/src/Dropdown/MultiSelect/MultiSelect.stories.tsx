@@ -3,7 +3,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { FormControl } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
 import { get } from 'lodash'
-import difference from 'lodash/difference'
+import { difference } from 'lodash'
 
 import { Button } from '~/Button'
 import { FormErrorMessage, FormLabel } from '~/FormControl'

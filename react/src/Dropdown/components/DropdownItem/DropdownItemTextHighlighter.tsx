@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import Highlighter from 'react-highlight-words'
 import { chakra, Text } from '@chakra-ui/react'
-import escapeRegExp from 'lodash/escapeRegExp'
+import { escapeRegExp } from 'lodash'
 
 interface HighlightMarkProps {
   showHoverBg: boolean
