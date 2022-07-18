@@ -5,7 +5,7 @@ import {
   startOfDay,
   subDays,
 } from 'date-fns'
-import range from 'lodash/range'
+import { range } from 'lodash'
 import { Opaque } from 'type-fest'
 import { v4 as uuidv4 } from 'uuid'
 
