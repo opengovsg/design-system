@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Stack, UnorderedList } from '@chakra-ui/react'
 import { Meta, Story } from '@storybook/react'
-import values from 'lodash/values'
+import { values } from 'lodash'
 
 import { Badge } from '~/Badge'
 import { BxLockAlt, BxMailSend } from '~/icons'

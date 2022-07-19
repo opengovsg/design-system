@@ -10,7 +10,7 @@ import {
   useMergeRefs,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
-import omit from 'lodash/omit'
+import { omit } from 'lodash'
 import simplur from 'simplur'
 
 import { ATTACHMENT_THEME_KEY } from '~/theme/components/Attachment'

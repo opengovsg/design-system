@@ -4,7 +4,7 @@ import {
   PartsStyleObject,
   SystemStyleFunction,
 } from '@chakra-ui/theme-tools'
-import merge from 'lodash/merge'
+import { merge } from 'lodash'
 
 import { Input } from './Input'
 import { Menu } from './Menu'
