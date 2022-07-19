@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 
 import { BxHeart, BxsHeart, BxsStar, BxStar } from '~/icons'
-import { RATING_THEME_KEY } from '~/theme/components/Field/Rating'
+import { RATING_THEME_KEY } from '~/theme/components/Rating'
 import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 interface BaseRatingComponent {
@@ -128,16 +128,27 @@ interface RatingOptionProps {
    * The `name` attribute forwarded to the rating `radio` element
    */
   name: string
-
   /**
    * Variant of rating field to render
    */
   variant: 'heart' | 'star' | 'number'
+  /**
+   * Whether radio option is disabled
+   */
+  isDisabled?: boolean
 }
 
 export const RatingOption = forwardRef<RatingOptionProps, 'input'>(
   (
-    { colorScheme = 'primary', name, onChange, selectedValue, value, variant },
+    {
+      colorScheme = 'primary',
+      name,
+      onChange,
+      selectedValue,
+      value,
+      variant,
+      isDisabled,
+    },
     ref,
   ) => {
     const handleSelect = useCallback(() => {
@@ -165,6 +176,7 @@ export const RatingOption = forwardRef<RatingOptionProps, 'input'>(
       id: `${name}-${value}`,
       onChange: handleSelect,
       value,
+      isDisabled,
     })
 
     const inputProps = getInputProps()

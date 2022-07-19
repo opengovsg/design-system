@@ -2,7 +2,7 @@ import { anatomy, getColor, SystemStyleFunction } from '@chakra-ui/theme-tools'
 
 import { ComponentMultiStyleConfig } from '~/theme/types'
 
-export const YESNO_THEME_KEY = 'YesNoField'
+export const YESNO_THEME_KEY = 'YesNo'
 
 const parts = anatomy('rating').parts('option', 'container', 'icon')
 
@@ -85,7 +85,7 @@ const outlineContainerStyle: SystemStyleFunction = (props) => {
   }
 }
 
-export const YesNoField: ComponentMultiStyleConfig<typeof parts> = {
+export const YesNo: ComponentMultiStyleConfig<typeof parts> = {
   parts: parts.keys,
   variants: {
     outline: (props) => {

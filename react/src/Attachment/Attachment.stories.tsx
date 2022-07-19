@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react'
 import { Attachment, AttachmentProps } from './Attachment'
 
 export default {
-  title: 'Components/Field/Attachment',
+  title: 'Components/Attachment',
   component: Attachment,
   decorators: [],
 } as Meta

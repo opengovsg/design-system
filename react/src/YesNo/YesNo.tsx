@@ -11,7 +11,7 @@ import {
 import { pick } from 'lodash'
 
 import { BxCheck, BxX } from '~/icons'
-import { YESNO_THEME_KEY } from '~/theme/components/Field/YesNo'
+import { YESNO_THEME_KEY } from '~/theme/components/YesNo'
 import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { YesNoOption } from './YesNoOption'

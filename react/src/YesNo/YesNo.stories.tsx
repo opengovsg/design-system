@@ -5,7 +5,7 @@ import { viewports } from '~/utils/storybook'
 import { YesNo, YesNoProps } from './YesNo'
 
 export default {
-  title: 'Components/Field/YesNo',
+  title: 'Components/YesNo',
   component: YesNo,
   decorators: [],
 } as Meta

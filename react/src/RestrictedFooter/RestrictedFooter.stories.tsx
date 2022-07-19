@@ -2,19 +2,12 @@ import { Meta, Story } from '@storybook/react'
 
 import { viewports } from '~/utils/storybook'
 
-import { RestrictedFooter, RestrictedFooterProps } from './RestrictedFooter'
+import { RestrictedFooterProps } from './common/types'
+import { RestrictedFooter } from './RestrictedFooter'
 
-export default {
-  title: 'Components/RestrictedFooter',
-  component: RestrictedFooter,
-  decorators: [],
-  parameters: {
-    layout: 'fullscreen',
-  },
-} as Meta
-
-const defaultArgs: RestrictedFooterProps = {
+const DEFAULT_ARGS: RestrictedFooterProps = {
   appName: 'Camp',
+  appLink: 'https://design.hack.gov.sg',
   tagline: `Helping to create consistent, accessible, highly usable, and delightful experiences for our public users`,
   footerLinks: [
     {
@@ -36,14 +29,34 @@ const defaultArgs: RestrictedFooterProps = {
   ],
 }
 
+export default {
+  title: 'Components/RestrictedFooter',
+  component: RestrictedFooter,
+  decorators: [],
+  parameters: {
+    layout: 'fullscreen',
+  },
+  args: DEFAULT_ARGS,
+} as Meta<RestrictedFooterProps>
+
 const Template: Story<RestrictedFooterProps> = (args) => (
   <RestrictedFooter {...args} />
 )
 export const Default = Template.bind({})
-Default.args = defaultArgs
+
+export const CompactVariant = Template.bind({})
+CompactVariant.args = {
+  ...DEFAULT_ARGS,
+  variant: 'compact',
+}
+
+export const WithTagline = Template.bind({})
+WithTagline.args = {
+  ...DEFAULT_ARGS,
+  tagline: 'Build secure government forms in minutes',
+}
 
 export const Mobile = Template.bind({})
-Mobile.args = defaultArgs
 Mobile.parameters = {
   viewport: {
     defaultViewport: 'mobile1',
@@ -52,7 +65,6 @@ Mobile.parameters = {
 }
 
 export const Tablet = Template.bind({})
-Tablet.args = defaultArgs
 Tablet.parameters = {
   viewport: {
     defaultViewport: 'tablet',
