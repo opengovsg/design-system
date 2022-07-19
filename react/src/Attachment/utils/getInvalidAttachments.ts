@@ -1,5 +1,4 @@
-import { flattenDeep } from 'lodash'
-import { uniq } from 'lodash'
+import { flattenDeep, uniq } from 'lodash'
 import { unzip } from 'unzipit'
 
 import type { AttachmentProps } from '../Attachment'
