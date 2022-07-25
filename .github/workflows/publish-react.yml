@@ -26,4 +26,4 @@ jobs:
           key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
       - run: npm ci
       - run: npm run build
-      - run: npm pack
+      - run: npm publish --tag ${{ github.ref_name }} --dry-run
