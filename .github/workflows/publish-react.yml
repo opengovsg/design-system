@@ -10,7 +10,6 @@ on:
       - alpha
       - beta
       - latest
-      - build/automated-release
 
 jobs:
   publish:
@@ -31,6 +30,6 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
       - run: npm run build
-      - run: npm publish --tag ${{ github.ref_name }} --dry-run
+      - run: npm publish --tag ${{ github.ref_name }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
