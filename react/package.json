@@ -30,7 +30,8 @@
     "build-storybook": "build-storybook",
     "typecheck": "tsc --noEmit -p tsconfig.lint.json",
     "lint": "npx eslint ./ --ignore-path .gitignore && npx prettier . -c",
-    "lint:fix": "npx eslint ./ --ignore-path .gitignore --fix && npx prettier . -c --write"
+    "lint:fix": "npx eslint ./ --ignore-path .gitignore --fix && npx prettier . -c --write",
+    "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "dependencies": {
     "country-flag-icons": "^1.4.19",
@@ -39,8 +40,8 @@
     "dayzed": "^3.2.3",
     "downshift": "^6.1.7",
     "libphonenumber-js": "^1.9.44",
-    "match-sorter": "^6.3.1",
     "lodash": "^4.17.21",
+    "match-sorter": "^6.3.1",
     "react-dropzone": "^11.5.1",
     "react-highlight-words": "^0.18.0",
     "react-hook-form": "^7.31.3",
@@ -80,6 +81,7 @@
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
     "@vitejs/plugin-react": "^2.0.0",
+    "auto-changelog": "^2.4.0",
     "esbuild": "^0.14.48",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
