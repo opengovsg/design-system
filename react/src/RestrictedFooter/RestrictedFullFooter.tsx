@@ -17,6 +17,7 @@ export const RestrictedFullFooter = ({
   footerIconLink = DEFAULT_FOOTER_ICON_LINK,
   socialMediaLinks = DEFAULT_SOCIAL_MEDIA_LINKS,
   textColorScheme = 'secondary',
+  logoTextColor = 'black',
   containerProps,
 }: RestrictedFooterVariantProps): JSX.Element => {
   const currentYear = new Date().getFullYear()
@@ -85,7 +86,10 @@ export const RestrictedFullFooter = ({
             mb="2rem"
             href={footerIconLink.href}
           >
-            <footerIconLink.Icon width="183px"></footerIconLink.Icon>
+            <footerIconLink.Icon
+              textFill={logoTextColor}
+              width="183px"
+            ></footerIconLink.Icon>
           </Link>
         </Box>
 

@@ -1,4 +1,4 @@
-import { FlexProps } from '@chakra-ui/react'
+import { FlexProps, ThemeTypings } from '@chakra-ui/react'
 import { SetOptional } from 'type-fest'
 
 import { ThemeColorScheme } from '~/theme/foundations/colours'
@@ -35,6 +35,11 @@ export interface RestrictedFooterVariantProps {
    * Defaults to `secondary` if not provided.
    */
   textColorScheme: ThemeColorScheme
+  /**
+   * Colour of the logo text in the footer.
+   * Defaults to `black` if not provided.
+   */
+  logoTextColor?: ThemeTypings['colorSchemes']
   containerProps?: Partial<RestrictedFooterContainerProps>
 }
 

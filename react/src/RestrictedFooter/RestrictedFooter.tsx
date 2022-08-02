@@ -13,6 +13,7 @@ export const RestrictedFooter = ({
   footerIconLink = DEFAULT_FOOTER_ICON_LINK,
   socialMediaLinks = DEFAULT_SOCIAL_MEDIA_LINKS,
   textColorScheme = 'secondary',
+  logoTextColor = 'black',
   compactMonochromeLogos,
   ...footerProps
 }: RestrictedFooterProps): JSX.Element => {
@@ -24,6 +25,7 @@ export const RestrictedFooter = ({
         compactMonochromeLogos={compactMonochromeLogos}
         socialMediaLinks={socialMediaLinks}
         textColorScheme={textColorScheme}
+        logoTextColor={logoTextColor}
         footerIconLink={footerIconLink}
         {...footerProps}
       />
@@ -33,6 +35,7 @@ export const RestrictedFooter = ({
     <RestrictedFullFooter
       socialMediaLinks={socialMediaLinks}
       textColorScheme={textColorScheme}
+      logoTextColor={logoTextColor}
       footerIconLink={footerIconLink}
       {...footerProps}
     />

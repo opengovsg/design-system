@@ -15,7 +15,8 @@ interface RestrictedCompactFooterProps extends RestrictedFooterVariantProps {
 export const RestrictedCompactFooter = ({
   appName,
   footerIconLink,
-  textColorScheme,
+  textColorScheme = 'secondary',
+  logoTextColor = 'black',
   footerLinks,
   compactMonochromeLogos,
   brandLogo,
@@ -40,11 +41,11 @@ export const RestrictedCompactFooter = ({
         <Link
           isExternal
           title={footerIconLink.label}
-          colorScheme={compactMonochromeLogos ? 'white' : textColorScheme}
           href={footerIconLink.href}
         >
           <footerIconLink.Icon
-            fill={compactMonochromeLogos ? 'white' : undefined}
+            logoFill={compactMonochromeLogos ? 'white' : undefined}
+            textFill={compactMonochromeLogos ? 'white' : logoTextColor}
             height="1.5rem"
           />
         </Link>
@@ -64,6 +65,7 @@ export const RestrictedCompactFooter = ({
             variant="standalone"
             w="fit-content"
             href={href}
+            colorScheme={textColorScheme}
           >
             {label}
           </Link>
