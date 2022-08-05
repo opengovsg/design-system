@@ -1,2 +1,5 @@
 export * from './RestrictedOgpLogo'
-export * from './RestrictedOgpLogoFull'
+export * from './RestrictedOgpLogoFullBlack'
+export * from './RestrictedOgpLogoFullMonoBlack'
+export * from './RestrictedOgpLogoFullMonoWhite'
+export * from './RestrictedOgpLogoFullWhite'
