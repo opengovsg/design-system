@@ -50,6 +50,13 @@ CompactVariant.args = {
   variant: 'compact',
 }
 
+export const WithDarkBackground = Template.bind({})
+WithDarkBackground.args = {
+  ...DEFAULT_ARGS,
+  textColorScheme: 'white',
+  containerProps: { bg: '#000' },
+}
+
 export const WithTagline = Template.bind({})
 WithTagline.args = {
   ...DEFAULT_ARGS,

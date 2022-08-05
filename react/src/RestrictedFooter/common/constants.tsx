@@ -10,27 +10,28 @@ import { BxlLinkedin } from '~/icons/BxlLinkedin'
 
 import { RestrictedFooterLinkWithIcon } from './types'
 
-export const DEFAULT_FOOTER_ICON_LINK: RestrictedFooterLinkWithIcon = {
+const footerIconConstants = {
   href: 'https://open.gov.sg',
   label: 'Open Government Products homepage',
+}
+
+export const DEFAULT_FOOTER_ICON_LINK: RestrictedFooterLinkWithIcon = {
+  ...footerIconConstants,
   Icon: RestrictedOgpLogoFullBlack,
 }
 
 export const WHITE_FOOTER_ICON_LINK: RestrictedFooterLinkWithIcon = {
-  href: 'https://open.gov.sg',
-  label: 'Open Government Products homepage',
+  ...footerIconConstants,
   Icon: RestrictedOgpLogoFullWhite,
 }
 
 export const WHITE_MONO_FOOTER_ICON_LINK: RestrictedFooterLinkWithIcon = {
-  href: 'https://open.gov.sg',
-  label: 'Open Government Products homepage',
+  ...footerIconConstants,
   Icon: RestrictedOgpLogoFullMonoWhite,
 }
 
 export const BLACK_MONO_FOOTER_ICON_LINK: RestrictedFooterLinkWithIcon = {
-  href: 'https://open.gov.sg',
-  label: 'Open Government Products homepage',
+  ...footerIconConstants,
   Icon: RestrictedOgpLogoFullMonoBlack,
 }
 

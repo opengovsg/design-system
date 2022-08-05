@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useBreakpointValue } from '@chakra-ui/react'
 
-import { meetsWcagAaRatio } from '..'
+import { meetsWcagAaRatio } from '~/theme/utils/contrast'
 
 import {
   BLACK_MONO_FOOTER_ICON_LINK,
@@ -33,15 +33,15 @@ export const RestrictedFooter = ({
       containerProps: { bg },
     } = footerProps
 
+    const isMeetsContrast = meetsWcagAaRatio('#000', bg.toString())
+
     // Calculate the contrast ratio of the OGP logo text against the footer background color.
     if (compactMonochromeLogos && variant === 'compact' && isDesktop) {
-      return meetsWcagAaRatio('#000', bg.toString())
+      return isMeetsContrast
         ? BLACK_MONO_FOOTER_ICON_LINK
         : WHITE_MONO_FOOTER_ICON_LINK
     } else {
-      return meetsWcagAaRatio('#000', bg.toString())
-        ? DEFAULT_FOOTER_ICON_LINK
-        : WHITE_FOOTER_ICON_LINK
+      return isMeetsContrast ? DEFAULT_FOOTER_ICON_LINK : WHITE_FOOTER_ICON_LINK
     }
   }, [compactMonochromeLogos, footerProps, isDesktop, variant])
 
