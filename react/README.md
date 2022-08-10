@@ -127,13 +127,14 @@ $ npm install libphonenumber-js
 In the `react` directory:
 
 ```bash
+# <version> examples: 1.0.1, 1.0.1-alpha.0, 1.0.1-beta.3
 $ git checkout -b release-v<version>
 $ npm version <version>
-$ git add .
-$ git commit
-$ git tag <version>
-$ git push
-$ git push --tags
+$ git add package.json package-lock.json
+$ git commit -m "build: update version to v<version>"
+$ git tag v<version>
+$ git push --set-upstream origin release-v<version> # push branch
+$ git push origin v<version> # push tag
 ```
 
 Open 2 PRs:
