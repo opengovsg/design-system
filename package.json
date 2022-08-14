@@ -3,6 +3,6 @@
   "description": "Components created according to the Open Government Products design system",
   "private": true,
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^5.4.2"
   }
 }
