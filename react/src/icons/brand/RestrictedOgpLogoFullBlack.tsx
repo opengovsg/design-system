@@ -4,7 +4,7 @@ import { SVGProps } from 'react'
  * Must not be used unless you are in the @opengovsg org.
  * Read LICENSE.md for more information.
  */
-export const RestrictedOgpLogoFull = (props: SVGProps<SVGSVGElement>) => (
+export const RestrictedOgpLogoFullBlack = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 183 48"
