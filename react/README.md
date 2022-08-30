@@ -122,6 +122,28 @@ If you're on npm version 4 to 6, install `libphonenumber-js` explicitly by execu
 $ npm install libphonenumber-js
 ```
 
+## Publishing a new version
+
+In the `react` directory:
+
+```bash
+# <version> examples: 1.0.1, 1.0.1-alpha.0, 1.0.1-beta.3
+$ git checkout -b release-v<version>
+$ npm version <version>
+$ git add package.json package-lock.json
+$ git commit -m "build: update version to v<version>"
+$ git tag v<version>
+$ git push --set-upstream origin release-v<version> # push branch
+$ git push origin v<version> # push tag
+```
+
+Open 2 PRs:
+
+- `release-v<version> -> alpha / beta / latest` - once this PR is merged, the version will be published to the respective npm tag automatically
+- `release-v<version> -> main` - to keep our `main` branch up-to-date with releases
+
+Lastly, create a new release on GitHub for the new tag.
+
 ## Further reading
 
 As this design system is built on top of ChakraUI, it is (hopefully) fully compatible with ChakraUI's usage. Read [ChakraUI's documentation](https://chakra-ui.com) for all the available props and usage examples.
