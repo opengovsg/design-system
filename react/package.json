@@ -1,6 +1,6 @@
 {
   "name": "@opengovsg/design-system-react",
-  "version": "0.0.11-alpha.0",
+  "version": "0.0.11",
   "description": "React components",
   "homepage": "https://github.com/opengovsg/design-system/react#readme",
   "bugs": "https://github.com/opengovsg/design-system/issues",
