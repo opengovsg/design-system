@@ -7,7 +7,6 @@ import {
   useMemo,
   useState,
 } from 'react'
-import { useKey } from 'react-use'
 import {
   addMonths,
   differenceInCalendarMonths,
@@ -16,8 +15,13 @@ import {
 } from 'date-fns'
 import { Props as DayzedProps, RenderProps, useDayzed } from 'dayzed'
 import { inRange } from 'lodash'
+import { useKey } from 'rooks'
 
-import { DatePickerProps } from '../DatePicker'
+import { ThemeColorScheme } from '~/theme/foundations/colours'
+
+import { CalendarProps } from '../Calendar'
+
+import { DateRangeValue } from './types'
 import {
   generateClassNameForDate,
   generateValidUuidClass,
@@ -25,7 +29,7 @@ import {
   getMonthOffsetFromToday,
   getNewDateFromKeyPress,
   getYearOptions,
-} from '../utils'
+} from './utils'
 
 const ARROW_KEY_NAMES = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight']
 
@@ -34,7 +38,7 @@ type PassthroughProps = {
    * Function to be passed to CalendarPanel to determine range styling.
    * Used for multi-calendar variant.
    */
-  isDateInRange?: (d: Date) => boolean | null
+  isDateInRange?: (d: Date) => boolean
   /**
    * Function to be passed to CalendarPanel to determine range styling.
    * Called when a date is selected and a mouseover is detected over a date.
@@ -50,7 +54,7 @@ type PassthroughProps = {
   /**
    * The dates that are selected.
    */
-  selectedDates?: Date | Date[]
+  selectedDates?: Date | DateRangeValue
   /**
    * Handler for when date is selected.
    */
@@ -64,11 +68,15 @@ type PassthroughProps = {
    * Date currently being hovered, if any.
    */
   hoveredDate?: Date
+  /**
+   * Color scheme of date input
+   */
+  colorScheme?: ThemeColorScheme
 }
-type UseProvideCalendarProps = Pick<DayzedProps, 'monthsToDisplay'> &
+export type UseProvideCalendarProps = Pick<DayzedProps, 'monthsToDisplay'> &
   PassthroughProps
 
-interface CalendarContextProps extends DatePickerProps, PassthroughProps {
+interface CalendarContextProps extends CalendarProps, PassthroughProps {
   uuid: string
   currMonth: number
   currYear: number
@@ -79,7 +87,8 @@ interface CalendarContextProps extends DatePickerProps, PassthroughProps {
   isDateFocusable: (d: Date) => boolean
   handleTodayClick: () => void
   dateToFocus: Date
-  selectedDates?: Date | Date[]
+  selectedDates?: Date | DateRangeValue
+  monthsToDisplay: Required<CalendarProps>['monthsToDisplay']
 }
 
 const CalendarContext = createContext<CalendarContextProps | undefined>(
@@ -122,6 +131,7 @@ const useProvideCalendar = ({
   onMouseLeaveCalendar,
   isDateInRange,
   hoveredDate,
+  colorScheme = 'primary',
 }: UseProvideCalendarProps) => {
   // Ensure that calculations are always made based on date of initial render,
   // so component state doesn't suddenly jump at midnight
@@ -223,7 +233,7 @@ const useProvideCalendar = ({
     },
     [updateMonthYear, uuid],
   )
-  useKey((e) => ARROW_KEY_NAMES.includes(e.key), handleArrowKey)
+  useKey(ARROW_KEY_NAMES, handleArrowKey)
 
   const handleDateSelected = useCallback(
     (d: Date) => {
@@ -242,7 +252,9 @@ const useProvideCalendar = ({
     showOutsideDays: monthsToDisplay === 1,
     offset: getMonthOffsetFromToday(today, currMonth, currYear),
     onOffsetChanged,
-    selected: selectedDates,
+    selected: !Array.isArray(selectedDates)
+      ? selectedDates
+      : (selectedDates.filter(Boolean) as Date[]),
     monthsToDisplay: monthsToDisplay,
   })
 
@@ -293,5 +305,7 @@ const useProvideCalendar = ({
     onMouseLeaveCalendar,
     isDateInRange,
     hoveredDate,
+    colorScheme,
+    monthsToDisplay,
   }
 }

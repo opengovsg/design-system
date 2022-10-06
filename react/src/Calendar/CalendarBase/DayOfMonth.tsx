@@ -1,21 +1,18 @@
 import { useCallback, useMemo } from 'react'
 import {
-  Box,
   ButtonProps,
   chakra,
+  Flex,
   forwardRef,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 import {
   compareAsc,
-  format,
   isFirstDayOfMonth,
   isLastDayOfMonth,
   isSameDay,
 } from 'date-fns'
 import { DateObj } from 'dayzed'
-
-import { DATEINPUT_THEME_KEY } from '~/theme/components/DateInput'
 
 import { useCalendar } from './CalendarContext'
 
@@ -33,12 +30,7 @@ export interface DayOfMonthProps extends ButtonProps {
 
 export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
   (
-    {
-      dateObj: { date, selected, today },
-      isOutsideCurrMonth,
-      colorScheme = 'primary',
-      ...props
-    },
+    { dateObj: { date, selected, today }, isOutsideCurrMonth, ...props },
     ref,
   ) => {
     const {
@@ -48,6 +40,7 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
       isDateInRange,
       selectedDates,
       hoveredDate,
+      colorScheme,
     } = useCalendar()
 
     const isAvailable = useMemo(
@@ -68,10 +61,11 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
       [date, onMouseEnterHighlight],
     )
 
-    const styles = useMultiStyleConfig(DATEINPUT_THEME_KEY, {
+    const styles = useMultiStyleConfig('Calendar', {
       isSelected: selected,
       isToday: today,
       isOutsideCurrMonth,
+      colorScheme,
     })
 
     const buttonBoxBg = useMemo(() => {
@@ -79,31 +73,32 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
       let gradientTo: 'left' | 'right' | undefined
       // Only style background if it is a range.
       if (Array.isArray(selectedDates)) {
+        const [startDate, endDate] = selectedDates
         // Case 1: Both dates selected and equal, no need for background.
-        if (isSameDay(selectedDates[0], selectedDates[1])) {
+        if (startDate && endDate && isSameDay(startDate, endDate)) {
           return
         }
         // Case 2: Hovered date with previously selected date.
         // Background corner should follow date that is hovered.
-        if (hoveredDate && selectedDates.length === 1) {
+        if (hoveredDate && startDate && !endDate) {
           if (isSameDay(hoveredDate, date)) {
             gradientTo =
               compareAsc(hoveredDate, selectedDates[0]) === 1 ? 'left' : 'right'
           }
         }
         // Case 3: Current date is a selected date.
-        if (isSameDay(selectedDates[0], date)) {
+        if (startDate && isSameDay(startDate, date)) {
           gradientTo = 'right'
           // Case 4: Only one date selected, background corner should follow
           // date that is selected.
-          if (hoveredDate && selectedDates.length === 1) {
+          if (hoveredDate && startDate && !endDate) {
             if (compareAsc(selectedDates[0], hoveredDate) === 1) {
               gradientTo = 'left'
             }
           }
         }
         // Case 5: Current date is the later selected date.
-        if (isSameDay(selectedDates[1], date)) {
+        if (endDate && isSameDay(endDate, date)) {
           gradientTo = 'left'
         }
         if (
@@ -145,14 +140,19 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
     }, [colorScheme, date, hoveredDate, isInRange, selected])
 
     return (
-      <Box bg={buttonBoxBg} px="2px" _focusWithin={{ zIndex: 1 }}>
+      <Flex
+        justify="center"
+        bg={buttonBoxBg}
+        px="2px"
+        _focusWithin={{ zIndex: 1 }}
+      >
         <chakra.button
           onMouseEnter={handleMouseEnter}
           bg={boxBg}
           // Prevent form submission if this component is nested in a form.
           type="button"
           sx={styles.dayOfMonth}
-          aria-label={format(date, "do 'of' MMMM',' EEEE")}
+          aria-label={date.toLocaleDateString()}
           tabIndex={isFocusable ? 0 : -1}
           aria-disabled={!isAvailable}
           ref={ref}
@@ -160,7 +160,7 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
         >
           {date.getDate()}
         </chakra.button>
-      </Box>
+      </Flex>
     )
   },
 )

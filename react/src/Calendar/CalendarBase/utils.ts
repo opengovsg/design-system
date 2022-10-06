@@ -1,16 +1,11 @@
 import {
   addDays,
   differenceInCalendarMonths,
-  format,
   startOfDay,
   subDays,
 } from 'date-fns'
-import { range } from 'lodash'
-import { Opaque } from 'type-fest'
+import range from 'lodash/range'
 import { v4 as uuidv4 } from 'uuid'
-
-// Format yyyy-MM-dd
-export type IsoDateString = Opaque<string, 'IsoDateString'>
 
 /**
  * Full names of calendar months
@@ -33,7 +28,15 @@ export const MONTH_NAMES: { shortName: string; fullName: string }[] = [
 /**
  * Names of days to display at top of calendar columns
  */
-export const DAY_NAMES = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+export const DAY_NAMES: { shortName: string; fullName: string }[] = [
+  { shortName: 'Su', fullName: 'Sunday' },
+  { shortName: 'Mo', fullName: 'Monday' },
+  { shortName: 'Tu', fullName: 'Tuesday' },
+  { shortName: 'We', fullName: 'Wednesday' },
+  { shortName: 'Th', fullName: 'Thursday' },
+  { shortName: 'Fr', fullName: 'Friday' },
+  { shortName: 'Sa', fullName: 'Saturday' },
+]
 
 /**
  * Generates array of years which are options in the year dropdown.
@@ -118,8 +121,4 @@ export const generateValidUuidClass = (): string => {
   // Ensure className starts with alphabet and has no hyphens
   // followed by digits
   return `a${uuidv4().replaceAll('-', '_')}`
-}
-
-export const convertToDateString = (date: Date): IsoDateString => {
-  return format(date, 'yyyy-MM-dd') as IsoDateString
 }
