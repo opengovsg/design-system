@@ -2,22 +2,21 @@ import {
   chakra,
   forwardRef,
   Stack,
-  Td,
   Text,
-  useStyles,
   VisuallyHidden,
 } from '@chakra-ui/react'
 import { isSameDay } from 'date-fns'
 
 import { useCalendar } from './CalendarContext'
 import { CalendarHeader } from './CalendarHeader'
+import { useCalendarStyles } from './CalendarStyleProvider'
 import { DayOfMonth } from './DayOfMonth'
 import { DAY_NAMES, generateClassNameForDate, MONTH_NAMES } from './utils'
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export const CalendarPanel = forwardRef<{}, 'button'>(
   (_props, initialFocusRef): JSX.Element => {
-    const styles = useStyles()
+    const styles = useCalendarStyles()
     const {
       uuid,
       dateToFocus,
@@ -66,6 +65,7 @@ export const CalendarPanel = forwardRef<{}, 'button'>(
                         }
                         return (
                           <chakra.td
+                            padding={0}
                             key={`${calendar.month}${calendar.year}${windex}${index}`}
                           >
                             <DayOfMonth

@@ -6,7 +6,6 @@ import {
   SelectProps,
   Text,
   useBreakpointValue,
-  useStyles,
 } from '@chakra-ui/react'
 import { addMonths } from 'date-fns'
 
@@ -14,6 +13,7 @@ import { IconButton } from '~/IconButton'
 import { BxChevronLeft, BxChevronRight } from '~/icons'
 
 import { useCalendar } from './CalendarContext'
+import { useCalendarStyles } from './CalendarStyleProvider'
 import { MONTH_NAMES } from './utils'
 
 interface CalendarHeaderProps {
@@ -146,7 +146,7 @@ const MonthYear = memo(({ monthOffset }: CalendarHeaderProps) => {
 
 export const CalendarHeader = memo(
   ({ monthOffset }: CalendarHeaderProps): JSX.Element => {
-    const styles = useStyles()
+    const styles = useCalendarStyles()
     const {
       renderProps: { calendars, getBackProps, getForwardProps },
     } = useCalendar()
