@@ -11,6 +11,7 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 import { omit } from 'lodash'
+
 import { ATTACHMENT_THEME_KEY } from '~/theme/components/Attachment'
 import { ThemeColorScheme } from '~/theme/foundations/colours'
 
