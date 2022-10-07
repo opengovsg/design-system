@@ -36,16 +36,6 @@ export default defineConfig({
       ],
       output: [
         {
-          format: 'umd',
-          dir: 'build',
-          entryFileNames: 'index.[format].js',
-          globals: {
-            react: 'React',
-            'react-dom': 'ReactDOM',
-            ...PackageJson.peerDependencies,
-          },
-        },
-        {
           format: 'es',
           esModule: true,
           preserveModules: true,
@@ -61,7 +51,6 @@ export default defineConfig({
         },
       ],
     },
-    target: 'es6',
     sourcemap: false,
     minify: true,
   },

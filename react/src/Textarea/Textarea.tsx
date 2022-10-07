@@ -1,4 +1,4 @@
-import ResizeTextarea, { TextareaAutosizeProps } from 'react-textarea-autosize'
+import TextareaAutosize from '@mui/material/TextareaAutosize'
 import {
   forwardRef,
   Textarea as ChakraTextarea,
@@ -12,12 +12,12 @@ export interface TextareaProps extends ChakraTextareaProps {
    * The minimum rows the textarea displays on render.
    * Defaults to `3`.
    */
-  minAutosizeRows?: TextareaAutosizeProps['minRows']
+  minAutosizeRows?: number
   /**
    * The maximum rows the textarea will automatically resize to.
    * Defaults to `6`.
    */
-  maxAutosizeRows?: TextareaAutosizeProps['maxRows']
+  maxAutosizeRows?: number
   /**
    * Whether the input is in a prefilled state.
    */
@@ -42,7 +42,7 @@ export const Textarea = forwardRef<TextareaProps, 'textarea'>(
         // Set here instead of on the theme to prevent all base text areas from having no minH.
         minH="unset"
         ref={ref}
-        as={ResizeTextarea}
+        as={TextareaAutosize}
         minRows={minAutosizeRows}
         maxRows={maxAutosizeRows}
         sx={inputStyles}
