@@ -148,7 +148,7 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
 
         onChange(acceptedFile)
       },
-      [accept, onChange, onError],
+      [fileValidation, onChange, onError],
     )
 
     const fileValidator = useCallback<NonNullable<DropzoneProps['validator']>>(

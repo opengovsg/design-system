@@ -1,4 +1,3 @@
-import TextareaAutosize from '@mui/material/TextareaAutosize'
 import {
   forwardRef,
   Textarea as ChakraTextarea,
@@ -6,6 +5,7 @@ import {
   useStyleConfig,
 } from '@chakra-ui/react'
 import { omit } from '@chakra-ui/utils'
+import TextareaAutosize from '@mui/material/TextareaAutosize'
 
 export interface TextareaProps extends ChakraTextareaProps {
   /**
