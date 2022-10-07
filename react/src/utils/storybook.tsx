@@ -35,6 +35,24 @@ export const viewports = {
   xl: breakpointToViewportWidth('xl'),
 }
 
+export const getMobileViewParameters = () => {
+  return {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+    chromatic: { viewports: [viewports.xs] },
+  }
+}
+
+export const getTabletViewParameters = () => {
+  return {
+    viewport: {
+      defaultViewport: 'tablet',
+    },
+    chromatic: { viewports: [viewports.md] },
+  }
+}
+
 export const mockDateDecorator: DecoratorFn = (storyFn, { parameters }) => {
   mockdate.reset()
 

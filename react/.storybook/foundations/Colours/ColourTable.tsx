@@ -1,5 +1,13 @@
-import { useTheme } from '@chakra-ui/react'
-import { Table, TableCaption, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/table'
+import {
+  Table,
+  TableCaption,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
+  useTheme,
+} from '@chakra-ui/react'
 
 interface ColourTableProps {
   label: string

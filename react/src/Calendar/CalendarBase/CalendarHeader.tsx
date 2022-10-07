@@ -6,17 +6,15 @@ import {
   SelectProps,
   Text,
   useBreakpointValue,
-  useStyles,
 } from '@chakra-ui/react'
-import { addMonths } from 'date-fns/esm'
+import { addMonths } from 'date-fns'
 
 import { IconButton } from '~/IconButton'
-import { BxChevronLeft } from '~/icons/BxChevronLeft'
-import { BxChevronRight } from '~/icons/BxChevronRight'
-
-import { MONTH_NAMES } from '../utils'
+import { BxChevronLeft, BxChevronRight } from '~/icons'
 
 import { useCalendar } from './CalendarContext'
+import { useCalendarStyles } from './CalendarStyleProvider'
+import { MONTH_NAMES } from './utils'
 
 interface CalendarHeaderProps {
   monthOffset: number
@@ -30,6 +28,8 @@ const MonthYearSelect = ({
     <Select
       // Prevents any parent form control from applying error styles to this select.
       isInvalid={false}
+      variant="flushed"
+      borderRadius="4px"
       color="secondary.500"
       textStyle="subhead-1"
       flexBasis="fit-content"
@@ -54,6 +54,7 @@ const SelectableMonthYear = memo(() => {
 
   const shouldUseMonthFullName = useBreakpointValue({
     base: false,
+    xs: false,
     md: true,
   })
 
@@ -89,11 +90,11 @@ const SelectableMonthYear = memo(() => {
   return (
     <HStack>
       <MonthYearSelect
+        // Align with dates in the calendar
+        pl={{ base: '0.5rem', md: '1rem' }}
         value={currMonth}
         onChange={handleMonthChange}
         aria-label="Change displayed month"
-        // Align with dates
-        pl={{ base: '0', md: '2px' }}
       >
         {memoizedMonthOptions}
       </MonthYearSelect>
@@ -112,6 +113,7 @@ const MonthYear = memo(({ monthOffset }: CalendarHeaderProps) => {
   const { currMonth, currYear } = useCalendar()
   const shouldUseMonthFullName = useBreakpointValue({
     base: false,
+    xs: false,
     md: true,
   })
 
@@ -131,7 +133,7 @@ const MonthYear = memo(({ monthOffset }: CalendarHeaderProps) => {
 
   return (
     <HStack
-      ml="1.25rem"
+      ml={{ base: '0.5rem', md: '1rem' }}
       textStyle="subhead-1"
       color="secondary.500"
       spacing="1.5rem"
@@ -144,7 +146,7 @@ const MonthYear = memo(({ monthOffset }: CalendarHeaderProps) => {
 
 export const CalendarHeader = memo(
   ({ monthOffset }: CalendarHeaderProps): JSX.Element => {
-    const styles = useStyles()
+    const styles = useCalendarStyles()
     const {
       renderProps: { calendars, getBackProps, getForwardProps },
     } = useCalendar()
@@ -163,7 +165,6 @@ export const CalendarHeader = memo(
               colorScheme="secondary"
               icon={<BxChevronLeft />}
               aria-label="Back one month"
-              minW={{ base: '1.75rem', xs: '2.75rem', sm: '2.75rem' }}
               {...getBackProps({ calendars })}
             />
             <IconButton
@@ -171,7 +172,6 @@ export const CalendarHeader = memo(
               colorScheme="secondary"
               icon={<BxChevronRight />}
               aria-label="Forward one month"
-              minW={{ base: '1.75rem', xs: '2.75rem', sm: '2.75rem' }}
               {...getForwardProps({ calendars })}
             />
           </Flex>

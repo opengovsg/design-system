@@ -15,23 +15,26 @@ import {
 export const Typography: FC = () => {
   const theme = useTheme()
 
-  const prettyPrint = useCallback((themeName: string) => {
-    const textStyles: Record<string, string> = {
-      ...theme.textStyles[themeName],
-    }
-    delete textStyles['fontStyle']
-    return (
-      <Box display="grid" textStyle="body-2">
-        <Text>{themeName}</Text>
-        {Object.entries(textStyles).map(([key, value]) => (
-          <Box display="inline-flex" key={key}>
-            <Text color="secondary.400">{key}:&nbsp;</Text>
-            <Text>{value}</Text>
-          </Box>
-        ))}
-      </Box>
-    )
-  }, [])
+  const prettyPrint = useCallback(
+    (themeName: string) => {
+      const textStyles: Record<string, string> = {
+        ...theme.textStyles[themeName],
+      }
+      delete textStyles['fontStyle']
+      return (
+        <Box display="grid" textStyle="body-2">
+          <Text>{themeName}</Text>
+          {Object.entries(textStyles).map(([key, value]) => (
+            <Box display="inline-flex" key={key}>
+              <Text color="secondary.400">{key}:&nbsp;</Text>
+              <Text>{value}</Text>
+            </Box>
+          ))}
+        </Box>
+      )
+    },
+    [theme.textStyles],
+  )
 
   return (
     <Container maxW="container.xl">

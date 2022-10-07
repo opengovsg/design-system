@@ -1,5 +1,6 @@
 export * from './brand'
 export * from './BxBulb'
+export * from './BxCalendar'
 export * from './BxCheck'
 export * from './BxCheckAnimated'
 export * from './BxChevronDown'
