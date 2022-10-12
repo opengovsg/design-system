@@ -3,7 +3,7 @@ import {
   StyleFunctionProps,
   SystemStyleFunction,
 } from '@chakra-ui/theme-tools'
-import merge from 'lodash/merge'
+import { merge } from 'lodash'
 
 import { textStyles } from '../textStyles'
 
