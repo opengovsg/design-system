@@ -32,6 +32,7 @@ export default defineConfig({
         'react/jsx-dev-runtime',
         'lodash.mergewith',
         'lodash',
+        'date-fns-tz',
         ...Object.keys(PackageJson.peerDependencies),
       ],
       output: [
