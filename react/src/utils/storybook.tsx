@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, BoxProps } from '@chakra-ui/react'
 import { DecoratorFn } from '@storybook/react'
 import dayjs from 'dayjs'
 import mockdate from 'mockdate'
@@ -22,6 +22,15 @@ const breakpointToViewportWidth = (
   const rem = 16
   return parseInt(theme.breakpoints[breakpoint]) * rem
 }
+
+export const fixedHeightDecorator =
+  (height: BoxProps['h']): DecoratorFn =>
+  (Story) =>
+    (
+      <Box h={height}>
+        <Story />
+      </Box>
+    )
 
 /**
  * Viewports mapping viewport key to their width in (pixel) number.

@@ -1,9 +1,9 @@
 import { MouseEvent, useCallback, useMemo } from 'react'
 
 import { Button } from '~/Button'
-import { useMultiSelectContext } from '~/Dropdown/MultiSelectContext'
-import { useSelectContext } from '~/Dropdown/SelectContext'
 
+import { useMultiSelectContext } from '../../MultiSelectContext'
+import { useSelectContext } from '../../SelectContext'
 import { MultiSelectItem } from '../MultiSelectItem'
 
 const ShowMoreItemBlock = ({ amountToShow }: { amountToShow: number }) => {

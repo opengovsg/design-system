@@ -7,7 +7,7 @@ import { difference, get } from 'lodash'
 import { Button } from '~/Button'
 import { FormErrorMessage, FormLabel } from '~/FormControl'
 import { BxsCheckCircle } from '~/icons'
-import { viewports } from '~/utils/storybook'
+import { fixedHeightDecorator, viewports } from '~/utils/storybook'
 
 import { ComboboxItem } from '../types'
 import { itemToValue } from '../utils/itemUtils'
@@ -64,7 +64,7 @@ const INITIAL_COMBOBOX_ITEMS: ComboboxItem[] = [
 export default {
   title: 'Components/MultiSelect',
   component: MultiSelect,
-  decorators: [],
+  decorators: [fixedHeightDecorator('300px')],
   args: {
     items: INITIAL_COMBOBOX_ITEMS,
     values: [],
