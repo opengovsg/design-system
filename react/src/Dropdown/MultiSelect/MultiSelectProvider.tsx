@@ -18,7 +18,11 @@ import { MultiSelectContext } from '../MultiSelectContext'
 import { SelectContext, SharedSelectContextReturnProps } from '../SelectContext'
 import { ComboboxItem } from '../types'
 import { defaultFilter } from '../utils/defaultFilter'
-import { itemToLabelString, itemToValue } from '../utils/itemUtils'
+import {
+  isItemDisabled,
+  itemToLabelString,
+  itemToValue,
+} from '../utils/itemUtils'
 
 export interface MultiSelectProviderProps<
   Item extends ComboboxItem = ComboboxItem,
@@ -63,7 +67,7 @@ export const MultiSelectProvider = ({
   filter = defaultFilter,
   nothingFoundLabel = 'No matching results',
   placeholder: placeholderProp,
-  clearButtonLabel = 'Clear dropdown',
+  clearButtonLabel = 'Clear selection',
   isSearchable = true,
   defaultIsOpen,
   isInvalid: isInvalidProp,
@@ -131,7 +135,11 @@ export const MultiSelectProvider = ({
   } = useMultipleSelection<typeof items[0]>({
     selectedItems,
     onSelectedItemsChange: ({ selectedItems }) => {
-      onChange(selectedItems?.map(itemToValue) ?? [])
+      onChange(
+        selectedItems
+          ?.filter((item) => !isItemDisabled(item))
+          .map(itemToValue) ?? [],
+      )
     },
     itemToString: itemToLabelString,
     stateReducer: (_state, { changes, type }) => {

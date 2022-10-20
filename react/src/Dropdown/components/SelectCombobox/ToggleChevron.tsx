@@ -1,7 +1,6 @@
 import { Icon, InputRightElement } from '@chakra-ui/react'
 
-import { BxsChevronDown } from '~/icons/BxsChevronDown'
-import { BxsChevronUp } from '~/icons/BxsChevronUp'
+import { BxsChevronDown, BxsChevronUp } from '~/icons'
 
 import { useSelectContext } from '../../SelectContext'
 
@@ -11,12 +10,23 @@ export const ToggleChevron = (): JSX.Element => {
 
   return (
     <InputRightElement
-      {...getToggleButtonProps({ disabled: isDisabled || isReadOnly })}
+      as="button"
+      type="button"
+      display="flex"
+      _disabled={{
+        cursor: 'not-allowed',
+      }}
+      aria-label={`${isOpen ? 'Close' : 'Open'} dropdown options`}
+      {...getToggleButtonProps({
+        disabled: isDisabled || isReadOnly,
+        // Allow navigation to this button with screen readers.
+        tabIndex: 0,
+      })}
     >
       <Icon
         sx={styles.icon}
         as={isOpen ? BxsChevronUp : BxsChevronDown}
-        aria-label={`${isOpen ? 'Close' : 'Open'} dropdown options`}
+        aria-hidden
         aria-disabled={isDisabled || isReadOnly}
       />
     </InputRightElement>

@@ -1,14 +1,13 @@
 import { useMemo } from 'react'
 import { Flex, Icon, ListItem, Stack, Text } from '@chakra-ui/react'
 
-import { useSelectContext } from '~/Dropdown/SelectContext'
-import { ComboboxItem } from '~/Dropdown/types'
+import { useSelectContext } from '../../SelectContext'
+import { ComboboxItem } from '../../types'
 import {
   itemToDescriptionString,
   itemToIcon,
   itemToLabelString,
-} from '~/Dropdown/utils/itemUtils'
-
+} from '../../utils/itemUtils'
 import { DropdownItemTextHighlighter } from '../DropdownItem/DropdownItemTextHighlighter'
 
 import { ItemCheckboxIcon } from './ItemCheckboxIcon'
@@ -50,24 +49,39 @@ export const MultiDropdownItem = ({
         index,
         disabled: isDisabled,
       })}
+      title={label}
     >
-      <Stack direction="row" spacing="1rem">
+      <Stack direction="row" spacing="1rem" overflowX="auto">
         <ItemCheckboxIcon isChecked={isSelected} />
-        <Flex flexDir="column">
+        <Flex flexDir="column" minW={0}>
           <Stack direction="row" spacing="0.5rem" align="center">
             {icon ? <Icon as={icon} sx={styles.icon} /> : null}
-            <DropdownItemTextHighlighter
-              inputValue={inputValue}
-              showHoverBg={isHighlighted}
-              textToHighlight={label}
-            />
+            <Text
+              textStyle="body-1"
+              minWidth={0}
+              textOverflow="ellipsis"
+              whiteSpace="nowrap"
+              overflowX="hidden"
+            >
+              <DropdownItemTextHighlighter
+                inputValue={inputValue}
+                showHoverBg={isHighlighted}
+                textToHighlight={label}
+              />
+            </Text>
           </Stack>
-          <Text
-            textStyle="body-2"
-            color={isSelected ? 'secondary.500' : 'secondary.400'}
-          >
-            {description}
-          </Text>
+          {description && (
+            <Text
+              textStyle="body-2"
+              color={isSelected ? 'secondary.500' : 'secondary.400'}
+            >
+              <DropdownItemTextHighlighter
+                inputValue={inputValue}
+                showHoverBg={isHighlighted}
+                textToHighlight={description}
+              />
+            </Text>
+          )}
         </Flex>
       </Stack>
     </ListItem>

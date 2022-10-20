@@ -7,6 +7,7 @@ import { Meta, Story } from '@storybook/react'
 import { Button } from '~/Button'
 import { FormErrorMessage, FormLabel } from '~/FormControl'
 import { BxGitMerge, BxHeart } from '~/icons'
+import { fixedHeightDecorator } from '~/utils/storybook'
 
 import { ComboboxItem } from '../types'
 import { itemToValue } from '../utils/itemUtils'
@@ -67,7 +68,7 @@ const INITIAL_COMBOBOX_ITEMS: ComboboxItem[] = [
 export default {
   title: 'Components/SingleSelect',
   component: SingleSelect,
-  decorators: [],
+  decorators: [fixedHeightDecorator('300px')],
   args: {
     items: INITIAL_COMBOBOX_ITEMS,
     value: '',
