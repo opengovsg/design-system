@@ -36,7 +36,7 @@ export const useToast = ({
 
   const customToastImpl = useMemo(() => {
     const impl = ({
-      duration = 6000,
+      duration = initialProps.duration,
       position = 'top',
       render,
       status,
