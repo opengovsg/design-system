@@ -14,7 +14,11 @@ import { useItems } from '../hooks/useItems'
 import { SelectContext, SharedSelectContextReturnProps } from '../SelectContext'
 import { ComboboxItem } from '../types'
 import { defaultFilter } from '../utils/defaultFilter'
-import { itemToLabelString, itemToValue } from '../utils/itemUtils'
+import {
+  isItemDisabled,
+  itemToLabelString,
+  itemToValue,
+} from '../utils/itemUtils'
 
 export interface SingleSelectProviderProps<
   Item extends ComboboxItem = ComboboxItem,
@@ -47,7 +51,7 @@ export const SingleSelectProvider = ({
   filter = defaultFilter,
   nothingFoundLabel = 'No matching results',
   placeholder: placeholderProp,
-  clearButtonLabel = 'Clear dropdown input',
+  clearButtonLabel = 'Clear selection',
   isClearable = true,
   isSearchable = true,
   initialIsOpen,
@@ -98,6 +102,7 @@ export const SingleSelectProvider = ({
   )
 
   const virtualListRef = useRef<VirtuosoHandle>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const {
     toggleMenu,
@@ -124,7 +129,9 @@ export const SingleSelectProvider = ({
     selectedItem: memoizedSelectedItem,
     itemToString: itemToValue,
     onSelectedItemChange: ({ selectedItem }) => {
-      onChange(itemToValue(selectedItem))
+      if (!selectedItem || !isItemDisabled(selectedItem)) {
+        onChange(itemToValue(selectedItem))
+      }
     },
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     scrollIntoView: () => {},
@@ -262,6 +269,7 @@ export const SingleSelectProvider = ({
         setIsFocused,
         resetInputValue,
         inputAria,
+        inputRef,
         virtualListRef,
         virtualListHeight,
       }}

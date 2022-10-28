@@ -1,11 +1,12 @@
 import { MouseEvent, useCallback, useMemo } from 'react'
 import { Icon, TagLabel } from '@chakra-ui/react'
 
-import { useMultiSelectContext } from '~/Dropdown/MultiSelectContext'
-import { useSelectContext } from '~/Dropdown/SelectContext'
-import { ComboboxItem } from '~/Dropdown/types'
-import { itemToIcon, itemToLabelString } from '~/Dropdown/utils/itemUtils'
 import { Tag, TagCloseButton } from '~/Tag'
+
+import { useMultiSelectContext } from '../../MultiSelectContext'
+import { useSelectContext } from '../../SelectContext'
+import { ComboboxItem } from '../../types'
+import { itemToIcon, itemToLabelString } from '../../utils/itemUtils'
 
 export interface MultiSelectItemProps<
   Item extends ComboboxItem = ComboboxItem,

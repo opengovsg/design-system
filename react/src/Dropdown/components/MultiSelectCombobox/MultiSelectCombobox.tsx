@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback } from 'react'
+import { forwardRef, PropsWithChildren, useCallback } from 'react'
 import {
   Box,
   chakra,
@@ -8,15 +8,14 @@ import {
   VisuallyHidden,
 } from '@chakra-ui/react'
 
-import { useMultiSelectContext } from '~/Dropdown/MultiSelectContext'
-import { BxsChevronDown } from '~/icons/BxsChevronDown'
-import { BxsChevronUp } from '~/icons/BxsChevronUp'
+import { BxsChevronDown, BxsChevronUp } from '~/icons'
 
+import { useMultiSelectContext } from '../../MultiSelectContext'
 import { useSelectContext } from '../../SelectContext'
 
 import { SelectedItems } from './SelectedItems'
 
-const MultiItemsContainer = ({ children }: { children?: React.ReactNode }) => {
+const MultiItemsContainer = ({ children }: PropsWithChildren) => {
   return (
     <Box
       display="inline-flex"
@@ -117,7 +116,7 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
         >
           <Icon
             as={isOpen ? BxsChevronUp : BxsChevronDown}
-            aria-label={`${isOpen ? 'Close' : 'Open'} dropdown options`}
+            aria-label={`${isOpen ? 'Close' : 'Open'} dropdown options icon`}
             aria-disabled={isDisabled}
           />
         </Box>
