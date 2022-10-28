@@ -30,13 +30,14 @@ export type UseToastReturn = {
 
 export const useToast = ({
   status: initialStatus = 'success',
+  duration: initialDuration = 6000,
   ...initialProps
 }: UseToastProps = {}): UseToastReturn => {
   const toast = useChakraToast(initialProps)
 
   const customToastImpl = useMemo(() => {
     const impl = ({
-      duration = 6000,
+      duration = initialDuration,
       position = 'top',
       render,
       status,
