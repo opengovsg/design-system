@@ -4,7 +4,6 @@ const path = require('path')
 
 module.exports = {
   features: {
-    emotionAlias: false,
     storyStoreV7: true,
     previewMdx2: true,
   },
@@ -23,7 +22,6 @@ module.exports = {
   staticDirs: ['./static'],
   // framework: '@storybook/react',
   core: {
-    builder: '@storybook/builder-vite',
     disableTelemetry: true,
   },
   refs: {
@@ -40,20 +38,11 @@ module.exports = {
       },
     })
   },
-  webpackFinal: async (config) => {
-    config.module.rules = [
-      ...config.module.rules,
-      {
-        type: 'javascript/auto',
-        test: /\.mjs$/,
-        include: /node_modules/,
-      },
-    ]
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '~': path.resolve(__dirname, '../src/'),
-    }
-
-    return config
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
+  },
+  docsPage: {
+    docs: 'automatic',
   },
 }
