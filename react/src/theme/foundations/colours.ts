@@ -7,7 +7,92 @@ export type ThemeColorScheme =
   | 'neutral'
   | 'white'
 
+const blue = {
+  50: '#F7F9FE',
+  100: '#E1EBFD',
+  200: '#ACC7FA',
+  300: '#82ABF7',
+  400: '#568DF4',
+  500: '#276EF1',
+  600: '#0D4FCA',
+  700: '#0B44AC',
+  800: '#093890',
+  900: '#072A69',
+}
+const red = {
+  50: '#fef7f7',
+  100: '#fbe4e4',
+  200: '#f4acac',
+  300: '#ee8080',
+  400: '#e74f4f',
+  500: '#c03434',
+  600: '#992a2a',
+  700: '#852424',
+  800: '#721f1f',
+  900: '#571717',
+}
+const green = {
+  50: '#f5fbf9',
+  100: '#d6f0e7',
+  200: '#7ccfb3',
+  300: '#33b488',
+  400: '#009762',
+  500: '#00774e',
+  600: '#005f3e',
+  700: '#005336',
+  800: '#00462e',
+  900: '#003523',
+}
+const yellow = {
+  50: '#fffae1',
+  100: '#FFDA68',
+  200: '#E2B73E',
+  300: '#C4992A',
+  400: '#A77C18',
+  500: '#8B6005',
+  600: '#704C00',
+  700: '#624200',
+  800: '#533800',
+  900: '#3f2b00',
+}
+const grey = {
+  50: '#f9f9f9',
+  100: '#e9e9e9',
+  200: '#bfbfbf',
+  300: '#a0a0a0',
+  400: '#848484',
+  500: '#686868',
+  600: '#535353',
+  700: '#474747',
+  800: '#3d3d3d',
+  900: '#2e2e2e',
+}
+const standard = {
+  white: '#ffffff',
+  black: '#000000',
+}
+
+const primary = blue
+
+const danger = red
+
+const warning = yellow
+
+const success = green
+
 export const colours = {
+  interaction: {
+    main: {
+      default: primary[500],
+      hover: primary[600],
+      active: primary[700],
+    },
+  },
+  utility: {
+    focus: {
+      default: primary[500],
+    },
+  },
   white: {
     50: '#FFFFFF',
     100: '#FFFFFF',
@@ -20,18 +105,7 @@ export const colours = {
     800: '#FFFFFF',
     900: '#FFFFFF',
   },
-  primary: {
-    50: '#F6F7FC',
-    100: '#F6F7FC',
-    200: '#E4E7F6',
-    300: '#B7C0E6',
-    400: '#8998D6',
-    500: '#4A61C0',
-    600: '#3B4E9A',
-    700: '#2C3A73',
-    800: '#1E274D',
-    900: '#161D3A',
-  },
+  primary,
   secondary: {
     50: '#F5F6F8',
     100: '#F5F6F8',
@@ -44,42 +118,9 @@ export const colours = {
     800: '#1B202E',
     900: '#0E1017',
   },
-  danger: {
-    50: '#FFF8F8',
-    100: '#FFF8F8',
-    200: '#F8EAEA',
-    300: '#E8C1C1',
-    400: '#D88888',
-    500: '#C05050',
-    600: '#AD4848',
-    700: '#9A4040',
-    800: '#733030',
-    900: '#602828',
-  },
-  warning: {
-    50: '#FFFCF2',
-    100: '#FFFCF2',
-    200: '#FDF3D1',
-    300: '#FCECB3',
-    400: '#FBE495',
-    500: '#F9D867',
-    600: '#E0C25D',
-    700: '#AE9748',
-    800: '#7D6C34',
-    900: '#4B411F',
-  },
-  success: {
-    50: '#E6FCF7',
-    100: '#E6FCF7',
-    200: '#CDF5EB',
-    300: '#9BEBD7',
-    400: '#50DBB8',
-    500: '#05CC9A',
-    600: '#05B88B',
-    700: '#038564',
-    800: '#03664D',
-    900: '#023D2E',
-  },
+  danger,
+  warning,
+  success,
   neutral: {
     100: '#FBFCFD',
     200: '#F0F0F1',

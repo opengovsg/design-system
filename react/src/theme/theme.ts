@@ -3,6 +3,7 @@ import { extendTheme } from '@chakra-ui/react'
 import { breakpoints } from './foundations/breakpoints'
 import { colours } from './foundations/colours'
 import { shadows } from './foundations/shadows'
+import { transition } from './foundations/transition'
 import { components } from './components'
 import { textStyles } from './textStyles'
 
@@ -28,6 +29,7 @@ export const theme = extendTheme({
   textStyles,
   breakpoints,
   shadows,
+  transition,
   fonts: {
     heading: 'Inter,Helvetica,Arial,system-ui,sans-serif',
     body: 'Inter,Helvetica,Arial,system-ui,sans-serif',
