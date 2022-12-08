@@ -134,10 +134,15 @@ ReversePrimary.args = {
   colorScheme: 'primary',
 }
 
-export const OutlinePrimary = ButtonGroupTemplate.bind({})
-OutlinePrimary.args = {
+export const OutlineDefault = ButtonGroupTemplate.bind({})
+OutlineDefault.args = {
   variant: 'outline',
-  colorScheme: 'primary',
+}
+
+export const OutlineCritical = ButtonGroupTemplate.bind({})
+OutlineCritical.args = {
+  variant: 'outline',
+  colorScheme: 'critical',
 }
 
 export const ClearSecondary = ButtonGroupTemplate.bind({})

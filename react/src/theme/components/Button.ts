@@ -22,10 +22,8 @@ const genVariantSolidColours = ({
   colorScheme: c,
   theme,
 }: StyleFunctionProps) => {
-  let solidVariantProps: Record<string, any> = {
-    focusOutline: `2px solid var(--chakra-colors-utility-focus-default)`,
-    color: 'base.content.inverse',
-  }
+  let color = 'base.content.inverse'
+  let solidVariantProps
 
   switch (c) {
     case 'main':
@@ -34,7 +32,6 @@ const genVariantSolidColours = ({
     case 'warning':
       {
         solidVariantProps = {
-          ...solidVariantProps,
           bg: `interaction.${c}.default`,
           activeBg: `interaction.${c}.active`,
           hoverBg: `interaction.${c}.hover`,
@@ -43,7 +40,6 @@ const genVariantSolidColours = ({
       break
     default: {
       solidVariantProps = {
-        ...solidVariantProps,
         bg: `${c}.600`,
         activeBg: `${c}.800`,
         hoverBg: `${c}.700`,
@@ -51,42 +47,39 @@ const genVariantSolidColours = ({
     }
   }
   const hasSufficientContrast = meetsWcagAaRatio(
-    getColor(theme, solidVariantProps.color),
+    getColor(theme, color),
     getColor(theme, solidVariantProps.bg),
   )
   // Note that using the default content colour for the button text could still result in bad contrast.
   if (!hasSufficientContrast) {
-    solidVariantProps.color = 'base.content.default'
+    color = 'base.content.default'
   }
-  return solidVariantProps
+  return { ...solidVariantProps, color }
 }
 
-const genVariantOutlineColours = ({
-  colorScheme: c,
-  theme,
-}: StyleFunctionProps) => {
+const genVariantOutlineColours = ({ colorScheme: c }: StyleFunctionProps) => {
   switch (c) {
-    case 'theme-red':
-    case 'theme-orange':
-    case 'theme-yellow': {
+    case 'main':
+    case 'critical': {
       return {
-        borderColor: `${c}.600` as const,
-        focusBorderColor: getColor(theme, `${c}.400`),
+        bg: `standard.white`,
+        borderColor: `interaction.${c}.default`,
+        activeBg: `interaction.muted.${c}.active`,
+        hoverBg: `interaction.tinted.${c}.hover`,
       }
     }
     default: {
       return {
         borderColor: `${c}.500` as const,
-        focusBorderColor: getColor(theme, `${c}.300`),
+        activeBg: `${c}.200`,
+        hoverBg: `${c}.100`,
       }
     }
   }
 }
 
 const variantSolid: SystemStyleFunction = (props) => {
-  const { colorScheme: c } = props
-  const { bg, hoverBg, activeBg, focusOutline, color } =
-    genVariantSolidColours(props)
+  const { bg, hoverBg, activeBg, color } = genVariantSolidColours(props)
 
   return {
     bg,
@@ -96,16 +89,6 @@ const variantSolid: SystemStyleFunction = (props) => {
     _active: {
       bg: activeBg,
       borderColor: activeBg,
-      _disabled: {
-        bg: `${c}.300`,
-        borderColor: `${c}.300`,
-      },
-    },
-    _focus: {
-      borderColor: 'transparent',
-      boxShadow: 'none !important',
-      outline: focusOutline,
-      outlineOffset: '2px',
     },
     _hover: {
       bg: hoverBg,
@@ -150,7 +133,7 @@ const variantClear: SystemStyleFunction = (props) => {
 
 const variantOutlineReverse: SystemStyleFunction = (props) => {
   const { colorScheme: c, variant } = props
-  const { borderColor, focusBorderColor } = genVariantOutlineColours(props)
+  const { borderColor, activeBg, hoverBg } = genVariantOutlineColours(props)
   const showBorder = variant === 'outline'
 
   return {
@@ -158,29 +141,20 @@ const variantOutlineReverse: SystemStyleFunction = (props) => {
     px: '15px',
     borderColor: showBorder ? borderColor : 'white',
     color: borderColor,
-    _focus: {
-      boxShadow: `0 0 0 4px ${focusBorderColor}`,
-    },
     _disabled: {
-      color: `${c}.300`,
-      borderColor: showBorder ? `${c}.300` : 'white',
+      borderColor: 'interaction.support.disabledContent',
       bg: 'white',
-      opacity: 1,
     },
     _active: {
-      bg: `${c}.200`,
+      bg: activeBg,
       borderColor: showBorder ? borderColor : `${c}.200`,
-      _disabled: {
-        bg: 'white',
-        borderColor: showBorder ? `${c}.300` : 'white',
-      },
     },
     _hover: {
-      bg: `${c}.100`,
+      bg: hoverBg,
       borderColor: showBorder ? borderColor : `${c}.100`,
       _disabled: {
+        borderColor: 'interaction.support.disabledContent',
         bg: 'white',
-        borderColor: showBorder ? `${c}.300` : 'white',
       },
     },
   }
@@ -247,6 +221,11 @@ export const Button = {
       borderColor: 'interaction.support.disabled',
       opacity: 1,
       color: 'interaction.support.disabledContent',
+    },
+    _focus: {
+      boxShadow: 'none !important',
+      outline: `2px solid var(--chakra-colors-utility-focus-default)`,
+      outlineOffset: '0.125rem',
     },
   },
   sizes: {

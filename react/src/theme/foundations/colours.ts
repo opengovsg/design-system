@@ -1,3 +1,5 @@
+import { hexToRgba } from '../utils/hexToRgba'
+
 export type ThemeColorScheme =
   | 'blue'
   | 'red'
@@ -112,6 +114,27 @@ export const colours = {
       unselected: grey[300],
       unselectedDark: grey[500],
       selected: grey[500],
+    },
+    tinted: {
+      main: {
+        hover: hexToRgba(primary[500], 0.04),
+        active: hexToRgba(primary[500], 0.12),
+      },
+      critical: {
+        hover: hexToRgba(red[500], 0.04),
+        active: hexToRgba(red[500], 0.12),
+      },
+    },
+    muted: {
+      main: {
+        active: primary[100],
+      },
+      critical: {
+        active: red[100],
+      },
+      warning: {
+        active: yellow[100],
+      },
     },
   },
   base: {
