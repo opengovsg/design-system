@@ -1,11 +1,13 @@
 export type ThemeColorScheme =
+  | 'blue'
+  | 'red'
+  | 'green'
+  | 'yellow'
+  | 'grey'
   | 'primary'
-  | 'secondary'
-  | 'danger'
   | 'warning'
   | 'success'
   | 'neutral'
-  | 'white'
 
 const blue = {
   50: '#F7F9FE',
@@ -67,18 +69,19 @@ const grey = {
   800: '#3d3d3d',
   900: '#2e2e2e',
 }
-const standard = {
-  white: '#ffffff',
-  black: '#000000',
-}
 
 const primary = blue
 
-const danger = red
+const critical = red
 
 const warning = yellow
 
 const success = green
+
+const standard = {
+  white: '#FFFFFF',
+  black: '#000000',
+}
 
 export const colours = {
   interaction: {
@@ -87,12 +90,46 @@ export const colours = {
       hover: primary[600],
       active: primary[700],
     },
+    critical: {
+      default: red[500],
+      hover: red[600],
+      active: red[700],
+    },
+    warning: {
+      default: yellow[100],
+      hover: yellow[200],
+      active: yellow[300],
+    },
+    success: {
+      default: green[500],
+      hover: green[600],
+      active: green[700],
+    },
+    support: {
+      disabled: grey[100],
+      disabledContent: grey[300],
+      placeholder: grey[300],
+      unselected: grey[300],
+      unselectedDark: grey[500],
+      selected: grey[500],
+    },
+  },
+  base: {
+    content: {
+      default: grey[700],
+      inverse: standard.white,
+    },
   },
   utility: {
     focus: {
       default: primary[500],
     },
   },
+  blue,
+  red,
+  yellow,
+  green,
+  grey,
   white: {
     50: '#FFFFFF',
     100: '#FFFFFF',
@@ -118,7 +155,7 @@ export const colours = {
     800: '#1B202E',
     900: '#0E1017',
   },
-  danger,
+  critical,
   warning,
   success,
   neutral: {

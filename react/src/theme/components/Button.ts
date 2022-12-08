@@ -6,6 +6,7 @@ import {
 import { merge } from 'lodash'
 
 import { textStyles } from '../textStyles'
+import { meetsWcagAaRatio } from '../utils'
 
 import { Link } from './Link'
 
@@ -17,40 +18,47 @@ export type ThemeButtonVariant =
   | 'link'
   | 'inputAttached'
 
-const genVariantSolidColours = (c: string) => {
-  const defaultBackgrounds = {
-    bg: `${c}.500`,
-    activeBg: `${c}.700`,
-    hoverBg: `${c}.600`,
-    focusBoxShadow: `0 0 0 4px var(--chakra-colors-${c}-300)`,
-    color: 'white',
-    disabledColor: 'white',
+const genVariantSolidColours = ({
+  colorScheme: c,
+  theme,
+}: StyleFunctionProps) => {
+  let solidVariantProps: Record<string, any> = {
+    focusOutline: `2px solid var(--chakra-colors-utility-focus-default)`,
+    color: 'base.content.inverse',
   }
+
   switch (c) {
-    case 'success': {
-      return {
-        bg: `${c}.700`,
-        activeBg: `${c}.800`,
-        hoverBg: `${c}.800`,
-        focusBoxShadow: `0 0 0 4px var(--chakra-colors-${c}-400)`,
-        color: 'white',
-        disabledColor: 'white',
+    case 'main':
+    case 'success':
+    case 'critical':
+    case 'warning':
+      {
+        solidVariantProps = {
+          ...solidVariantProps,
+          bg: `interaction.${c}.default`,
+          activeBg: `interaction.${c}.active`,
+          hoverBg: `interaction.${c}.hover`,
+        }
       }
-    }
-    case 'theme-red':
-    case 'theme-orange':
-    case 'theme-yellow': {
-      return {
-        ...defaultBackgrounds,
+      break
+    default: {
+      solidVariantProps = {
+        ...solidVariantProps,
         bg: `${c}.600`,
         activeBg: `${c}.800`,
         hoverBg: `${c}.700`,
       }
     }
-    default: {
-      return defaultBackgrounds
-    }
   }
+  const hasSufficientContrast = meetsWcagAaRatio(
+    getColor(theme, solidVariantProps.color),
+    getColor(theme, solidVariantProps.bg),
+  )
+  // Note that using the default content colour for the button text could still result in bad contrast.
+  if (!hasSufficientContrast) {
+    solidVariantProps.color = 'base.content.default'
+  }
+  return solidVariantProps
 }
 
 const genVariantOutlineColours = ({
@@ -77,8 +85,8 @@ const genVariantOutlineColours = ({
 
 const variantSolid: SystemStyleFunction = (props) => {
   const { colorScheme: c } = props
-  const { bg, hoverBg, activeBg, focusBoxShadow, color, disabledColor } =
-    genVariantSolidColours(c)
+  const { bg, hoverBg, activeBg, focusOutline, color } =
+    genVariantSolidColours(props)
 
   return {
     bg,
@@ -95,20 +103,16 @@ const variantSolid: SystemStyleFunction = (props) => {
     },
     _focus: {
       borderColor: 'transparent',
-      boxShadow: focusBoxShadow,
-    },
-    _disabled: {
-      bg: `${c}.300`,
-      borderColor: `${c}.300`,
-      opacity: 1,
-      color: disabledColor,
+      boxShadow: 'none !important',
+      outline: focusOutline,
+      outlineOffset: '2px',
     },
     _hover: {
       bg: hoverBg,
       borderColor: hoverBg,
       _disabled: {
-        bg: `${c}.300`,
-        borderColor: `${c}.300`,
+        bg: 'interaction.support.disabled',
+        borderColor: 'interaction.support.disabled',
       },
     },
   }
@@ -238,6 +242,12 @@ export const Button = {
     // -1px for border
     px: '15px',
     py: '9px',
+    _disabled: {
+      bg: 'interaction.support.disabled',
+      borderColor: 'interaction.support.disabled',
+      opacity: 1,
+      color: 'interaction.support.disabledContent',
+    },
   },
   sizes: {
     sm: {
@@ -263,7 +273,7 @@ export const Button = {
   },
   defaultProps: {
     variant: 'solid',
-    colorScheme: 'primary',
+    colorScheme: 'main',
     size: 'md',
   },
 }

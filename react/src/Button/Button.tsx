@@ -10,6 +10,7 @@ import { Spinner } from '~/Spinner'
 import { ThemeButtonVariant } from '~/theme/components/Button'
 import { ThemeColorScheme } from '~/theme/foundations/colours'
 
+type ButtonColorScheme = 'main' | 'success' | 'critical' | 'warning'
 export interface ButtonProps extends ChakraButtonProps {
   /**
    * The variant of the button.
@@ -30,7 +31,7 @@ export interface ButtonProps extends ChakraButtonProps {
   /**
    * Color scheme of button.
    */
-  colorScheme?: ThemeColorScheme
+  colorScheme?: ThemeColorScheme | ButtonColorScheme
 }
 
 export const Button = forwardRef<ButtonProps, 'button'>(

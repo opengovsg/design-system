@@ -96,7 +96,6 @@ export const Default = ButtonTemplate.bind({})
 Default.args = {
   variant: 'solid',
   children: 'Button',
-  colorScheme: 'primary',
   size: 'md',
   textStyle: 'subhead-1',
 }
@@ -105,27 +104,28 @@ export const FullWidth = ButtonTemplate.bind({})
 FullWidth.args = {
   variant: 'solid',
   children: 'Button',
-  colorScheme: 'primary',
   isFullWidth: true,
   textStyle: 'subhead-1',
 }
 
-export const SolidPrimary = ButtonGroupTemplate.bind({})
-SolidPrimary.args = {
-  variant: 'solid',
-  colorScheme: 'primary',
-}
+export const SolidDefault = ButtonGroupTemplate.bind({})
 
-export const SolidDanger = ButtonGroupTemplate.bind({})
-SolidDanger.args = {
+export const SolidCritical = ButtonGroupTemplate.bind({})
+SolidCritical.args = {
   variant: 'solid',
-  colorScheme: 'danger',
+  colorScheme: 'critical',
 }
 
 export const SolidSuccess = ButtonGroupTemplate.bind({})
 SolidSuccess.args = {
   variant: 'solid',
   colorScheme: 'success',
+}
+
+export const SolidWarning = ButtonGroupTemplate.bind({})
+SolidWarning.args = {
+  variant: 'solid',
+  colorScheme: 'warning',
 }
 
 export const ReversePrimary = ButtonGroupTemplate.bind({})
