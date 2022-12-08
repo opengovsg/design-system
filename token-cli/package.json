@@ -1,0 +1,14 @@
+{
+  "name": "token-cli",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lodash": "^4.17.21",
+    "style-dictionary": "^3.7.1"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "source": ["tokens/**/*.json"],
+  "platforms": {
+    "emotion": {
+      "buildPath": "build/",
+      "files": [
+        {
+          "destination": "tokens.js",
+          "format": "emotion"
+        }
+      ],
+
+      "options": {
+        "outputReferences": true
+      }
+    }
+  }
+}
