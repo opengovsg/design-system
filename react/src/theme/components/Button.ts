@@ -19,6 +19,8 @@ export type ThemeButtonVariant =
   | 'link'
   | 'inputAttached'
 
+export type ThemeButtonColorScheme = 'main' | 'success' | 'critical' | 'inverse'
+
 const genVariantSolidColours = ({
   colorScheme: c,
   theme,
