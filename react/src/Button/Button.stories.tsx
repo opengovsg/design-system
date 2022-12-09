@@ -122,12 +122,6 @@ SolidSuccess.args = {
   colorScheme: 'success',
 }
 
-export const SolidWarning = ButtonGroupTemplate.bind({})
-SolidWarning.args = {
-  variant: 'solid',
-  colorScheme: 'warning',
-}
-
 export const ReversePrimary = ButtonGroupTemplate.bind({})
 ReversePrimary.args = {
   variant: 'reverse',
