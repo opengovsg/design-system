@@ -7,6 +7,7 @@ import { merge } from 'lodash'
 
 import { textStyles } from '../textStyles'
 import { meetsWcagAaRatio } from '../utils'
+import { hexToRgba } from '../utils/hexToRgba'
 
 import { Link } from './Link'
 
@@ -56,22 +57,38 @@ const genVariantSolidColours = ({
   return { ...solidVariantProps, color }
 }
 
-const genVariantOutlineColours = ({ colorScheme: c }: StyleFunctionProps) => {
+const genVariantOutlineColours = ({
+  colorScheme: c,
+  theme,
+}: StyleFunctionProps) => {
   switch (c) {
     case 'main':
     case 'critical': {
       return {
-        bg: `standard.white`,
         borderColor: `interaction.${c}.default`,
         activeBg: `interaction.tinted.${c}.active`,
         hoverBg: `interaction.tinted.${c}.hover`,
       }
     }
+    case 'neutral': {
+      return {
+        borderColor: 'black',
+        hoverBg: 'interaction.tinted.dark.hover',
+        activeBg: 'interaction.tinted.dark.active',
+      }
+    }
+    case 'inverse': {
+      return {
+        borderColor: 'base.content.inverse',
+        hoverBg: 'interaction.tinted.light.hover',
+        activeBg: 'interaction.tinted.light.active',
+      }
+    }
     default: {
       return {
         borderColor: `${c}.500` as const,
-        activeBg: `${c}.200`,
-        hoverBg: `${c}.100`,
+        activeBg: hexToRgba(getColor(theme, `${c}.500`), 0.12),
+        hoverBg: hexToRgba(getColor(theme, `${c}.500`), 0.04),
       }
     }
   }
@@ -136,13 +153,13 @@ const variantOutlineReverse: SystemStyleFunction = (props) => {
   const showBorder = variant === 'outline'
 
   return {
-    bg: 'white',
+    bg: showBorder ? 'transparent' : 'white',
     px: '15px',
     borderColor: showBorder ? borderColor : 'white',
     color: borderColor,
     _disabled: {
       borderColor: 'interaction.support.disabledContent',
-      bg: 'white',
+      bg: showBorder ? 'transparent' : 'white',
     },
     _active: {
       bg: activeBg,
@@ -153,7 +170,7 @@ const variantOutlineReverse: SystemStyleFunction = (props) => {
       borderColor: showBorder ? borderColor : `${c}.100`,
       _disabled: {
         borderColor: 'interaction.support.disabledContent',
-        bg: 'white',
+        bg: showBorder ? 'transparent' : 'white',
       },
     },
   }

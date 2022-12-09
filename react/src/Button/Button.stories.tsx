@@ -139,10 +139,24 @@ OutlineCritical.args = {
   colorScheme: 'critical',
 }
 
-export const ClearSecondary = ButtonGroupTemplate.bind({})
-ClearSecondary.args = {
+export const OutlineNeutral = ButtonGroupTemplate.bind({})
+OutlineNeutral.args = {
+  variant: 'outline',
+  colorScheme: 'neutral',
+}
+
+export const OutlineInverse = ButtonGroupTemplate.bind({})
+OutlineInverse.args = {
+  variant: 'outline',
+  colorScheme: 'inverse',
+}
+OutlineInverse.parameters = {
+  backgrounds: { default: 'dark' },
+}
+
+export const ClearDefault = ButtonGroupTemplate.bind({})
+ClearDefault.args = {
   variant: 'clear',
-  colorScheme: 'secondary',
 }
 
 export const LinkPrimary = ButtonGroupTemplate.bind({})

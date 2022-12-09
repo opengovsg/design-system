@@ -80,6 +80,9 @@ const warning = yellow
 
 const success = green
 
+// Backwards compatibility
+const danger = red
+
 const standard = {
   white: '#FFFFFF',
   black: '#000000',
@@ -124,6 +127,14 @@ export const colours = {
         hover: hexToRgba(red[500], 0.04),
         active: hexToRgba(red[500], 0.12),
       },
+      dark: {
+        hover: hexToRgba(standard.black, 0.1),
+        active: hexToRgba(standard.black, 0.2),
+      },
+      light: {
+        hover: hexToRgba(standard.white, 0.1),
+        active: hexToRgba(standard.white, 0.2),
+      },
     },
     muted: {
       main: {
@@ -145,7 +156,8 @@ export const colours = {
   },
   utility: {
     focus: {
-      default: primary[500],
+      default: blue[500],
+      inverse: standard.white,
     },
   },
   blue,
@@ -181,6 +193,7 @@ export const colours = {
   critical,
   warning,
   success,
+  danger,
   neutral: {
     100: '#FBFCFD',
     200: '#F0F0F1',
