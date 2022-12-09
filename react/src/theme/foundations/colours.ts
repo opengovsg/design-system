@@ -138,12 +138,15 @@ export const colours = {
     },
     muted: {
       main: {
+        hover: primary[50],
         active: primary[100],
       },
       critical: {
+        hover: red[50],
         active: red[100],
       },
       warning: {
+        hover: yellow[50],
         active: yellow[100],
       },
     },

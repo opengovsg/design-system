@@ -168,6 +168,11 @@ ClearInverse.parameters = {
   backgrounds: { default: 'dark' },
 }
 
+export const ReverseDefault = ButtonGroupTemplate.bind({})
+ReverseDefault.args = {
+  variant: 'reverse',
+}
+
 export const LinkPrimary = ButtonGroupTemplate.bind({})
 LinkPrimary.args = {
   variant: 'link',

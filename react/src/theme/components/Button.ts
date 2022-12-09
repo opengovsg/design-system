@@ -13,6 +13,7 @@ import { Link } from './Link'
 
 export type ThemeButtonVariant =
   | 'solid'
+  | 'reverse'
   | 'outline'
   | 'clear'
   | 'link'
@@ -111,6 +112,51 @@ const variantSolid: SystemStyleFunction = (props) => {
       _disabled: {
         bg: 'interaction.support.disabled',
         borderColor: 'interaction.support.disabled',
+      },
+    },
+  }
+}
+
+const genVariantReverseColours = ({ colorScheme: c }: StyleFunctionProps) => {
+  switch (c) {
+    case 'main':
+    case 'critical': {
+      return {
+        activeBg: `interaction.muted.${c}.active`,
+        hoverBg: `interaction.muted.${c}.hover`,
+        color: `interaction.${c}.default`,
+      }
+    }
+
+    default: {
+      return {
+        activeBg: `${c}.100`,
+        hoverBg: `${c}.50`,
+        color: `${c}.500`,
+      }
+    }
+  }
+}
+
+const variantReverse: SystemStyleFunction = (props) => {
+  const { hoverBg, activeBg, color } = genVariantReverseColours(props)
+
+  return {
+    bg: 'white',
+    borderColor: 'transparent',
+    color,
+    px: '15px',
+    _disabled: {
+      bg: 'white',
+      borderColor: 'transparent',
+    },
+    _active: {
+      bg: activeBg,
+    },
+    _hover: {
+      bg: hoverBg,
+      _disabled: {
+        bg: 'white',
       },
     },
   }
@@ -232,6 +278,7 @@ export const Button = {
   },
   variants: {
     solid: variantSolid,
+    reverse: variantReverse,
     outline: variantOutlineClear,
     clear: variantOutlineClear,
     link: variantLink,
