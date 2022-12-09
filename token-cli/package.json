@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "transform": "npx token-transformer tokens/raw tokens/output.json"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "lodash": "^4.17.21",
-    "style-dictionary": "^3.7.1"
+    "style-dictionary": "^3.7.1",
+    "token-transformer": "^0.0.28"
   }
 }
