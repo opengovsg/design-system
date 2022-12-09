@@ -29,7 +29,6 @@ const genVariantSolidColours = ({
     case 'main':
     case 'success':
     case 'critical':
-    case 'warning':
       {
         solidVariantProps = {
           bg: `interaction.${c}.default`,
@@ -64,7 +63,7 @@ const genVariantOutlineColours = ({ colorScheme: c }: StyleFunctionProps) => {
       return {
         bg: `standard.white`,
         borderColor: `interaction.${c}.default`,
-        activeBg: `interaction.muted.${c}.active`,
+        activeBg: `interaction.tinted.${c}.active`,
         hoverBg: `interaction.tinted.${c}.hover`,
       }
     }
