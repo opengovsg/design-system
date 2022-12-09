@@ -1,5 +1,5 @@
 {
-  "source": ["tokens/output.json"],
+  "source": ["tokens/transformed.json"],
   "platforms": {
     "emotion": {
       "buildPath": "build/",

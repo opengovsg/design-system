@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "node build.js",
-    "transform": "npx token-transformer tokens/raw tokens/output.json"
+    "build": "npx style-dictionary clean && node build.js",
+    "transform": "npx token-transformer tokens/raw tokens/transformed.json"
   },
   "author": "",
   "license": "ISC",
