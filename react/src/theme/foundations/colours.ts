@@ -152,6 +152,7 @@ export const colours = {
     content: {
       default: grey[700],
       inverse: standard.white,
+      dark: grey[900],
     },
   },
   utility: {

@@ -122,12 +122,6 @@ SolidSuccess.args = {
   colorScheme: 'success',
 }
 
-export const ReversePrimary = ButtonGroupTemplate.bind({})
-ReversePrimary.args = {
-  variant: 'reverse',
-  colorScheme: 'primary',
-}
-
 export const OutlineDefault = ButtonGroupTemplate.bind({})
 OutlineDefault.args = {
   variant: 'outline',
@@ -157,6 +151,21 @@ OutlineInverse.parameters = {
 export const ClearDefault = ButtonGroupTemplate.bind({})
 ClearDefault.args = {
   variant: 'clear',
+}
+
+export const ClearNeutral = ButtonGroupTemplate.bind({})
+ClearNeutral.args = {
+  variant: 'clear',
+  colorScheme: 'neutral',
+}
+
+export const ClearInverse = ButtonGroupTemplate.bind({})
+ClearInverse.args = {
+  variant: 'clear',
+  colorScheme: 'inverse',
+}
+ClearInverse.parameters = {
+  backgrounds: { default: 'dark' },
 }
 
 export const LinkPrimary = ButtonGroupTemplate.bind({})

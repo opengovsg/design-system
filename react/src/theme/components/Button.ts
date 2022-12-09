@@ -13,7 +13,6 @@ import { Link } from './Link'
 
 export type ThemeButtonVariant =
   | 'solid'
-  | 'reverse'
   | 'outline'
   | 'clear'
   | 'link'
@@ -72,7 +71,7 @@ const genVariantOutlineColours = ({
     }
     case 'neutral': {
       return {
-        borderColor: 'black',
+        borderColor: 'base.content.dark',
         hoverBg: 'interaction.tinted.dark.hover',
         activeBg: 'interaction.tinted.dark.active',
       }
@@ -117,60 +116,33 @@ const variantSolid: SystemStyleFunction = (props) => {
   }
 }
 
-const variantClear: SystemStyleFunction = (props) => {
-  const { colorScheme: c } = props
+const variantOutlineClear: SystemStyleFunction = (props) => {
+  const { borderColor, activeBg, hoverBg } = genVariantOutlineColours(props)
+  const showBorder = props.variant === 'outline'
 
   return {
     bg: 'transparent',
-    borderColor: 'transparent',
     px: '15px',
-    color: `${c}.500`,
-    _focus: {
-      boxShadow: `0 0 0 4px var(--chakra-colors-${c}-300)`,
-    },
-    _disabled: {
-      color: `${c}.300`,
-      opacity: 1,
-    },
-    _active: {
-      bg: `${c}.200`,
-      _disabled: {
-        bg: 'transparent',
-      },
-    },
-    _hover: {
-      bg: `${c}.100`,
-      _disabled: {
-        bg: 'transparent',
-      },
-    },
-  }
-}
-
-const variantOutlineReverse: SystemStyleFunction = (props) => {
-  const { colorScheme: c, variant } = props
-  const { borderColor, activeBg, hoverBg } = genVariantOutlineColours(props)
-  const showBorder = variant === 'outline'
-
-  return {
-    bg: showBorder ? 'transparent' : 'white',
-    px: '15px',
-    borderColor: showBorder ? borderColor : 'white',
+    borderColor: showBorder ? borderColor : 'transparent',
     color: borderColor,
     _disabled: {
-      borderColor: 'interaction.support.disabledContent',
-      bg: showBorder ? 'transparent' : 'white',
+      borderColor: showBorder
+        ? 'interaction.support.disabledContent'
+        : 'transparent',
+      bg: 'transparent',
     },
     _active: {
       bg: activeBg,
-      borderColor: showBorder ? borderColor : `${c}.200`,
+      borderColor: showBorder ? borderColor : 'transparent',
     },
     _hover: {
       bg: hoverBg,
-      borderColor: showBorder ? borderColor : `${c}.100`,
+      borderColor: showBorder ? borderColor : 'transparent',
       _disabled: {
-        borderColor: 'interaction.support.disabledContent',
-        bg: showBorder ? 'transparent' : 'white',
+        borderColor: showBorder
+          ? 'interaction.support.disabledContent'
+          : 'transparent',
+        bg: 'transparent',
       },
     },
   }
@@ -260,9 +232,8 @@ export const Button = {
   },
   variants: {
     solid: variantSolid,
-    reverse: variantOutlineReverse,
-    outline: variantOutlineReverse,
-    clear: variantClear,
+    outline: variantOutlineClear,
+    clear: variantOutlineClear,
     link: variantLink,
     inputAttached: variantInputAttached,
   },
