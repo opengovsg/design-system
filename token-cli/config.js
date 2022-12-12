@@ -35,26 +35,38 @@ const designSystemFormatter = ({ dictionary, platform, options, file }) => {
 
   replaceNestedObjects(dictionary.properties);
 
-  // Output the dictionary as a file.
-  return (
-    fileHeader({ file }) +
+  let output = fileHeader({ file });
+  const tokens = Object.keys(dictionary.tokens);
+  if (tokens.length === 1) {
+    output +=
+      `export const ${options.exportName} =  ${JSON5.stringify(
+        dictionary.tokens[tokens[0]],
+        { space: 2, quote: '"' }
+      )}` + ";\n";
+  } else {
     // Split object into multiple objects based on the key.
     // E.g. { spacing: {...}, color: {...} } => const spacing: {...}; const color: {...};
-    Object.keys(dictionary.tokens)
-      .map((key) => {
-        return `const ${camelCase(key)} = ${JSON5.stringify(
-          dictionary.tokens[key],
-          { space: 2, quote: '"' }
-        )}`;
-      })
-      .join("\n\n") +
-    "\n\n" +
-    "export {\n" +
-    Object.keys(dictionary.tokens)
-      .map((k) => `  ${camelCase(k)}`)
-      .join(", \n") +
-    "\n};\n"
-  );
+    output +=
+      tokens
+        .map((key) => {
+          return `const ${camelCase(key)} = ${JSON5.stringify(
+            dictionary.tokens[key],
+            { space: 2, quote: '"' }
+          )}`;
+        })
+        .join("\n\n") +
+      "\n\n" +
+      "export const " +
+      options.exportName +
+      " = {\n" +
+      Object.keys(dictionary.tokens)
+        .map((k) => `  ${camelCase(k)}`)
+        .join(", \n") +
+      "\n};\n";
+  }
+
+  // Output the dictionary as a file.
+  return output;
 };
 
 // Suppress nested collision output.
@@ -137,8 +149,70 @@ module.exports = {
       buildPath: "themes/",
       files: [
         {
-          destination: "default.ts",
+          destination: "default/colours.ts",
+          filter: (token) => token.type === "color",
           format: "typescript/design-system",
+          options: {
+            exportName: "colours",
+          },
+        },
+        {
+          destination: "default/typography.ts",
+          filter: (token) => {
+            switch (token.type) {
+              case "fontFamilies":
+              case "fontSizes":
+              case "fontWeights":
+              case "lineHeights":
+              case "letterSpacing":
+              case "paragraphSpacing":
+                return true;
+              default:
+                return false;
+            }
+          },
+          format: "typescript/design-system",
+          options: {
+            exportName: "typography",
+          },
+        },
+        {
+          destination: "default/textStyles.ts",
+          filter: (token) => {
+            if (token.type !== "typography") return false;
+            switch (token.type) {
+              case "fontFamilies":
+              case "fontSizes":
+              case "fontWeights":
+              case "lineHeights":
+              case "letterSpacing":
+              case "paragraphSpacing":
+                return false;
+              default:
+                return true;
+            }
+          },
+          format: "typescript/design-system",
+          options: {
+            exportName: "textStyles",
+          },
+        },
+
+        {
+          destination: "default/spacing.ts",
+          filter: (token) => token.type === "spacing",
+          format: "typescript/design-system",
+          options: {
+            exportName: "spacing",
+          },
+        },
+        {
+          destination: "default/shadows.ts",
+          filter: (token) => token.type === "boxShadow",
+          format: "typescript/design-system",
+          options: {
+            exportName: "shadows",
+          },
         },
       ],
     },
