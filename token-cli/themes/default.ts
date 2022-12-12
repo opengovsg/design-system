@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 12 Dec 2022 10:14:06 GMT
+ * Generated on Mon, 12 Dec 2022 10:31:54 GMT
  */
 
 const spacing = {
@@ -323,11 +323,11 @@ const typography = {
     "18": "4.5rem",
   },
   fontWeights: {
-    light: "Light",
-    normal: "Regular",
-    medium: "Medium",
-    semibold: "Semi Bold",
-    bold: "Bold",
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
   },
   fontSize: {
     "2xs": "0.625rem",
@@ -361,7 +361,7 @@ const typography = {
   "responsive-display": {
     "heavy-1280": {
       fontFamily: "Inter",
-      fontWeight: "Bold",
+      fontWeight: 700,
       lineHeight: "4.5rem",
       fontSize: "4rem",
       letterSpacing: "-2.2%",
@@ -371,7 +371,7 @@ const typography = {
     },
     "heavy-480": {
       fontFamily: "Inter",
-      fontWeight: "Bold",
+      fontWeight: 700,
       lineHeight: "4rem",
       fontSize: "3.5rem",
       letterSpacing: "-2.2%",
@@ -381,7 +381,7 @@ const typography = {
     },
     heavy: {
       fontFamily: "Inter",
-      fontWeight: "Semi Bold",
+      fontWeight: 600,
       lineHeight: "3rem",
       fontSize: "2.5rem",
       letterSpacing: "-2.2%",
@@ -391,7 +391,7 @@ const typography = {
     },
     "light-1280": {
       fontFamily: "Inter",
-      fontWeight: "Light",
+      fontWeight: 300,
       lineHeight: "4.5rem",
       fontSize: "4rem",
       letterSpacing: "-2.2%",
@@ -401,7 +401,7 @@ const typography = {
     },
     "light-480": {
       fontFamily: "Inter",
-      fontWeight: "Light",
+      fontWeight: 300,
       lineHeight: "4rem",
       fontSize: "3.5rem",
       letterSpacing: "-2.2%",
@@ -411,7 +411,7 @@ const typography = {
     },
     light: {
       fontFamily: "Inter",
-      fontWeight: "Light",
+      fontWeight: 300,
       lineHeight: "3rem",
       fontSize: "2.5rem",
       letterSpacing: "-2.2%",
@@ -423,7 +423,7 @@ const typography = {
   "responsive-heading": {
     "heavy-1280": {
       fontFamily: "Inter",
-      fontWeight: "Semi Bold",
+      fontWeight: 600,
       lineHeight: "3.5rem",
       fontSize: "3rem",
       letterSpacing: "-2.2%",
@@ -433,7 +433,7 @@ const typography = {
     },
     "heavy-480": {
       fontFamily: "Inter",
-      fontWeight: "Semi Bold",
+      fontWeight: 600,
       lineHeight: "3rem",
       fontSize: "2.5rem",
       letterSpacing: "-2.2%",
@@ -443,7 +443,7 @@ const typography = {
     },
     heavy: {
       fontFamily: "Inter",
-      fontWeight: "Semi Bold",
+      fontWeight: 600,
       lineHeight: "2.5rem",
       fontSize: "2rem",
       letterSpacing: "-2.2%",
@@ -453,7 +453,7 @@ const typography = {
     },
     "light-1280": {
       fontFamily: "Inter",
-      fontWeight: "Light",
+      fontWeight: 300,
       lineHeight: "3.5rem",
       fontSize: "3rem",
       letterSpacing: "-2.2%",
@@ -463,7 +463,7 @@ const typography = {
     },
     "light-480": {
       fontFamily: "Inter",
-      fontWeight: "Light",
+      fontWeight: 300,
       lineHeight: "3rem",
       fontSize: "2.5rem",
       letterSpacing: "-2.2%",
@@ -473,7 +473,7 @@ const typography = {
     },
     light: {
       fontFamily: "Inter",
-      fontWeight: "Light",
+      fontWeight: 300,
       lineHeight: "2.5rem",
       fontSize: "2rem",
       letterSpacing: "-2.2%",
@@ -484,7 +484,7 @@ const typography = {
   },
   h1: {
     fontFamily: "Inter",
-    fontWeight: "Semi Bold",
+    fontWeight: 600,
     lineHeight: "3rem",
     fontSize: "2.5rem",
     letterSpacing: "-2.2%",
@@ -494,7 +494,7 @@ const typography = {
   },
   h2: {
     fontFamily: "Inter",
-    fontWeight: "Semi Bold",
+    fontWeight: 600,
     lineHeight: "2.75rem",
     fontSize: "2.25rem",
     letterSpacing: "-2.2%",
@@ -504,7 +504,7 @@ const typography = {
   },
   h3: {
     fontFamily: "Inter",
-    fontWeight: "Bold",
+    fontWeight: 700,
     lineHeight: "2.25rem",
     fontSize: "1.75rem",
     letterSpacing: "-1.9%",
@@ -514,7 +514,7 @@ const typography = {
   },
   h4: {
     fontFamily: "Inter",
-    fontWeight: "Semi Bold",
+    fontWeight: 600,
     lineHeight: "2rem",
     fontSize: "1.5rem",
     letterSpacing: "-1.9%",
@@ -524,7 +524,7 @@ const typography = {
   },
   h5: {
     fontFamily: "Inter",
-    fontWeight: "Semi Bold",
+    fontWeight: 600,
     lineHeight: "1.75rem",
     fontSize: "1.25rem",
     letterSpacing: "-1.4%",
@@ -534,7 +534,7 @@ const typography = {
   },
   h6: {
     fontFamily: "Inter",
-    fontWeight: "Medium",
+    fontWeight: 500,
     lineHeight: "1.5rem",
     fontSize: "1.125rem",
     letterSpacing: "-1.4%",
@@ -544,7 +544,7 @@ const typography = {
   },
   "subhead-1": {
     fontFamily: "Inter",
-    fontWeight: "Medium",
+    fontWeight: 500,
     lineHeight: "1.5rem",
     fontSize: "1rem",
     letterSpacing: "-0.6%",
@@ -554,7 +554,7 @@ const typography = {
   },
   "subhead-2": {
     fontFamily: "Inter",
-    fontWeight: "Medium",
+    fontWeight: 500,
     lineHeight: "1.25rem",
     fontSize: "0.875rem",
     letterSpacing: 0,
@@ -564,7 +564,7 @@ const typography = {
   },
   "subhead-3": {
     fontFamily: "Inter",
-    fontWeight: "Semi Bold",
+    fontWeight: 600,
     lineHeight: "1.5rem",
     fontSize: "0.875rem",
     letterSpacing: "8%",
@@ -574,7 +574,7 @@ const typography = {
   },
   "body-1": {
     fontFamily: "Inter",
-    fontWeight: "Regular",
+    fontWeight: 400,
     lineHeight: "1.5rem",
     fontSize: "1rem",
     letterSpacing: "-0.6%",
@@ -584,7 +584,7 @@ const typography = {
   },
   "body-2": {
     fontFamily: "Inter",
-    fontWeight: "Regular",
+    fontWeight: 400,
     lineHeight: "1.25rem",
     fontSize: "0.875rem",
     letterSpacing: 0,
@@ -594,7 +594,7 @@ const typography = {
   },
   "body-3": {
     fontFamily: "Inter",
-    fontWeight: "Regular",
+    fontWeight: 400,
     lineHeight: "1.75rem",
     fontSize: "1rem",
     letterSpacing: "-0.6%",
@@ -604,7 +604,7 @@ const typography = {
   },
   "caption-1": {
     fontFamily: "Inter",
-    fontWeight: "Medium",
+    fontWeight: 500,
     lineHeight: "1rem",
     fontSize: "0.75rem",
     letterSpacing: 0,
@@ -614,7 +614,7 @@ const typography = {
   },
   "caption-2": {
     fontFamily: "Inter",
-    fontWeight: "Regular",
+    fontWeight: 400,
     lineHeight: "1rem",
     fontSize: "0.75rem",
     letterSpacing: 0,
@@ -624,7 +624,7 @@ const typography = {
   },
   "code-1": {
     fontFamily: "IBM Plex Mono",
-    fontWeight: "Regular",
+    fontWeight: 400,
     lineHeight: "1.25rem",
     fontSize: "0.875rem",
     letterSpacing: 0,
@@ -634,7 +634,7 @@ const typography = {
   },
   "code-2": {
     fontFamily: "IBM Plex Mono",
-    fontWeight: "Regular",
+    fontWeight: 400,
     lineHeight: "1rem",
     fontSize: "0.75rem",
     letterSpacing: 0,
@@ -644,7 +644,7 @@ const typography = {
   },
   legal: {
     fontFamily: "Inter",
-    fontWeight: "Regular",
+    fontWeight: 400,
     lineHeight: "0.75rem",
     fontSize: "0.625rem",
     letterSpacing: 0,

@@ -7,9 +7,17 @@ const StyleDictionary = require("style-dictionary");
 
 const { fileHeader, formattedVariables } = StyleDictionary.formatHelpers;
 
+const MAP_FONT_WEIGHTS = {
+  Light: 300,
+  Regular: 400,
+  Medium: 500,
+  "Semi Bold": 600,
+  Bold: 700,
+};
+
 const designSystemFormatter = ({ dictionary, platform, options, file }) => {
   // Recursively replace all nested objects with "value" key with the value of the "value" key.
-  function replaceNestedObjects(obj) {
+  const replaceNestedObjects = (obj) => {
     Object.keys(obj).forEach((key) => {
       if (isObject(obj[key]) && obj[key].value !== undefined) {
         const token = obj[key];
@@ -23,7 +31,7 @@ const designSystemFormatter = ({ dictionary, platform, options, file }) => {
         replaceNestedObjects(obj[key]);
       }
     });
-  }
+  };
 
   replaceNestedObjects(dictionary.properties);
 
@@ -61,10 +69,10 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerTransform({
   name: "shadow/design-system",
   type: "value",
-  matcher: function (prop) {
+  matcher: (prop) => {
     return prop.type === "boxShadow";
   },
-  transformer: function (prop) {
+  transformer: (prop) => {
     // destructure shadow values from original token value
     const { x, y, blur, spread, color, alpha } = prop.original.value;
 
@@ -80,11 +88,10 @@ StyleDictionary.registerTransform({
   },
 });
 
-// Convert shadow to css format.
 StyleDictionary.registerTransform({
   name: "size/pxToRem",
   type: "value",
-  matcher: function (prop) {
+  matcher: (prop) => {
     switch (prop.type) {
       case "spacing":
       case "lineHeights":
@@ -94,7 +101,7 @@ StyleDictionary.registerTransform({
         return false;
     }
   },
-  transformer: (prop, options) => {
+  transformer: (prop) => {
     const pxValue = prop.original.value;
     if (String(pxValue).endsWith("px")) {
       return `${parseFloat(pxValue.slice(0, -2)) / 16}rem`;
@@ -106,11 +113,27 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: "font/weightToNumber",
+  type: "value",
+  matcher: (prop) => {
+    return prop.type === "fontWeights";
+  },
+  transformer: (prop) => {
+    const weightValue = prop.original.value;
+    return MAP_FONT_WEIGHTS[weightValue];
+  },
+});
+
 module.exports = {
   source: ["tokens/transformed.json"],
   platforms: {
     javascript: {
-      transforms: ["shadow/design-system", "size/pxToRem"],
+      transforms: [
+        "shadow/design-system",
+        "font/weightToNumber",
+        "size/pxToRem",
+      ],
       buildPath: "themes/",
       files: [
         {
