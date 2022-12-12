@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "json5": "^2.2.1",
     "lodash": "^4.17.21",
     "style-dictionary": "^3.7.1",
     "token-transformer": "^0.0.28"

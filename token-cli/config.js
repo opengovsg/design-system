@@ -1,4 +1,6 @@
 const { camelCase, groupBy, get, set, isObject, setWith } = require("lodash");
+const JSON5 = require("json5");
+
 const tinycolor = require("tinycolor2");
 
 const StyleDictionary = require("style-dictionary");
@@ -6,7 +8,6 @@ const StyleDictionary = require("style-dictionary");
 const { fileHeader, formattedVariables } = StyleDictionary.formatHelpers;
 
 const designSystemFormatter = ({ dictionary, platform, options, file }) => {
-  // return JSON.stringify(x);
   // Recursively replace all nested objects with "value" key with the value of the "value" key.
   function replaceNestedObjects(obj) {
     Object.keys(obj).forEach((key) => {
@@ -33,10 +34,9 @@ const designSystemFormatter = ({ dictionary, platform, options, file }) => {
     // E.g. { spacing: {...}, color: {...} } => const spacing: {...}; const color: {...};
     Object.keys(dictionary.tokens)
       .map((key) => {
-        return `const ${camelCase(key)} = ${JSON.stringify(
+        return `const ${camelCase(key)} = ${JSON5.stringify(
           dictionary.tokens[key],
-          null,
-          2
+          { space: 2, quote: '"' }
         )}`;
       })
       .join("\n\n") +
@@ -51,6 +51,11 @@ const designSystemFormatter = ({ dictionary, platform, options, file }) => {
 
 // Suppress nested collision output.
 designSystemFormatter.nested = true;
+
+StyleDictionary.registerFormat({
+  name: "typescript/design-system",
+  formatter: designSystemFormatter,
+});
 
 // Convert shadow to css format.
 StyleDictionary.registerTransform({
@@ -75,16 +80,37 @@ StyleDictionary.registerTransform({
   },
 });
 
-StyleDictionary.registerFormat({
-  name: "typescript/design-system",
-  formatter: designSystemFormatter,
+// Convert shadow to css format.
+StyleDictionary.registerTransform({
+  name: "size/pxToRem",
+  type: "value",
+  matcher: function (prop) {
+    switch (prop.type) {
+      case "spacing":
+      case "lineHeights":
+      case "fontSizes":
+        return true;
+      default:
+        return false;
+    }
+  },
+  transformer: (prop, options) => {
+    const pxValue = prop.original.value;
+    if (String(pxValue).endsWith("px")) {
+      return `${parseFloat(pxValue.slice(0, -2)) / 16}rem`;
+    }
+    if (!isNaN(Number(pxValue))) {
+      return `${parseFloat(pxValue) / 16}rem`;
+    }
+    return pxValue;
+  },
 });
 
 module.exports = {
   source: ["tokens/transformed.json"],
   platforms: {
     javascript: {
-      transforms: ["shadow/design-system"],
+      transforms: ["shadow/design-system", "size/pxToRem"],
       buildPath: "themes/",
       files: [
         {
