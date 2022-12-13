@@ -15,10 +15,6 @@ export default defineConfig({
     dts({
       outputDir: 'build',
     }),
-    copy({
-      targets: [{ src: 'src/fonts', dest: 'build' }],
-      hook: 'writeBundle',
-    }),
   ],
   build: {
     outDir: 'build',

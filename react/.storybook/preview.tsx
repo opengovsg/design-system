@@ -1,4 +1,5 @@
-import '../src/fonts/inter.css'
+import 'inter-ui/inter.css'
+import '@fontsource/ibm-plex-mono'
 
 import { ChakraProvider } from '@chakra-ui/react'
 import { DecoratorFn } from '@storybook/react'
