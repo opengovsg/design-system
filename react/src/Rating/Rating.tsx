@@ -5,12 +5,11 @@ import {
   Grid,
   Stack,
   Text,
+  ThemeTypings,
   useBreakpointValue,
   Wrap,
   WrapItem,
 } from '@chakra-ui/react'
-
-import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { RatingOption } from './RatingOption'
 
@@ -24,9 +23,9 @@ export interface RatingProps {
    */
   numberOfRatings: number
   /**
-   * Color scheme of the component to render. Defaults to `primary`.
+   * Color scheme of the component to render. Defaults to `brand.primary`.
    */
-  colorScheme?: ThemeColorScheme
+  colorScheme?: ThemeTypings['colorSchemes']
   /**
    * Function called once a rating is selected.
    * @param newRating the value of the checked radio
@@ -61,7 +60,7 @@ export interface RatingProps {
 export const Rating = forwardRef<RatingProps, 'input'>(
   (
     {
-      colorScheme = 'primary',
+      colorScheme = 'brand.primary',
       defaultValue,
       name,
       numberOfRatings,

@@ -5,6 +5,7 @@ import {
   forwardRef,
   StylesProvider,
   Text,
+  ThemeTypings,
   useFormControl,
   UseFormControlProps,
   useMergeRefs,
@@ -14,7 +15,6 @@ import { omit } from 'lodash'
 import simplur from 'simplur'
 
 import { ATTACHMENT_THEME_KEY } from '~/theme/components/Attachment'
-import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { AttachmentDropzone } from './AttachmentDropzone'
 import { AttachmentFileInfo } from './AttachmentFileInfo'
@@ -61,7 +61,7 @@ export interface AttachmentProps extends UseFormControlProps<HTMLElement> {
   /**
    * Color scheme of the component.
    */
-  colorScheme?: ThemeColorScheme
+  colorScheme?: ThemeTypings['colorSchemes']
 }
 
 export const Attachment = forwardRef<AttachmentProps, 'div'>(

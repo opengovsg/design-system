@@ -13,6 +13,7 @@ import React, {
 import {
   CSSObject,
   FormControlProps,
+  ThemeTypings,
   useControllableState,
   useDisclosure,
   UseDisclosureReturn,
@@ -23,7 +24,6 @@ import { format, isValid, parse } from 'date-fns'
 import { zonedTimeToUtc } from 'date-fns-tz'
 
 import { useIsMobile } from '~/hooks'
-import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { DatePickerProps } from './DatePicker'
 
@@ -43,7 +43,7 @@ interface DatePickerContextReturn {
   closeCalendarOnChange: boolean
   placeholder: string
   allowManualInput: boolean
-  colorScheme: ThemeColorScheme
+  colorScheme: ThemeTypings['colorSchemes']
   isDateUnavailable?: (date: Date) => boolean
   disclosureProps: UseDisclosureReturn
   monthsToDisplay?: number
@@ -92,7 +92,7 @@ const useProvideDatePicker = ({
   closeCalendarOnChange = true,
   onBlur,
   onClick,
-  colorScheme = 'primary',
+  colorScheme = 'brand.primary',
   monthsToDisplay,
   refocusOnClose = true,
   ...props

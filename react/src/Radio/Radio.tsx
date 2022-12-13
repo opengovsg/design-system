@@ -47,7 +47,6 @@ import { callAll, split } from '@chakra-ui/utils'
 
 import { Input, InputProps } from '~/Input'
 import { RADIO_THEME_KEY } from '~/theme/components/Radio'
-import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { RadioGroup } from './RadioGroup'
 import { useRadioGroupWithOthers } from './useRadioGroupWithOthers'
@@ -73,10 +72,6 @@ export interface RadioProps
    * please use the props `maxWidth` or `width` to configure
    */
   isFullWidth?: boolean
-  /**
-   * Background and shadow colors.
-   */
-  colorScheme?: ThemeColorScheme
   /**
    * Additional overriding styles. This is a change from the Chakra UI
    * implementation, which previously did not allow overriding styles.

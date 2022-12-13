@@ -176,5 +176,5 @@ ReverseDefault.args = {
 export const LinkPrimary = ButtonGroupTemplate.bind({})
 LinkPrimary.args = {
   variant: 'link',
-  colorScheme: 'primary',
+  colorScheme: 'brand.primary',
 }

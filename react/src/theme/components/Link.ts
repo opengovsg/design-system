@@ -1,7 +1,7 @@
 import { getColor, SystemStyleFunction } from '@chakra-ui/theme-tools'
 
 const baseStyle: SystemStyleFunction = ({
-  colorScheme: c = 'primary',
+  colorScheme: c = 'brand.primary',
   theme,
 }) => {
   let linkColor = `${c}.500`
@@ -55,6 +55,6 @@ export const Link = {
   },
   defaultProps: {
     variant: 'inline',
-    colorScheme: 'primary',
+    colorScheme: 'brand.primary',
   },
 }

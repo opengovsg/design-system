@@ -38,7 +38,7 @@ const TemplateGroup: Story<BadgeProps> = (args) => (
     alignItems="center"
   >
     <Text>primary</Text>
-    <Badge {...args} colorScheme="primary" />
+    <Badge {...args} colorScheme="brand.primary" />
     <Text>secondary</Text>
     <Badge {...args} colorScheme="secondary" />
     <Text>warning</Text>

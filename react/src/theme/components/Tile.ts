@@ -15,7 +15,7 @@ export const Tile: ComponentMultiStyleConfig<typeof parts> = {
       padding: '1.5rem',
       height: 'auto',
       _hover: {
-        bgColor: 'primary.100',
+        bgColor: 'brand.primary.100',
       },
       _focus: {
         borderColor: 'transparent',
@@ -24,7 +24,7 @@ export const Tile: ComponentMultiStyleConfig<typeof parts> = {
         boxShadow: '0 0 0 2px var(--chakra-colors-primary-500) !important',
       },
       _active: {
-        bgColor: 'primary.200',
+        bgColor: 'brand.primary.200',
         // borderColor: 'transparent',
         boxShadow: '0 0 0 3px var(--chakra-colors-primary-400)',
         _focus: {

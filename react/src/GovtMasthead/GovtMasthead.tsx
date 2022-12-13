@@ -91,7 +91,7 @@ const HowToIdentify = ({
       <Text
         aria-hidden
         as="span"
-        color="primary.500"
+        color="brand.primary.500"
         textDecorationLine="underline"
         display="flex"
         alignItems="center"

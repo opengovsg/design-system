@@ -24,10 +24,10 @@ export const InlineMessage: ComponentMultiStyleConfig<typeof parts> = {
   variants: {
     info: {
       messagebox: {
-        bg: 'primary.100',
+        bg: 'brand.primary.100',
       },
       icon: {
-        color: 'primary.500',
+        color: 'brand.primary.500',
       },
     },
     warning: {

@@ -153,6 +153,6 @@ export const SingleSelect = {
     size: 'md',
     focusBorderColor: Input.defaultProps.focusBorderColor,
     errorBorderColor: Input.defaultProps.errorBorderColor,
-    colorScheme: 'primary',
+    colorScheme: 'brand.primary',
   },
 }

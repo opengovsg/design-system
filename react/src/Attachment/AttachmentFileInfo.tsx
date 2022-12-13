@@ -22,7 +22,7 @@ export const AttachmentFileInfo = forwardRef<AttachmentFileInfoProps, 'div'>(
       <Flex
         ref={ref}
         justify="space-between"
-        bg="primary.100"
+        bg="brand.primary.100"
         py="0.875rem"
         px="1rem"
       >

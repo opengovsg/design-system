@@ -2,12 +2,11 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { VirtuosoHandle } from 'react-virtuoso'
 import {
   FormControlOptions,
+  ThemeTypings,
   useFormControlProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 import { useCombobox, UseComboboxProps } from 'downshift'
-
-import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { VIRTUAL_LIST_MAX_HEIGHT } from '../constants'
 import { useItems } from '../hooks/useItems'
@@ -41,7 +40,7 @@ export interface SingleSelectProviderProps<
   }
   children: React.ReactNode
   /** Color scheme of component */
-  colorScheme?: ThemeColorScheme
+  colorScheme?: ThemeTypings['colorSchemes']
 }
 export const SingleSelectProvider = ({
   items: rawItems,

@@ -194,6 +194,6 @@ export const Tag = {
   defaultProps: {
     size: 'md',
     variant: 'subtle',
-    colorScheme: 'primary',
+    colorScheme: 'brand.primary',
   },
 }

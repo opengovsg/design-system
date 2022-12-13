@@ -58,8 +58,8 @@ const TemplateGroup: Story<TagProps> = (args) => (
     alignItems="center"
   >
     <Text>primary</Text>
-    <Tag {...args} colorScheme="primary" />
-    <Tag {...args} aria-disabled colorScheme="primary" />
+    <Tag {...args} colorScheme="brand.primary" />
+    <Tag {...args} aria-disabled colorScheme="brand.primary" />
     <Text>secondary</Text>
     <Tag {...args} colorScheme="secondary" />
     <Tag {...args} aria-disabled colorScheme="secondary" />

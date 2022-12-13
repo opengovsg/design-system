@@ -45,7 +45,7 @@ export const Toggle: ComponentMultiStyleConfig<typeof parts> = {
       _focus: {
         boxShadow: `0 0 0 2px white, 0 0 0 3px ${getColor(
           theme,
-          'primary.500',
+          'brand.primary.500',
         )}`,
       },
     },

@@ -77,16 +77,16 @@ const variantLineLight: PartsStyleFunction<typeof parts> = (props) => {
     tab: {
       color: 'secondary.400',
       _hover: {
-        color: 'primary.500',
+        color: 'brand.primary.500',
       },
       _selected: {
         _before: {
-          bg: 'primary.500',
+          bg: 'brand.primary.500',
         },
-        color: 'primary.500',
+        color: 'brand.primary.500',
       },
       _focusVisible: {
-        boxShadow: `0 0 0 2px ${getColor(props.theme, 'primary.500')}`,
+        boxShadow: `0 0 0 2px ${getColor(props.theme, 'brand.primary.500')}`,
       },
     },
   })
@@ -185,7 +185,7 @@ export const Tabs: ComponentMultiStyleConfig<typeof parts> = {
     'line-dark': variantLineDark,
   },
   defaultProps: {
-    colorScheme: 'primary',
+    colorScheme: 'brand.primary',
     variant: 'line-light',
     size: 'md',
   },

@@ -126,6 +126,6 @@ export const Checkbox = {
     },
   },
   defaultProps: {
-    colorScheme: 'primary',
+    colorScheme: 'brand.primary',
   },
 }

@@ -65,6 +65,6 @@ export const Badge = {
   defaultProps: {
     variant: 'solid',
     size: 'md',
-    colorScheme: 'primary',
+    colorScheme: 'brand.primary',
   },
 }

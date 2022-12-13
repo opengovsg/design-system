@@ -150,6 +150,6 @@ export const Radio: ComponentMultiStyleConfig<typeof parts> = {
     },
   },
   defaultProps: {
-    colorScheme: 'primary',
+    colorScheme: 'brand.primary',
   },
 }

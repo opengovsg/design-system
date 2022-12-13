@@ -127,7 +127,7 @@ RestrictedFullFooter.Container = ({
     <Flex
       as="footer"
       flexDirection="column"
-      bg="primary.100"
+      bg="brand.primary.100"
       py="3rem"
       px={{ base: '1.5rem', md: '5.5rem', lg: '9.25rem' }}
       {...props}

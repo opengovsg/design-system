@@ -4,6 +4,7 @@ import {
   ButtonProps as ChakraButtonProps,
   forwardRef,
   IconProps,
+  ThemeTypings,
 } from '@chakra-ui/react'
 
 import { Spinner } from '~/Spinner'
@@ -11,7 +12,6 @@ import {
   ThemeButtonColorScheme,
   ThemeButtonVariant,
 } from '~/theme/components/Button'
-import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 export interface ButtonProps extends ChakraButtonProps {
   /**
@@ -33,7 +33,7 @@ export interface ButtonProps extends ChakraButtonProps {
   /**
    * Color scheme of button.
    */
-  colorScheme?: ThemeColorScheme | ThemeButtonColorScheme
+  colorScheme?: ThemeTypings['colorSchemes'] | ThemeButtonColorScheme
 }
 
 export const Button = forwardRef<ButtonProps, 'button'>(

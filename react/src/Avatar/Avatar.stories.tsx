@@ -13,7 +13,7 @@ export default {
   args: {
     name: 'ABC',
     size: 'md',
-    colorScheme: 'primary',
+    colorScheme: 'brand.primary',
   },
 } as Meta<AvatarProps>
 

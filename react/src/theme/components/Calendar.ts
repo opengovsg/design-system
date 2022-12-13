@@ -143,7 +143,7 @@ export const Calendar: ComponentMultiStyleConfig<typeof parts> = {
   },
   sizes,
   defaultProps: {
-    colorScheme: 'primary',
+    colorScheme: 'brand.primary',
     size: 'md',
   },
 }

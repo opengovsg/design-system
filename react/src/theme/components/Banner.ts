@@ -32,7 +32,7 @@ export const Banner: MultiStyleConfig<typeof parts> & {
     info: {
       banner: {
         color: 'white',
-        bg: 'primary.500',
+        bg: 'brand.primary.500',
       },
       link: {
         color: 'white',

@@ -3,6 +3,7 @@ import {
   forwardRef,
   HStack,
   Icon,
+  ThemeTypings,
   useFormControlProps,
   useMultiStyleConfig,
   useRadioGroup,
@@ -12,7 +13,6 @@ import { pick } from 'lodash'
 
 import { BxCheck, BxX } from '~/icons'
 import { YESNO_THEME_KEY } from '~/theme/components/YesNo'
-import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { YesNoOption } from './YesNoOption'
 
@@ -42,9 +42,9 @@ export interface YesNoProps {
   name: string
 
   /**
-   * Color scheme of the component to render. Defaults to `primary`.
+   * Color scheme of the component to render. Defaults to `brand.primary`.
    */
-  colorScheme?: ThemeColorScheme
+  colorScheme?: ThemeTypings['colorSchemes']
 }
 
 /**

@@ -2,6 +2,7 @@ import { KeyboardEvent, useCallback } from 'react'
 import {
   Box,
   forwardRef,
+  ThemeTypings,
   useMultiStyleConfig,
   useRadio,
   UseRadioGroupReturn,
@@ -10,7 +11,6 @@ import {
 } from '@chakra-ui/react'
 
 import { YESNO_THEME_KEY } from '~/theme/components/YesNo'
-import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 interface YesNoOptionProps extends UseRadioProps {
   children: React.ReactNode
@@ -23,7 +23,7 @@ interface YesNoOptionProps extends UseRadioProps {
   /**
    * Color scheme of the component to render. Defaults to `primary`.
    */
-  colorScheme?: ThemeColorScheme
+  colorScheme?: ThemeTypings['colorSchemes']
 
   /**
    * Callback to be invoked when selection changes.

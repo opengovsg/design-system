@@ -62,7 +62,7 @@ const TemplateGroup: Story<LinkProps> = (args) => (
     alignItems="center"
   >
     <Text>primary</Text>
-    <Link {...args} colorScheme="primary" />
+    <Link {...args} colorScheme="brand.primary" />
     <Text>secondary</Text>
     <Link {...args} colorScheme="secondary" />
     <Text>danger</Text>
@@ -74,7 +74,7 @@ const TemplateGroup: Story<LinkProps> = (args) => (
     <Text>neutral</Text>
     <Link {...args} colorScheme="neutral" />
     <Text>primary</Text>
-    <Link {...args} colorScheme="primary" />
+    <Link {...args} colorScheme="brand.primary" />
   </SimpleGrid>
 )
 

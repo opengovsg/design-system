@@ -102,7 +102,7 @@ export const Menu = {
   variants,
   defaultProps: {
     colorScheme: 'secondary',
-    focusItemBorderColor: 'primary.500',
+    focusItemBorderColor: 'brand.primary.500',
     variant: 'outline',
   },
 }

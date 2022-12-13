@@ -9,8 +9,8 @@ interface HighlightMarkProps {
 
 const HighlightMark = ({ showHoverBg, children }: HighlightMarkProps) => (
   <chakra.mark
-    bg={showHoverBg ? 'primary.200' : 'primary.100'}
-    color="primary.500"
+    bg={showHoverBg ? 'brand.primary.200' : 'brand.primary.100'}
+    color="brand.primary.500"
   >
     {children}
   </chakra.mark>

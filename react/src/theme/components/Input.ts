@@ -97,7 +97,7 @@ export const Input = {
   defaultProps: {
     variant: 'outline',
     size: 'md',
-    focusBorderColor: 'primary.500',
+    focusBorderColor: 'brand.primary.500',
     errorBorderColor: 'danger.500',
   },
 }

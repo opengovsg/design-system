@@ -78,6 +78,6 @@ export const Attachment: ComponentMultiStyleConfig<typeof parts> = {
   },
   defaultProps: {
     ...Input.defaultProps,
-    colorScheme: 'primary',
+    colorScheme: 'brand.primary',
   },
 }

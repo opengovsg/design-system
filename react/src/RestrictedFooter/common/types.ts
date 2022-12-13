@@ -1,7 +1,5 @@
-import { FlexProps } from '@chakra-ui/react'
+import { FlexProps, ThemeTypings } from '@chakra-ui/react'
 import { SetOptional } from 'type-fest'
-
-import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 export type RestrictedFooterLink = {
   label: string
@@ -32,9 +30,9 @@ export interface RestrictedFooterVariantProps {
   socialMediaLinks: RestrictedFooterLinkWithIcon[]
   /**
    * Colour scheme of the text in the footer.
-   * Defaults to `secondary` if not provided.
+   * Defaults to `brand.secondary` if not provided.
    */
-  textColorScheme: ThemeColorScheme
+  textColorScheme: ThemeTypings['colorSchemes']
   containerProps?: Partial<RestrictedFooterContainerProps>
 }
 

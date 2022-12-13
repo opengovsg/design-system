@@ -7,7 +7,7 @@ export const YESNO_THEME_KEY = 'YesNo'
 const parts = anatomy('rating').parts('option', 'container', 'icon')
 
 const outlineOptionStyle: SystemStyleFunction = (props) => {
-  const { colorScheme: c = 'primary', theme, side } = props
+  const { colorScheme: c = 'brand.primary', theme, side } = props
 
   const isLighterTheme = ['theme-yellow', 'theme-orange', 'theme-red'].includes(
     c,
@@ -102,6 +102,6 @@ export const YesNo: ComponentMultiStyleConfig<typeof parts> = {
   },
   defaultProps: {
     variant: 'outline',
-    colorScheme: 'primary',
+    colorScheme: 'brand.primary',
   },
 }

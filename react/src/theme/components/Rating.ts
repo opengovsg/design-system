@@ -113,6 +113,6 @@ export const Rating: ComponentMultiStyleConfig<typeof parts> = {
     }),
   },
   defaultProps: {
-    colorScheme: 'primary',
+    colorScheme: 'brand.primary',
   },
 }
