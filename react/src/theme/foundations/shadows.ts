@@ -1,5 +1,9 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 13 Dec 2022 02:20:42 GMT
+ */
+
 export const shadows = {
-  sm: '0px 0px 10px rgba(216, 222, 235, 0.5)',
-  md: '0px 0px 20px rgba(97, 108, 137, 0.3)',
-  lg: '0px 0px 50px rgba(97, 108, 137, 0.4)',
+  small: '0px 0px 10px 0px rgba(191, 191, 191, 0.5)',
+  medium: '0px 0px 20px 0px rgba(104, 104, 104, 0.3)',
 }
