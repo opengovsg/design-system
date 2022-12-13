@@ -1,5 +1,3 @@
-import 'inter-ui/inter.css'
-
 import { create } from '@storybook/theming'
 
 import PackageInfo from '../package.json'
