@@ -56,7 +56,15 @@ export const Typography: FC = () => {
         color="white"
         align="center"
       >
-        <Text textStyle="display-heavy">Inter</Text>
+        <Text
+          textStyle={[
+            'responsive-heading.heavy',
+            'responsive-heading.heavy-480',
+            'responsive-heading.heavy-1280',
+          ]}
+        >
+          Inter
+        </Text>
         <Box
           fontSize="2rem"
           lineHeight="2.5rem"
