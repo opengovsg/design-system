@@ -11,6 +11,7 @@ import {
   Wrap,
   WrapItem,
 } from '@chakra-ui/react'
+import { get } from 'lodash'
 
 export const Typography: FC = () => {
   const theme = useTheme()
@@ -18,7 +19,7 @@ export const Typography: FC = () => {
   const prettyPrint = useCallback(
     (themeName: string) => {
       const textStyles: Record<string, string> = {
-        ...theme.textStyles[themeName],
+        ...get(theme.textStyles, themeName, {}),
       }
       delete textStyles['fontStyle']
       return (
@@ -48,14 +49,14 @@ export const Typography: FC = () => {
       </Heading>
       <Flex
         borderRadius="10px"
-        bg="primary.500"
+        bg="brand.primary.500"
         py="3.5rem"
         px="5rem"
         justify="space-between"
         color="white"
         align="center"
       >
-        <Text textStyle="display-2">Inter</Text>
+        <Text textStyle="display-heavy">Inter</Text>
         <Box
           fontSize="2rem"
           lineHeight="2.5rem"
@@ -71,45 +72,170 @@ export const Typography: FC = () => {
         </Box>
       </Flex>
       <Divider my="2rem" />
-      <Heading as="h2" textStyle="display-2" color="primary.500" mb="2.5rem">
+      <Text
+        as="h2"
+        textStyle="display-heavy"
+        color="brand.primary.500"
+        mb="2.5rem"
+      >
         Styles
-      </Heading>
+      </Text>
       <Stack spacing="1.5rem">
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="display-1" color="secondary.700">
-              <Text>Display 1</Text>
+            <Box
+              w="43rem"
+              textStyle="responsive-display.heavy-1280"
+              color="secondary.700"
+            >
+              <Text>Display Heavy Desktop</Text>
               <Text>Build forms in minutes.</Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint('display-1')}</WrapItem>
+          <WrapItem>{prettyPrint('responsive-display.heavy-1280')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="display-1-mobile" color="secondary.700">
-              <Text>Display 1 mobile</Text>
+            <Box
+              w="43rem"
+              textStyle="responsive-display.heavy-480"
+              color="secondary.700"
+            >
+              <Text>Display Heavy Tablet</Text>
               <Text>Build forms in minutes.</Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint('display-1-mobile')}</WrapItem>
+          <WrapItem>{prettyPrint('responsive-display.heavy-480')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="display-2" color="secondary.700">
-              <Text>Display 2</Text>
-              <Text>Build government forms in minutes.</Text>
+            <Box
+              w="43rem"
+              textStyle="responsive-display.heavy"
+              color="secondary.700"
+            >
+              <Text>Display Heavy Mobile</Text>
+              <Text>Build forms in minutes.</Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint('display-2')}</WrapItem>
+          <WrapItem>{prettyPrint('responsive-display.heavy')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="display-2-mobile" color="secondary.700">
-              <Text>Display 2 mobile</Text>
+            <Box
+              w="43rem"
+              textStyle="responsive-display.light-1280"
+              color="secondary.700"
+            >
+              <Text>Display Light Desktop</Text>
               <Text>Build government forms in minutes.</Text>
             </Box>
           </WrapItem>
-          <WrapItem>{prettyPrint('display-2-mobile')}</WrapItem>
+          <WrapItem>{prettyPrint('responsive-display.light-1280')}</WrapItem>
+        </Wrap>
+        <Wrap justify="space-between">
+          <WrapItem>
+            <Box
+              w="43rem"
+              textStyle="responsive-display.light-480"
+              color="secondary.700"
+            >
+              <Text>Display Light Tablet</Text>
+              <Text>Build government forms in minutes.</Text>
+            </Box>
+          </WrapItem>
+          <WrapItem>{prettyPrint('responsive-display.light-480')}</WrapItem>
+        </Wrap>
+        <Wrap justify="space-between">
+          <WrapItem>
+            <Box
+              w="43rem"
+              textStyle="responsive-display.light"
+              color="secondary.700"
+            >
+              <Text>Display Light Mobile</Text>
+              <Text>Build government forms in minutes.</Text>
+            </Box>
+          </WrapItem>
+          <WrapItem>{prettyPrint('responsive-display.light')}</WrapItem>
+        </Wrap>
+        <Wrap justify="space-between">
+          <WrapItem>
+            <Box
+              w="43rem"
+              textStyle="responsive-heading.heavy-1280"
+              color="secondary.700"
+            >
+              <Text>Heading Heavy Desktop</Text>
+              <Text>Build forms in minutes.</Text>
+            </Box>
+          </WrapItem>
+          <WrapItem>{prettyPrint('responsive-heading.heavy-1280')}</WrapItem>
+        </Wrap>
+        <Wrap justify="space-between">
+          <WrapItem>
+            <Box
+              w="43rem"
+              textStyle="responsive-heading.heavy-480"
+              color="secondary.700"
+            >
+              <Text>Heading Heavy Tablet</Text>
+              <Text>Build forms in minutes.</Text>
+            </Box>
+          </WrapItem>
+          <WrapItem>{prettyPrint('responsive-heading.heavy-480')}</WrapItem>
+        </Wrap>
+        <Wrap justify="space-between">
+          <WrapItem>
+            <Box
+              w="43rem"
+              textStyle="responsive-heading.heavy"
+              color="secondary.700"
+            >
+              <Text>Heading Heavy Mobile</Text>
+              <Text>Build forms in minutes.</Text>
+            </Box>
+          </WrapItem>
+          <WrapItem>{prettyPrint('responsive-heading.heavy')}</WrapItem>
+        </Wrap>
+        <Wrap justify="space-between">
+          <WrapItem>
+            <Box
+              w="43rem"
+              textStyle="responsive-heading.light-1280"
+              color="secondary.700"
+            >
+              <Text>Heading Light Desktop</Text>
+              <Text>Build government forms in minutes.</Text>
+            </Box>
+          </WrapItem>
+          <WrapItem>{prettyPrint('responsive-heading.light-1280')}</WrapItem>
+        </Wrap>
+        <Wrap justify="space-between">
+          <WrapItem>
+            <Box
+              w="43rem"
+              textStyle="responsive-heading.light-480"
+              color="secondary.700"
+            >
+              <Text>Heading Light Tablet</Text>
+              <Text>Build government forms in minutes.</Text>
+            </Box>
+          </WrapItem>
+          <WrapItem>{prettyPrint('responsive-heading.light-480')}</WrapItem>
+        </Wrap>
+        <Wrap justify="space-between">
+          <WrapItem>
+            <Box
+              w="43rem"
+              textStyle="responsive-heading.light"
+              color="secondary.700"
+            >
+              <Text>Heading Light Mobile</Text>
+              <Text>Build government forms in minutes.</Text>
+            </Box>
+          </WrapItem>
+          <WrapItem>{prettyPrint('responsive-heading.light')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
@@ -119,18 +245,6 @@ export const Typography: FC = () => {
             </Box>
           </WrapItem>
           <WrapItem>{prettyPrint('h1')}</WrapItem>
-        </Wrap>
-        <Wrap justify="space-between">
-          <WrapItem>
-            <Box w="43rem" textStyle="h1-mobile" color="secondary.700">
-              <Text>Heading 1 mobile</Text>
-              <Text>
-                Build government forms in minutes. Sign up with your government
-                email, and build your form in minutes.
-              </Text>
-            </Box>
-          </WrapItem>
-          <WrapItem>{prettyPrint('h1-mobile')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
@@ -299,6 +413,32 @@ export const Typography: FC = () => {
             </Box>
           </WrapItem>
           <WrapItem>{prettyPrint('caption-2')}</WrapItem>
+        </Wrap>
+        <Wrap justify="space-between">
+          <WrapItem>
+            <Box w="43rem" textStyle="code-1" color="secondary.700">
+              <Text>Code 1</Text>
+              <Text maxW="33rem">
+                Sign up with your government email, and build your form in
+                minutes. It's free and no approval is required. Together let's
+                make the Singapore government paperless.
+              </Text>
+            </Box>
+          </WrapItem>
+          <WrapItem>{prettyPrint('code-1')}</WrapItem>
+        </Wrap>
+        <Wrap justify="space-between">
+          <WrapItem>
+            <Box w="43rem" textStyle="code-2" color="secondary.700">
+              <Text>Code 2</Text>
+              <Text maxW="33rem">
+                Sign up with your government email, and build your form in
+                minutes. It's free and no approval is required. Together let's
+                make the Singapore government paperless.
+              </Text>
+            </Box>
+          </WrapItem>
+          <WrapItem>{prettyPrint('code-2')}</WrapItem>
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
