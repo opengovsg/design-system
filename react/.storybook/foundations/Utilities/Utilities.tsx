@@ -14,7 +14,7 @@ export const Utilities = (): JSX.Element => {
   const prettyPrint = useCallback((key: string, value: string) => {
     return (
       <>
-        <Text color="secondary.400">{key}:&nbsp;</Text>
+        <Text color="brand.secondary.400">{key}:&nbsp;</Text>
         <Text>{value}</Text>
       </>
     )
@@ -26,7 +26,7 @@ export const Utilities = (): JSX.Element => {
         mb="2rem"
         fontSize="4rem"
         letterSpacing="-0.022em"
-        color="secondary.700"
+        color="brand.secondary.700"
       >
         Utilities
       </Heading>
@@ -44,7 +44,7 @@ export const Utilities = (): JSX.Element => {
           align={{ base: 'start', md: 'center' }}
         >
           <Text
-            color="secondary.400"
+            color="brand.secondary.400"
             textStyle="subhead-3"
             mr="10rem"
             whiteSpace="nowrap"
@@ -60,7 +60,7 @@ export const Utilities = (): JSX.Element => {
           align={{ base: 'start', md: 'center' }}
         >
           <Text
-            color="secondary.400"
+            color="brand.secondary.400"
             textStyle="subhead-3"
             mr="10rem"
             whiteSpace="nowrap"
@@ -76,7 +76,7 @@ export const Utilities = (): JSX.Element => {
           align={{ base: 'start', md: 'center' }}
         >
           <Text
-            color="secondary.400"
+            color="brand.secondary.400"
             textStyle="subhead-3"
             mr="10rem"
             whiteSpace="nowrap"

@@ -64,7 +64,7 @@ const TemplateGroup: Story<LinkProps> = (args) => (
     <Text>primary</Text>
     <Link {...args} colorScheme="brand.primary" />
     <Text>secondary</Text>
-    <Link {...args} colorScheme="secondary" />
+    <Link {...args} colorScheme="brand.secondary" />
     <Text>danger</Text>
     <Link {...args} colorScheme="danger" />
     <Text>warning</Text>

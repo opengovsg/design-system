@@ -58,7 +58,7 @@ export const MultiSelectItem = ({
   return (
     <Tag
       title={itemMeta.label}
-      colorScheme="secondary"
+      colorScheme="brand.secondary"
       m="2px"
       h="2rem"
       {...getSelectedItemProps({

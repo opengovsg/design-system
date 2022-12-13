@@ -41,7 +41,7 @@ export const ComboboxClearButton = (): JSX.Element | null => {
       aria-label={clearButtonLabel}
       onClick={handleClearSelection}
       __css={styles.clearbutton}
-      color={inputValue || selectedItem ? 'secondary.500' : undefined}
+      color={inputValue || selectedItem ? 'brand.secondary.500' : undefined}
     >
       {announceClearedInput && (
         <VisuallyHidden aria-live="assertive">

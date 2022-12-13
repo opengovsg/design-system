@@ -25,7 +25,7 @@ const outlineOptionStyle: SystemStyleFunction = (props) => {
     cursor: 'pointer',
     textStyle: 'subhead-1',
     justifyContent: 'center',
-    color: 'secondary.700',
+    color: 'brand.secondary.700',
     bg: 'neutral.100',
     border: '1px solid',
     borderColor: 'neutral.500',

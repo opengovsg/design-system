@@ -16,7 +16,7 @@ export const RestrictedFullFooter = ({
   footerLinks,
   footerIconLink = DEFAULT_FOOTER_ICON_LINK,
   socialMediaLinks = DEFAULT_SOCIAL_MEDIA_LINKS,
-  textColorScheme = 'secondary',
+  textColorScheme = 'brand.secondary',
   containerProps,
 }: RestrictedFooterVariantProps): JSX.Element => {
   const currentYear = new Date().getFullYear()

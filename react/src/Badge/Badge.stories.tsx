@@ -40,7 +40,7 @@ const TemplateGroup: Story<BadgeProps> = (args) => (
     <Text>primary</Text>
     <Badge {...args} colorScheme="brand.primary" />
     <Text>secondary</Text>
-    <Badge {...args} colorScheme="secondary" />
+    <Badge {...args} colorScheme="brand.secondary" />
     <Text>warning</Text>
     <Badge {...args} colorScheme="warning" />
     <Text>success</Text>

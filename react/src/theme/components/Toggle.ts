@@ -23,12 +23,12 @@ export const Toggle: ComponentMultiStyleConfig<typeof parts> = {
     },
     label: {
       textStyle: 'subhead-1',
-      color: 'secondary.700',
+      color: 'brand.secondary.700',
       m: 0,
     },
     description: {
       textStyle: 'body-2',
-      color: 'secondary.400',
+      color: 'brand.secondary.400',
     },
     container: {
       // To allow container to have a blue border on focus

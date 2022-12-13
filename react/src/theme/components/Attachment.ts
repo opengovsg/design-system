@@ -43,7 +43,7 @@ export const Attachment: ComponentMultiStyleConfig<typeof parts> = {
       return {
         dropzone: {
           textStyle: 'body-1',
-          color: 'secondary.500',
+          color: 'brand.secondary.500',
           display: 'flex',
           flexDir: 'column',
           alignItems: 'center',

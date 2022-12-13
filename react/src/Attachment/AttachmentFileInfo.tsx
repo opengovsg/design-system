@@ -30,10 +30,10 @@ export const AttachmentFileInfo = forwardRef<AttachmentFileInfoProps, 'div'>(
           File attached: {file.name} with file size of {readableFileSize}
         </VisuallyHidden>
         <Flex flexDir="column" aria-hidden>
-          <Text textStyle="subhead-1" color="secondary.500">
+          <Text textStyle="subhead-1" color="brand.secondary.500">
             {file.name}
           </Text>
-          <Text textStyle="caption-1" color="secondary.500">
+          <Text textStyle="caption-1" color="brand.secondary.500">
             {readableFileSize}
           </Text>
         </Flex>

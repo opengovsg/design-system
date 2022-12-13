@@ -21,7 +21,7 @@ export const Searchbar: ComponentMultiStyleConfig<typeof parts> = {
           fontSize: '1rem',
           alignItems: 'center',
           justifyContent: 'center',
-          color: 'secondary.500',
+          color: 'brand.secondary.500',
         },
         field: {
           ...field,

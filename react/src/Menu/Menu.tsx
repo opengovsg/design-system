@@ -28,7 +28,7 @@ export interface MenuButtonProps extends Omit<ButtonProps, 'isFullWidth'> {
 const MenuButton = ({
   isOpen,
   variant = 'outline',
-  colorScheme = 'secondary',
+  colorScheme = 'brand.secondary',
   focusItemBorderColor,
   isStretch,
   ...props

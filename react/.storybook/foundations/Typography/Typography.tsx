@@ -27,7 +27,7 @@ export const Typography: FC = () => {
           <Text>{themeName}</Text>
           {Object.entries(textStyles).map(([key, value]) => (
             <Box display="inline-flex" key={key}>
-              <Text color="secondary.400">{key}:&nbsp;</Text>
+              <Text color="brand.secondary.400">{key}:&nbsp;</Text>
               <Text>{value}</Text>
             </Box>
           ))}
@@ -43,7 +43,7 @@ export const Typography: FC = () => {
         mb="2rem"
         fontSize="4rem"
         letterSpacing="-0.022em"
-        color="secondary.700"
+        color="brand.secondary.700"
       >
         Typography
       </Heading>
@@ -86,7 +86,7 @@ export const Typography: FC = () => {
             <Box
               w="43rem"
               textStyle="responsive-display.heavy-1280"
-              color="secondary.700"
+              color="brand.secondary.700"
             >
               <Text>Display Heavy Desktop</Text>
               <Text>Build forms in minutes.</Text>
@@ -99,7 +99,7 @@ export const Typography: FC = () => {
             <Box
               w="43rem"
               textStyle="responsive-display.heavy-480"
-              color="secondary.700"
+              color="brand.secondary.700"
             >
               <Text>Display Heavy Tablet</Text>
               <Text>Build forms in minutes.</Text>
@@ -112,7 +112,7 @@ export const Typography: FC = () => {
             <Box
               w="43rem"
               textStyle="responsive-display.heavy"
-              color="secondary.700"
+              color="brand.secondary.700"
             >
               <Text>Display Heavy Mobile</Text>
               <Text>Build forms in minutes.</Text>
@@ -125,7 +125,7 @@ export const Typography: FC = () => {
             <Box
               w="43rem"
               textStyle="responsive-display.light-1280"
-              color="secondary.700"
+              color="brand.secondary.700"
             >
               <Text>Display Light Desktop</Text>
               <Text>Build government forms in minutes.</Text>
@@ -138,7 +138,7 @@ export const Typography: FC = () => {
             <Box
               w="43rem"
               textStyle="responsive-display.light-480"
-              color="secondary.700"
+              color="brand.secondary.700"
             >
               <Text>Display Light Tablet</Text>
               <Text>Build government forms in minutes.</Text>
@@ -151,7 +151,7 @@ export const Typography: FC = () => {
             <Box
               w="43rem"
               textStyle="responsive-display.light"
-              color="secondary.700"
+              color="brand.secondary.700"
             >
               <Text>Display Light Mobile</Text>
               <Text>Build government forms in minutes.</Text>
@@ -164,7 +164,7 @@ export const Typography: FC = () => {
             <Box
               w="43rem"
               textStyle="responsive-heading.heavy-1280"
-              color="secondary.700"
+              color="brand.secondary.700"
             >
               <Text>Heading Heavy Desktop</Text>
               <Text>Build forms in minutes.</Text>
@@ -177,7 +177,7 @@ export const Typography: FC = () => {
             <Box
               w="43rem"
               textStyle="responsive-heading.heavy-480"
-              color="secondary.700"
+              color="brand.secondary.700"
             >
               <Text>Heading Heavy Tablet</Text>
               <Text>Build forms in minutes.</Text>
@@ -190,7 +190,7 @@ export const Typography: FC = () => {
             <Box
               w="43rem"
               textStyle="responsive-heading.heavy"
-              color="secondary.700"
+              color="brand.secondary.700"
             >
               <Text>Heading Heavy Mobile</Text>
               <Text>Build forms in minutes.</Text>
@@ -203,7 +203,7 @@ export const Typography: FC = () => {
             <Box
               w="43rem"
               textStyle="responsive-heading.light-1280"
-              color="secondary.700"
+              color="brand.secondary.700"
             >
               <Text>Heading Light Desktop</Text>
               <Text>Build government forms in minutes.</Text>
@@ -216,7 +216,7 @@ export const Typography: FC = () => {
             <Box
               w="43rem"
               textStyle="responsive-heading.light-480"
-              color="secondary.700"
+              color="brand.secondary.700"
             >
               <Text>Heading Light Tablet</Text>
               <Text>Build government forms in minutes.</Text>
@@ -229,7 +229,7 @@ export const Typography: FC = () => {
             <Box
               w="43rem"
               textStyle="responsive-heading.light"
-              color="secondary.700"
+              color="brand.secondary.700"
             >
               <Text>Heading Light Mobile</Text>
               <Text>Build government forms in minutes.</Text>
@@ -239,7 +239,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="h1" color="secondary.700">
+            <Box w="43rem" textStyle="h1" color="brand.secondary.700">
               <Text>Heading 1</Text>
               <Text>Build forms in minutes.</Text>
             </Box>
@@ -248,7 +248,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="h2" color="secondary.700">
+            <Box w="43rem" textStyle="h2" color="brand.secondary.700">
               <Text>Heading 2</Text>
               <Text>
                 Build government forms in minutes. Sign up with your government
@@ -260,7 +260,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="h3" color="secondary.700">
+            <Box w="43rem" textStyle="h3" color="brand.secondary.700">
               <Text>Heading 3</Text>
               <Text>
                 Build government forms in minutes. Sign up with your government
@@ -272,7 +272,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="h4" color="secondary.700">
+            <Box w="43rem" textStyle="h4" color="brand.secondary.700">
               <Text>Heading 4</Text>
               <Text>
                 Build government forms in minutes. Sign up with your government
@@ -285,7 +285,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="h5" color="secondary.700">
+            <Box w="43rem" textStyle="h5" color="brand.secondary.700">
               <Text>Heading 5</Text>
               <Text>
                 Build government forms in minutes. Sign up with your government
@@ -298,7 +298,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="h6" color="secondary.700">
+            <Box w="43rem" textStyle="h6" color="brand.secondary.700">
               <Text>Heading 6</Text>
               <Text>
                 Build government forms in minutes. Sign up with your government
@@ -312,7 +312,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="subhead-1" color="secondary.700">
+            <Box w="43rem" textStyle="subhead-1" color="brand.secondary.700">
               <Text>Subhead 1</Text>
               <Text maxW="33rem">
                 Sign up with your government email, and build your form in
@@ -325,7 +325,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="subhead-2" color="secondary.700">
+            <Box w="43rem" textStyle="subhead-2" color="brand.secondary.700">
               <Text>Subhead 2</Text>
               <Text maxW="33rem">
                 Sign up with your government email, and build your form in
@@ -338,7 +338,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="subhead-3" color="secondary.700">
+            <Box w="43rem" textStyle="subhead-3" color="brand.secondary.700">
               <Text>Subhead 3</Text>
               <Text maxW="33rem">
                 Sign up with your government email, and build your form in
@@ -351,7 +351,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="body-1" color="secondary.700">
+            <Box w="43rem" textStyle="body-1" color="brand.secondary.700">
               <Text>Body 1</Text>
               <Text maxW="33rem">
                 Sign up with your government email, and build your form in
@@ -364,7 +364,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="body-2" color="secondary.700">
+            <Box w="43rem" textStyle="body-2" color="brand.secondary.700">
               <Text>Body 2</Text>
               <Text maxW="33rem">
                 Sign up with your government email, and build your form in
@@ -377,7 +377,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="body-3" color="secondary.700">
+            <Box w="43rem" textStyle="body-3" color="brand.secondary.700">
               <Text>Body 3</Text>
               <Text maxW="33rem">
                 Sign up with your government email, and build your form in
@@ -390,7 +390,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="caption-1" color="secondary.700">
+            <Box w="43rem" textStyle="caption-1" color="brand.secondary.700">
               <Text>Caption 1</Text>
               <Text maxW="33rem">
                 Sign up with your government email, and build your form in
@@ -403,7 +403,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="caption-2" color="secondary.700">
+            <Box w="43rem" textStyle="caption-2" color="brand.secondary.700">
               <Text>Caption 2</Text>
               <Text maxW="33rem">
                 Sign up with your government email, and build your form in
@@ -416,7 +416,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="code-1" color="secondary.700">
+            <Box w="43rem" textStyle="code-1" color="brand.secondary.700">
               <Text>Code 1</Text>
               <Text maxW="33rem">
                 Sign up with your government email, and build your form in
@@ -429,7 +429,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="code-2" color="secondary.700">
+            <Box w="43rem" textStyle="code-2" color="brand.secondary.700">
               <Text>Code 2</Text>
               <Text maxW="33rem">
                 Sign up with your government email, and build your form in
@@ -442,7 +442,7 @@ export const Typography: FC = () => {
         </Wrap>
         <Wrap justify="space-between">
           <WrapItem>
-            <Box w="43rem" textStyle="legal" color="secondary.700">
+            <Box w="43rem" textStyle="legal" color="brand.secondary.700">
               <Text>Legal</Text>
               <Text maxW="33rem">
                 Sign up with your government email, and build your form in

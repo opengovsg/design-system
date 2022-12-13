@@ -75,7 +75,7 @@ const variantLineLight: PartsStyleFunction<typeof parts> = (props) => {
   const { size } = props
   return merge(variantLineColor(props), getSizesForLineLightDarkVariant(size), {
     tab: {
-      color: 'secondary.400',
+      color: 'brand.secondary.400',
       _hover: {
         color: 'brand.primary.500',
       },
@@ -96,7 +96,7 @@ const variantLineDark: PartsStyleFunction<typeof parts> = (props) => {
   const { size } = props
   return merge(variantLineColor(props), getSizesForLineLightDarkVariant(size), {
     tablist: {
-      bg: 'secondary.500',
+      bg: 'brand.secondary.500',
     },
     tab: {
       color: 'neutral.400',
@@ -137,7 +137,7 @@ const variantLine: PartsStyleFunction<typeof parts> = (props) => {
       transitionProperty:
         'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, font-weight',
       textStyle: 'body-1',
-      color: 'secondary.500',
+      color: 'brand.secondary.500',
       _selected: {
         textStyle: 'subhead-1',
         color: `${c}.500`,

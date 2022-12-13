@@ -172,7 +172,7 @@ export const Rating = forwardRef<RatingProps, 'input'>(
             })}
           </Wrap>
           {currentValue && variant !== 'number' && (
-            <Text color="secondary.700" textStyle="subhead-2">
+            <Text color="brand.secondary.700" textStyle="subhead-2">
               {currentValue} selected
             </Text>
           )}
@@ -182,7 +182,7 @@ export const Rating = forwardRef<RatingProps, 'input'>(
             id={`${name}-caption`}
             gridArea="caption"
             textStyle="caption-1"
-            color="secondary.500"
+            color="brand.secondary.500"
           >
             {helperText}
           </Text>

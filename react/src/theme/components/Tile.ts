@@ -45,16 +45,16 @@ export const Tile: ComponentMultiStyleConfig<typeof parts> = {
       justifyContent: 'stretch',
     },
     title: {
-      color: 'secondary.700',
+      color: 'brand.secondary.700',
       textStyle: 'h5',
       mt: '1rem',
     },
     icon: {
       boxSize: '2.5rem',
-      color: 'secondary.500',
+      color: 'brand.secondary.500',
     },
     subtitle: {
-      color: 'secondary.500',
+      color: 'brand.secondary.500',
       textStyle: 'body-2',
     },
   },

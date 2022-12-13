@@ -61,7 +61,11 @@ const Template: Story<StoryModalProps> = ({ bodyContent, ...args }) => {
           </ModalBody>
           <ModalFooter>
             <ButtonGroup>
-              <Button variant="clear" colorScheme="secondary" onClick={onClose}>
+              <Button
+                variant="clear"
+                colorScheme="brand.secondary"
+                onClick={onClose}
+              >
                 Cancel
               </Button>
               <Button>Create workspace</Button>

@@ -72,7 +72,7 @@ export const Welcome = (): JSX.Element => {
             as="button"
             onClick={linkTo('Introduction/Guiding principles')}
             aria-label="Next story"
-            colorScheme="secondary"
+            colorScheme="brand.secondary"
           >
             <BxChevronRight fontSize="4rem" />
           </Link>

@@ -14,7 +14,7 @@ export const PopoverCloseButton = ({
   return (
     <ChakraPopoverCloseButton
       variant="clear"
-      colorScheme="secondary"
+      colorScheme="brand.secondary"
       {...props}
     >
       {children}

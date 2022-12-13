@@ -22,7 +22,7 @@ export const Solid = Template.bind({})
 Solid.args = {
   children: 'Solid tag',
   variant: 'solid',
-  colorScheme: 'secondary',
+  colorScheme: 'brand.secondary',
 }
 
 export const WithCloseButton = Template.bind({})
@@ -34,7 +34,7 @@ WithCloseButton.args = {
     </>
   ),
   variant: 'subtle',
-  colorScheme: 'secondary',
+  colorScheme: 'brand.secondary',
 }
 
 export const WithLeftRightIcon = Template.bind({})
@@ -47,7 +47,7 @@ WithLeftRightIcon.args = {
     </>
   ),
   variant: 'solid',
-  colorScheme: 'secondary',
+  colorScheme: 'brand.secondary',
 }
 
 const TemplateGroup: Story<TagProps> = (args) => (
@@ -61,8 +61,8 @@ const TemplateGroup: Story<TagProps> = (args) => (
     <Tag {...args} colorScheme="brand.primary" />
     <Tag {...args} aria-disabled colorScheme="brand.primary" />
     <Text>secondary</Text>
-    <Tag {...args} colorScheme="secondary" />
-    <Tag {...args} aria-disabled colorScheme="secondary" />
+    <Tag {...args} colorScheme="brand.secondary" />
+    <Tag {...args} aria-disabled colorScheme="brand.secondary" />
     <Text>warning</Text>
     <Tag {...args} colorScheme="warning" />
     <Tag {...args} aria-disabled colorScheme="warning" />

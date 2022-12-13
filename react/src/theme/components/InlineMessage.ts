@@ -14,7 +14,7 @@ export const InlineMessage: ComponentMultiStyleConfig<typeof parts> = {
       display: 'flex',
       p: '1rem',
       justifyContent: 'start',
-      color: 'secondary.700',
+      color: 'brand.secondary.700',
     },
     icon: {
       fontSize: '1.5rem',

@@ -68,7 +68,7 @@ const baseStyle: PartsStyleFunction<typeof parts> = ({
       opacity: 1,
     },
     textStyle: 'body-1',
-    color: 'secondary.700',
+    color: 'brand.secondary.700',
     ml: '1rem',
   },
   // Check mark icon

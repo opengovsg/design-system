@@ -46,13 +46,13 @@ export const Banner: MultiStyleConfig<typeof parts> & {
     },
     warn: {
       banner: {
-        color: 'secondary.700',
+        color: 'brand.secondary.700',
         bg: 'warning.500',
       },
       link: {
-        color: 'secondary.700',
+        color: 'brand.secondary.700',
         _hover: {
-          color: 'secondary.700',
+          color: 'brand.secondary.700',
         },
       },
     },

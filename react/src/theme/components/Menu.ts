@@ -23,7 +23,7 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
     item: {
       padding: '0.75rem 1rem',
       fontWeight: '400',
-      color: 'secondary.700',
+      color: 'brand.secondary.700',
       _hover: {
         bg: `${c}.100`,
         borderWidth: '0rem',
@@ -101,7 +101,7 @@ export const Menu = {
   baseStyle,
   variants,
   defaultProps: {
-    colorScheme: 'secondary',
+    colorScheme: 'brand.secondary',
     focusItemBorderColor: 'brand.primary.500',
     variant: 'outline',
   },
