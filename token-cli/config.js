@@ -100,6 +100,28 @@ StyleDictionary.registerTransform({
   },
 });
 
+// Convert shadow to css format.
+StyleDictionary.registerTransform({
+  name: "color/rbgaWithHex",
+  type: "value",
+  transitive: true,
+  matcher: (prop) => {
+    return prop.type === "color";
+  },
+  transformer: (token) => {
+    if (String(token.value).startsWith("rgba")) {
+      // Get hex value from rgba string rgba(#ffffff, 0.5)
+      const [, hex, alpha] = token.value.match(
+        /rgba\((#(?:[0-9a-fA-F]{3}){1,2}), ?(.+)\)/
+      );
+      const color = tinycolor(hex);
+      color.setAlpha(alpha);
+      return color.toRgbString();
+    }
+    return token.value;
+  },
+});
+
 StyleDictionary.registerTransform({
   name: "size/percentToEm",
   type: "value",
@@ -159,6 +181,7 @@ module.exports = {
         "font/weightToNumber",
         "size/pxToRem",
         "size/percentToEm",
+        "color/rbgaWithHex",
       ],
       buildPath: "themes/",
       files: [
