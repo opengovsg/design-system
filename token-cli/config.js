@@ -101,6 +101,19 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
+  name: "size/percentToEm",
+  type: "value",
+  matcher: (prop) => prop.type === "letterSpacing",
+  transformer: (prop) => {
+    const percentValue = prop.original.value;
+    if (String(percentValue).endsWith("%")) {
+      return `${(percentValue.slice(0, -1) / 100).toFixed(3)}em`;
+    }
+    return percentValue;
+  },
+});
+
+StyleDictionary.registerTransform({
   name: "size/pxToRem",
   type: "value",
   matcher: (prop) => {
@@ -145,6 +158,7 @@ module.exports = {
         "shadow/design-system",
         "font/weightToNumber",
         "size/pxToRem",
+        "size/percentToEm",
       ],
       buildPath: "themes/",
       files: [
