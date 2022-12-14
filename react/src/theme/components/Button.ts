@@ -5,6 +5,7 @@ import {
 } from '@chakra-ui/theme-tools'
 import { merge } from 'lodash'
 
+import { layerStyles } from '../layerStyles'
 import { textStyles } from '../textStyles'
 import { meetsWcagAaRatio } from '../utils'
 import { hexToRgba } from '../utils/hexToRgba'
@@ -175,7 +176,7 @@ const variantOutlineClear: SystemStyleFunction = (props) => {
     color: borderColor,
     _disabled: {
       borderColor: showBorder
-        ? 'interaction.support.disabledContent'
+        ? 'interaction.support.disabled-content'
         : 'transparent',
       bg: 'transparent',
     },
@@ -188,7 +189,7 @@ const variantOutlineClear: SystemStyleFunction = (props) => {
       borderColor: showBorder ? borderColor : 'transparent',
       _disabled: {
         borderColor: showBorder
-          ? 'interaction.support.disabledContent'
+          ? 'interaction.support.disabled-content'
           : 'transparent',
         bg: 'transparent',
       },
@@ -256,13 +257,9 @@ export const Button = {
       bg: 'interaction.support.disabled',
       borderColor: 'interaction.support.disabled',
       opacity: 1,
-      color: 'interaction.support.disabledContent',
+      color: 'interaction.support.disabled-content',
     },
-    _focus: {
-      boxShadow: 'none !important',
-      outline: `2px solid var(--chakra-colors-utility-focus-default)`,
-      outlineOffset: '0.125rem',
-    },
+    ...layerStyles.focusRing,
   },
   sizes: {
     sm: {

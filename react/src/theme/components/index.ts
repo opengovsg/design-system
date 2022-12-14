@@ -1,6 +1,7 @@
 import { Accordion } from './Accordion'
 import { Attachment, ATTACHMENT_THEME_KEY } from './Attachment'
 import { Avatar } from './Avatar'
+import { AvatarMenu } from './AvatarMenu'
 import { Badge } from './Badge'
 import { Banner } from './Banner'
 import { Button } from './Button'
@@ -40,6 +41,7 @@ import { YesNo, YESNO_THEME_KEY } from './YesNo'
 export const components = {
   Accordion,
   Avatar,
+  AvatarMenu,
   Badge,
   Banner,
   Button,

@@ -7,6 +7,7 @@ import { spacing } from './foundations/spacing'
 import { transition } from './foundations/transition'
 import { typography } from './foundations/typography'
 import { components } from './components'
+import { layerStyles } from './layerStyles'
 import { textStyles } from './textStyles'
 
 export const theme = extendTheme({
@@ -41,5 +42,6 @@ export const theme = extendTheme({
   lineHeights: typography.lineHeights,
   letterSpacings: typography.letterSpacing,
   textStyles,
+  layerStyles,
   components,
 })

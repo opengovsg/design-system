@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 13 Dec 2022 02:20:42 GMT
+ * Generated on Tue, 13 Dec 2022 09:50:19 GMT
  */
 
 export const colours = {
@@ -127,7 +127,7 @@ export const colours = {
       backdrop: '#e9e9e9',
       brandLight: '#F7F9FE',
       inverse: '#3d3d3d',
-      overlay: 'rgba(#3d3d3d, 0.8)',
+      overlay: 'rgba(61, 61, 61, 0.8)',
     },
     content: {
       default: '#474747',
@@ -220,20 +220,20 @@ export const colours = {
     },
     tinted: {
       main: {
-        hover: 'rgba(#276EF1, 0.04)',
-        active: 'rgba(#276EF1, 0.12)',
+        hover: 'rgba(39, 110, 241, 0.04)',
+        active: 'rgba(39, 110, 241, 0.12)',
       },
       critical: {
-        hover: 'rgba(#c03434, 0.04)',
-        active: 'rgba(#c03434, 0.12)',
+        hover: 'rgba(192, 52, 52, 0.04)',
+        active: 'rgba(192, 52, 52, 0.12)',
       },
       dark: {
-        hover: 'rgba(#000000, 0.1)',
-        active: 'rgba(#000000, 0.2)',
+        hover: 'rgba(0, 0, 0, 0.1)',
+        active: 'rgba(0, 0, 0, 0.2)',
       },
       light: {
-        hover: 'rgba(#ffffff, 0.1)',
-        active: 'rgba(#ffffff, 0.2)',
+        hover: 'rgba(255, 255, 255, 0.1)',
+        active: 'rgba(255, 255, 255, 0.2)',
       },
     },
     support: {
@@ -268,6 +268,6 @@ export const colours = {
     'focus-inverse': '#ffffff',
     'input-prefilled': '#fffae1',
     ui: '#ffffff',
-    'ui-clear': 'rgba(#ffffff,0)',
+    'ui-clear': 'rgba(255, 255, 255, 0)',
   },
 }
