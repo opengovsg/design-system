@@ -83,6 +83,7 @@ export const getContrast = (
   foreground: string,
   background: string,
 ): number | null => {
+  if (!foreground || !background) return null
   const rgb1 = hexToRgb(foreground)
   const rgb2 = hexToRgb(background)
 
