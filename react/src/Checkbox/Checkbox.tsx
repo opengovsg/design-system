@@ -4,6 +4,7 @@ import {
   Checkbox as ChakraCheckbox,
   CheckboxProps as ChakraCheckboxProps,
   ComponentWithAs,
+  createStylesContext,
   forwardRef,
   Icon,
   useMergeRefs,
@@ -25,7 +26,7 @@ type CheckboxWithOthers = ComponentWithAs<'input', CheckboxProps> & {
 }
 
 export const Checkbox = forwardRef<CheckboxProps, 'input'>(
-  ({ children, colorScheme = 'brand.primary', ...props }, ref) => {
+  ({ children, colorScheme, ...props }, ref) => {
     // Passing all props for cleanliness but the size prop is the most relevant
     const { icon: iconStyles } = useMultiStyleConfig(CHECKBOX_THEME_KEY, props)
     return (
@@ -52,6 +53,9 @@ export const Checkbox = forwardRef<CheckboxProps, 'input'>(
  * Components to support the "Others" option.
  */
 
+const [CheckboxWithOthersStylesProvider, useCheckboxWithOthersStyles] =
+  createStylesContext(CHECKBOX_THEME_KEY)
+
 export interface CheckboxOthersWrapperProps {
   colorScheme?: CheckboxProps['colorScheme']
   size?: string
@@ -71,9 +75,11 @@ const OthersWrapper = ({
   const styles = useMultiStyleConfig(CHECKBOX_THEME_KEY, props)
 
   return (
-    <CheckboxOthersContext.Provider value={{ checkboxRef, inputRef }}>
-      <Box __css={styles.othersContainer}>{children}</Box>
-    </CheckboxOthersContext.Provider>
+    <CheckboxWithOthersStylesProvider value={styles}>
+      <CheckboxOthersContext.Provider value={{ checkboxRef, inputRef }}>
+        <Box __css={styles.othersContainer}>{children}</Box>
+      </CheckboxOthersContext.Provider>
+    </CheckboxWithOthersStylesProvider>
   )
 }
 
@@ -82,8 +88,7 @@ const OthersWrapper = ({
  */
 const OthersCheckbox = forwardRef<CheckboxProps, 'input'>((props, ref) => {
   const { checkboxRef, inputRef } = useCheckboxOthers()
-  // Passing all props for cleanliness but size and colorScheme are the most relevant
-  const styles = useMultiStyleConfig(CHECKBOX_THEME_KEY, props)
+  const styles = useCheckboxWithOthersStyles()
 
   const mergedCheckboxRef = useMergeRefs(checkboxRef, ref)
 
@@ -112,8 +117,7 @@ const OthersCheckbox = forwardRef<CheckboxProps, 'input'>((props, ref) => {
  */
 const OthersInput = forwardRef<InputProps, 'input'>((props, ref) => {
   const { checkboxRef, inputRef } = useCheckboxOthers()
-  // Passing all props for cleanliness but size and colorScheme are the most relevant
-  const styles = useMultiStyleConfig(CHECKBOX_THEME_KEY, props)
+  const styles = useCheckboxWithOthersStyles()
 
   const mergedInputRef = useMergeRefs(inputRef, ref)
 
