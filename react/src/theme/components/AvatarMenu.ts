@@ -49,10 +49,10 @@ const baseStyle = definePartsStyle((props) => {
     avatar: {
       transitionProperty: 'common',
       transitionDuration: 'normal',
-      _groupFocus: layerStyles.focusRing._focusVisible,
+      _groupFocus: layerStyles.focusRing.default._focusVisible,
       _groupActive: {
         bg: activeBg,
-        ...layerStyles.focusRing._focusVisible,
+        ...layerStyles.focusRing.default._focusVisible,
       },
       _groupHover: {
         bg: hoverBg,

@@ -259,7 +259,7 @@ export const Button = {
       opacity: 1,
       color: 'interaction.support.disabled-content',
     },
-    ...layerStyles.focusRing,
+    ...layerStyles.focusRing.default,
   },
   sizes: {
     sm: {

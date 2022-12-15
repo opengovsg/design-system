@@ -1,8 +1,9 @@
-import { getColor, SystemStyleFunction } from '@chakra-ui/theme-tools'
+import { SystemStyleFunction } from '@chakra-ui/theme-tools'
+
+import { layerStyles } from '../layerStyles'
 
 const baseStyle: SystemStyleFunction = ({
   colorScheme: c = 'brand.primary',
-  theme,
 }) => {
   let linkColor = `${c}.500`
   let hoverColor = `${c}.600`
@@ -32,9 +33,7 @@ const baseStyle: SystemStyleFunction = ({
       color: `${c}.300`,
       cursor: 'not-allowed',
     },
-    _focus: {
-      boxShadow: `0 0 0 2px ${getColor(theme, linkColor)}`,
-    },
+    _focusVisible: layerStyles.focusRing.default._focusVisible,
   }
 }
 
