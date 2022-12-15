@@ -37,6 +37,7 @@ export const SelectCombobox = forwardRef<HTMLInputElement>(
       resetInputValue,
       inputAria,
       inputRef,
+      isClearable,
     } = useSelectContext()
 
     const mergedInputRef = useMergeRefs(inputRef, ref)
@@ -60,6 +61,7 @@ export const SelectCombobox = forwardRef<HTMLInputElement>(
         <InputGroup
           pos="relative"
           display="grid"
+          marginInlineEnd={isClearable ? '-1px' : undefined}
           gridTemplateColumns="1fr"
           {...getComboboxProps({
             disabled: isDisabled,
@@ -73,28 +75,17 @@ export const SelectCombobox = forwardRef<HTMLInputElement>(
             visibility={inputValue ? 'hidden' : 'initial'}
             direction="row"
             spacing="1rem"
-            gridArea="1 / 1 / 2 / 3"
-            pointerEvents="none"
-            pl="calc(1rem + 1px)"
-            pr="calc(2.75rem + 1px)"
-            align="center"
-            zIndex={2}
+            aria-disabled={isDisabled}
+            sx={styles.selected}
           >
             {selectedItemMeta.icon ? (
               <Icon
-                ml="-0.25rem"
                 sx={styles.icon}
                 as={selectedItemMeta.icon}
                 aria-disabled={isDisabled}
               />
             ) : null}
-            <Text
-              textStyle="body-1"
-              noOfLines={1}
-              color={isDisabled ? 'neutral.500' : undefined}
-            >
-              {selectedItemMeta.label}
-            </Text>
+            <Text noOfLines={1}>{selectedItemMeta.label}</Text>
           </Stack>
           <Input
             isReadOnly={!isSearchable || isReadOnly}

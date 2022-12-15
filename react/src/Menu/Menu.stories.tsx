@@ -40,7 +40,7 @@ const MenuTemplate: StoryFn<MenuTemplateProps> = ({
           </Menu.Button>
           <Menu.List>
             <Menu.Item>Last updated</Menu.Item>
-            <Menu.Item>Date created</Menu.Item>
+            <Menu.Item isDisabled>Date created</Menu.Item>
             <Menu.Item>Name</Menu.Item>
           </Menu.List>
         </>

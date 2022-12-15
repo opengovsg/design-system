@@ -229,7 +229,6 @@ const variantInputAttached: SystemStyleFunction = (props) => {
     outlineOffset: 0,
     _active: {
       color: 'base.content.dark',
-      zIndex: 1,
       _disabled: {
         color: 'interaction.support.disabled-content',
       },

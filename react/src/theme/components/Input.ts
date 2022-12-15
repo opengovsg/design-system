@@ -31,6 +31,11 @@ const outlineVariant = definePartsStyle((props) => {
       _placeholder: {
         color: 'interaction.support.placeholder',
       },
+      _hover: {
+        borderColor: isSuccess
+          ? 'interaction.success.default'
+          : 'base.divider.dark',
+      },
       // Explicit styling here for other components that use a mock input.
       _invalid: {
         borderColor: getColor(theme, ec),

@@ -58,6 +58,11 @@ const baseStyle = definePartsStyle((props) => {
       _hover: {
         bg: hoverBg,
       },
+      _disabled: {
+        color: 'interaction.support.disabled-content',
+        opacity: 1,
+        cursor: 'not-allowed',
+      },
       _focus: {
         bg: hoverBg,
         _active: {
