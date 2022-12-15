@@ -6,20 +6,21 @@ import { useDatePicker } from '../DatePickerContext'
 export const CalendarButton = (): JSX.Element => {
   const {
     disclosureProps: { onOpen, isOpen },
-    colorScheme,
     calendarButtonAria,
-    fcProps: { isDisabled, isReadOnly },
+    fcProps: { isDisabled, isReadOnly, isInvalid },
+    styles,
   } = useDatePicker()
+
   return (
     <IconButton
+      aria-invalid={isInvalid}
       onClick={onOpen}
-      colorScheme={colorScheme}
+      variant="inputAttached"
       aria-label={calendarButtonAria}
       icon={<BxCalendar />}
-      variant="inputAttached"
-      borderRadius={0}
       isActive={isOpen}
       isDisabled={isDisabled || isReadOnly}
+      sx={styles.button}
     />
   )
 }

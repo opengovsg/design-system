@@ -22,11 +22,14 @@ const { definePartsStyle, defineMultiStyleConfig } =
 const getDayOfMonthColors = ({
   isToday,
   colorScheme: c,
+  isOutsideCurrMonth,
 }: StyleFunctionProps) => {
   switch (c) {
     case 'main':
       return {
-        color: 'base.content.dark',
+        color: isOutsideCurrMonth
+          ? 'interaction.support.disabled-content'
+          : 'base.content.dark',
         activeColor: 'base.content.inverse',
         hoverBg: 'interaction.muted.main.hover',
         activeBg: 'interaction.main.default',

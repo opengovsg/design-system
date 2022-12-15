@@ -1,51 +1,27 @@
-import { anatomy, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+import { anatomy } from '@chakra-ui/theme-tools'
 
-import { ComponentMultiStyleConfig } from '~/theme/types'
+const parts = anatomy('datepicker').parts('button')
 
-import { Input } from './Input'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
 
-const parts = anatomy('datepicker').parts('fieldwrapper', 'field')
-
-const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
-  const inputFieldVariantOutline = Input.variants.outline(props).field
-
+const variantOutline = definePartsStyle(() => {
   return {
-    fieldwrapper: {
-      cursor: 'text',
-      flex: 1,
-      zIndex: 1,
-      px: '1rem',
-      borderLeftRadius: '4px',
-      borderRightRadius: 0,
-      transitionProperty: 'common',
-      transitionDuration: 'normal',
-      _focusWithin: inputFieldVariantOutline._focus,
-      ...inputFieldVariantOutline,
-    },
-    field: {
-      _disabled: {
-        cursor: 'not-allowed',
-      },
-      transitionProperty: 'common',
-      transitionDuration: 'normal',
-      display: 'flex',
-      flex: 1,
+    button: {
+      borderRadius: '2px 0px',
     },
   }
-}
+})
 
 const variants = {
   outline: variantOutline,
 }
 
-export const DatePicker: ComponentMultiStyleConfig<typeof parts> = {
-  parts: parts.keys,
+export const DatePicker = defineMultiStyleConfig({
   variants,
   defaultProps: {
     variant: 'outline',
-    colorScheme: 'brand.primary',
     size: 'md',
-    focusBorderColor: Input.defaultProps.focusBorderColor,
-    errorBorderColor: Input.defaultProps.errorBorderColor,
   },
-}
+})

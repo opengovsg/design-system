@@ -1,4 +1,4 @@
-import { defineStyle } from '@chakra-ui/react'
+import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 import {
   getColor,
   StyleFunctionProps,
@@ -211,43 +211,49 @@ const variantLink = defineStyle((props) => {
 })
 
 const variantInputAttached: SystemStyleFunction = (props) => {
-  const {
-    focusBorderColor: fc = `${props.colorScheme}.500`,
-    errorBorderColor: ec = `danger.500`,
-    theme,
-  } = props
+  const { focusBorderColor: fc, errorBorderColor: ec, theme } = props
 
   return {
+    bg: 'utility.ui',
     fontSize: '1.25rem',
-    color: 'brand.secondary.500',
-    ml: '-1px',
-    borderColor: 'neutral.400',
-    borderRadius: 0,
+    color: 'interaction.support.disabled-content',
+    borderColor: 'base.divider.dark',
+    borderRadius: '2px 0px',
     _hover: {
-      bg: 'neutral.100',
+      bg: 'interaction.muted.main.hover',
+      _disabled: {
+        bg: 'interaction.support.disabled',
+      },
     },
+    outlineOffset: 0,
     _active: {
-      borderColor: getColor(theme, fc),
-      bg: 'white',
+      color: 'base.content.dark',
       zIndex: 1,
-      _hover: {
-        bg: 'neutral.100',
+      _disabled: {
+        color: 'interaction.support.disabled-content',
       },
     },
     _invalid: {
       // Remove extra 1px of outline.
-      borderColor: getColor(theme, ec),
-      boxShadow: 'none',
+      borderColor: ec,
     },
     _focus: {
       borderColor: fc,
       boxShadow: `0 0 0 1px ${getColor(theme, fc)}`,
-      zIndex: 1,
+    },
+    _focusVisible: {
+      boxShadow: 'none',
+      outline: 'none',
+    },
+    _disabled: {
+      bg: 'interaction.support.disabled',
+      borderColor: 'base.divider.dark',
+      color: 'interaction.support.disabled-content',
     },
   }
 }
 
-export const Button = {
+export const Button = defineStyleConfig({
   baseStyle: {
     ...textStyles['subhead-1'],
     whiteSpace: 'pre-wrap',
@@ -290,6 +296,9 @@ export const Button = {
   defaultProps: {
     variant: 'solid',
     colorScheme: 'main',
+    // @ts-expect-error Invalid exported type.
+    focusBorderColor: 'utility.focus-default',
+    errorBorderColor: 'interaction.critical.default',
     size: 'md',
   },
-}
+})
