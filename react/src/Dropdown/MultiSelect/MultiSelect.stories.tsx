@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import { FormControl } from '@chakra-ui/react'
-import { Meta, Story } from '@storybook/react'
+import { FormControl, Stack } from '@chakra-ui/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { difference, get } from 'lodash'
 
 import { Button } from '~/Button'
@@ -17,48 +17,38 @@ import { MultiSelect, MultiSelectProps } from './MultiSelect'
 const INITIAL_COMBOBOX_ITEMS: ComboboxItem[] = [
   {
     value: 'A',
-    label: 'A',
   },
   {
     value: 'What happens when the label is fairly long',
-    label: 'What happens when the label is fairly long',
   },
   {
     value: 'Bat',
-    label: 'Bat',
     icon: BxsCheckCircle,
     description: 'With description',
   },
   {
     value: 'C',
-    label: 'C',
   },
   {
     value: 'D',
-    label: 'D',
   },
   {
     value: 'A1',
-    label: 'A1',
   },
   {
     value: 'B2',
-    label: 'B2',
   },
   {
     value: 'Bat3',
-    label: 'Bat3',
   },
   {
     value: 'C4',
-    label: 'C4',
   },
   {
     value: 'D5',
-    label: 'D5',
     disabled: true,
   },
-  ...[...Array(2000).keys()].map(String),
+  ...[...Array(200).keys()].map((val) => ({ value: String(val) })),
 ]
 
 export default {
@@ -71,7 +61,10 @@ export default {
   },
 } as Meta<MultiSelectProps>
 
-const Template: Story<MultiSelectProps> = ({ values: valuesProp, ...args }) => {
+const Template: StoryFn<MultiSelectProps> = ({
+  values: valuesProp,
+  ...args
+}) => {
   const [values, setValues] = useState<string[]>(valuesProp)
 
   return <MultiSelect {...args} values={values} onChange={setValues} />
@@ -114,7 +107,35 @@ DisabledWithSelection.args = {
   values: ['What happens when the label is fairly long', 'Bat'],
 }
 
-export const Playground: Story<MultiSelectProps> = ({ items, isDisabled }) => {
+export const Sizes = () => {
+  const items = ['sm', 'md']
+  const [first, setFirst] = useState(['sm'])
+  const [second, setSecond] = useState(['md'])
+
+  return (
+    <Stack>
+      <MultiSelect
+        values={first}
+        onChange={setFirst}
+        size="sm"
+        items={items}
+        name="sm"
+      />
+      <MultiSelect
+        values={second}
+        onChange={setSecond}
+        size="md"
+        items={items}
+        name="md"
+      />
+    </Stack>
+  )
+}
+
+export const Playground: StoryFn<MultiSelectProps> = ({
+  items,
+  isDisabled,
+}) => {
   const name = 'Multiselect'
   const {
     handleSubmit,

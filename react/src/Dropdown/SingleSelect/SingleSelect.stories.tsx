@@ -126,9 +126,6 @@ export const Sizes = () => {
     </Stack>
   )
 }
-Sizes.args = {
-  size: 'xs',
-}
 
 export const StringValues = Template.bind({})
 StringValues.args = {

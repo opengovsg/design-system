@@ -276,6 +276,7 @@ export const MultiSelectProvider = ({
   }, [inputAriaProp, name, selectedItems])
 
   const styles = useMultiStyleConfig('MultiSelect', {
+    size,
     isFocused,
     isEmpty: selectedItems.length === 0,
   })
