@@ -12,7 +12,7 @@ import {
   UseMultipleSelectionProps,
 } from 'downshift'
 
-import { VIRTUAL_LIST_MAX_HEIGHT } from '../constants'
+import { VIRTUAL_LIST_ITEM_HEIGHT, VIRTUAL_LIST_MAX_HEIGHT } from '../constants'
 import { useItems } from '../hooks/useItems'
 import { MultiSelectContext } from '../MultiSelectContext'
 import { SelectContext, SharedSelectContextReturnProps } from '../SelectContext'
@@ -79,6 +79,7 @@ export const MultiSelectProvider = ({
   downshiftMultiSelectProps = {},
   inputAria: inputAriaProp,
   children,
+  size = 'md',
 }: MultiSelectProviderProps): JSX.Element => {
   const { items, getItemByValue } = useItems({ rawItems })
   const [isFocused, setIsFocused] = useState(false)
@@ -280,15 +281,16 @@ export const MultiSelectProvider = ({
   })
 
   const virtualListHeight = useMemo(() => {
-    const totalHeight = filteredItems.length * 48
+    const totalHeight = filteredItems.length * VIRTUAL_LIST_ITEM_HEIGHT[size]
     // If the total height is less than the max height, just return the total height.
     // Otherwise, return the max height.
-    return Math.min(totalHeight, VIRTUAL_LIST_MAX_HEIGHT)
-  }, [filteredItems.length])
+    return Math.min(totalHeight, VIRTUAL_LIST_MAX_HEIGHT[size])
+  }, [filteredItems.length, size])
 
   return (
     <SelectContext.Provider
       value={{
+        size,
         inputRef,
         isClearable: false,
         selectedItem: null,

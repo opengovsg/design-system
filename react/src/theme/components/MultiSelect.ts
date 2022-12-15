@@ -1,4 +1,5 @@
-import { anatomy, PartsStyleFunction } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+import { anatomy } from '@chakra-ui/theme-tools'
 import { merge, pick } from 'lodash'
 
 import { Checkbox } from './Checkbox'
@@ -12,10 +13,13 @@ export const parts = anatomy('multiselect').parts(
   'itemcheckbox',
 )
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
+
+const baseStyle = definePartsStyle((props) => {
   const { isFocused, isEmpty } = props
   const comboboxBaseStyle = pick(
-    SingleSelect.baseStyle(props),
+    SingleSelect.baseStyle?.(props),
     comboboxParts.keys,
   )
   return {
@@ -61,7 +65,7 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
           }
         : {}),
     },
-    itemcheckbox: merge(Checkbox.baseStyle(props).control, {
+    itemcheckbox: merge(Checkbox.baseStyle?.(props).control, {
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -70,14 +74,14 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       flexShrink: 0,
     }),
   }
-}
+})
 
-const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
+const variantOutline = definePartsStyle((props) => {
   const comboboxVariantOutline = pick(
-    SingleSelect.variants.outline(props),
+    SingleSelect.variants?.outline(props),
     comboboxParts.keys,
   )
-  const inputFieldVariantOutline = Input.variants.outline(props).field
+  const inputFieldVariantOutline = Input.variants?.outline(props).field
 
   const { isFocused } = props
 
@@ -85,21 +89,20 @@ const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
     ...comboboxVariantOutline,
     fieldwrapper: {
       borderRadius: '4px',
-      _focusWithin: inputFieldVariantOutline._focus,
+      _focusWithin: inputFieldVariantOutline?._focusVisible,
       ...inputFieldVariantOutline,
-      ...(isFocused ? inputFieldVariantOutline._focus : {}),
+      ...(isFocused ? inputFieldVariantOutline?._focusVisible : {}),
     },
   }
-}
+})
 
 const variants = {
   outline: variantOutline,
 }
 
-export const MultiSelect = {
-  parts: parts.keys,
+export const MultiSelect = defineMultiStyleConfig({
   baseStyle,
   variants,
   sizes: SingleSelect.sizes,
   defaultProps: SingleSelect.defaultProps,
-}
+})

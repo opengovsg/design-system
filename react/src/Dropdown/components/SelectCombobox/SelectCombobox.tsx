@@ -38,6 +38,7 @@ export const SelectCombobox = forwardRef<HTMLInputElement>(
       inputAria,
       inputRef,
       isClearable,
+      size,
     } = useSelectContext()
 
     const mergedInputRef = useMergeRefs(inputRef, ref)
@@ -59,6 +60,7 @@ export const SelectCombobox = forwardRef<HTMLInputElement>(
       <Flex>
         <VisuallyHidden id={inputAria.id}>{inputAria.label}</VisuallyHidden>
         <InputGroup
+          size={size}
           pos="relative"
           display="grid"
           marginInlineEnd={isClearable ? '-1px' : undefined}

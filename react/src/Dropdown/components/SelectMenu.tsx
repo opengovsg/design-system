@@ -18,6 +18,7 @@ export const SelectMenu = (): JSX.Element => {
     styles,
     virtualListRef,
     virtualListHeight,
+    size,
   } = useSelectContext()
 
   const { floatingRef, floatingStyles } = useSelectPopover()
@@ -33,12 +34,13 @@ export const SelectMenu = (): JSX.Element => {
         )}
         style={floatingStyles}
         sx={styles.list}
+        zIndex="dropdown"
       >
         {isOpen && items.length > 0 && (
           <Virtuoso
             ref={virtualListRef}
             data={items}
-            overscan={VIRTUAL_LIST_OVERSCAN_HEIGHT}
+            overscan={VIRTUAL_LIST_OVERSCAN_HEIGHT[size]}
             style={{ height: virtualListHeight }}
             itemContent={(index, item) => {
               return (

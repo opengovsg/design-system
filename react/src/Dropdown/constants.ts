@@ -1,2 +1,16 @@
-export const VIRTUAL_LIST_MAX_HEIGHT = 12 * 16
-export const VIRTUAL_LIST_OVERSCAN_HEIGHT = 4 * 16
+export const VIRTUAL_LIST_ITEM_HEIGHT = {
+  xs: 40,
+  sm: 40,
+  md: 48,
+}
+
+export const VIRTUAL_LIST_MAX_HEIGHT = {
+  xs: 4 * VIRTUAL_LIST_ITEM_HEIGHT.xs,
+  sm: 4 * VIRTUAL_LIST_ITEM_HEIGHT.sm,
+  md: 4 * VIRTUAL_LIST_ITEM_HEIGHT.md,
+}
+export const VIRTUAL_LIST_OVERSCAN_HEIGHT = {
+  xs: 1.5 * VIRTUAL_LIST_ITEM_HEIGHT.xs,
+  sm: 1.5 * VIRTUAL_LIST_ITEM_HEIGHT.sm,
+  md: 1.5 * VIRTUAL_LIST_ITEM_HEIGHT.md,
+}

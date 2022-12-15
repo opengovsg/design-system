@@ -10,7 +10,7 @@ export const ToggleChevron = (): JSX.Element => {
 
   return (
     <InputRightElement
-      as="button"
+      // as="button"
       type="button"
       display="flex"
       _disabled={{

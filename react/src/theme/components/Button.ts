@@ -273,9 +273,13 @@ export const Button = defineStyleConfig({
     ...layerStyles.focusRing.default,
   },
   sizes: {
+    xs: {
+      minH: '2.25rem',
+      minW: '2.25rem',
+    },
     sm: {
-      minH: 'auto',
-      minW: 'auto',
+      minH: '2.5rem',
+      minW: '2.5rem',
     },
     md: {
       minH: '2.75rem',

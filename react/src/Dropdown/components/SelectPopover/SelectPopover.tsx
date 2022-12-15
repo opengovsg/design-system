@@ -16,7 +16,7 @@ import { SelectPopoverContext } from './SelectPopoverContext'
 export const SelectPopoverProvider = ({
   children,
 }: PropsWithChildren): JSX.Element => {
-  const { styles, setIsFocused, isOpen } = useSelectContext()
+  const { setIsFocused, isOpen } = useSelectContext()
 
   const wrapperRef = useRef<HTMLDivElement | null>(null)
 
@@ -70,9 +70,7 @@ export const SelectPopoverProvider = ({
         floatingStyles,
       }}
     >
-      <Box ref={mergedReferenceRefs} sx={styles.container}>
-        {children}
-      </Box>
+      <Box ref={mergedReferenceRefs}>{children}</Box>
     </SelectPopoverContext.Provider>
   )
 }

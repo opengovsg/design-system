@@ -1,8 +1,8 @@
-import { useCallback, useMemo } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import { FormControl } from '@chakra-ui/react'
+import { FormControl, Stack } from '@chakra-ui/react'
 import { useArgs } from '@storybook/client-api'
-import { Meta, Story } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { Button } from '~/Button'
 import { FormErrorMessage, FormLabel } from '~/FormControl'
@@ -73,9 +73,9 @@ export default {
     items: INITIAL_COMBOBOX_ITEMS,
     value: '',
   },
-} as Meta
+} as Meta<SingleSelectProps>
 
-const Template: Story<SingleSelectProps> = (args) => {
+const Template: StoryFn<SingleSelectProps> = (args) => {
   const [{ value = '' }, updateArgs] = useArgs()
   const onChange = (value: string) => updateArgs({ value })
   return <SingleSelect {...args} value={value} onChange={onChange} />
@@ -92,6 +92,42 @@ export const HasValueSelected = Template.bind({})
 HasValueSelected.args = {
   value: itemToValue(INITIAL_COMBOBOX_ITEMS[0]),
   initialIsOpen: true,
+}
+
+export const Sizes = () => {
+  const items = ['xs', 'sm', 'md']
+  const [first, setFirst] = useState('')
+  const [second, setSecond] = useState('')
+  const [third, setThird] = useState('')
+
+  return (
+    <Stack>
+      <SingleSelect
+        value={first}
+        onChange={setFirst}
+        size="xs"
+        items={items}
+        name="xs"
+      />
+      <SingleSelect
+        value={second}
+        onChange={setSecond}
+        size="sm"
+        items={items}
+        name="sm"
+      />
+      <SingleSelect
+        value={third}
+        onChange={setThird}
+        size="md"
+        items={items}
+        name="md"
+      />
+    </Stack>
+  )
+}
+Sizes.args = {
+  size: 'xs',
 }
 
 export const StringValues = Template.bind({})
@@ -145,7 +181,10 @@ Disabled.args = {
   isDisabled: true,
 }
 
-export const Playground: Story<SingleSelectProps> = ({ items, isReadOnly }) => {
+export const Playground: StoryFn<SingleSelectProps> = ({
+  items,
+  isReadOnly,
+}) => {
   const name = 'Dropdown'
   const {
     handleSubmit,

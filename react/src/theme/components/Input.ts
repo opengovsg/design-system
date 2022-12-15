@@ -2,6 +2,8 @@ import { inputAnatomy } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
 import { getColor } from '@chakra-ui/theme-tools'
 
+import { textStyles } from '../textStyles'
+
 // Additional success part.
 const parts = inputAnatomy.extend('success')
 
@@ -71,11 +73,13 @@ const outlineVariant = definePartsStyle((props) => {
 const coreSizes = {
   xs: defineStyle({
     textStyle: 'body-2',
+    fontSize: textStyles['body-2'].fontSize,
     px: '0.75rem',
     h: '2.25rem',
   }),
   sm: defineStyle({
     textStyle: 'body-2',
+    fontSize: textStyles['body-2'].fontSize,
     px: '0.75rem',
     h: '2.5rem',
   }),
@@ -83,6 +87,7 @@ const coreSizes = {
     px: '1rem',
     h: '2.75rem',
     textStyle: 'body-1',
+    fontSize: textStyles['body-1'].fontSize,
   }),
 }
 

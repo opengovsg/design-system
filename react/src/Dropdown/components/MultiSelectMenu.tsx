@@ -18,6 +18,7 @@ export const MultiSelectMenu = (): JSX.Element => {
     styles,
     virtualListRef,
     virtualListHeight,
+    size,
   } = useSelectContext()
 
   const { floatingRef, floatingStyles } = useSelectPopover()
@@ -37,7 +38,7 @@ export const MultiSelectMenu = (): JSX.Element => {
           <Virtuoso
             ref={virtualListRef}
             data={items}
-            overscan={VIRTUAL_LIST_OVERSCAN_HEIGHT}
+            overscan={VIRTUAL_LIST_OVERSCAN_HEIGHT[size]}
             style={{ height: virtualListHeight }}
             itemContent={(index, item) => {
               return (

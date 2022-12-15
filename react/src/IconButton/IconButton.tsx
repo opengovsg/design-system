@@ -4,6 +4,7 @@ import {
   IconButton as ChakraIconButton,
   IconButtonProps as ChakraIconButtonProps,
   ThemeTypings,
+  ThemingProps,
 } from '@chakra-ui/react'
 
 import { Spinner } from '~/Spinner'
@@ -16,7 +17,7 @@ export interface IconButtonProps extends ChakraIconButtonProps {
   /**
    * Size of the icon button.
    */
-  size?: 'md' | 'lg'
+  size?: ThemingProps<'Button'>['size']
   /**
    * The variant of the button.
    */

@@ -1,6 +1,6 @@
 import { createContext, MutableRefObject, RefObject, useContext } from 'react'
 import { VirtuosoHandle } from 'react-virtuoso'
-import { CSSObject, FormControlOptions } from '@chakra-ui/react'
+import { FormControlOptions, SystemStyleObject } from '@chakra-ui/react'
 import { UseComboboxPropGetters, UseComboboxState } from 'downshift'
 
 import { ComboboxItem } from './types'
@@ -31,6 +31,7 @@ export interface SharedSelectContextReturnProps<
     id: string
     label: string
   }
+  size?: 'xs' | 'sm' | 'md'
 }
 
 interface SelectContextReturn<Item extends ComboboxItem = ComboboxItem>
@@ -42,7 +43,7 @@ interface SelectContextReturn<Item extends ComboboxItem = ComboboxItem>
   closeMenu: () => void
   toggleMenu: () => void
   selectItem: (item: Item) => void
-  styles: Record<string, CSSObject>
+  styles: Record<string, SystemStyleObject>
   isFocused: boolean
   setIsFocused: (isFocused: boolean) => void
   inputRef?: MutableRefObject<HTMLInputElement | null>

@@ -6,7 +6,6 @@ import { Input } from './Input'
 import { Menu } from './Menu'
 
 export const comboboxParts = anatomy('combobox').parts(
-  'container',
   'list',
   'item',
   'itemDescription',
@@ -45,21 +44,15 @@ const listBaseStyle = defineStyle((props) => {
 const baseStyle = definePartsStyle((props) => {
   const itemStyle = itemBaseStyle(props)
   return {
-    container: {
-      pos: 'relative',
-    },
     item: itemStyle,
     highlight: {
       bg: 'interaction.tinted.main.active',
     },
     selected: {
-      gridArea: '1 / 1 / 2 / 3',
-      pointerEvents: 'none',
-      pl: 'calc(1rem + 1px)',
-      pr: 'calc(2.75rem + 1px)',
-      alignItems: 'center',
       zIndex: 2,
-      textStyle: 'body-1',
+      gridArea: '1 / 1 / 2 / 3',
+      alignItems: 'center',
+      pointerEvents: 'none',
       _disabled: {
         color: 'interaction.support.disabled-content',
       },
@@ -100,7 +93,6 @@ const variantOutline = definePartsStyle((props) => {
     list: { py: 0 },
     item: { cursor: 'pointer' },
     field: mergeWith(inputVariantOutline?.field, {
-      zIndex: 1,
       borderRightRadius: isClearable ? 0 : undefined,
       gridArea: '1 / 1 / 2 / 3',
     }),
@@ -112,15 +104,44 @@ const variants = {
 }
 
 const sizes = {
-  md: definePartsStyle(() => {
-    const menuStyles = Menu.sizes?.md
-    return {
-      icon: {
-        fontSize: '1.25rem',
-      },
-      item: menuStyles?.item,
-      emptyItem: menuStyles?.item,
-    }
+  xs: definePartsStyle({
+    item: Menu.sizes?.sm.item,
+    emptyItem: Menu.sizes?.sm.item,
+    field: Input.sizes?.xs.field,
+    icon: {
+      fontSize: '1rem',
+    },
+    selected: {
+      pl: 'calc(0.75rem + 1px)',
+      pr: 'calc(2.5rem + 1px)',
+      textStyle: 'body-2',
+    },
+  }),
+  sm: definePartsStyle({
+    item: Menu.sizes?.sm.item,
+    emptyItem: Menu.sizes?.sm.item,
+    field: Input.sizes?.sm.field,
+    icon: {
+      fontSize: '1rem',
+    },
+    selected: {
+      pl: 'calc(0.75rem + 1px)',
+      pr: 'calc(2.5rem + 1px)',
+      textStyle: 'body-2',
+    },
+  }),
+  md: definePartsStyle({
+    icon: {
+      fontSize: '1.25rem',
+    },
+    item: Menu.sizes?.md?.item,
+    emptyItem: Menu.sizes?.md?.item,
+    field: Input.sizes?.md.field,
+    selected: {
+      pl: 'calc(1rem + 1px)',
+      pr: 'calc(2.75rem + 1px)',
+      textStyle: 'body-1',
+    },
   }),
 }
 

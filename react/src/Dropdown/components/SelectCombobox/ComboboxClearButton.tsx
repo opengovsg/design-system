@@ -17,6 +17,7 @@ export const ComboboxClearButton = (): JSX.Element | null => {
     inputValue,
     inputRef,
     selectedItem,
+    size,
   } = useSelectContext()
 
   const [announceClearedInput, setAnnounceClearedInput] = useState(false)
@@ -38,6 +39,7 @@ export const ComboboxClearButton = (): JSX.Element | null => {
     <IconButton
       // Prevent form submission from triggering this button.
       type="button"
+      size={size}
       aria-invalid={isInvalid}
       isDisabled={isDisabled || isReadOnly}
       aria-label={clearButtonLabel}
