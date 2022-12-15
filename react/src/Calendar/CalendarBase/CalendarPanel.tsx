@@ -66,7 +66,8 @@ export const CalendarPanel = forwardRef<{}, 'button'>(
                         }
                         return (
                           <chakra.td
-                            padding={0}
+                            px={0}
+                            py="0.25rem"
                             key={`${calendar.month}${calendar.year}${windex}${index}`}
                           >
                             <DayOfMonth

@@ -7,11 +7,9 @@ import { Button } from './Button'
 export const CloseButton = defineStyleConfig({
   baseStyle: {
     p: 0,
+    _focusVisible: layerStyles.focusRing.default._focusVisible,
   },
   variants: {
-    subtle: defineStyle({
-      _focusVisible: layerStyles.focusRing.default._focusVisible,
-    }),
     clear: defineStyle((props) => ({
       ...Button.variants.clear(props),
       px: 'initial',

@@ -4,15 +4,20 @@ import {
   chakra,
   Flex,
   forwardRef,
+  SystemStyleObject,
   useMultiStyleConfig,
+  useToken,
 } from '@chakra-ui/react'
 import {
   compareAsc,
   isFirstDayOfMonth,
   isLastDayOfMonth,
   isSameDay,
+  isSaturday,
+  isSunday,
 } from 'date-fns'
 import { DateObj } from 'dayzed'
+import { get } from 'lodash'
 
 import { useCalendar } from './CalendarContext'
 
@@ -68,15 +73,24 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
       colorScheme,
     })
 
-    const buttonBoxBg = useMemo(() => {
-      const gradientColor = `var(--chakra-colors-${colorScheme}-200)`
+    const isCurrentDateHovered = useMemo(
+      () => hoveredDate && isSameDay(hoveredDate, date),
+      [date, hoveredDate],
+    )
+
+    const selectedBgColor = useToken(
+      'colors',
+      `${get(styles, 'dayOfMonth._selected.bg')}`,
+    )
+
+    const buttonBoxStyles = useMemo(() => {
       let gradientTo: 'left' | 'right' | undefined
       // Only style background if it is a range.
       if (Array.isArray(selectedDates)) {
         const [startDate, endDate] = selectedDates
         // Case 1: Both dates selected and equal, no need for background.
         if (startDate && endDate && isSameDay(startDate, endDate)) {
-          return
+          return {}
         }
         // Case 2: Hovered date with previously selected date.
         // Background corner should follow date that is hovered.
@@ -101,56 +115,35 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
         if (endDate && isSameDay(endDate, date)) {
           gradientTo = 'left'
         }
-        if (
-          (isFirstDayOfMonth(date) && gradientTo === 'left') ||
-          (isLastDayOfMonth(date) && gradientTo === 'right')
-        ) {
-          return `linear-gradient(to ${gradientTo}, white 50%,${gradientColor} 50%,${gradientColor} 80%,white)`
-        }
         if (gradientTo) {
-          return `linear-gradient(to ${gradientTo}, transparent 50%,${gradientColor} 50%)`
+          return {
+            bg: `linear-gradient(to ${gradientTo}, transparent 50%,${selectedBgColor} 50%)`,
+          }
         }
         // Case 6: In range but none of the above criteria. Means in between range.
         if (isInRange) {
-          if (isLastDayOfMonth(date)) {
-            return `linear-gradient(to right, ${gradientColor} 75%,white)`
+          const returnStyles: SystemStyleObject = {}
+          if (isLastDayOfMonth(date) || isSaturday(date)) {
+            returnStyles.borderEndRadius = '4px'
           }
-          if (isFirstDayOfMonth(date)) {
-            return `linear-gradient(to left, ${gradientColor} 75%,white)`
+          if (isFirstDayOfMonth(date) || isSunday(date)) {
+            returnStyles.borderStartRadius = '4px'
           }
-          return `${colorScheme}.200`
+          return { bg: selectedBgColor, ...returnStyles }
         }
       }
       // Case 7. Not in a range, no background
-      return
-    }, [colorScheme, date, hoveredDate, isInRange, selectedDates])
-
-    const boxBg = useMemo(() => {
-      if (selected) {
-        return `${colorScheme}.500`
-      }
-      if (!isInRange) return
-      if (isLastDayOfMonth(date) || isFirstDayOfMonth(date)) {
-        if (hoveredDate && isSameDay(hoveredDate, date)) {
-          return `${colorScheme}.200`
-        }
-        return 'transparent'
-      }
-      return `${colorScheme}.200`
-    }, [colorScheme, date, hoveredDate, isInRange, selected])
+      return {}
+    }, [date, hoveredDate, isInRange, selectedBgColor, selectedDates])
 
     return (
-      <Flex
-        justify="center"
-        bg={buttonBoxBg}
-        px="2px"
-        _focusWithin={{ zIndex: 1 }}
-      >
+      <Flex sx={{ ...styles.dayOfMonthContainer, ...buttonBoxStyles }}>
         <chakra.button
           onMouseEnter={handleMouseEnter}
-          bg={boxBg}
           // Prevent form submission if this component is nested in a form.
           type="button"
+          {...(selected ? { 'data-active': true } : {})}
+          {...(isCurrentDateHovered ? { 'data-hover': true } : {})}
           sx={styles.dayOfMonth}
           aria-label={date.toLocaleDateString()}
           tabIndex={isFocusable ? 0 : -1}

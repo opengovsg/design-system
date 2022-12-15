@@ -1,3 +1,4 @@
+import { defineStyle } from '@chakra-ui/react'
 import {
   getColor,
   StyleFunctionProps,
@@ -197,14 +198,17 @@ const variantOutlineClear: SystemStyleFunction = (props) => {
   }
 }
 
-const variantLink: SystemStyleFunction = (props) => {
-  return merge(Link.baseStyle(props), Link.variants.standalone, {
+const variantLink = defineStyle((props) => {
+  return merge(Link.baseStyle?.(props), Link.variants?.standalone, {
     border: 'none',
     minHeight: 'auto',
     fontWeight: 'normal',
     w: 'fit-content',
+    _disabled: {
+      bg: 'transparent',
+    },
   })
-}
+})
 
 const variantInputAttached: SystemStyleFunction = (props) => {
   const {

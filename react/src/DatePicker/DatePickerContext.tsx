@@ -43,7 +43,7 @@ interface DatePickerContextReturn {
   closeCalendarOnChange: boolean
   placeholder: string
   allowManualInput: boolean
-  colorScheme: ThemeTypings['colorSchemes']
+  colorScheme?: ThemeTypings['colorSchemes']
   isDateUnavailable?: (date: Date) => boolean
   disclosureProps: UseDisclosureReturn
   monthsToDisplay?: number
@@ -92,7 +92,7 @@ const useProvideDatePicker = ({
   closeCalendarOnChange = true,
   onBlur,
   onClick,
-  colorScheme = 'brand.primary',
+  colorScheme,
   monthsToDisplay,
   refocusOnClose = true,
   ...props

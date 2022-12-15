@@ -1,6 +1,6 @@
 import Icon from '@chakra-ui/icon'
 import { SimpleGrid, Text } from '@chakra-ui/react'
-import { Meta, Story } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { BxRightArrowAlt } from '~/icons'
 
@@ -10,9 +10,9 @@ export default {
   title: 'Components/Link',
   component: Link,
   decorators: [],
-} as Meta
+} as Meta<LinkProps>
 
-const Template: Story<LinkProps> = (args) => <Link {...args} />
+const Template: StoryFn<LinkProps> = (args) => <Link {...args} />
 export const Default = Template.bind({})
 Default.args = {
   children: 'Link',
@@ -54,27 +54,43 @@ VariantStandalone.args = {
   href: '',
 }
 
-const TemplateGroup: Story<LinkProps> = (args) => (
+export const VariantStandaloneSmall = Template.bind({})
+VariantStandaloneSmall.args = {
+  variant: 'standalone',
+  children: (
+    <>
+      Standalone variant link
+      <Icon as={BxRightArrowAlt} fontSize="1.25rem" ml="0.5rem" />
+    </>
+  ),
+  isExternal: false,
+  href: '',
+  size: 'sm',
+}
+
+const TemplateGroup: StoryFn<LinkProps> = (args) => (
   <SimpleGrid
     columns={2}
     spacing={8}
     templateColumns="max-content max-content"
     alignItems="center"
   >
-    <Text>primary</Text>
-    <Link {...args} colorScheme="brand.primary" />
-    <Text>secondary</Text>
-    <Link {...args} colorScheme="brand.secondary" />
-    <Text>danger</Text>
-    <Link {...args} colorScheme="danger" />
-    <Text>warning</Text>
-    <Link {...args} colorScheme="warning" />
-    <Text>success</Text>
-    <Link {...args} colorScheme="success" />
+    <Text>default</Text>
+    <Link {...args} />
     <Text>neutral</Text>
     <Link {...args} colorScheme="neutral" />
-    <Text>primary</Text>
-    <Link {...args} colorScheme="brand.primary" />
+    <Text>red</Text>
+    <Link {...args} colorScheme="red" />
+    <Text>blue</Text>
+    <Link {...args} colorScheme="blue" />
+    <Text>green</Text>
+    <Link {...args} colorScheme="green" />
+    <Text>yellow</Text>
+    <Link {...args} colorScheme="yellow" />
+    <Text>slate</Text>
+    <Link {...args} colorScheme="slate" />
+    <Text>grey</Text>
+    <Link {...args} colorScheme="grey" />
   </SimpleGrid>
 )
 

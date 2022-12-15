@@ -74,12 +74,7 @@ export const Banner = ({
     if (!isDismissable) return null
     if (closeButton !== undefined) closeButton
     return (
-      <CloseButton
-        variant="subtle"
-        children={<BxX />}
-        onClick={onToggle}
-        sx={styles.close}
-      />
+      <CloseButton children={<BxX />} onClick={onToggle} sx={styles.close} />
     )
   }, [closeButton, isDismissable, onToggle, styles.close])
 

@@ -51,6 +51,7 @@ const variantInfo = definePartsStyle({
     ...layerStyles.focusRing.inverse,
   },
   close: {
+    color: 'base.content.inverse',
     ...layerStyles.focusRing.inverse,
   },
 })
@@ -68,6 +69,7 @@ const variantWarn = definePartsStyle({
     ...layerStyles.focusRing.default,
   },
   close: {
+    color: 'base.content.dark',
     ...layerStyles.focusRing.default,
   },
 })
@@ -85,6 +87,7 @@ const variantError = definePartsStyle({
     ...layerStyles.focusRing.inverse,
   },
   close: {
+    color: 'base.content.inverse',
     ...layerStyles.focusRing.inverse,
   },
 })
