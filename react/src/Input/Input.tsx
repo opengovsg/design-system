@@ -44,11 +44,7 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
     // InputGroup is required for InputRightElement to retrieve the correct
     // style props. Will crash if not included.
     <InputGroup>
-      <ChakraInput
-        ref={ref}
-        {...inputProps}
-        sx={props.sx ?? inputStyles.field}
-      />
+      <ChakraInput ref={ref} __css={inputStyles.field} {...inputProps} />
       <InputRightElement sx={inputStyles.success}>
         <Icon as={BxsCheckCircle} />
       </InputRightElement>

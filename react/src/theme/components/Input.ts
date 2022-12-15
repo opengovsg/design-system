@@ -1,103 +1,117 @@
 import { inputAnatomy } from '@chakra-ui/anatomy'
-import { getColor, StyleFunctionProps } from '@chakra-ui/theme-tools'
-
-/**
- * Override with more if we have more sizes.
- */
-const size = {
-  md: {
-    px: '1rem',
-    h: '2.75rem',
-    borderRadius: '0.25rem',
-  },
-}
-
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const outlineVariant = (props: StyleFunctionProps) => {
-  const {
-    theme,
-    focusBorderColor: fc,
-    errorBorderColor: ec,
-    isSuccess,
-    isPrefilled,
-  } = props
-
-  return {
-    field: {
-      bg: isPrefilled ? 'warning.100' : 'white',
-      textStyle: 'body-1',
-      border: '1px solid',
-      borderColor: isSuccess ? 'success.700' : 'neutral.400',
-      _placeholder: {
-        color: 'neutral.500',
-      },
-      _hover: {
-        borderColor: isSuccess ? 'success.700' : 'neutral.400',
-      },
-      _disabled: {
-        bg: 'neutral.200',
-        borderColor: 'neutral.400',
-        color: 'neutral.500',
-        cursor: 'not-allowed',
-        opacity: 1,
-        _hover: {
-          bg: 'neutral.200',
-        },
-        _active: {
-          bg: 'neutral.200',
-        },
-      },
-      _invalid: {
-        // Remove extra 1px of outline.
-        borderColor: getColor(theme, ec),
-        boxShadow: 'none',
-      },
-      _focus: {
-        _hover: {
-          borderColor: getColor(theme, fc),
-        },
-        _invalid: {
-          borderColor: getColor(theme, fc),
-          boxShadow: `0 0 0 1px ${getColor(theme, fc)}`,
-        },
-        _disabled: {
-          _hover: {
-            borderColor: 'neutral.400',
-          },
-          bg: 'neutral.200',
-          borderColor: 'neutral.400',
-          boxShadow: 'none',
-        },
-        borderColor: getColor(theme, fc),
-        boxShadow: `0 0 0 1px ${getColor(theme, fc)}`,
-      },
-    },
-    success: {
-      pointerEvents: 'none',
-      fontSize: '1.25rem',
-      color: 'success.700',
-    },
-  }
-}
+import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
 
 // Additional success part.
 const parts = inputAnatomy.extend('success')
 
-export const Input = {
-  parts: parts.keys,
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
+
+const outlineVariant = definePartsStyle((props) => {
+  const { isSuccess, isPrefilled } = props
+
+  return {
+    addon: {
+      borderRadius: '4px',
+    },
+    field: {
+      borderRadius: '4px',
+      bg: isPrefilled ? 'utility.input-prefilled' : 'utility.ui',
+      border: '1px solid',
+      borderColor: isSuccess
+        ? 'interaction.success.default'
+        : 'base.divider.dark',
+      _placeholder: {
+        color: 'interaction.support.placeholder',
+      },
+      _hover: {
+        borderColor: isSuccess
+          ? 'interaction.success.default'
+          : 'base.divider.dark',
+      },
+      _disabled: {
+        bg: 'interaction.support.disabled',
+        borderColor: 'base.divider.dark',
+        color: 'interaction.support.disabled-content',
+        cursor: 'not-allowed',
+        opacity: 1,
+        _hover: {
+          bg: 'interaction.support.disabled',
+        },
+        _active: {
+          bg: 'interaction.support.disabled',
+        },
+      },
+      _invalid: {
+        // Remove extra 1px of outline.
+        boxShadow: 'none',
+      },
+    },
+    success: {
+      pointerEvents: 'none',
+      color: 'interaction.success.default',
+    },
+  }
+})
+
+const coreSizes = {
+  xs: defineStyle({
+    textStyle: 'body-2',
+    px: '0.75rem',
+    h: '2.25rem',
+  }),
+  sm: defineStyle({
+    textStyle: 'body-2',
+    px: '0.75rem',
+    h: '2.5rem',
+  }),
+  md: defineStyle({
+    px: '1rem',
+    h: '2.75rem',
+    textStyle: 'body-1',
+  }),
+}
+
+const sizes = {
+  xs: definePartsStyle({
+    field: coreSizes.xs,
+    addon: coreSizes.xs,
+    element: coreSizes.xs,
+    success: {
+      ...coreSizes.xs,
+      fontSize: '1rem',
+    },
+  }),
+  sm: definePartsStyle({
+    field: coreSizes.sm,
+    addon: coreSizes.sm,
+    element: coreSizes.sm,
+    success: {
+      ...coreSizes.sm,
+      fontSize: '1rem',
+    },
+  }),
+  md: definePartsStyle({
+    field: coreSizes.md,
+    addon: coreSizes.md,
+    element: coreSizes.md,
+    success: {
+      ...coreSizes.md,
+      fontSize: '1.25rem',
+    },
+  }),
+}
+
+export const Input = defineMultiStyleConfig({
   variants: {
     outline: outlineVariant,
   },
-  sizes: {
-    md: {
-      field: size.md,
-      addon: size.md,
-    },
-  },
+  sizes,
   defaultProps: {
     variant: 'outline',
     size: 'md',
-    focusBorderColor: 'brand.primary.500',
-    errorBorderColor: 'danger.500',
+    // @ts-expect-error Invalid exported type.
+    focusBorderColor: 'utility.focus-default',
+    errorBorderColor: 'interaction.critical.default',
   },
-}
+})
