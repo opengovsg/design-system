@@ -218,7 +218,8 @@ const variantInputAttached: SystemStyleFunction = (props) => {
     fontSize: '1.25rem',
     color: 'interaction.support.disabled-content',
     borderColor: 'base.divider.dark',
-    borderRadius: '2px 0px',
+    borderStartRadius: 0,
+    borderEndRadius: '2px',
     _hover: {
       bg: 'interaction.muted.main.hover',
       _disabled: {
@@ -238,6 +239,7 @@ const variantInputAttached: SystemStyleFunction = (props) => {
       borderColor: ec,
     },
     _focus: {
+      zIndex: 1,
       borderColor: fc,
       boxShadow: `0 0 0 1px ${getColor(theme, fc)}`,
     },

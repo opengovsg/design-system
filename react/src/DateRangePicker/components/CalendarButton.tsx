@@ -1,14 +1,14 @@
 import { IconButton } from '~/IconButton'
 import { BxCalendar } from '~/icons'
 
-import { useDatePicker } from '../DatePickerContext'
+import { useDateRangePicker } from '../DateRangePickerContext'
 
 export const CalendarButton = (): JSX.Element => {
   const {
     disclosureProps: { onOpen, isOpen },
     calendarButtonAria,
     fcProps: { isDisabled, isReadOnly, isInvalid },
-  } = useDatePicker()
+  } = useDateRangePicker()
 
   return (
     <IconButton

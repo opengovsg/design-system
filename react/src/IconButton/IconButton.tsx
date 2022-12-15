@@ -40,7 +40,6 @@ export const IconButton = forwardRef<IconButtonProps, 'button'>(
     return (
       <ChakraIconButton
         ref={ref}
-        borderRadius="0.25rem"
         spinner={<Spinner fontSize={iconSize} />}
         {...props}
         fontSize={iconSize}

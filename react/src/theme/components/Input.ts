@@ -1,5 +1,6 @@
 import { inputAnatomy } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
+import { getColor } from '@chakra-ui/theme-tools'
 
 // Additional success part.
 const parts = inputAnatomy.extend('success')
@@ -8,7 +9,13 @@ const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)
 
 const outlineVariant = definePartsStyle((props) => {
-  const { isSuccess, isPrefilled } = props
+  const {
+    isSuccess,
+    isPrefilled,
+    theme,
+    focusBorderColor: fc = 'utility.focus-default',
+    errorBorderColor: ec = 'interaction.critical.default',
+  } = props
 
   return {
     addon: {
@@ -24,10 +31,16 @@ const outlineVariant = definePartsStyle((props) => {
       _placeholder: {
         color: 'interaction.support.placeholder',
       },
-      _hover: {
-        borderColor: isSuccess
-          ? 'interaction.success.default'
-          : 'base.divider.dark',
+      // Explicit styling here for other components that use a mock input.
+      _invalid: {
+        borderColor: getColor(theme, ec),
+        // Remove extra 1px of outline.
+        boxShadow: 'none',
+      },
+      _focusVisible: {
+        zIndex: 1,
+        borderColor: getColor(theme, fc),
+        boxShadow: `0 0 0 1px ${getColor(theme, fc)}`,
       },
       _disabled: {
         bg: 'interaction.support.disabled',
@@ -41,10 +54,6 @@ const outlineVariant = definePartsStyle((props) => {
         _active: {
           bg: 'interaction.support.disabled',
         },
-      },
-      _invalid: {
-        // Remove extra 1px of outline.
-        boxShadow: 'none',
       },
     },
     success: {

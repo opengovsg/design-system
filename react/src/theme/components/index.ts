@@ -9,6 +9,7 @@ import { Calendar } from './Calendar'
 import { Checkbox, CHECKBOX_THEME_KEY } from './Checkbox'
 import { CloseButton } from './CloseButton'
 import { DatePicker } from './DatePicker'
+import { DateRangePicker } from './DateRangePicker'
 import { Divider } from './Divider'
 import { Drawer } from './Drawer'
 import { Form } from './Form'
@@ -48,6 +49,7 @@ export const components = {
   Calendar,
   CloseButton,
   DatePicker,
+  DateRangePicker,
   Drawer,
   Form,
   FormError,
