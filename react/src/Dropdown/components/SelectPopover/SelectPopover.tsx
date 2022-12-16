@@ -40,7 +40,7 @@ export const SelectPopoverProvider = ({
     ],
   })
 
-  const mergedReferenceRefs = useMergeRefs(reference, wrapperRef)
+  const mergedReferenceRefs = useMergeRefs(wrapperRef, reference)
 
   const floatingStyles = useMemo(
     () => ({

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { VirtuosoHandle } from 'react-virtuoso'
 import {
   FormControlOptions,
+  ThemingProps,
   useFormControlProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
@@ -58,6 +59,7 @@ export interface MultiSelectProviderProps<
    * Any props to override the default props of `downshift#useMultipleSelection` set by this component.
    */
   downshiftMultiSelectProps?: Partial<UseMultipleSelectionProps<Item>>
+  colorScheme?: ThemingProps<'MultiSelect'>['colorScheme']
 }
 export const MultiSelectProvider = ({
   items: rawItems,
@@ -80,6 +82,7 @@ export const MultiSelectProvider = ({
   inputAria: inputAriaProp,
   children,
   size = 'md',
+  colorScheme,
 }: MultiSelectProviderProps): JSX.Element => {
   const { items, getItemByValue } = useItems({ rawItems })
   const [isFocused, setIsFocused] = useState(false)
@@ -277,7 +280,7 @@ export const MultiSelectProvider = ({
 
   const styles = useMultiStyleConfig('MultiSelect', {
     size,
-    isFocused,
+    isFocused: isFocused || isOpen,
     isEmpty: selectedItems.length === 0,
   })
 
@@ -338,6 +341,7 @@ export const MultiSelectProvider = ({
           maxItems,
           activeIndex,
           setActiveIndex,
+          colorScheme,
         }}
       >
         {children}

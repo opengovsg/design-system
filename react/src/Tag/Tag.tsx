@@ -1,4 +1,5 @@
 import {
+  Box,
   chakra,
   createStylesContext,
   forwardRef,
@@ -39,7 +40,7 @@ export const TagRightIcon = forwardRef<IconProps, 'svg'>((props, ref) => {
   )
 })
 
-const TagCloseIcon = () => <Icon as={BxX} fontSize="1.5rem" />
+const TagCloseIcon = () => <Icon as={BxX} fontSize="inherit" />
 
 export type TagCloseButtonProps = ChakraTagCloseButtonProps
 /** Not using Chakra's TagCloseButton due to inability to override aria-label */
@@ -51,15 +52,17 @@ export const TagCloseButton = ({
   const styles = useStyles()
 
   return (
-    <chakra.button
-      type="button"
-      aria-label="Remove selected option"
-      disabled={isDisabled}
-      __css={styles.closeButton}
-      {...rest}
-    >
-      {children || <TagCloseIcon />}
-    </chakra.button>
+    <Box display="inline-flex" flexGrow={1} justifyContent="end">
+      <chakra.button
+        type="button"
+        aria-label="Remove selected option"
+        disabled={isDisabled}
+        sx={styles.closeButton}
+        {...rest}
+      >
+        {children || <TagCloseIcon />}
+      </chakra.button>
+    </Box>
   )
 }
 

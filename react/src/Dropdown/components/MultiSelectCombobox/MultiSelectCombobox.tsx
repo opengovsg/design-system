@@ -95,7 +95,7 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
             )}
           />
         </MultiItemsContainer>
-        <Box aria-disabled={isDisabled} __css={styles.icon}>
+        <Box aria-disabled={isDisabled} sx={styles.chevron}>
           <Icon
             as={isOpen ? BxsChevronUp : BxsChevronDown}
             aria-label={`${isOpen ? 'Close' : 'Open'} dropdown options icon`}

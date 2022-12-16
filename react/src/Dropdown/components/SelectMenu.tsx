@@ -1,6 +1,5 @@
 import { Virtuoso } from 'react-virtuoso'
-import { List, ListItem } from '@chakra-ui/react'
-import { FloatingPortal } from '@floating-ui/react-dom-interactions'
+import { List, ListItem, Portal } from '@chakra-ui/react'
 
 import { VIRTUAL_LIST_OVERSCAN_HEIGHT } from '../constants'
 import { useSelectContext } from '../SelectContext'
@@ -24,7 +23,7 @@ export const SelectMenu = (): JSX.Element => {
   const { floatingRef, floatingStyles } = useSelectPopover()
 
   return (
-    <FloatingPortal>
+    <Portal>
       <List
         {...getMenuProps(
           { ref: floatingRef },
@@ -59,6 +58,6 @@ export const SelectMenu = (): JSX.Element => {
           </ListItem>
         ) : null}
       </List>
-    </FloatingPortal>
+    </Portal>
   )
 }

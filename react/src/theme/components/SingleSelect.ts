@@ -9,7 +9,6 @@ export const comboboxParts = anatomy('combobox').parts(
   'list',
   'item',
   'itemDescription',
-  'selected',
   'highlight',
   'icon',
   'emptyItem',
@@ -17,7 +16,7 @@ export const comboboxParts = anatomy('combobox').parts(
 
 export const parts = anatomy('singleselect')
   .parts(...comboboxParts.keys)
-  .extend('field')
+  .extend('field', 'selected')
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)

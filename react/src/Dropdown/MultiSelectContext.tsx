@@ -1,5 +1,6 @@
 // Context provides multi-select handlers. Mostly complemented by SelectContext.
 import { createContext, useContext } from 'react'
+import { ThemingProps } from '@chakra-ui/react'
 import {
   UseMultipleSelectionActions,
   UseMultipleSelectionPropGetters,
@@ -16,6 +17,7 @@ interface MultiSelectContextReturn<Item extends ComboboxItem = ComboboxItem>
       'reset' | 'addSelectedItem' | 'removeSelectedItem' | 'setActiveIndex'
     > {
   maxItems: number | null
+  colorScheme?: ThemingProps<'MultiSelect'>['colorScheme']
 }
 
 export const MultiSelectContext = createContext<

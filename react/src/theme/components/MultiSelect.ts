@@ -11,6 +11,9 @@ import { comboboxParts, SingleSelect } from './SingleSelect'
 export const parts = anatomy('multiselect').parts(
   ...comboboxParts.keys,
   'field',
+  'tag',
+  'tagIcon',
+  'chevron',
   'fieldwrapper',
   'itemContainer',
 )
@@ -24,6 +27,7 @@ const baseStyle = definePartsStyle((props) => {
     SingleSelect.baseStyle?.(props),
     comboboxParts.keys,
   )
+
   return {
     ...comboboxBaseStyle,
     itemContainer: {
@@ -44,6 +48,10 @@ const baseStyle = definePartsStyle((props) => {
       transitionDuration: 'normal',
     },
     icon: {
+      display: 'inline-flex',
+      h: 'fit-content',
+    },
+    tagIcon: {
       display: 'inline-flex',
       h: 'fit-content',
     },
@@ -100,13 +108,25 @@ const variants = {
 
 const sizes = {
   sm: definePartsStyle(
-    mergeThemeOverride(omit(SingleSelect.sizes?.sm, 'field'), {
+    mergeThemeOverride(omit(SingleSelect.sizes?.sm, ['field', 'icon']), {
       itemContainer: {
         // Padding for dropdown toggle.
         maxW: 'calc(100% - 2rem)',
       },
+      tag: {
+        my: '6px',
+        mx: '2px',
+      },
+      tagIcon: {
+        fontSize: '1rem',
+        mr: '0.25rem',
+      },
       icon: {
-        py: '0.375rem',
+        fontSize: '1rem',
+      },
+      chevron: {
+        pt: '0.25rem',
+        fontSize: '1rem',
         px: '0.5rem',
       },
       fieldwrapper: {
@@ -124,14 +144,26 @@ const sizes = {
     }),
   ),
   md: definePartsStyle(
-    mergeThemeOverride(omit(SingleSelect.sizes?.md, 'field'), {
+    mergeThemeOverride(omit(SingleSelect.sizes?.md, ['field', 'icon']), {
       itemContainer: {
         // Padding for dropdown toggle.
         maxW: 'calc(100% - 2.5rem)',
       },
       icon: {
-        py: '0.3125rem',
-        px: '0.625rem',
+        fontSize: '1.25rem',
+      },
+      tag: {
+        my: '4px',
+        mx: '2px',
+      },
+      tagIcon: {
+        fontSize: '1.25rem',
+        mr: '0.25rem',
+      },
+      chevron: {
+        pt: '0.25rem',
+        px: '0.5rem',
+        fontSize: '1.25rem',
       },
       fieldwrapper: {
         ...SingleSelect.sizes?.md.field,

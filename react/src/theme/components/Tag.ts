@@ -1,71 +1,93 @@
 import { tagAnatomy } from '@chakra-ui/anatomy'
 import {
-  getColor,
-  PartsStyleFunction,
-  PartsStyleObject,
-  SystemStyleObject,
-} from '@chakra-ui/theme-tools'
+  createMultiStyleConfigHelpers,
+  defineStyle,
+  mergeThemeOverride,
+} from '@chakra-ui/react'
 
-import { meetsWcagAaRatio } from '~/theme/utils/contrast'
-
+import { layerStyles } from '../layerStyles'
 import { textStyles } from '../textStyles'
 
 import { Badge } from './Badge'
 
 const parts = tagAnatomy.extend('icon')
 
-const baseStyleContainer: SystemStyleObject = {
-  ...textStyles['body-2'],
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
+
+const baseStyleContainer = defineStyle({
   transitionProperty: 'common',
   transitionDuration: 'normal',
-}
-
-const baseStyleLabel: SystemStyleObject = {
-  textStyle: 'body-2',
-}
-
-const baseStyleCloseButton: SystemStyleObject = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  outline: '0',
-  opacity: 1,
+  _focusWithin: layerStyles.focusRing.default._focusVisible,
+  borderRadius: '4px',
   _disabled: {
-    opacity: 1,
+    bg: 'interaction.support.disabled',
+    color: 'interaction.support.disabled-content',
     cursor: 'not-allowed',
-    bg: 'transparent',
   },
   _hover: {
-    opacity: 1,
     _disabled: {
-      bg: 'transparent',
+      bg: 'interaction.support.disabled',
     },
   },
-  _active: {
-    opacity: 1,
-    _disabled: {
-      bg: 'transparent',
-    },
-  },
-}
+  height: 'fit-content',
+})
 
-const baseStyle: PartsStyleObject<typeof parts> = {
+const baseStyleLabel = defineStyle({
+  textStyle: 'body-2',
+})
+
+const baseStyleCloseButton = defineStyle({
+  display: 'flex',
+  alignItems: 'center',
+  opacity: 1,
+  outline: 'none',
+  _hover: {
+    opacity: 1,
+  },
+  _disabled: {
+    cursor: 'not-allowed',
+    opacity: 1,
+  },
+  _focusVisible: {
+    boxShadow: 'none',
+    bg: 'transparent',
+  },
+})
+
+const baseStyle = definePartsStyle({
   container: baseStyleContainer,
   label: baseStyleLabel,
   closeButton: baseStyleCloseButton,
-}
+})
 
-const sizes: Record<string, PartsStyleObject<typeof parts>> = {
-  md: {
+const sizes = {
+  sm: definePartsStyle({
     container: {
-      minH: '2rem',
-      borderRadius: '4px',
+      ...textStyles['body-2'],
+      px: '0.5rem',
+      py: '0.125rem',
+    },
+    label: textStyles['body-2'],
+    icon: {
+      fontSize: '1.25rem',
+      marginStart: '0.25rem',
+      marginEnd: '0.25rem',
+    },
+    closeButton: {
+      fontSize: '1.25rem',
+      marginStart: '0.25rem',
+    },
+  }),
+  md: definePartsStyle({
+    container: {
+      ...textStyles['subhead-2'],
       px: '0.5rem',
       py: '0.25rem',
     },
+    label: textStyles['subhead-2'],
     closeButton: {
-      h: '1.5rem',
-      w: '1.5rem',
+      fontSize: '1.25rem',
       marginStart: '0.25rem',
     },
     icon: {
@@ -73,127 +95,89 @@ const sizes: Record<string, PartsStyleObject<typeof parts>> = {
       marginStart: '0.25rem',
       marginEnd: '0.25rem',
     },
-  },
+  }),
 }
 
-const variantSubtle: PartsStyleFunction<typeof parts> = (props) => {
-  const { colorScheme: c } = props
-  const badgeSubtleVariant = Badge.variants.subtle(props)
+const getSubtleColors = defineStyle(({ colorScheme: c }) => {
+  switch (c) {
+    case 'main':
+    case 'success':
+    case 'warning':
+    case 'critical':
+      return {
+        _hover: {
+          background: `interaction.${c}-light.hover`,
+        },
+        _active: {
+          background: `interaction.${c}-light.active`,
+        },
+      }
+  }
   return {
-    container: {
-      ...badgeSubtleVariant,
-      _disabled: {
-        color: 'neutral.500',
-        cursor: 'not-allowed',
-      },
-      _hover: {
-        bgColor: `${c}.200`,
-        _disabled: {
-          bgColor: badgeSubtleVariant.bgColor,
-        },
-      },
-      _active: {
-        bgColor: `${c}.300`,
-        _disabled: {
-          bgColor: badgeSubtleVariant.bgColor,
-        },
-      },
-      _focus: {
-        boxShadow: `0 0 0 2px var(--chakra-colors-${c}-300)`,
-        // Enable boxShadow even with :focus-visible
-        ':not([data-focus-visible-added])': {
-          boxShadow: `0 0 0 2px var(--chakra-colors-${c}-300)`,
-        },
-        _disabled: {
-          boxShadow: 'none',
-        },
-      },
+    _hover: {
+      background: `${c}.200`,
     },
-    closeButton: {
-      _focus: {
-        boxShadow: `0 0 0 2px var(--chakra-colors-${c}-300)`,
-      },
-      _hover: {
-        color: `${c}.600`,
-        _disabled: {
-          color: 'neutral.500',
-        },
-      },
-      _active: {
-        color: `${c}.700`,
-        _disabled: {
-          color: 'neutral.500',
-        },
-      },
-      _disabled: {
-        color: 'neutral.500',
-      },
+    _active: {
+      background: `${c}.300`,
     },
   }
-}
+})
 
-const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
-  const { colorScheme: c, theme } = props
-  const bgColor = getColor(theme, `${c}.500`)
-  let textColor = getColor(theme, 'brand.secondary.700')
-  const hasSufficientContrast = meetsWcagAaRatio(textColor, bgColor)
-  if (!hasSufficientContrast) {
-    textColor = 'white'
-  }
-  const badgeSolidVariant = Badge.variants.solid(props)
+const variantSubtle = definePartsStyle((props) => {
   return {
-    container: {
-      ...badgeSolidVariant,
-      bgColor,
-      color: textColor,
-      _disabled: {
-        bg: `${c}.300`,
-        cursor: 'not-allowed',
-      },
-      _hover: {
-        bgColor: `${c}.600`,
-        _disabled: {
-          bgColor: `${c}.300`,
+    container: mergeThemeOverride(
+      Badge.variants.subtle(props),
+      getSubtleColors(props),
+    ),
+  }
+})
+
+const getSolidColors = defineStyle(({ colorScheme: c }) => {
+  switch (c) {
+    case 'main':
+    case 'success':
+    case 'warning':
+    case 'critical':
+      return {
+        _hover: {
+          background: `interaction.${c}.hover`,
         },
-      },
-      _active: {
-        bgColor: `${c}.700`,
-        _disabled: {
-          bgColor: `${c}.300`,
+        _active: {
+          background: `interaction.${c}.active`,
         },
-      },
-      _focus: {
-        boxShadow: `0 0 0 2px var(--chakra-colors-${c}-200)`,
-        // Enable boxShadow even with :focus-visible
-        ':not([data-focus-visible-added])': {
-          boxShadow: `0 0 0 2px var(--chakra-colors-${c}-200)`,
-        },
-        _disabled: {
-          boxShadow: 'none',
-        },
-      },
+      }
+  }
+  return {
+    _hover: {
+      background: `${c}.600`,
     },
-    closeButton: {
-      _focus: {
-        boxShadow: `0 0 0 2px var(--chakra-colors-${c}-300)`,
-      },
+    _active: {
+      background: `${c}.700`,
     },
   }
-}
+})
+
+const variantSolid = definePartsStyle((props) => {
+  return {
+    container: mergeThemeOverride(
+      Badge.variants.solid(props),
+      getSolidColors(props),
+    ),
+  }
+})
 
 const variants = {
   subtle: variantSubtle,
   solid: variantSolid,
 }
 
-export const Tag = {
-  parts: parts.keys,
+export const Tag = defineMultiStyleConfig({
   baseStyle,
   variants,
   sizes,
   defaultProps: {
     size: 'md',
     variant: 'subtle',
-    colorScheme: 'brand.primary',
+    colorScheme: 'main',
   },
-}
+})

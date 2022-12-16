@@ -104,6 +104,7 @@ Disabled.args = {
 export const DisabledWithSelection = Template.bind({})
 DisabledWithSelection.args = {
   isDisabled: true,
+  size: 'md',
   values: ['What happens when the label is fairly long', 'Bat'],
 }
 
