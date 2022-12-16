@@ -8,6 +8,7 @@ import {
   useMultiStyleConfig,
   useToken,
 } from '@chakra-ui/react'
+import { dataAttr } from '@chakra-ui/utils'
 import {
   compareAsc,
   isFirstDayOfMonth,
@@ -142,8 +143,8 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
           onMouseEnter={handleMouseEnter}
           // Prevent form submission if this component is nested in a form.
           type="button"
-          {...(selected ? { 'data-active': true } : {})}
-          {...(isCurrentDateHovered ? { 'data-hover': true } : {})}
+          data-hover={dataAttr(isCurrentDateHovered)}
+          data-active={dataAttr(selected)}
           sx={styles.dayOfMonth}
           aria-label={date.toLocaleDateString()}
           tabIndex={isFocusable ? 0 : -1}

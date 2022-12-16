@@ -7,6 +7,7 @@ import {
   Text,
   VisuallyHidden,
 } from '@chakra-ui/react'
+import { dataAttr } from '@chakra-ui/utils'
 
 import { IconButton } from '~/IconButton'
 import { BxTrash } from '~/icons'
@@ -58,7 +59,10 @@ export const AttachmentFileInfo = forwardRef<AttachmentFileInfoProps, 'div'>(
         <Flex sx={styles.fileInfo}>
           <Stack spacing="0.25rem" flexDir="column" aria-hidden>
             <Text>{file.name}</Text>
-            <Text data-disabled={isDisabled} sx={styles.fileInfoDescription}>
+            <Text
+              data-disabled={dataAttr(isDisabled)}
+              sx={styles.fileInfoDescription}
+            >
               {readableFileSize}
             </Text>
           </Stack>

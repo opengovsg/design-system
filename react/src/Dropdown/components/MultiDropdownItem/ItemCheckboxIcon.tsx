@@ -1,4 +1,5 @@
 import { Box, Icon, useMultiStyleConfig } from '@chakra-ui/react'
+import { dataAttr } from '@chakra-ui/utils'
 
 import { CheckboxProps } from '~/Checkbox'
 import { BxCheckAnimated } from '~/icons'
@@ -26,7 +27,7 @@ export const ItemCheckboxIcon = ({
       flexShrink={0}
       bg="white"
       __css={styles.control}
-      data-checked={isChecked || undefined}
+      data-checked={dataAttr(isChecked)}
       aria-disabled={isDisabled}
       borderColor="base.content.dark"
     >

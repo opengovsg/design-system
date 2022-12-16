@@ -9,6 +9,7 @@ import {
   useRadio,
   VisuallyHidden,
 } from '@chakra-ui/react'
+import { dataAttr } from '@chakra-ui/utils'
 
 import { BxHeart, BxsHeart, BxsStar, BxStar } from '~/icons'
 import { RATING_THEME_KEY } from '~/theme/components/Rating'
@@ -62,7 +63,7 @@ const NumberRating = ({
       as="label"
       htmlFor={inputId}
       aria-hidden={false}
-      {...(isChecked ? { 'data-checked': '' } : {})}
+      data-checked={dataAttr(isChecked)}
       __css={styles.option}
     >
       <VisuallyHidden>
@@ -95,7 +96,7 @@ const IconRating = ({
       as="label"
       htmlFor={inputId}
       aria-hidden={false}
-      {...(isChecked ? { 'data-checked': '' } : {})}
+      data-checked={dataAttr(isChecked)}
       __css={styles.option}
     >
       <VisuallyHidden>

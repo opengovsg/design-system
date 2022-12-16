@@ -10,6 +10,7 @@ import {
   useMergeRefs,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
+import { dataAttr } from '@chakra-ui/utils'
 import { omit } from 'lodash'
 import type { Promisable } from 'type-fest'
 
@@ -225,7 +226,7 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
           <Box
             {...processedRootProps}
             ref={mergedRefs}
-            {...(isDragActive ? { 'data-active': true } : {})}
+            data-active={dataAttr(isDragActive)}
             __css={value ? undefined : styles.dropzone}
           >
             {value ? (

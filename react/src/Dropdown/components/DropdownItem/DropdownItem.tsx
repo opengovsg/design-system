@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { Flex, Icon, ListItem, Stack, Text } from '@chakra-ui/react'
+import { dataAttr } from '@chakra-ui/utils'
 
 import { useSelectContext } from '../../SelectContext'
 import { ComboboxItem } from '../../types'
@@ -38,10 +39,7 @@ export const DropdownItem = ({
   return (
     <ListItem
       sx={styles.item}
-      // Data attributes are unique, any value will be truthy.
-      // We want to not even have the tag if falsey.
-      // This adds _active styling to the item.
-      data-active={isActive || undefined}
+      data-active={dataAttr(isActive)}
       {...getItemProps({
         item,
         index,
