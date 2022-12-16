@@ -8,6 +8,9 @@
  */
 export const hexToRgba = (hex: string, opacity?: number) => {
   // Handle case where hex code is passed without the hash
+  if (!hex) {
+    return 'rgba(0, 0, 0, 1)'
+  }
   if (hex[0] !== '#') {
     hex = `#${hex}`
   }

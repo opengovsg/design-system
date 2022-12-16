@@ -3,7 +3,6 @@ import { DropzoneProps, useDropzone } from 'react-dropzone'
 import {
   Box,
   forwardRef,
-  StylesProvider,
   Text,
   ThemeTypings,
   useFormControl,
@@ -16,6 +15,7 @@ import simplur from 'simplur'
 
 import { ATTACHMENT_THEME_KEY } from '~/theme/components/Attachment'
 
+import { AttachmentStylesProvider } from './AttachmentContext'
 import { AttachmentDropzone } from './AttachmentDropzone'
 import { AttachmentFileInfo } from './AttachmentFileInfo'
 import {
@@ -59,6 +59,11 @@ export interface AttachmentProps extends UseFormControlProps<HTMLElement> {
   showFileSize?: boolean
 
   /**
+   * If provided, the image preview will be shown in the given size variant.
+   */
+  imagePreview?: 'small' | 'large'
+
+  /**
    * Color scheme of the component.
    */
   colorScheme?: ThemeTypings['colorSchemes']
@@ -75,6 +80,7 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
       value,
       name,
       colorScheme,
+      imagePreview,
       ...props
     },
     ref,
@@ -193,6 +199,7 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
     const styles = useMultiStyleConfig(ATTACHMENT_THEME_KEY, {
       isDragActive,
       colorScheme,
+      imagePreview,
     })
 
     const handleRemoveFile = useCallback(() => {
@@ -213,10 +220,9 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
             return
           }
         },
-        tabIndex: value ? -1 : 0,
         'aria-describedby': ariaDescribedBy,
       })
-    }, [ariaDescribedBy, getRootProps, inputProps, value])
+    }, [ariaDescribedBy, getRootProps, inputProps])
 
     const processedInputProps = useMemo(() => {
       return getInputProps({
@@ -226,17 +232,21 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
     }, [getInputProps, inputProps, name])
 
     return (
-      <StylesProvider value={styles}>
+      <AttachmentStylesProvider value={styles}>
         <Box __css={styles.container}>
           <Box
             {...processedRootProps}
             ref={mergedRefs}
+            {...(isDragActive ? { 'data-active': true } : {})}
             __css={value ? undefined : styles.dropzone}
           >
             {value ? (
               <AttachmentFileInfo
                 file={value}
+                imagePreview={imagePreview}
                 handleRemoveFile={handleRemoveFile}
+                isDisabled={inputProps.disabled}
+                isReadOnly={inputProps.readOnly}
               />
             ) : (
               <AttachmentDropzone
@@ -256,7 +266,7 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
             </Text>
           ) : null}
         </Box>
-      </StylesProvider>
+      </AttachmentStylesProvider>
     )
   },
 )
