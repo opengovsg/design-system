@@ -168,6 +168,7 @@ export const Switch = forwardRef<SwitchProps, 'input'>(
         {...getRootProps()}
         className={cx('chakra-switch', props.className)}
         __css={containerStyles}
+        data-group
       >
         <input className="chakra-switch__input" {...getInputProps({}, ref)} />
         <chakra.span
