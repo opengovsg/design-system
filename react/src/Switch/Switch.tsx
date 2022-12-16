@@ -20,7 +20,6 @@ import {
 import { cx, dataAttr } from '@chakra-ui/utils'
 
 import { BxCheck, BxLoader, BxLockAlt, BxX } from '~/icons'
-import { TOGGLE_THEME_KEY } from '~/theme/components/Toggle'
 
 export interface SwitchProps
   extends Omit<UseCheckboxProps, 'isIndeterminate'>,
@@ -68,7 +67,7 @@ export const Switch = forwardRef<SwitchProps, 'input'>(
     },
     ref,
   ) => {
-    const styles = useMultiStyleConfig(TOGGLE_THEME_KEY, props)
+    const styles = useMultiStyleConfig('Switch', props)
     const prefersReducedMotion = usePrefersReducedMotion()
 
     const {
@@ -88,8 +87,9 @@ export const Switch = forwardRef<SwitchProps, 'input'>(
     const containerStyles: SystemStyleObject = useMemo(
       () => ({
         display: 'inline-block',
+        position: 'relative',
         verticalAlign: 'middle',
-        lineHeight: 'normal',
+        lineHeight: 0,
         ...styles.container,
       }),
       [styles.container],
@@ -151,7 +151,7 @@ export const Switch = forwardRef<SwitchProps, 'input'>(
         <Icon
           as={ThumbIcon}
           animation={animation}
-          __css={styles.icon}
+          __css={styles.thumbIcon}
           data-checked={dataAttr(state.isChecked)}
         />
       )
@@ -160,7 +160,7 @@ export const Switch = forwardRef<SwitchProps, 'input'>(
       isLoading,
       prefersReducedMotion,
       state.isChecked,
-      styles.icon,
+      styles.thumbIcon,
     ])
 
     return (

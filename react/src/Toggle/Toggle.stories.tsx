@@ -1,14 +1,14 @@
 import { VStack } from '@chakra-ui/react'
-import { Meta, Story } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { Toggle, ToggleProps } from './Toggle'
 
 export default {
   component: Toggle,
-  title: 'Components/Toggle',
-} as Meta
+  title: 'Templates/Toggle',
+} as Meta<ToggleProps>
 
-const AllToggleStates: Story<ToggleProps> = (args) => {
+const AllToggleStates: StoryFn<ToggleProps> = (args) => {
   return (
     <VStack align="left" w="50%">
       <Toggle

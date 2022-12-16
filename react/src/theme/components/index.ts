@@ -30,6 +30,7 @@ import { Rating, RATING_THEME_KEY } from './Rating'
 import { Searchbar, SEARCHBAR_THEME_KEY } from './Searchbar'
 import { SingleCountryPhoneNumberInput } from './SingleCountryPhoneNumberInput'
 import { SingleSelect } from './SingleSelect'
+import { Switch } from './Switch'
 import { Tabs } from './Tabs'
 import { Tag } from './Tag'
 import { Textarea } from './Textarea'
@@ -66,6 +67,7 @@ export const components = {
   Progress,
   SingleCountryPhoneNumberInput,
   SingleSelect,
+  Switch,
   Textarea,
   Tabs,
   Tag,
