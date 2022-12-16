@@ -15,7 +15,7 @@ import { Drawer } from './Drawer'
 import { Form } from './Form'
 import { FormError } from './FormError'
 import { FormLabel } from './FormLabel'
-import { InlineMessage } from './InlineMessage'
+import { Infobox } from './Infobox'
 import { Input } from './Input'
 import { Link } from './Link'
 import { Menu } from './Menu'
@@ -57,7 +57,7 @@ export const components = {
   Divider,
   Input,
   Link,
-  InlineMessage,
+  Infobox,
   Modal,
   Menu,
   MultiSelect,
