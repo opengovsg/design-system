@@ -93,7 +93,7 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
   ) => {
     // Merge given props with any form control props, if they exist.
     const inputProps = useFormControl(props)
-    // id to set on the rendered max size FormFieldMessage component.
+    // id to set on the rendered max size FormHelperText component.
     const maxSizeTextId = useMemo(() => `${name}-max-size`, [name])
 
     const readableMaxSize = useMemo(

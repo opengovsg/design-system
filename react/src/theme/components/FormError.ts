@@ -1,20 +1,24 @@
 import { formErrorAnatomy as parts } from '@chakra-ui/anatomy'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 
-import { ComponentMultiStyleConfig } from '~/theme/types'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
 
-export const FormError: ComponentMultiStyleConfig<typeof parts> = {
-  parts: parts.keys,
-  baseStyle: {
-    text: {
-      color: 'danger.500',
-      my: '0.5rem',
-      textStyle: 'body-2',
-      lineHeight: '1.25rem',
-    },
-    icon: {
-      marginEnd: '0.5em',
-      color: 'danger.500',
-      fontSize: '1rem',
-    },
+const baseStyle = definePartsStyle({
+  text: {
+    color: 'utility.feedback.critical',
+    my: '0.5rem',
+    textStyle: 'body-2',
+    lineHeight: '1.25rem',
   },
-}
+  icon: {
+    marginEnd: '0.5em',
+    color: 'utility.feedback.critical',
+    fontSize: '1rem',
+    h: '1.25rem',
+  },
+})
+
+export const FormError = defineMultiStyleConfig({
+  baseStyle,
+})

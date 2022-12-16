@@ -12,7 +12,7 @@ import { DatePicker } from './DatePicker'
 import { DateRangePicker } from './DateRangePicker'
 import { Divider } from './Divider'
 import { Drawer } from './Drawer'
-import { Form } from './Form'
+import { FormControl } from './FormControl'
 import { FormError } from './FormError'
 import { FormLabel } from './FormLabel'
 import { Infobox } from './Infobox'
@@ -53,7 +53,7 @@ export const components = {
   DateRangePicker,
   Divider,
   Drawer,
-  Form,
+  Form: FormControl,
   FormError,
   FormLabel,
   Infobox,
