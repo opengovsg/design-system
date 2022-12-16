@@ -24,7 +24,7 @@ export const parameters = {
 
 export const decorators: DecoratorFn[] = [
   (storyFn) => (
-    <ChakraProvider resetCSS theme={theme}>
+    <ChakraProvider portalZIndex={40} resetCSS theme={theme}>
       {storyFn()}
     </ChakraProvider>
   ),
