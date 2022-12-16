@@ -44,7 +44,7 @@ const HeaderBar = ({
   ariaControlId,
 }: HeaderBarProps): JSX.Element => {
   const styleProps = {
-    bg: 'neutral.200',
+    bg: 'grey.50',
     py: { base: '0.5rem', md: '0.375rem' },
     px: { base: '1.5rem', md: '1.75rem', lg: '2rem' },
     textStyle: { base: 'legal', md: 'caption-2' },
@@ -160,7 +160,7 @@ export const GovtMasthead = ({
         <Stack
           direction={{ base: 'column', md: 'row' }}
           spacing={{ base: '1rem', md: '4.5rem', lg: '9.5rem' }}
-          bg="neutral.200"
+          bg="grey.50"
           px="2rem"
           py={{ base: '1.5rem', md: '2.25rem', lg: '2.75rem' }}
           textStyle={{ base: 'caption-2', lg: 'body-1' }}
