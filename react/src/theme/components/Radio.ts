@@ -1,14 +1,8 @@
 import { radioAnatomy } from '@chakra-ui/anatomy'
-import { getColor } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+import { StyleFunctionProps } from '@chakra-ui/theme-tools'
 
-import { ComponentMultiStyleConfig } from '~/theme/types'
-
-/**
- * This must be kept in line with the key from Chakra's internal
- * styling to ensure that the styles are merged correctly.
- * https://github.com/chakra-ui/chakra-ui/blob/main/packages/theme/src/components/index.ts
- */
-export const RADIO_THEME_KEY = 'Radio'
+import { layerStyles } from '../layerStyles'
 
 /**
  * With reference to
@@ -20,14 +14,38 @@ const parts = radioAnatomy.extend(
   'othersRadio',
 )
 
-export const Radio: ComponentMultiStyleConfig<typeof parts> = {
-  parts: parts.keys,
-  baseStyle: ({ colorScheme: c, theme }) => ({
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
+
+const getColorProps = ({ colorScheme: c }: StyleFunctionProps) => {
+  switch (c) {
+    case 'main':
+      return {
+        bg: 'utility.ui',
+        checkedBg: 'interaction.main.default',
+        hoverBg: 'interaction.muted.main.hover',
+        borderColor: 'interaction.main.default',
+      }
+    default: {
+      return {
+        bg: 'utility.ui',
+        checkedBg: `${c}.500`,
+        hoverBg: `${c}.100`,
+        borderColor: `${c}.500`,
+      }
+    }
+  }
+}
+
+const baseStyle = definePartsStyle((props) => {
+  const { bg, hoverBg, borderColor, checkedBg } = getColorProps(props)
+
+  return {
     control: {
-      bg: 'white',
+      bg,
       cursor: 'pointer',
       border: '2px solid',
-      borderColor: `${c}.500`,
+      borderColor,
       // When the label is long and overflows to the next line, we want
       // the radio to be aligned with the first line rather than the center
       alignSelf: 'start',
@@ -39,65 +57,59 @@ export const Radio: ComponentMultiStyleConfig<typeof parts> = {
         boxShadow: 'none',
       },
       _checked: {
-        bg: 'white',
-        color: `${c}.500`,
-        _hover: {
-          bg: 'white',
-          borderColor: `${c}.500`,
-        },
+        bg,
+        borderColor,
+        color: checkedBg,
       },
       _invalid: {
         // override Chakra UI style which turns the control red when invalid
-        borderColor: `${c}.500`,
+        borderColor,
       },
       _disabled: {
-        borderColor: 'neutral.500',
-        bg: 'white',
+        cursor: 'not-allowed',
+        borderColor: 'interaction.support.disabled-content',
+        bg: 'utility.ui',
         _checked: {
-          borderColor: 'neutral.500',
-          color: 'neutral.500',
-          bg: 'white',
+          bg: 'utility.ui',
+          borderColor: 'interaction.support.disabled-content',
+          color: 'interaction.support.disabled-content',
         },
       },
     },
     container: {
       w: '100%',
-      color: 'brand.secondary.700',
+      color: 'base.content.dark',
       _hover: {
-        bg: `${c}.100`,
-      },
-      _focusWithin: {
-        // use boxShadow instead of border to ensure that control and label
-        // do not move when option is focused
-        boxShadow: `inset 0 0 0 0.125rem ${getColor(theme, `${c}.500`)}`,
-      },
-      _disabled: {
-        bg: 'white',
-        color: 'neutral.500',
-        cursor: 'not-allowed',
-      },
-    },
-    // Text label
-    label: {
-      _disabled: {
-        color: 'neutral.500',
-        // Chakra automatically sets opacity to 0.4, so override that
-        opacity: 1,
-      },
-      textStyle: 'body-1',
-      ml: '1rem',
-    },
-    othersContainer: {
-      _hover: {
-        bg: `${c}.100`,
+        bg: hoverBg,
         _disabled: {
           bg: 'none',
         },
       },
       _focusWithin: {
-        // use boxShadow instead of border to ensure that control and label
-        // do not move when checkbox is focused
-        boxShadow: `inset 0 0 0 0.125rem ${getColor(theme, `${c}.500`)}`,
+        ...layerStyles.focusRing.default._focusVisible,
+        outlineOffset: 0,
+      },
+    },
+    // Text label
+    label: {
+      _disabled: {
+        color: 'interaction.support.disabled-content',
+        // Chakra automatically sets opacity to 0.4, so override that
+        opacity: 1,
+      },
+      textStyle: 'body-1',
+      color: 'base.content.dark',
+    },
+    othersContainer: {
+      _hover: {
+        bg: hoverBg,
+        _disabled: {
+          bg: 'none',
+        },
+      },
+      _focusWithin: {
+        ...layerStyles.focusRing.default._focusVisible,
+        outlineOffset: 0,
       },
     },
     othersRadio: {
@@ -110,46 +122,135 @@ export const Radio: ComponentMultiStyleConfig<typeof parts> = {
       },
       p: 0,
     },
-  }),
-  sizes: {
-    // md is the default and we only have one size, so override it
-    md: {
-      container: {
-        px: '0.25rem',
-        py: '0.625rem',
+  }
+})
+
+const sizes = {
+  xs: definePartsStyle({
+    control: {
+      w: '1rem',
+      h: '1rem',
+      // Account for font line height differences
+      mt: '0.125rem',
+      // the ::before pseudoclass controls the solid circle which indicates
+      // that the radio button is checked
+      _before: {
+        w: '0.625rem',
+        h: '0.625rem',
+        transform: 'scale(0)',
       },
-      othersContainer: {
-        px: '0.25rem',
-        py: '0.625rem',
-      },
-      othersInput: {
-        // To align left of input with left of "Others" label
-        ml: '2.625rem',
-        mt: '0.625rem',
-        // Use 100% of the width, not counting the left margin
-        w: 'calc(100% - 2.625rem)',
-      },
-      control: {
-        w: '1.5rem',
-        h: '1.5rem',
-        // the ::before pseudoclass controls the solid circle which indicates
-        // that the radio button is checked
+      _checked: {
         _before: {
-          w: '1rem',
-          h: '1rem',
-          transform: 'scale(0)',
-        },
-        _checked: {
-          _before: {
-            w: '1rem',
-            h: '1rem',
-            transform: 'scale(1)',
-          },
+          w: '0.625rem',
+          h: '0.625rem',
+          transform: 'scale(1)',
         },
       },
     },
-  },
-  defaultProps: {
-    colorScheme: 'brand.primary',
-  },
+    label: {
+      ml: '0.75rem',
+      textStyle: 'body-2',
+    },
+    container: {
+      px: '0.25rem',
+      py: '0.5rem',
+    },
+    othersContainer: {
+      px: '0.25rem',
+      py: '0.5rem',
+    },
+    othersInput: {
+      // To align left of input with left of "Others" label
+      ml: '1.75rem',
+      mt: '0.5rem',
+      // Use 100% of the width, not counting the left margin
+      w: 'calc(100% - 1.75rem)',
+    },
+  }),
+  sm: definePartsStyle({
+    control: {
+      width: '1.25rem',
+      height: '1.25rem',
+      // the ::before pseudoclass controls the solid circle which indicates
+      // that the radio button is checked
+      _before: {
+        w: '0.75rem',
+        h: '0.75rem',
+        transform: 'scale(0)',
+      },
+      _checked: {
+        _before: {
+          w: '0.75rem',
+          h: '0.75rem',
+          transform: 'scale(1)',
+        },
+      },
+    },
+    label: {
+      textStyle: 'body-2',
+      ml: '0.75rem',
+    },
+    container: {
+      px: '0.25rem',
+      py: '0.625rem',
+    },
+    othersContainer: {
+      px: '0.25rem',
+      py: '0.625rem',
+    },
+    othersInput: {
+      // To align left of input with left of "Others" label
+      ml: '2.25rem',
+      mt: '0.625rem',
+      // Use 100% of the width, not counting the left margin
+      w: 'calc(100% - 2.25rem)',
+    },
+  }),
+  md: definePartsStyle({
+    label: {
+      ml: '1rem',
+    },
+    container: {
+      px: '0.25rem',
+      py: '0.625rem',
+    },
+    othersContainer: {
+      px: '0.25rem',
+      py: '0.625rem',
+    },
+    othersInput: {
+      // To align left of input with left of "Others" label
+      ml: '2.625rem',
+      mt: '0.625rem',
+      // Use 100% of the width, not counting the left margin
+      w: 'calc(100% - 2.625rem)',
+    },
+    control: {
+      w: '1.5rem',
+      h: '1.5rem',
+      // the ::before pseudoclass controls the solid circle which indicates
+      // that the radio button is checked
+      _before: {
+        w: '1rem',
+        h: '1rem',
+        transform: 'scale(0)',
+      },
+      _checked: {
+        _before: {
+          w: '1rem',
+          h: '1rem',
+          transform: 'scale(1)',
+        },
+      },
+    },
+  }),
 }
+
+export const Radio = defineMultiStyleConfig({
+  baseStyle,
+  sizes,
+  defaultProps: {
+    colorScheme: 'main',
+    size: 'md',
+  },
+})

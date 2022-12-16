@@ -52,7 +52,7 @@ const baseStyle = definePartsStyle((props) => {
     control: {
       bg,
       borderRadius: '0.25rem',
-      border: '0.125rem solid',
+      border: '2px solid',
       borderColor,
       _checked: {
         bg: checkedBg,
@@ -134,7 +134,7 @@ const baseStyle = definePartsStyle((props) => {
       },
       w: '100%',
     },
-    othersInput: Input.variants.outline(props),
+    othersInput: Input.variants?.outline(props),
   }
 })
 

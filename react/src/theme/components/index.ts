@@ -25,7 +25,7 @@ import { NumberInput } from './NumberInput'
 import { Pagination, PAGINATION_THEME_KEY } from './Pagination'
 import { PhoneNumberInput } from './PhoneNumberInput'
 import { Progress } from './Progress'
-import { Radio, RADIO_THEME_KEY } from './Radio'
+import { Radio } from './Radio'
 import { Rating, RATING_THEME_KEY } from './Rating'
 import { Searchbar, SEARCHBAR_THEME_KEY } from './Searchbar'
 import { SingleCountryPhoneNumberInput } from './SingleCountryPhoneNumberInput'
@@ -51,35 +51,35 @@ export const components = {
   CloseButton,
   DatePicker,
   DateRangePicker,
+  Divider,
   Drawer,
   Form,
   FormError,
   FormLabel,
-  Divider,
+  Infobox,
   Input,
   Link,
-  Infobox,
-  Modal,
   Menu,
+  Modal,
   MultiSelect,
   NumberInput,
   PhoneNumberInput,
   Progress,
+  Radio,
   SingleCountryPhoneNumberInput,
   SingleSelect,
   Switch,
-  Textarea,
   Tabs,
   Tag,
+  Textarea,
+  Tile,
+  Toast,
+  Tooltip,
   [ATTACHMENT_THEME_KEY]: Attachment,
   [PAGINATION_THEME_KEY]: Pagination,
   [CHECKBOX_THEME_KEY]: Checkbox,
-  [RADIO_THEME_KEY]: Radio,
   [SEARCHBAR_THEME_KEY]: Searchbar,
-  Tooltip,
   [RATING_THEME_KEY]: Rating,
   [YESNO_THEME_KEY]: YesNo,
   [TOGGLE_THEME_KEY]: Toggle,
-  Tile,
-  Toast,
 }

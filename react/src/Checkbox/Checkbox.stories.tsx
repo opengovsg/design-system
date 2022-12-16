@@ -20,7 +20,6 @@ export const Default = Template.bind({})
 Default.args = {
   colorScheme: 'main',
   name: 'Default',
-  size: 'sm',
 }
 
 export const Mobile = Template.bind({})
