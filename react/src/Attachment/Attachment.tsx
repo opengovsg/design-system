@@ -11,18 +11,14 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 import { omit } from 'lodash'
-import simplur from 'simplur'
+import type { Promisable } from 'type-fest'
 
 import { ATTACHMENT_THEME_KEY } from '~/theme/components/Attachment'
 
 import { AttachmentStylesProvider } from './AttachmentContext'
 import { AttachmentDropzone } from './AttachmentDropzone'
 import { AttachmentFileInfo } from './AttachmentFileInfo'
-import {
-  getFileExtension,
-  getInvalidFileExtensionsInZip,
-  getReadableFileSize,
-} from './utils'
+import { getFileExtension, getReadableFileSize } from './utils'
 
 export interface AttachmentProps extends UseFormControlProps<HTMLElement> {
   /**
@@ -67,6 +63,14 @@ export interface AttachmentProps extends UseFormControlProps<HTMLElement> {
    * Color scheme of the component.
    */
   colorScheme?: ThemeTypings['colorSchemes']
+
+  /**
+   * If provided, the file will be validated against the given function.
+   * If the function returns a string, the file will be considered invalid
+   * and the string will be used as the error message.
+   * If the function returns null, the file will be considered valid.
+   */
+  onFileValidation?: (file: File) => Promisable<string | null>
 }
 
 export const Attachment = forwardRef<AttachmentProps, 'div'>(
@@ -81,6 +85,7 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
       name,
       colorScheme,
       imagePreview,
+      onFileValidation,
       ...props
     },
     ref,
@@ -142,33 +147,16 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
           }
           return onError?.(errorMessage)
         }
-
-        // Zip validation.
-        if (acceptedFile.type === 'application/zip') {
-          try {
-            const invalidFilesInZip = await getInvalidFileExtensionsInZip(
-              acceptedFile,
-              accept,
-            )
-            const numInvalidFiles = invalidFilesInZip.length
-            // There are invalid files, return error.
-            if (numInvalidFiles !== 0) {
-              const hiddenQty = [numInvalidFiles, null]
-              const stringOfInvalidExtensions = invalidFilesInZip.join(', ')
-              return onError?.(
-                simplur`The following file ${hiddenQty} extension[|s] in your zip file ${hiddenQty} [is|are] not valid: ${stringOfInvalidExtensions}`,
-              )
-            }
-          } catch {
-            return onError?.(
-              'An error has occurred whilst parsing your zip file',
-            )
-          }
+        const fileValidationErrorMessage = await onFileValidation?.(
+          acceptedFile,
+        )
+        if (fileValidationErrorMessage) {
+          return onError?.(fileValidationErrorMessage)
         }
 
         onChange(acceptedFile)
       },
-      [accept, onChange, onError],
+      [onChange, onError, onFileValidation],
     )
 
     const fileValidator = useCallback<NonNullable<DropzoneProps['validator']>>(
