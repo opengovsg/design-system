@@ -1,42 +1,34 @@
 import { Meta } from '@storybook/react'
 
 import * as stories from './IntlPhoneNumberInput.stories'
-import { PhoneNumberInput } from './PhoneNumberInput'
+import { PhoneNumberInput, PhoneNumberInputProps } from './PhoneNumberInput'
 
 export default {
   title: 'Components/PhoneNumberInput/SingleCountry',
   component: PhoneNumberInput,
   parameters: { actions: { argTypesRegex: '^on.*' } },
+  args: {
+    allowInternational: false,
+  },
   decorators: [],
-} as Meta
+} as Meta<PhoneNumberInputProps>
 
 export const Default = stories.Default.bind({})
-Default.args = {
-  ...stories.Default.args,
-  allowInternational: false,
-}
+Default.args = stories.Default.args
 
 export const Prefilled = stories.Prefilled.bind({})
 Prefilled.args = {
   ...stories.Prefilled.args,
-  allowInternational: false,
   defaultCountry: 'US',
 }
 
 export const Error = stories.Error.bind({})
-Error.args = {
-  ...stories.Error.args,
-  allowInternational: false,
-}
+Error.args = stories.Error.args
 
 export const Success = stories.Success.bind({})
-Success.args = {
-  ...stories.Success.args,
-  allowInternational: false,
-}
+Success.args = stories.Success.args
 
 export const Disabled = stories.Disabled.bind({})
-Disabled.args = {
-  ...stories.Disabled.args,
-  allowInternational: false,
-}
+Disabled.args = stories.Disabled.args
+
+export const Sizes = stories.Sizes.bind({})

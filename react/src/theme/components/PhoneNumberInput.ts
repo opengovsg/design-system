@@ -1,6 +1,5 @@
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 import { anatomy, getColor } from '@chakra-ui/theme-tools'
-
-import { ComponentMultiStyleConfig } from '~/theme/types'
 
 import { Input } from './Input'
 
@@ -11,73 +10,104 @@ const parts = anatomy('phonenumberinput').parts(
   'selector',
 )
 
-export const PhoneNumberInput: ComponentMultiStyleConfig<typeof parts> = {
-  parts: parts.keys,
-  variants: {
-    outline: (props) => {
-      const inputStyle = Input.variants.outline(props)
-      const { theme, focusBorderColor: fc } = props
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
 
-      return {
-        field: {
-          ...inputStyle.field,
-          borderLeftRadius: 0,
-        },
-        country: {
-          transitionProperty: 'common',
-          transitionDuration: 'normal',
-          bg: 'white',
-          border: '1px solid',
-          borderColor: 'neutral.400',
-          _disabled: {
-            ...inputStyle.field?._disabled,
-            cursor: 'not-allowed',
+const outlineVariant = definePartsStyle((props) => {
+  const inputFieldStyle = Input.variants?.outline(props).field
+  const { theme, focusBorderColor: fc } = props
 
-            _active: {
-              borderColor: 'neutral.400',
-              boxShadow: 'none',
-            },
-          },
-          _active: {
-            borderColor: getColor(theme, fc),
-            boxShadow: `0 0 0 1px ${getColor(theme, fc)}`,
-          },
-          _focusWithin: {
-            zIndex: 1,
-            borderColor: getColor(theme, fc),
-            boxShadow: `0 0 0 1px ${getColor(theme, fc)}`,
-          },
-          _hover: { bg: 'neutral.200' },
-          pos: 'relative',
-          p: '0.5rem',
-          width: '4rem',
-        },
-        selector: {
-          cursor: 'pointer',
-          opacity: 0,
-          pos: 'absolute',
-          w: '100%',
-          h: '100%',
-          left: 0,
-          top: 0,
-          _disabled: {
-            cursor: 'not-allowed',
-          },
-        },
-        icon: {
-          mr: '0.5rem',
-          w: '1.5em',
-          _disabled: {
-            opacity: 0.6,
-          },
-        },
-      }
+  return {
+    field: {
+      ...inputFieldStyle,
+      borderLeftRadius: 0,
     },
-  },
-  defaultProps: {
-    variant: 'outline',
-    size: 'md',
-    focusBorderColor: Input.defaultProps.focusBorderColor,
-    errorBorderColor: Input.defaultProps.errorBorderColor,
-  },
+    country: {
+      transitionProperty: 'common',
+      transitionDuration: 'normal',
+      bg: 'white',
+      border: '1px solid',
+      borderColor: 'base.divider.dark',
+      _disabled: {
+        ...inputFieldStyle?._disabled,
+        cursor: 'not-allowed',
+      },
+      _active: {
+        borderColor: fc,
+        boxShadow: `0 0 0 1px ${getColor(theme, fc)}`,
+        bg: 'interaction.tinted.main.active',
+        _disabled: {
+          boxShadow: 'none',
+          borderColor: inputFieldStyle?._disabled.borderColor,
+        },
+      },
+      _focusWithin: {
+        zIndex: 1,
+        borderColor: fc,
+        boxShadow: `0 0 0 1px ${getColor(theme, fc)}`,
+      },
+      _hover: { bg: 'interaction.tinted.main.hover' },
+      pos: 'relative',
+    },
+    selector: {
+      cursor: 'pointer',
+      opacity: 0,
+      pos: 'absolute',
+      w: '100%',
+      h: '100%',
+      left: 0,
+      top: 0,
+      _disabled: {
+        cursor: 'not-allowed',
+      },
+    },
+    icon: {
+      mr: '0.5rem',
+      w: '1.5em',
+      _disabled: {
+        opacity: 0.6,
+      },
+    },
+  }
+})
+
+const sizes = {
+  xs: definePartsStyle({
+    country: {
+      ...Input.sizes?.xs.addon,
+      px: '0.5rem',
+    },
+    icon: {
+      fontSize: '0.75rem',
+    },
+  }),
+  sm: definePartsStyle({
+    country: {
+      ...Input.sizes?.sm.addon,
+      px: '0.5rem',
+    },
+    icon: {
+      fontSize: '1rem',
+    },
+  }),
+  md: definePartsStyle({
+    country: {
+      ...Input.sizes?.md.addon,
+
+      px: '0.5rem',
+    },
+    icon: {
+      fontSize: '1rem',
+    },
+  }),
 }
+
+const variants = {
+  outline: outlineVariant,
+}
+
+export const PhoneNumberInput = defineMultiStyleConfig({
+  variants,
+  sizes,
+  defaultProps: Input.defaultProps,
+})

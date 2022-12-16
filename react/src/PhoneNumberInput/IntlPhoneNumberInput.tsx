@@ -7,6 +7,7 @@
 import { ChangeEvent, FC, useCallback, useMemo } from 'react'
 import {
   chakra,
+  createStylesContext,
   Flex,
   forwardRef,
   Icon,
@@ -29,6 +30,9 @@ import {
 import { BasePhoneNumberInputProps } from './PhoneNumberInput'
 import { usePhoneNumberInput } from './PhoneNumberInputContext'
 
+const [IntlPhoneNumberInputStylesProvider, useIntlPhoneNumberInputStyles] =
+  createStylesContext('PhoneNumberInput')
+
 export const IntlPhoneNumberInput = forwardRef<
   BasePhoneNumberInputProps,
   'input'
@@ -47,22 +51,24 @@ export const IntlPhoneNumberInput = forwardRef<
   const inputRef = useMergeRefs(innerInputRef, ref)
 
   return (
-    <InputGroup>
-      <CountrySelect
-        isReadOnly={props.isReadOnly}
-        isDisabled={props.isDisabled}
-      />
-      <Input
-        onBlur={handleInputBlur}
-        ref={inputRef}
-        value={inputValue}
-        onChange={handleInputChange}
-        type="tel"
-        sx={styles.field}
-        {...props}
-        placeholder={inputPlaceholder}
-      />
-    </InputGroup>
+    <IntlPhoneNumberInputStylesProvider value={styles}>
+      <InputGroup>
+        <CountrySelect
+          isReadOnly={props.isReadOnly}
+          isDisabled={props.isDisabled}
+        />
+        <Input
+          onBlur={handleInputBlur}
+          ref={inputRef}
+          value={inputValue}
+          onChange={handleInputChange}
+          type="tel"
+          sx={styles.field}
+          {...props}
+          placeholder={inputPlaceholder}
+        />
+      </InputGroup>
+    </IntlPhoneNumberInputStylesProvider>
   )
 })
 
@@ -73,7 +79,7 @@ interface CountrySelectProps {
 
 const CountrySelect: FC<CountrySelectProps> = (props) => {
   const { country, handleCountryChange } = usePhoneNumberInput()
-  const styles = useMultiStyleConfig('PhoneNumberInput', props)
+  const styles = useIntlPhoneNumberInputStyles()
 
   const onCountryChange = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
@@ -93,7 +99,7 @@ const CountrySelect: FC<CountrySelectProps> = (props) => {
       as="label"
       sx={styles.country}
     >
-      <Flex>
+      <Flex align="center">
         <Icon
           aria-disabled={inputProps.disabled}
           aria-readonly={inputProps.readOnly}
