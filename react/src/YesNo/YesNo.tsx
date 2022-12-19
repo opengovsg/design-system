@@ -3,7 +3,7 @@ import {
   forwardRef,
   HStack,
   Icon,
-  ThemeTypings,
+  ThemingProps,
   useFormControlProps,
   useMultiStyleConfig,
   useRadioGroup,
@@ -44,7 +44,7 @@ export interface YesNoProps {
   /**
    * Color scheme of the component to render. Defaults to `brand.primary`.
    */
-  colorScheme?: ThemeTypings['colorSchemes']
+  colorScheme?: ThemingProps<'YesNo'>['colorScheme']
 }
 
 /**

@@ -14,7 +14,7 @@ import {
 import {
   FormControlProps,
   SystemStyleObject,
-  ThemeTypings,
+  ThemingProps,
   useControllableState,
   useDisclosure,
   UseDisclosureReturn,
@@ -52,7 +52,7 @@ interface DateRangePickerContextReturn {
   isDateUnavailable?: (date: Date) => boolean
   disclosureProps: UseDisclosureReturn
   labelSeparator: string
-  colorScheme?: ThemeTypings['colorSchemes']
+  colorScheme?: ThemingProps<'DatePicker'>['colorScheme']
   monthsToDisplay?: number
 }
 

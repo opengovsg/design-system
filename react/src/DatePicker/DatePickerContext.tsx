@@ -11,9 +11,9 @@ import React, {
   useRef,
 } from 'react'
 import {
-  CSSObject,
   FormControlProps,
-  ThemeTypings,
+  SystemStyleObjectRecord,
+  ThemingProps,
   useControllableState,
   useDisclosure,
   UseDisclosureReturn,
@@ -29,7 +29,7 @@ import { DatePickerProps } from './DatePicker'
 
 interface DatePickerContextReturn {
   isMobile: boolean
-  styles: Record<string, CSSObject>
+  styles: SystemStyleObjectRecord
   handleInputChange: ChangeEventHandler<HTMLInputElement>
   handleInputClick: MouseEventHandler<HTMLInputElement>
   handleDateChange: (date: Date | null) => void
@@ -43,7 +43,7 @@ interface DatePickerContextReturn {
   closeCalendarOnChange: boolean
   placeholder: string
   allowManualInput: boolean
-  colorScheme?: ThemeTypings['colorSchemes']
+  colorScheme?: ThemingProps<'DatePicker'>['colorScheme']
   isDateUnavailable?: (date: Date) => boolean
   disclosureProps: UseDisclosureReturn
   monthsToDisplay?: number

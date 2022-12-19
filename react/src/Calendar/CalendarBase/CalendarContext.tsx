@@ -7,7 +7,7 @@ import {
   useMemo,
   useState,
 } from 'react'
-import { ThemeTypings } from '@chakra-ui/react'
+import { ThemingProps } from '@chakra-ui/react'
 import {
   addMonths,
   differenceInCalendarMonths,
@@ -70,7 +70,7 @@ type PassthroughProps = {
   /**
    * Color scheme of date input
    */
-  colorScheme?: ThemeTypings['colorSchemes']
+  colorScheme?: ThemingProps<'Calendar'>['colorScheme']
 }
 export type UseProvideCalendarProps = Pick<DayzedProps, 'monthsToDisplay'> &
   PassthroughProps

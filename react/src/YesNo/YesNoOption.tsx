@@ -2,7 +2,7 @@ import { KeyboardEvent, useCallback } from 'react'
 import {
   Box,
   forwardRef,
-  ThemeTypings,
+  ThemingProps,
   useMultiStyleConfig,
   useRadio,
   UseRadioGroupReturn,
@@ -23,7 +23,7 @@ interface YesNoOptionProps extends UseRadioProps {
   /**
    * Color scheme of the component to render. Defaults to `primary`.
    */
-  colorScheme?: ThemeTypings['colorSchemes']
+  colorScheme?: ThemingProps<'YesNo'>['colorScheme']
 
   /**
    * Callback to be invoked when selection changes.

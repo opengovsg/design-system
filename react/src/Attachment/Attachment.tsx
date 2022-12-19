@@ -4,7 +4,7 @@ import {
   Box,
   forwardRef,
   Text,
-  ThemeTypings,
+  ThemingProps,
   useFormControl,
   UseFormControlProps,
   useMergeRefs,
@@ -63,7 +63,7 @@ export interface AttachmentProps extends UseFormControlProps<HTMLElement> {
   /**
    * Color scheme of the component.
    */
-  colorScheme?: ThemeTypings['colorSchemes']
+  colorScheme?: ThemingProps<'Attachment'>['colorScheme']
 
   /**
    * If provided, the file will be validated against the given function.

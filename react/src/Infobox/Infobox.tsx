@@ -5,7 +5,6 @@ import {
   Flex,
   FlexProps,
   Icon,
-  ThemeTypings,
   ThemingProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
