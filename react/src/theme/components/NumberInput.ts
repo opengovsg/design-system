@@ -42,9 +42,6 @@ const baseStyle = definePartsStyle({
       borderRightRadius: '4px',
     },
   },
-  stepperDivider: {
-    border: undefined,
-  },
 })
 
 const sizes = {

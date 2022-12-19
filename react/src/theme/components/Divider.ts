@@ -2,6 +2,7 @@ import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 
 const baseStyle = defineStyle({
   opacity: 1,
+  borderStyle: 'solid',
 })
 
 const variantLight = defineStyle({
