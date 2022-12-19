@@ -14,8 +14,6 @@ import { dataAttr } from '@chakra-ui/utils'
 import { omit } from 'lodash'
 import type { Promisable } from 'type-fest'
 
-import { ATTACHMENT_THEME_KEY } from '~/theme/components/Attachment'
-
 import { AttachmentStylesProvider } from './AttachmentContext'
 import { AttachmentDropzone } from './AttachmentDropzone'
 import { AttachmentFileInfo } from './AttachmentFileInfo'
@@ -185,7 +183,7 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
 
     const mergedRefs = useMergeRefs(rootRef, ref)
 
-    const styles = useMultiStyleConfig(ATTACHMENT_THEME_KEY, {
+    const styles = useMultiStyleConfig('Attachment', {
       isDragActive,
       colorScheme,
       imagePreview,

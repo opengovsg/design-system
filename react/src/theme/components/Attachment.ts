@@ -3,8 +3,6 @@ import { anatomy } from '@chakra-ui/theme-tools'
 
 import { Input } from './Input'
 
-export const ATTACHMENT_THEME_KEY = 'Attachment'
-
 const parts = anatomy('attachment').parts(
   'container',
   'dropzone',

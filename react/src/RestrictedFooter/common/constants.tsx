@@ -1,9 +1,4 @@
-import {
-  RestrictedOgpLogoFullBlack,
-  RestrictedOgpLogoFullMonoBlack,
-  RestrictedOgpLogoFullMonoWhite,
-  RestrictedOgpLogoFullWhite,
-} from '~/icons'
+import { RestrictedHorizontalBrand, RestrictedHorizontalReverse } from '~/icons'
 import { BxlFacebook } from '~/icons/BxlFacebook'
 import { BxlInstagram } from '~/icons/BxlInstagram'
 import { BxlLinkedin } from '~/icons/BxlLinkedin'
@@ -17,22 +12,12 @@ const footerIconConstants = {
 
 export const DEFAULT_FOOTER_ICON_LINK: RestrictedFooterLinkWithIcon = {
   ...footerIconConstants,
-  Icon: RestrictedOgpLogoFullBlack,
+  Icon: RestrictedHorizontalBrand,
 }
 
-export const WHITE_FOOTER_ICON_LINK: RestrictedFooterLinkWithIcon = {
+export const DARKMODE_FOOTER_ICON_LINK: RestrictedFooterLinkWithIcon = {
   ...footerIconConstants,
-  Icon: RestrictedOgpLogoFullWhite,
-}
-
-export const WHITE_MONO_FOOTER_ICON_LINK: RestrictedFooterLinkWithIcon = {
-  ...footerIconConstants,
-  Icon: RestrictedOgpLogoFullMonoWhite,
-}
-
-export const BLACK_MONO_FOOTER_ICON_LINK: RestrictedFooterLinkWithIcon = {
-  ...footerIconConstants,
-  Icon: RestrictedOgpLogoFullMonoBlack,
+  Icon: RestrictedHorizontalReverse,
 }
 
 export const DEFAULT_SOCIAL_MEDIA_LINKS: RestrictedFooterLinkWithIcon[] = [

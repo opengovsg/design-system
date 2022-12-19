@@ -1,5 +1,5 @@
 import { Accordion } from './Accordion'
-import { Attachment, ATTACHMENT_THEME_KEY } from './Attachment'
+import { Attachment } from './Attachment'
 import { Avatar } from './Avatar'
 import { AvatarMenu } from './AvatarMenu'
 import { Badge } from './Badge'
@@ -12,6 +12,7 @@ import { DatePicker } from './DatePicker'
 import { DateRangePicker } from './DateRangePicker'
 import { Divider } from './Divider'
 import { Drawer } from './Drawer'
+import { Footer } from './Footer'
 import { FormControl } from './FormControl'
 import { FormError } from './FormError'
 import { FormLabel } from './FormLabel'
@@ -40,6 +41,7 @@ import { Tooltip } from './Tooltip'
 import { YesNo, YESNO_THEME_KEY } from './YesNo'
 
 export const components = {
+  Attachment,
   Accordion,
   Avatar,
   AvatarMenu,
@@ -52,6 +54,7 @@ export const components = {
   DateRangePicker,
   Divider,
   Drawer,
+  Footer,
   Form: FormControl,
   FormError,
   FormLabel,
@@ -75,7 +78,6 @@ export const components = {
   Tile,
   Toast,
   Tooltip,
-  [ATTACHMENT_THEME_KEY]: Attachment,
   [CHECKBOX_THEME_KEY]: Checkbox,
   [SEARCHBAR_THEME_KEY]: Searchbar,
   [YESNO_THEME_KEY]: YesNo,

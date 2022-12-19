@@ -199,7 +199,7 @@ const variantOutlineClear: SystemStyleFunction = (props) => {
 }
 
 const variantLink = defineStyle((props) => {
-  return merge(Link.baseStyle?.(props), Link.variants?.standalone(props), {
+  return merge(Link.baseStyle?.(props), Link.variants?.standalone, {
     border: 'none',
     minHeight: 'auto',
     fontWeight: 'normal',

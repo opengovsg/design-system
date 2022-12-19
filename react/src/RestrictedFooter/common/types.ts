@@ -1,4 +1,8 @@
-import { FlexProps, ThemeTypings } from '@chakra-ui/react'
+import {
+  FlexProps,
+  ResponsiveValue,
+  StyleFunctionProps,
+} from '@chakra-ui/react'
 import { SetOptional } from 'type-fest'
 
 export type RestrictedFooterLink = {
@@ -28,26 +32,20 @@ export interface RestrictedFooterVariantProps {
   footerLinks?: RestrictedFooterLink[]
   /** Social media links to display, if provided. Defaults to OGP links. */
   socialMediaLinks: RestrictedFooterLinkWithIcon[]
-  /**
-   * Colour scheme of the text in the footer.
-   * Defaults to `brand.secondary` if not provided.
-   */
-  textColorScheme: ThemeTypings['colorSchemes']
   containerProps?: Partial<RestrictedFooterContainerProps>
+  /**
+   * Whether to render the footer in dark or light mode.
+   */
+  colorMode?: StyleFunctionProps['colorMode']
 }
 
 export interface RestrictedFooterProps
   extends SetOptional<
     RestrictedFooterVariantProps,
-    'socialMediaLinks' | 'textColorScheme' | 'footerIconLink'
+    'socialMediaLinks' | 'footerIconLink'
   > {
   /**
    * The footer variant to display. Defaults to `full` if not provided.
    */
-  variant?: 'full' | 'compact'
-
-  /**
-   * Whether logos are monochrome in `compact` variant.
-   */
-  compactMonochromeLogos?: boolean
+  variant?: ResponsiveValue<'full' | 'compact'>
 }
