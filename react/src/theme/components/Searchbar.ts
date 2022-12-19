@@ -12,7 +12,7 @@ export const Searchbar: ComponentMultiStyleConfig<typeof parts> = {
   parts: parts.keys,
   variants: {
     outline: (props) => {
-      const { field } = Input.variants.outline(props)
+      const inputFieldStyles = Input.variants?.outline(props).field
       const { isExpanded } = props
 
       return {
@@ -24,10 +24,12 @@ export const Searchbar: ComponentMultiStyleConfig<typeof parts> = {
           color: 'brand.secondary.500',
         },
         field: {
-          ...field,
+          ...inputFieldStyles,
           display: isExpanded ? 'initial' : 'none',
           w: isExpanded ? '100%' : 0,
-          borderColor: isExpanded ? field.borderColor : 'transparent',
+          borderColor: isExpanded
+            ? inputFieldStyles?.borderColor
+            : 'transparent',
           paddingInlineStart: isExpanded ? '2.75rem' : 0,
           transitionDuration: isExpanded ? 'normal' : 0,
         },

@@ -11,7 +11,7 @@ export const CloseButton = defineStyleConfig({
   },
   variants: {
     clear: defineStyle((props) => ({
-      ...Button.variants.clear(props),
+      ...Button.variants?.clear(props),
       px: 'initial',
     })),
   },
