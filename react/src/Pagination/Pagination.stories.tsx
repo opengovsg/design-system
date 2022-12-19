@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Meta, Story } from '@storybook/react'
-
-import { viewports } from '~/utils/storybook'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { Pagination, PaginationProps } from './Pagination'
 
@@ -11,7 +9,7 @@ export default {
   decorators: [],
 } as Meta
 
-const Template: Story<PaginationProps> = (args) => {
+const Template: StoryFn<PaginationProps> = (args) => {
   const [currentPage, setCurrentPage] = useState(args.currentPage)
 
   useEffect(() => {
@@ -33,95 +31,81 @@ Default.args = {
   pageSize: 10,
 }
 
-export const Disabled = Template.bind({})
-Disabled.args = {
+export const VariantFullDisabled = Template.bind({})
+VariantFullDisabled.args = {
   currentPage: 5,
   totalCount: 1000,
   pageSize: 10,
   isDisabled: true,
 }
 
-export const SiblingCountEquals2 = Template.bind({})
-SiblingCountEquals2.args = {
+export const FullSiblingCountEquals2 = Template.bind({})
+FullSiblingCountEquals2.args = {
   currentPage: 31,
   totalCount: 1000,
   pageSize: 10,
   siblingCount: 2,
 }
 
-export const Exactly7Pages = Template.bind({})
-Exactly7Pages.args = {
+export const FullExactly7Pages = Template.bind({})
+FullExactly7Pages.args = {
   currentPage: 1,
   totalCount: 70,
   pageSize: 10,
   siblingCount: 1,
 }
 
-export const Exactly8Pages = Template.bind({})
-Exactly8Pages.args = {
+export const FullExactly8Pages = Template.bind({})
+FullExactly8Pages.args = {
   currentPage: 1,
   totalCount: 80,
   pageSize: 10,
   siblingCount: 1,
 }
 
-export const LessThan7Pages = Template.bind({})
-LessThan7Pages.args = {
+export const FullLessThan7Pages = Template.bind({})
+FullLessThan7Pages.args = {
   currentPage: 1,
   totalCount: 60,
   pageSize: 10,
   siblingCount: 1,
 }
 
-export const StartOf100Pages = Template.bind({})
-StartOf100Pages.args = {
+export const FullStartOf100Pages = Template.bind({})
+FullStartOf100Pages.args = {
   currentPage: 1,
   totalCount: 1000,
   pageSize: 10,
   siblingCount: 1,
 }
 
-export const EndOf100Pages = Template.bind({})
-EndOf100Pages.args = {
+export const FullEndOf100Pages = Template.bind({})
+FullEndOf100Pages.args = {
   currentPage: 100,
   totalCount: 1000,
   pageSize: 10,
   siblingCount: 1,
 }
 
-export const MiddleOf100Pages = Template.bind({})
-MiddleOf100Pages.args = {
+export const FullMiddleOf100Pages = Template.bind({})
+FullMiddleOf100Pages.args = {
   currentPage: 31,
   totalCount: 1000,
   pageSize: 10,
   siblingCount: 1,
 }
 
-export const Mobile = Template.bind({})
-Mobile.args = {
+export const VariantMinimal = Template.bind({})
+VariantMinimal.args = {
   currentPage: 31,
   totalCount: 1000,
   pageSize: 10,
   siblingCount: 1,
-}
-Mobile.parameters = {
-  viewport: {
-    defaultViewport: 'mobile1',
-  },
-  chromatic: { viewports: [viewports.xs] },
+  variant: 'minimal',
 }
 
-export const MobileDisabled = Template.bind({})
-MobileDisabled.args = {
-  currentPage: 31,
-  totalCount: 1000,
-  pageSize: 10,
-  siblingCount: 1,
+export const MinimalDisabled = Template.bind({})
+MinimalDisabled.args = {
+  ...VariantMinimal.args,
   isDisabled: true,
-}
-MobileDisabled.parameters = {
-  viewport: {
-    defaultViewport: 'mobile1',
-  },
-  chromatic: { viewports: [viewports.xs] },
 }

@@ -1,7 +1,7 @@
-import { useBreakpointValue } from '@chakra-ui/react'
+import { ThemingProps, useBreakpointValue } from '@chakra-ui/react'
 
-import { PaginationDesktop } from './PaginationDesktop'
-import { PaginationMobile } from './PaginationMobile'
+import { PaginationFull } from './PaginationFull'
+import { PaginationMinimal } from './PaginationMinimal'
 
 export interface PaginationProps {
   /**
@@ -34,24 +34,28 @@ export interface PaginationProps {
    * Whether pagination buttons are disabled.
    */
   isDisabled?: boolean
+
+  /**
+   * Variant of pagination to use. Defaults to `full`.
+   */
+  variant?: ThemingProps<'Pagination'>['variant']
 }
 
-export const Pagination = (props: PaginationProps): JSX.Element => {
-  const isShowMobileVariant = useBreakpointValue({
-    base: true,
-    xs: true,
-    sm: true,
-    md: false,
-    lg: false,
-    xl: false,
-  })
+export const Pagination = ({
+  variant: variantProp = 'full',
+  ...props
+}: PaginationProps): JSX.Element => {
+  const variant = useBreakpointValue(
+    typeof variantProp === 'string' ? { base: variantProp } : variantProp,
+    { ssr: false },
+  )
 
-  return isShowMobileVariant ? (
-    <Pagination.Mobile {...props} />
+  return variant === 'minimal' ? (
+    <Pagination.Minimal {...props} />
   ) : (
-    <Pagination.Desktop {...props} />
+    <Pagination.Full {...props} />
   )
 }
 
-Pagination.Desktop = PaginationDesktop
-Pagination.Mobile = PaginationMobile
+Pagination.Full = PaginationFull
+Pagination.Minimal = PaginationMinimal

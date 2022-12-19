@@ -6,20 +6,19 @@ import { useCallback } from 'react'
 import { Box, IconButton, Text, useMultiStyleConfig } from '@chakra-ui/react'
 
 import { BxChevronLeft, BxChevronRight } from '~/icons'
-import { PAGINATION_THEME_KEY } from '~/theme/components/Pagination'
 
 import { PaginationProps } from './Pagination'
 
 type PaginationMobileProps = Omit<PaginationProps, 'siblingCount'>
 
-export const PaginationMobile = ({
+export const PaginationMinimal = ({
   pageSize,
   onPageChange,
   totalCount,
   currentPage,
   isDisabled,
 }: PaginationMobileProps): JSX.Element => {
-  const styles = useMultiStyleConfig(PAGINATION_THEME_KEY, { isDisabled })
+  const styles = useMultiStyleConfig('Pagination', { variant: 'minimal' })
 
   const totalPageCount = Math.ceil(totalCount / pageSize)
   const isDisableNextPage = isDisabled || currentPage >= totalPageCount
@@ -38,6 +37,7 @@ export const PaginationMobile = ({
   return (
     <Box __css={styles.container}>
       <IconButton
+        variant="unstyled"
         sx={styles.stepper}
         aria-label="Previous page"
         isDisabled={isDisablePrevPage}
@@ -48,6 +48,7 @@ export const PaginationMobile = ({
         Page {currentPage} of {totalPageCount}
       </Text>
       <IconButton
+        variant="unstyled"
         sx={styles.stepper}
         aria-label="Next page"
         isDisabled={isDisableNextPage}

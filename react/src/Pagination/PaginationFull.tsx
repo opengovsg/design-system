@@ -2,18 +2,15 @@
  * Desktop variant for the Pagination component.
  */
 
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
 import {
-  Box,
   Button,
-  HStack,
+  chakra,
   IconButton,
-  Text,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
 import { BxChevronLeft, BxChevronRight } from '~/icons'
-import { PAGINATION_THEME_KEY } from '~/theme/components/Pagination'
 
 import { PaginationProps } from './Pagination'
 import { usePaginationRange } from './usePaginationRange'
@@ -21,22 +18,22 @@ import { usePaginationRange } from './usePaginationRange'
 // Separate constant to denote a separator in the pagination component.
 const SEPARATOR = '\u2026'
 
-interface DesktopPageButtonProps {
+interface FullPageButtonProps {
   selectedPage: PaginationProps['currentPage']
   page: number | typeof SEPARATOR
   onClick: PaginationProps['onPageChange']
   isDisabled: PaginationProps['isDisabled']
 }
 
-const DesktopPageButton = ({
+const FullPageButton = ({
   selectedPage,
   page,
   onClick,
   isDisabled,
-}: DesktopPageButtonProps) => {
-  const isSelected = page === selectedPage
+}: FullPageButtonProps) => {
+  const isSelected = useMemo(() => page === selectedPage, [page, selectedPage])
 
-  const styles = useMultiStyleConfig(PAGINATION_THEME_KEY, { isSelected })
+  const styles = useMultiStyleConfig('Pagination')
 
   const handleClick = useCallback(() => {
     if (page === SEPARATOR) return
@@ -44,17 +41,29 @@ const DesktopPageButton = ({
   }, [onClick, page])
 
   if (page === SEPARATOR) {
-    return <Text sx={styles.separator}>{page}</Text>
+    return (
+      <chakra.li aria-disabled={isDisabled} sx={styles.separator}>
+        {page}
+      </chakra.li>
+    )
   }
 
   return (
-    <Button sx={styles.button} onClick={handleClick} isDisabled={isDisabled}>
-      {page}
-    </Button>
+    <chakra.li>
+      <Button
+        variant="unstyled"
+        aria-current={isSelected ? 'page' : 'false'}
+        sx={styles.button}
+        onClick={handleClick}
+        isDisabled={isDisabled}
+      >
+        {page}
+      </Button>
+    </chakra.li>
   )
 }
 
-export const PaginationDesktop = ({
+export const PaginationFull = ({
   siblingCount = 1,
   pageSize,
   onPageChange,
@@ -70,7 +79,7 @@ export const PaginationDesktop = ({
     separator: SEPARATOR,
   })
 
-  const styles = useMultiStyleConfig(PAGINATION_THEME_KEY, {})
+  const styles = useMultiStyleConfig('Pagination', { variant: 'full' })
 
   const totalPageCount = Math.ceil(totalCount / pageSize)
   const isDisableNextPage = isDisabled || currentPage >= totalPageCount
@@ -87,17 +96,26 @@ export const PaginationDesktop = ({
   }, [currentPage, isDisableNextPage, onPageChange])
 
   return (
-    <Box __css={styles.container}>
-      <IconButton
-        sx={styles.stepper}
-        aria-label="Previous page"
-        isDisabled={isDisablePrevPage}
-        onClick={handlePageBack}
-        icon={<BxChevronLeft />}
-      />
-      <HStack spacing="0.125rem">
+    <chakra.nav aria-label="Pagination">
+      <chakra.ul
+        display="flex"
+        flexFlow="row nowrap"
+        listStyleType="none"
+        alignItems="center"
+        gap="2px"
+      >
+        <chakra.li>
+          <IconButton
+            variant="unstyled"
+            sx={styles.stepper}
+            aria-label="Previous page"
+            isDisabled={isDisablePrevPage}
+            onClick={handlePageBack}
+            icon={<BxChevronLeft />}
+          />
+        </chakra.li>
         {paginationRange.map((p, i) => (
-          <DesktopPageButton
+          <FullPageButton
             key={i}
             page={p}
             isDisabled={isDisabled}
@@ -105,14 +123,17 @@ export const PaginationDesktop = ({
             onClick={onPageChange}
           />
         ))}
-      </HStack>
-      <IconButton
-        sx={styles.stepper}
-        aria-label="Next page"
-        isDisabled={isDisableNextPage}
-        onClick={handlePageNext}
-        icon={<BxChevronRight />}
-      />
-    </Box>
+        <chakra.li>
+          <IconButton
+            variant="unstyled"
+            sx={styles.stepper}
+            aria-label="Next page"
+            isDisabled={isDisableNextPage}
+            onClick={handlePageNext}
+            icon={<BxChevronRight />}
+          />
+        </chakra.li>
+      </chakra.ul>
+    </chakra.nav>
   )
 }

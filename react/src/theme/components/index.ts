@@ -22,7 +22,7 @@ import { Menu } from './Menu'
 import { Modal } from './Modal'
 import { MultiSelect } from './MultiSelect'
 import { NumberInput } from './NumberInput'
-import { Pagination, PAGINATION_THEME_KEY } from './Pagination'
+import { Pagination } from './Pagination'
 import { PhoneNumberInput } from './PhoneNumberInput'
 import { Progress } from './Progress'
 import { Radio } from './Radio'
@@ -63,6 +63,7 @@ export const components = {
   Modal,
   MultiSelect,
   NumberInput,
+  Pagination,
   PhoneNumberInput,
   Progress,
   Radio,
@@ -76,7 +77,6 @@ export const components = {
   Toast,
   Tooltip,
   [ATTACHMENT_THEME_KEY]: Attachment,
-  [PAGINATION_THEME_KEY]: Pagination,
   [CHECKBOX_THEME_KEY]: Checkbox,
   [SEARCHBAR_THEME_KEY]: Searchbar,
   [RATING_THEME_KEY]: Rating,
