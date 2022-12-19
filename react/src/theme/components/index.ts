@@ -26,7 +26,6 @@ import { Pagination } from './Pagination'
 import { PhoneNumberInput } from './PhoneNumberInput'
 import { Progress } from './Progress'
 import { Radio } from './Radio'
-import { Rating, RATING_THEME_KEY } from './Rating'
 import { Searchbar, SEARCHBAR_THEME_KEY } from './Searchbar'
 import { SingleCountryPhoneNumberInput } from './SingleCountryPhoneNumberInput'
 import { SingleSelect } from './SingleSelect'
@@ -79,7 +78,6 @@ export const components = {
   [ATTACHMENT_THEME_KEY]: Attachment,
   [CHECKBOX_THEME_KEY]: Checkbox,
   [SEARCHBAR_THEME_KEY]: Searchbar,
-  [RATING_THEME_KEY]: Rating,
   [YESNO_THEME_KEY]: YesNo,
   [TOGGLE_THEME_KEY]: Toggle,
 }

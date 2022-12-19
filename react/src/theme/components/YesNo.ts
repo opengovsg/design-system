@@ -4,7 +4,7 @@ import { ComponentMultiStyleConfig } from '~/theme/types'
 
 export const YESNO_THEME_KEY = 'YesNo'
 
-const parts = anatomy('rating').parts('option', 'container', 'icon')
+const parts = anatomy('yesno').parts('option', 'container', 'icon')
 
 const outlineOptionStyle: SystemStyleFunction = (props) => {
   const { colorScheme: c = 'brand.primary', theme, side } = props
