@@ -1,15 +1,6 @@
-import { useMemo } from 'react'
-import {
-  Flex,
-  FlexProps,
-  Icon,
-  IconProps,
-  keyframes,
-  usePrefersReducedMotion,
-  VisuallyHidden,
-} from '@chakra-ui/react'
+import { Flex, FlexProps, IconProps, VisuallyHidden } from '@chakra-ui/react'
 
-import { BxLoader } from '~/icons'
+import { SpinnerIcon } from './SpinnerIcon'
 
 interface SpinnerProps extends FlexProps {
   /**
@@ -35,16 +26,6 @@ interface SpinnerProps extends FlexProps {
    */
   fontSize?: IconProps['fontSize']
 }
-
-const spin = keyframes({
-  '0%': {
-    transform: 'rotate(0deg)',
-  },
-  '100%': {
-    transform: 'rotate(360deg)',
-  },
-})
-
 export const Spinner = ({
   speed = '2.5s',
   color = 'inherit',
@@ -52,18 +33,10 @@ export const Spinner = ({
   fontSize = '1rem',
   ...flexProps
 }: SpinnerProps): JSX.Element => {
-  const prefersReducedMotion = usePrefersReducedMotion()
-
-  const animation = useMemo(
-    () =>
-      prefersReducedMotion ? undefined : `${spin} ${speed} linear infinite`,
-    [prefersReducedMotion, speed],
-  )
-
   return (
     <Flex color={color} align="center" {...flexProps}>
       {label && <VisuallyHidden>{label}</VisuallyHidden>}
-      <Icon animation={animation} as={BxLoader} fontSize={fontSize} />
+      <SpinnerIcon speed={speed} fontSize={fontSize} />
     </Flex>
   )
 }
