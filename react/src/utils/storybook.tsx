@@ -3,7 +3,7 @@ import { Args, Decorator } from '@storybook/react'
 import dayjs from 'dayjs'
 import mockdate from 'mockdate'
 
-import { theme } from '~/theme'
+import { breakpoints } from '~/theme/foundations/breakpoints'
 
 import { init as initDayjs } from './dayjs'
 
@@ -16,11 +16,9 @@ initDayjs()
  * @param breakpoint the theme breakpoint to convert
  * @returns the number pixel width of the given breakpoint.
  */
-const breakpointToViewportWidth = (
-  breakpoint: keyof typeof theme.breakpoints,
-) => {
+const breakpointToViewportWidth = (breakpoint: keyof typeof breakpoints) => {
   const rem = 16
-  return parseInt(theme.breakpoints[breakpoint]) * rem
+  return parseInt(breakpoints[breakpoint].replace('em', '')) * rem
 }
 
 export const fixedHeightDecorator =
@@ -37,7 +35,6 @@ export const fixedHeightDecorator =
  * Used for Chromatic viewpoint snapshots which requires the numbers in pixels.
  */
 export const viewports = {
-  xs: breakpointToViewportWidth('xs'),
   sm: breakpointToViewportWidth('sm'),
   md: breakpointToViewportWidth('md'),
   lg: breakpointToViewportWidth('lg'),
@@ -49,7 +46,7 @@ export const getMobileViewParameters = () => {
     viewport: {
       defaultViewport: 'mobile1',
     },
-    chromatic: { viewports: [viewports.xs] },
+    chromatic: { viewports: [viewports.sm] },
   }
 }
 

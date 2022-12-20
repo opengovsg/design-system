@@ -22,7 +22,7 @@ export default {
   title: 'Components/Attachment',
   component: Attachment,
   decorators: [],
-} as Meta
+} as Meta<AttachmentProps>
 
 const Template: StoryFn<AttachmentProps> = ({ value, onChange, ...args }) => {
   const [file, setFile] = useControllableState<File | undefined>({
