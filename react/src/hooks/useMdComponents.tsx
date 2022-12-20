@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Options as TransformOptions } from 'react-markdown'
+import type { Options as TransformOptions } from 'react-markdown'
 import {
   ListItem,
   OrderedList,

@@ -16,15 +16,9 @@
     "LICENSE",
     "README.md"
   ],
-  "main": "./build/index.umd.js",
-  "module": "./build/index.js",
-  "types": "./build/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./build/index.js",
-      "require": "./build/index.umd.js"
-    }
-  },
+  "main": "build/main/index.js",
+  "module": "build/module/index.js",
+  "types": "build/main/index.d.ts",
   "scripts": {
     "clean": "rimraf build",
     "build": "npm run clean && run-p build:*",
