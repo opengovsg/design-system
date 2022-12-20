@@ -3,7 +3,6 @@ import { dataAttr } from '@chakra-ui/utils'
 
 import { CheckboxProps } from '~/Checkbox'
 import { BxCheckAnimated } from '~/icons'
-import { CHECKBOX_THEME_KEY } from '~/theme/components/Checkbox'
 
 type ItemCheckboxIconProps = Pick<
   CheckboxProps,
@@ -15,7 +14,7 @@ export const ItemCheckboxIcon = ({
   isDisabled,
   size,
 }: ItemCheckboxIconProps): JSX.Element => {
-  const styles = useMultiStyleConfig(CHECKBOX_THEME_KEY, { size })
+  const styles = useMultiStyleConfig('Checkbox', { size })
 
   return (
     <Box

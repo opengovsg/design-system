@@ -13,7 +13,6 @@ import {
 
 import { IconButton } from '~/IconButton'
 import { BxSearch } from '~/icons'
-import { SEARCHBAR_THEME_KEY } from '~/theme/components/Searchbar'
 
 export interface SearchbarProps extends InputProps {
   /**
@@ -39,7 +38,7 @@ export interface SearchbarProps extends InputProps {
 export const Searchbar = forwardRef<SearchbarProps, 'input'>(
   ({ onSearch, isExpanded, onSearchIconClick, ...props }, ref) => {
     const innerRef = useRef<HTMLInputElement>(null)
-    const styles = useMultiStyleConfig(SEARCHBAR_THEME_KEY, {
+    const styles = useMultiStyleConfig('Searchbar', {
       isExpanded,
       ...props,
     })

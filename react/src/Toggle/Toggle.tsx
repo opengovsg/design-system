@@ -10,7 +10,6 @@ import {
 
 import { FormLabel } from '~/FormControl'
 import { Switch, SwitchProps } from '~/Switch'
-import { TOGGLE_THEME_KEY } from '~/theme/components/Toggle'
 
 export interface ToggleProps extends SwitchProps {
   /**
@@ -48,7 +47,7 @@ export const Toggle = forwardRef<ToggleProps, 'input'>(
     },
     ref,
   ) => {
-    const styles = useMultiStyleConfig(TOGGLE_THEME_KEY, props)
+    const styles = useMultiStyleConfig('Toggle', props)
     const mergedContainerStyles = useMemo(
       () => mergeThemeOverride(styles.overallContainer, containerStyles),
       [containerStyles, styles.overallContainer],

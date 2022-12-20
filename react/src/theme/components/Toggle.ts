@@ -1,8 +1,6 @@
 import { anatomy } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 
-export const TOGGLE_THEME_KEY = 'Toggle'
-
 const parts = anatomy('Toggle').parts(
   'label',
   'description',

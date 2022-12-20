@@ -4,8 +4,6 @@ import { ComponentMultiStyleConfig } from '~/theme/types'
 
 import { Input } from './Input'
 
-export const SEARCHBAR_THEME_KEY = 'Searchbar'
-
 const parts = anatomy('searchbar').parts('icon', 'field')
 
 export const Searchbar: ComponentMultiStyleConfig<typeof parts> = {

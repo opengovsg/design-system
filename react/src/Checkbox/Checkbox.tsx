@@ -13,7 +13,6 @@ import {
 
 import { BxCheckAnimated } from '~/icons'
 import { Input, InputProps } from '~/Input'
-import { CHECKBOX_THEME_KEY } from '~/theme/components/Checkbox'
 
 import { CheckboxOthersContext, useCheckboxOthers } from './useCheckboxOthers'
 
@@ -28,7 +27,7 @@ type CheckboxWithOthers = ComponentWithAs<'input', CheckboxProps> & {
 export const Checkbox = forwardRef<CheckboxProps, 'input'>(
   ({ children, colorScheme, ...props }, ref) => {
     // Passing all props for cleanliness but the size prop is the most relevant
-    const { icon: iconStyles } = useMultiStyleConfig(CHECKBOX_THEME_KEY, props)
+    const { icon: iconStyles } = useMultiStyleConfig('Checkbox', props)
     return (
       <ChakraCheckbox
         icon={
@@ -54,7 +53,7 @@ export const Checkbox = forwardRef<CheckboxProps, 'input'>(
  */
 
 const [CheckboxWithOthersStylesProvider, useCheckboxWithOthersStyles] =
-  createStylesContext(CHECKBOX_THEME_KEY)
+  createStylesContext('Checkbox')
 
 export interface CheckboxOthersWrapperProps {
   colorScheme?: CheckboxProps['colorScheme']
@@ -72,7 +71,7 @@ const OthersWrapper = ({
   const checkboxRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   // Passing all props for cleanliness but size and colorScheme are the most relevant
-  const styles = useMultiStyleConfig(CHECKBOX_THEME_KEY, props)
+  const styles = useMultiStyleConfig('Checkbox', props)
 
   return (
     <CheckboxWithOthersStylesProvider value={styles}>

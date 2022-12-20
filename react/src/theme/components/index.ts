@@ -6,7 +6,7 @@ import { Badge } from './Badge'
 import { Banner } from './Banner'
 import { Button } from './Button'
 import { Calendar } from './Calendar'
-import { Checkbox, CHECKBOX_THEME_KEY } from './Checkbox'
+import { Checkbox } from './Checkbox'
 import { CloseButton } from './CloseButton'
 import { DatePicker } from './DatePicker'
 import { DateRangePicker } from './DateRangePicker'
@@ -27,7 +27,7 @@ import { Pagination } from './Pagination'
 import { PhoneNumberInput } from './PhoneNumberInput'
 import { Progress } from './Progress'
 import { Radio } from './Radio'
-import { Searchbar, SEARCHBAR_THEME_KEY } from './Searchbar'
+import { Searchbar } from './Searchbar'
 import { SingleCountryPhoneNumberInput } from './SingleCountryPhoneNumberInput'
 import { SingleSelect } from './SingleSelect'
 import { Switch } from './Switch'
@@ -36,7 +36,7 @@ import { Tag } from './Tag'
 import { Textarea } from './Textarea'
 import { Tile } from './Tile'
 import { Toast } from './Toast'
-import { Toggle, TOGGLE_THEME_KEY } from './Toggle'
+import { Toggle } from './Toggle'
 import { Tooltip } from './Tooltip'
 
 export const components = {
@@ -48,6 +48,7 @@ export const components = {
   Banner,
   Button,
   Calendar,
+  Checkbox,
   CloseButton,
   DatePicker,
   DateRangePicker,
@@ -68,6 +69,7 @@ export const components = {
   PhoneNumberInput,
   Progress,
   Radio,
+  Searchbar,
   SingleCountryPhoneNumberInput,
   SingleSelect,
   Switch,
@@ -76,8 +78,6 @@ export const components = {
   Textarea,
   Tile,
   Toast,
+  Toggle,
   Tooltip,
-  [CHECKBOX_THEME_KEY]: Checkbox,
-  [SEARCHBAR_THEME_KEY]: Searchbar,
-  [TOGGLE_THEME_KEY]: Toggle,
 }

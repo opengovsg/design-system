@@ -7,13 +7,6 @@ import { layerStyles } from '../layerStyles'
 import { Input } from './Input'
 
 /**
- * This must be kept in line with the key from Chakra's internal
- * Checkbox styling to ensure that the styles are merged correctly.
- * https://github.com/chakra-ui/chakra-ui/blob/main/packages/theme/src/components/index.ts
- */
-export const CHECKBOX_THEME_KEY = 'Checkbox'
-
-/**
  * With reference to
  * https://github.com/chakra-ui/chakra-ui/blob/main/packages/theme/src/components/checkbox.ts
  */
