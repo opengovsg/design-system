@@ -12,17 +12,13 @@ import {
 } from '@chakra-ui/react'
 
 import { Button, ButtonProps } from '~/Button'
-import { BxsChevronDown } from '~/icons/BxsChevronDown'
-import { BxsChevronUp } from '~/icons/BxsChevronUp'
+import { BxsChevronDown, BxsChevronUp } from '~/icons'
 import { MenuVariant } from '~/theme/components/Menu'
-
-import { BxChevronDown } from '..'
 
 export interface MenuButtonProps extends Omit<ButtonProps, 'isFullWidth'> {
   variant?: MenuVariant
   isStretch?: boolean
   isOpen?: boolean
-  focusItemBorderColor?: string
   chevronSize?: string
 }
 
@@ -33,26 +29,27 @@ export interface MenuButtonProps extends Omit<ButtonProps, 'isFullWidth'> {
 const MenuButton = ({
   isOpen,
   isStretch,
-  chevronSize = '1.25rem',
+  chevronSize,
   ...props
 }: MenuButtonProps): JSX.Element => {
+  const styles = useMultiStyleConfig('Menu', props)
   const ChevronIcon = useMemo(
     () => (
-      <Icon as={isOpen ? BxsChevronUp : BxChevronDown} fontSize={chevronSize} />
+      <Icon
+        as={isOpen ? BxsChevronUp : BxsChevronDown}
+        fontSize={chevronSize}
+        sx={styles.chevron}
+      />
     ),
-    [chevronSize, isOpen],
+    [chevronSize, isOpen, styles.chevron],
   )
-  const style = useMultiStyleConfig('Menu', {
-    ...props,
-    isStretch,
-  })
 
   return (
     <ChakraMenuButton
       as={Button}
       rightIcon={ChevronIcon}
-      justifyContent="space-between"
-      sx={style.button}
+      width={isStretch ? '100%' : undefined}
+      sx={styles.button}
       {...props}
     />
   )

@@ -1,13 +1,18 @@
-import { menuAnatomy as parts } from '@chakra-ui/anatomy'
-import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-import { getColor, StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { menuAnatomy } from '@chakra-ui/anatomy'
+import { createMultiStyleConfigHelpers, cssVar } from '@chakra-ui/react'
+import { StyleFunctionProps } from '@chakra-ui/theme-tools'
+
+const parts = menuAnatomy.extend('chevron')
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)
 
 export type MenuVariant = 'outline' | 'clear'
 
-const getItemColors = ({ colorScheme: c }: StyleFunctionProps) => {
+const $bg = cssVar('menu-bg')
+const $shadow = cssVar('menu-shadow')
+
+const getListItemColors = ({ colorScheme: c }: StyleFunctionProps) => {
   switch (c) {
     case 'main': {
       return {
@@ -25,33 +30,23 @@ const getItemColors = ({ colorScheme: c }: StyleFunctionProps) => {
 }
 
 const baseStyle = definePartsStyle((props) => {
-  const { colorScheme: c, isStretch } = props
-  const { hoverBg, activeBg } = getItemColors(props)
+  const { hoverBg, activeBg } = getListItemColors(props)
 
   return {
     button: {
-      width: isStretch ? '100%' : undefined,
       textAlign: 'left',
       justifyContent: 'space-between',
-      iconSpacing: '1.5rem',
-      _hover: {
-        color: `${c}.900`,
-      },
-      _active: {
-        color: `${c}.500`,
-        _hover: {
-          color: `${c}.900`,
-        },
-      },
     },
     list: {
       mt: '0.5rem',
       border: 'none',
       borderRadius: 0,
       minWidth: '0rem',
-      shadow: 'small',
+      [$shadow.variable]: 'shadows.small',
+      boxShadow: $shadow.reference,
     },
     item: {
+      bg: $bg.reference,
       textStyle: 'body-1',
       fontWeight: '400',
       color: 'base.content.dark',
@@ -64,19 +59,19 @@ const baseStyle = definePartsStyle((props) => {
         cursor: 'not-allowed',
       },
       _focus: {
-        bg: hoverBg,
+        [$bg.variable]: `colors.${hoverBg}`,
         _active: {
-          bg: activeBg,
+          [$bg.variable]: `colors.${activeBg}`,
         },
       },
       _focusVisible: {
         boxShadow: `0 0 0 2px var(--chakra-colors-utility-focus-default)`,
         _active: {
-          bg: activeBg,
+          [$bg.variable]: `colors.${activeBg}`,
         },
       },
       _active: {
-        bg: activeBg,
+        [$bg.variable]: `colors.${activeBg}`,
       },
     },
     divider: {
@@ -87,27 +82,39 @@ const baseStyle = definePartsStyle((props) => {
   }
 })
 
-const variantClear = definePartsStyle({
-  button: {
-    minH: 'auto',
-    p: '0.25rem',
-    outline: 'none',
-    border: 'none',
-    boxShadow: 'none',
-  },
-})
+const getClearButtonColors = ({ colorScheme: c }: StyleFunctionProps) => {
+  switch (c) {
+    case 'main':
+    case 'success':
+    case 'critical':
+    case 'warning': {
+      return {
+        color: `interaction.${c}.default`,
+        hoverColor: `interaction.${c}.hover`,
+        activeColor: `interaction.${c}.active`,
+      }
+    }
+    default: {
+      return {
+        color: `${c}.500`,
+        hoverColor: `${c}.600`,
+        activeColor: `${c}.700`,
+      }
+    }
+  }
+}
 
-const variantOutline = definePartsStyle(({ colorScheme: c, theme }) => {
+const variantClear = definePartsStyle((props) => {
+  const { color, hoverColor, activeColor } = getClearButtonColors(props)
   return {
     button: {
+      bg: 'transparent',
+      color,
       _hover: {
-        borderColor: `${c}.900`,
+        color: hoverColor,
       },
       _active: {
-        boxShadow: `0 0 0 1px ${getColor(theme, `${c}.500`)}`,
-        _hover: {
-          boxShadow: `0 0 0 1px ${getColor(theme, `${c}.900`)}`,
-        },
+        color: activeColor,
       },
     },
   }
@@ -115,17 +122,23 @@ const variantOutline = definePartsStyle(({ colorScheme: c, theme }) => {
 
 const variants = {
   clear: variantClear,
-  outline: variantOutline,
+  outline: {},
 }
 
 const sizes = {
   sm: definePartsStyle({
+    chevron: {
+      fontSize: '1.25rem',
+    },
     item: {
       textStyle: 'subhead-2',
       padding: '0.625rem 0.75rem',
     },
   }),
   md: definePartsStyle({
+    chevron: {
+      fontSize: '1.25rem',
+    },
     item: {
       textStyle: 'body-1',
       padding: '0.75rem 1rem',
