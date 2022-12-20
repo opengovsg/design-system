@@ -3,7 +3,10 @@ import { CheckboxGroup, FormControl, Stack, VStack } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { FormLabel } from '~/FormControl/FormLabel'
-import { viewports } from '~/utils/storybook'
+import {
+  getMobileViewParameters,
+  getTabletViewParameters,
+} from '~/utils/storybook'
 
 import { Checkbox, CheckboxProps } from './Checkbox'
 
@@ -26,23 +29,12 @@ export const Mobile = Template.bind({})
 Mobile.args = {
   name: 'Mobile',
 }
-Mobile.parameters = {
-  viewport: {
-    defaultViewport: 'mobile1',
-  },
-  chromatic: { viewports: [viewports.xs] },
-}
-
+Mobile.parameters = getMobileViewParameters()
 export const Tablet = Template.bind({})
 Tablet.args = {
   name: 'Tablet',
 }
-Tablet.parameters = {
-  viewport: {
-    defaultViewport: 'tablet',
-  },
-  chromatic: { viewports: [viewports.md] },
-}
+Tablet.parameters = getTabletViewParameters()
 
 const AllStates: StoryFn<CheckboxProps> = (args) => {
   return (

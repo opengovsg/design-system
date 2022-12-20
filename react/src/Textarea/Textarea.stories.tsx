@@ -1,5 +1,5 @@
 import { SimpleGrid } from '@chakra-ui/react'
-import { Meta, Story } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { Textarea, TextareaProps } from './Textarea'
 
@@ -9,7 +9,7 @@ export default {
   decorators: [],
 } as Meta
 
-const Template: Story<TextareaProps> = (args) => <Textarea {...args} />
+const Template: StoryFn<TextareaProps> = (args) => <Textarea {...args} />
 export const Default = Template.bind({})
 Default.args = {
   placeholder: 'Test placeholder',

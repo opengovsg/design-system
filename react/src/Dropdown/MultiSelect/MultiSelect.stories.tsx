@@ -7,7 +7,10 @@ import { difference, get } from 'lodash'
 import { Button } from '~/Button'
 import { FormErrorMessage, FormLabel } from '~/FormControl'
 import { BxsCheckCircle } from '~/icons'
-import { fixedHeightDecorator, viewports } from '~/utils/storybook'
+import {
+  fixedHeightDecorator,
+  getMobileViewParameters,
+} from '~/utils/storybook'
 
 import { ComboboxItem } from '../types'
 import { itemToValue } from '../utils/itemUtils'
@@ -84,12 +87,7 @@ MobileTruncatedOption.args = {
   values: ['What happens when the label is fairly long', 'Bat'],
   defaultIsOpen: true,
 }
-MobileTruncatedOption.parameters = {
-  viewport: {
-    defaultViewport: 'mobile1',
-  },
-  chromatic: { viewports: [viewports.xs] },
-}
+MobileTruncatedOption.parameters = getMobileViewParameters()
 
 export const Invalid = Template.bind({})
 Invalid.args = {

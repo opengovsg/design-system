@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
-import { viewports } from '~/utils/storybook'
+import { getMobileViewParameters } from '~/utils/storybook'
 
 import {
   GovtMasthead as GovtMastheadComponent,
@@ -16,25 +16,15 @@ export default {
   decorators: [],
 } as Meta
 
-const Template: Story<GovtMastheadProps> = (args) => (
+const Template: StoryFn<GovtMastheadProps> = (args) => (
   <GovtMastheadComponent {...args} />
 )
 
 export const MobileDefault = Template.bind({})
-MobileDefault.parameters = {
-  viewport: {
-    defaultViewport: 'mobile1',
-  },
-  chromatic: { viewports: [viewports.xs] },
-}
+MobileDefault.parameters = getMobileViewParameters()
 
 export const MobileExpanded = Template.bind({})
-MobileExpanded.parameters = {
-  viewport: {
-    defaultViewport: 'mobile1',
-  },
-  chromatic: { viewports: [viewports.xs] },
-}
+MobileExpanded.parameters = MobileDefault.parameters
 MobileExpanded.storyName = 'Mobile/Expanded'
 MobileExpanded.args = {
   defaultIsOpen: true,

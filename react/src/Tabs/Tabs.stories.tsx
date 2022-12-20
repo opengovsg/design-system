@@ -1,8 +1,8 @@
 import { TabList, TabPanel, TabPanels, Tabs, TabsProps } from '@chakra-ui/react'
-import { Meta, Story } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { useDraggable } from '~/hooks/useDraggable'
-import { viewports } from '~/utils/storybook'
+import { getMobileViewParameters } from '~/utils/storybook'
 
 import { Tab } from './Tab'
 
@@ -20,7 +20,7 @@ export default {
   },
 } as Meta
 
-const TabTemplate: Story<TabsProps> = (args) => {
+const TabTemplate: StoryFn<TabsProps> = (args) => {
   const { ref, onMouseDown } = useDraggable()
 
   return (
@@ -53,24 +53,12 @@ export const WithScrollingLight = TabTemplate.bind({})
 WithScrollingLight.args = {
   variant: 'line-light',
 }
-WithScrollingLight.parameters = {
-  viewport: {
-    defaultViewport: 'mobile1',
-  },
-  chromatic: { viewports: [viewports.xs] },
-}
-
+WithScrollingLight.parameters = getMobileViewParameters()
 export const WithScrollingDark = TabTemplate.bind({})
 WithScrollingDark.args = {
   variant: 'line-dark',
 }
-WithScrollingDark.parameters = {
-  viewport: {
-    defaultViewport: 'mobile1',
-  },
-  chromatic: { viewports: [viewports.xs] },
-}
-
+WithScrollingDark.parameters = getMobileViewParameters()
 export const VerticalLine = TabTemplate.bind({})
 VerticalLine.args = {
   variant: 'line',
