@@ -11,10 +11,10 @@ import {
   ModalOverlay,
   ModalProps,
 } from '@chakra-ui/react'
-import { Meta, Story } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { Button } from '~/Button'
-import { viewports } from '~/utils/storybook'
+import { getMobileViewParameters } from '~/utils/storybook'
 
 export default {
   title: 'Components/Modal',
@@ -46,7 +46,7 @@ const generateLorem = (numParagraph = 1) => {
   return Array(numParagraph).fill(para).join('\n\n')
 }
 
-const Template: Story<StoryModalProps> = ({ bodyContent, ...args }) => {
+const Template: StoryFn<StoryModalProps> = ({ bodyContent, ...args }) => {
   const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true })
   return (
     <>
@@ -61,11 +61,7 @@ const Template: Story<StoryModalProps> = ({ bodyContent, ...args }) => {
           </ModalBody>
           <ModalFooter>
             <ButtonGroup>
-              <Button
-                variant="clear"
-                colorScheme="brand.secondary"
-                onClick={onClose}
-              >
+              <Button variant="clear" onClick={onClose}>
                 Cancel
               </Button>
               <Button>Create workspace</Button>
@@ -96,9 +92,4 @@ Mobile.args = {
   size: 'mobile',
   bodyContent: generateLorem(5),
 }
-Mobile.parameters = {
-  viewport: {
-    defaultViewport: 'mobile1',
-  },
-  chromatic: { viewports: [viewports.xs] },
-}
+Mobile.parameters = getMobileViewParameters()
