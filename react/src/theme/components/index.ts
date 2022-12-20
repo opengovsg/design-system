@@ -38,7 +38,6 @@ import { Tile } from './Tile'
 import { Toast } from './Toast'
 import { Toggle, TOGGLE_THEME_KEY } from './Toggle'
 import { Tooltip } from './Tooltip'
-import { YesNo, YESNO_THEME_KEY } from './YesNo'
 
 export const components = {
   Attachment,
@@ -80,6 +79,5 @@ export const components = {
   Tooltip,
   [CHECKBOX_THEME_KEY]: Checkbox,
   [SEARCHBAR_THEME_KEY]: Searchbar,
-  [YESNO_THEME_KEY]: YesNo,
   [TOGGLE_THEME_KEY]: Toggle,
 }
