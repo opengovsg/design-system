@@ -72,7 +72,7 @@
     "@storybook/addon-interactions": "^7.0.0-beta.12",
     "@storybook/addon-links": "^7.0.0-beta.12",
     "@storybook/addons": "^6.5.14",
-    "@storybook/api": "^6.5.14",
+    "@storybook/client-api": "^6.5.14",
     "@storybook/mdx2-csf": "^1.0.0-next.2",
     "@storybook/react": "^7.0.0-beta.12",
     "@storybook/react-vite": "^7.0.0-beta.12",
