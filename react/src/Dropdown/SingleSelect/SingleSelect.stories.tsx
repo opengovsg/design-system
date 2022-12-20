@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { FormControl, Stack } from '@chakra-ui/react'
-import { useArgs } from '@storybook/client-api'
+import { useArgs } from '@storybook/api'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { Button } from '~/Button'

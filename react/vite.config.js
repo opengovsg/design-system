@@ -1,6 +1,6 @@
+/* eslint-disable no-undef */
 import react from '@vitejs/plugin-react'
-import path from 'node:path'
-import copy from 'rollup-plugin-copy'
+import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 import tsconfigPaths from 'vite-tsconfig-paths'
@@ -19,7 +19,7 @@ export default defineConfig({
   build: {
     outDir: 'build',
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: resolve(__dirname, 'src/index.ts'),
       name: '@opengovsg/design-system-react',
     },
     rollupOptions: {

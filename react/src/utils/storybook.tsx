@@ -1,5 +1,5 @@
 import { Box, BoxProps } from '@chakra-ui/react'
-import { DecoratorFn } from '@storybook/react'
+import { Decorator } from '@storybook/react'
 import dayjs from 'dayjs'
 import mockdate from 'mockdate'
 
@@ -24,7 +24,7 @@ const breakpointToViewportWidth = (
 }
 
 export const fixedHeightDecorator =
-  (height: BoxProps['h']): DecoratorFn =>
+  (height: BoxProps['h']): Decorator =>
   (Story) =>
     (
       <Box h={height}>
@@ -62,7 +62,7 @@ export const getTabletViewParameters = () => {
   }
 }
 
-export const mockDateDecorator: DecoratorFn = (storyFn, { parameters }) => {
+export const mockDateDecorator: Decorator = (storyFn, { parameters }) => {
   mockdate.reset()
 
   if (parameters.mockdate) {

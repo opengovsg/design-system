@@ -1,10 +1,8 @@
-/* eslint-env node */
-const { mergeConfig } = require('vite')
-const path = require('path')
+import { mergeConfig, ConfigEnv } from 'vite'
+import path from 'path'
 
-module.exports = {
+export default {
   features: {
-    storyStoreV7: true,
     previewMdx2: true,
   },
   stories: [
@@ -19,8 +17,8 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
   ],
+  framework: '@storybook/react-vite',
   staticDirs: ['./static'],
-  // framework: '@storybook/react',
   core: {
     disableTelemetry: true,
   },
@@ -29,7 +27,7 @@ module.exports = {
       disable: true,
     },
   },
-  async viteFinal(config) {
+  async viteFinal(config: ConfigEnv) {
     return mergeConfig(config, {
       resolve: {
         alias: {
@@ -37,12 +35,5 @@ module.exports = {
         },
       },
     })
-  },
-  framework: {
-    name: '@storybook/react-vite',
-    options: {},
-  },
-  docsPage: {
-    docs: 'automatic',
   },
 }

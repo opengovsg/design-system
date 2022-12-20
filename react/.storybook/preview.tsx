@@ -2,7 +2,7 @@ import 'inter-ui/inter.css'
 import '@fontsource/ibm-plex-mono'
 
 import { ChakraProvider } from '@chakra-ui/react'
-import { DecoratorFn } from '@storybook/react'
+import { Decorator } from '@storybook/react'
 
 import { theme } from '../src/theme'
 
@@ -22,7 +22,7 @@ export const parameters = {
   },
 }
 
-export const decorators: DecoratorFn[] = [
+export const decorators: Decorator[] = [
   (storyFn) => (
     <ChakraProvider portalZIndex={40} resetCSS theme={theme}>
       {storyFn()}
