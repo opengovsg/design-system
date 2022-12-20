@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {
   Box,
-  CSSObject,
+  SystemStyleObject,
   Tooltip as ChakraTooltip,
   TooltipProps as ChakraTooltipProps,
   VisuallyHidden,
@@ -15,7 +15,7 @@ export interface TooltipProps extends ChakraTooltipProps {
   /**
    * Styles for the container which wraps the children.
    */
-  wrapperStyles?: CSSObject
+  wrapperStyles?: SystemStyleObject
 }
 
 export const Tooltip = ({
