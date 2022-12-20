@@ -1,20 +1,17 @@
 import { modalAnatomy as parts } from '@chakra-ui/anatomy'
-import {
-  PartsStyleFunction,
-  PartsStyleObject,
-  SystemStyleFunction,
-  SystemStyleObject,
-} from '@chakra-ui/theme-tools'
-
-import { ComponentMultiStyleConfig } from '~/theme/types'
+import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
+import { SystemStyleObject } from '@chakra-ui/theme-tools'
 
 import { textStyles } from '../textStyles'
 
-const baseStyleOverlay: SystemStyleObject = {
-  bg: 'rgba(0, 0, 0, 0.65)',
-}
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
 
-const baseStyleDialog: SystemStyleFunction = (props) => {
+const baseStyleOverlay = defineStyle({
+  bg: 'rgba(0, 0, 0, 0.65)',
+})
+
+const baseStyleDialog = defineStyle((props) => {
   const { scrollBehavior } = props
   return {
     borderRadius: '0.25rem',
@@ -22,88 +19,76 @@ const baseStyleDialog: SystemStyleFunction = (props) => {
     maxH: scrollBehavior === 'inside' ? 'calc(100% - 16rem)' : undefined,
     boxShadow: 'md',
   }
-}
-
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
-  overlay: baseStyleOverlay,
-  dialog: baseStyleDialog(props),
 })
 
-const getSize = (value: string): PartsStyleObject<typeof parts> => {
-  const fullDialogStyle: SystemStyleObject = {
-    maxW: '100vw',
-    minH: '100vh',
-    my: 0,
-    borderRadius: 0,
-  }
+const baseStyle = definePartsStyle((props) => ({
+  overlay: baseStyleOverlay,
+  dialog: baseStyleDialog(props),
+}))
 
-  switch (value) {
-    case 'mobile':
-      return {
-        header: {
-          pt: '2rem',
-          pb: '1.5rem',
-          px: '1.5rem',
-          ...textStyles['h5'],
-        },
-        body: {
-          flex: 'initial',
-        },
-        dialog: fullDialogStyle,
-        closeButton: {
-          top: '2rem',
-          insetEnd: '1.5rem',
-        },
-      }
-    case 'full':
-      return {
-        overlay: {
-          bg: 'none',
-        },
-        dialog: fullDialogStyle,
-        header: {
-          ...textStyles['h4'],
-          p: '1.5rem',
-        },
-        closeButton: {
-          top: '1.5rem',
-          insetEnd: '1.5rem',
-        },
-      }
-    default:
-      return {
-        dialog: { maxW: '42.5rem' },
-        header: {
-          ...textStyles['h4'],
-          pt: '2rem',
-          pb: '1rem',
-          px: '2rem',
-        },
-        closeButton: {
-          top: '2rem',
-          insetEnd: '2rem',
-        },
-        body: {
-          py: 0,
-          px: '2rem',
-        },
-        footer: {
-          pt: '2rem',
-          pb: '2.75rem',
-          px: '2rem',
-        },
-      }
-  }
+const fullDialogStyle: SystemStyleObject = {
+  maxW: '100vw',
+  minH: '100vh',
+  my: 0,
+  borderRadius: 0,
 }
 
 const sizes = {
-  mobile: getSize('mobile'),
-  md: getSize('md'),
-  full: getSize('full'),
+  mobile: definePartsStyle({
+    header: {
+      pt: '2rem',
+      pb: '1.5rem',
+      px: '1.5rem',
+      ...textStyles['h5'],
+    },
+    body: {
+      flex: 'initial',
+    },
+    dialog: fullDialogStyle,
+    closeButton: {
+      top: '2rem',
+      insetEnd: '1.5rem',
+    },
+  }),
+  md: definePartsStyle({
+    dialog: { maxW: '42.5rem' },
+    header: {
+      ...textStyles['h4'],
+      pt: '2rem',
+      pb: '1rem',
+      px: '2rem',
+    },
+    closeButton: {
+      top: '2rem',
+      insetEnd: '2rem',
+    },
+    body: {
+      py: 0,
+      px: '2rem',
+    },
+    footer: {
+      pt: '2rem',
+      pb: '2.75rem',
+      px: '2rem',
+    },
+  }),
+  full: definePartsStyle({
+    overlay: {
+      bg: 'none',
+    },
+    dialog: fullDialogStyle,
+    header: {
+      ...textStyles['h4'],
+      p: '1.5rem',
+    },
+    closeButton: {
+      top: '1.5rem',
+      insetEnd: '1.5rem',
+    },
+  }),
 }
 
-export const Modal: ComponentMultiStyleConfig<typeof parts> = {
-  parts: parts.keys,
+export const Modal = defineMultiStyleConfig({
   baseStyle,
   sizes,
-}
+})

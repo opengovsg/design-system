@@ -1,9 +1,10 @@
-import { ComponentMultiStyleConfig } from '~/theme/types'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+import { anatomy } from '@chakra-ui/theme-tools'
 
 import { Modal } from './Modal'
 
 // Default parts.
-const parts = [
+const parts = anatomy('drawer').parts(
   'overlay',
   'dialogContainer',
   'dialog',
@@ -11,14 +12,15 @@ const parts = [
   'closeButton',
   'body',
   'footer',
-]
+)
 
-export const Drawer: ComponentMultiStyleConfig = {
-  parts,
-  baseStyle: (props) => ({
-    overlay:
-      Modal.baseStyle instanceof Function
-        ? Modal.baseStyle(props).overlay
-        : undefined,
-  }),
-}
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
+
+const baseStyle = definePartsStyle((props) => ({
+  overlay: Modal.baseStyle?.(props).overlay,
+}))
+
+export const Drawer = defineMultiStyleConfig({
+  baseStyle,
+})

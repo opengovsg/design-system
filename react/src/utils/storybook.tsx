@@ -1,5 +1,5 @@
 import { Box, BoxProps } from '@chakra-ui/react'
-import { Decorator } from '@storybook/react'
+import { Args, Decorator } from '@storybook/react'
 import dayjs from 'dayjs'
 import mockdate from 'mockdate'
 
@@ -62,31 +62,32 @@ export const getTabletViewParameters = () => {
   }
 }
 
-export const mockDateDecorator: Decorator = (storyFn, { parameters }) => {
+export const mockDateDecorator: Decorator<Args> = (storyFn, { parameters }) => {
   mockdate.reset()
 
-  if (parameters.mockdate) {
-    mockdate.set(parameters.mockdate)
-
-    const mockedDate = dayjs(parameters.mockdate).format('DD-MM-YYYY HH:mma')
-
-    return (
-      <Box>
-        <Box
-          pos="fixed"
-          top={0}
-          right={0}
-          bg="white"
-          p="0.25rem"
-          fontSize="0.75rem"
-          lineHeight={1}
-          zIndex="docked"
-        >
-          Mocking date: {mockedDate}
-        </Box>
-        {storyFn()}
-      </Box>
-    )
+  if (!parameters.mockdate) {
+    return storyFn()
   }
-  return storyFn()
+
+  mockdate.set(parameters.mockdate)
+
+  const mockedDate = dayjs(parameters.mockdate).format('DD-MM-YYYY HH:mma')
+
+  return (
+    <Box>
+      <Box
+        pos="fixed"
+        top={0}
+        right={0}
+        bg="white"
+        p="0.25rem"
+        fontSize="0.75rem"
+        lineHeight={1}
+        zIndex="docked"
+      >
+        Mocking date: {mockedDate}
+      </Box>
+      {storyFn()}
+    </Box>
+  )
 }

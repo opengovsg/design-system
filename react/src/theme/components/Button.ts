@@ -1,9 +1,5 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
-import {
-  getColor,
-  StyleFunctionProps,
-  SystemStyleFunction,
-} from '@chakra-ui/theme-tools'
+import { getColor, StyleFunctionProps } from '@chakra-ui/theme-tools'
 import { merge } from 'lodash'
 
 import { layerStyles } from '../layerStyles'
@@ -98,7 +94,7 @@ const genVariantOutlineColours = ({
   }
 }
 
-const variantSolid: SystemStyleFunction = (props) => {
+const variantSolid = defineStyle((props) => {
   const { bg, hoverBg, activeBg, color } = genVariantSolidColours(props)
 
   return {
@@ -119,7 +115,7 @@ const variantSolid: SystemStyleFunction = (props) => {
       },
     },
   }
-}
+})
 
 const genVariantReverseColours = ({ colorScheme: c }: StyleFunctionProps) => {
   switch (c) {
@@ -142,7 +138,7 @@ const genVariantReverseColours = ({ colorScheme: c }: StyleFunctionProps) => {
   }
 }
 
-const variantReverse: SystemStyleFunction = (props) => {
+const variantReverse = defineStyle((props) => {
   const { hoverBg, activeBg, color } = genVariantReverseColours(props)
 
   return {
@@ -164,9 +160,9 @@ const variantReverse: SystemStyleFunction = (props) => {
       },
     },
   }
-}
+})
 
-const variantOutlineClear: SystemStyleFunction = (props) => {
+const variantOutlineClear = defineStyle((props) => {
   const { borderColor, activeBg, hoverBg } = genVariantOutlineColours(props)
   const showBorder = props.variant === 'outline'
 
@@ -196,7 +192,7 @@ const variantOutlineClear: SystemStyleFunction = (props) => {
       },
     },
   }
-}
+})
 
 const variantLink = defineStyle((props) => {
   return merge(Link.baseStyle?.(props), Link.variants?.standalone, {
@@ -210,7 +206,7 @@ const variantLink = defineStyle((props) => {
   })
 })
 
-const variantInputAttached: SystemStyleFunction = (props) => {
+const variantInputAttached = defineStyle((props) => {
   const { focusBorderColor: fc, errorBorderColor: ec, theme } = props
 
   return {
@@ -252,52 +248,58 @@ const variantInputAttached: SystemStyleFunction = (props) => {
       color: 'interaction.support.disabled-content',
     },
   }
+})
+
+const variants = {
+  solid: variantSolid,
+  reverse: variantReverse,
+  outline: variantOutlineClear,
+  clear: variantOutlineClear,
+  link: variantLink,
+  inputAttached: variantInputAttached,
+}
+
+const baseStyle = defineStyle({
+  ...textStyles['subhead-1'],
+  whiteSpace: 'pre-wrap',
+  borderRadius: '0.25rem',
+  border: '1px solid',
+  flexShrink: 0,
+  // -1px for border
+  px: '15px',
+  py: '9px',
+  _disabled: {
+    bg: 'interaction.support.disabled',
+    borderColor: 'interaction.support.disabled',
+    opacity: 1,
+    color: 'interaction.support.disabled-content',
+  },
+  ...layerStyles.focusRing.default,
+})
+
+const sizes = {
+  xs: defineStyle({
+    minH: '2.25rem',
+    minW: '2.25rem',
+  }),
+  sm: defineStyle({
+    minH: '2.5rem',
+    minW: '2.5rem',
+  }),
+  md: defineStyle({
+    minH: '2.75rem',
+    minW: '2.75rem',
+  }),
+  lg: defineStyle({
+    minH: '3rem',
+    minW: '3rem',
+  }),
 }
 
 export const Button = defineStyleConfig({
-  baseStyle: {
-    ...textStyles['subhead-1'],
-    whiteSpace: 'pre-wrap',
-    borderRadius: '0.25rem',
-    border: '1px solid',
-    flexShrink: 0,
-    // -1px for border
-    px: '15px',
-    py: '9px',
-    _disabled: {
-      bg: 'interaction.support.disabled',
-      borderColor: 'interaction.support.disabled',
-      opacity: 1,
-      color: 'interaction.support.disabled-content',
-    },
-    ...layerStyles.focusRing.default,
-  },
-  sizes: {
-    xs: {
-      minH: '2.25rem',
-      minW: '2.25rem',
-    },
-    sm: {
-      minH: '2.5rem',
-      minW: '2.5rem',
-    },
-    md: {
-      minH: '2.75rem',
-      minW: '2.75rem',
-    },
-    lg: {
-      minH: '3rem',
-      minW: '3rem',
-    },
-  },
-  variants: {
-    solid: variantSolid,
-    reverse: variantReverse,
-    outline: variantOutlineClear,
-    clear: variantOutlineClear,
-    link: variantLink,
-    inputAttached: variantInputAttached,
-  },
+  baseStyle,
+  sizes,
+  variants,
   defaultProps: {
     variant: 'solid',
     colorScheme: 'main',
