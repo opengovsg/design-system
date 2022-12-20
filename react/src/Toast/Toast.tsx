@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import {
   Alert,
   AlertDescription,
+  AlertStatus,
   AlertTitle,
   Box,
   CloseButton,
@@ -12,24 +13,23 @@ import {
 } from '@chakra-ui/react'
 
 import { useMdComponents } from '~/hooks/useMdComponents'
-import { BxsCheckCircle, BxsErrorCircle, BxX } from '~/icons'
+import { BxsCheckCircle, BxsErrorCircle, BxsInfoCircle, BxX } from '~/icons'
 
-export type ToastStatus = 'danger' | 'success' | 'warning'
+import { SpinnerIcon } from '..'
+
+// Alias for convenience
+export type ToastStatus = AlertStatus
 
 export interface ToastProps
   extends Omit<
     UseToastOptions,
-    'duration' | 'position' | 'render' | 'status' | 'variant'
+    'duration' | 'position' | 'render' | 'variant'
   > {
-  /**
-   * The status variant of the toast.
-   */
-  status: ToastStatus
   /**
    * RenderProps that chakra passes to all custom components that uses the
    * render function
    */
-  onClose: () => void
+  onClose?: () => void
   /**
    * Whether markdown is enabled for rendering strings in toast.
    * Defaults to `true`.
@@ -37,24 +37,41 @@ export interface ToastProps
   useMarkdown?: boolean
 }
 
+const STATUS_TO_COLOR_SCHEME: Record<ToastStatus, string> = {
+  success: 'success',
+  error: 'error',
+  warning: 'warning',
+  info: 'main',
+  loading: 'main',
+}
+
+const STATUS_TO_ICON = {
+  success: BxsCheckCircle,
+  error: BxsErrorCircle,
+  warning: BxsErrorCircle,
+  info: BxsInfoCircle,
+  loading: SpinnerIcon,
+}
+
 export const Toast = ({
   useMarkdown = true,
-  status,
+  status = 'success',
   title,
   id,
   description,
   isClosable,
   onClose,
   onCloseComplete,
+  ...toastStyleProps
 }: ToastProps): JSX.Element => {
   const styles = useMultiStyleConfig('Toast', {
-    variant: status,
+    colorScheme: STATUS_TO_COLOR_SCHEME[status],
+    ...toastStyleProps,
   })
 
-  const StatusIcon = useMemo(
-    () => (status === 'success' ? BxsCheckCircle : BxsErrorCircle),
-    [status],
-  )
+  const StatusIcon = useMemo(() => {
+    return STATUS_TO_ICON[status]
+  }, [status])
 
   const mdComponents = useMdComponents(styles)
 
@@ -81,13 +98,15 @@ export const Toast = ({
       <Alert sx={styles.container} id={String(id)} aria-live="assertive">
         <Icon sx={styles.icon} as={StatusIcon} />
         <Box sx={styles.content}>
-          <AlertTitle>{titleComponent}</AlertTitle>
-          <AlertDescription>{descriptionComponent}</AlertDescription>
+          <AlertTitle sx={styles.title}>{titleComponent}</AlertTitle>
+          <AlertDescription sx={styles.description}>
+            {descriptionComponent}
+          </AlertDescription>
         </Box>
         {isClosable && (
           <CloseButton
             variant="clear"
-            colorScheme="brand.secondary"
+            colorScheme="neutral"
             children={<BxX aria-hidden="true" />}
             onClick={() => {
               onClose?.()

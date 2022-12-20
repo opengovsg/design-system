@@ -1,14 +1,40 @@
 import { alertAnatomy } from '@chakra-ui/anatomy'
+import {
+  createMultiStyleConfigHelpers,
+  StyleFunctionProps,
+} from '@chakra-ui/react'
 
-import { ComponentMultiStyleConfig } from '~/theme/types'
+import { textStyles } from '../textStyles'
 
 const parts = alertAnatomy.extend('close', 'content', 'wrapper')
 
-export const Toast: ComponentMultiStyleConfig<typeof parts> = {
-  parts: parts.keys,
-  baseStyle: {
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
+
+const baseStyle = definePartsStyle({
+  title: textStyles['subhead-1'],
+  description: {
+    textStyle: 'body-1',
+  },
+  icon: {
+    position: 'absolute',
+  },
+  wrapper: {
+    borderRadius: '4px',
+    boxSizing: 'border-box',
+  },
+  container: {
+    borderRadius: '4px',
+    background: 'inherit',
+  },
+  close: {
+    position: 'absolute',
+  },
+})
+
+const sizes = {
+  md: definePartsStyle({
     icon: {
-      position: 'absolute',
       left: '1.125rem',
       top: '1.125rem',
       boxSize: '1.25rem',
@@ -19,21 +45,13 @@ export const Toast: ComponentMultiStyleConfig<typeof parts> = {
       ml: '1.875rem',
     },
     wrapper: {
-      borderRadius: '4px',
-      boxSizing: 'border-box',
-      mt: 2,
-      mx: {
-        base: 2,
-        lg: 'inherit',
-      },
       width: {
         base: 'auto',
         lg: '42.5rem',
       },
+      maxW: '100%',
     },
     container: {
-      borderRadius: '4px',
-      background: 'inherit',
       padding: '1rem',
       // Padding right is 1rem + 1rem (normal padding) + width of the button.
       // This is to prevent the button overlapping the text on resize.
@@ -44,37 +62,64 @@ export const Toast: ComponentMultiStyleConfig<typeof parts> = {
       h: '1.5rem',
       insetEnd: '1rem',
       top: '1rem',
-      position: 'absolute',
       fontSize: '1.5rem',
     },
-  },
-  variants: {
-    danger: {
-      wrapper: {
-        bg: 'danger.100',
-        border: '1px solid var(--chakra-colors-danger-500)',
-      },
-      icon: {
-        fill: 'danger.500',
-      },
-    },
-    success: {
-      wrapper: {
-        bg: 'success.100',
-        border: '1px solid var(--chakra-colors-success-500)',
-      },
-      icon: {
-        fill: 'success.500',
-      },
-    },
-    warning: {
-      wrapper: {
-        bg: 'warning.100',
-        border: '1px solid var(--chakra-colors-warning-500)',
-      },
-      icon: {
-        fill: 'warning.500',
-      },
-    },
-  },
+  }),
 }
+
+const getSubtleColors = ({ colorScheme: c }: StyleFunctionProps) => {
+  switch (c) {
+    case 'error':
+      return {
+        bg: 'utility.feedback.critical-light',
+        border: '1px solid var(--chakra-colors-utility-feedback-critical)',
+        iconFill: 'utility.feedback.critical',
+      }
+    case 'success':
+      return {
+        bg: 'utility.feedback.success-light',
+        border: '1px solid var(--chakra-colors-utility-feedback-success)',
+        iconFill: 'utility.feedback.success',
+      }
+    case 'warning':
+      return {
+        bg: 'utility.feedback.warning-light',
+        border: '1px solid var(--chakra-colors-utility-feedback-warning)',
+        iconFill: 'utility.feedback.warning',
+      }
+    default:
+      return {
+        bg: 'utility.feedback.info-light',
+        border: '1px solid var(--chakra-colors-utility-feedback-info)',
+        iconFill: 'utility.feedback.info',
+      }
+  }
+}
+
+const variantSubtle = definePartsStyle((props) => {
+  const { bg, border, iconFill } = getSubtleColors(props)
+  return {
+    wrapper: {
+      color: 'base.content.default',
+      bg,
+      border,
+    },
+    icon: {
+      fill: iconFill,
+    },
+  }
+})
+
+const variants = {
+  subtle: variantSubtle,
+}
+
+export const Toast = defineMultiStyleConfig({
+  baseStyle,
+  sizes,
+  variants,
+  defaultProps: {
+    variant: 'subtle',
+    size: 'md',
+  },
+})
