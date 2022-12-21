@@ -245,7 +245,7 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
           {showMaxSize ? (
             <Text
               id={maxSizeTextId}
-              color="brand.secondary.400"
+              color="base.content.light"
               mt="0.5rem"
               textStyle="body-2"
             >

@@ -67,7 +67,7 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
             aria-label="Expand search"
             icon={<BxSearch />}
             variant="clear"
-            colorScheme="brand.secondary"
+            colorScheme="neutral"
             onClick={onSearchIconClick}
             sx={styles.icon}
           />

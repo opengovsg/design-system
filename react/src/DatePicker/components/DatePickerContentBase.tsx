@@ -40,7 +40,7 @@ export const DatePickerContentBase = ({
       >
         <DrawerOverlay />
         <DrawerContent maxH="100%" overflow="auto">
-          <DrawerCloseButton colorScheme="brand.secondary" />
+          <DrawerCloseButton colorScheme="neutral" />
           <DrawerHeader
             h="3.5rem"
             px={{ base: '1rem', md: '1.5rem' }}
