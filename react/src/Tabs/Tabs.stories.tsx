@@ -1,24 +1,16 @@
-import { TabList, TabPanel, TabPanels, Tabs, TabsProps } from '@chakra-ui/react'
+import { TabList, TabPanel, TabPanels } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { useDraggable } from '~/hooks/useDraggable'
 import { getMobileViewParameters } from '~/utils/storybook'
 
 import { Tab } from './Tab'
+import { Tabs, TabsProps } from './Tabs'
 
 export default {
   title: 'Components/Tabs',
   component: Tabs,
-  parameters: {
-    backgrounds: {
-      default: 'tabs-light',
-      values: [
-        // secondary.100
-        { name: 'tabs-light', value: '#F5F6F8' },
-      ],
-    },
-  },
-} as Meta
+} as Meta<TabsProps>
 
 const TabTemplate: StoryFn<TabsProps> = (args) => {
   const { ref, onMouseDown } = useDraggable()
@@ -29,38 +21,42 @@ const TabTemplate: StoryFn<TabsProps> = (args) => {
         <Tab>Create</Tab>
         <Tab>Settings</Tab>
         <Tab>Results</Tab>
+        <Tab>Overflow</Tab>
       </TabList>
-      <TabPanels>
+      <TabPanels _dark={{ color: 'white' }}>
         <TabPanel>Content of Create tab</TabPanel>
         <TabPanel>Content of Settings tab</TabPanel>
         <TabPanel>Content of Results tab</TabPanel>
+        <TabPanel>Content of Overflow tab</TabPanel>
       </TabPanels>
     </Tabs>
   )
 }
 
-export const LightTab = TabTemplate.bind({})
-LightTab.args = {
-  variant: 'line-light',
-}
+export const LightLineTab = TabTemplate.bind({})
 
-export const DarkTab = TabTemplate.bind({})
-DarkTab.args = {
-  variant: 'line-dark',
-}
-
-export const WithScrollingLight = TabTemplate.bind({})
-WithScrollingLight.args = {
-  variant: 'line-light',
-}
-WithScrollingLight.parameters = getMobileViewParameters()
-export const WithScrollingDark = TabTemplate.bind({})
-WithScrollingDark.args = {
-  variant: 'line-dark',
-}
-WithScrollingDark.parameters = getMobileViewParameters()
-export const VerticalLine = TabTemplate.bind({})
-VerticalLine.args = {
+export const DarkLineTab = TabTemplate.bind({})
+DarkLineTab.args = {
+  bg: 'black',
   variant: 'line',
+  colorMode: 'dark',
+}
+
+export const MobileLightLineTab = TabTemplate.bind({})
+MobileLightLineTab.parameters = getMobileViewParameters()
+
+export const MobileDarkLineTab = TabTemplate.bind({})
+MobileDarkLineTab.args = DarkLineTab.args
+MobileDarkLineTab.parameters = getMobileViewParameters()
+
+export const VerticalLineOrientation = TabTemplate.bind({})
+VerticalLineOrientation.args = {
   orientation: 'vertical',
+}
+
+export const DarkVerticalLineOrientation = TabTemplate.bind({})
+DarkVerticalLineOrientation.args = {
+  ...VerticalLineOrientation.args,
+  bg: 'black',
+  colorMode: 'dark',
 }

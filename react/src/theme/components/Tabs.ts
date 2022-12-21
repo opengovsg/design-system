@@ -1,163 +1,134 @@
 import { tabsAnatomy as parts } from '@chakra-ui/anatomy'
-import { getColor, PartsStyleFunction } from '@chakra-ui/theme-tools'
-import { merge } from 'lodash'
+import { createMultiStyleConfigHelpers, cssVar } from '@chakra-ui/react'
+import type { StyleFunctionProps } from '@chakra-ui/theme-tools'
 
-import { ComponentMultiStyleConfig } from '~/theme/types'
-
+import { layerStyles } from '../layerStyles'
 import { textStyles } from '../textStyles'
 
-const sizesForLineLightDarkVariant: ComponentMultiStyleConfig<
-  typeof parts
->['sizes'] = {
-  md: {
-    tab: {
-      p: '0.25rem',
-      _notFirst: {
-        ml: '0.75rem',
-      },
-      _notLast: {
-        mr: '0.75rem',
-      },
-      _selected: {
-        _before: {
-          width: 'calc(100% - 0.5rem)',
-        },
-      },
-    },
+const $fg = cssVar('tabs-color')
+const $bg = cssVar('tabs-bg')
+
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
+
+const getColorsForLineVariant = ({
+  colorScheme: c,
+  orientation,
+}: StyleFunctionProps) => {
+  const isVertical = orientation === 'vertical'
+  switch (c) {
+    case 'main':
+    case 'sub':
+    case 'critical':
+      return {
+        color: 'interaction.support.unselected',
+        selectedColor: `interaction.${c}.default`,
+        hoverColor: `interaction.${c}.hover`,
+        hoverBg: isVertical ? `interaction.muted.${c}.hover` : 'transparent',
+        activeBg: isVertical ? `interaction.muted.${c}.active` : 'transparent',
+        borderColor: isVertical ? 'base.divider.dark' : 'transparent',
+      }
+    default:
+      return {
+        color: 'interaction.support.unselected',
+        borderColor: isVertical ? 'base.divider.dark' : 'transparent',
+        selectedColor: `${c}.500`,
+        hoverColor: `${c}.600`,
+        hoverBg: isVertical ? `${c}.50` : 'transparent',
+        activeBg: isVertical ? `${c}.100` : 'transparent',
+      }
+  }
+}
+
+const variantLine = definePartsStyle((props) => {
+  const { orientation } = props
+  const isVertical = orientation === 'vertical'
+  const borderProp = orientation === 'vertical' ? 'borderStart' : 'borderBottom'
+  const marginProp = isVertical ? 'marginStart' : 'marginBottom'
+
+  const { color, selectedColor, hoverColor, hoverBg, activeBg, borderColor } =
+    getColorsForLineVariant(props)
+  return {
     tablist: {
-      // Allow bottom border to show through
-      pb: '2px',
-      pt: '2px',
+      [borderProp]: '2px solid',
+      borderColor: isVertical ? 'base.divider.dark' : 'transparent',
     },
-  },
-}
-
-// Special constant to map sizes specifically to line-light and line-dark variants.
-const getSizesForLineLightDarkVariant = (size?: string) => {
-  if (!size) return {}
-  if (size === 'md') return sizesForLineLightDarkVariant[size]
-  return {}
-}
-
-const variantLineColor: PartsStyleFunction<typeof parts> = () => ({
-  tablist: {
-    pt: '2px',
-    mt: '-2px',
-  },
-  tab: {
-    ...textStyles['subhead-3'],
-    position: 'relative',
-    borderRadius: '0.25rem',
-    _selected: {
-      textStyle: 'subhead-3',
-      _before: {
-        transitionProperty: 'common',
-        transitionDuration: 'normal',
-        position: 'absolute',
-        content: "''",
-        height: '2px',
-        bottom: '-2px',
-        width: '100%',
-      },
-    },
-    textTransform: 'uppercase',
-    _focusVisible: {
+    tab: {
+      justifyContent: 'flex-start',
+      [marginProp]: isVertical ? '-2px' : 0,
+      mt: isVertical ? 0 : '2px',
+      textTransform: 'uppercase',
+      color: $fg.reference,
+      bg: $bg.reference,
+      [$fg.variable]: `colors.${color}`,
+      [borderProp]: '2px solid',
+      borderColor,
+      outlineOffset: 0,
       _selected: {
-        _before: {
-          w: 0,
+        [$bg.variable]: `transparent`,
+        [$fg.variable]: `colors.${selectedColor}`,
+        _dark: {
+          [$fg.variable]: 'colors.base.content.inverse',
+        },
+        borderColor: 'currentColor',
+        _hover: {
+          borderColor: 'currentColor',
+        },
+        ...textStyles['subhead-3'],
+      },
+      _active: {
+        [$bg.variable]: `colors.${activeBg}`,
+      },
+      _hover: {
+        [$fg.variable]: `colors.${hoverColor}`,
+        [$bg.variable]: `colors.${hoverBg}`,
+        borderColor,
+        _dark: {
+          [$fg.variable]: 'colors.base.content.inverse',
+          [$bg.variable]: 'transparent',
         },
       },
+      _focusVisible: {
+        ...layerStyles.focusRing.default._focusVisible,
+        outlineOffset: 0,
+        _dark: layerStyles.focusRing.inverse._focusVisible,
+      },
     },
-  },
+  }
 })
 
-const variantLineLight: PartsStyleFunction<typeof parts> = (props) => {
-  const { size } = props
-  return merge(variantLineColor(props), getSizesForLineLightDarkVariant(size), {
-    tab: {
-      color: 'brand.secondary.400',
-      _hover: {
-        color: 'brand.primary.500',
-      },
-      _selected: {
-        _before: {
-          bg: 'brand.primary.500',
-        },
-        color: 'brand.primary.500',
-      },
-      _focusVisible: {
-        boxShadow: `0 0 0 2px ${getColor(props.theme, 'brand.primary.500')}`,
-      },
-    },
-  })
-}
-
-const variantLineDark: PartsStyleFunction<typeof parts> = (props) => {
-  const { size } = props
-  return merge(variantLineColor(props), getSizesForLineLightDarkVariant(size), {
+const sizes = {
+  sm: definePartsStyle(({ orientation }) => ({
     tablist: {
-      bg: 'brand.secondary.500',
+      gap: orientation === 'vertical' ? 0 : '2rem',
     },
     tab: {
-      color: 'neutral.400',
-      _hover: {
-        color: 'white',
-      },
-      _selected: {
-        _before: {
-          bg: 'white',
-        },
-        color: 'white',
-      },
-      _focusVisible: {
-        boxShadow: `0 0 0 2px white`,
-      },
+      px: orientation === 'vertical' ? '2rem' : 0,
+      py: orientation === 'vertical' ? '1.125rem' : '0.25rem',
+      ...textStyles['body-2'],
     },
-  })
-}
-
-const sizesForLineVariant = {
-  md: {
+  })),
+  md: definePartsStyle(({ orientation }) => ({
+    tablist: {
+      gap: orientation === 'vertical' ? 0 : '2rem',
+    },
     tab: {
-      padding: '1rem',
+      px: orientation === 'vertical' ? '1.5rem' : 0,
+      py: orientation === 'vertical' ? '1rem' : '0.25rem',
+      mx: '0.25rem',
+      ...textStyles['subhead-3'],
     },
-  },
+  })),
 }
 
-const getSizesForLineVariant = (size?: string) => {
-  if (!size) return {}
-  if (size === 'md') return sizesForLineVariant[size]
-  return {}
-}
+const baseStyle = definePartsStyle(({ orientation }) => {
+  const isVertical = orientation === 'vertical'
 
-const variantLine: PartsStyleFunction<typeof parts> = (props) => {
-  const { colorScheme: c, size } = props
-  return merge(getSizesForLineVariant(size), {
-    tab: {
-      transitionProperty:
-        'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, font-weight',
-      textStyle: 'body-1',
-      color: 'brand.secondary.500',
-      _selected: {
-        textStyle: 'subhead-1',
-        color: `${c}.500`,
-      },
-      _hover: {
-        color: `${c}.500`,
-      },
-      _focus: {
-        boxShadow: `0 0 0 2px var(--chakra-colors-${c}-500)`,
-      },
-    },
-  })
-}
-
-export const Tabs: ComponentMultiStyleConfig<typeof parts> = {
-  parts: parts.keys,
-  baseStyle: {
+  return {
     tablist: {
       // Allow drag without showing scrollbar
-      overflowX: 'auto',
+      overflowX: isVertical ? undefined : 'auto',
+      overflowY: isVertical ? undefined : 'initial',
       whiteSpace: 'nowrap',
       /* Scrollbar for Firefox */
       // Firefox only has these two css properties to customise scrollbar
@@ -168,25 +139,23 @@ export const Tabs: ComponentMultiStyleConfig<typeof parts> = {
         height: 0,
       },
     },
-    tab: {
-      textStyle: 'body-1',
-      _selected: {
-        textStyle: 'subhead-1',
-      },
-    },
     tabpanel: {
       p: 'initial',
     },
-  },
-  variants: {
-    // Chakra UI already has a line variant, these are our custom variants
-    line: variantLine,
-    'line-light': variantLineLight,
-    'line-dark': variantLineDark,
-  },
+  }
+})
+
+const variants = {
+  line: variantLine,
+}
+
+export const Tabs = defineMultiStyleConfig({
+  sizes,
+  baseStyle,
+  variants,
   defaultProps: {
-    colorScheme: 'brand.primary',
-    variant: 'line-light',
+    colorScheme: 'main',
+    variant: 'line',
     size: 'md',
   },
-}
+})
