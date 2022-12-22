@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import ReactInputMask from 'react-input-mask'
 import {
   Flex,
@@ -45,6 +45,13 @@ export const DateRangePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
     return `Selected date range: ${startDate?.toLocaleDateString()} to ${endDate?.toLocaleDateString()}`
   }, [endDate, startDate])
 
+  // Allow for SSR with react-input-mask package.
+  const [hasMounted, setHasMounted] = useState(false)
+
+  useEffect(() => {
+    setHasMounted(true)
+  }, [])
+
   return (
     <Flex
       overflowX="auto"
@@ -61,47 +68,69 @@ export const DateRangePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
         {selectedDatesAriaLiveText}
       </VisuallyHidden>
       <Stack direction="row" align="center">
-        <Input
-          variant="unstyled"
-          aria-label="Start date of range"
-          inputMode="numeric" // Nudge Android mobile keyboard to be numeric
-          pattern="\d*" // Nudge numeric keyboard on iOS Safari.
-          sx={styles.field}
-          width="6rem"
-          as={ReactInputMask}
-          mask="99/99/9999"
-          value={startInputDisplay}
-          onChange={handleStartDateChange}
-          placeholder={placeholder}
-          maskPlaceholder={placeholder}
-          ref={mergedStartInputRef}
-          {...fcProps}
-          borderRightRadius={0}
-          onBlur={handleInputBlur}
-          onClick={handleInputClick}
-          isReadOnly={fcProps.isReadOnly || !allowManualInput}
-        />
+        {hasMounted ? (
+          <Input
+            variant="unstyled"
+            aria-label="Start date of range"
+            inputMode="numeric" // Nudge Android mobile keyboard to be numeric
+            pattern="\d*" // Nudge numeric keyboard on iOS Safari.
+            sx={styles.field}
+            width="6rem"
+            as={ReactInputMask}
+            mask="99/99/9999"
+            value={startInputDisplay}
+            onChange={handleStartDateChange}
+            placeholder={placeholder}
+            maskPlaceholder={placeholder}
+            ref={mergedStartInputRef}
+            {...fcProps}
+            borderRightRadius={0}
+            onBlur={handleInputBlur}
+            onClick={handleInputClick}
+            isReadOnly={fcProps.isReadOnly || !allowManualInput}
+          />
+        ) : (
+          <Input
+            variant="unstyled"
+            inputMode="numeric"
+            pattern="\d*"
+            placeholder={placeholder}
+            sx={styles.field}
+            width="6rem"
+          />
+        )}
         <Text color="base.content.default">{labelSeparator}</Text>
-        <Input
-          variant="unstyled"
-          aria-label="Start date of range"
-          inputMode="numeric" // Nudge Android mobile keyboard to be numeric
-          pattern="\d*" // Nudge numeric keyboard on iOS Safari.
-          sx={styles.field}
-          width="6rem"
-          as={ReactInputMask}
-          mask="99/99/9999"
-          value={endInputDisplay}
-          onChange={handleEndDateChange}
-          placeholder={placeholder}
-          maskPlaceholder={placeholder}
-          onClick={handleInputClick}
-          ref={endInputRef}
-          {...fcProps}
-          borderRightRadius={0}
-          onBlur={handleInputBlur}
-          isReadOnly={fcProps.isReadOnly || !allowManualInput}
-        />
+        {hasMounted ? (
+          <Input
+            variant="unstyled"
+            aria-label="Start date of range"
+            inputMode="numeric" // Nudge Android mobile keyboard to be numeric
+            pattern="\d*" // Nudge numeric keyboard on iOS Safari.
+            sx={styles.field}
+            width="6rem"
+            as={ReactInputMask}
+            mask="99/99/9999"
+            value={endInputDisplay}
+            onChange={handleEndDateChange}
+            placeholder={placeholder}
+            maskPlaceholder={placeholder}
+            onClick={handleInputClick}
+            ref={endInputRef}
+            {...fcProps}
+            borderRightRadius={0}
+            onBlur={handleInputBlur}
+            isReadOnly={fcProps.isReadOnly || !allowManualInput}
+          />
+        ) : (
+          <Input
+            variant="unstyled"
+            inputMode="numeric"
+            pattern="\d*"
+            placeholder={placeholder}
+            sx={styles.field}
+            width="6rem"
+          />
+        )}
       </Stack>
     </Flex>
   )

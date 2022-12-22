@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import ReactInputMask from 'react-input-mask'
 import {
   forwardRef,
@@ -38,28 +38,39 @@ export const DatePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
     return `Selected date: ${internalValue.toLocaleDateString()}`
   }, [internalValue])
 
+  // Allow for SSR with react-input-mask package.
+  const [hasMounted, setHasMounted] = useState(false)
+
+  useEffect(() => {
+    setHasMounted(true)
+  }, [])
+
   return (
     <>
       <VisuallyHidden aria-live="assertive">
         {selectedDateAriaLiveText}
       </VisuallyHidden>
       <InputGroup>
-        <Input
-          inputMode="numeric" // Nudge Android mobile keyboard to be numeric
-          pattern="\d*" // Nudge numeric keyboard on iOS Safari.
-          as={ReactInputMask}
-          mask="99/99/9999"
-          value={internalInputValue}
-          onChange={handleInputChange}
-          placeholder={placeholder}
-          maskPlaceholder={placeholder}
-          ref={mergedInputRef}
-          {...fcProps}
-          borderRightRadius={0}
-          onBlur={handleInputBlur}
-          onClick={handleInputClick}
-          isReadOnly={fcProps.isReadOnly || !allowManualInput}
-        />
+        {hasMounted ? (
+          <Input
+            inputMode="numeric" // Nudge Android mobile keyboard to be numeric
+            pattern="\d*" // Nudge numeric keyboard on iOS Safari.
+            as={ReactInputMask}
+            mask="99/99/9999"
+            value={internalInputValue}
+            onChange={handleInputChange}
+            placeholder={placeholder}
+            maskPlaceholder={placeholder}
+            ref={mergedInputRef}
+            {...fcProps}
+            borderRightRadius={0}
+            onBlur={handleInputBlur}
+            onClick={handleInputClick}
+            isReadOnly={fcProps.isReadOnly || !allowManualInput}
+          />
+        ) : (
+          <Input pattern="\d*" inputMode="numeric" placeholder={placeholder} />
+        )}
         <InputRightAddon p={0} border="none">
           <CalendarButton />
         </InputRightAddon>
