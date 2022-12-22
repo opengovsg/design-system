@@ -46,3 +46,8 @@ OpenMenuWithNotification.args = {
   hasNotification: true,
   defaultIsOpen: true,
 }
+
+export const VariantSubtle = AvatarTemplate.bind({})
+VariantSubtle.args = {
+  variant: 'subtle',
+}

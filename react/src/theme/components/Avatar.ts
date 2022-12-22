@@ -1,52 +1,57 @@
 import { avatarAnatomy as parts } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers, ThemingProps } from '@chakra-ui/react'
-import {
-  PartsStyleFunction,
-  StyleFunctionProps,
-  SystemStyleObject,
-} from '@chakra-ui/theme-tools'
+import { StyleFunctionProps, SystemStyleObject } from '@chakra-ui/theme-tools'
 
 import { textStyles } from '../textStyles'
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)
 
-const getColorProps = ({ colorScheme: c }: StyleFunctionProps) => {
+const getSubtleColorProps = ({ colorScheme: c }: StyleFunctionProps) => {
   switch (c) {
     case 'main':
+    case 'success':
+    case 'critical':
+    case 'warning':
+    case 'sub':
+      return {
+        color: `interaction.${c}.default`,
+        bg: `interaction.${c}-light.default`,
+      }
+    default:
+      return {
+        color: `${c}.500`,
+        bg: `${c}.50`,
+      }
+  }
+}
+
+const getSolidColorProps = ({ colorScheme: c }: StyleFunctionProps) => {
+  switch (c) {
+    case 'main':
+    case 'success':
+    case 'critical':
+    case 'warning':
+    case 'sub':
       return {
         color: 'base.content.inverse',
-        bg: 'interaction.main.default',
-      }
-    case 'main-light':
-      return {
-        color: 'interaction.main.default',
-        bg: 'interaction.main-light.default',
+        bg: `interaction.${c}.default`,
       }
     default:
       return {
         bg: `${c}.500`,
-        color: 'white',
+        color: 'base.content.inverse',
       }
   }
 }
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
-  const { bg, color } = getColorProps(props)
-
-  return {
-    container: {
-      bg,
-      color,
-      textStyle: 'subhead-2',
-    },
-    badge: {
-      bg: 'utility.feedback.critical',
-      border: '1px solid white',
-      transform: 'none',
-    },
-  }
-}
+const baseStyle = definePartsStyle({
+  badge: {
+    bg: 'utility.feedback.critical',
+    border: '1px solid white',
+    transform: 'none',
+  },
+})
 
 const getBadgePlacement = (size: ThemingProps['size']): SystemStyleObject => {
   switch (size) {
@@ -77,6 +82,7 @@ const sizes = {
     container: {
       width: '1.25rem',
       height: '1.25rem',
+      textStyle: 'legal',
       fontSize: textStyles['legal'].fontSize,
     },
     label: textStyles['legal'],
@@ -91,6 +97,7 @@ const sizes = {
     container: {
       width: '2rem',
       height: '2rem',
+      textStyle: 'caption-1',
       fontSize: textStyles['caption-1'].fontSize,
     },
     label: textStyles['caption-1'],
@@ -105,6 +112,7 @@ const sizes = {
     container: {
       width: '2.25rem',
       height: '2.25rem',
+      textStyle: 'caption-1',
       fontSize: textStyles['caption-1'].fontSize,
     },
     label: textStyles['caption-1'],
@@ -119,6 +127,7 @@ const sizes = {
     container: {
       width: '2.5rem',
       height: '2.5rem',
+      textStyle: 'subhead-2',
       fontSize: textStyles['subhead-2'].fontSize,
     },
     label: textStyles['subhead-2'],
@@ -133,11 +142,38 @@ const sizes = {
   xl: definePartsStyle({ badge: getBadgePlacement('xl') }),
 }
 
+const variantSolid = definePartsStyle((props) => {
+  const { bg, color } = getSolidColorProps(props)
+  return {
+    container: {
+      bg,
+      color,
+    },
+  }
+})
+
+const variantSubtle = definePartsStyle((props) => {
+  const { bg, color } = getSubtleColorProps(props)
+  return {
+    container: {
+      bg,
+      color,
+    },
+  }
+})
+
+const variants = {
+  subtle: variantSubtle,
+  solid: variantSolid,
+}
+
 export const Avatar = defineMultiStyleConfig({
   sizes,
   baseStyle,
+  variants,
   defaultProps: {
     size: 'md',
     colorScheme: 'main',
+    variant: 'solid',
   },
 })

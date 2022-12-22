@@ -37,7 +37,7 @@ export const AvatarMenuDivider = (): JSX.Element => {
 
 export interface AvatarMenuProps
   extends Pick<MenuProps, 'defaultIsOpen'>,
-    Pick<AvatarProps, 'name' | 'colorScheme' | 'size'> {
+    Pick<AvatarProps, 'name' | 'colorScheme' | 'size' | 'variant'> {
   hasNotification?: boolean
   menuListProps?: Omit<MenuListProps, 'children'>
   /** Badge to render when there are notifications. Defaults to AvatarBadge component. */
@@ -51,11 +51,10 @@ export const AvatarMenu = ({
   defaultIsOpen,
   menuListProps,
   children,
-  size,
   badge = <AvatarBadge />,
-  ...props
+  ...styleProps
 }: AvatarMenuProps): JSX.Element => {
-  const styles = useMultiStyleConfig('AvatarMenu', { ...props, size })
+  const styles = useMultiStyleConfig('AvatarMenu', styleProps)
 
   return (
     <Menu autoSelect={false} defaultIsOpen={defaultIsOpen}>
@@ -67,7 +66,7 @@ export const AvatarMenu = ({
             isOpen={isOpen}
             sx={styles.button}
           >
-            <Avatar name={name} sx={styles.avatar} size={size}>
+            <Avatar name={name} sx={styles.avatar} {...styleProps}>
               {hasNotification && badge}
             </Avatar>
           </AvatarMenuButton>
