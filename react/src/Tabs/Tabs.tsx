@@ -4,6 +4,7 @@ import {
   StyleFunctionProps,
   Tabs as ChakraTabs,
   TabsProps as ChakraTabsProps,
+  useColorMode,
 } from '@chakra-ui/react'
 
 export interface TabsProps extends ChakraTabsProps {
@@ -13,13 +14,19 @@ export interface TabsProps extends ChakraTabsProps {
   colorMode?: StyleFunctionProps['colorMode']
 }
 
-export const Tabs = ({ colorMode, ...tabsProps }: TabsProps): JSX.Element => {
+export const Tabs = ({
+  colorMode: colorModeProp,
+  ...tabsProps
+}: TabsProps): JSX.Element => {
+  const { colorMode } = useColorMode()
+  const colorModeToUse = colorModeProp ?? colorMode
+
   const ColorModeWrapper = useMemo(() => {
-    if (colorMode === 'dark') {
+    if (colorModeToUse === 'dark') {
       return DarkMode
     }
     return Fragment
-  }, [colorMode])
+  }, [colorModeToUse])
 
   return (
     <ColorModeWrapper>

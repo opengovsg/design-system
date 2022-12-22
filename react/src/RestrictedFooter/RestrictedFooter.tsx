@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useBreakpointValue } from '@chakra-ui/react'
+import { useBreakpointValue, useColorMode } from '@chakra-ui/react'
 
 import {
   DARKMODE_FOOTER_ICON_LINK,
@@ -14,25 +14,28 @@ export const RestrictedFooter = ({
   variant: variantProp = 'full',
   footerIconLink,
   socialMediaLinks = DEFAULT_SOCIAL_MEDIA_LINKS,
-  colorMode,
+  colorMode: colorModeProp,
   ssr,
   ...footerProps
 }: RestrictedFooterProps): JSX.Element => {
+  const { colorMode } = useColorMode()
   const variant = useBreakpointValue(
     typeof variantProp === 'string' ? { base: variantProp } : variantProp,
     { ssr },
   )
 
+  const colorModeToUse = colorModeProp ?? colorMode
+
   const ogpFooterIconLink = useMemo(() => {
-    return colorMode === 'dark'
+    return colorModeToUse === 'dark'
       ? DARKMODE_FOOTER_ICON_LINK
       : DEFAULT_FOOTER_ICON_LINK
-  }, [colorMode])
+  }, [colorModeToUse])
 
   if (variant === 'compact') {
     return (
       <RestrictedCompactFooter
-        colorMode={colorMode}
+        colorMode={colorModeToUse}
         socialMediaLinks={socialMediaLinks}
         footerIconLink={footerIconLink ?? ogpFooterIconLink}
         {...footerProps}
@@ -41,7 +44,7 @@ export const RestrictedFooter = ({
   }
   return (
     <RestrictedFullFooter
-      colorMode={colorMode}
+      colorMode={colorModeToUse}
       socialMediaLinks={socialMediaLinks}
       footerIconLink={footerIconLink ?? ogpFooterIconLink}
       {...footerProps}

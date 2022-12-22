@@ -41,13 +41,19 @@ DarkLineTab.args = {
   variant: 'line',
   colorMode: 'dark',
 }
+DarkLineTab.parameters = {
+  backgrounds: { default: 'dark' },
+}
 
 export const MobileLightLineTab = TabTemplate.bind({})
 MobileLightLineTab.parameters = getMobileViewParameters()
 
 export const MobileDarkLineTab = TabTemplate.bind({})
 MobileDarkLineTab.args = DarkLineTab.args
-MobileDarkLineTab.parameters = getMobileViewParameters()
+MobileDarkLineTab.parameters = {
+  ...DarkLineTab.parameters,
+  ...getMobileViewParameters(),
+}
 
 export const VerticalLineOrientation = TabTemplate.bind({})
 VerticalLineOrientation.args = {
@@ -60,3 +66,4 @@ DarkVerticalLineOrientation.args = {
   bg: 'black',
   colorMode: 'dark',
 }
+DarkVerticalLineOrientation.parameters = DarkLineTab.parameters
