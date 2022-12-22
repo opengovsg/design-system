@@ -42,7 +42,7 @@ const baseStyle = definePartsStyle((props) => {
       border: 'none',
       borderRadius: 0,
       minWidth: '0rem',
-      [$shadow.variable]: 'shadows.small',
+      [$shadow.variable]: 'shadows.sm',
       boxShadow: $shadow.reference,
     },
     item: {

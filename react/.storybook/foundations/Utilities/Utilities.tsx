@@ -63,11 +63,11 @@ export const Utilities = (): JSX.Element => {
             <Flex
               h="3.5rem"
               w="100%"
-              shadow="small"
+              shadow="sm"
               align="center"
               justify="center"
             >
-              {prettyPrint('medium', theme.shadows['small'])}
+              {prettyPrint('sm', theme.shadows['sm'])}
             </Flex>
             <Text
               color="brand.secondary.400"
@@ -81,11 +81,11 @@ export const Utilities = (): JSX.Element => {
             <Flex
               h="3.5rem"
               w="100%"
-              shadow="medium"
+              shadow="md"
               align="center"
               justify="center"
             >
-              {prettyPrint('medium', theme.shadows['medium'])}
+              {prettyPrint('md', theme.shadows['md'])}
             </Flex>
           </SimpleGrid>
         </Box>

@@ -1,4 +1,14 @@
-const { camelCase, groupBy, get, set, isObject, setWith } = require("lodash");
+const {
+  camelCase,
+  groupBy,
+  get,
+  set,
+  isObject,
+  setWith,
+  has,
+  some,
+  omit,
+} = require("lodash");
 const JSON5 = require("json5");
 
 const tinycolor = require("tinycolor2");
@@ -33,7 +43,7 @@ const designSystemFormatter = ({ dictionary, platform, options, file }) => {
     });
   };
 
-  replaceNestedObjects(dictionary.properties);
+  replaceNestedObjects(dictionary.tokens);
 
   let output = fileHeader({ file });
   const tokens = Object.keys(dictionary.tokens);
@@ -81,9 +91,7 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerTransform({
   name: "shadow/design-system",
   type: "value",
-  matcher: (prop) => {
-    return prop.type === "boxShadow";
-  },
+  matcher: (prop) => prop.type === "boxShadow",
   transformer: (prop) => {
     // destructure shadow values from original token value
     const { x, y, blur, spread, color, alpha } = prop.original.value;
@@ -100,75 +108,97 @@ StyleDictionary.registerTransform({
   },
 });
 
-// Convert shadow to css format.
-StyleDictionary.registerTransform({
-  name: "color/rbgaWithHex",
-  type: "value",
-  transitive: true,
-  matcher: (prop) => {
-    return prop.type === "color";
-  },
-  transformer: (token) => {
-    if (String(token.value).startsWith("rgba")) {
-      // Get hex value from rgba string rgba(#ffffff, 0.5)
-      const [, hex, alpha] = token.value.match(
-        /rgba\((#(?:[0-9a-fA-F]{3}){1,2}), ?(.+)\)/
-      );
-      const color = tinycolor(hex);
-      color.setAlpha(alpha);
-      return color.toRgbString();
-    }
-    return token.value;
-  },
-});
+const pxToRem = (px) => {
+  // If have px symbol, remove it.
+  const pxValue = String(px).endsWith("px") ? String(px).slice(0, -2) : px;
+  // 2 decimal places
+  return `${Number(pxValue) / 16}rem`;
+};
 
+const percentToEm = (percent) => {
+  // 3 decimal places
+  if (!percent) return percent;
+  // If have percent symbol, remove it.
+  const percentValue = String(percent).endsWith("%")
+    ? String(percent).slice(0, -1)
+    : percent;
+  return `${(Number(percentValue) / 100).toFixed(3)}em`;
+};
+
+const fontWeightToNumber = (fontWeight) => {
+  const fontWeightValue = MAP_FONT_WEIGHTS[fontWeight];
+  if (!fontWeightValue) return fontWeight;
+  return fontWeightValue;
+};
+
+// Convert textStyles to ChakraUI object.
 StyleDictionary.registerTransform({
-  name: "size/percentToEm",
+  name: "textStyles/design-system",
   type: "value",
-  matcher: (prop) => prop.type === "letterSpacing",
-  transformer: (prop) => {
-    const percentValue = prop.original.value;
-    if (String(percentValue).endsWith("%")) {
-      return `${(percentValue.slice(0, -1) / 100).toFixed(3)}em`;
-    }
-    return percentValue;
+  matcher: (prop) => prop.type === "typography",
+  transformer: (token) => {
+    const omitValues = omit(token.value, ["paragraphSpacing", "textCase"]);
+
+    const {
+      fontSize,
+      fontWeight,
+      lineHeight,
+      letterSpacing,
+      textCase,
+      paragraphSpacing,
+      textDecoration,
+    } = token.value;
+
+    const fontSizeToRem = pxToRem(fontSize);
+    const lineHeightToRem = pxToRem(lineHeight);
+    const fontWeightNumValue = fontWeightToNumber(fontWeight);
+    const letterSpacingEmValue = percentToEm(letterSpacing);
+
+    return {
+      ...omitValues,
+      textTransform: textCase === "none" ? undefined : textCase,
+      textDecoration: textDecoration === "none" ? undefined : textDecoration,
+      fontSize: fontSizeToRem,
+      fontWeight: fontWeightNumValue,
+      lineHeight: lineHeightToRem,
+      letterSpacing: letterSpacingEmValue,
+    };
   },
 });
 
 StyleDictionary.registerTransform({
   name: "size/pxToRem",
   type: "value",
-  matcher: (prop) => {
-    switch (prop.type) {
-      case "spacing":
-      case "lineHeights":
-      case "fontSizes":
-        return true;
-      default:
-        return false;
-    }
-  },
-  transformer: (prop) => {
-    const pxValue = prop.original.value;
-    if (String(pxValue).endsWith("px")) {
-      return `${parseFloat(pxValue.slice(0, -2)) / 16}rem`;
-    }
-    if (!isNaN(Number(pxValue))) {
-      return `${parseFloat(pxValue) / 16}rem`;
-    }
-    return pxValue;
-  },
+  matcher: (prop) =>
+    ["lineHeights", "spacing", "fontSizes"].includes(prop.type),
+  transformer: (token) => pxToRem(token.value),
 });
 
 StyleDictionary.registerTransform({
-  name: "font/weightToNumber",
+  name: "size/fontWeightToNumber",
   type: "value",
-  matcher: (prop) => {
-    return prop.type === "fontWeights";
-  },
-  transformer: (prop) => {
-    const weightValue = prop.original.value;
-    return MAP_FONT_WEIGHTS[weightValue];
+  matcher: (prop) => prop.type === "fontWeights",
+  transformer: (token) => fontWeightToNumber(token.value),
+});
+
+StyleDictionary.registerTransform({
+  name: "size/percentToEm",
+  type: "value",
+  matcher: (prop) => prop.type === "letterSpacing",
+  transformer: (token) => percentToEm(token.value),
+});
+
+// Convert shadow to css format.
+StyleDictionary.registerTransform({
+  name: "color/rbgaWithHex",
+  type: "value",
+  matcher: (prop) => prop.type === "color",
+  transformer: (token) => {
+    const color = tinycolor(token.value);
+    if (color.getAlpha() === 1) {
+      return token.value;
+    }
+    return color.toRgbString();
   },
 });
 
@@ -178,9 +208,10 @@ module.exports = {
     javascript: {
       transforms: [
         "shadow/design-system",
-        "font/weightToNumber",
-        "size/pxToRem",
         "size/percentToEm",
+        "size/pxToRem",
+        "size/fontWeightToNumber",
+        "textStyles/design-system",
         "color/rbgaWithHex",
       ],
       buildPath: "themes/",

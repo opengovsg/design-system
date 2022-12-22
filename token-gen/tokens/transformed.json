@@ -411,126 +411,106 @@
     "brand": {
       "primary": {
         "50": {
-          "value": "{color.blue.50}",
+          "value": "#F7F9FE",
           "type": "color",
-          "description": "19.93:1",
-          "failedToResolve": true
+          "description": "19.93:1"
         },
         "100": {
-          "value": "{color.blue.100}",
+          "value": "#E1EBFD",
           "type": "color",
-          "description": "17.5:1",
-          "failedToResolve": true
+          "description": "17.5:1"
         },
         "200": {
-          "value": "{color.blue.200}",
+          "value": "#ACC7FA",
           "type": "color",
-          "description": "12.3:1",
-          "failedToResolve": true
+          "description": "12.3:1"
         },
         "300": {
-          "value": "{color.blue.300}",
+          "value": "#82ABF7",
           "type": "color",
-          "description": "9.11:1",
-          "failedToResolve": true
+          "description": "9.11:1"
         },
         "400": {
-          "value": "{color.blue.400}",
+          "value": "#568DF4",
           "type": "color",
-          "description": "6.51:1",
-          "failedToResolve": true
+          "description": "6.51:1"
         },
         "500": {
-          "value": "{color.blue.500}",
+          "value": "#276EF1",
           "type": "color",
-          "description": "4.57:1",
-          "failedToResolve": true
+          "description": "4.57:1"
         },
         "600": {
-          "value": "{color.blue.600}",
+          "value": "#0D4FCA",
           "type": "color",
-          "description": "7.02:1",
-          "failedToResolve": true
+          "description": "7.02:1"
         },
         "700": {
-          "value": "{color.blue.700}",
+          "value": "#0B44AC",
           "type": "color",
-          "description": "8.61:1",
-          "failedToResolve": true
+          "description": "8.61:1"
         },
         "800": {
-          "value": "{color.blue.800}",
+          "value": "#093890",
           "type": "color",
-          "description": "10.6:1",
-          "failedToResolve": true
+          "description": "10.6:1"
         },
         "900": {
-          "value": "{color.blue.900}",
+          "value": "#072A69",
           "type": "color",
-          "description": "13.59:1",
-          "failedToResolve": true
+          "description": "13.59:1"
         }
       },
       "secondary": {
         "50": {
-          "value": "{color.slate.50}",
+          "value": "#f8f9fa",
           "type": "color",
-          "description": "19.92:1",
-          "failedToResolve": true
+          "description": "19.92:1"
         },
         "100": {
-          "value": "{color.slate.100}",
+          "value": "#e9eaee",
           "type": "color",
-          "description": "17.46:1",
-          "failedToResolve": true
+          "description": "17.46:1"
         },
         "200": {
-          "value": "{color.slate.200}",
+          "value": "#babecb",
           "type": "color",
-          "description": "11.31 : 1",
-          "failedToResolve": true
+          "description": "11.31 : 1"
         },
         "300": {
-          "value": "{color.slate.300}",
+          "value": "#9aa0b3",
           "type": "color",
-          "description": "8.05 : 1",
-          "failedToResolve": true
+          "description": "8.05 : 1"
         },
         "400": {
-          "value": "{color.slate.400}",
+          "value": "#7b849c",
           "type": "color",
-          "description": "5.62:1",
-          "failedToResolve": true
+          "description": "5.62:1"
         },
         "500": {
-          "value": "{color.slate.500}",
+          "value": "#5d6785",
           "type": "color",
-          "description": "5.6:1",
-          "failedToResolve": true
+          "description": "5.6:1"
         },
         "600": {
-          "value": "{color.slate.600}",
+          "value": "#465173",
           "type": "color",
-          "description": "7.82:1",
-          "failedToResolve": true
+          "description": "7.82:1"
         },
         "700": {
-          "value": "{color.slate.700}",
+          "value": "#3c4764",
           "type": "color",
-          "description": "9.22:1",
-          "failedToResolve": true
+          "description": "9.22:1"
         },
         "800": {
-          "value": "{color.slate.800}",
+          "value": "#333c56",
           "type": "color",
-          "description": "10.92:1",
-          "failedToResolve": true
+          "description": "10.92:1"
         },
         "900": {
-          "value": "{color.slate.900}",
+          "value": "#272d41",
           "type": "color",
-          "description": "13.65:1",
-          "failedToResolve": true
+          "description": "13.65:1"
         }
       }
     },
@@ -588,606 +568,516 @@
     "base": {
       "canvas": {
         "default": {
-          "value": "{color.standard.white}",
+          "value": "#ffffff",
           "type": "color",
-          "description": "Default page background",
-          "failedToResolve": true
+          "description": "Default page background"
         },
         "alt": {
-          "value": "{color.grey.50}",
+          "value": "#f9f9f9",
           "type": "color",
-          "description": "Alternative page background",
-          "failedToResolve": true
+          "description": "Alternative page background"
         },
         "backdrop": {
-          "value": "{color.grey.100}",
+          "value": "#e9e9e9",
           "type": "color",
-          "description": "A backdrop used under other canvasses to provide more depth",
-          "failedToResolve": true
+          "description": "A backdrop used under other canvasses to provide more depth"
         },
         "brandLight": {
-          "value": "{color.brand.primary.50}",
+          "value": "#F7F9FE",
           "type": "color",
-          "description": "Lighter variant of the background tinted to the brand’s primary colour ",
-          "failedToResolve": true
+          "description": "Lighter variant of the background tinted to the brand’s primary colour "
         },
         "inverse": {
-          "value": "{color.grey.800}",
+          "value": "#3d3d3d",
           "type": "color",
-          "description": "Reversed background",
-          "failedToResolve": true
+          "description": "Reversed background"
         },
         "overlay": {
-          "value": "rgba({color.grey.800}, 0.8)",
+          "value": "#3d3d3dcc",
           "type": "color",
-          "description": "Background under modal",
-          "failedToResolve": true
+          "description": "Background under modal"
         }
       },
       "content": {
         "default": {
-          "value": "{color.grey.700}",
+          "value": "#474747",
           "type": "color",
-          "description": "Body copy",
-          "failedToResolve": true
+          "description": "Body copy"
         },
         "dark": {
-          "value": "{color.grey.900}",
+          "value": "#2e2e2e",
           "type": "color",
-          "description": "Headers\nInput labels",
-          "failedToResolve": true
+          "description": "Headers\nInput labels"
         },
         "light": {
-          "value": "{color.grey.400}",
+          "value": "#848484",
           "type": "color",
-          "description": "Descriptors",
-          "failedToResolve": true
+          "description": "Descriptors"
         },
         "brand": {
-          "value": "{color.brand.primary.500}",
+          "value": "#276EF1",
           "type": "color",
-          "description": "Used sparingly to highlight areas of the interface",
-          "failedToResolve": true
+          "description": "Used sparingly to highlight areas of the interface"
         },
         "inverse": {
-          "value": "{color.standard.white}",
+          "value": "#ffffff",
           "type": "color",
-          "description": "Inverse colour to provide sufficient contrast on strong darker backgrounds",
-          "failedToResolve": true
+          "description": "Inverse colour to provide sufficient contrast on strong darker backgrounds"
         }
       },
       "divider": {
         "light": {
-          "value": "{color.grey.50}",
+          "value": "#f9f9f9",
           "type": "color",
-          "description": "Lightest divider colour\nDefault on white backgrounds",
-          "failedToResolve": true
+          "description": "Lightest divider colour\nDefault on white backgrounds"
         },
         "medium": {
-          "value": "{color.grey.100}",
+          "value": "#e9e9e9",
           "type": "color",
-          "description": "Medium divider colour\nDefault on light grey backgrounds\n",
-          "failedToResolve": true
+          "description": "Medium divider colour\nDefault on light grey backgrounds\n"
         },
         "dark": {
-          "value": "{color.grey.200}",
+          "value": "#bfbfbf",
           "type": "color",
-          "description": "Darkest divider colour\nUsed when more differentiation is required\nUsed as the default border for input fields",
-          "failedToResolve": true
+          "description": "Darkest divider colour\nUsed when more differentiation is required\nUsed as the default border for input fields"
         },
         "inverse": {
-          "value": "{color.standard.white}",
+          "value": "#ffffff",
           "type": "color",
-          "description": "Colour of the inverse border colour",
-          "failedToResolve": true
+          "description": "Colour of the inverse border colour"
         },
         "brand": {
-          "value": "{color.brand.primary.500}",
+          "value": "#276EF1",
           "type": "color",
-          "description": "Used when brand differentiation is required. Tabs, vertical tabs, side navs.",
-          "failedToResolve": true
+          "description": "Used when brand differentiation is required. Tabs, vertical tabs, side navs."
         }
       }
     },
     "interaction": {
       "main": {
         "default": {
-          "value": "{color.brand.primary.500}",
+          "value": "#276EF1",
           "type": "color",
-          "description": "Primary interactive colour for texts, borders and background on canvas.default",
-          "failedToResolve": true
+          "description": "Primary interactive colour for texts, borders and background on canvas.default"
         },
         "hover": {
-          "value": "{color.brand.primary.600}",
+          "value": "#0D4FCA",
           "type": "color",
-          "description": "Background of a primary interaction when hovered over",
-          "failedToResolve": true
+          "description": "Background of a primary interaction when hovered over"
         },
         "active": {
-          "value": "{color.brand.primary.700}",
+          "value": "#0B44AC",
           "type": "color",
-          "description": "Background of a primary interaction when pressed",
-          "failedToResolve": true
+          "description": "Background of a primary interaction when pressed"
         }
       },
       "main-light": {
         "default": {
-          "value": "{color.brand.primary.50}",
+          "value": "#F7F9FE",
           "type": "color",
-          "description": "Solid light background based on the main interactive colour",
-          "failedToResolve": true
+          "description": "Solid light background based on the main interactive colour"
         },
         "hover": {
-          "value": "{color.brand.primary.100}",
+          "value": "#E1EBFD",
           "type": "color",
-          "description": "interaction.main-light.default in a hover state",
-          "failedToResolve": true
+          "description": "interaction.main-light.default in a hover state"
         },
         "active": {
-          "value": "{color.brand.primary.200}",
+          "value": "#ACC7FA",
           "type": "color",
-          "description": "interaction.main-light.default when pressed",
-          "failedToResolve": true
+          "description": "interaction.main-light.default when pressed"
         }
       },
       "sub": {
         "default": {
-          "value": "{color.brand.secondary.500}",
+          "value": "#5d6785",
           "type": "color",
-          "description": "Secondary interactive colour for texts, borders and background on canvas-default",
-          "failedToResolve": true
+          "description": "Secondary interactive colour for texts, borders and background on canvas-default"
         },
         "hover": {
-          "value": "{color.brand.secondary.600}",
+          "value": "#465173",
           "type": "color",
-          "description": "Background of a secondary interaction when selected",
-          "failedToResolve": true
+          "description": "Background of a secondary interaction when selected"
         },
         "active": {
-          "value": "{color.brand.secondary.700}",
+          "value": "#3c4764",
           "type": "color",
-          "description": "Background of a secondary interaction when selected",
-          "failedToResolve": true
+          "description": "Background of a secondary interaction when selected"
         }
       },
       "sub-light": {
         "default": {
-          "value": "{color.brand.secondary.50}",
+          "value": "#f8f9fa",
           "type": "color",
-          "description": "Light background of a secondary interaction",
-          "failedToResolve": true
+          "description": "Light background of a secondary interaction"
         },
         "hover": {
-          "value": "{color.brand.secondary.100}",
+          "value": "#e9eaee",
           "type": "color",
-          "description": "Light background of a secondary interaction when hovering",
-          "failedToResolve": true
+          "description": "Light background of a secondary interaction when hovering"
         },
         "active": {
-          "value": "{color.brand.secondary.200}",
+          "value": "#babecb",
           "type": "color",
-          "description": "Light background of a secondary interaction when pressed",
-          "failedToResolve": true
+          "description": "Light background of a secondary interaction when pressed"
         }
       },
       "critical": {
         "default": {
-          "value": "{color.red.500}",
+          "value": "#c03434",
           "type": "color",
-          "description": "Danger colour for texts, borders and background",
-          "failedToResolve": true
+          "description": "Danger colour for texts, borders and background"
         },
         "hover": {
-          "value": "{color.red.600}",
+          "value": "#992a2a",
           "type": "color",
-          "description": "Background and borders using critical-default when hovered over",
-          "failedToResolve": true
+          "description": "Background and borders using critical-default when hovered over"
         },
         "active": {
-          "value": "{color.red.700}",
+          "value": "#852424",
           "type": "color",
-          "description": "Background and borders using critical-default when pressed",
-          "failedToResolve": true
+          "description": "Background and borders using critical-default when pressed"
         }
       },
       "critical-light": {
         "default": {
-          "value": "{color.red.50}",
+          "value": "#fef7f7",
           "type": "color",
-          "description": "Light critical background",
-          "failedToResolve": true
+          "description": "Light critical background"
         },
         "hover": {
-          "value": "{color.red.100}",
+          "value": "#fbe4e4",
           "type": "color",
-          "description": "Light critical background when hovered over",
-          "failedToResolve": true
+          "description": "Light critical background when hovered over"
         },
         "active": {
-          "value": "{color.red.200}",
+          "value": "#f4acac",
           "type": "color",
-          "description": "Light critical background when pressed",
-          "failedToResolve": true
+          "description": "Light critical background when pressed"
         }
       },
       "warning": {
         "default": {
-          "value": "{color.yellow.100}",
+          "value": "#FFDA68",
           "type": "color",
-          "description": "Warning background. Yellow is too light to be used for text colour, so this can only be used for background and border.",
-          "failedToResolve": true
+          "description": "Warning background. Yellow is too light to be used for text colour, so this can only be used for background and border."
         },
         "hover": {
-          "value": "{color.yellow.200}",
+          "value": "#E2B73E",
           "type": "color",
-          "description": "Warning background when hovered",
-          "failedToResolve": true
+          "description": "Warning background when hovered"
         },
         "active": {
-          "value": "{color.yellow.300}",
+          "value": "#C4992A",
           "type": "color",
-          "description": "Warning background when pressed",
-          "failedToResolve": true
+          "description": "Warning background when pressed"
         }
       },
       "warning-light": {
         "default": {
-          "value": "{color.yellow.50}",
+          "value": "#fffae1",
           "type": "color",
-          "description": "Light warning background",
-          "failedToResolve": true
+          "description": "Light warning background"
         },
         "hover": {
-          "value": "{color.yellow.100}",
+          "value": "#FFDA68",
           "type": "color",
-          "description": "Light warning background when hovered",
-          "failedToResolve": true
+          "description": "Light warning background when hovered"
         },
         "active": {
-          "value": "{color.yellow.200}",
+          "value": "#E2B73E",
           "type": "color",
-          "description": "Light warning background when pressed",
-          "failedToResolve": true
+          "description": "Light warning background when pressed"
         }
       },
       "success": {
         "default": {
-          "value": "{color.green.500}",
+          "value": "#00774e",
           "type": "color",
-          "description": "Success colour for texts, borders and background",
-          "failedToResolve": true
+          "description": "Success colour for texts, borders and background"
         },
         "hover": {
-          "value": "{color.green.600}",
+          "value": "#005f3e",
           "type": "color",
-          "description": "Background and borders using success.default when hovered over",
-          "failedToResolve": true
+          "description": "Background and borders using success.default when hovered over"
         },
         "active": {
-          "value": "{color.green.700}",
+          "value": "#005336",
           "type": "color",
-          "description": "Background of success.active when pressed",
-          "failedToResolve": true
+          "description": "Background of success.active when pressed"
         }
       },
       "success-light": {
         "default": {
-          "value": "{color.green.50}",
+          "value": "#f5fbf9",
           "type": "color",
-          "description": "Light background for success colours",
-          "failedToResolve": true
+          "description": "Light background for success colours"
         },
         "hover": {
-          "value": "{color.green.100}",
+          "value": "#d6f0e7",
           "type": "color",
-          "description": "Light background for success colours when hovered",
-          "failedToResolve": true
+          "description": "Light background for success colours when hovered"
         },
         "active": {
-          "value": "{color.green.200}",
+          "value": "#7ccfb3",
           "type": "color",
-          "description": "Light background for success colours when pressed",
-          "failedToResolve": true
+          "description": "Light background for success colours when pressed"
         }
       },
       "neutral-light": {
         "default": {
-          "value": "{color.grey.50}",
+          "value": "#f9f9f9",
           "type": "color",
-          "description": "Light background for neutral colours",
-          "failedToResolve": true
+          "description": "Light background for neutral colours"
         },
         "hover": {
-          "value": "{color.grey.100}",
+          "value": "#e9e9e9",
           "type": "color",
-          "description": "Light background for neutral colours on hover",
-          "failedToResolve": true
+          "description": "Light background for neutral colours on hover"
         },
         "active": {
-          "value": "{color.grey.200}",
+          "value": "#bfbfbf",
           "type": "color",
-          "description": "Light background for neutral colours when pressed",
-          "failedToResolve": true
+          "description": "Light background for neutral colours when pressed"
         }
       },
       "muted": {
         "main": {
           "hover": {
-            "value": "{color.brand.primary.50}",
+            "value": "#F7F9FE",
             "type": "color",
-            "description": "muted.main.default when hovering",
-            "failedToResolve": true
+            "description": "muted.main.default when hovering"
           },
           "active": {
-            "value": "{color.brand.primary.100}",
+            "value": "#E1EBFD",
             "type": "color",
-            "description": "muted.main.default when pressed",
-            "failedToResolve": true
+            "description": "muted.main.default when pressed"
           }
         },
         "sub": {
           "hover": {
-            "value": "{color.brand.secondary.50}",
+            "value": "#f8f9fa",
             "type": "color",
-            "description": "muted.sub.default when hovering",
-            "failedToResolve": true
+            "description": "muted.sub.default when hovering"
           },
           "active": {
-            "value": "{color.brand.secondary.100}",
+            "value": "#e9eaee",
             "type": "color",
-            "description": "muted.sub.default when pressed",
-            "failedToResolve": true
+            "description": "muted.sub.default when pressed"
           }
         },
         "critical": {
           "hover": {
-            "value": "{color.red.50}",
+            "value": "#fef7f7",
             "type": "color",
-            "description": "muted.critical.default when hovering",
-            "failedToResolve": true
+            "description": "muted.critical.default when hovering"
           },
           "active": {
-            "value": "{color.red.100}",
+            "value": "#fbe4e4",
             "type": "color",
-            "description": "muted.critical.default when pressed",
-            "failedToResolve": true
+            "description": "muted.critical.default when pressed"
           }
         },
         "neutral": {
           "hover": {
-            "value": "{color.grey.50}",
+            "value": "#f9f9f9",
             "type": "color",
-            "description": "muted-neutral.default when hovered over",
-            "failedToResolve": true
+            "description": "muted-neutral.default when hovered over"
           },
           "active": {
-            "value": "{color.grey.100}",
+            "value": "#e9e9e9",
             "type": "color",
-            "description": "muted-neutral.default when pressed",
-            "failedToResolve": true
+            "description": "muted-neutral.default when pressed"
           }
         }
       },
       "tinted": {
         "main": {
           "hover": {
-            "value": "rgba({color.brand.primary.500}, 0.04)",
+            "value": "#276ef10a",
             "type": "color",
-            "description": "Translucent background tinted with the main interactive colour, upon hovering",
-            "failedToResolve": true
+            "description": "Translucent background tinted with the main interactive colour, upon hovering"
           },
           "active": {
-            "value": "rgba({color.brand.primary.500}, 0.12)",
+            "value": "#276ef11f",
             "type": "color",
-            "description": "Translucent background tinted with the main interactive colour, upon pressing",
-            "failedToResolve": true
+            "description": "Translucent background tinted with the main interactive colour, upon pressing"
           }
         },
         "critical": {
           "hover": {
-            "value": "rgba({color.red.500}, 0.04)",
+            "value": "#c034340a",
             "type": "color",
-            "description": "Translucent background tinted with the critical interactive colour, upon hovering",
-            "failedToResolve": true
+            "description": "Translucent background tinted with the critical interactive colour, upon hovering"
           },
           "active": {
-            "value": "rgba({color.red.500}, 0.12)",
+            "value": "#c034341f",
             "type": "color",
-            "description": "Translucent background tinted with the critical interactive colour, upon pressing",
-            "failedToResolve": true
+            "description": "Translucent background tinted with the critical interactive colour, upon pressing"
           }
         },
         "dark": {
           "hover": {
-            "value": "rgba({color.standard.black}, 0.1)",
+            "value": "#0000001a",
             "type": "color",
-            "description": "Translucent background tinted with the neutral colour, upon hovering",
-            "failedToResolve": true
+            "description": "Translucent background tinted with the neutral colour, upon hovering"
           },
           "active": {
-            "value": "rgba({color.standard.black}, 0.2)",
+            "value": "#00000033",
             "type": "color",
-            "description": "Translucent background tinted with the neutral colour, upon pressing",
-            "failedToResolve": true
+            "description": "Translucent background tinted with the neutral colour, upon pressing"
           }
         },
         "light": {
           "hover": {
-            "value": "rgba({color.standard.white}, 0.1)",
+            "value": "#ffffff1a",
             "type": "color",
-            "description": "Translucent background tinted with the neutral colour, upon hovering",
-            "failedToResolve": true
+            "description": "Translucent background tinted with the neutral colour, upon hovering"
           },
           "active": {
-            "value": "rgba({color.standard.white}, 0.2)",
+            "value": "#ffffff33",
             "type": "color",
-            "description": "Translucent background tinted with the neutral colour, upon pressing",
-            "failedToResolve": true
+            "description": "Translucent background tinted with the neutral colour, upon pressing"
           }
         }
       },
       "support": {
         "unselected": {
-          "value": "{color.grey.300}",
+          "value": "#a0a0a0",
           "type": "color",
-          "description": "To denote unselected regions of the interface. Used for toggles and progress indicators",
-          "failedToResolve": true
+          "description": "To denote unselected regions of the interface. Used for toggles and progress indicators"
         },
         "selected": {
-          "value": "{color.grey.500}",
+          "value": "#686868",
           "type": "color",
-          "description": "To be used when a neutral tone is preferred to showcase a selected state",
-          "failedToResolve": true
+          "description": "To be used when a neutral tone is preferred to showcase a selected state"
         },
         "unselected-dark": {
-          "value": "{color.grey.500}",
+          "value": "#686868",
           "type": "color",
-          "description": "Darker variant to denote unselected foreground elements on canvas-default. Used for tabs",
-          "failedToResolve": true
+          "description": "Darker variant to denote unselected foreground elements on canvas-default. Used for tabs"
         },
         "disabled": {
-          "value": "{color.grey.100}",
+          "value": "#e9e9e9",
           "type": "color",
-          "description": "Fill colour of disabled regions, including inputs",
-          "failedToResolve": true
+          "description": "Fill colour of disabled regions, including inputs"
         },
         "disabled-content": {
-          "value": "{color.grey.300}",
+          "value": "#a0a0a0",
           "type": "color",
-          "description": "Colour of disabled foreground elements on the canvas-default or disabled",
-          "failedToResolve": true
+          "description": "Colour of disabled foreground elements on the canvas-default or disabled"
         },
         "placeholder": {
-          "value": "{color.grey.300}",
+          "value": "#a0a0a0",
           "type": "color",
-          "description": "Colour of placeholder foreground elements",
-          "failedToResolve": true
+          "description": "Colour of placeholder foreground elements"
         }
       },
       "links": {
         "default": {
-          "value": "{color.brand.primary.500}",
+          "value": "#276EF1",
           "type": "color",
-          "description": "Default colour for links",
-          "failedToResolve": true
+          "description": "Default colour for links"
         },
         "hover": {
-          "value": "{color.brand.primary.600}",
+          "value": "#0D4FCA",
           "type": "color",
-          "description": "Colour of links when hovered upon",
-          "failedToResolve": true
+          "description": "Colour of links when hovered upon"
         },
         "dark-default": {
-          "value": "{color.grey.700}",
+          "value": "#474747",
           "type": "color",
-          "description": "Default colour for dark links",
-          "failedToResolve": true
+          "description": "Default colour for dark links"
         },
         "dark-hover": {
-          "value": "{color.grey.900}",
+          "value": "#2e2e2e",
           "type": "color",
-          "description": "Colour of dark links when hovered upon",
-          "failedToResolve": true
+          "description": "Colour of dark links when hovered upon"
         },
         "inverse-default": {
-          "value": "{color.standard.white}",
+          "value": "#ffffff",
           "type": "color",
-          "description": "Default colour of inverse links",
-          "failedToResolve": true
+          "description": "Default colour of inverse links"
         },
         "inverse-hover": {
-          "value": "{color.grey.100}",
+          "value": "#e9e9e9",
           "type": "color",
-          "description": "Colour of inverse links when hovered upon",
-          "failedToResolve": true
+          "description": "Colour of inverse links when hovered upon"
         }
       }
     },
     "utility": {
       "feedback": {
         "info": {
-          "value": "{color.blue.500}",
+          "value": "#276EF1",
           "type": "color",
-          "description": "Informational feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes.",
-          "failedToResolve": true
+          "description": "Informational feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
         "info-light": {
-          "value": "{color.blue.50}",
+          "value": "#F7F9FE",
           "type": "color",
-          "description": "Light background alternative to feedback.info. Can be used for toasts and infoboxes.",
-          "failedToResolve": true
+          "description": "Light background alternative to feedback.info. Can be used for toasts and infoboxes."
         },
         "warning": {
-          "value": "{color.yellow.100}",
+          "value": "#FFDA68",
           "type": "color",
-          "description": "Warning feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes.",
-          "failedToResolve": true
+          "description": "Warning feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
         "warning-light": {
-          "value": "{color.yellow.50}",
+          "value": "#fffae1",
           "type": "color",
-          "description": "Light background alternative to feedback.warning. Can be used for toasts and infoboxes.",
-          "failedToResolve": true
+          "description": "Light background alternative to feedback.warning. Can be used for toasts and infoboxes."
         },
         "success": {
-          "value": "{color.green.500}",
+          "value": "#00774e",
           "type": "color",
-          "description": "Success feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes.",
-          "failedToResolve": true
+          "description": "Success feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
         "success-light": {
-          "value": "{color.green.50}",
+          "value": "#f5fbf9",
           "type": "color",
-          "description": "Light background alternative to feedback.success. Can be used for toasts and infoboxes.",
-          "failedToResolve": true
+          "description": "Light background alternative to feedback.success. Can be used for toasts and infoboxes."
         },
         "critical": {
-          "value": "{color.red.500}",
+          "value": "#c03434",
           "type": "color",
-          "description": "Critical feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes.",
-          "failedToResolve": true
+          "description": "Critical feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
         "critical-light": {
-          "value": "{color.red.50}",
+          "value": "#fef7f7",
           "type": "color",
-          "description": "Light background alternative to feedback.critical. Can be used for toasts and infoboxes.",
-          "failedToResolve": true
+          "description": "Light background alternative to feedback.critical. Can be used for toasts and infoboxes."
         }
       },
       "focus-default": {
-        "value": "{color.blue.500}",
+        "value": "#276EF1",
         "type": "color",
-        "description": "Default focus ring over interactive elements of the interface",
-        "failedToResolve": true
+        "description": "Default focus ring over interactive elements of the interface"
       },
       "focus-inverse": {
-        "value": "{color.standard.white}",
+        "value": "#ffffff",
         "type": "color",
-        "description": "Inverse focus ring over interactive elements of the inverse interface",
-        "failedToResolve": true
+        "description": "Inverse focus ring over interactive elements of the inverse interface"
       },
       "input-prefilled": {
-        "value": "{color.yellow.50}",
+        "value": "#fffae1",
         "type": "color",
-        "description": "Background of an input field when prefilled",
-        "failedToResolve": true
+        "description": "Background of an input field when prefilled"
       },
       "ui": {
-        "value": "{color.standard.white}",
+        "value": "#ffffff",
         "type": "color",
-        "description": "Background of UI elements",
-        "failedToResolve": true
+        "description": "Background of UI elements"
       },
       "ui-clear": {
-        "value": "rgba({color.standard.white},0)",
+        "value": "#ffffff00",
         "type": "color",
-        "description": "Clear transparent background",
-        "failedToResolve": true
+        "description": "Clear transparent background"
       }
     }
   },
   "shadow": {
-    "small": {
+    "sm": {
       "value": {
         "color": "#bfbfbf80",
         "type": "dropShadow",
@@ -1198,7 +1088,7 @@
       },
       "type": "boxShadow"
     },
-    "medium": {
+    "md": {
       "value": {
         "color": "#6868684d",
         "type": "dropShadow",
@@ -1427,441 +1317,412 @@
     "responsive-display": {
       "heavy-1280": {
         "value": {
-          "fontFamily": "{typography.fontFamilies.inter}",
-          "fontWeight": "{typography.fontWeights.bold}",
-          "lineHeight": "{typography.lineHeights.18}",
-          "fontSize": "{typography.fontSize.10xl}",
-          "letterSpacing": "{typography.letterSpacing.4}",
-          "paragraphSpacing": "{typography.paragraphSpacing.0}",
-          "textCase": "{typography.textCase.none}",
-          "textDecoration": "{typography.textDecoration.none}"
+          "fontFamily": "Inter",
+          "fontWeight": "Bold",
+          "lineHeight": 72,
+          "fontSize": 64,
+          "letterSpacing": "-2.2%",
+          "paragraphSpacing": 0,
+          "textCase": "none",
+          "textDecoration": "none"
         },
         "type": "typography",
-        "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (1280 and above)",
-        "failedToResolve": true
+        "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (1280 and above)"
       },
       "heavy-480": {
         "value": {
-          "fontFamily": "{typography.fontFamilies.inter}",
-          "fontWeight": "{typography.fontWeights.bold}",
-          "lineHeight": "{typography.lineHeights.16}",
-          "fontSize": "{typography.fontSize.9xl}",
-          "letterSpacing": "{typography.letterSpacing.4}",
-          "paragraphSpacing": "{typography.paragraphSpacing.0}",
-          "textCase": "{typography.textCase.none}",
-          "textDecoration": "{typography.textDecoration.none}"
+          "fontFamily": "Inter",
+          "fontWeight": "Bold",
+          "lineHeight": 64,
+          "fontSize": 56,
+          "letterSpacing": "-2.2%",
+          "paragraphSpacing": 0,
+          "textCase": "none",
+          "textDecoration": "none"
         },
         "type": "typography",
-        "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (480-1279)",
-        "failedToResolve": true
+        "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (480-1279)"
       },
       "heavy": {
         "value": {
-          "fontFamily": "{typography.fontFamilies.inter}",
-          "fontWeight": "{typography.fontWeights.semibold}",
-          "lineHeight": "{typography.lineHeights.12}",
-          "fontSize": "{typography.fontSize.6xl}",
-          "letterSpacing": "{typography.letterSpacing.4}",
-          "paragraphSpacing": "{typography.paragraphSpacing.0}",
-          "textCase": "{typography.textCase.none}",
-          "textDecoration": "{typography.textDecoration.none}"
+          "fontFamily": "Inter",
+          "fontWeight": "Semi Bold",
+          "lineHeight": 48,
+          "fontSize": 40,
+          "letterSpacing": "-2.2%",
+          "paragraphSpacing": 0,
+          "textCase": "none",
+          "textDecoration": "none"
         },
         "type": "typography",
-        "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (0-479)",
-        "failedToResolve": true
+        "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (0-479)"
       },
       "light-1280": {
         "value": {
-          "fontFamily": "{typography.fontFamilies.inter}",
-          "fontWeight": "{typography.fontWeights.light}",
-          "lineHeight": "{typography.lineHeights.18}",
-          "fontSize": "{typography.fontSize.10xl}",
-          "letterSpacing": "{typography.letterSpacing.4}",
-          "paragraphSpacing": "{typography.paragraphSpacing.0}",
-          "textCase": "{typography.textCase.none}",
-          "textDecoration": "{typography.textDecoration.none}"
+          "fontFamily": "Inter",
+          "fontWeight": "Light",
+          "lineHeight": 72,
+          "fontSize": 64,
+          "letterSpacing": "-2.2%",
+          "paragraphSpacing": 0,
+          "textCase": "none",
+          "textDecoration": "none"
         },
         "type": "typography",
-        "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (1280 and above)",
-        "failedToResolve": true
+        "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (1280 and above)"
       },
       "light-480": {
         "value": {
-          "fontFamily": "{typography.fontFamilies.inter}",
-          "fontWeight": "{typography.fontWeights.light}",
-          "lineHeight": "{typography.lineHeights.16}",
-          "fontSize": "{typography.fontSize.9xl}",
-          "letterSpacing": "{typography.letterSpacing.4}",
-          "paragraphSpacing": "{typography.paragraphSpacing.0}",
-          "textCase": "{typography.textCase.none}",
-          "textDecoration": "{typography.textDecoration.none}"
+          "fontFamily": "Inter",
+          "fontWeight": "Light",
+          "lineHeight": 64,
+          "fontSize": 56,
+          "letterSpacing": "-2.2%",
+          "paragraphSpacing": 0,
+          "textCase": "none",
+          "textDecoration": "none"
         },
         "type": "typography",
-        "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (480-1279)",
-        "failedToResolve": true
+        "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (480-1279)"
       },
       "light": {
         "value": {
-          "fontFamily": "{typography.fontFamilies.inter}",
-          "fontWeight": "{typography.fontWeights.light}",
-          "lineHeight": "{typography.lineHeights.12}",
-          "fontSize": "{typography.fontSize.6xl}",
-          "letterSpacing": "{typography.letterSpacing.4}",
-          "paragraphSpacing": "{typography.paragraphSpacing.0}",
-          "textCase": "{typography.textCase.none}",
-          "textDecoration": "{typography.textDecoration.none}"
+          "fontFamily": "Inter",
+          "fontWeight": "Light",
+          "lineHeight": 48,
+          "fontSize": 40,
+          "letterSpacing": "-2.2%",
+          "paragraphSpacing": 0,
+          "textCase": "none",
+          "textDecoration": "none"
         },
         "type": "typography",
-        "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (0-479)",
-        "failedToResolve": true
+        "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (0-479)"
       }
     },
     "responsive-heading": {
       "heavy-1280": {
         "value": {
-          "fontFamily": "{typography.fontFamilies.inter}",
-          "fontWeight": "{typography.fontWeights.semibold}",
-          "lineHeight": "{typography.lineHeights.14}",
-          "fontSize": "{typography.fontSize.8xl}",
-          "letterSpacing": "{typography.letterSpacing.4}",
-          "paragraphSpacing": "{typography.paragraphSpacing.0}",
-          "textCase": "{typography.textCase.none}",
-          "textDecoration": "{typography.textDecoration.none}"
+          "fontFamily": "Inter",
+          "fontWeight": "Semi Bold",
+          "lineHeight": 56,
+          "fontSize": 48,
+          "letterSpacing": "-2.2%",
+          "paragraphSpacing": 0,
+          "textCase": "none",
+          "textDecoration": "none"
         },
         "type": "typography",
-        "description": "Used in product pages as headings. This will scale according to breakpoints (1280 and above)",
-        "failedToResolve": true
+        "description": "Used in product pages as headings. This will scale according to breakpoints (1280 and above)"
       },
       "heavy-480": {
         "value": {
-          "fontFamily": "{typography.fontFamilies.inter}",
-          "fontWeight": "{typography.fontWeights.semibold}",
-          "lineHeight": "{typography.lineHeights.12}",
-          "fontSize": "{typography.fontSize.6xl}",
-          "letterSpacing": "{typography.letterSpacing.4}",
-          "paragraphSpacing": "{typography.paragraphSpacing.0}",
-          "textCase": "{typography.textCase.none}",
-          "textDecoration": "{typography.textDecoration.none}"
+          "fontFamily": "Inter",
+          "fontWeight": "Semi Bold",
+          "lineHeight": 48,
+          "fontSize": 40,
+          "letterSpacing": "-2.2%",
+          "paragraphSpacing": 0,
+          "textCase": "none",
+          "textDecoration": "none"
         },
         "type": "typography",
-        "description": "Used in product pages as headings. This will scale according to breakpoints (480-1279)",
-        "failedToResolve": true
+        "description": "Used in product pages as headings. This will scale according to breakpoints (480-1279)"
       },
       "heavy": {
         "value": {
-          "fontFamily": "{typography.fontFamilies.inter}",
-          "fontWeight": "{typography.fontWeights.semibold}",
-          "lineHeight": "{typography.lineHeights.10}",
-          "fontSize": "{typography.fontSize.4xl}",
-          "letterSpacing": "{typography.letterSpacing.4}",
-          "paragraphSpacing": "{typography.paragraphSpacing.0}",
-          "textCase": "{typography.textCase.none}",
-          "textDecoration": "{typography.textDecoration.none}"
+          "fontFamily": "Inter",
+          "fontWeight": "Semi Bold",
+          "lineHeight": 40,
+          "fontSize": 32,
+          "letterSpacing": "-2.2%",
+          "paragraphSpacing": 0,
+          "textCase": "none",
+          "textDecoration": "none"
         },
         "type": "typography",
-        "description": "Used in product pages as headings. This will scale according to breakpoints (0-479)",
-        "failedToResolve": true
+        "description": "Used in product pages as headings. This will scale according to breakpoints (0-479)"
       },
       "light-1280": {
         "value": {
-          "fontFamily": "{typography.fontFamilies.inter}",
-          "fontWeight": "{typography.fontWeights.light}",
-          "lineHeight": "{typography.lineHeights.14}",
-          "fontSize": "{typography.fontSize.8xl}",
-          "letterSpacing": "{typography.letterSpacing.4}",
-          "paragraphSpacing": "{typography.paragraphSpacing.0}",
-          "textCase": "{typography.textCase.none}",
-          "textDecoration": "{typography.textDecoration.none}"
+          "fontFamily": "Inter",
+          "fontWeight": "Light",
+          "lineHeight": 56,
+          "fontSize": 48,
+          "letterSpacing": "-2.2%",
+          "paragraphSpacing": 0,
+          "textCase": "none",
+          "textDecoration": "none"
         },
         "type": "typography",
-        "description": "Used in product pages as headings. This will scale according to breakpoints (1280 and above)",
-        "failedToResolve": true
+        "description": "Used in product pages as headings. This will scale according to breakpoints (1280 and above)"
       },
       "light-480": {
         "value": {
-          "fontFamily": "{typography.fontFamilies.inter}",
-          "fontWeight": "{typography.fontWeights.light}",
-          "lineHeight": "{typography.lineHeights.12}",
-          "fontSize": "{typography.fontSize.6xl}",
-          "letterSpacing": "{typography.letterSpacing.4}",
-          "paragraphSpacing": "{typography.paragraphSpacing.0}",
-          "textCase": "{typography.textCase.none}",
-          "textDecoration": "{typography.textDecoration.none}"
+          "fontFamily": "Inter",
+          "fontWeight": "Light",
+          "lineHeight": 48,
+          "fontSize": 40,
+          "letterSpacing": "-2.2%",
+          "paragraphSpacing": 0,
+          "textCase": "none",
+          "textDecoration": "none"
         },
         "type": "typography",
-        "description": "Used in product pages as headings. This will scale according to breakpoints (480-1279)",
-        "failedToResolve": true
+        "description": "Used in product pages as headings. This will scale according to breakpoints (480-1279)"
       },
       "light": {
         "value": {
-          "fontFamily": "{typography.fontFamilies.inter}",
-          "fontWeight": "{typography.fontWeights.light}",
-          "lineHeight": "{typography.lineHeights.10}",
-          "fontSize": "{typography.fontSize.4xl}",
-          "letterSpacing": "{typography.letterSpacing.4}",
-          "paragraphSpacing": "{typography.paragraphSpacing.0}",
-          "textCase": "{typography.textCase.none}",
-          "textDecoration": "{typography.textDecoration.none}"
+          "fontFamily": "Inter",
+          "fontWeight": "Light",
+          "lineHeight": 40,
+          "fontSize": 32,
+          "letterSpacing": "-2.2%",
+          "paragraphSpacing": 0,
+          "textCase": "none",
+          "textDecoration": "none"
         },
         "type": "typography",
-        "description": "Used in product pages as headings. This will scale according to breakpoints (0-479)",
-        "failedToResolve": true
+        "description": "Used in product pages as headings. This will scale according to breakpoints (0-479)"
       }
     },
     "h1": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.semibold}",
-        "lineHeight": "{typography.lineHeights.12}",
-        "fontSize": "{typography.fontSize.6xl}",
-        "letterSpacing": "{typography.letterSpacing.4}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Semi Bold",
+        "lineHeight": 48,
+        "fontSize": 40,
+        "letterSpacing": "-2.2%",
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for layout headings",
-      "failedToResolve": true
+      "description": "This is for layout headings"
     },
     "h2": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.semibold}",
-        "lineHeight": "{typography.lineHeights.11}",
-        "fontSize": "{typography.fontSize.5xl}",
-        "letterSpacing": "{typography.letterSpacing.4}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Semi Bold",
+        "lineHeight": 44,
+        "fontSize": 36,
+        "letterSpacing": "-2.2%",
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for layout headings",
-      "failedToResolve": true
+      "description": "This is for layout headings"
     },
     "h3": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.bold}",
-        "lineHeight": "{typography.lineHeights.9}",
-        "fontSize": "{typography.fontSize.3xl}",
-        "letterSpacing": "{typography.letterSpacing.3}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Bold",
+        "lineHeight": 36,
+        "fontSize": 28,
+        "letterSpacing": "-1.9%",
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for layout headings",
-      "failedToResolve": true
+      "description": "This is for layout headings"
     },
     "h4": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.semibold}",
-        "lineHeight": "{typography.lineHeights.8}",
-        "fontSize": "{typography.fontSize.2xl}",
-        "letterSpacing": "{typography.letterSpacing.3}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Semi Bold",
+        "lineHeight": 32,
+        "fontSize": 24,
+        "letterSpacing": "-1.9%",
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for layout headings",
-      "failedToResolve": true
+      "description": "This is for layout headings"
     },
     "h5": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.semibold}",
-        "lineHeight": "{typography.lineHeights.7}",
-        "fontSize": "{typography.fontSize.xl}",
-        "letterSpacing": "{typography.letterSpacing.2}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Semi Bold",
+        "lineHeight": 28,
+        "fontSize": 20,
+        "letterSpacing": "-1.4%",
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for layout headings",
-      "failedToResolve": true
+      "description": "This is for layout headings"
     },
     "h6": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.medium}",
-        "lineHeight": "{typography.lineHeights.6}",
-        "fontSize": "{typography.fontSize.lg}",
-        "letterSpacing": "{typography.letterSpacing.2}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Medium",
+        "lineHeight": 24,
+        "fontSize": 18,
+        "letterSpacing": "-1.4%",
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for layout headings",
-      "failedToResolve": true
+      "description": "This is for layout headings"
     },
     "subhead-1": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.medium}",
-        "lineHeight": "{typography.lineHeights.6}",
-        "fontSize": "{typography.fontSize.md}",
-        "letterSpacing": "{typography.letterSpacing.1}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Medium",
+        "lineHeight": 24,
+        "fontSize": 16,
+        "letterSpacing": "-0.6%",
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for non-paragraph copy which requires more emphasis, such as subheadings, labels, buttons.",
-      "failedToResolve": true
+      "description": "This is for non-paragraph copy which requires more emphasis, such as subheadings, labels, buttons."
     },
     "subhead-2": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.medium}",
-        "lineHeight": "{typography.lineHeights.5}",
-        "fontSize": "{typography.fontSize.sm}",
-        "letterSpacing": "{typography.letterSpacing.normal}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Medium",
+        "lineHeight": 20,
+        "fontSize": 14,
+        "letterSpacing": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for the same uses as subhead-1, except on smaller, denser interfaces.",
-      "failedToResolve": true
+      "description": "This is for the same uses as subhead-1, except on smaller, denser interfaces."
     },
     "subhead-3": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.semibold}",
-        "lineHeight": "{typography.lineHeights.6}",
-        "fontSize": "{typography.fontSize.sm}",
-        "letterSpacing": "{typography.letterSpacing.wide}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.uppercase}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Semi Bold",
+        "lineHeight": 24,
+        "fontSize": 14,
+        "letterSpacing": "8%",
+        "paragraphSpacing": 0,
+        "textCase": "uppercase",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for subheadings which require more differentiation, and could be used in tabs or paragraph titles.",
-      "failedToResolve": true
+      "description": "This is for subheadings which require more differentiation, and could be used in tabs or paragraph titles."
     },
     "body-1": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.normal}",
-        "lineHeight": "{typography.lineHeights.6}",
-        "fontSize": "{typography.fontSize.md}",
-        "letterSpacing": "{typography.letterSpacing.1}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Regular",
+        "lineHeight": 24,
+        "fontSize": 16,
+        "letterSpacing": "-0.6%",
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for default body copy, suitable for public facing content.",
-      "failedToResolve": true
+      "description": "This is for default body copy, suitable for public facing content."
     },
     "body-2": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.normal}",
-        "lineHeight": "{typography.lineHeights.5}",
-        "fontSize": "{typography.fontSize.sm}",
-        "letterSpacing": "{typography.letterSpacing.normal}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Regular",
+        "lineHeight": 20,
+        "fontSize": 14,
+        "letterSpacing": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for smaller and denser admin interfaces to save space. Not suitable for body for public facing interfaces, unless of less importance.",
-      "failedToResolve": true
+      "description": "This is for smaller and denser admin interfaces to save space. Not suitable for body for public facing interfaces, unless of less importance."
     },
     "body-3": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.normal}",
-        "lineHeight": "{typography.lineHeights.7}",
-        "fontSize": "{typography.fontSize.md}",
-        "letterSpacing": "{typography.letterSpacing.1}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Regular",
+        "lineHeight": 28,
+        "fontSize": 16,
+        "letterSpacing": "-0.6%",
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for long paragraphs. It has a taller line-height than body-1, and allows for breathing space, especially in dense public facing interfaces.",
-      "failedToResolve": true
+      "description": "This is for long paragraphs. It has a taller line-height than body-1, and allows for breathing space, especially in dense public facing interfaces."
     },
     "caption-1": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.medium}",
-        "lineHeight": "{typography.lineHeights.4}",
-        "fontSize": "{typography.fontSize.xs}",
-        "letterSpacing": "{typography.letterSpacing.normal}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Medium",
+        "lineHeight": 16,
+        "fontSize": 12,
+        "letterSpacing": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for smaller captions, such as credits. It has a heavier weight for more emphasis.",
-      "failedToResolve": true
+      "description": "This is for smaller captions, such as credits. It has a heavier weight for more emphasis."
     },
     "caption-2": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.normal}",
-        "lineHeight": "{typography.lineHeights.4}",
-        "fontSize": "{typography.fontSize.xs}",
-        "letterSpacing": "{typography.letterSpacing.normal}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Regular",
+        "lineHeight": 16,
+        "fontSize": 12,
+        "letterSpacing": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for smaller captions, such as credits.",
-      "failedToResolve": true
+      "description": "This is for smaller captions, such as credits."
     },
     "code-1": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.ibmplexmono}",
-        "fontWeight": "{typography.fontWeights.normal}",
-        "lineHeight": "{typography.lineHeights.5}",
-        "fontSize": "{typography.fontSize.sm}",
-        "letterSpacing": "{typography.letterSpacing.normal}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "IBM Plex Mono",
+        "fontWeight": "Regular",
+        "lineHeight": 20,
+        "fontSize": 14,
+        "letterSpacing": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for large code snippets and larger code elements.",
-      "failedToResolve": true
+      "description": "This is for large code snippets and larger code elements."
     },
     "code-2": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.ibmplexmono}",
-        "fontWeight": "{typography.fontWeights.normal}",
-        "lineHeight": "{typography.lineHeights.4}",
-        "fontSize": "{typography.fontSize.xs}",
-        "letterSpacing": "{typography.letterSpacing.normal}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "IBM Plex Mono",
+        "fontWeight": "Regular",
+        "lineHeight": 16,
+        "fontSize": 12,
+        "letterSpacing": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "This is for small code snippets and smaller code elements.",
-      "failedToResolve": true
+      "description": "This is for small code snippets and smaller code elements."
     },
     "legal": {
       "value": {
-        "fontFamily": "{typography.fontFamilies.inter}",
-        "fontWeight": "{typography.fontWeights.normal}",
-        "lineHeight": "{typography.lineHeights.3}",
-        "fontSize": "{typography.fontSize.2xs}",
-        "letterSpacing": "{typography.letterSpacing.normal}",
-        "paragraphSpacing": "{typography.paragraphSpacing.0}",
-        "textCase": "{typography.textCase.none}",
-        "textDecoration": "{typography.textDecoration.none}"
+        "fontFamily": "Inter",
+        "fontWeight": "Regular",
+        "lineHeight": 12,
+        "fontSize": 10,
+        "letterSpacing": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none",
+        "textDecoration": "none"
       },
       "type": "typography",
-      "description": "Used for small legal copy",
-      "failedToResolve": true
+      "description": "Used for small legal copy"
     },
     "textCase": {
       "none": {
@@ -1886,7 +1747,7 @@
       "type": "borderWidth"
     },
     "focus": {
-      "value": 4,
+      "value": 2,
       "type": "borderWidth"
     }
   }

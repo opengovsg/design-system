@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 13 Dec 2022 02:20:42 GMT
+ * Generated on Thu, 22 Dec 2022 16:18:22 GMT
  */
 
 export const typography = {
@@ -52,11 +52,11 @@ export const typography = {
     '11xl': '4.5rem',
   },
   letterSpacing: {
-    '1': '-0.6%',
-    '2': '-1.4%',
-    '3': '-1.9%',
-    '4': '-2.2%',
-    wide: '8%',
+    '1': '-0.006em',
+    '2': '-0.014em',
+    '3': '-0.019em',
+    '4': '-0.022em',
+    wide: '0.080em',
     normal: 0,
   },
   paragraphSpacing: {

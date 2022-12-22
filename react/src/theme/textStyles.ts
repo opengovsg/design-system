@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 13 Dec 2022 07:27:24 GMT
+ * Generated on Thu, 22 Dec 2022 16:18:22 GMT
  */
 
 export const textStyles = {
@@ -11,9 +11,6 @@ export const textStyles = {
       lineHeight: '4.5rem',
       fontSize: '4rem',
       letterSpacing: '-0.022em',
-      paragraphSpacing: 0,
-      textCase: 'none',
-      textDecoration: 'none',
     },
     'heavy-480': {
       fontFamily: 'Inter',
@@ -21,9 +18,6 @@ export const textStyles = {
       lineHeight: '4rem',
       fontSize: '3.5rem',
       letterSpacing: '-0.022em',
-      paragraphSpacing: 0,
-      textCase: 'none',
-      textDecoration: 'none',
     },
     heavy: {
       fontFamily: 'Inter',
@@ -31,9 +25,6 @@ export const textStyles = {
       lineHeight: '3rem',
       fontSize: '2.5rem',
       letterSpacing: '-0.022em',
-      paragraphSpacing: 0,
-      textCase: 'none',
-      textDecoration: 'none',
     },
     'light-1280': {
       fontFamily: 'Inter',
@@ -41,9 +32,6 @@ export const textStyles = {
       lineHeight: '4.5rem',
       fontSize: '4rem',
       letterSpacing: '-0.022em',
-      paragraphSpacing: 0,
-      textCase: 'none',
-      textDecoration: 'none',
     },
     'light-480': {
       fontFamily: 'Inter',
@@ -51,9 +39,6 @@ export const textStyles = {
       lineHeight: '4rem',
       fontSize: '3.5rem',
       letterSpacing: '-0.022em',
-      paragraphSpacing: 0,
-      textCase: 'none',
-      textDecoration: 'none',
     },
     light: {
       fontFamily: 'Inter',
@@ -61,9 +46,6 @@ export const textStyles = {
       lineHeight: '3rem',
       fontSize: '2.5rem',
       letterSpacing: '-0.022em',
-      paragraphSpacing: 0,
-      textCase: 'none',
-      textDecoration: 'none',
     },
   },
   'responsive-heading': {
@@ -73,9 +55,6 @@ export const textStyles = {
       lineHeight: '3.5rem',
       fontSize: '3rem',
       letterSpacing: '-0.022em',
-      paragraphSpacing: 0,
-      textCase: 'none',
-      textDecoration: 'none',
     },
     'heavy-480': {
       fontFamily: 'Inter',
@@ -83,9 +62,6 @@ export const textStyles = {
       lineHeight: '3rem',
       fontSize: '2.5rem',
       letterSpacing: '-0.022em',
-      paragraphSpacing: 0,
-      textCase: 'none',
-      textDecoration: 'none',
     },
     heavy: {
       fontFamily: 'Inter',
@@ -93,9 +69,6 @@ export const textStyles = {
       lineHeight: '2.5rem',
       fontSize: '2rem',
       letterSpacing: '-0.022em',
-      paragraphSpacing: 0,
-      textCase: 'none',
-      textDecoration: 'none',
     },
     'light-1280': {
       fontFamily: 'Inter',
@@ -103,9 +76,6 @@ export const textStyles = {
       lineHeight: '3.5rem',
       fontSize: '3rem',
       letterSpacing: '-0.022em',
-      paragraphSpacing: 0,
-      textCase: 'none',
-      textDecoration: 'none',
     },
     'light-480': {
       fontFamily: 'Inter',
@@ -113,9 +83,6 @@ export const textStyles = {
       lineHeight: '3rem',
       fontSize: '2.5rem',
       letterSpacing: '-0.022em',
-      paragraphSpacing: 0,
-      textCase: 'none',
-      textDecoration: 'none',
     },
     light: {
       fontFamily: 'Inter',
@@ -123,9 +90,6 @@ export const textStyles = {
       lineHeight: '2.5rem',
       fontSize: '2rem',
       letterSpacing: '-0.022em',
-      paragraphSpacing: 0,
-      textCase: 'none',
-      textDecoration: 'none',
     },
   },
   h1: {
@@ -134,9 +98,6 @@ export const textStyles = {
     lineHeight: '3rem',
     fontSize: '2.5rem',
     letterSpacing: '-0.022em',
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   h2: {
     fontFamily: 'Inter',
@@ -144,9 +105,6 @@ export const textStyles = {
     lineHeight: '2.75rem',
     fontSize: '2.25rem',
     letterSpacing: '-0.022em',
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   h3: {
     fontFamily: 'Inter',
@@ -154,9 +112,6 @@ export const textStyles = {
     lineHeight: '2.25rem',
     fontSize: '1.75rem',
     letterSpacing: '-0.019em',
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   h4: {
     fontFamily: 'Inter',
@@ -164,9 +119,6 @@ export const textStyles = {
     lineHeight: '2rem',
     fontSize: '1.5rem',
     letterSpacing: '-0.019em',
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   h5: {
     fontFamily: 'Inter',
@@ -174,9 +126,6 @@ export const textStyles = {
     lineHeight: '1.75rem',
     fontSize: '1.25rem',
     letterSpacing: '-0.014em',
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   h6: {
     fontFamily: 'Inter',
@@ -184,9 +133,6 @@ export const textStyles = {
     lineHeight: '1.5rem',
     fontSize: '1.125rem',
     letterSpacing: '-0.014em',
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   'subhead-1': {
     fontFamily: 'Inter',
@@ -194,9 +140,6 @@ export const textStyles = {
     lineHeight: '1.5rem',
     fontSize: '1rem',
     letterSpacing: '-0.006em',
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   'subhead-2': {
     fontFamily: 'Inter',
@@ -204,9 +147,6 @@ export const textStyles = {
     lineHeight: '1.25rem',
     fontSize: '0.875rem',
     letterSpacing: 0,
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   'subhead-3': {
     fontFamily: 'Inter',
@@ -214,9 +154,7 @@ export const textStyles = {
     lineHeight: '1.5rem',
     fontSize: '0.875rem',
     letterSpacing: '0.080em',
-    paragraphSpacing: 0,
-    textCase: 'uppercase',
-    textDecoration: 'none',
+    textTransform: 'uppercase',
   },
   'body-1': {
     fontFamily: 'Inter',
@@ -224,9 +162,6 @@ export const textStyles = {
     lineHeight: '1.5rem',
     fontSize: '1rem',
     letterSpacing: '-0.006em',
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   'body-2': {
     fontFamily: 'Inter',
@@ -234,9 +169,6 @@ export const textStyles = {
     lineHeight: '1.25rem',
     fontSize: '0.875rem',
     letterSpacing: 0,
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   'body-3': {
     fontFamily: 'Inter',
@@ -244,9 +176,6 @@ export const textStyles = {
     lineHeight: '1.75rem',
     fontSize: '1rem',
     letterSpacing: '-0.006em',
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   'caption-1': {
     fontFamily: 'Inter',
@@ -254,9 +183,6 @@ export const textStyles = {
     lineHeight: '1rem',
     fontSize: '0.75rem',
     letterSpacing: 0,
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   'caption-2': {
     fontFamily: 'Inter',
@@ -264,9 +190,6 @@ export const textStyles = {
     lineHeight: '1rem',
     fontSize: '0.75rem',
     letterSpacing: 0,
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   'code-1': {
     fontFamily: 'IBM Plex Mono',
@@ -274,9 +197,6 @@ export const textStyles = {
     lineHeight: '1.25rem',
     fontSize: '0.875rem',
     letterSpacing: 0,
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   'code-2': {
     fontFamily: 'IBM Plex Mono',
@@ -284,9 +204,6 @@ export const textStyles = {
     lineHeight: '1rem',
     fontSize: '0.75rem',
     letterSpacing: 0,
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
   legal: {
     fontFamily: 'Inter',
@@ -294,8 +211,5 @@ export const textStyles = {
     lineHeight: '0.75rem',
     fontSize: '0.625rem',
     letterSpacing: 0,
-    paragraphSpacing: 0,
-    textCase: 'none',
-    textDecoration: 'none',
   },
 }
