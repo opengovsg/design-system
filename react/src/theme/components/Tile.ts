@@ -24,19 +24,15 @@ const baseStyle = definePartsStyle({
       bg: 'interaction.muted.main.hover',
     },
     outline: 'none',
-    _focus: {
-      // NOTE: For the boxShadow styling, due to conflicts with the focus-visible package,
-      // the !important is required to display the boxShadow styling correctly.
-      boxShadow:
-        '0 0 0 1px var(--chakra-colors-utility-focus-default) !important',
+    _focusVisible: {
+      boxShadow: '0 0 0 1px var(--chakra-colors-utility-focus-default)',
       borderColor: 'utility.focus-default',
       outline: 'none',
     },
     _active: {
       bg: 'interaction.muted.main.active',
       borderColor: 'utility.focus-default',
-      boxShadow:
-        '0 0 0 2px var(--chakra-colors-utility-focus-default) !important',
+      boxShadow: '0 0 0 2px var(--chakra-colors-utility-focus-default)',
     },
     bg: 'utility.ui',
     border: '1px solid',

@@ -187,10 +187,6 @@ const useProvideCalendar = ({
         `.${generateClassNameForDate(classNameId, today)}`,
       ) as HTMLButtonElement | null
       elementToFocus?.focus()
-      // Workaround because for some reason the attributes do not
-      // get added automatically
-      elementToFocus?.classList.add('focus-visible')
-      elementToFocus?.setAttribute('data-focus-visible-added', 'true')
     })
   }, [classNameId])
 
