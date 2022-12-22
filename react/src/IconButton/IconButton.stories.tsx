@@ -28,6 +28,11 @@ const ButtonGroupTemplate: StoryFn<IconButtonProps> = (args) => {
         <IconButton {...args} icon={<BxGitMerge />} size="lg" />
         <IconButton {...args} icon={<BxGitMerge />} size="md" />
       </ButtonGroup>
+      <Text>Hover</Text>
+      <ButtonGroup alignItems="center">
+        <IconButton data-hover {...args} icon={<BxGitMerge />} size="lg" />
+        <IconButton data-hover {...args} icon={<BxGitMerge />} size="md" />
+      </ButtonGroup>
       <Text>Active</Text>
       <ButtonGroup alignItems="center">
         <IconButton {...args} icon={<BxGitMerge />} isActive size="lg" />

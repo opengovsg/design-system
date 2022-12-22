@@ -45,6 +45,9 @@ const AllStates: StoryFn<CheckboxProps> = (args) => {
         because there is too much text. In fact, there's an entire paragraph so
         we can see what it looks like when there is too much text in the option.
       </Checkbox>
+      <Checkbox data-hover {...args}>
+        Hover
+      </Checkbox>
       <Checkbox {...args} defaultChecked>
         Selected
       </Checkbox>

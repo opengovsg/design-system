@@ -37,6 +37,22 @@ const ButtonGroupTemplate: StoryFn<ButtonProps> = (args) => {
           Trailing
         </Button>
       </ButtonGroup>
+      <Text>Hover</Text>
+      <ButtonGroup>
+        <Button data-hover {...args}>
+          Button
+        </Button>
+        <Button data-hover leftIcon={<BxUpload fontSize="1.5rem" />} {...args}>
+          Leading
+        </Button>
+        <Button
+          data-hover
+          rightIcon={<BxRightArrowAlt fontSize="1.5rem" />}
+          {...args}
+        >
+          Trailing
+        </Button>
+      </ButtonGroup>
       <Text>Active</Text>
       <ButtonGroup>
         <Button isActive {...args}>

@@ -99,7 +99,6 @@ export const Radio = forwardRef<RadioProps, 'input'>((props, ref) => {
 
   const group = useRadioGroupContext()
   const styles = useMultiStyleConfig('Radio', { ...group, ...props })
-  console.log(group)
 
   const ownProps = omitThemingProps(props)
 
