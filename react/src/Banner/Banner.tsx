@@ -23,7 +23,7 @@ export interface BannerProps {
    * Defaults to `false`.
    * @default false
    */
-  useMarkdown: boolean
+  useMarkdown?: boolean
   /**
    * Whether to allow collapsing of the banner.
    * Defaults to `true` if `info` variant is used, `false` otherwise.
