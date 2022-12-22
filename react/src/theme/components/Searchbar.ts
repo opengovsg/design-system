@@ -1,38 +1,47 @@
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 import { anatomy } from '@chakra-ui/theme-tools'
 
-import { ComponentMultiStyleConfig } from '~/theme/types'
+const parts = anatomy('searchbar').parts('icon')
 
-import { Input } from './Input'
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
 
-const parts = anatomy('searchbar').parts('icon', 'field')
-
-export const Searchbar: ComponentMultiStyleConfig<typeof parts> = {
-  parts: parts.keys,
-  variants: {
-    outline: (props) => {
-      const inputFieldStyles = Input.variants?.outline(props).field
-      const { isExpanded } = props
-
-      return {
-        icon: {
-          display: 'flex',
-          fontSize: '1rem',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'brand.secondary.500',
-        },
-        field: {
-          ...inputFieldStyles,
-          display: isExpanded ? 'initial' : 'none',
-          w: isExpanded ? '100%' : 0,
-          borderColor: isExpanded
-            ? inputFieldStyles?.borderColor
-            : 'transparent',
-          paddingInlineStart: isExpanded ? '2.75rem' : 0,
-          transitionDuration: isExpanded ? 'normal' : 0,
-        },
-      }
-    },
+const variantOutline = definePartsStyle({
+  icon: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'base.content.dark',
   },
-  defaultProps: Input.defaultProps,
+})
+
+const sizes = {
+  xs: definePartsStyle({
+    icon: {
+      fontSize: '0.875rem',
+    },
+  }),
+  sm: definePartsStyle({
+    icon: {
+      fontSize: '1rem',
+    },
+  }),
+  md: definePartsStyle({
+    icon: {
+      fontSize: '1.25rem',
+    },
+  }),
 }
+
+const variants = {
+  outline: variantOutline,
+}
+
+export const Searchbar = defineMultiStyleConfig({
+  variants,
+  sizes,
+  defaultProps: {
+    variant: 'outline',
+    size: 'md',
+  },
+})
