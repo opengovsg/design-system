@@ -1,4 +1,4 @@
-import { Box, Flex, Icon, Text } from '@chakra-ui/react'
+import { Box, Flex, Heading, Icon, Text } from '@chakra-ui/react'
 import { linkTo } from '@storybook/addon-links'
 
 import { BxBulb, BxChevronRight, BxWrench } from '~/icons'
@@ -13,15 +13,9 @@ export const Welcome = (): JSX.Element => {
         flex="1 0 auto"
       >
         <Box mb="3rem" color="white">
-          <Text
-            textStyle={[
-              'responsive-heading.heavy',
-              'responsive-heading.heavy-480',
-              'responsive-heading.heavy-1280',
-            ]}
-          >
+          <Heading as="h1" size="4xl">
             Welcome to our
-          </Text>
+          </Heading>
           <Text
             textStyle={[
               'responsive-display.heavy',
@@ -67,12 +61,13 @@ export const Welcome = (): JSX.Element => {
             </Text>
           </Flex>
         </Box>
-        <Flex bg="success.500" align="center" justify="center" px="4rem">
+        <Flex bg="brand.primary.600" align="center" justify="center" px="4rem">
           <Link
             as="button"
             onClick={linkTo('Introduction/Guiding principles')}
             aria-label="Next story"
-            colorScheme="brand.secondary"
+            colorScheme="whiteAlpha"
+            color="white"
           >
             <BxChevronRight fontSize="4rem" />
           </Link>

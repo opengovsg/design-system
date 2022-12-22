@@ -41,7 +41,7 @@ export const Typography: FC = () => {
     <Container maxW="container.xl">
       <Heading
         mb="2rem"
-        fontSize="4rem"
+        size="4xl"
         letterSpacing="-0.022em"
         color="brand.secondary.700"
       >
@@ -80,14 +80,9 @@ export const Typography: FC = () => {
         </Box>
       </Flex>
       <Divider my="2rem" />
-      <Text
-        as="h2"
-        textStyle="display-heavy"
-        color="brand.primary.500"
-        mb="2.5rem"
-      >
+      <Heading fontSize="3xl" as="h2" color="brand.primary.500" mb="2.5rem">
         Styles
-      </Text>
+      </Heading>
       <Stack spacing="1.5rem">
         <Wrap justify="space-between">
           <WrapItem>
