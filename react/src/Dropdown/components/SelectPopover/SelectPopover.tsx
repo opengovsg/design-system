@@ -1,4 +1,4 @@
-import { PropsWithChildren, useLayoutEffect, useMemo, useRef } from 'react'
+import { PropsWithChildren, useEffect, useMemo, useRef } from 'react'
 import { Box, useMergeRefs, useOutsideClick } from '@chakra-ui/react'
 import {
   autoUpdate,
@@ -51,8 +51,7 @@ export const SelectPopoverProvider = ({
     [strategy, x, y],
   )
 
-  // Allows
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isOpen && refs.reference.current && refs.floating.current) {
       return autoUpdate(refs.reference.current, refs.floating.current, update)
     }

@@ -4,7 +4,7 @@ import {
   MutableRefObject,
   useCallback,
   useContext,
-  useLayoutEffect,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -241,11 +241,7 @@ const useProvidePhoneNumberInput = ({
     handleFormatInput()
   }, [handleFormatInput, onBlur])
 
-  // useLayoutEffect used instead of useEffect so this only runs after
-  // the render cycle has been completed.
-  // This allows the cursor position to be updated after formatting the input
-  // without "jumping" to the end of the input string and disrupting the user.
-  useLayoutEffect(() => {
+  useEffect(() => {
     const number = formatter.getNumber()?.number
 
     if (number !== defaultValue) {
