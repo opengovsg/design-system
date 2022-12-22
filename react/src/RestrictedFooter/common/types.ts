@@ -5,6 +5,8 @@ import {
 } from '@chakra-ui/react'
 import { SetOptional } from 'type-fest'
 
+import type { WithSsr } from '~/types/WithSsr'
+
 export type RestrictedFooterLink = {
   label: string
   href: string
@@ -41,9 +43,10 @@ export interface RestrictedFooterVariantProps {
 
 export interface RestrictedFooterProps
   extends SetOptional<
-    RestrictedFooterVariantProps,
-    'socialMediaLinks' | 'footerIconLink'
-  > {
+      RestrictedFooterVariantProps,
+      'socialMediaLinks' | 'footerIconLink'
+    >,
+    WithSsr {
   /**
    * The footer variant to display. Defaults to `full` if not provided.
    */

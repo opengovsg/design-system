@@ -1,12 +1,11 @@
-import { ChangeEvent, memo, useCallback, useMemo } from 'react'
 import {
-  Flex,
-  HStack,
-  Select,
-  SelectProps,
-  Text,
-  useBreakpointValue,
-} from '@chakra-ui/react'
+  ChangeEvent,
+  memo,
+  PropsWithChildren,
+  useCallback,
+  useMemo,
+} from 'react'
+import { Flex, HStack, Select, SelectProps, Text } from '@chakra-ui/react'
 import { addMonths } from 'date-fns'
 
 import { IconButton } from '~/IconButton'
@@ -20,10 +19,9 @@ interface CalendarHeaderProps {
   monthOffset: number
 }
 
-const MonthYearSelect = ({
-  children,
-  ...props
-}: { children: React.ReactNode } & SelectProps) => {
+type MonthYearSelectProps = PropsWithChildren<SelectProps>
+
+const MonthYearSelect = ({ children, ...props }: MonthYearSelectProps) => {
   return (
     <Select
       // Prevents any parent form control from applying error styles to this select.
@@ -49,22 +47,22 @@ const MonthYearSelect = ({
 }
 
 const SelectableMonthYear = memo(() => {
-  const { currMonth, setCurrMonth, currYear, setCurrYear, yearOptions } =
-    useCalendar()
-
-  const shouldUseMonthFullName = useBreakpointValue({
-    base: false,
-    xs: false,
-    md: true,
-  })
+  const {
+    currMonth,
+    setCurrMonth,
+    currYear,
+    setCurrYear,
+    yearOptions,
+    isMobile,
+  } = useCalendar()
 
   const memoizedMonthOptions = useMemo(() => {
     return MONTH_NAMES.map(({ shortName, fullName }, index) => (
       <option value={index} key={index}>
-        {shouldUseMonthFullName ? fullName : shortName}
+        {isMobile ? shortName : fullName}
       </option>
     ))
-  }, [shouldUseMonthFullName])
+  }, [isMobile])
 
   const memoizedYearOptions = useMemo(() => {
     return yearOptions.map((year, index) => (
@@ -110,12 +108,7 @@ const SelectableMonthYear = memo(() => {
 })
 
 const MonthYear = memo(({ monthOffset }: CalendarHeaderProps) => {
-  const { currMonth, currYear } = useCalendar()
-  const shouldUseMonthFullName = useBreakpointValue({
-    base: false,
-    xs: false,
-    md: true,
-  })
+  const { currMonth, currYear, isMobile } = useCalendar()
 
   const newOffsetDate = useMemo(
     () => addMonths(new Date(currYear, currMonth), monthOffset),
@@ -124,8 +117,8 @@ const MonthYear = memo(({ monthOffset }: CalendarHeaderProps) => {
 
   const monthDisplay = useMemo(() => {
     const month = MONTH_NAMES[newOffsetDate.getMonth()]
-    return shouldUseMonthFullName ? month.fullName : month.shortName
-  }, [newOffsetDate, shouldUseMonthFullName])
+    return isMobile ? month.shortName : month.fullName
+  }, [isMobile, newOffsetDate])
 
   const yearDisplay = useMemo(() => {
     return newOffsetDate.getFullYear()

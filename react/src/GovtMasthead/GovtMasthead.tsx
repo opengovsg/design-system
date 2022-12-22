@@ -14,11 +14,12 @@ import {
 import { useIsMobile } from '~/hooks/useIsMobile'
 import { BxChevronDown, BxChevronUp, BxsBank, BxsLockAlt } from '~/icons'
 import { Link } from '~/Link'
+import { WithSsr } from '~/types/WithSsr'
 
 import { GovtMastheadIcon } from './GovtMastheadIcon'
 import { GovtMastheadItem } from './GovtMastheadItem'
 
-export interface GovtMastheadProps {
+export interface GovtMastheadProps extends WithSsr {
   defaultIsOpen?: boolean
 }
 
@@ -120,9 +121,10 @@ const HowToIdentify = ({
 
 export const GovtMasthead = ({
   defaultIsOpen,
+  ssr,
 }: GovtMastheadProps): JSX.Element => {
   const { onToggle, isOpen } = useDisclosure({ defaultIsOpen })
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile({ ssr })
 
   const ariaControlId = 'govt-masthead-expandable'
 

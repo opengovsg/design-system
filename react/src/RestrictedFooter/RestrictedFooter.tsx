@@ -15,11 +15,12 @@ export const RestrictedFooter = ({
   footerIconLink,
   socialMediaLinks = DEFAULT_SOCIAL_MEDIA_LINKS,
   colorMode,
+  ssr,
   ...footerProps
 }: RestrictedFooterProps): JSX.Element => {
   const variant = useBreakpointValue(
     typeof variantProp === 'string' ? { base: variantProp } : variantProp,
-    { ssr: false },
+    { ssr },
   )
 
   const ogpFooterIconLink = useMemo(() => {

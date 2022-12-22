@@ -95,12 +95,13 @@ const useProvideDatePicker = ({
   colorScheme,
   monthsToDisplay,
   refocusOnClose = true,
+  ssr,
   ...props
 }: DatePickerProps): DatePickerContextReturn => {
   const initialFocusRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile({ ssr })
 
   const disclosureProps = useDisclosure({
     onClose: () => {

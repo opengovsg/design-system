@@ -103,13 +103,14 @@ const useProvideDateRangePicker = ({
   colorScheme,
   monthsToDisplay,
   refocusOnClose = true,
+  ssr,
   ...props
 }: DateRangePickerProps): DateRangePickerContextReturn => {
   const initialFocusRef = useRef<HTMLInputElement>(null)
   const startInputRef = useRef<HTMLInputElement>(null)
   const endInputRef = useRef<HTMLInputElement>(null)
 
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile({ ssr })
 
   const disclosureProps = useDisclosure({
     onClose: () => {

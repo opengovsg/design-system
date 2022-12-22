@@ -19,9 +19,12 @@ import { Props as DayzedProps, RenderProps, useDayzed } from 'dayzed'
 import { inRange } from 'lodash'
 import { useKey } from 'rooks'
 
-import { CalendarProps } from '../Calendar'
+import { useIsMobile } from '~/hooks'
+import type { WithSsr } from '~/types/WithSsr'
 
-import { DateRangeValue } from './types'
+import type { CalendarProps } from '../Calendar'
+
+import type { DateRangeValue } from './types'
 import {
   generateClassNameForDate,
   getDateFromClassName,
@@ -72,8 +75,10 @@ type PassthroughProps = {
    */
   colorScheme?: ThemingProps<'Calendar'>['colorScheme']
 }
-export type UseProvideCalendarProps = Pick<DayzedProps, 'monthsToDisplay'> &
-  PassthroughProps
+export interface UseProvideCalendarProps
+  extends Pick<DayzedProps, 'monthsToDisplay'>,
+    PassthroughProps,
+    WithSsr {}
 
 interface CalendarContextProps extends CalendarProps, PassthroughProps {
   classNameId: string
@@ -88,6 +93,7 @@ interface CalendarContextProps extends CalendarProps, PassthroughProps {
   dateToFocus: Date
   selectedDates?: Date | DateRangeValue
   monthsToDisplay: Required<CalendarProps>['monthsToDisplay']
+  isMobile: boolean
 }
 
 const CalendarContext = createContext<CalendarContextProps | undefined>(
@@ -131,7 +137,9 @@ const useProvideCalendar = ({
   isDateInRange,
   hoveredDate,
   colorScheme,
+  ssr,
 }: UseProvideCalendarProps) => {
+  const isMobile = useIsMobile({ ssr })
   // Ensure that calculations are always made based on date of initial render,
   // so component state doesn't suddenly jump at midnight
   const today = useMemo(() => new Date(), [])
@@ -293,6 +301,7 @@ const useProvideCalendar = ({
   )
 
   return {
+    isMobile,
     classNameId,
     currMonth,
     currYear,

@@ -1,9 +1,11 @@
 import { ThemingProps, useBreakpointValue } from '@chakra-ui/react'
 
+import type { WithSsr } from '~/types/WithSsr'
+
 import { PaginationFull } from './PaginationFull'
 import { PaginationMinimal } from './PaginationMinimal'
 
-export interface PaginationProps {
+export interface PaginationProps extends WithSsr {
   /**
    * Number of pages to display to left and right of current page.
    * Defaults to `1`.
@@ -43,11 +45,12 @@ export interface PaginationProps {
 
 export const Pagination = ({
   variant: variantProp = 'full',
+  ssr,
   ...props
 }: PaginationProps): JSX.Element => {
   const variant = useBreakpointValue(
     typeof variantProp === 'string' ? { base: variantProp } : variantProp,
-    { ssr: false },
+    { ssr },
   )
 
   return variant === 'minimal' ? (
