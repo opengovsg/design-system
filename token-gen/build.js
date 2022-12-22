@@ -1,3 +1,4 @@
+// For each theme in tokens/transformed directory, run Style Dictionary build.
 const {
   camelCase,
   groupBy,
@@ -10,20 +11,13 @@ const {
   omit,
 } = require("lodash");
 const JSON5 = require("json5");
-
+const path = require("path");
+const fs = require("fs");
 const tinycolor = require("tinycolor2");
-
 const StyleDictionary = require("style-dictionary");
+const { fontWeightToNumber, percentToEm, pxToRem } = require("./config/utils");
 
 const { fileHeader, formattedVariables } = StyleDictionary.formatHelpers;
-
-const MAP_FONT_WEIGHTS = {
-  Light: 300,
-  Regular: 400,
-  Medium: 500,
-  "Semi Bold": 600,
-  Bold: 700,
-};
 
 const designSystemFormatter = ({ dictionary, platform, options, file }) => {
   // Recursively replace all nested objects with "value" key with the value of the "value" key.
@@ -108,29 +102,6 @@ StyleDictionary.registerTransform({
   },
 });
 
-const pxToRem = (px) => {
-  // If have px symbol, remove it.
-  const pxValue = String(px).endsWith("px") ? String(px).slice(0, -2) : px;
-  // 2 decimal places
-  return `${Number(pxValue) / 16}rem`;
-};
-
-const percentToEm = (percent) => {
-  // 3 decimal places
-  if (!percent) return percent;
-  // If have percent symbol, remove it.
-  const percentValue = String(percent).endsWith("%")
-    ? String(percent).slice(0, -1)
-    : percent;
-  return `${(Number(percentValue) / 100).toFixed(3)}em`;
-};
-
-const fontWeightToNumber = (fontWeight) => {
-  const fontWeightValue = MAP_FONT_WEIGHTS[fontWeight];
-  if (!fontWeightValue) return fontWeight;
-  return fontWeightValue;
-};
-
 // Convert textStyles to ChakraUI object.
 StyleDictionary.registerTransform({
   name: "textStyles/design-system",
@@ -202,87 +173,111 @@ StyleDictionary.registerTransform({
   },
 });
 
-module.exports = {
-  source: ["tokens/transformed.json"],
-  platforms: {
-    javascript: {
-      transforms: [
-        "shadow/design-system",
-        "size/percentToEm",
-        "size/pxToRem",
-        "size/fontWeightToNumber",
-        "textStyles/design-system",
-        "color/rbgaWithHex",
-      ],
-      buildPath: "themes/",
-      files: [
-        {
-          destination: "default/colours.ts",
-          filter: (token) => token.type === "color",
-          format: "typescript/design-system",
-          options: {
-            exportName: "colours",
+function getStyleDictionaryConfig(src, name) {
+  return {
+    source: [`tokens/transformed/${src}`],
+    platforms: {
+      javascript: {
+        transforms: [
+          "shadow/design-system",
+          "size/percentToEm",
+          "size/pxToRem",
+          "size/fontWeightToNumber",
+          "textStyles/design-system",
+          "color/rbgaWithHex",
+        ],
+        buildPath: `themes/${name}/`,
+        files: [
+          {
+            destination: "colours.ts",
+            filter: (token) => token.type === "color",
+            format: "typescript/design-system",
+            options: {
+              exportName: "colours",
+            },
           },
-        },
-        {
-          destination: "default/typography.ts",
-          filter: (token) => {
-            switch (token.type) {
-              case "fontFamilies":
-              case "fontSizes":
-              case "fontWeights":
-              case "lineHeights":
-              case "letterSpacing":
-              case "paragraphSpacing":
-                return true;
-              default:
-                return false;
-            }
+          {
+            destination: "typography.ts",
+            filter: (token) => {
+              switch (token.type) {
+                case "fontFamilies":
+                case "fontSizes":
+                case "fontWeights":
+                case "lineHeights":
+                case "letterSpacing":
+                case "paragraphSpacing":
+                  return true;
+                default:
+                  return false;
+              }
+            },
+            format: "typescript/design-system",
+            options: {
+              exportName: "typography",
+            },
           },
-          format: "typescript/design-system",
-          options: {
-            exportName: "typography",
+          {
+            destination: "textStyles.ts",
+            filter: (token) => {
+              if (token.type !== "typography") return false;
+              switch (token.type) {
+                case "fontFamilies":
+                case "fontSizes":
+                case "fontWeights":
+                case "lineHeights":
+                case "letterSpacing":
+                case "paragraphSpacing":
+                  return false;
+                default:
+                  return true;
+              }
+            },
+            format: "typescript/design-system",
+            options: {
+              exportName: "textStyles",
+            },
           },
-        },
-        {
-          destination: "default/textStyles.ts",
-          filter: (token) => {
-            if (token.type !== "typography") return false;
-            switch (token.type) {
-              case "fontFamilies":
-              case "fontSizes":
-              case "fontWeights":
-              case "lineHeights":
-              case "letterSpacing":
-              case "paragraphSpacing":
-                return false;
-              default:
-                return true;
-            }
-          },
-          format: "typescript/design-system",
-          options: {
-            exportName: "textStyles",
-          },
-        },
 
-        {
-          destination: "default/spacing.ts",
-          filter: (token) => token.type === "spacing",
-          format: "typescript/design-system",
-          options: {
-            exportName: "spacing",
+          {
+            destination: "spacing.ts",
+            filter: (token) => token.type === "spacing",
+            format: "typescript/design-system",
+            options: {
+              exportName: "spacing",
+            },
           },
-        },
-        {
-          destination: "default/shadows.ts",
-          filter: (token) => token.type === "boxShadow",
-          format: "typescript/design-system",
-          options: {
-            exportName: "shadows",
+          {
+            destination: "shadows.ts",
+            filter: (token) => token.type === "boxShadow",
+            format: "typescript/design-system",
+            options: {
+              exportName: "shadows",
+            },
           },
-        },
-      ],
+        ],
+      },
     },
-  },
-};
+  };
+}
+
+console.log("Build started...");
+
+const themes = fs.readdirSync("./tokens/transformed/");
+
+// Process each theme to its own theme directory.
+themes.map((themeAddr) => {
+  const theme = path.parse(themeAddr).name.replace(" theme", "");
+  console.log("\n==============================================");
+  console.log(`\nProcessing theme: [${theme}]`);
+
+  const StyleDictionaryExtended = StyleDictionary.extend(
+    getStyleDictionaryConfig(themeAddr, theme)
+  );
+
+  StyleDictionaryExtended.buildPlatform("javascript");
+
+  console.log("\nEnd processing");
+});
+
+console.log("\n==============================================");
+console.log("\nBuild completed!");

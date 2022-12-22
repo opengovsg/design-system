@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "npx style-dictionary clean && npx style-dictionary build",
-    "transform": "npx token-transformer tokens/raw tokens/transformed.json global"
+    "build": "npm run transform && node build.js",
+    "transform": "npx token-transformer tokens/raw --theme --themeOutputPath=tokens/transformed"
   },
   "author": "",
   "license": "ISC",
