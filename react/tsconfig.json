@@ -8,12 +8,11 @@
     "module": "commonjs",
     "declaration": true,
     "jsx": "react-jsx",
-    "inlineSourceMap": true,
     "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
     "resolveJsonModule": true /* Include modules imported with .json extension. */,
     "strictBindCallApply": true /* Enable strict 'bind', 'call', and 'apply' methods on functions. */,
-    // "strict": true /* Enable all strict type-checking options. */,
-
+    "strict": true /* Enable all strict type-checking options. */,
+    "skipLibCheck": true,
     /* Strict Type-Checking Options */
     // "noImplicitAny": true,
     // "strictNullChecks": true /* Enable strict null checks. */,
@@ -53,6 +52,6 @@
     "src/**/*.test.tsx",
     "src/**/*.stories.tsx"
   ],
-  "exclude": ["node_modules/**"],
+  "exclude": ["node_modules"],
   "compileOnSave": false
 }
