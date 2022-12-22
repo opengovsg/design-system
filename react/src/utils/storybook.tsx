@@ -1,14 +1,9 @@
 import { Box, BoxProps } from '@chakra-ui/react'
 import { Args, Decorator } from '@storybook/react'
-import dayjs from 'dayjs'
+import { format } from 'date-fns'
 import mockdate from 'mockdate'
 
 import { breakpoints } from '~/theme/foundations/breakpoints'
-
-import { init as initDayjs } from './dayjs'
-
-// Init dayjs
-initDayjs()
 
 /**
  * Helper function to convert theme breakpoint into viewport width in px for
@@ -68,7 +63,7 @@ export const mockDateDecorator: Decorator<Args> = (storyFn, { parameters }) => {
 
   mockdate.set(parameters.mockdate)
 
-  const mockedDate = dayjs(parameters.mockdate).format('DD-MM-YYYY HH:mma')
+  const mockedDate = format(parameters.mockdate, 'dd-mm-yyyy HH:mma')
 
   return (
     <Box>

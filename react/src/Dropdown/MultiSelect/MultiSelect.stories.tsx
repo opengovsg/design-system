@@ -1,11 +1,7 @@
-import { useCallback, useMemo, useState } from 'react'
-import { Controller, useForm } from 'react-hook-form'
-import { FormControl, Stack } from '@chakra-ui/react'
+import { useState } from 'react'
+import { Stack } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
-import { difference, get } from 'lodash'
 
-import { Button } from '~/Button'
-import { FormErrorMessage, FormLabel } from '~/FormControl'
 import { BxsCheckCircle } from '~/icons'
 import {
   fixedHeightDecorator,
@@ -13,7 +9,6 @@ import {
 } from '~/utils/storybook'
 
 import { ComboboxItem } from '../types'
-import { itemToValue } from '../utils/itemUtils'
 
 import { MultiSelect, MultiSelectProps } from './MultiSelect'
 
@@ -129,61 +124,4 @@ export const Sizes = () => {
       />
     </Stack>
   )
-}
-
-export const Playground: StoryFn<MultiSelectProps> = ({
-  items,
-  isDisabled,
-}) => {
-  const name = 'Multiselect'
-  const {
-    handleSubmit,
-    formState: { errors },
-    control,
-  } = useForm({
-    defaultValues: {
-      [name]: [],
-    },
-  })
-
-  const onSubmit = useCallback((data: unknown) => {
-    alert(JSON.stringify(data))
-  }, [])
-
-  const itemValues = useMemo(() => items.map((i) => itemToValue(i)), [items])
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate>
-      <FormControl isRequired isInvalid={!!errors[name]} id={name}>
-        <FormLabel>Select all fruits you love</FormLabel>
-        <Controller
-          control={control}
-          name={name}
-          rules={{
-            required: 'Please select at least one option',
-            validate: (values) => {
-              return (
-                difference(values, itemValues).length === 0 ||
-                'Some selected options do not exist in the dropdown options'
-              )
-            },
-          }}
-          render={({ field: { value, ...field } }) => (
-            <MultiSelect
-              values={value}
-              items={items}
-              {...field}
-              isDisabled={isDisabled}
-            />
-          )}
-        />
-        <FormErrorMessage>{get(errors[name], 'message')}</FormErrorMessage>
-      </FormControl>
-      <Button type="submit">Submit</Button>
-    </form>
-  )
-}
-
-Playground.args = {
-  isDisabled: false,
 }
