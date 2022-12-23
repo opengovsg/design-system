@@ -1,4 +1,5 @@
-import { mergeConfig, ConfigEnv } from 'vite'
+import { mergeConfig, UserConfig } from 'vite'
+import turbosnap from 'vite-plugin-turbosnap'
 import path from 'path'
 
 export default {
@@ -27,8 +28,12 @@ export default {
       disable: true,
     },
   },
-  async viteFinal(config: ConfigEnv) {
+  async viteFinal(config: UserConfig, { configType }: { configType: string }) {
     return mergeConfig(config, {
+      plugins:
+        configType === 'PRODUCTION'
+          ? [turbosnap({ rootDir: config.root ?? process.cwd() })]
+          : [],
       resolve: {
         alias: {
           '~': path.resolve(__dirname, '../src/'),
