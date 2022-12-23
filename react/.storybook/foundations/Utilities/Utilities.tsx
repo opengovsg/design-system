@@ -23,7 +23,7 @@ export const Utilities = (): JSX.Element => {
   const prettyPrint = useCallback((key: string, value: string) => {
     return (
       <>
-        <Text color="brand.secondary.400">{key}:&nbsp;</Text>
+        <Text color="base.content.light">{key}:&nbsp;</Text>
         <Text>{value}</Text>
       </>
     )
@@ -33,12 +33,7 @@ export const Utilities = (): JSX.Element => {
     <Container maxW="container.xl">
       <Stack direction="column" spacing="3rem">
         <Box>
-          <Heading
-            mb="1.5rem"
-            fontSize="4rem"
-            letterSpacing="-0.022em"
-            color="brand.secondary.700"
-          >
+          <Heading as="h1" mb="1.5rem" size="4xl" color="brand.primary.600">
             Utilities
           </Heading>
           <Text as="h2" textStyle="h2" color="brand.primary.500" mb="2.5rem">
@@ -52,13 +47,13 @@ export const Utilities = (): JSX.Element => {
             spacingY="1rem"
           >
             <Text
-              color="brand.secondary.400"
+              color="base.content.default"
               textStyle="subhead-3"
               mr="10rem"
               alignSelf="center"
               whiteSpace="nowrap"
             >
-              shadow-small
+              shadows.sm
             </Text>
             <Flex
               h="3.5rem"
@@ -70,13 +65,13 @@ export const Utilities = (): JSX.Element => {
               {prettyPrint('sm', theme.shadows['sm'])}
             </Flex>
             <Text
-              color="brand.secondary.400"
+              color="base.content.default"
               textStyle="subhead-3"
               alignSelf="center"
               mr="10rem"
               whiteSpace="nowrap"
             >
-              shadow-medium
+              shadows.md
             </Text>
             <Flex
               h="3.5rem"
