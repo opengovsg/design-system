@@ -1,22 +1,24 @@
-import { ComponentStyleConfig } from '~/theme/types'
+import { cssVar, defineStyle, defineStyleConfig } from '@chakra-ui/react'
 
 import { textStyles } from '../textStyles'
 
-export const Tooltip: ComponentStyleConfig = {
-  baseStyle: {
-    // overriding --tooltip-bg since Chakra UI does it this way -
-    // see https://github.com/chakra-ui/chakra-ui/blob/main/packages/theme/src/components/tooltip.ts
-    '--tooltip-bg': 'var(--chakra-colors-secondary-700)',
-    bg: 'secondary.700',
-    px: '0.75rem',
-    py: '0.5rem',
-    color: 'white',
-    borderRadius: '0.25rem',
-    textAlign: 'left',
-    margin: '0.25rem',
-    maxWidth: '19.5rem',
-    // For some reason textStyle prop is not accepted, so just
-    // pass all required styles
-    ...textStyles['body-2'],
-  },
-}
+const $bg = cssVar('tooltip-bg')
+const $fg = cssVar('tooltip-fg')
+
+const baseStyle = defineStyle({
+  bg: $bg.reference,
+  color: $fg.reference,
+  [$bg.variable]: 'colors.base.canvas.inverse',
+  [$fg.variable]: 'colors.base.content.inverse',
+  px: '0.75rem',
+  py: '0.5rem',
+  borderRadius: '0.25rem',
+  textAlign: 'left',
+  margin: '0.25rem',
+  maxWidth: '19.5rem',
+  ...textStyles['body-2'],
+})
+
+export const Tooltip = defineStyleConfig({
+  baseStyle,
+})

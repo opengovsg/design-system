@@ -1,58 +1,74 @@
 import { useMemo } from 'react'
-import { Options as TransformOptions } from 'react-markdown'
-import { CSSObject, ListItem, OrderedList, Text } from '@chakra-ui/react'
+import type { Options as TransformOptions } from 'react-markdown'
+import {
+  ListItem,
+  OrderedList,
+  SystemStyleObject,
+  Text,
+  TextProps,
+} from '@chakra-ui/react'
 
-import { Link } from '~/Link'
+import { Link, LinkProps } from '~/Link'
 
 type MdComponentStyles = {
   /**
    * If exists, will be used for styling links
    */
-  link?: CSSObject
+  link?: SystemStyleObject
   /**
    * If exists, will be used for styling text
    */
-  text?: CSSObject
+  text?: SystemStyleObject
+}
+
+type MdComponentProps = {
+  /**
+   * If exists, will be passed into Link component
+   */
+  link?: LinkProps
+  /**
+   * If exists, will be used for styling text
+   */
+  text?: TextProps
 }
 
 type UseMdComponentsProps = {
   styles?: MdComponentStyles
   overrides?: TransformOptions['components']
+  props?: MdComponentProps
 }
 
 export const useMdComponents = ({
   styles = {},
+  props = {},
   overrides = {},
 }: UseMdComponentsProps = {}): TransformOptions['components'] => {
-  const textStyles = useMemo(
-    () => ({ ...(styles?.text ? { sx: styles.text } : {}) }),
-    [styles.text],
-  )
-
-  const linkStyles = useMemo(
-    () => ({ ...(styles.link ? { sx: styles.link } : {}) }),
-    [styles.link],
-  )
-
   const mdComponents: TransformOptions['components'] = useMemo(
     () => ({
-      ol: (props) => (
-        <OrderedList marginInlineStart="1.25rem" {...props} {...textStyles} />
+      ol: (p) => (
+        <OrderedList marginInlineStart="1.25rem" {...p} sx={styles.text} />
       ),
-      li: (props) => <ListItem {...props} {...textStyles} />,
-      a: (props) => {
-        const { href } = props
+      li: (p) => <ListItem {...p} sx={styles.text} />,
+      a: (p) => {
+        const { href } = p
         const isExternal =
           typeof window !== 'undefined' &&
           typeof href === 'string' &&
           !href.startsWith(window.location.origin)
 
-        return <Link {...props} isExternal={isExternal} {...linkStyles} />
+        return (
+          <Link
+            {...p}
+            isExternal={isExternal}
+            sx={styles.link}
+            {...props.link}
+          />
+        )
       },
-      p: (props) => <Text {...props} {...textStyles} />,
+      p: (p) => <Text {...p} sx={styles.text} {...props.text} />,
       ...overrides,
     }),
-    [linkStyles, overrides, textStyles],
+    [overrides, props.link, props.text, styles.link, styles.text],
   )
 
   return mdComponents

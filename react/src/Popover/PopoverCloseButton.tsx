@@ -12,11 +12,7 @@ export const PopoverCloseButton = ({
   ...props
 }: PopoverCloseButtonProps): JSX.Element => {
   return (
-    <ChakraPopoverCloseButton
-      variant="clear"
-      colorScheme="secondary"
-      {...props}
-    >
+    <ChakraPopoverCloseButton variant="clear" colorScheme="neutral" {...props}>
       {children}
     </ChakraPopoverCloseButton>
   )

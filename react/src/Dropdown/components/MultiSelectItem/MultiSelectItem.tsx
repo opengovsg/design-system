@@ -19,9 +19,17 @@ export const MultiSelectItem = ({
   item,
   index,
 }: MultiSelectItemProps): JSX.Element => {
-  const { isDisabled, isReadOnly, setIsFocused, closeMenu, isOpen, styles } =
-    useSelectContext()
-  const { getSelectedItemProps, removeSelectedItem } = useMultiSelectContext()
+  const {
+    isDisabled,
+    isReadOnly,
+    setIsFocused,
+    closeMenu,
+    isOpen,
+    styles,
+    size,
+  } = useSelectContext()
+  const { getSelectedItemProps, removeSelectedItem, colorScheme } =
+    useMultiSelectContext()
 
   const itemMeta = useMemo(() => {
     return {
@@ -58,9 +66,9 @@ export const MultiSelectItem = ({
   return (
     <Tag
       title={itemMeta.label}
-      colorScheme="secondary"
-      m="2px"
-      h="2rem"
+      sx={styles.tag}
+      size={size}
+      colorScheme={colorScheme}
       {...getSelectedItemProps({
         selectedItem: item,
         index,
@@ -83,10 +91,8 @@ export const MultiSelectItem = ({
       {itemMeta.icon ? (
         <Icon
           aria-hidden
-          sx={styles.icon}
-          ml="-0.25rem"
-          mr="0.25rem"
           as={itemMeta.icon}
+          sx={styles.tagIcon}
           aria-disabled={isDisabled}
         />
       ) : null}

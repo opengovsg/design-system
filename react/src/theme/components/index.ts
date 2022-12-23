@@ -1,79 +1,83 @@
 import { Accordion } from './Accordion'
-import { Attachment, ATTACHMENT_THEME_KEY } from './Attachment'
+import { Attachment } from './Attachment'
 import { Avatar } from './Avatar'
+import { AvatarMenu } from './AvatarMenu'
 import { Badge } from './Badge'
 import { Banner } from './Banner'
 import { Button } from './Button'
 import { Calendar } from './Calendar'
-import { Checkbox, CHECKBOX_THEME_KEY } from './Checkbox'
+import { Checkbox } from './Checkbox'
 import { CloseButton } from './CloseButton'
 import { DatePicker } from './DatePicker'
+import { DateRangePicker } from './DateRangePicker'
 import { Divider } from './Divider'
 import { Drawer } from './Drawer'
-import { Form } from './Form'
+import { Footer } from './Footer'
+import { FormControl } from './FormControl'
 import { FormError } from './FormError'
 import { FormLabel } from './FormLabel'
-import { InlineMessage } from './InlineMessage'
+import { Infobox } from './Infobox'
 import { Input } from './Input'
 import { Link } from './Link'
 import { Menu } from './Menu'
 import { Modal } from './Modal'
 import { MultiSelect } from './MultiSelect'
 import { NumberInput } from './NumberInput'
-import { Pagination, PAGINATION_THEME_KEY } from './Pagination'
+import { Pagination } from './Pagination'
 import { PhoneNumberInput } from './PhoneNumberInput'
 import { Progress } from './Progress'
-import { Radio, RADIO_THEME_KEY } from './Radio'
-import { Rating, RATING_THEME_KEY } from './Rating'
-import { Searchbar, SEARCHBAR_THEME_KEY } from './Searchbar'
+import { Radio } from './Radio'
+import { Searchbar } from './Searchbar'
 import { SingleCountryPhoneNumberInput } from './SingleCountryPhoneNumberInput'
 import { SingleSelect } from './SingleSelect'
+import { Switch } from './Switch'
 import { Tabs } from './Tabs'
 import { Tag } from './Tag'
 import { Textarea } from './Textarea'
 import { Tile } from './Tile'
 import { Toast } from './Toast'
-import { Toggle, TOGGLE_THEME_KEY } from './Toggle'
+import { Toggle } from './Toggle'
 import { Tooltip } from './Tooltip'
-import { YesNo, YESNO_THEME_KEY } from './YesNo'
 
 export const components = {
+  Attachment,
   Accordion,
   Avatar,
+  AvatarMenu,
   Badge,
   Banner,
   Button,
   Calendar,
+  Checkbox,
   CloseButton,
   DatePicker,
+  DateRangePicker,
+  Divider,
   Drawer,
-  Form,
+  Footer,
+  Form: FormControl,
   FormError,
   FormLabel,
-  Divider,
+  Infobox,
   Input,
   Link,
-  InlineMessage,
-  Modal,
   Menu,
+  Modal,
   MultiSelect,
   NumberInput,
+  Pagination,
   PhoneNumberInput,
   Progress,
+  Radio,
+  Searchbar,
   SingleCountryPhoneNumberInput,
   SingleSelect,
-  Textarea,
+  Switch,
   Tabs,
   Tag,
-  [ATTACHMENT_THEME_KEY]: Attachment,
-  [PAGINATION_THEME_KEY]: Pagination,
-  [CHECKBOX_THEME_KEY]: Checkbox,
-  [RADIO_THEME_KEY]: Radio,
-  [SEARCHBAR_THEME_KEY]: Searchbar,
-  Tooltip,
-  [RATING_THEME_KEY]: Rating,
-  [YESNO_THEME_KEY]: YesNo,
-  [TOGGLE_THEME_KEY]: Toggle,
+  Textarea,
   Tile,
   Toast,
+  Toggle,
+  Tooltip,
 }

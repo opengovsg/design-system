@@ -1,8 +1,10 @@
 import { DropzoneInputProps, DropzoneState } from 'react-dropzone'
-import { chakra, Icon, Text, useStyles } from '@chakra-ui/react'
+import { chakra, Icon, Text } from '@chakra-ui/react'
 
 import { BxsCloudUpload } from '~/icons/BxsCloudUpload'
 import { Link } from '~/Link'
+
+import { useAttachmentStyles } from './AttachmentContext'
 
 interface AttachmentDropzoneProps {
   inputProps: DropzoneInputProps
@@ -13,7 +15,7 @@ export const AttachmentDropzone = ({
   inputProps,
   isDragActive,
 }: AttachmentDropzoneProps): JSX.Element => {
-  const styles = useStyles()
+  const styles = useAttachmentStyles()
 
   return (
     <>

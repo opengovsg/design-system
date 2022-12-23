@@ -22,13 +22,15 @@ To start using the components, please follow these steps:
 
 1. Wrap your application in a `ThemeProvider` provided by **@opengovsg/design-system-react**.
 
-There is also an optional (though strongly recommended) font CSS file that provides the font that is used throughout the design system.
+There is also an optional (though strongly recommended) font package [inter-ui](https://www.npmjs.com/package/inter-ui) that provides the font that is used throughout the design system.
+If using `code` fonts, the [IBM Plex Mono](https://www.npmjs.com/package/@fontsource/ibm-plex-mono) package is also recommended.
 
-This CSS file should be imported in the root of your application **once**:
+This CSS file(s) should be imported in the root of your application **once**:
 
 ```jsx
-// Optional, but strongly recommended to add `inter.css`.
-import '@opengovsg/design-system-react/build/fonts/inter.css'
+import 'inter-ui/inter.css' // Strongly recommended.
+import '@fontsource/ibm-plex-mono' // Import if using code textStyles.
+
 import { ThemeProvider } from '@opengovsg/design-system-react'
 
 const App = ({ children }) => (

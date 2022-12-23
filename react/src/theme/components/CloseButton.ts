@@ -1,29 +1,22 @@
-import { getColor } from '@chakra-ui/theme-tools'
+import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 
-import { ComponentStyleConfig } from '~/theme/types'
+import { layerStyles } from '../layerStyles'
 
 import { Button } from './Button'
 
-export const CloseButton: ComponentStyleConfig = {
+export const CloseButton = defineStyleConfig({
   baseStyle: {
     p: 0,
+    _focusVisible: layerStyles.focusRing.default._focusVisible,
   },
   variants: {
-    subtle: (props) => {
-      const { theme, colorScheme: c } = props
-      return {
-        _focus: {
-          boxShadow: `0 0 0 4px ${getColor(theme, `${c}.300`)}`,
-        },
-      }
-    },
-    clear: (props) => ({
-      ...Button.variants.clear(props),
+    clear: defineStyle((props) => ({
+      ...Button.variants?.clear(props),
       px: 'initial',
-    }),
+    })),
   },
   defaultProps: {
     colorScheme: 'neutral',
     size: 'md',
   },
-}
+})

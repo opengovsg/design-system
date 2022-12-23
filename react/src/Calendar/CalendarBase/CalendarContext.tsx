@@ -7,6 +7,8 @@ import {
   useMemo,
   useState,
 } from 'react'
+import { ThemingProps } from '@chakra-ui/react'
+import cuid from 'cuid'
 import {
   addMonths,
   differenceInCalendarMonths,
@@ -17,14 +19,14 @@ import { Props as DayzedProps, RenderProps, useDayzed } from 'dayzed'
 import { inRange } from 'lodash'
 import { useKey } from 'rooks'
 
-import { ThemeColorScheme } from '~/theme/foundations/colours'
+import { useIsMobile } from '~/hooks'
+import type { WithSsr } from '~/types/WithSsr'
 
-import { CalendarProps } from '../Calendar'
+import type { CalendarProps } from '../Calendar'
 
-import { DateRangeValue } from './types'
+import type { DateRangeValue } from './types'
 import {
   generateClassNameForDate,
-  generateValidUuidClass,
   getDateFromClassName,
   getMonthOffsetFromToday,
   getNewDateFromKeyPress,
@@ -71,13 +73,15 @@ type PassthroughProps = {
   /**
    * Color scheme of date input
    */
-  colorScheme?: ThemeColorScheme
+  colorScheme?: ThemingProps<'Calendar'>['colorScheme']
 }
-export type UseProvideCalendarProps = Pick<DayzedProps, 'monthsToDisplay'> &
-  PassthroughProps
+export interface UseProvideCalendarProps
+  extends Pick<DayzedProps, 'monthsToDisplay'>,
+    PassthroughProps,
+    WithSsr {}
 
 interface CalendarContextProps extends CalendarProps, PassthroughProps {
-  uuid: string
+  classNameId: string
   currMonth: number
   currYear: number
   setCurrMonth: Dispatch<SetStateAction<number>>
@@ -89,6 +93,7 @@ interface CalendarContextProps extends CalendarProps, PassthroughProps {
   dateToFocus: Date
   selectedDates?: Date | DateRangeValue
   monthsToDisplay: Required<CalendarProps>['monthsToDisplay']
+  isMobile: boolean
 }
 
 const CalendarContext = createContext<CalendarContextProps | undefined>(
@@ -131,13 +136,15 @@ const useProvideCalendar = ({
   onMouseLeaveCalendar,
   isDateInRange,
   hoveredDate,
-  colorScheme = 'primary',
+  colorScheme,
+  ssr,
 }: UseProvideCalendarProps) => {
+  const isMobile = useIsMobile({ ssr })
   // Ensure that calculations are always made based on date of initial render,
   // so component state doesn't suddenly jump at midnight
   const today = useMemo(() => new Date(), [])
   // Unique className for dates
-  const uuid = useMemo(() => generateValidUuidClass(), [])
+  const classNameId = useMemo(() => cuid(), [])
   const yearOptions = useMemo(() => getYearOptions(), [])
 
   // Date to focus on initial render if initialFocusRef is passed
@@ -177,15 +184,11 @@ const useProvideCalendar = ({
     // before running document.querySelector
     setTimeout(() => {
       const elementToFocus = document.querySelector(
-        `.${generateClassNameForDate(uuid, today)}`,
+        `.${generateClassNameForDate(classNameId, today)}`,
       ) as HTMLButtonElement | null
       elementToFocus?.focus()
-      // Workaround because for some reason the attributes do not
-      // get added automatically
-      elementToFocus?.classList.add('focus-visible')
-      elementToFocus?.setAttribute('data-focus-visible-added', 'true')
     })
-  }, [uuid])
+  }, [classNameId])
 
   const updateMonthYear = useCallback(
     (newDate: Date) => {
@@ -214,10 +217,16 @@ const useProvideCalendar = ({
   const handleArrowKey = useCallback(
     (e: KeyboardEvent) => {
       const currentlyFocused = document.activeElement
-      if (!currentlyFocused || !currentlyFocused.className.includes(uuid)) {
+      if (
+        !currentlyFocused ||
+        !currentlyFocused.className.includes(classNameId)
+      ) {
         return
       }
-      const focusedDate = getDateFromClassName(currentlyFocused.className, uuid)
+      const focusedDate = getDateFromClassName(
+        currentlyFocused.className,
+        classNameId,
+      )
       if (!focusedDate) return
       // Prevent arrow key from scrolling screen
       e.preventDefault()
@@ -227,11 +236,11 @@ const useProvideCalendar = ({
       updateMonthYear(newDate)
 
       const elementToFocus = document.querySelector(
-        `.${generateClassNameForDate(uuid, newDate)}`,
+        `.${generateClassNameForDate(classNameId, newDate)}`,
       ) as HTMLButtonElement | null
       elementToFocus?.focus()
     },
-    [updateMonthYear, uuid],
+    [updateMonthYear, classNameId],
   )
   useKey(ARROW_KEY_NAMES, handleArrowKey)
 
@@ -288,7 +297,8 @@ const useProvideCalendar = ({
   )
 
   return {
-    uuid,
+    isMobile,
+    classNameId,
     currMonth,
     currYear,
     setCurrMonth,

@@ -18,7 +18,7 @@ export const CalendarPanel = forwardRef<{}, 'button'>(
   (_props, initialFocusRef): JSX.Element => {
     const styles = useCalendarStyles()
     const {
-      uuid,
+      classNameId,
       dateToFocus,
       onMouseLeaveCalendar,
       renderProps: { calendars, getDateProps },
@@ -66,7 +66,8 @@ export const CalendarPanel = forwardRef<{}, 'button'>(
                         }
                         return (
                           <chakra.td
-                            padding={0}
+                            px={0}
+                            py="0.25rem"
                             key={`${calendar.month}${calendar.year}${windex}${index}`}
                           >
                             <DayOfMonth
@@ -78,7 +79,7 @@ export const CalendarPanel = forwardRef<{}, 'button'>(
                                 dateObj.date.getMonth() !== calendar.month
                               }
                               className={generateClassNameForDate(
-                                uuid,
+                                classNameId,
                                 dateObj.date,
                               )}
                               ref={

@@ -1,11 +1,16 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { SimpleGrid, Text } from '@chakra-ui/react'
-import { Meta, Story } from '@storybook/react'
+import {
+  ButtonGroup,
+  SimpleGrid,
+  Text,
+  UseToastOptions,
+} from '@chakra-ui/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { Button } from '~/Button'
 
 import { Toast, ToastProps } from './Toast'
-import { useToast, UseToastProps } from './useToast'
+import { useToast } from './useToast'
 
 const ToastStateProps: Record<string, ToastProps> = {
   Warning: {
@@ -13,21 +18,30 @@ const ToastStateProps: Record<string, ToastProps> = {
     title: '',
     description: 'This is a toast for warning states',
     isClosable: true,
-    onClose: () => {},
   },
   Success: {
     status: 'success',
     title: '',
     description: 'This is a toast for success states',
     isClosable: true,
-    onClose: () => {},
   },
   Error: {
-    status: 'danger',
+    status: 'error',
     title: '',
     description: 'This is a toast for error states',
     isClosable: true,
-    onClose: () => {},
+  },
+  Info: {
+    status: 'info',
+    title: 'Also has a title',
+    description: 'This is a toast for info states',
+    isClosable: true,
+  },
+  Loading: {
+    status: 'loading',
+    title: '',
+    description: 'This is a toast for loading states',
+    isClosable: true,
   },
 }
 
@@ -35,31 +49,18 @@ export default {
   title: 'Components/Toast',
   component: Toast,
   parameters: { backgrounds: { default: 'light' } },
-  decorators: [
-    // NOTE: The toast component requires this to display properly with theming.
-    (Story) => (
-      <>
-        <Story />
-      </>
-    ),
-  ],
 } as Meta
 
-const ToastTemplate: Story<ToastProps> = (args) => <Toast {...args} />
+const ToastTemplate: StoryFn<ToastProps> = (args) => <Toast {...args} />
 
-const ButtonWithToastTemplate: Story<UseToastProps> = (args) => {
-  const toast = useToast()
+const ButtonWithToastTemplate: StoryFn<UseToastOptions> = (args) => {
+  const toast = useToast(args)
+
   return (
-    <Button
-      onClick={() =>
-        toast({
-          onCloseComplete: () => console.log('hi'),
-          ...args,
-        })
-      }
-    >
-      Toast!
-    </Button>
+    <ButtonGroup>
+      <Button onClick={() => toast()}>Toast!</Button>
+      <Button onClick={() => toast.closeAll()}>Close all</Button>
+    </ButtonGroup>
   )
 }
 
@@ -80,17 +81,20 @@ Error.args = ToastStateProps.Error
 export const Warning = ToastTemplate.bind({})
 Warning.args = ToastStateProps.Warning
 
-export const ButtonWithToast = ButtonWithToastTemplate.bind({})
-ButtonWithToast.args = {
-  title: '',
-  description: 'Some description',
-  duration: 6000,
-  isClosable: true,
-  status: 'warning',
-  position: 'top',
+export const Info = ToastTemplate.bind({})
+Info.args = ToastStateProps.Info
+
+export const Loading = ToastTemplate.bind({})
+Loading.args = ToastStateProps.Loading
+
+export const NotCloseable = ToastTemplate.bind({})
+NotCloseable.args = {
+  status: 'info',
+  description: 'This toast is not closeable',
+  isClosable: false,
 }
 
-export const CombinedToasts: Story<ToastProps> = () => (
+export const CombinedToasts: StoryFn<ToastProps> = () => (
   <SimpleGrid
     columns={3}
     spacing={8}
@@ -103,5 +107,19 @@ export const CombinedToasts: Story<ToastProps> = () => (
     <Toast {...ToastStateProps.Warning} />
     <Text>Error</Text>
     <Toast {...ToastStateProps.Error} />
+    <Text>Info</Text>
+    <Toast {...ToastStateProps.Info} />
+    <Text>Loading</Text>
+    <Toast {...ToastStateProps.Loading} />
   </SimpleGrid>
 )
+
+export const ButtonWithToast = ButtonWithToastTemplate.bind({})
+ButtonWithToast.args = {
+  title: '',
+  description: 'Some description',
+  duration: null,
+  isClosable: true,
+  status: 'warning',
+  position: 'top',
+}

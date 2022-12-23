@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { Banner, BannerProps } from './Banner'
 import DocumentationPage from './Banner.mdx'
@@ -13,9 +13,9 @@ export default {
       page: DocumentationPage,
     },
   },
-} as Meta
+} as Meta<BannerProps>
 
-const Template: Story<BannerProps> = (args) => <Banner {...args} />
+const Template: StoryFn<BannerProps> = (args) => <Banner {...args} />
 export const Default = Template.bind({})
 Default.args = {
   children: 'You can insert a normal string here.',
@@ -34,6 +34,7 @@ Info.args = {
   children: `Look at this [website](http://localhost:6006) or
   [Form](https://www.form.gov.sg).`,
   useMarkdown: true,
+  isDismissable: true,
 }
 
 export const Warn = Template.bind({})

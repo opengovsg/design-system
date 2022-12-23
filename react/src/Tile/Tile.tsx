@@ -3,16 +3,17 @@ import {
   Button,
   ButtonProps,
   ComponentWithAs,
+  createStylesContext,
   forwardRef,
   HStack,
   Icon,
-  ListItem,
-  StylesProvider,
   Text,
   TextProps,
+  ThemingProps,
   useMultiStyleConfig,
-  useStyles,
 } from '@chakra-ui/react'
+
+const [TileStylesProvider, useTileStyles] = createStylesContext('Tile')
 
 export interface TileProps
   extends Omit<
@@ -25,13 +26,15 @@ export interface TileProps
     | 'spinner'
     | 'spinnerPlacement'
     | 'title'
+    | 'variant'
+    | 'isActive'
   > {
   // The typing here is to satisfy the ts compiler
   // because otherwise, it will complain about assigning null to the as prop
   /**
    * The icon that should be displayed on the tile
    */
-  icon: As
+  icon?: As
 
   /**
    * The components to be displayed
@@ -45,61 +48,63 @@ export interface TileProps
   badge?: JSX.Element
   /**
    * The variant of the tile - whether it is complex (many elements) or simple (title and subtitle only).
-   * Defaults to simple.
    */
-  variant: 'complex' | 'simple'
+  variant: ThemingProps<'Tile'>['variant']
+
+  /**
+   * Whether the tile is selected or not
+   */
+  isSelected?: boolean
 }
 
 type TileWithParts = ComponentWithAs<'button', TileProps> & {
   Subtitle: typeof TileSubtitle
   Title: typeof TileTitle
   Text: typeof TileText
-  ListItem: typeof TileListItem
 }
 
 export const Tile = forwardRef<TileProps, 'button'>(
-  ({ badge, icon, children, ...props }, ref) => {
-    const styles = useMultiStyleConfig('Tile', props)
+  ({ badge, icon, children, variant, isSelected, ...props }, ref) => {
+    const styles = useMultiStyleConfig('Tile', { ...props, variant })
     return (
       // Ref passed into the component as a whole so that it can be focused
-      <StylesProvider value={styles}>
-        <Button sx={styles.container} ref={ref} {...props}>
+      <TileStylesProvider value={styles}>
+        <Button
+          variant="unstyled"
+          sx={styles.container}
+          isActive={isSelected}
+          ref={ref}
+          {...props}
+        >
           <HStack spacing="1rem">
-            <Icon __css={styles.icon} as={icon} />
+            {icon && <Icon __css={styles.icon} as={icon} />}
             {badge}
           </HStack>
           {children}
         </Button>
-      </StylesProvider>
+      </TileStylesProvider>
     )
   },
 ) as TileWithParts
 
 const TileTitle = (props: TextProps): JSX.Element => {
-  const styles = useStyles()
+  const styles = useTileStyles()
   // Allow consumers to override default style props with their own styling
   return <Text sx={styles.title} {...props} />
 }
 
 const TileSubtitle = (props: TextProps): JSX.Element => {
-  const styles = useStyles()
+  const styles = useTileStyles()
   // Allow consumers to override default style props with their own styling
   return <Text sx={styles.subtitle} {...props} />
 }
 
 const TileText = (props: TextProps): JSX.Element => {
-  return <Text color="secondary.400" {...props} />
-}
-
-const TileListItem = (props: TextProps): JSX.Element => {
-  return (
-    <ListItem>
-      <TileText textStyle="body-2" textAlign="left" {...props} />
-    </ListItem>
-  )
+  const styles = useTileStyles()
+  // Allow consumers to override default style props with their own styling
+  return <Text sx={styles.text} {...props} />
 }
 
 Tile.Title = TileTitle
 Tile.Subtitle = TileSubtitle
-Tile.ListItem = TileListItem
 Tile.Text = TileText

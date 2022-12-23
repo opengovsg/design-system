@@ -4,7 +4,7 @@
  * https://www.npmjs.com/package/react-headless-phone-input but adapted for the
  * application's needs.
  */
-import { forwardRef } from '@chakra-ui/react'
+import { forwardRef, useControllableState } from '@chakra-ui/react'
 import { CountryCode, NationalNumber } from 'libphonenumber-js/min'
 
 import { InputProps } from '~/Input'
@@ -32,7 +32,7 @@ export interface PhoneNumberInputProps extends BasePhoneNumberInputProps {
    * Callback that will be called when the value in the phone number input field
    * changes.
    */
-  onChange: (val: string | undefined) => void
+  onChange?: (val: string | undefined) => void
   /**
    * Optional. Callback that will be called when the phone number input field is
    * blurred.
@@ -41,7 +41,12 @@ export interface PhoneNumberInputProps extends BasePhoneNumberInputProps {
   /**
    * The current value of the controlled component.
    */
-  value: string | undefined
+  value?: string
+
+  /**
+   * The default value of the uncontrolled component.
+   */
+  defaultValue?: string
 
   /**
    * Set the input's placeholder to an example number for the selected country,
@@ -74,15 +79,22 @@ export const PhoneNumberInput = forwardRef<PhoneNumberInputProps, 'input'>(
     {
       defaultCountry = 'SG',
       allowInternational = true,
-      onChange,
+      onChange: onChangeProp,
       onBlur,
-      value,
+      value: valueProp,
+      defaultValue,
       examples = MOBILE_EXAMPLES,
       examplePlaceholder = 'polite',
       ...props
     },
     ref,
   ) => {
+    const [value, onChange] = useControllableState({
+      value: valueProp,
+      defaultValue,
+      onChange: onChangeProp,
+    })
+
     const providerProps: PhoneNumberInputProviderProps = {
       defaultCountry,
       allowInternational,

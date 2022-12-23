@@ -11,8 +11,9 @@ import React, {
   useRef,
 } from 'react'
 import {
-  CSSObject,
   FormControlProps,
+  SystemStyleObjectRecord,
+  ThemingProps,
   useControllableState,
   useDisclosure,
   UseDisclosureReturn,
@@ -23,13 +24,12 @@ import { format, isValid, parse } from 'date-fns'
 import { zonedTimeToUtc } from 'date-fns-tz'
 
 import { useIsMobile } from '~/hooks'
-import { ThemeColorScheme } from '~/theme/foundations/colours'
 
 import { DatePickerProps } from './DatePicker'
 
 interface DatePickerContextReturn {
   isMobile: boolean
-  styles: Record<string, CSSObject>
+  styles: SystemStyleObjectRecord
   handleInputChange: ChangeEventHandler<HTMLInputElement>
   handleInputClick: MouseEventHandler<HTMLInputElement>
   handleDateChange: (date: Date | null) => void
@@ -43,7 +43,7 @@ interface DatePickerContextReturn {
   closeCalendarOnChange: boolean
   placeholder: string
   allowManualInput: boolean
-  colorScheme: ThemeColorScheme
+  colorScheme?: ThemingProps<'DatePicker'>['colorScheme']
   isDateUnavailable?: (date: Date) => boolean
   disclosureProps: UseDisclosureReturn
   monthsToDisplay?: number
@@ -92,15 +92,16 @@ const useProvideDatePicker = ({
   closeCalendarOnChange = true,
   onBlur,
   onClick,
-  colorScheme = 'primary',
+  colorScheme,
   monthsToDisplay,
   refocusOnClose = true,
+  ssr,
   ...props
 }: DatePickerProps): DatePickerContextReturn => {
   const initialFocusRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile({ ssr })
 
   const disclosureProps = useDisclosure({
     onClose: () => {

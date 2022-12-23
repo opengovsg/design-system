@@ -8,6 +8,7 @@ import {
   Tr,
   useTheme,
 } from '@chakra-ui/react'
+import { get } from 'lodash'
 
 interface ColourTableProps {
   label: string
@@ -35,7 +36,11 @@ export const ColourTable = ({
       </Thead>
       <Tbody>
         {colours.map((d) => {
-          const hexCode = theme.colors[d.palette][d.shade]
+          const hexCode = get(
+            theme.colors,
+            [d.palette, d.shade].join('.'),
+            '',
+          ).toUpperCase()
           return (
             <Tr key={d.shade}>
               <Td>

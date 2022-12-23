@@ -4,7 +4,7 @@ import {
   MutableRefObject,
   useCallback,
   useContext,
-  useLayoutEffect,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -49,7 +49,7 @@ type PhoneNumberInputContextProps = {
    * Callback that will be called when the value in the phone number input field
    * changes.
    */
-  onChange: (val: string | undefined) => void
+  onChange: (val: string) => void
   /**
    * Optional. Callback that will be called when the phone number input field is
    * blurred.
@@ -172,8 +172,8 @@ const useProvidePhoneNumberInput = ({
 
       const number = formatter.getNumber()
 
-      const e164 = number?.number as string | undefined
-      onChange(e164)
+      const e164 = number?.number
+      onChange(e164 ?? '')
 
       // On a similar vein, do not set country even if the country has changed
       // so that the cursor position does not get lost.
@@ -213,7 +213,7 @@ const useProvidePhoneNumberInput = ({
     // 1. `onInputChange` gets called when user types for example "65aabvcd123"
     // 2. `formatter.getNumber().number` will transform that into "65" and cut out the remaining characters since the remaining string is not a valid number
     // 3. Will need to call onChange on this new number.
-    onChange(number?.number as string | undefined)
+    onChange(number?.number ?? '')
     // Check and update possibility
     const possible = number?.isPossible()
 
@@ -241,11 +241,7 @@ const useProvidePhoneNumberInput = ({
     handleFormatInput()
   }, [handleFormatInput, onBlur])
 
-  // useLayoutEffect used instead of useEffect so this only runs after
-  // the render cycle has been completed.
-  // This allows the cursor position to be updated after formatting the input
-  // without "jumping" to the end of the input string and disrupting the user.
-  useLayoutEffect(() => {
+  useEffect(() => {
     const number = formatter.getNumber()?.number
 
     if (number !== defaultValue) {

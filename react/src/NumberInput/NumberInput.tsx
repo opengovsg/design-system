@@ -99,7 +99,7 @@ export const NumberInput = forwardRef<NumberInputProps, 'input'>(
               icon={<BxMinus />}
               {...decProps}
             />
-            <Divider __css={styles.stepperDivider} orientation="vertical" />
+            <Divider sx={styles.stepperDivider} orientation="vertical" />
             <IconButton
               sx={styles.stepperButton}
               aria-hidden

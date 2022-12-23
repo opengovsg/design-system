@@ -3,17 +3,20 @@ import {
   forwardRef,
   IconButton as ChakraIconButton,
   IconButtonProps as ChakraIconButtonProps,
+  ThemingProps,
 } from '@chakra-ui/react'
 
 import { Spinner } from '~/Spinner'
-import { ThemeButtonVariant } from '~/theme/components/Button'
-import { ThemeColorScheme } from '~/theme/foundations/colours'
+import {
+  ThemeButtonColorScheme,
+  ThemeButtonVariant,
+} from '~/theme/components/Button'
 
 export interface IconButtonProps extends ChakraIconButtonProps {
   /**
    * Size of the icon button.
    */
-  size?: 'md' | 'lg'
+  size?: ThemingProps<'Button'>['size']
   /**
    * The variant of the button.
    */
@@ -22,7 +25,9 @@ export interface IconButtonProps extends ChakraIconButtonProps {
   /**
    * Color scheme of button.
    */
-  colorScheme?: ThemeColorScheme
+  colorScheme?:
+    | ThemingProps<'IconButton'>['colorScheme']
+    | ThemeButtonColorScheme
 }
 
 export const IconButton = forwardRef<IconButtonProps, 'button'>(
@@ -37,7 +42,6 @@ export const IconButton = forwardRef<IconButtonProps, 'button'>(
     return (
       <ChakraIconButton
         ref={ref}
-        borderRadius="0.25rem"
         spinner={<Spinner fontSize={iconSize} />}
         {...props}
         fontSize={iconSize}

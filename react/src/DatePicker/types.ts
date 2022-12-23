@@ -1,10 +1,13 @@
 import { InputProps } from '@chakra-ui/react'
 
+import { WithSsr } from '~/types/WithSsr'
+
 export interface DatePickerBaseProps
   extends Omit<
-    InputProps,
-    'value' | 'defaultValue' | 'onChange' | 'colorScheme'
-  > {
+      InputProps,
+      'value' | 'defaultValue' | 'onChange' | 'colorScheme'
+    >,
+    WithSsr {
   /**
    * The `date-fns` format to display the date.
    * @defaultValue `dd/MM/yyyy`

@@ -7,13 +7,14 @@ import {
   InputGroup,
   InputLeftElement,
   InputProps,
+  InputRightElement,
+  useControllableState,
   useMergeRefs,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
 import { IconButton } from '~/IconButton'
-import { BxSearch } from '~/icons'
-import { SEARCHBAR_THEME_KEY } from '~/theme/components/Searchbar'
+import { BxSearch, BxX } from '~/icons'
 
 export interface SearchbarProps extends InputProps {
   /**
@@ -23,24 +24,70 @@ export interface SearchbarProps extends InputProps {
   onSearch: (searchValue: string) => void
 
   /**
-   * Whether the searchbar is expanded or not.
-   * @note This should be `true` if the `onSearchIconClick` function prop is not
-   * provided, or the searchbar will not be usable.
+   * Whether the searchbar is expanded or not by default.
+   * @note If this is not provided, the searchbar will be collapsed by default.
    */
-  isExpanded: boolean
+  defaultIsExpanded?: boolean
 
   /**
-   * Optional. Function to be invoked when the search icon is clicked.
-   * If provided, the search icon will be clickable.
+   * Whether the searchbar is expanded or not.
+   * If provided, expansion state will be a controlled input.
    */
-  onSearchIconClick?: () => void
+  isExpanded?: boolean
+
+  /**
+   * Function to be invoked when the searchbar is expanded or collapsed.
+   * If provided, expansion state will be a controlled input.
+   * @note This should be provided if the `isExpanded` prop is provided.
+   * @note Will be invoked with `true` when the searchbar icon is clicked, and with
+   * `false` when the user closes the searchbar.
+   */
+  onExpansion?: (isExpanded: boolean) => void
+
+  /**
+   * Whether to show the clear button.
+   * @note If this is provided, the clear button will only be shown if the searchbar is expanded.
+   */
+  showClearButton?: boolean
+
+  /**
+   * Whether to collapse the searchbar when the clear button is clicked.
+   * @note If this is provided, the searchbar will only collapse if the `showClearButton` prop is also provided.
+   */
+  collapseOnClear?: boolean
+
+  /**
+   * If provided, the searchbar will be focused when the user expands the input.
+   * Defaults to `true`.
+   */
+  focusOnExpand?: boolean
 }
 
 export const Searchbar = forwardRef<SearchbarProps, 'input'>(
-  ({ onSearch, isExpanded, onSearchIconClick, ...props }, ref) => {
+  (
+    {
+      onSearch,
+      defaultIsExpanded,
+      isExpanded: isExpandedProp,
+      onExpansion: onExpansionProp,
+      showClearButton = true,
+      collapseOnClear,
+      size,
+      focusOnExpand = true,
+      ...props
+    },
+    ref,
+  ) => {
+    const [isExpanded, onExpansion] = useControllableState({
+      defaultValue: defaultIsExpanded,
+      value: isExpandedProp,
+      onChange: onExpansionProp,
+    })
+
     const innerRef = useRef<HTMLInputElement>(null)
-    const styles = useMultiStyleConfig(SEARCHBAR_THEME_KEY, {
+    const styles = useMultiStyleConfig('Searchbar', {
       isExpanded,
+      size,
       ...props,
     })
 
@@ -55,8 +102,28 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
       [onSearch],
     )
 
+    const handleClearButtonClick = useCallback(() => {
+      if (innerRef.current) {
+        innerRef.current.value = ''
+      }
+      if (collapseOnClear) {
+        onExpansion(false)
+      }
+      innerRef.current?.focus()
+    }, [collapseOnClear, onExpansion])
+
+    const handleExpansion = useCallback(() => {
+      onExpansion(true)
+      if (focusOnExpand) {
+        // Set timeout to allow the input to expand before focusing
+        setTimeout(() => {
+          innerRef.current?.focus()
+        }, 0)
+      }
+    }, [focusOnExpand, onExpansion])
+
     return (
-      <InputGroup flex={isExpanded ? 1 : 0}>
+      <InputGroup flex={isExpanded ? 1 : 0} size={size}>
         {isExpanded ? (
           <InputLeftElement pointerEvents="none">
             <Box __css={styles.icon}>
@@ -68,18 +135,32 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
             aria-label="Expand search"
             icon={<BxSearch />}
             variant="clear"
-            colorScheme="secondary"
-            onClick={onSearchIconClick}
+            colorScheme="neutral"
+            onClick={handleExpansion}
             sx={styles.icon}
           />
         )}
         <Input
+          hidden={!isExpanded}
           aria-label="Press enter to search"
           ref={inputRef}
           sx={styles.field}
           onKeyDown={handleSearch}
           {...props}
         />
+        {showClearButton && isExpanded && (
+          <InputRightElement>
+            <IconButton
+              aria-label="Clear search"
+              icon={<BxX />}
+              size={size}
+              variant="clear"
+              colorScheme="neutral"
+              onClick={handleClearButtonClick}
+              sx={styles.icon}
+            />
+          </InputRightElement>
+        )}
       </InputGroup>
     )
   },

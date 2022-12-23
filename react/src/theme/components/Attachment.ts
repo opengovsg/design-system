@@ -1,71 +1,107 @@
-import { anatomy, getColor } from '@chakra-ui/theme-tools'
-
-import { ComponentMultiStyleConfig } from '~/theme/types'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+import { anatomy } from '@chakra-ui/theme-tools'
 
 import { Input } from './Input'
 
-export const ATTACHMENT_THEME_KEY = 'Attachment'
+const parts = anatomy('attachment').parts(
+  'container',
+  'dropzone',
+  'icon',
+  'fileInfoContainer',
+  'fileInfo',
+  'fileInfoDescription',
+  'fileInfoImage',
+)
 
-const parts = anatomy('attachment').parts('container', 'dropzone', 'icon')
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
 
-export const Attachment: ComponentMultiStyleConfig<typeof parts> = {
-  parts: parts.keys,
-  baseStyle: {
-    dropzone: {
-      transitionProperty: 'common',
-      transitionDuration: 'normal',
+const baseStyle = definePartsStyle({
+  dropzone: {
+    transitionProperty: 'common',
+    transitionDuration: 'normal',
+  },
+  fileInfoContainer: {
+    borderRadius: '4px',
+    border: '1px solid',
+    borderColor: 'base.divider.medium',
+    bg: 'interaction.main-light.default',
+    color: 'base.content.default',
+    _disabled: {
+      bg: 'interaction.support.disabled',
+      borderColor: 'interaction.support.disabled',
+      cursor: 'initial',
+      color: 'interaction.support.disabled-content',
     },
   },
-  sizes: {
-    md: {
+  fileInfo: {
+    display: 'inline-flex',
+    justifyContent: 'space-between',
+    flex: 1,
+  },
+  fileInfoDescription: {
+    color: 'base.content.light',
+    _disabled: {
+      color: 'interaction.support.disabled-content',
+    },
+    textStyle: 'caption-1',
+  },
+  fileInfoImage: {
+    borderRight: '1px solid',
+    borderColor: 'inherit',
+    bg: 'white',
+  },
+})
+
+const sizes = {
+  md: definePartsStyle(({ imagePreview }) => {
+    return {
       icon: {
         fontSize: '3.5rem',
       },
       dropzone: {
         px: '3rem',
         py: '4rem',
+        textStyle: 'body-1',
       },
-    },
-  },
-  variants: {
-    // Variant is required to pass props to the theme.
-    outline: (props) => {
-      const {
-        isDragActive,
-        focusBorderColor: fc,
-        errorBorderColor: ec,
-        colorScheme: c,
-        theme,
-      } = props
+      fileInfoContainer: {
+        maxHeight: imagePreview === 'small' ? '4.5rem' : undefined,
+        flexDir: imagePreview === 'large' ? 'column' : 'row',
+      },
+      fileInfo: {
+        py: '0.875rem',
+        px: '1rem',
+      },
+      fileInfoImage: {
+        p: '0.25rem',
+        maxW: imagePreview === 'large' ? '100%' : '6rem',
+        objectFit: 'contain',
+      },
+    }
+  }),
+}
 
-      const inputStyle = Input.variants.outline(props).field
-
+const getOutlineColours = definePartsStyle(({ colorScheme: c }) => {
+  switch (c) {
+    case 'main': {
       return {
         dropzone: {
-          textStyle: 'body-1',
-          color: 'secondary.500',
-          display: 'flex',
-          flexDir: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          cursor: 'pointer',
-          border: '1px dashed',
+          borderColor: 'base.divider.dark',
+          bg: 'interaction.main-light.default',
+          _active: {
+            bg: 'interaction.main-light.active',
+          },
+          _hover: {
+            bg: 'interaction.main-light.hover',
+          },
+        },
+      }
+    }
+    default: {
+      return {
+        dropzone: {
           borderColor: `${c}.700`,
-          borderRadius: '0.25rem',
-          bg: isDragActive ? `${c}.200` : 'neutral.100',
-          _invalid: {
-            // Remove extra 1px of outline.
-            borderColor: getColor(theme, ec),
-            boxShadow: 'none',
-          },
-          _focus: {
-            border: '1px solid',
-            borderColor: getColor(theme, fc),
-            boxShadow: `0 0 0 1px ${getColor(theme, fc)} !important`,
-          },
-          _disabled: {
-            ...inputStyle._disabled,
-          },
+          bg: `${c}.200`,
           _hover: {
             bg: `${c}.100`,
           },
@@ -74,10 +110,58 @@ export const Attachment: ComponentMultiStyleConfig<typeof parts> = {
           },
         },
       }
+    }
+  }
+})
+
+const variantOutline = definePartsStyle((props) => {
+  const { errorBorderColor: ec } = props
+
+  const inputStyle = Input.variants?.outline(props).field
+  const colorProps = getOutlineColours(props)
+
+  return {
+    dropzone: {
+      ...colorProps.dropzone,
+      color: 'base.content.default',
+      display: 'flex',
+      flexDir: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      cursor: 'pointer',
+      border: '1px dashed',
+      borderRadius: '4px',
+      outline: 'none',
+      _invalid: {
+        // Remove extra 1px of outline.
+        borderColor: ec,
+        boxShadow: 'none',
+      },
+      _focus: {
+        ...inputStyle?._focusVisible,
+        borderStyle: 'solid',
+      },
+      _disabled: {
+        ...inputStyle?._disabled,
+      },
     },
-  },
+  }
+})
+
+const variants = {
+  outline: variantOutline,
+}
+
+export const Attachment = defineMultiStyleConfig({
+  baseStyle,
+  sizes,
+  variants,
   defaultProps: {
     ...Input.defaultProps,
-    colorScheme: 'primary',
+    colorScheme: 'main',
+    size: 'md',
+    // @ts-expect-error Invalid exported type.
+    focusBorderColor: 'utility.focus-default',
+    errorBorderColor: 'interaction.critical.default',
   },
-}
+})

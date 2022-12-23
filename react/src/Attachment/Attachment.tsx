@@ -3,26 +3,21 @@ import { DropzoneProps, useDropzone } from 'react-dropzone'
 import {
   Box,
   forwardRef,
-  StylesProvider,
   Text,
+  ThemingProps,
   useFormControl,
   UseFormControlProps,
   useMergeRefs,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
+import { dataAttr } from '@chakra-ui/utils'
 import { omit } from 'lodash'
-import simplur from 'simplur'
+import type { Promisable } from 'type-fest'
 
-import { ATTACHMENT_THEME_KEY } from '~/theme/components/Attachment'
-import { ThemeColorScheme } from '~/theme/foundations/colours'
-
+import { AttachmentStylesProvider } from './AttachmentContext'
 import { AttachmentDropzone } from './AttachmentDropzone'
 import { AttachmentFileInfo } from './AttachmentFileInfo'
-import {
-  getFileExtension,
-  getInvalidFileExtensionsInZip,
-  getReadableFileSize,
-} from './utils'
+import { getFileExtension, getReadableFileSize } from './utils'
 
 export interface AttachmentProps extends UseFormControlProps<HTMLElement> {
   /**
@@ -59,9 +54,22 @@ export interface AttachmentProps extends UseFormControlProps<HTMLElement> {
   showFileSize?: boolean
 
   /**
+   * If provided, the image preview will be shown in the given size variant.
+   */
+  imagePreview?: 'small' | 'large'
+
+  /**
    * Color scheme of the component.
    */
-  colorScheme?: ThemeColorScheme
+  colorScheme?: ThemingProps<'Attachment'>['colorScheme']
+
+  /**
+   * If provided, the file will be validated against the given function.
+   * If the function returns a string, the file will be considered invalid
+   * and the string will be used as the error message.
+   * If the function returns null, the file will be considered valid.
+   */
+  onFileValidation?: (file: File) => Promisable<string | null>
 }
 
 export const Attachment = forwardRef<AttachmentProps, 'div'>(
@@ -75,13 +83,15 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
       value,
       name,
       colorScheme,
+      imagePreview,
+      onFileValidation,
       ...props
     },
     ref,
   ) => {
     // Merge given props with any form control props, if they exist.
     const inputProps = useFormControl(props)
-    // id to set on the rendered max size FormFieldMessage component.
+    // id to set on the rendered max size FormHelperText component.
     const maxSizeTextId = useMemo(() => `${name}-max-size`, [name])
 
     const readableMaxSize = useMemo(
@@ -136,33 +146,16 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
           }
           return onError?.(errorMessage)
         }
-
-        // Zip validation.
-        if (acceptedFile.type === 'application/zip') {
-          try {
-            const invalidFilesInZip = await getInvalidFileExtensionsInZip(
-              acceptedFile,
-              accept,
-            )
-            const numInvalidFiles = invalidFilesInZip.length
-            // There are invalid files, return error.
-            if (numInvalidFiles !== 0) {
-              const hiddenQty = [numInvalidFiles, null]
-              const stringOfInvalidExtensions = invalidFilesInZip.join(', ')
-              return onError?.(
-                simplur`The following file ${hiddenQty} extension[|s] in your zip file ${hiddenQty} [is|are] not valid: ${stringOfInvalidExtensions}`,
-              )
-            }
-          } catch {
-            return onError?.(
-              'An error has occurred whilst parsing your zip file',
-            )
-          }
+        const fileValidationErrorMessage = await onFileValidation?.(
+          acceptedFile,
+        )
+        if (fileValidationErrorMessage) {
+          return onError?.(fileValidationErrorMessage)
         }
 
         onChange(acceptedFile)
       },
-      [accept, onChange, onError],
+      [onChange, onError, onFileValidation],
     )
 
     const fileValidator = useCallback<NonNullable<DropzoneProps['validator']>>(
@@ -190,9 +183,10 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
 
     const mergedRefs = useMergeRefs(rootRef, ref)
 
-    const styles = useMultiStyleConfig(ATTACHMENT_THEME_KEY, {
+    const styles = useMultiStyleConfig('Attachment', {
       isDragActive,
       colorScheme,
+      imagePreview,
     })
 
     const handleRemoveFile = useCallback(() => {
@@ -213,10 +207,9 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
             return
           }
         },
-        tabIndex: value ? -1 : 0,
         'aria-describedby': ariaDescribedBy,
       })
-    }, [ariaDescribedBy, getRootProps, inputProps, value])
+    }, [ariaDescribedBy, getRootProps, inputProps])
 
     const processedInputProps = useMemo(() => {
       return getInputProps({
@@ -226,17 +219,21 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
     }, [getInputProps, inputProps, name])
 
     return (
-      <StylesProvider value={styles}>
+      <AttachmentStylesProvider value={styles}>
         <Box __css={styles.container}>
           <Box
             {...processedRootProps}
             ref={mergedRefs}
+            data-active={dataAttr(isDragActive)}
             __css={value ? undefined : styles.dropzone}
           >
             {value ? (
               <AttachmentFileInfo
                 file={value}
+                imagePreview={imagePreview}
                 handleRemoveFile={handleRemoveFile}
+                isDisabled={inputProps.disabled}
+                isReadOnly={inputProps.readOnly}
               />
             ) : (
               <AttachmentDropzone
@@ -248,7 +245,7 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
           {showMaxSize ? (
             <Text
               id={maxSizeTextId}
-              color="secondary.400"
+              color="base.content.light"
               mt="0.5rem"
               textStyle="body-2"
             >
@@ -256,7 +253,7 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
             </Text>
           ) : null}
         </Box>
-      </StylesProvider>
+      </AttachmentStylesProvider>
     )
   },
 )

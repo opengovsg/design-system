@@ -1,16 +1,15 @@
+import { useMemo } from 'react'
 import {
   Box,
-  ComponentWithAs,
-  CSSObject,
   Flex,
   forwardRef,
+  mergeThemeOverride,
+  SystemStyleObject,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
 import { FormLabel } from '~/FormControl'
-import { TOGGLE_THEME_KEY } from '~/theme/components/Toggle'
-
-import { Switch, SwitchProps } from './Switch'
+import { Switch, SwitchProps } from '~/Switch'
 
 export interface ToggleProps extends SwitchProps {
   /**
@@ -25,19 +24,15 @@ export interface ToggleProps extends SwitchProps {
    * Overriding styles for the container which wraps the text
    * as well as the switch
    */
-  containerStyles?: CSSObject
+  containerStyles?: SystemStyleObject
   /**
    * Overriding styles for the main label
    */
-  labelStyles?: CSSObject
+  labelStyles?: SystemStyleObject
   /**
    * Overriding styles for the description
    */
-  descriptionStyles?: CSSObject
-}
-
-type ToggleWithParts = ComponentWithAs<'input', ToggleProps> & {
-  Switch: typeof Switch
+  descriptionStyles?: SystemStyleObject
 }
 
 export const Toggle = forwardRef<ToggleProps, 'input'>(
@@ -52,18 +47,27 @@ export const Toggle = forwardRef<ToggleProps, 'input'>(
     },
     ref,
   ) => {
-    const styles = useMultiStyleConfig(TOGGLE_THEME_KEY, props)
+    const styles = useMultiStyleConfig('Toggle', props)
+    const mergedContainerStyles = useMemo(
+      () => mergeThemeOverride(styles.overallContainer, containerStyles),
+      [containerStyles, styles.overallContainer],
+    )
+    const mergedLabelStyles = useMemo(
+      () => mergeThemeOverride(styles.label, labelStyles),
+      [labelStyles, styles.label],
+    )
+    const mergedDescriptionStyles = useMemo(
+      () => mergeThemeOverride(styles.description, descriptionStyles),
+      [descriptionStyles, styles.description],
+    )
+
     return (
-      <Flex __css={{ ...styles.overallContainer, ...containerStyles }}>
+      <Flex sx={mergedContainerStyles}>
         {(label || description) && (
-          <Box __css={styles.textContainer}>
-            <FormLabel.Label sx={{ ...styles.label, ...labelStyles }}>
-              {label}
-            </FormLabel.Label>
+          <Box>
+            <FormLabel.Label sx={mergedLabelStyles}>{label}</FormLabel.Label>
             {description && (
-              <FormLabel.Description
-                sx={{ ...styles.description, ...descriptionStyles }}
-              >
+              <FormLabel.Description sx={mergedDescriptionStyles}>
                 {description}
               </FormLabel.Description>
             )}
@@ -73,6 +77,4 @@ export const Toggle = forwardRef<ToggleProps, 'input'>(
       </Flex>
     )
   },
-) as ToggleWithParts
-
-Toggle.Switch = Switch
+)

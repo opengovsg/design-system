@@ -2,3 +2,7 @@ dist
 node_modules
 coverage
 build
+
+build
+build-storybook.log
+storybook-static

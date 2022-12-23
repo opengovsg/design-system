@@ -1,11 +1,8 @@
-import { useCallback, useMemo } from 'react'
-import { Controller, useForm } from 'react-hook-form'
-import { FormControl } from '@chakra-ui/react'
+import { useState } from 'react'
+import { Stack } from '@chakra-ui/react'
 import { useArgs } from '@storybook/client-api'
-import { Meta, Story } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
-import { Button } from '~/Button'
-import { FormErrorMessage, FormLabel } from '~/FormControl'
 import { BxGitMerge, BxHeart } from '~/icons'
 import { fixedHeightDecorator } from '~/utils/storybook'
 
@@ -73,9 +70,9 @@ export default {
     items: INITIAL_COMBOBOX_ITEMS,
     value: '',
   },
-} as Meta
+} as Meta<SingleSelectProps>
 
-const Template: Story<SingleSelectProps> = (args) => {
+const Template: StoryFn<SingleSelectProps> = (args) => {
   const [{ value = '' }, updateArgs] = useArgs()
   const onChange = (value: string) => updateArgs({ value })
   return <SingleSelect {...args} value={value} onChange={onChange} />
@@ -92,6 +89,39 @@ export const HasValueSelected = Template.bind({})
 HasValueSelected.args = {
   value: itemToValue(INITIAL_COMBOBOX_ITEMS[0]),
   initialIsOpen: true,
+}
+
+export const Sizes = () => {
+  const items = ['xs', 'sm', 'md']
+  const [first, setFirst] = useState('')
+  const [second, setSecond] = useState('')
+  const [third, setThird] = useState('')
+
+  return (
+    <Stack>
+      <SingleSelect
+        value={first}
+        onChange={setFirst}
+        size="xs"
+        items={items}
+        name="xs"
+      />
+      <SingleSelect
+        value={second}
+        onChange={setSecond}
+        size="sm"
+        items={items}
+        name="sm"
+      />
+      <SingleSelect
+        value={third}
+        onChange={setThird}
+        size="md"
+        items={items}
+        name="md"
+      />
+    </Stack>
+  )
 }
 
 export const StringValues = Template.bind({})
@@ -143,55 +173,4 @@ Invalid.args = {
 export const Disabled = Template.bind({})
 Disabled.args = {
   isDisabled: true,
-}
-
-export const Playground: Story<SingleSelectProps> = ({ items, isReadOnly }) => {
-  const name = 'Dropdown'
-  const {
-    handleSubmit,
-    formState: { errors },
-    control,
-  } = useForm({
-    defaultValues: {
-      [name]: '',
-    },
-  })
-
-  const itemValues = useMemo(() => items.map((i) => itemToValue(i)), [items])
-
-  const onSubmit = useCallback((data: unknown) => {
-    alert(JSON.stringify(data))
-  }, [])
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate>
-      <FormControl
-        id={name}
-        isRequired
-        isInvalid={!!errors[name]}
-        isReadOnly={isReadOnly}
-      >
-        <FormLabel>Best fruit</FormLabel>
-        <Controller
-          control={control}
-          name={name}
-          rules={{
-            required: 'Dropdown selection is required',
-            validate: (value) => {
-              return (
-                itemValues.includes(value) ||
-                'Entered value is not valid dropdown option'
-              )
-            },
-          }}
-          render={({ field }) => <SingleSelect items={items} {...field} />}
-        />
-        <FormErrorMessage>{errors[name]?.message}</FormErrorMessage>
-      </FormControl>
-      <Button type="submit">Submit</Button>
-    </form>
-  )
-}
-Playground.args = {
-  isReadOnly: false,
 }

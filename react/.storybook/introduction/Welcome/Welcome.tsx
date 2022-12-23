@@ -1,4 +1,4 @@
-import { Box, Flex, Icon, Text } from '@chakra-ui/react'
+import { Box, Flex, Heading, Icon, Text } from '@chakra-ui/react'
 import { linkTo } from '@storybook/addon-links'
 
 import { BxBulb, BxChevronRight, BxWrench } from '~/icons'
@@ -6,15 +6,25 @@ import { Link } from '~/Link'
 
 export const Welcome = (): JSX.Element => {
   return (
-    <Flex bg="secondary.700" w="100%" minH="100vh" flexDir="column">
+    <Flex bg="brand.secondary.700" w="100%" minH="100vh" flexDir="column">
       <Box
         px={{ base: '1.5rem', md: '5.5rem', lg: '7.5rem' }}
         py={{ base: '1.5rem', md: '5rem', lg: '6rem' }}
         flex="1 0 auto"
       >
         <Box mb="3rem" color="white">
-          <Text textStyle="h1-mobile">Welcome to our</Text>
-          <Text textStyle="display-1">Camp 🏕</Text>
+          <Heading as="h1" size="4xl">
+            Welcome to our
+          </Heading>
+          <Text
+            textStyle={[
+              'responsive-display.heavy',
+              'responsive-display.heavy-480',
+              'responsive-display.heavy-1280',
+            ]}
+          >
+            Camp 🏕
+          </Text>
         </Box>
         <Box maxW="43.75rem">
           <Text textStyle="body-1" color="white" mb="1rem">
@@ -37,7 +47,7 @@ export const Welcome = (): JSX.Element => {
         <Box
           color="white"
           flex={1}
-          bg="primary.500"
+          bg="brand.primary.500"
           px={{ base: '1.5rem', md: '5.5rem', lg: '7.5rem' }}
           py={{ base: '1rem', md: '3.5rem', lg: '5.5rem' }}
         >
@@ -51,12 +61,13 @@ export const Welcome = (): JSX.Element => {
             </Text>
           </Flex>
         </Box>
-        <Flex bg="success.500" align="center" justify="center" px="4rem">
+        <Flex bg="brand.primary.600" align="center" justify="center" px="4rem">
           <Link
             as="button"
             onClick={linkTo('Introduction/Guiding principles')}
             aria-label="Next story"
-            colorScheme="secondary"
+            colorScheme="whiteAlpha"
+            color="white"
           >
             <BxChevronRight fontSize="4rem" />
           </Link>

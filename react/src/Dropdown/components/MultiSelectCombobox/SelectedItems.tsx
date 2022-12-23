@@ -29,12 +29,12 @@ const ShowMoreItemBlock = ({ amountToShow }: { amountToShow: number }) => {
 
 export const SelectedItems = (): JSX.Element => {
   const { selectedItems, maxItems } = useMultiSelectContext()
-  const { isFocused } = useSelectContext()
+  const { isFocused, isOpen } = useSelectContext()
 
   const items = useMemo(() => {
     const itemsToRender = []
     for (let i = 0; i < selectedItems.length; i++) {
-      if (isFocused || !maxItems || i < maxItems) {
+      if (isFocused || !maxItems || i < maxItems || isOpen) {
         const item = selectedItems[i]
         // Key has to be index so focus is maintained correctly when items are removed.
         // Some downshift quirk it seems.
@@ -50,7 +50,7 @@ export const SelectedItems = (): JSX.Element => {
       }
     }
     return itemsToRender
-  }, [isFocused, maxItems, selectedItems])
+  }, [isFocused, isOpen, maxItems, selectedItems])
 
   return <>{items}</>
 }

@@ -1,6 +1,9 @@
-import { Meta, Story } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
-import { viewports } from '~/utils/storybook'
+import {
+  getMobileViewParameters,
+  getTabletViewParameters,
+} from '~/utils/storybook'
 
 import { RestrictedFooterProps } from './common/types'
 import { RestrictedFooter } from './RestrictedFooter'
@@ -8,7 +11,6 @@ import { RestrictedFooter } from './RestrictedFooter'
 const DEFAULT_ARGS: RestrictedFooterProps = {
   appName: 'Camp',
   appLink: 'https://design.hack.gov.sg',
-  tagline: `Helping to create consistent, accessible, highly usable, and delightful experiences for our public users`,
   footerLinks: [
     {
       label: 'User Guide',
@@ -39,7 +41,7 @@ export default {
   args: DEFAULT_ARGS,
 } as Meta<RestrictedFooterProps>
 
-const Template: Story<RestrictedFooterProps> = (args) => (
+const Template: StoryFn<RestrictedFooterProps> = (args) => (
   <RestrictedFooter {...args} />
 )
 export const Default = Template.bind({})
@@ -50,31 +52,32 @@ CompactVariant.args = {
   variant: 'compact',
 }
 
-export const WithDarkBackground = Template.bind({})
-WithDarkBackground.args = {
+export const FullVariantDarkMode = Template.bind({})
+FullVariantDarkMode.args = {
   ...DEFAULT_ARGS,
-  textColorScheme: 'white',
-  containerProps: { bg: '#000' },
+  colorMode: 'dark',
+}
+FullVariantDarkMode.parameters = {
+  backgrounds: { default: 'dark' },
 }
 
-export const WithTagline = Template.bind({})
-WithTagline.args = {
+export const CompactVariantDarkMode = Template.bind({})
+CompactVariantDarkMode.args = {
+  ...CompactVariant.args,
+  colorMode: 'dark',
+}
+CompactVariantDarkMode.parameters = {
+  backgrounds: { default: 'dark' },
+}
+
+export const FullVariantWithTagline = Template.bind({})
+FullVariantWithTagline.args = {
   ...DEFAULT_ARGS,
-  tagline: 'Build secure government forms in minutes',
+  tagline: `Helping to create consistent, accessible, highly usable, and delightful experiences for our public users`,
 }
 
-export const Mobile = Template.bind({})
-Mobile.parameters = {
-  viewport: {
-    defaultViewport: 'mobile1',
-  },
-  chromatic: { viewports: [viewports.xs] },
-}
+export const FullVariantMobile = Template.bind({})
+FullVariantMobile.parameters = getMobileViewParameters()
 
-export const Tablet = Template.bind({})
-Tablet.parameters = {
-  viewport: {
-    defaultViewport: 'tablet',
-  },
-  chromatic: { viewports: [viewports.md] },
-}
+export const FullVariantTablet = Template.bind({})
+FullVariantTablet.parameters = getTabletViewParameters()

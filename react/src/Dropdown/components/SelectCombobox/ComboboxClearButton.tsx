@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
-import { chakra, VisuallyHidden } from '@chakra-ui/react'
+import { VisuallyHidden } from '@chakra-ui/react'
 
+import { IconButton } from '~/IconButton'
 import { BxX } from '~/icons'
 
 import { useSelectContext } from '../../SelectContext'
@@ -10,12 +11,13 @@ export const ComboboxClearButton = (): JSX.Element | null => {
     isClearable,
     isDisabled,
     isReadOnly,
+    isInvalid,
     clearButtonLabel,
     selectItem,
-    styles,
     inputValue,
     inputRef,
     selectedItem,
+    size,
   } = useSelectContext()
 
   const [announceClearedInput, setAnnounceClearedInput] = useState(false)
@@ -34,21 +36,23 @@ export const ComboboxClearButton = (): JSX.Element | null => {
   if (!isClearable) return null
 
   return (
-    <chakra.button
+    <IconButton
       // Prevent form submission from triggering this button.
       type="button"
-      disabled={isDisabled || isReadOnly}
+      size={size}
+      aria-invalid={isInvalid}
+      isDisabled={isDisabled || isReadOnly}
       aria-label={clearButtonLabel}
       onClick={handleClearSelection}
-      __css={styles.clearbutton}
-      color={inputValue || selectedItem ? 'secondary.500' : undefined}
+      variant="inputAttached"
+      icon={<BxX />}
+      isActive={!!inputValue || !!selectedItem}
     >
       {announceClearedInput && (
         <VisuallyHidden aria-live="assertive">
           Selection has been cleared
         </VisuallyHidden>
       )}
-      <BxX fontSize="1.25rem" />
-    </chakra.button>
+    </IconButton>
   )
 }

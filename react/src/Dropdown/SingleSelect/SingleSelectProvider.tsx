@@ -2,14 +2,13 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { VirtuosoHandle } from 'react-virtuoso'
 import {
   FormControlOptions,
+  ThemingProps,
   useFormControlProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 import { useCombobox, UseComboboxProps } from 'downshift'
 
-import { ThemeColorScheme } from '~/theme/foundations/colours'
-
-import { VIRTUAL_LIST_MAX_HEIGHT } from '../constants'
+import { VIRTUAL_LIST_ITEM_HEIGHT, VIRTUAL_LIST_MAX_HEIGHT } from '../constants'
 import { useItems } from '../hooks/useItems'
 import { SelectContext, SharedSelectContextReturnProps } from '../SelectContext'
 import { ComboboxItem } from '../types'
@@ -41,7 +40,7 @@ export interface SingleSelectProviderProps<
   }
   children: React.ReactNode
   /** Color scheme of component */
-  colorScheme?: ThemeColorScheme
+  colorScheme?: ThemingProps<'SingleSelect'>['colorScheme']
 }
 export const SingleSelectProvider = ({
   items: rawItems,
@@ -62,6 +61,7 @@ export const SingleSelectProvider = ({
   children,
   inputAria: inputAriaProp,
   colorScheme,
+  size = 'md',
   comboboxProps = {},
 }: SingleSelectProviderProps): JSX.Element => {
   const { items, getItemByValue } = useItems({ rawItems })
@@ -213,6 +213,7 @@ export const SingleSelectProvider = ({
   const resetInputValue = useCallback(() => setInputValue(''), [setInputValue])
 
   const styles = useMultiStyleConfig('SingleSelect', {
+    size,
     isClearable,
     colorScheme,
   })
@@ -230,15 +231,16 @@ export const SingleSelectProvider = ({
   }, [inputAriaProp, name, selectedItem])
 
   const virtualListHeight = useMemo(() => {
-    const totalHeight = filteredItems.length * 48
+    const totalHeight = filteredItems.length * VIRTUAL_LIST_ITEM_HEIGHT[size]
     // If the total height is less than the max height, just return the total height.
     // Otherwise, return the max height.
-    return Math.min(totalHeight, VIRTUAL_LIST_MAX_HEIGHT)
-  }, [filteredItems.length])
+    return Math.min(totalHeight, VIRTUAL_LIST_MAX_HEIGHT[size])
+  }, [filteredItems.length, size])
 
   return (
     <SelectContext.Provider
       value={{
+        size,
         isOpen,
         selectedItem,
         isItemSelected,

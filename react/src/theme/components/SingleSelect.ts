@@ -1,38 +1,36 @@
-import {
-  anatomy,
-  PartsStyleFunction,
-  PartsStyleObject,
-  SystemStyleFunction,
-} from '@chakra-ui/theme-tools'
-import { merge } from 'lodash'
+import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
+import { anatomy } from '@chakra-ui/theme-tools'
+import { mergeWith } from '@chakra-ui/utils'
 
 import { Input } from './Input'
 import { Menu } from './Menu'
 
 export const comboboxParts = anatomy('combobox').parts(
-  'container',
   'list',
   'item',
+  'itemDescription',
+  'highlight',
   'icon',
   'emptyItem',
 )
 
 export const parts = anatomy('singleselect')
   .parts(...comboboxParts.keys)
-  .extend('field', 'clearbutton')
+  .extend('field', 'selected')
 
-const itemBaseStyle: SystemStyleFunction = (props) => {
-  const { item: menuItemStyle = {} } = Menu.baseStyle(props)
-  return merge(menuItemStyle, {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    _selected: menuItemStyle._focus,
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
+
+const itemBaseStyle = defineStyle((props) => {
+  const menuItemStyle = Menu.baseStyle?.(props).item
+  return mergeWith(menuItemStyle, {
+    _selected: menuItemStyle?._focus,
   })
-}
+})
 
-const listBaseStyle: SystemStyleFunction = (props) => {
-  const { list: menuListStyle = {} } = Menu.baseStyle(props)
-  return merge(menuListStyle, {
+const listBaseStyle = defineStyle((props) => {
+  const menuListStyle = Menu.baseStyle?.(props).list
+  return mergeWith(menuListStyle, {
     // To accomodate focus ring.
     my: '1px',
     w: '100%',
@@ -40,15 +38,28 @@ const listBaseStyle: SystemStyleFunction = (props) => {
     maxH: '12rem',
     bg: 'white',
   })
-}
+})
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
+const baseStyle = definePartsStyle((props) => {
   const itemStyle = itemBaseStyle(props)
   return {
-    container: {
-      pos: 'relative',
-    },
     item: itemStyle,
+    highlight: {
+      bg: 'interaction.tinted.main.active',
+    },
+    selected: {
+      zIndex: 2,
+      gridArea: '1 / 1 / 2 / 3',
+      alignItems: 'center',
+      pointerEvents: 'none',
+      _disabled: {
+        color: 'interaction.support.disabled-content',
+      },
+    },
+    itemDescription: {
+      textStyle: 'body-2',
+      color: 'base.content.light',
+    },
     emptyItem: {
       ...itemStyle,
       fontStyle: 'italic',
@@ -61,98 +72,89 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => {
       },
     },
     list: listBaseStyle(props),
-    field: {},
-    clearbutton: {
-      transitionProperty: 'common',
-      transitionDuration: 'normal',
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: 'secondary.500',
-      borderRightRadius: '4px',
-      borderLeftRadius: 0,
-    },
     icon: {
       transitionProperty: 'common',
       transitionDuration: 'normal',
-      fontSize: '1.25rem',
-      color: 'secondary.500',
+      color: 'base.content.dark',
       _disabled: {
         cursor: 'not-allowed',
-        color: 'neutral.500',
+        color: 'interaction.support.disabled-content',
       },
     },
   }
-}
+})
 
-const sizes: Record<string, PartsStyleObject<typeof parts>> = {
-  md: {
-    clearbutton: {
-      // Remove extra 1px of border.
-      p: '11px',
-      w: 'auto',
-      fontSize: '1.25rem',
-      minW: '2.75rem',
-      minH: '2.75rem',
-    },
-  },
-}
-
-const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
-  const { isClearable, colorScheme: c } = props
-  const menuVariantOutline = Menu.variants.outline(props)
-  const inputVariantOutline = Input.variants.outline(props)
+const variantOutline = definePartsStyle((props) => {
+  const { isClearable } = props
+  const inputVariantOutline = Input.variants?.outline(props)
 
   return {
-    list: merge(menuVariantOutline.list, { py: 0 }),
-    item: merge(menuVariantOutline.item, { cursor: 'pointer' }),
-    field: merge(inputVariantOutline.field, {
-      zIndex: 1,
+    list: { py: 0 },
+    item: { cursor: 'pointer' },
+    field: mergeWith(inputVariantOutline?.field, {
       borderRightRadius: isClearable ? 0 : undefined,
-      bg: 'white',
       gridArea: '1 / 1 / 2 / 3',
     }),
-    clearbutton: {
-      ml: '-1px',
-      bg: 'white',
-      border: '1px solid',
-      borderColor: 'neutral.400',
-      color: 'neutral.400',
-      _focus: {
-        zIndex: 1,
-        borderColor: `${c}.500`,
-        boxShadow: `0 0 0 1px var(--chakra-colors-${c}-500)`,
-      },
-      _active: {
-        color: 'secondary.500',
-      },
-      _disabled: {
-        cursor: 'not-allowed',
-        bg: 'neutral.200',
-        color: 'neutral.500',
-        _active: {
-          bg: 'neutral.200',
-          color: 'neutral.500',
-        },
-      },
-    },
   }
-}
+})
 
 const variants = {
   outline: variantOutline,
 }
 
-export const SingleSelect = {
-  parts: parts.keys,
+const sizes = {
+  xs: definePartsStyle({
+    item: Menu.sizes?.sm.item,
+    emptyItem: Menu.sizes?.sm.item,
+    field: Input.sizes?.xs.field,
+    icon: {
+      fontSize: '1rem',
+    },
+    selected: {
+      pl: 'calc(0.75rem + 1px)',
+      pr: 'calc(2.5rem + 1px)',
+      textStyle: 'body-2',
+    },
+  }),
+  sm: definePartsStyle({
+    item: Menu.sizes?.sm.item,
+    emptyItem: Menu.sizes?.sm.item,
+    field: Input.sizes?.sm.field,
+    icon: {
+      fontSize: '1rem',
+    },
+    selected: {
+      pl: 'calc(0.75rem + 1px)',
+      pr: 'calc(2.5rem + 1px)',
+      textStyle: 'body-2',
+    },
+  }),
+  md: definePartsStyle({
+    icon: {
+      fontSize: '1.25rem',
+    },
+    item: Menu.sizes?.md?.item,
+    emptyItem: Menu.sizes?.md?.item,
+    field: Input.sizes?.md.field,
+    selected: {
+      pl: 'calc(1rem + 1px)',
+      pr: 'calc(2.75rem + 1px)',
+      textStyle: 'body-1',
+    },
+  }),
+}
+
+export const SingleSelect = defineMultiStyleConfig({
   baseStyle,
   variants,
   sizes,
   defaultProps: {
     variant: 'outline',
     size: 'md',
-    focusBorderColor: Input.defaultProps.focusBorderColor,
-    errorBorderColor: Input.defaultProps.errorBorderColor,
-    colorScheme: 'primary',
+    // @ts-expect-error Invalid exported type.
+    focusBorderColor: Input.defaultProps?.focusBorderColor,
+    // @ts-expect-error Invalid exported type.
+    errorBorderColor: Input.defaultProps?.errorBorderColor,
+    colorScheme: 'main',
   },
-}
+})

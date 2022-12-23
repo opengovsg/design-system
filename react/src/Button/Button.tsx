@@ -1,14 +1,16 @@
 import {
-  Box,
   Button as ChakraButton,
   ButtonProps as ChakraButtonProps,
   forwardRef,
   IconProps,
+  ThemingProps,
 } from '@chakra-ui/react'
 
 import { Spinner } from '~/Spinner'
-import { ThemeButtonVariant } from '~/theme/components/Button'
-import { ThemeColorScheme } from '~/theme/foundations/colours'
+import {
+  ThemeButtonColorScheme,
+  ThemeButtonVariant,
+} from '~/theme/components/Button'
 
 export interface ButtonProps extends ChakraButtonProps {
   /**
@@ -30,20 +32,11 @@ export interface ButtonProps extends ChakraButtonProps {
   /**
    * Color scheme of button.
    */
-  colorScheme?: ThemeColorScheme
+  colorScheme?: ThemingProps<'Button'>['colorScheme'] | ThemeButtonColorScheme
 }
 
 export const Button = forwardRef<ButtonProps, 'button'>(
-  (
-    {
-      children,
-      spinnerFontSize,
-      isFullWidth,
-      textStyle = 'subhead-1',
-      ...props
-    },
-    ref,
-  ) => {
+  ({ children, spinnerFontSize, isFullWidth, ...props }, ref) => {
     return (
       <ChakraButton
         ref={ref}
@@ -52,7 +45,7 @@ export const Button = forwardRef<ButtonProps, 'button'>(
         // 15px due to 1px border
         {...(isFullWidth ? { w: '100%', p: '15px', h: 'auto' } : {})}
       >
-        <Box textStyle={textStyle}>{children}</Box>
+        {children}
       </ChakraButton>
     )
   },

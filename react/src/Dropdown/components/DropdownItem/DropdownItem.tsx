@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { Flex, Icon, ListItem, Stack, Text } from '@chakra-ui/react'
+import { dataAttr } from '@chakra-ui/utils'
 
 import { useSelectContext } from '../../SelectContext'
 import { ComboboxItem } from '../../types'
@@ -21,29 +22,24 @@ export const DropdownItem = ({
   item,
   index,
 }: DropdownItemProps): JSX.Element => {
-  const { getItemProps, isItemSelected, inputValue, highlightedIndex, styles } =
+  const { getItemProps, isItemSelected, inputValue, styles } =
     useSelectContext()
 
-  const { icon, label, description, isDisabled, isHighlighted, isActive } =
-    useMemo(
-      () => ({
-        icon: itemToIcon(item),
-        label: itemToLabelString(item),
-        description: itemToDescriptionString(item),
-        isDisabled: isItemDisabled(item),
-        isHighlighted: highlightedIndex === index,
-        isActive: isItemSelected(item),
-      }),
-      [highlightedIndex, index, isItemSelected, item],
-    )
+  const { icon, label, description, isDisabled, isActive } = useMemo(
+    () => ({
+      icon: itemToIcon(item),
+      label: itemToLabelString(item),
+      description: itemToDescriptionString(item),
+      isDisabled: isItemDisabled(item),
+      isActive: isItemSelected(item),
+    }),
+    [isItemSelected, item],
+  )
 
   return (
     <ListItem
       sx={styles.item}
-      // Data attributes are unique, any value will be truthy.
-      // We want to not even have the tag if falsey.
-      // This adds _active styling to the item.
-      data-active={isActive || undefined}
+      data-active={dataAttr(isActive)}
       {...getItemProps({
         item,
         index,
@@ -54,7 +50,6 @@ export const DropdownItem = ({
         <Stack direction="row" align="center" spacing="1rem">
           {icon ? <Icon as={icon} sx={styles.icon} /> : null}
           <Text
-            textStyle="body-1"
             minWidth={0}
             textOverflow="ellipsis"
             whiteSpace="nowrap"
@@ -62,19 +57,14 @@ export const DropdownItem = ({
           >
             <DropdownItemTextHighlighter
               inputValue={inputValue ?? ''}
-              showHoverBg={isHighlighted && !isActive}
               textToHighlight={label}
             />
           </Text>
         </Stack>
         {description && (
-          <Text
-            textStyle="body-2"
-            color={isActive ? 'secondary.500' : 'secondary.400'}
-          >
+          <Text sx={styles.itemDescription}>
             <DropdownItemTextHighlighter
               inputValue={inputValue ?? ''}
-              showHoverBg={isHighlighted && !isActive}
               textToHighlight={description}
             />
           </Text>

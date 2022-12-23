@@ -1,6 +1,5 @@
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 import { anatomy } from '@chakra-ui/theme-tools'
-
-import { ComponentMultiStyleConfig } from '~/theme/types'
 
 import { Input } from './Input'
 
@@ -10,41 +9,85 @@ const parts = anatomy('singlecountryphonenumberinput').parts(
   'icon',
 )
 
-export const SingleCountryPhoneNumberInput: ComponentMultiStyleConfig<
-  typeof parts
-> = {
-  parts: parts.keys,
-  variants: {
-    outline: (props) => {
-      const { isSuccess } = props
-      const inputStyle = Input.variants.outline(props)
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
 
-      return {
-        field: {
-          ...(isSuccess ? { paddingInlineEnd: '4.75rem' } : {}),
-          ...inputStyle.field,
-        },
-        iconContainer: {
-          pointerEvents: 'none',
-          ...(isSuccess ? { mr: '2rem' } : {}),
-          _disabled: {
-            opacity: 0.6,
-          },
-        },
-      }
+const variantOutline = definePartsStyle((props) => {
+  const { isSuccess } = props
+  const inputStyle = Input.variants?.outline(props)
+
+  return {
+    field: {
+      ...(isSuccess ? { paddingInlineEnd: '4.75rem' } : {}),
+      ...inputStyle?.field,
     },
-  },
-  sizes: {
-    md: {
-      icon: {
-        w: '1.5em',
+    icon: {
+      w: '1.5em',
+    },
+    iconContainer: {
+      pointerEvents: 'none',
+      ...(isSuccess ? { mr: '2rem' } : {}),
+      _disabled: {
+        opacity: 0.6,
       },
     },
-  },
-  defaultProps: {
-    variant: 'outline',
-    size: 'md',
-    focusBorderColor: Input.defaultProps.focusBorderColor,
-    errorBorderColor: Input.defaultProps.errorBorderColor,
-  },
+  }
+})
+
+const variants = {
+  outline: variantOutline,
 }
+
+const sizes = {
+  xs: definePartsStyle(({ isSuccess }) => {
+    return {
+      field: {
+        paddingInlineEnd: isSuccess ? '4rem' : undefined,
+      },
+      iconContainer: {
+        ...Input.sizes?.xs.element,
+        w: 'auto',
+        px: '0.5rem',
+      },
+      icon: {
+        fontSize: '0.75rem',
+      },
+    }
+  }),
+  sm: definePartsStyle(({ isSuccess }) => {
+    return {
+      field: {
+        paddingInlineEnd: isSuccess ? '4.75rem' : undefined,
+      },
+      iconContainer: {
+        ...Input.sizes?.sm.element,
+        w: 'auto',
+        px: '0.5rem',
+      },
+      icon: {
+        fontSize: '1rem',
+      },
+    }
+  }),
+  md: definePartsStyle(({ isSuccess }) => {
+    return {
+      field: {
+        paddingInlineEnd: isSuccess ? '4.75rem' : undefined,
+      },
+      icon: {
+        fontSize: '1rem',
+      },
+      iconContainer: {
+        ...Input.sizes?.md.element,
+        w: 'auto',
+        px: '0.5rem',
+      },
+    }
+  }),
+}
+
+export const SingleCountryPhoneNumberInput = defineMultiStyleConfig({
+  variants,
+  sizes,
+  defaultProps: Input.defaultProps,
+})

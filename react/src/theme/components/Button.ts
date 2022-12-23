@@ -1,11 +1,11 @@
-import {
-  getColor,
-  StyleFunctionProps,
-  SystemStyleFunction,
-} from '@chakra-ui/theme-tools'
+import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
+import { getColor, StyleFunctionProps } from '@chakra-ui/theme-tools'
 import { merge } from 'lodash'
 
+import { layerStyles } from '../layerStyles'
 import { textStyles } from '../textStyles'
+import { meetsWcagAaRatio } from '../utils'
+import { hexToRgba } from '../utils/hexToRgba'
 
 import { Link } from './Link'
 
@@ -17,40 +17,44 @@ export type ThemeButtonVariant =
   | 'link'
   | 'inputAttached'
 
-const genVariantSolidColours = (c: string) => {
-  const defaultBackgrounds = {
-    bg: `${c}.500`,
-    activeBg: `${c}.700`,
-    hoverBg: `${c}.600`,
-    focusBoxShadow: `0 0 0 4px var(--chakra-colors-${c}-300)`,
-    color: 'white',
-    disabledColor: 'white',
-  }
+export type ThemeButtonColorScheme = 'main' | 'success' | 'critical' | 'inverse'
+
+const genVariantSolidColours = ({
+  colorScheme: c,
+  theme,
+}: StyleFunctionProps) => {
+  let color = 'base.content.inverse'
+  let solidVariantProps
+
   switch (c) {
-    case 'success': {
-      return {
-        bg: `${c}.700`,
-        activeBg: `${c}.800`,
-        hoverBg: `${c}.800`,
-        focusBoxShadow: `0 0 0 4px var(--chakra-colors-${c}-400)`,
-        color: 'white',
-        disabledColor: 'white',
+    case 'main':
+    case 'success':
+    case 'critical':
+      {
+        solidVariantProps = {
+          bg: `interaction.${c}.default`,
+          activeBg: `interaction.${c}.active`,
+          hoverBg: `interaction.${c}.hover`,
+        }
       }
-    }
-    case 'theme-red':
-    case 'theme-orange':
-    case 'theme-yellow': {
-      return {
-        ...defaultBackgrounds,
+      break
+    default: {
+      solidVariantProps = {
         bg: `${c}.600`,
         activeBg: `${c}.800`,
         hoverBg: `${c}.700`,
       }
     }
-    default: {
-      return defaultBackgrounds
-    }
   }
+  const hasSufficientContrast = meetsWcagAaRatio(
+    getColor(theme, color),
+    getColor(theme, solidVariantProps.bg),
+  )
+  // Note that using the default content colour for the button text could still result in bad contrast.
+  if (!hasSufficientContrast) {
+    color = 'base.content.default'
+  }
+  return { ...solidVariantProps, color }
 }
 
 const genVariantOutlineColours = ({
@@ -58,27 +62,40 @@ const genVariantOutlineColours = ({
   theme,
 }: StyleFunctionProps) => {
   switch (c) {
-    case 'theme-red':
-    case 'theme-orange':
-    case 'theme-yellow': {
+    case 'main':
+    case 'critical': {
       return {
-        borderColor: `${c}.600` as const,
-        focusBorderColor: getColor(theme, `${c}.400`),
+        borderColor: `interaction.${c}.default`,
+        activeBg: `interaction.tinted.${c}.active`,
+        hoverBg: `interaction.tinted.${c}.hover`,
+      }
+    }
+    case 'neutral': {
+      return {
+        borderColor: 'base.content.dark',
+        hoverBg: 'interaction.tinted.dark.hover',
+        activeBg: 'interaction.tinted.dark.active',
+      }
+    }
+    case 'inverse': {
+      return {
+        borderColor: 'base.content.inverse',
+        hoverBg: 'interaction.tinted.light.hover',
+        activeBg: 'interaction.tinted.light.active',
       }
     }
     default: {
       return {
         borderColor: `${c}.500` as const,
-        focusBorderColor: getColor(theme, `${c}.300`),
+        activeBg: hexToRgba(getColor(theme, `${c}.500`), 0.12),
+        hoverBg: hexToRgba(getColor(theme, `${c}.500`), 0.04),
       }
     }
   }
 }
 
-const variantSolid: SystemStyleFunction = (props) => {
-  const { colorScheme: c } = props
-  const { bg, hoverBg, activeBg, focusBoxShadow, color, disabledColor } =
-    genVariantSolidColours(c)
+const variantSolid = defineStyle((props) => {
+  const { bg, hoverBg, activeBg, color } = genVariantSolidColours(props)
 
   return {
     bg,
@@ -88,182 +105,207 @@ const variantSolid: SystemStyleFunction = (props) => {
     _active: {
       bg: activeBg,
       borderColor: activeBg,
-      _disabled: {
-        bg: `${c}.300`,
-        borderColor: `${c}.300`,
-      },
-    },
-    _focus: {
-      borderColor: 'transparent',
-      boxShadow: focusBoxShadow,
-    },
-    _disabled: {
-      bg: `${c}.300`,
-      borderColor: `${c}.300`,
-      opacity: 1,
-      color: disabledColor,
     },
     _hover: {
       bg: hoverBg,
       borderColor: hoverBg,
       _disabled: {
-        bg: `${c}.300`,
-        borderColor: `${c}.300`,
+        bg: 'interaction.support.disabled',
+        borderColor: 'interaction.support.disabled',
       },
     },
   }
-}
+})
 
-const variantClear: SystemStyleFunction = (props) => {
-  const { colorScheme: c } = props
+const genVariantReverseColours = ({ colorScheme: c }: StyleFunctionProps) => {
+  switch (c) {
+    case 'main':
+    case 'critical': {
+      return {
+        activeBg: `interaction.muted.${c}.active`,
+        hoverBg: `interaction.muted.${c}.hover`,
+        color: `interaction.${c}.default`,
+      }
+    }
 
-  return {
-    bg: 'transparent',
-    borderColor: 'transparent',
-    px: '15px',
-    color: `${c}.500`,
-    _focus: {
-      boxShadow: `0 0 0 4px var(--chakra-colors-${c}-300)`,
-    },
-    _disabled: {
-      color: `${c}.300`,
-      opacity: 1,
-    },
-    _active: {
-      bg: `${c}.200`,
-      _disabled: {
-        bg: 'transparent',
-      },
-    },
-    _hover: {
-      bg: `${c}.100`,
-      _disabled: {
-        bg: 'transparent',
-      },
-    },
+    default: {
+      return {
+        activeBg: `${c}.100`,
+        hoverBg: `${c}.50`,
+        color: `${c}.500`,
+      }
+    }
   }
 }
 
-const variantOutlineReverse: SystemStyleFunction = (props) => {
-  const { colorScheme: c, variant } = props
-  const { borderColor, focusBorderColor } = genVariantOutlineColours(props)
-  const showBorder = variant === 'outline'
+const variantReverse = defineStyle((props) => {
+  const { hoverBg, activeBg, color } = genVariantReverseColours(props)
 
   return {
     bg: 'white',
+    borderColor: 'transparent',
+    color,
     px: '15px',
-    borderColor: showBorder ? borderColor : 'white',
-    color: borderColor,
-    _focus: {
-      boxShadow: `0 0 0 4px ${focusBorderColor}`,
-    },
     _disabled: {
-      color: `${c}.300`,
-      borderColor: showBorder ? `${c}.300` : 'white',
       bg: 'white',
-      opacity: 1,
+      borderColor: 'transparent',
     },
     _active: {
-      bg: `${c}.200`,
-      borderColor: showBorder ? borderColor : `${c}.200`,
-      _disabled: {
-        bg: 'white',
-        borderColor: showBorder ? `${c}.300` : 'white',
-      },
+      bg: activeBg,
     },
     _hover: {
-      bg: `${c}.100`,
-      borderColor: showBorder ? borderColor : `${c}.100`,
+      bg: hoverBg,
       _disabled: {
         bg: 'white',
-        borderColor: showBorder ? `${c}.300` : 'white',
       },
     },
   }
-}
+})
 
-const variantLink: SystemStyleFunction = (props) => {
-  return merge(Link.baseStyle(props), Link.variants.standalone, {
+const variantOutlineClear = defineStyle((props) => {
+  const { borderColor, activeBg, hoverBg } = genVariantOutlineColours(props)
+  const showBorder = props.variant === 'outline'
+
+  return {
+    bg: 'transparent',
+    px: '15px',
+    borderColor: showBorder ? borderColor : 'transparent',
+    color: borderColor,
+    _disabled: {
+      borderColor: showBorder
+        ? 'interaction.support.disabled-content'
+        : 'transparent',
+      bg: 'transparent',
+    },
+    _active: {
+      bg: activeBg,
+      borderColor: showBorder ? borderColor : 'transparent',
+    },
+    _hover: {
+      bg: hoverBg,
+      borderColor: showBorder ? borderColor : 'transparent',
+      _disabled: {
+        borderColor: showBorder
+          ? 'interaction.support.disabled-content'
+          : 'transparent',
+        bg: 'transparent',
+      },
+    },
+  }
+})
+
+const variantLink = defineStyle((props) => {
+  return merge(Link.baseStyle?.(props), Link.variants?.standalone, {
     border: 'none',
     minHeight: 'auto',
     fontWeight: 'normal',
     w: 'fit-content',
+    _disabled: {
+      bg: 'transparent',
+    },
   })
-}
+})
 
-const variantInputAttached: SystemStyleFunction = (props) => {
-  const {
-    focusBorderColor: fc = `${props.colorScheme}.500`,
-    errorBorderColor: ec = `danger.500`,
-    theme,
-  } = props
+const variantInputAttached = defineStyle((props) => {
+  const { focusBorderColor: fc, errorBorderColor: ec, theme } = props
 
   return {
+    bg: 'utility.ui',
     fontSize: '1.25rem',
-    color: 'secondary.500',
-    ml: '-1px',
-    borderColor: 'neutral.400',
-    borderRadius: 0,
+    color: 'interaction.support.disabled-content',
+    borderColor: 'base.divider.dark',
+    borderStartRadius: 0,
+    borderEndRadius: '2px',
     _hover: {
-      bg: 'neutral.100',
+      bg: 'interaction.muted.main.hover',
+      _disabled: {
+        bg: 'interaction.support.disabled',
+      },
     },
+    outlineOffset: 0,
     _active: {
-      borderColor: getColor(theme, fc),
-      bg: 'white',
-      zIndex: 1,
-      _hover: {
-        bg: 'neutral.100',
+      color: 'base.content.dark',
+      _disabled: {
+        color: 'interaction.support.disabled-content',
       },
     },
     _invalid: {
       // Remove extra 1px of outline.
-      borderColor: getColor(theme, ec),
-      boxShadow: 'none',
+      borderColor: ec,
     },
     _focus: {
+      zIndex: 1,
       borderColor: fc,
       boxShadow: `0 0 0 1px ${getColor(theme, fc)}`,
-      zIndex: 1,
+    },
+    _focusVisible: {
+      boxShadow: 'none',
+      outline: 'none',
+    },
+    _disabled: {
+      bg: 'interaction.support.disabled',
+      borderColor: 'base.divider.dark',
+      color: 'interaction.support.disabled-content',
     },
   }
+})
+
+const variants = {
+  solid: variantSolid,
+  reverse: variantReverse,
+  outline: variantOutlineClear,
+  clear: variantOutlineClear,
+  link: variantLink,
+  inputAttached: variantInputAttached,
 }
 
-export const Button = {
-  baseStyle: {
-    ...textStyles['subhead-1'],
-    whiteSpace: 'pre-wrap',
-    borderRadius: '0.25rem',
-    border: '1px solid',
-    flexShrink: 0,
-    // -1px for border
-    px: '15px',
-    py: '9px',
+const baseStyle = defineStyle({
+  ...textStyles['subhead-1'],
+  whiteSpace: 'pre-wrap',
+  borderRadius: '0.25rem',
+  border: '1px solid',
+  flexShrink: 0,
+  // -1px for border
+  px: '15px',
+  py: '9px',
+  _disabled: {
+    bg: 'interaction.support.disabled',
+    borderColor: 'interaction.support.disabled',
+    opacity: 1,
+    color: 'interaction.support.disabled-content',
   },
-  sizes: {
-    sm: {
-      minH: 'auto',
-      minW: 'auto',
-    },
-    md: {
-      minH: '2.75rem',
-      minW: '2.75rem',
-    },
-    lg: {
-      minH: '3rem',
-      minW: '3rem',
-    },
-  },
-  variants: {
-    solid: variantSolid,
-    reverse: variantOutlineReverse,
-    outline: variantOutlineReverse,
-    clear: variantClear,
-    link: variantLink,
-    inputAttached: variantInputAttached,
-  },
+  ...layerStyles.focusRing.default,
+})
+
+const sizes = {
+  xs: defineStyle({
+    minH: '2.25rem',
+    minW: '2.25rem',
+  }),
+  sm: defineStyle({
+    minH: '2.5rem',
+    minW: '2.5rem',
+  }),
+  md: defineStyle({
+    minH: '2.75rem',
+    minW: '2.75rem',
+  }),
+  lg: defineStyle({
+    minH: '3rem',
+    minW: '3rem',
+  }),
+}
+
+export const Button = defineStyleConfig({
+  baseStyle,
+  sizes,
+  variants,
   defaultProps: {
     variant: 'solid',
-    colorScheme: 'primary',
+    colorScheme: 'main',
+    // @ts-expect-error Invalid exported type.
+    focusBorderColor: 'utility.focus-default',
+    errorBorderColor: 'interaction.critical.default',
     size: 'md',
   },
-}
+})

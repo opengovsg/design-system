@@ -1,0 +1,122 @@
+[
+  {
+    "id": "0d7b216394cbdfe8a01b3b7af9d2488461ac40c2",
+    "name": "tealblue theme",
+    "selectedTokenSets": {
+      "global": "enabled",
+      "cool grey": "disabled",
+      "green": "disabled",
+      "teal blue": "enabled",
+      "orange brown": "disabled",
+      "coral": "disabled",
+      "violet": "disabled",
+      "pink": "disabled"
+    },
+    "$figmaStyleReferences": {}
+  },
+  {
+    "id": "611fcf4e2411c59c658198ad011cb4ee09a19e43",
+    "name": "orangebrown theme",
+    "selectedTokenSets": {
+      "global": "enabled",
+      "cool grey": "disabled",
+      "green": "disabled",
+      "teal blue": "disabled",
+      "orange brown": "enabled",
+      "coral": "disabled",
+      "violet": "disabled",
+      "pink": "disabled"
+    },
+    "$figmaStyleReferences": {}
+  },
+  {
+    "id": "0c53626b1f1a6bab8a83624aef65680e7dac0c1a",
+    "name": "coral theme",
+    "selectedTokenSets": {
+      "global": "enabled",
+      "cool grey": "disabled",
+      "green": "disabled",
+      "teal blue": "disabled",
+      "orange brown": "disabled",
+      "coral": "enabled",
+      "violet": "disabled",
+      "pink": "disabled"
+    },
+    "$figmaStyleReferences": {}
+  },
+  {
+    "id": "e04818d2f3caef8da5bbf52fb8b131fffa220f81",
+    "name": "violet theme",
+    "selectedTokenSets": {
+      "global": "enabled",
+      "cool grey": "disabled",
+      "green": "disabled",
+      "teal blue": "disabled",
+      "orange brown": "disabled",
+      "coral": "disabled",
+      "violet": "enabled",
+      "pink": "disabled"
+    },
+    "$figmaStyleReferences": {}
+  },
+  {
+    "id": "d784c5a5579ab255cde0161984239e2e5bd90715",
+    "name": "pink theme",
+    "selectedTokenSets": {
+      "global": "enabled",
+      "cool grey": "disabled",
+      "green": "disabled",
+      "teal blue": "disabled",
+      "orange brown": "disabled",
+      "coral": "disabled",
+      "violet": "disabled",
+      "pink": "enabled"
+    },
+    "$figmaStyleReferences": {}
+  },
+  {
+    "id": "78706545f218dc9025b7de0a85288da29579bdf8",
+    "name": "blue theme",
+    "selectedTokenSets": {
+      "global": "enabled",
+      "cool grey": "disabled",
+      "green": "disabled",
+      "teal blue": "disabled",
+      "orange brown": "disabled",
+      "coral": "disabled",
+      "violet": "disabled",
+      "pink": "disabled"
+    },
+    "$figmaStyleReferences": {}
+  },
+  {
+    "id": "a1b21129a590d509c805cf667471e3b34eec2cab",
+    "name": "green theme",
+    "selectedTokenSets": {
+      "global": "enabled",
+      "cool grey": "disabled",
+      "green": "enabled",
+      "teal blue": "disabled",
+      "orange brown": "disabled",
+      "coral": "disabled",
+      "violet": "disabled",
+      "pink": "disabled"
+    },
+    "$figmaStyleReferences": {}
+  },
+  {
+    "id": "a5e3b94d7604ada046c36cbf38a64dfa1708556c",
+    "name": "coolgrey theme",
+    "selectedTokenSets": {
+      "global": "enabled",
+      "cool grey": "enabled",
+      "green": "disabled",
+      "teal blue": "disabled",
+      "orange brown": "disabled",
+      "coral": "disabled",
+      "violet": "disabled",
+      "pink": "disabled"
+    },
+    "$figmaStyleReferences": {}
+  }
+]

@@ -8,5 +8,5 @@ import { theme } from './theme'
  * system work correctly
  */
 export const ThemeProvider: FC<ChakraProviderProps> = (props) => (
-  <ChakraProvider theme={theme} {...props} />
+  <ChakraProvider portalZIndex={40} theme={theme} {...props} />
 )

@@ -57,6 +57,6 @@ export const Progress = {
   sizes,
   defaultProps: {
     size: 'md',
-    colorScheme: 'primary',
+    colorScheme: 'brand.primary',
   },
 }

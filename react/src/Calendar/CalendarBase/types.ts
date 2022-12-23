@@ -5,4 +5,4 @@ export type CalendarBaseProps = Pick<
   'colorScheme' | 'isDateUnavailable' | 'monthsToDisplay'
 >
 
-export type DateRangeValue = [null, null] | [Date, null] | [Date, Date]
+export type DateRangeValue = [Date, Date] | [Date, null] | [null, null]

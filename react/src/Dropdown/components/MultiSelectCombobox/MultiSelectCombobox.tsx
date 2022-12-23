@@ -16,19 +16,8 @@ import { useSelectContext } from '../../SelectContext'
 import { SelectedItems } from './SelectedItems'
 
 const MultiItemsContainer = ({ children }: PropsWithChildren) => {
-  return (
-    <Box
-      display="inline-flex"
-      flexWrap="wrap"
-      flexGrow={1}
-      // Margin difference for selected items.
-      my="-3px"
-      // Padding for dropdown toggle.
-      maxW="calc(100% - 2.5rem)"
-    >
-      {children}
-    </Box>
-  )
+  const { styles } = useSelectContext()
+  return <Box sx={styles.itemContainer}>{children}</Box>
 }
 
 export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
@@ -106,14 +95,7 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
             )}
           />
         </MultiItemsContainer>
-        <Box
-          display="inline-flex"
-          py="0.3125rem"
-          px="0.625rem"
-          h="fit-content"
-          aria-disabled={isDisabled}
-          __css={styles.icon}
-        >
+        <Box aria-disabled={isDisabled} sx={styles.chevron}>
           <Icon
             as={isOpen ? BxsChevronUp : BxsChevronDown}
             aria-label={`${isOpen ? 'Close' : 'Open'} dropdown options icon`}

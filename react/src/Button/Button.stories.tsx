@@ -1,5 +1,5 @@
 import { ButtonGroup, SimpleGrid, Text } from '@chakra-ui/react'
-import { Meta, Story } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { BxRightArrowAlt, BxUpload } from '~/icons'
 
@@ -17,9 +17,9 @@ export default {
   },
 } as Meta
 
-const ButtonTemplate: Story<ButtonProps> = (args) => <Button {...args} />
+const ButtonTemplate: StoryFn<ButtonProps> = (args) => <Button {...args} />
 
-const ButtonGroupTemplate: Story<ButtonProps> = (args) => {
+const ButtonGroupTemplate: StoryFn<ButtonProps> = (args) => {
   return (
     <SimpleGrid
       columns={2}
@@ -34,6 +34,22 @@ const ButtonGroupTemplate: Story<ButtonProps> = (args) => {
           Leading
         </Button>
         <Button rightIcon={<BxRightArrowAlt fontSize="1.5rem" />} {...args}>
+          Trailing
+        </Button>
+      </ButtonGroup>
+      <Text>Hover</Text>
+      <ButtonGroup>
+        <Button data-hover {...args}>
+          Button
+        </Button>
+        <Button data-hover leftIcon={<BxUpload fontSize="1.5rem" />} {...args}>
+          Leading
+        </Button>
+        <Button
+          data-hover
+          rightIcon={<BxRightArrowAlt fontSize="1.5rem" />}
+          {...args}
+        >
           Trailing
         </Button>
       </ButtonGroup>
@@ -96,7 +112,6 @@ export const Default = ButtonTemplate.bind({})
 Default.args = {
   variant: 'solid',
   children: 'Button',
-  colorScheme: 'primary',
   size: 'md',
   textStyle: 'subhead-1',
 }
@@ -105,21 +120,16 @@ export const FullWidth = ButtonTemplate.bind({})
 FullWidth.args = {
   variant: 'solid',
   children: 'Button',
-  colorScheme: 'primary',
   isFullWidth: true,
   textStyle: 'subhead-1',
 }
 
-export const SolidPrimary = ButtonGroupTemplate.bind({})
-SolidPrimary.args = {
-  variant: 'solid',
-  colorScheme: 'primary',
-}
+export const SolidDefault = ButtonGroupTemplate.bind({})
 
-export const SolidDanger = ButtonGroupTemplate.bind({})
-SolidDanger.args = {
+export const SolidCritical = ButtonGroupTemplate.bind({})
+SolidCritical.args = {
   variant: 'solid',
-  colorScheme: 'danger',
+  colorScheme: 'critical',
 }
 
 export const SolidSuccess = ButtonGroupTemplate.bind({})
@@ -128,26 +138,59 @@ SolidSuccess.args = {
   colorScheme: 'success',
 }
 
-export const ReversePrimary = ButtonGroupTemplate.bind({})
-ReversePrimary.args = {
-  variant: 'reverse',
-  colorScheme: 'primary',
-}
-
-export const OutlinePrimary = ButtonGroupTemplate.bind({})
-OutlinePrimary.args = {
+export const OutlineDefault = ButtonGroupTemplate.bind({})
+OutlineDefault.args = {
   variant: 'outline',
-  colorScheme: 'primary',
 }
 
-export const ClearSecondary = ButtonGroupTemplate.bind({})
-ClearSecondary.args = {
+export const OutlineCritical = ButtonGroupTemplate.bind({})
+OutlineCritical.args = {
+  variant: 'outline',
+  colorScheme: 'critical',
+}
+
+export const OutlineNeutral = ButtonGroupTemplate.bind({})
+OutlineNeutral.args = {
+  variant: 'outline',
+  colorScheme: 'neutral',
+}
+
+export const OutlineInverse = ButtonGroupTemplate.bind({})
+OutlineInverse.args = {
+  variant: 'outline',
+  colorScheme: 'inverse',
+}
+OutlineInverse.parameters = {
+  backgrounds: { default: 'dark' },
+}
+
+export const ClearDefault = ButtonGroupTemplate.bind({})
+ClearDefault.args = {
   variant: 'clear',
-  colorScheme: 'secondary',
+}
+
+export const ClearNeutral = ButtonGroupTemplate.bind({})
+ClearNeutral.args = {
+  variant: 'clear',
+  colorScheme: 'neutral',
+}
+
+export const ClearInverse = ButtonGroupTemplate.bind({})
+ClearInverse.args = {
+  variant: 'clear',
+  colorScheme: 'inverse',
+}
+ClearInverse.parameters = {
+  backgrounds: { default: 'dark' },
+}
+
+export const ReverseDefault = ButtonGroupTemplate.bind({})
+ReverseDefault.args = {
+  variant: 'reverse',
 }
 
 export const LinkPrimary = ButtonGroupTemplate.bind({})
 LinkPrimary.args = {
   variant: 'link',
-  colorScheme: 'primary',
+  colorScheme: 'brand.primary',
 }

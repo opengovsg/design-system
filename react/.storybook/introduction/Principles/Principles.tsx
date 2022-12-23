@@ -1,18 +1,18 @@
-import { Box, Text } from '@chakra-ui/layout'
+import { Box, Heading, Text } from '@chakra-ui/layout'
 
 export const Principles = (): JSX.Element => {
   return (
     <Box
       color="white"
-      bg="secondary.700"
+      bg="brand.secondary.700"
       w="100%"
       minH="100vh"
       px={{ base: '1.5rem', md: '5.5rem', lg: '7.5rem' }}
       py={{ base: '1.5rem', md: '5rem', lg: '6rem' }}
     >
-      <Text mb="4rem" textStyle="display-2">
+      <Heading size="4xl" as="h1" mb="4rem">
         Guiding principles
-      </Text>
+      </Heading>
       <Box mb="1rem">
         <Text textStyle="h4">Accessible</Text>
         <Text textStyle="body-1">

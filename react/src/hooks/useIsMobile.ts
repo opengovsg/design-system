@@ -1,11 +1,12 @@
-import { useBreakpointValue } from '@chakra-ui/react'
+import { useMediaQuery, UseMediaQueryOptions, useTheme } from '@chakra-ui/react'
+import { get } from '@chakra-ui/utils'
 
-export const useIsMobile = (): boolean => {
-  const isMobile = useBreakpointValue({
-    base: true,
-    xs: true,
-    md: false,
-  })
+import { breakpoints } from '~/theme/foundations/breakpoints'
 
-  return isMobile ?? false
+export const useIsMobile = (opts?: UseMediaQueryOptions): boolean => {
+  const theme = useTheme()
+  const mdBreakpoint = get(theme, 'breakpoints.md', breakpoints.md)
+  const [isLargerThanMd] = useMediaQuery(`(min-width: ${mdBreakpoint})`, opts)
+
+  return !isLargerThanMd
 }

@@ -1,19 +1,27 @@
-import { anatomy, MultiStyleConfig } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+import { anatomy } from '@chakra-ui/theme-tools'
+
+import { layerStyles } from '../layerStyles'
 
 export type BannerVariant = 'info' | 'error' | 'warn'
 
 const parts = anatomy('banner').parts('banner', 'item', 'icon', 'link', 'close')
 
-export const Banner: MultiStyleConfig<typeof parts> & {
-  parts: typeof parts.keys
-} = {
-  parts: parts.keys,
-  baseStyle: {
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(parts.keys)
+
+const baseStyle = definePartsStyle({
+  item: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+})
+
+const sizes = {
+  md: definePartsStyle({
     item: {
-      display: 'flex',
       py: ['1rem', '1rem', '0.5rem'],
       px: '1rem',
-      justifyContent: 'space-between',
     },
     icon: {
       fontSize: '1.5rem',
@@ -27,52 +35,75 @@ export const Banner: MultiStyleConfig<typeof parts> & {
       w: '1.5rem',
       h: '1.5rem',
     },
+  }),
+}
+
+const variantInfo = definePartsStyle({
+  banner: {
+    color: 'base.content.inverse',
+    bg: 'utility.feedback.info',
   },
-  variants: {
-    info: {
-      banner: {
-        color: 'white',
-        bg: 'primary.500',
-      },
-      link: {
-        color: 'white',
-        _hover: {
-          color: 'white',
-        },
-        _focus: {
-          boxShadow: '0 0 0 2px var(--chakra-colors-white)',
-        },
-      },
+  link: {
+    color: 'base.content.inverse',
+    _hover: {
+      color: 'base.content.inverse',
     },
-    warn: {
-      banner: {
-        color: 'secondary.700',
-        bg: 'warning.500',
-      },
-      link: {
-        color: 'secondary.700',
-        _hover: {
-          color: 'secondary.700',
-        },
-      },
-    },
-    error: {
-      banner: {
-        color: 'white',
-        bg: 'danger.500',
-      },
-      link: {
-        color: 'white',
-        _hover: {
-          color: 'white',
-        },
-        _focus: {
-          boxShadow: '0 0 0 2px var(--chakra-colors-white)',
-        },
-      },
-    },
+    ...layerStyles.focusRing.inverse,
   },
+  close: {
+    color: 'base.content.inverse',
+    ...layerStyles.focusRing.inverse,
+  },
+})
+
+const variantWarn = definePartsStyle({
+  banner: {
+    color: 'base.content.dark',
+    bg: 'utility.feedback.warning',
+  },
+  link: {
+    color: 'base.content.dark',
+    _hover: {
+      color: 'base.content.dark',
+    },
+    ...layerStyles.focusRing.default,
+  },
+  close: {
+    color: 'base.content.dark',
+    ...layerStyles.focusRing.default,
+  },
+})
+
+const variantError = definePartsStyle({
+  banner: {
+    color: 'base.content.inverse',
+    bg: 'utility.feedback.critical',
+  },
+  link: {
+    color: 'base.content.inverse',
+    _hover: {
+      color: 'base.content.inverse',
+    },
+    ...layerStyles.focusRing.inverse,
+  },
+  close: {
+    color: 'base.content.inverse',
+    ...layerStyles.focusRing.inverse,
+  },
+})
+
+const variants = {
+  info: variantInfo,
+  warn: variantWarn,
+  error: variantError,
+}
+
+export const Banner = defineMultiStyleConfig({
+  baseStyle,
+  sizes,
+  variants,
   defaultProps: {
     variant: 'info',
+    size: 'md',
   },
-}
+})

@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Stack, UnorderedList } from '@chakra-ui/react'
-import { Meta, Story } from '@storybook/react'
+import { ListItem, Stack, UnorderedList } from '@chakra-ui/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { values } from 'lodash'
 
 import { Badge } from '~/Badge'
@@ -25,9 +25,9 @@ const List = ({
     <Tile.Text textStyle="subhead-2">{listTitle}</Tile.Text>
     <UnorderedList>
       {listItems.map((text, i) => (
-        <Tile.ListItem textStyle="body-2" textAlign="left" key={i}>
-          {text}
-        </Tile.ListItem>
+        <ListItem textStyle="body-2" textAlign="left" key={i}>
+          <Tile.Text>{text}</Tile.Text>
+        </ListItem>
       ))}
     </UnorderedList>
   </>
@@ -40,7 +40,7 @@ interface TileTemplateProps extends TileProps {
   listItems: Record<string, string>
 }
 
-const Template: Story<TileTemplateProps> = ({
+const Template: StoryFn<TileTemplateProps> = ({
   title,
   subtitle,
   listTitle,
@@ -53,7 +53,7 @@ const Template: Story<TileTemplateProps> = ({
     <Tile
       {...args}
       onClick={() => setIsClicked(!isClicked)}
-      isActive={isClicked}
+      isSelected={isClicked}
     >
       <Tile.Title>{title}</Tile.Title>
       <Tile.Subtitle>{subtitle}</Tile.Subtitle>
@@ -86,7 +86,7 @@ Simple.args = {
   icon: BxMailSend,
 }
 
-export const Playground: Story = () => {
+export const Playground: StoryFn = () => {
   const [selected, setSelected] = useState('')
 
   return (
@@ -97,11 +97,11 @@ export const Playground: Story = () => {
     >
       <StorageTile
         onClick={() => setSelected('storage')}
-        isActive={selected === 'storage'}
+        isSelected={selected === 'storage'}
       />
       <EmailTile
         onClick={() => setSelected('email')}
-        isActive={selected === 'email'}
+        isSelected={selected === 'email'}
       />
     </Stack>
   )
@@ -109,14 +109,14 @@ export const Playground: Story = () => {
 
 interface StoryTileProps {
   onClick: () => void
-  isActive?: boolean
+  isSelected?: boolean
 }
 
-const EmailTile = ({ onClick, isActive }: StoryTileProps) => (
+const EmailTile = ({ onClick, isSelected }: StoryTileProps) => (
   <Tile
     variant="complex"
     icon={BxMailSend}
-    isActive={isActive}
+    isSelected={isSelected}
     onClick={onClick}
     flex={1}
   >
@@ -129,12 +129,12 @@ const EmailTile = ({ onClick, isActive }: StoryTileProps) => (
   </Tile>
 )
 
-const StorageTile = ({ onClick, isActive }: StoryTileProps) => (
+const StorageTile = ({ onClick, isSelected }: StoryTileProps) => (
   <Tile
     variant="complex"
     icon={BxLockAlt}
     badge={<Badge colorScheme="success">recommended</Badge>}
-    isActive={isActive}
+    isSelected={isSelected}
     onClick={onClick}
     flex={1}
   >
