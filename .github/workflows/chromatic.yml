@@ -31,4 +31,8 @@ jobs:
           workingDir: react
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          onlyChanged: true
           exitOnceUploaded: true
+          autoAcceptChanges: main
+          # Skip running Chromatic on dependabot PRs
+          skip: dependabot/**
