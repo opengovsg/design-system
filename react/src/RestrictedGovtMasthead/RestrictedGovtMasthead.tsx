@@ -16,34 +16,34 @@ import { BxChevronDown, BxChevronUp, BxsBank, BxsLockAlt } from '~/icons'
 import { Link } from '~/Link'
 import { WithSsr } from '~/types/WithSsr'
 
-import { GovtMastheadIcon } from './GovtMastheadIcon'
-import { GovtMastheadItem } from './GovtMastheadItem'
+import { RestrictedGovtMastheadIcon } from './RestrictedGovtMastheadIcon'
+import { RestrictedGovtMastheadItem } from './RestrictedGovtMastheadItem'
 
-export interface GovtMastheadProps extends WithSsr {
+export interface RestrictedGovtMastheadProps extends WithSsr {
   defaultIsOpen?: boolean
 }
 
-interface GovtMastheadChildrenProps {
+interface RestrictedGovtMastheadChildrenProps {
   isOpen: boolean
   isMobile: boolean
   onToggle: () => void
   children: React.ReactNode
 }
 
-interface HeaderBarProps extends GovtMastheadChildrenProps {
+interface RestrictedHeaderBarProps extends RestrictedGovtMastheadChildrenProps {
   /**
    * ID of the expandable section for accessibility.
    */
   ariaControlId: string
 }
 
-const HeaderBar = ({
+const RestrictedHeaderBar = ({
   isMobile,
   children,
   onToggle,
   isOpen,
   ariaControlId,
-}: HeaderBarProps): JSX.Element => {
+}: RestrictedHeaderBarProps): JSX.Element => {
   const styleProps = {
     bg: 'grey.50',
     py: { base: '0.5rem', md: '0.375rem' },
@@ -80,12 +80,12 @@ const HeaderBar = ({
   return <Flex {...styleProps}>{children}</Flex>
 }
 
-const HowToIdentify = ({
+const RestrictedHowToIdentify = ({
   isOpen,
   isMobile,
   children,
   onToggle,
-}: GovtMastheadChildrenProps): JSX.Element => {
+}: RestrictedGovtMastheadChildrenProps): JSX.Element => {
   // Mobile
   if (isMobile) {
     return (
@@ -119,10 +119,10 @@ const HowToIdentify = ({
   )
 }
 
-export const GovtMasthead = ({
+export const RestrictedGovtMasthead = ({
   defaultIsOpen,
   ssr,
-}: GovtMastheadProps): JSX.Element => {
+}: RestrictedGovtMastheadProps): JSX.Element => {
   const { onToggle, isOpen } = useDisclosure({ defaultIsOpen })
   const isMobile = useIsMobile({ ssr })
 
@@ -130,13 +130,13 @@ export const GovtMasthead = ({
 
   return (
     <Box>
-      <HeaderBar
+      <RestrictedHeaderBar
         onToggle={onToggle}
         isMobile={isMobile}
         isOpen={isOpen}
         ariaControlId={ariaControlId}
       >
-        <GovtMastheadIcon
+        <RestrictedGovtMastheadIcon
           aria-hidden
           fontSize="1rem"
           mr={{ base: '0.25rem', lg: '0.5rem' }}
@@ -144,7 +144,7 @@ export const GovtMasthead = ({
         />
         <Flex alignItems="center" flexWrap="wrap">
           <Text my="2px">A Singapore Government Agency Website&ensp;</Text>
-          <HowToIdentify
+          <RestrictedHowToIdentify
             isOpen={isOpen}
             onToggle={onToggle}
             isMobile={isMobile}
@@ -154,9 +154,9 @@ export const GovtMasthead = ({
               as={isOpen ? BxChevronUp : BxChevronDown}
               fontSize={{ base: '1rem', md: '1.25rem' }}
             />
-          </HowToIdentify>
+          </RestrictedHowToIdentify>
         </Flex>
-      </HeaderBar>
+      </RestrictedHeaderBar>
 
       <Collapse in={isOpen} animateOpacity>
         <Stack
@@ -169,7 +169,7 @@ export const GovtMasthead = ({
           id={ariaControlId}
           aria-hidden={!isOpen}
         >
-          <GovtMastheadItem
+          <RestrictedGovtMastheadItem
             icon={BxsBank}
             header="Official website links end with .gov.sg"
           >
@@ -186,8 +186,8 @@ export const GovtMasthead = ({
                 Trusted websites
               </Link>
             </Box>
-          </GovtMastheadItem>
-          <GovtMastheadItem
+          </RestrictedGovtMastheadItem>
+          <RestrictedGovtMastheadItem
             icon={BxsLockAlt}
             header="Secure websites use HTTPS"
           >
@@ -205,7 +205,7 @@ export const GovtMasthead = ({
                 websites.
               </Text>
             </Box>
-          </GovtMastheadItem>
+          </RestrictedGovtMastheadItem>
         </Stack>
       </Collapse>
     </Box>

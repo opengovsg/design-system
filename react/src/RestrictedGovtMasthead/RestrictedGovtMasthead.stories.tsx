@@ -3,21 +3,21 @@ import { Meta, StoryFn } from '@storybook/react'
 import { getMobileViewParameters } from '~/utils/storybook'
 
 import {
-  GovtMasthead as GovtMastheadComponent,
-  GovtMastheadProps,
-} from './GovtMasthead'
+  RestrictedGovtMasthead as RestrictedGovtMastheadComponent,
+  RestrictedGovtMastheadProps,
+} from './RestrictedGovtMasthead'
 
 export default {
-  title: 'Components/GovtMasthead',
+  title: 'Components/RestrictedGovtMasthead',
   parameters: {
     layout: 'fullscreen',
   },
-  component: GovtMastheadComponent,
+  component: RestrictedGovtMastheadComponent,
   decorators: [],
 } as Meta
 
-const Template: StoryFn<GovtMastheadProps> = (args) => (
-  <GovtMastheadComponent {...args} />
+const Template: StoryFn<RestrictedGovtMastheadProps> = (args) => (
+  <RestrictedGovtMastheadComponent {...args} />
 )
 
 export const MobileDefault = Template.bind({})

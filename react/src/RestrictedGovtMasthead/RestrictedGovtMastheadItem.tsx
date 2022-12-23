@@ -1,16 +1,16 @@
 import { As, Flex, Icon, Text } from '@chakra-ui/react'
 
-export interface GovtMastheadItemProps {
+export interface RestrictedGovtMastheadItemProps {
   icon: As
   header: string
   children: React.ReactNode
 }
 
-export const GovtMastheadItem = ({
+export const RestrictedGovtMastheadItem = ({
   icon,
   header,
   children,
-}: GovtMastheadItemProps): JSX.Element => {
+}: RestrictedGovtMastheadItemProps): JSX.Element => {
   return (
     <Flex flex={1} maxW="32rem">
       <Icon

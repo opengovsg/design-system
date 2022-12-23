@@ -1,6 +1,6 @@
 import { chakra } from '@chakra-ui/react'
 
-export const GovtMastheadIcon = chakra(
+export const RestrictedGovtMastheadIcon = chakra(
   (props: React.SVGProps<SVGSVGElement>): JSX.Element => {
     return (
       <svg
