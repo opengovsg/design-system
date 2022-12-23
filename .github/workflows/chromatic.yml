@@ -3,12 +3,17 @@
 # Workflow name
 name: "Chromatic"
 
+defaults:
+  run:
+    working-directory: react
+
 # Event for the workflow
 on:
   push:
     branches:
       - "main"
   pull_request:
+    types: [opened, reopened, synchronize]
 
 # List of jobs
 jobs:
@@ -36,3 +41,5 @@ jobs:
           autoAcceptChanges: main
           # Skip running Chromatic on dependabot PRs
           skip: dependabot/**
+          # Only run when the react directory has changes
+          untraced: "!(react)/**"
