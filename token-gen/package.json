@@ -1,0 +1,17 @@
+{
+  "name": "token-gen",
+  "version": "1.0.0",
+  "description": "OGP Design System token generator",
+  "scripts": {
+    "build": "npm run transform && node build.js",
+    "transform": "npx token-transformer tokens/raw --theme --themeOutputPath=tokens/transformed"
+  },
+  "author": "karrui@open.gov.sg",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "devDependencies": {
+    "json5": "^2.2.1",
+    "lodash": "^4.17.21",
+    "style-dictionary": "^3.7.1",
+    "token-transformer": "^0.0.28"
+  }
+}
