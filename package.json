@@ -1,10 +1,9 @@
 {
   "name": "root",
-  "description": "Components created according to the Open Government Products design system",
+  "description": "Repository containing the Open Government Products design system",
   "private": true,
   "devDependencies": {
-    "husky": "^8.0.2",
-    "lerna": "^4.0.0"
+    "husky": "^8.0.2"
   },
   "scripts": {
     "prepare": "husky install"
