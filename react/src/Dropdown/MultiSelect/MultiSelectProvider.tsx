@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { VirtuosoHandle } from 'react-virtuoso'
+import type { VirtuosoHandle } from 'react-virtuoso'
 import {
   FormControlOptions,
   ThemingProps,
@@ -101,8 +101,9 @@ export const MultiSelectProvider = ({
   )
 
   const getFilteredItems = useCallback(
-    (filterValue?: string) =>
-      filterValue ? filter(items, filterValue) : items,
+    (filterValue?: string) => {
+      return filterValue ? filter(items, filterValue) : items
+    },
     [filter, items],
   )
   const [filteredItems, setFilteredItems] = useState(
@@ -110,11 +111,6 @@ export const MultiSelectProvider = ({
       downshiftComboboxProps.initialInputValue ??
         downshiftComboboxProps.inputValue,
     ),
-  )
-
-  const resetItems = useCallback(
-    () => setFilteredItems(getFilteredItems()),
-    [getFilteredItems],
   )
 
   const selectedItems = useMemo(() => {
@@ -225,10 +221,10 @@ export const MultiSelectProvider = ({
               addSelectedItem(selectedItem)
             }
           }
-          resetItems()
           return {
             ...changes,
-            inputValue: '',
+            // Retain previous inputValue
+            inputValue: state.inputValue,
             // Keep highlighted index the same.
             highlightedIndex: state.highlightedIndex,
             selectedItem: null,
@@ -237,7 +233,7 @@ export const MultiSelectProvider = ({
           }
         }
         case useCombobox.stateChangeTypes.InputBlur:
-          resetItems()
+          setFilteredItems(getFilteredItems())
           // Clear input regardless on blur.
           return {
             ...changes,
