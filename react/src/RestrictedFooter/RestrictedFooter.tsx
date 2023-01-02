@@ -24,7 +24,19 @@ export const RestrictedFooter = ({
     { ssr },
   )
 
-  const colorModeToUse = colorModeProp ?? colorMode
+  const colorModeBreakpointValues = useMemo(() => {
+    if (!colorModeProp) return { base: undefined }
+    if (typeof colorModeProp === 'string') {
+      return { base: colorModeProp }
+    }
+    return colorModeProp
+  }, [colorModeProp])
+
+  const colorModePropValue = useBreakpointValue(colorModeBreakpointValues, {
+    ssr,
+  })
+
+  const colorModeToUse = colorModePropValue ?? colorMode
 
   const ogpFooterIconLink = useMemo(() => {
     return colorModeToUse === 'dark'
