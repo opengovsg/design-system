@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 04 Jan 2023 05:48:57 GMT
+ * Generated on Wed, 04 Jan 2023 07:42:32 GMT
  */
 
 export const colours =  {
@@ -31,10 +31,9 @@ export const colours =  {
   base: {
     canvas: {
       alt: "#fffcfa",
-      brandLight: "#ffd6b9",
+      "brand-subtle": "#ffd6b9",
       default: "#ffffff",
       backdrop: "#e9e9e9",
-      "brand-subtle": "#F9F9F9D",
       inverse: "#3d3d3d",
       overlay: "rgba(61, 61, 61, 0.8)",
     },

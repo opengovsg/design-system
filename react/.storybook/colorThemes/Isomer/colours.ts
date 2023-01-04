@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 04 Jan 2023 05:48:57 GMT
+ * Generated on Wed, 04 Jan 2023 07:42:32 GMT
  */
 
 export const colours =  {
@@ -69,8 +69,7 @@ export const colours =  {
   base: {
     content: {
       default: "#3c4764",
-      dark: "#272d41",
-      strong: "#2e2e2e",
+      strong: "#272d41",
       medium: "#686868",
       brand: "#2164DA",
       inverse: "#ffffff",

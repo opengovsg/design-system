@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 04 Jan 2023 03:09:38 GMT
+ * Generated on Wed, 04 Jan 2023 07:36:13 GMT
  */
 
 export const colours =  {
@@ -137,21 +137,21 @@ export const colours =  {
       default: "#ffffff",
       alt: "#f8f9f9",
       backdrop: "#dbdde1",
-      brandLight: "#f7f9fb",
+      "brand-subtle": "#f7f9fb",
       inverse: "#2c2e34",
       overlay: "rgba(58, 62, 70, 0.8)",
     },
     content: {
       default: "#454953",
-      dark: "#2c2e34",
-      light: "#838894",
+      strong: "#2c2e34",
+      medium: "#838894",
       brand: "#576d93",
       inverse: "#ffffff",
     },
     divider: {
-      light: "#f8f9f9",
+      subtle: "#f8f9f9",
       medium: "#dbdde1",
-      dark: "#bfc2c8",
+      strong: "#bfc2c8",
       inverse: "#ffffff",
       brand: "#576d93",
     },
@@ -239,11 +239,11 @@ export const colours =  {
         hover: "rgba(192, 52, 52, 0.04)",
         active: "rgba(192, 52, 52, 0.12)",
       },
-      dark: {
+      neutral: {
         hover: "rgba(0, 0, 0, 0.1)",
         active: "rgba(0, 0, 0, 0.2)",
       },
-      light: {
+      inverse: {
         hover: "rgba(255, 255, 255, 0.1)",
         active: "rgba(255, 255, 255, 0.2)",
       },
@@ -251,7 +251,7 @@ export const colours =  {
     support: {
       unselected: "#A0A4Ad",
       selected: "#666c7a",
-      "unselected-dark": "#666c7a",
+      "unselected-strong": "#666c7a",
       disabled: "#dbdde1",
       "disabled-content": "#A0A4Ad",
       placeholder: "#A0A4Ad",
@@ -259,8 +259,8 @@ export const colours =  {
     links: {
       default: "#576d93",
       hover: "#445573",
-      "dark-default": "#454953",
-      "dark-hover": "#2c2e34",
+      "neutral-default": "#454953",
+      "neutral-hover": "#2c2e34",
       "inverse-default": "#ffffff",
       "inverse-hover": "#dbdde1",
     },
@@ -268,13 +268,13 @@ export const colours =  {
   utility: {
     feedback: {
       info: "#276EF1",
-      "info-light": "#F7F9FE",
+      "info-subtle": "#F7F9FE",
       warning: "#FFDA68",
-      "warning-light": "#fffae1",
+      "warning-subtle": "#fffae1",
       success: "#0F796F",
-      "success-light": "#F5FAFA",
+      "success-subtle": "#F5FAFA",
       critical: "#c03434",
-      "critical-light": "#fef7f7",
+      "critical-subtle": "#fef7f7",
     },
     "focus-default": "#276EF1",
     "focus-inverse": "#ffffff",
