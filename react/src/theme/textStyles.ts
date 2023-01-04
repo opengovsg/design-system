@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 22 Dec 2022 16:18:22 GMT
+ * Generated on Wed, 04 Jan 2023 07:36:13 GMT
  */
 
 export const textStyles = {
