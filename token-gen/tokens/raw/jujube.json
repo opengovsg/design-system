@@ -169,6 +169,18 @@
           "type": "color"
         }
       }
+    },
+    "base": {
+      "canvas": {
+        "inverse": {
+          "value": "{color.brand.primary.900}",
+          "type": "color"
+        },
+        "brandLight": {
+          "value": "{color.brand.secondary.50}",
+          "type": "color"
+        }
+      }
     }
   }
 }

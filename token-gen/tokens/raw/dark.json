@@ -1,175 +1,89 @@
 {
+  "spacing": {
+    "1": {
+      "value": "4px",
+      "type": "spacing",
+      "description": "0.25 rem"
+    },
+    "2": {
+      "value": "8px",
+      "type": "spacing",
+      "description": "0.5rem"
+    },
+    "3": {
+      "value": "12px",
+      "type": "spacing",
+      "description": "0.75rem"
+    },
+    "4": {
+      "value": "16px",
+      "type": "spacing",
+      "description": "1rem"
+    },
+    "5": {
+      "value": "20px",
+      "type": "spacing",
+      "description": "1.25rem"
+    },
+    "6": {
+      "value": "24px",
+      "type": "spacing",
+      "description": "1.5rem"
+    },
+    "7": {
+      "value": "28px",
+      "type": "spacing",
+      "description": "1.75rem"
+    },
+    "8": {
+      "value": "32px",
+      "type": "spacing",
+      "description": "2rem"
+    },
+    "9": {
+      "value": "36px",
+      "type": "spacing",
+      "description": "2.25rem"
+    },
+    "10": {
+      "value": "40px",
+      "type": "spacing",
+      "description": "2.5rem"
+    },
+    "11": {
+      "value": "44px",
+      "type": "spacing",
+      "description": "2.75rem"
+    },
+    "12": {
+      "value": "48px",
+      "type": "spacing",
+      "description": "3rem"
+    },
+    "13": {
+      "value": "56px",
+      "type": "spacing",
+      "description": "3.5rem"
+    },
+    "14": {
+      "value": "64px",
+      "type": "spacing",
+      "description": "4rem"
+    }
+  },
+  "border-radius": {
+    "default": {
+      "value": "4",
+      "type": "borderRadius",
+      "description": "4px"
+    },
+    "circle": {
+      "value": "50%",
+      "type": "borderRadius",
+      "description": "50%"
+    }
+  },
   "color": {
-    "violet": {
-      "50": {
-        "value": "#faf9fe",
-        "type": "color"
-      },
-      "100": {
-        "value": "#dfd9fb",
-        "type": "color"
-      },
-      "200": {
-        "value": "#c6baf8",
-        "type": "color"
-      },
-      "300": {
-        "value": "#ab96f5",
-        "type": "color"
-      },
-      "400": {
-        "value": "#9272f2",
-        "type": "color"
-      },
-      "500": {
-        "value": "#7a49ed",
-        "type": "color"
-      },
-      "600": {
-        "value": "#632dd0",
-        "type": "color"
-      },
-      "700": {
-        "value": "#5627b3",
-        "type": "color"
-      },
-      "800": {
-        "value": "#492198",
-        "type": "color"
-      },
-      "900": {
-        "value": "#371972",
-        "type": "color"
-      }
-    },
-    "slate": {
-      "50": {
-        "value": "#f8f9fa",
-        "type": "color"
-      },
-      "100": {
-        "value": "#e9eaee",
-        "type": "color"
-      },
-      "200": {
-        "value": "#babecb",
-        "type": "color"
-      },
-      "300": {
-        "value": "#9aa0b3",
-        "type": "color"
-      },
-      "400": {
-        "value": "#7b849c",
-        "type": "color"
-      },
-      "500": {
-        "value": "#5d6785",
-        "type": "color"
-      },
-      "600": {
-        "value": "#465173",
-        "type": "color"
-      },
-      "700": {
-        "value": "#3c4764",
-        "type": "color"
-      },
-      "800": {
-        "value": "#333c56",
-        "type": "color"
-      },
-      "900": {
-        "value": "#272d41",
-        "type": "color"
-      }
-    },
-    "brand": {
-      "primary": {
-        "50": {
-          "value": "#faf9fe",
-          "type": "color"
-        },
-        "100": {
-          "value": "#dfd9fb",
-          "type": "color"
-        },
-        "200": {
-          "value": "#c6baf8",
-          "type": "color"
-        },
-        "300": {
-          "value": "#ab96f5",
-          "type": "color"
-        },
-        "400": {
-          "value": "#9272f2",
-          "type": "color"
-        },
-        "500": {
-          "value": "#7a49ed",
-          "type": "color"
-        },
-        "600": {
-          "value": "#632dd0",
-          "type": "color"
-        },
-        "700": {
-          "value": "#5627b3",
-          "type": "color"
-        },
-        "800": {
-          "value": "#492198",
-          "type": "color"
-        },
-        "900": {
-          "value": "#371972",
-          "type": "color"
-        }
-      },
-      "secondary": {
-        "50": {
-          "value": "#f8f9fa",
-          "type": "color"
-        },
-        "100": {
-          "value": "#e9eaee",
-          "type": "color"
-        },
-        "200": {
-          "value": "#babecb",
-          "type": "color"
-        },
-        "300": {
-          "value": "#9aa0b3",
-          "type": "color"
-        },
-        "400": {
-          "value": "#7b849c",
-          "type": "color"
-        },
-        "500": {
-          "value": "#5d6785",
-          "type": "color"
-        },
-        "600": {
-          "value": "#465173",
-          "type": "color"
-        },
-        "700": {
-          "value": "#3c4764",
-          "type": "color"
-        },
-        "800": {
-          "value": "#333c56",
-          "type": "color"
-        },
-        "900": {
-          "value": "#272d41",
-          "type": "color"
-        }
-      }
-    },
     "blue": {
       "50": {
         "value": "#F7F9FE",
@@ -177,12 +91,12 @@
         "description": "19.98:1"
       },
       "100": {
-        "value": "#E1EBFD",
+        "value": "#CBDCFC",
         "type": "color",
         "description": "17.4:1"
       },
       "200": {
-        "value": "#ACC7FA",
+        "value": "#A1C0F9",
         "type": "color",
         "description": "11.36:1"
       },
@@ -192,32 +106,32 @@
         "description": "8.07:1"
       },
       "400": {
-        "value": "#568DF4",
+        "value": "#4280F3",
         "type": "color",
         "description": "5.58:1"
       },
       "500": {
-        "value": "#276EF1",
+        "value": "#1060F0",
         "type": "color",
         "description": "5.58:1"
       },
       "600": {
-        "value": "#0D4FCA",
+        "value": "#0C4CC1",
         "type": "color",
         "description": "7.79:1"
       },
       "700": {
-        "value": "#0B44AC",
+        "value": "#0A3B96",
         "type": "color",
         "description": "9.25:1"
       },
       "800": {
-        "value": "#093890",
+        "value": "#072B6B",
         "type": "color",
         "description": "10.97:1"
       },
       "900": {
-        "value": "#072A69",
+        "value": "#041639",
         "type": "color",
         "description": "13.66:1"
       }
@@ -385,47 +299,47 @@
         "description": "19.94:1"
       },
       "100": {
-        "value": "#DBDDE1",
+        "value": "#D9DBDF",
         "type": "color",
         "description": "17.29:1"
       },
       "200": {
-        "value": "#BFC2C8",
+        "value": "#BCBFC7",
         "type": "color",
         "description": "11.41:1"
       },
       "300": {
-        "value": "#A0A4AD",
+        "value": "#9CA0AC",
         "type": "color",
         "description": "8.03:1"
       },
       "400": {
-        "value": "#838894",
+        "value": "#7E8493",
         "type": "color",
         "description": "5.62:1"
       },
       "500": {
-        "value": "#666C7A",
+        "value": "#666B79",
         "type": "color",
         "description": "5.57:1"
       },
       "600": {
-        "value": "#505660",
+        "value": "#515561",
         "type": "color",
         "description": "7.69:1"
       },
       "700": {
-        "value": "#454953",
+        "value": "#3E424B",
         "type": "color",
         "description": "9.29:1"
       },
       "800": {
-        "value": "#3A3E46",
+        "value": "#2C2F35",
         "type": "color",
         "description": "10.86:1"
       },
       "900": {
-        "value": "#2C2E34",
+        "value": "#17181B",
         "type": "color",
         "description": "13.57:1"
       }
@@ -440,6 +354,116 @@
         "value": "#000000",
         "type": "color",
         "description": "21 : 1, AAA"
+      },
+      "darkgray": {
+        "value": "#111111",
+        "type": "color"
+      }
+    },
+    "brand": {
+      "primary": {
+        "50": {
+          "value": "{color.blue.50}",
+          "type": "color",
+          "description": "19.93:1"
+        },
+        "100": {
+          "value": "{color.blue.100}",
+          "type": "color",
+          "description": "17.5:1"
+        },
+        "200": {
+          "value": "{color.blue.200}",
+          "type": "color",
+          "description": "12.3:1"
+        },
+        "300": {
+          "value": "{color.blue.300}",
+          "type": "color",
+          "description": "9.11:1"
+        },
+        "400": {
+          "value": "{color.blue.400}",
+          "type": "color",
+          "description": "6.51:1"
+        },
+        "500": {
+          "value": "{color.blue.500}",
+          "type": "color",
+          "description": "4.57:1"
+        },
+        "600": {
+          "value": "{color.blue.600}",
+          "type": "color",
+          "description": "7.02:1"
+        },
+        "700": {
+          "value": "{color.blue.700}",
+          "type": "color",
+          "description": "8.61:1"
+        },
+        "800": {
+          "value": "{color.blue.800}",
+          "type": "color",
+          "description": "10.6:1"
+        },
+        "900": {
+          "value": "{color.blue.900}",
+          "type": "color",
+          "description": "13.59:1"
+        }
+      },
+      "secondary": {
+        "50": {
+          "value": "{color.grey.50}",
+          "type": "color",
+          "description": "19.92:1"
+        },
+        "100": {
+          "value": "{color.grey.100}",
+          "type": "color",
+          "description": "17.46:1"
+        },
+        "200": {
+          "value": "{color.grey.200}",
+          "type": "color",
+          "description": "11.31 : 1"
+        },
+        "300": {
+          "value": "{color.grey.300}",
+          "type": "color",
+          "description": "8.05 : 1"
+        },
+        "400": {
+          "value": "{color.grey.400}",
+          "type": "color",
+          "description": "5.62:1"
+        },
+        "500": {
+          "value": "{color.grey.500}",
+          "type": "color",
+          "description": "5.6:1"
+        },
+        "600": {
+          "value": "{color.grey.600}",
+          "type": "color",
+          "description": "7.82:1"
+        },
+        "700": {
+          "value": "{color.grey.700}",
+          "type": "color",
+          "description": "9.22:1"
+        },
+        "800": {
+          "value": "{color.grey.800}",
+          "type": "color",
+          "description": "10.92:1"
+        },
+        "900": {
+          "value": "{color.grey.900}",
+          "type": "color",
+          "description": "13.65:1"
+        }
       }
     },
     "skin": {
@@ -496,86 +520,86 @@
     "base": {
       "canvas": {
         "default": {
-          "value": "#ffffff",
+          "value": "{color.standard.darkgray}",
           "type": "color",
           "description": "Default page background"
         },
         "alt": {
-          "value": "#F8F9F9",
+          "value": "{color.grey.900}",
           "type": "color",
           "description": "Alternative page background"
         },
         "backdrop": {
-          "value": "#DBDDE1",
+          "value": "{color.grey.800}",
           "type": "color",
           "description": "A backdrop used under other canvasses to provide more depth"
         },
         "brandLight": {
-          "value": "#faf9fe",
+          "value": "{color.brand.primary.900}",
           "type": "color",
           "description": "Lighter variant of the background tinted to the brand’s primary colour "
         },
         "inverse": {
-          "value": "#272d41",
+          "value": "{color.brand.secondary.50}",
           "type": "color",
           "description": "Reversed background"
         },
         "overlay": {
-          "value": "#3a3e46cc",
+          "value": "rgba({color.grey.800}, 0.8)",
           "type": "color",
           "description": "Background under modal"
         }
       },
       "content": {
         "default": {
-          "value": "#454953",
+          "value": "{color.grey.50}",
           "type": "color",
           "description": "Body copy"
         },
         "dark": {
-          "value": "#2C2E34",
+          "value": "{color.grey.100}",
           "type": "color",
           "description": "Headers\nInput labels"
         },
         "light": {
-          "value": "#838894",
+          "value": "{color.grey.400}",
           "type": "color",
           "description": "Descriptors"
         },
         "brand": {
-          "value": "#7a49ed",
+          "value": "{color.brand.primary.400}",
           "type": "color",
           "description": "Used sparingly to highlight areas of the interface"
         },
         "inverse": {
-          "value": "#ffffff",
+          "value": "{color.standard.darkgray}",
           "type": "color",
           "description": "Inverse colour to provide sufficient contrast on strong darker backgrounds"
         }
       },
       "divider": {
         "light": {
-          "value": "#F8F9F9",
+          "value": "{color.grey.800}",
           "type": "color",
           "description": "Lightest divider colour\nDefault on white backgrounds"
         },
         "medium": {
-          "value": "#DBDDE1",
+          "value": "{color.grey.700}",
           "type": "color",
           "description": "Medium divider colour\nDefault on light grey backgrounds\n"
         },
         "dark": {
-          "value": "#BFC2C8",
+          "value": "{color.grey.600}",
           "type": "color",
           "description": "Darkest divider colour\nUsed when more differentiation is required\nUsed as the default border for input fields"
         },
         "inverse": {
-          "value": "#ffffff",
+          "value": "{color.standard.white}",
           "type": "color",
           "description": "Colour of the inverse border colour"
         },
         "brand": {
-          "value": "#7a49ed",
+          "value": "{color.brand.primary.400}",
           "type": "color",
           "description": "Used when brand differentiation is required. Tabs, vertical tabs, side navs."
         }
@@ -584,187 +608,187 @@
     "interaction": {
       "main": {
         "default": {
-          "value": "#7a49ed",
+          "value": "{color.brand.primary.400}",
           "type": "color",
           "description": "Primary interactive colour for texts, borders and background on canvas.default"
         },
         "hover": {
-          "value": "#632dd0",
+          "value": "{color.brand.primary.300}",
           "type": "color",
           "description": "Background of a primary interaction when hovered over"
         },
         "active": {
-          "value": "#5627b3",
+          "value": "{color.brand.primary.200}",
           "type": "color",
           "description": "Background of a primary interaction when pressed"
         }
       },
       "main-subtle": {
         "default": {
-          "value": "#faf9fe",
+          "value": "{color.brand.primary.900}",
           "type": "color",
           "description": "Solid light background based on the main interactive colour"
         },
         "hover": {
-          "value": "#dfd9fb",
+          "value": "{color.brand.primary.800}",
           "type": "color",
           "description": "interaction.main-light.default in a hover state"
         },
         "active": {
-          "value": "#c6baf8",
+          "value": "{color.brand.primary.700}",
           "type": "color",
           "description": "interaction.main-light.default when pressed"
         }
       },
       "sub": {
         "default": {
-          "value": "#5d6785",
+          "value": "{color.brand.secondary.500}",
           "type": "color",
           "description": "Secondary interactive colour for texts, borders and background on canvas-default"
         },
         "hover": {
-          "value": "#465173",
+          "value": "{color.brand.secondary.400}",
           "type": "color",
           "description": "Background of a secondary interaction when selected"
         },
         "active": {
-          "value": "#3c4764",
+          "value": "{color.brand.secondary.300}",
           "type": "color",
           "description": "Background of a secondary interaction when selected"
         }
       },
       "sub-subtle": {
         "default": {
-          "value": "#f8f9fa",
+          "value": "{color.brand.secondary.900}",
           "type": "color",
           "description": "Light background of a secondary interaction"
         },
         "hover": {
-          "value": "#e9eaee",
+          "value": "{color.brand.secondary.800}",
           "type": "color",
           "description": "Light background of a secondary interaction when hovering"
         },
         "active": {
-          "value": "#babecb",
+          "value": "{color.brand.secondary.700}",
           "type": "color",
           "description": "Light background of a secondary interaction when pressed"
         }
       },
       "critical": {
         "default": {
-          "value": "#c03434",
+          "value": "{color.red.400}",
           "type": "color",
           "description": "Danger colour for texts, borders and background"
         },
         "hover": {
-          "value": "#992a2a",
+          "value": "{color.red.300}",
           "type": "color",
           "description": "Background and borders using critical-default when hovered over"
         },
         "active": {
-          "value": "#852424",
+          "value": "{color.red.200}",
           "type": "color",
           "description": "Background and borders using critical-default when pressed"
         }
       },
       "critical-subtle": {
         "default": {
-          "value": "#fef7f7",
+          "value": "{color.red.900}",
           "type": "color",
           "description": "Light critical background"
         },
         "hover": {
-          "value": "#fbe4e4",
+          "value": "{color.red.800}",
           "type": "color",
           "description": "Light critical background when hovered over"
         },
         "active": {
-          "value": "#f4acac",
+          "value": "{color.red.700}",
           "type": "color",
           "description": "Light critical background when pressed"
         }
       },
       "warning": {
         "default": {
-          "value": "#FFDA68",
+          "value": "{color.yellow.200}",
           "type": "color",
           "description": "Warning background. Yellow is too light to be used for text colour, so this can only be used for background and border."
         },
         "hover": {
-          "value": "#E2B73E",
+          "value": "{color.yellow.100}",
           "type": "color",
           "description": "Warning background when hovered"
         },
         "active": {
-          "value": "#C4992A",
+          "value": "{color.yellow.50}",
           "type": "color",
           "description": "Warning background when pressed"
         }
       },
       "warning-subtle": {
         "default": {
-          "value": "#fffae1",
+          "value": "{color.yellow.900}",
           "type": "color",
           "description": "Light warning background"
         },
         "hover": {
-          "value": "#FFDA68",
+          "value": "{color.yellow.800}",
           "type": "color",
           "description": "Light warning background when hovered"
         },
         "active": {
-          "value": "#E2B73E",
+          "value": "{color.yellow.700}",
           "type": "color",
           "description": "Light warning background when pressed"
         }
       },
       "success": {
         "default": {
-          "value": "#0F796F",
+          "value": "{color.green.400}",
           "type": "color",
           "description": "Success colour for texts, borders and background"
         },
         "hover": {
-          "value": "#0C5F57",
+          "value": "{color.green.300}",
           "type": "color",
           "description": "Background and borders using success.default when hovered over"
         },
         "active": {
-          "value": "#0A524B",
+          "value": "{color.green.200}",
           "type": "color",
           "description": "Background of success.active when pressed"
         }
       },
       "success-subtle": {
         "default": {
-          "value": "#F5FAFA",
+          "value": "{color.green.900}",
           "type": "color",
           "description": "Light background for success colours"
         },
         "hover": {
-          "value": "#C6E3E0",
+          "value": "{color.green.800}",
           "type": "color",
           "description": "Light background for success colours when hovered"
         },
         "active": {
-          "value": "#98CCC7",
+          "value": "{color.green.700}",
           "type": "color",
           "description": "Light background for success colours when pressed"
         }
       },
       "neutral-subtle": {
         "default": {
-          "value": "#F8F9F9",
+          "value": "{color.grey.900}",
           "type": "color",
           "description": "Light background for neutral colours"
         },
         "hover": {
-          "value": "#DBDDE1",
+          "value": "{color.grey.800}",
           "type": "color",
           "description": "Light background for neutral colours on hover"
         },
         "active": {
-          "value": "#BFC2C8",
+          "value": "{color.grey.700}",
           "type": "color",
           "description": "Light background for neutral colours when pressed"
         }
@@ -772,48 +796,48 @@
       "muted": {
         "main": {
           "hover": {
-            "value": "#faf9fe",
+            "value": "{color.brand.secondary.900}",
             "type": "color",
             "description": "muted.main.default when hovering"
           },
           "active": {
-            "value": "#dfd9fb",
+            "value": "{color.brand.secondary.800}",
             "type": "color",
             "description": "muted.main.default when pressed"
           }
         },
         "sub": {
           "hover": {
-            "value": "#f8f9fa",
+            "value": "{color.brand.primary.900}",
             "type": "color",
             "description": "muted.sub.default when hovering"
           },
           "active": {
-            "value": "#e9eaee",
+            "value": "{color.brand.primary.800}",
             "type": "color",
             "description": "muted.sub.default when pressed"
           }
         },
         "critical": {
           "hover": {
-            "value": "#fef7f7",
+            "value": "{color.red.900}",
             "type": "color",
             "description": "muted.critical.default when hovering"
           },
           "active": {
-            "value": "#fbe4e4",
+            "value": "{color.red.800}",
             "type": "color",
             "description": "muted.critical.default when pressed"
           }
         },
         "neutral": {
           "hover": {
-            "value": "#F8F9F9",
+            "value": "{color.grey.900}",
             "type": "color",
             "description": "muted-neutral.default when hovered over"
           },
           "active": {
-            "value": "#DBDDE1",
+            "value": "{color.grey.800}",
             "type": "color",
             "description": "muted-neutral.default when pressed"
           }
@@ -822,48 +846,48 @@
       "tinted": {
         "main": {
           "hover": {
-            "value": "#7a49ed0a",
+            "value": "rgba({color.brand.primary.500}, 0.04)",
             "type": "color",
             "description": "Translucent background tinted with the main interactive colour, upon hovering"
           },
           "active": {
-            "value": "#7a49ed1f",
+            "value": "rgba({color.brand.primary.500}, 0.12)",
             "type": "color",
             "description": "Translucent background tinted with the main interactive colour, upon pressing"
           }
         },
         "critical": {
           "hover": {
-            "value": "#c034340a",
+            "value": "rgba({color.red.500}, 0.04)",
             "type": "color",
             "description": "Translucent background tinted with the critical interactive colour, upon hovering"
           },
           "active": {
-            "value": "#c034341f",
+            "value": "rgba({color.red.500}, 0.12)",
             "type": "color",
             "description": "Translucent background tinted with the critical interactive colour, upon pressing"
           }
         },
         "dark": {
           "hover": {
-            "value": "#0000001a",
+            "value": "rgba({color.standard.black}, 0.1)",
             "type": "color",
             "description": "Translucent background tinted with the neutral colour, upon hovering"
           },
           "active": {
-            "value": "#00000033",
+            "value": "rgba({color.standard.black}, 0.2)",
             "type": "color",
             "description": "Translucent background tinted with the neutral colour, upon pressing"
           }
         },
         "light": {
           "hover": {
-            "value": "#ffffff1a",
+            "value": "rgba({color.standard.white}, 0.1)",
             "type": "color",
             "description": "Translucent background tinted with the neutral colour, upon hovering"
           },
           "active": {
-            "value": "#ffffff33",
+            "value": "rgba({color.standard.white}, 0.2)",
             "type": "color",
             "description": "Translucent background tinted with the neutral colour, upon pressing"
           }
@@ -871,64 +895,64 @@
       },
       "support": {
         "unselected": {
-          "value": "#A0A4AD",
+          "value": "{color.grey.500}",
           "type": "color",
           "description": "To denote unselected regions of the interface. Used for toggles and progress indicators"
         },
         "selected": {
-          "value": "#666C7A",
+          "value": "{color.grey.400}",
           "type": "color",
           "description": "To be used when a neutral tone is preferred to showcase a selected state"
         },
         "unselected-dark": {
-          "value": "#666C7A",
+          "value": "{color.grey.400}",
           "type": "color",
           "description": "Darker variant to denote unselected foreground elements on canvas-default. Used for tabs"
         },
         "disabled": {
-          "value": "#DBDDE1",
+          "value": "{color.grey.900}",
           "type": "color",
           "description": "Fill colour of disabled regions, including inputs"
         },
         "disabled-content": {
-          "value": "#A0A4AD",
+          "value": "{color.grey.600}",
           "type": "color",
           "description": "Colour of disabled foreground elements on the canvas-default or disabled"
         },
         "placeholder": {
-          "value": "#A0A4AD",
+          "value": "{color.grey.400}",
           "type": "color",
           "description": "Colour of placeholder foreground elements"
         }
       },
       "links": {
         "default": {
-          "value": "#7a49ed",
+          "value": "{color.brand.primary.400}",
           "type": "color",
           "description": "Default colour for links"
         },
         "hover": {
-          "value": "#632dd0",
+          "value": "{color.brand.primary.300}",
           "type": "color",
           "description": "Colour of links when hovered upon"
         },
         "dark-default": {
-          "value": "#454953",
+          "value": "{color.grey.50}",
           "type": "color",
           "description": "Default colour for dark links"
         },
         "dark-hover": {
-          "value": "#2C2E34",
+          "value": "{color.grey.100}",
           "type": "color",
           "description": "Colour of dark links when hovered upon"
         },
         "inverse-default": {
-          "value": "#ffffff",
+          "value": "{color.grey.800}",
           "type": "color",
           "description": "Default colour of inverse links"
         },
         "inverse-hover": {
-          "value": "#DBDDE1",
+          "value": "{color.grey.700}",
           "type": "color",
           "description": "Colour of inverse links when hovered upon"
         }
@@ -937,177 +961,93 @@
     "utility": {
       "feedback": {
         "info": {
-          "value": "#276EF1",
+          "value": "{color.blue.400}",
           "type": "color",
           "description": "Informational feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
         "info-light": {
-          "value": "#F7F9FE",
+          "value": "{color.blue.900}",
           "type": "color",
           "description": "Light background alternative to feedback.info. Can be used for toasts and infoboxes."
         },
         "warning": {
-          "value": "#FFDA68",
+          "value": "{color.yellow.100}",
           "type": "color",
           "description": "Warning feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
         "warning-light": {
-          "value": "#fffae1",
+          "value": "{color.yellow.900}",
           "type": "color",
           "description": "Light background alternative to feedback.warning. Can be used for toasts and infoboxes."
         },
         "success": {
-          "value": "#0F796F",
+          "value": "{color.green.400}",
           "type": "color",
           "description": "Success feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
         "success-light": {
-          "value": "#F5FAFA",
+          "value": "{color.green.900}",
           "type": "color",
           "description": "Light background alternative to feedback.success. Can be used for toasts and infoboxes."
         },
         "critical": {
-          "value": "#c03434",
+          "value": "{color.red.400}",
           "type": "color",
           "description": "Critical feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
         "critical-light": {
-          "value": "#fef7f7",
+          "value": "{color.red.900}",
           "type": "color",
           "description": "Light background alternative to feedback.critical. Can be used for toasts and infoboxes."
         }
       },
       "focus-default": {
-        "value": "#276EF1",
+        "value": "{color.blue.400}",
         "type": "color",
         "description": "Default focus ring over interactive elements of the interface"
       },
       "focus-inverse": {
-        "value": "#ffffff",
+        "value": "{color.standard.darkgray}",
         "type": "color",
         "description": "Inverse focus ring over interactive elements of the inverse interface"
       },
       "input-prefilled": {
-        "value": "#fffae1",
+        "value": "{color.yellow.900}",
         "type": "color",
         "description": "Background of an input field when prefilled"
       },
       "ui": {
-        "value": "#ffffff",
+        "value": "{color.standard.darkgray}",
         "type": "color",
         "description": "Background of UI elements"
       },
       "ui-clear": {
-        "value": "#ffffff00",
+        "value": "rgba({color.standard.darkgray},0)",
         "type": "color",
         "description": "Clear transparent background"
       }
     }
   },
-  "spacing": {
-    "1": {
-      "value": "4px",
-      "type": "spacing",
-      "description": "0.25 rem"
-    },
-    "2": {
-      "value": "8px",
-      "type": "spacing",
-      "description": "0.5rem"
-    },
-    "3": {
-      "value": "12px",
-      "type": "spacing",
-      "description": "0.75rem"
-    },
-    "4": {
-      "value": "16px",
-      "type": "spacing",
-      "description": "1rem"
-    },
-    "5": {
-      "value": "20px",
-      "type": "spacing",
-      "description": "1.25rem"
-    },
-    "6": {
-      "value": "24px",
-      "type": "spacing",
-      "description": "1.5rem"
-    },
-    "7": {
-      "value": "28px",
-      "type": "spacing",
-      "description": "1.75rem"
-    },
-    "8": {
-      "value": "32px",
-      "type": "spacing",
-      "description": "2rem"
-    },
-    "9": {
-      "value": "36px",
-      "type": "spacing",
-      "description": "2.25rem"
-    },
-    "10": {
-      "value": "40px",
-      "type": "spacing",
-      "description": "2.5rem"
-    },
-    "11": {
-      "value": "44px",
-      "type": "spacing",
-      "description": "2.75rem"
-    },
-    "12": {
-      "value": "48px",
-      "type": "spacing",
-      "description": "3rem"
-    },
-    "13": {
-      "value": "56px",
-      "type": "spacing",
-      "description": "3.5rem"
-    },
-    "14": {
-      "value": "64px",
-      "type": "spacing",
-      "description": "4rem"
-    }
-  },
-  "border-radius": {
-    "default": {
-      "value": 4,
-      "type": "borderRadius",
-      "description": "4px"
-    },
-    "circle": {
-      "value": "50%",
-      "type": "borderRadius",
-      "description": "50%"
-    }
-  },
   "shadow": {
     "sm": {
       "value": {
-        "color": "#bfbfbf80",
-        "type": "dropShadow",
-        "x": 0,
-        "y": 0,
-        "blur": 10,
-        "spread": 0
+        "x": "0",
+        "y": "0",
+        "blur": "10",
+        "spread": "0",
+        "color": "rgba(16,16,16,0.3)",
+        "type": "dropShadow"
       },
       "type": "boxShadow"
     },
     "md": {
       "value": {
-        "color": "#6868684d",
-        "type": "dropShadow",
-        "x": 0,
-        "y": 0,
-        "blur": 20,
-        "spread": 0
+        "x": "0",
+        "y": "0",
+        "blur": "20",
+        "spread": "0",
+        "color": "rgba(16,16,16,0.5)",
+        "type": "dropShadow"
       },
       "type": "boxShadow"
     }
@@ -1126,82 +1066,82 @@
     },
     "lineHeights": {
       "3": {
-        "value": 12,
+        "value": "12",
         "type": "lineHeights",
         "description": "0.75rem"
       },
       "4": {
-        "value": 16,
+        "value": "16",
         "type": "lineHeights",
         "description": "1rem"
       },
       "5": {
-        "value": 20,
+        "value": "20",
         "type": "lineHeights",
         "description": "1.25rem"
       },
       "6": {
-        "value": 24,
+        "value": "24",
         "type": "lineHeights",
         "description": "1.5rem"
       },
       "7": {
-        "value": 28,
+        "value": "28",
         "type": "lineHeights",
         "description": "1.75rem"
       },
       "8": {
-        "value": 32,
+        "value": "32",
         "type": "lineHeights",
         "description": "2rem"
       },
       "9": {
-        "value": 36,
+        "value": "36",
         "type": "lineHeights",
         "description": "2.25rem"
       },
       "10": {
-        "value": 40,
+        "value": "40",
         "type": "lineHeights",
         "description": "2.5rem"
       },
       "11": {
-        "value": 44,
+        "value": "44",
         "type": "lineHeights",
         "description": "2.75rem"
       },
       "12": {
-        "value": 48,
+        "value": "48",
         "type": "lineHeights",
         "description": "3rem"
       },
       "13": {
-        "value": 52,
+        "value": "52",
         "type": "lineHeights",
         "description": "3.25rem"
       },
       "14": {
-        "value": 56,
+        "value": "56",
         "type": "lineHeights",
         "description": "3.5rem"
       },
       "15": {
-        "value": 60,
+        "value": "60",
         "type": "lineHeights",
         "description": "3.75rem"
       },
       "16": {
-        "value": 64,
+        "value": "64",
         "type": "lineHeights",
         "description": "4rem"
       },
       "17": {
-        "value": 68,
+        "value": "68",
         "type": "lineHeights",
         "description": "4.25rem"
       },
       "18": {
-        "value": 72,
+        "value": "72",
         "type": "lineHeights",
         "description": "4.5rem"
       }
@@ -1230,67 +1170,67 @@
     },
     "fontSize": {
       "2xs": {
-        "value": 10,
+        "value": "10",
         "type": "fontSizes"
       },
       "xs": {
-        "value": 12,
+        "value": "12",
         "type": "fontSizes"
       },
       "sm": {
-        "value": 14,
+        "value": "14",
         "type": "fontSizes"
       },
       "md": {
-        "value": 16,
+        "value": "16",
         "type": "fontSizes"
       },
       "lg": {
-        "value": 18,
+        "value": "18",
         "type": "fontSizes"
       },
       "xl": {
-        "value": 20,
+        "value": "20",
         "type": "fontSizes"
       },
       "2xl": {
-        "value": 24,
+        "value": "24",
         "type": "fontSizes"
       },
       "3xl": {
-        "value": 28,
+        "value": "28",
         "type": "fontSizes"
       },
       "4xl": {
-        "value": 32,
+        "value": "32",
         "type": "fontSizes"
       },
       "5xl": {
-        "value": 36,
+        "value": "36",
         "type": "fontSizes"
       },
       "6xl": {
-        "value": 40,
+        "value": "40",
         "type": "fontSizes"
       },
       "7xl": {
-        "value": 44,
+        "value": "44",
         "type": "fontSizes"
       },
       "8xl": {
-        "value": 48,
+        "value": "48",
         "type": "fontSizes"
       },
       "9xl": {
-        "value": 56,
+        "value": "56",
         "type": "fontSizes"
       },
       "10xl": {
-        "value": 64,
+        "value": "64",
         "type": "fontSizes"
       },
       "11xl": {
-        "value": 72,
+        "value": "72",
         "type": "fontSizes"
       }
     },
@@ -1316,97 +1256,97 @@
         "type": "letterSpacing"
       },
       "normal": {
-        "value": 0,
+        "value": "0",
         "type": "letterSpacing"
       }
     },
     "paragraphSpacing": {
       "0": {
-        "value": 0,
+        "value": "0",
         "type": "paragraphSpacing"
       }
     },
     "responsive-display": {
       "heavy-1280": {
         "value": {
-          "fontFamily": "Inter",
-          "fontWeight": "Bold",
-          "lineHeight": 72,
-          "fontSize": 64,
-          "letterSpacing": "-2.2%",
-          "paragraphSpacing": 0,
-          "textCase": "none",
-          "textDecoration": "none"
+          "fontFamily": "{typography.fontFamilies.inter}",
+          "fontWeight": "{typography.fontWeights.bold}",
+          "lineHeight": "{typography.lineHeights.18}",
+          "fontSize": "{typography.fontSize.10xl}",
+          "letterSpacing": "{typography.letterSpacing.4}",
+          "paragraphSpacing": "{typography.paragraphSpacing.0}",
+          "textCase": "{typography.textCase.none}",
+          "textDecoration": "{typography.textDecoration.none}"
         },
         "type": "typography",
         "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (1280 and above)"
       },
       "heavy-480": {
         "value": {
-          "fontFamily": "Inter",
-          "fontWeight": "Bold",
-          "lineHeight": 64,
-          "fontSize": 56,
-          "letterSpacing": "-2.2%",
-          "paragraphSpacing": 0,
-          "textCase": "none",
-          "textDecoration": "none"
+          "fontFamily": "{typography.fontFamilies.inter}",
+          "fontWeight": "{typography.fontWeights.bold}",
+          "lineHeight": "{typography.lineHeights.16}",
+          "fontSize": "{typography.fontSize.9xl}",
+          "letterSpacing": "{typography.letterSpacing.4}",
+          "paragraphSpacing": "{typography.paragraphSpacing.0}",
+          "textCase": "{typography.textCase.none}",
+          "textDecoration": "{typography.textDecoration.none}"
         },
         "type": "typography",
         "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (480-1279)"
       },
       "heavy": {
         "value": {
-          "fontFamily": "Inter",
-          "fontWeight": "Semi Bold",
-          "lineHeight": 48,
-          "fontSize": 40,
-          "letterSpacing": "-2.2%",
-          "paragraphSpacing": 0,
-          "textCase": "none",
-          "textDecoration": "none"
+          "fontFamily": "{typography.fontFamilies.inter}",
+          "fontWeight": "{typography.fontWeights.semibold}",
+          "lineHeight": "{typography.lineHeights.12}",
+          "fontSize": "{typography.fontSize.6xl}",
+          "letterSpacing": "{typography.letterSpacing.4}",
+          "paragraphSpacing": "{typography.paragraphSpacing.0}",
+          "textCase": "{typography.textCase.none}",
+          "textDecoration": "{typography.textDecoration.none}"
         },
         "type": "typography",
         "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (0-479)"
       },
       "light-1280": {
         "value": {
-          "fontFamily": "Inter",
-          "fontWeight": "Light",
-          "lineHeight": 72,
-          "fontSize": 64,
-          "letterSpacing": "-2.2%",
-          "paragraphSpacing": 0,
-          "textCase": "none",
-          "textDecoration": "none"
+          "fontFamily": "{typography.fontFamilies.inter}",
+          "fontWeight": "{typography.fontWeights.light}",
+          "lineHeight": "{typography.lineHeights.18}",
+          "fontSize": "{typography.fontSize.10xl}",
+          "letterSpacing": "{typography.letterSpacing.4}",
+          "paragraphSpacing": "{typography.paragraphSpacing.0}",
+          "textCase": "{typography.textCase.none}",
+          "textDecoration": "{typography.textDecoration.none}"
         },
         "type": "typography",
         "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (1280 and above)"
       },
       "light-480": {
         "value": {
-          "fontFamily": "Inter",
-          "fontWeight": "Light",
-          "lineHeight": 64,
-          "fontSize": 56,
-          "letterSpacing": "-2.2%",
-          "paragraphSpacing": 0,
-          "textCase": "none",
-          "textDecoration": "none"
+          "fontFamily": "{typography.fontFamilies.inter}",
+          "fontWeight": "{typography.fontWeights.light}",
+          "lineHeight": "{typography.lineHeights.16}",
+          "fontSize": "{typography.fontSize.9xl}",
+          "letterSpacing": "{typography.letterSpacing.4}",
+          "paragraphSpacing": "{typography.paragraphSpacing.0}",
+          "textCase": "{typography.textCase.none}",
+          "textDecoration": "{typography.textDecoration.none}"
         },
         "type": "typography",
         "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (480-1279)"
       },
       "light": {
         "value": {
-          "fontFamily": "Inter",
-          "fontWeight": "Light",
-          "lineHeight": 48,
-          "fontSize": 40,
-          "letterSpacing": "-2.2%",
-          "paragraphSpacing": 0,
-          "textCase": "none",
-          "textDecoration": "none"
+          "fontFamily": "{typography.fontFamilies.inter}",
+          "fontWeight": "{typography.fontWeights.light}",
+          "lineHeight": "{typography.lineHeights.12}",
+          "fontSize": "{typography.fontSize.6xl}",
+          "letterSpacing": "{typography.letterSpacing.4}",
+          "paragraphSpacing": "{typography.paragraphSpacing.0}",
+          "textCase": "{typography.textCase.none}",
+          "textDecoration": "{typography.textDecoration.none}"
         },
         "type": "typography",
         "description": "Used for layout headings, usually on landing pages. This will scale according to breakpoints (0-479)"
@@ -1415,84 +1355,84 @@
     "responsive-heading": {
       "heavy-1280": {
         "value": {
-          "fontFamily": "Inter",
-          "fontWeight": "Semi Bold",
-          "lineHeight": 56,
-          "fontSize": 48,
-          "letterSpacing": "-2.2%",
-          "paragraphSpacing": 0,
-          "textCase": "none",
-          "textDecoration": "none"
+          "fontFamily": "{typography.fontFamilies.inter}",
+          "fontWeight": "{typography.fontWeights.semibold}",
+          "lineHeight": "{typography.lineHeights.14}",
+          "fontSize": "{typography.fontSize.8xl}",
+          "letterSpacing": "{typography.letterSpacing.4}",
+          "paragraphSpacing": "{typography.paragraphSpacing.0}",
+          "textCase": "{typography.textCase.none}",
+          "textDecoration": "{typography.textDecoration.none}"
         },
         "type": "typography",
         "description": "Used in product pages as headings. This will scale according to breakpoints (1280 and above)"
       },
       "heavy-480": {
         "value": {
-          "fontFamily": "Inter",
-          "fontWeight": "Semi Bold",
-          "lineHeight": 48,
-          "fontSize": 40,
-          "letterSpacing": "-2.2%",
-          "paragraphSpacing": 0,
-          "textCase": "none",
-          "textDecoration": "none"
+          "fontFamily": "{typography.fontFamilies.inter}",
+          "fontWeight": "{typography.fontWeights.semibold}",
+          "lineHeight": "{typography.lineHeights.12}",
+          "fontSize": "{typography.fontSize.6xl}",
+          "letterSpacing": "{typography.letterSpacing.4}",
+          "paragraphSpacing": "{typography.paragraphSpacing.0}",
+          "textCase": "{typography.textCase.none}",
+          "textDecoration": "{typography.textDecoration.none}"
         },
         "type": "typography",
         "description": "Used in product pages as headings. This will scale according to breakpoints (480-1279)"
       },
       "heavy": {
         "value": {
-          "fontFamily": "Inter",
-          "fontWeight": "Semi Bold",
-          "lineHeight": 40,
-          "fontSize": 32,
-          "letterSpacing": "-2.2%",
-          "paragraphSpacing": 0,
-          "textCase": "none",
-          "textDecoration": "none"
+          "fontFamily": "{typography.fontFamilies.inter}",
+          "fontWeight": "{typography.fontWeights.semibold}",
+          "lineHeight": "{typography.lineHeights.10}",
+          "fontSize": "{typography.fontSize.4xl}",
+          "letterSpacing": "{typography.letterSpacing.4}",
+          "paragraphSpacing": "{typography.paragraphSpacing.0}",
+          "textCase": "{typography.textCase.none}",
+          "textDecoration": "{typography.textDecoration.none}"
         },
         "type": "typography",
         "description": "Used in product pages as headings. This will scale according to breakpoints (0-479)"
       },
       "light-1280": {
         "value": {
-          "fontFamily": "Inter",
-          "fontWeight": "Light",
-          "lineHeight": 56,
-          "fontSize": 48,
-          "letterSpacing": "-2.2%",
-          "paragraphSpacing": 0,
-          "textCase": "none",
-          "textDecoration": "none"
+          "fontFamily": "{typography.fontFamilies.inter}",
+          "fontWeight": "{typography.fontWeights.light}",
+          "lineHeight": "{typography.lineHeights.14}",
+          "fontSize": "{typography.fontSize.8xl}",
+          "letterSpacing": "{typography.letterSpacing.4}",
+          "paragraphSpacing": "{typography.paragraphSpacing.0}",
+          "textCase": "{typography.textCase.none}",
+          "textDecoration": "{typography.textDecoration.none}"
         },
         "type": "typography",
         "description": "Used in product pages as headings. This will scale according to breakpoints (1280 and above)"
       },
       "light-480": {
         "value": {
-          "fontFamily": "Inter",
-          "fontWeight": "Light",
-          "lineHeight": 48,
-          "fontSize": 40,
-          "letterSpacing": "-2.2%",
-          "paragraphSpacing": 0,
-          "textCase": "none",
-          "textDecoration": "none"
+          "fontFamily": "{typography.fontFamilies.inter}",
+          "fontWeight": "{typography.fontWeights.light}",
+          "lineHeight": "{typography.lineHeights.12}",
+          "fontSize": "{typography.fontSize.6xl}",
+          "letterSpacing": "{typography.letterSpacing.4}",
+          "paragraphSpacing": "{typography.paragraphSpacing.0}",
+          "textCase": "{typography.textCase.none}",
+          "textDecoration": "{typography.textDecoration.none}"
         },
         "type": "typography",
         "description": "Used in product pages as headings. This will scale according to breakpoints (480-1279)"
       },
       "light": {
         "value": {
-          "fontFamily": "Inter",
-          "fontWeight": "Light",
-          "lineHeight": 40,
-          "fontSize": 32,
-          "letterSpacing": "-2.2%",
-          "paragraphSpacing": 0,
-          "textCase": "none",
-          "textDecoration": "none"
+          "fontFamily": "{typography.fontFamilies.inter}",
+          "fontWeight": "{typography.fontWeights.light}",
+          "lineHeight": "{typography.lineHeights.10}",
+          "fontSize": "{typography.fontSize.4xl}",
+          "letterSpacing": "{typography.letterSpacing.4}",
+          "paragraphSpacing": "{typography.paragraphSpacing.0}",
+          "textCase": "{typography.textCase.none}",
+          "textDecoration": "{typography.textDecoration.none}"
         },
         "type": "typography",
         "description": "Used in product pages as headings. This will scale according to breakpoints (0-479)"
@@ -1500,238 +1440,238 @@
     },
     "h1": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Semi Bold",
-        "lineHeight": 48,
-        "fontSize": 40,
-        "letterSpacing": "-2.2%",
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.semibold}",
+        "lineHeight": "{typography.lineHeights.12}",
+        "fontSize": "{typography.fontSize.6xl}",
+        "letterSpacing": "{typography.letterSpacing.4}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for layout headings"
     },
     "h2": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Semi Bold",
-        "lineHeight": 44,
-        "fontSize": 36,
-        "letterSpacing": "-2.2%",
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.semibold}",
+        "lineHeight": "{typography.lineHeights.11}",
+        "fontSize": "{typography.fontSize.5xl}",
+        "letterSpacing": "{typography.letterSpacing.4}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for layout headings"
     },
     "h3": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Bold",
-        "lineHeight": 36,
-        "fontSize": 28,
-        "letterSpacing": "-1.9%",
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.bold}",
+        "lineHeight": "{typography.lineHeights.9}",
+        "fontSize": "{typography.fontSize.3xl}",
+        "letterSpacing": "{typography.letterSpacing.3}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for layout headings"
     },
     "h4": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Semi Bold",
-        "lineHeight": 32,
-        "fontSize": 24,
-        "letterSpacing": "-1.9%",
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.semibold}",
+        "lineHeight": "{typography.lineHeights.8}",
+        "fontSize": "{typography.fontSize.2xl}",
+        "letterSpacing": "{typography.letterSpacing.3}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for layout headings"
     },
     "h5": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Semi Bold",
-        "lineHeight": 28,
-        "fontSize": 20,
-        "letterSpacing": "-1.4%",
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.semibold}",
+        "lineHeight": "{typography.lineHeights.7}",
+        "fontSize": "{typography.fontSize.xl}",
+        "letterSpacing": "{typography.letterSpacing.2}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for layout headings"
     },
     "h6": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Medium",
-        "lineHeight": 24,
-        "fontSize": 18,
-        "letterSpacing": "-1.4%",
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.medium}",
+        "lineHeight": "{typography.lineHeights.6}",
+        "fontSize": "{typography.fontSize.lg}",
+        "letterSpacing": "{typography.letterSpacing.2}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for layout headings"
     },
     "subhead-1": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Medium",
-        "lineHeight": 24,
-        "fontSize": 16,
-        "letterSpacing": "-0.6%",
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.medium}",
+        "lineHeight": "{typography.lineHeights.6}",
+        "fontSize": "{typography.fontSize.md}",
+        "letterSpacing": "{typography.letterSpacing.1}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for non-paragraph copy which requires more emphasis, such as subheadings, labels, buttons."
     },
     "subhead-2": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Medium",
-        "lineHeight": 20,
-        "fontSize": 14,
-        "letterSpacing": 0,
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.medium}",
+        "lineHeight": "{typography.lineHeights.5}",
+        "fontSize": "{typography.fontSize.sm}",
+        "letterSpacing": "{typography.letterSpacing.normal}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for the same uses as subhead-1, except on smaller, denser interfaces."
     },
     "subhead-3": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Semi Bold",
-        "lineHeight": 24,
-        "fontSize": 14,
-        "letterSpacing": "8%",
-        "paragraphSpacing": 0,
-        "textCase": "uppercase",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.semibold}",
+        "lineHeight": "{typography.lineHeights.6}",
+        "fontSize": "{typography.fontSize.sm}",
+        "letterSpacing": "{typography.letterSpacing.wide}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.uppercase}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for subheadings which require more differentiation, and could be used in tabs or paragraph titles."
     },
     "body-1": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Regular",
-        "lineHeight": 24,
-        "fontSize": 16,
-        "letterSpacing": "-0.6%",
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.normal}",
+        "lineHeight": "{typography.lineHeights.6}",
+        "fontSize": "{typography.fontSize.md}",
+        "letterSpacing": "{typography.letterSpacing.1}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for default body copy, suitable for public facing content."
     },
     "body-2": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Regular",
-        "lineHeight": 20,
-        "fontSize": 14,
-        "letterSpacing": 0,
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.normal}",
+        "lineHeight": "{typography.lineHeights.5}",
+        "fontSize": "{typography.fontSize.sm}",
+        "letterSpacing": "{typography.letterSpacing.normal}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for smaller and denser admin interfaces to save space. Not suitable for body for public facing interfaces, unless of less importance."
     },
     "body-3": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Regular",
-        "lineHeight": 28,
-        "fontSize": 16,
-        "letterSpacing": "-0.6%",
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.normal}",
+        "lineHeight": "{typography.lineHeights.7}",
+        "fontSize": "{typography.fontSize.md}",
+        "letterSpacing": "{typography.letterSpacing.1}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for long paragraphs. It has a taller line-height than body-1, and allows for breathing space, especially in dense public facing interfaces."
     },
     "caption-1": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Medium",
-        "lineHeight": 16,
-        "fontSize": 12,
-        "letterSpacing": 0,
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.medium}",
+        "lineHeight": "{typography.lineHeights.4}",
+        "fontSize": "{typography.fontSize.xs}",
+        "letterSpacing": "{typography.letterSpacing.normal}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for smaller captions, such as credits. It has a heavier weight for more emphasis."
     },
     "caption-2": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Regular",
-        "lineHeight": 16,
-        "fontSize": 12,
-        "letterSpacing": 0,
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.normal}",
+        "lineHeight": "{typography.lineHeights.4}",
+        "fontSize": "{typography.fontSize.xs}",
+        "letterSpacing": "{typography.letterSpacing.normal}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for smaller captions, such as credits."
     },
     "code-1": {
       "value": {
-        "fontFamily": "IBM Plex Mono",
-        "fontWeight": "Regular",
-        "lineHeight": 20,
-        "fontSize": 14,
-        "letterSpacing": 0,
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.ibmplexmono}",
+        "fontWeight": "{typography.fontWeights.normal}",
+        "lineHeight": "{typography.lineHeights.5}",
+        "fontSize": "{typography.fontSize.sm}",
+        "letterSpacing": "{typography.letterSpacing.normal}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for large code snippets and larger code elements."
     },
     "code-2": {
       "value": {
-        "fontFamily": "IBM Plex Mono",
-        "fontWeight": "Regular",
-        "lineHeight": 16,
-        "fontSize": 12,
-        "letterSpacing": 0,
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.ibmplexmono}",
+        "fontWeight": "{typography.fontWeights.normal}",
+        "lineHeight": "{typography.lineHeights.4}",
+        "fontSize": "{typography.fontSize.xs}",
+        "letterSpacing": "{typography.letterSpacing.normal}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "This is for small code snippets and smaller code elements."
     },
     "legal": {
       "value": {
-        "fontFamily": "Inter",
-        "fontWeight": "Regular",
-        "lineHeight": 12,
-        "fontSize": 10,
-        "letterSpacing": 0,
-        "paragraphSpacing": 0,
-        "textCase": "none",
-        "textDecoration": "none"
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.normal}",
+        "lineHeight": "{typography.lineHeights.3}",
+        "fontSize": "{typography.fontSize.2xs}",
+        "letterSpacing": "{typography.letterSpacing.normal}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
       },
       "type": "typography",
       "description": "Used for small legal copy"
@@ -1755,11 +1695,11 @@
   },
   "border-width": {
     "default": {
-      "value": 1,
+      "value": "1",
       "type": "borderWidth"
     },
     "focus": {
-      "value": 2,
+      "value": "2",
       "type": "borderWidth"
     }
   }

@@ -276,52 +276,52 @@
     },
     "green": {
       "50": {
-        "value": "#f5fbf9",
+        "value": "#F5FAFA",
         "type": "color",
         "description": "20.04:1"
       },
       "100": {
-        "value": "#d6f0e7",
+        "value": "#C6E3E0",
         "type": "color",
         "description": "17.47:1"
       },
       "200": {
-        "value": "#7ccfb3",
+        "value": "#98CCC7",
         "type": "color",
         "description": "11.43:1"
       },
       "300": {
-        "value": "#33b488",
+        "value": "#63B1AA",
         "type": "color",
         "description": "8.02:1"
       },
       "400": {
-        "value": "#009762",
+        "value": "#2D978C",
         "type": "color",
         "description": "5.6:1"
       },
       "500": {
-        "value": "#00774e",
+        "value": "#0F796F",
         "type": "color",
         "description": "5.6:1"
       },
       "600": {
-        "value": "#005f3e",
+        "value": "#0C5F57",
         "type": "color",
         "description": "7.75:1"
       },
       "700": {
-        "value": "#005336",
+        "value": "#0A524B",
         "type": "color",
         "description": "9.16:1"
       },
       "800": {
-        "value": "#00462e",
+        "value": "#09463F",
         "type": "color",
         "description": "10.96:1"
       },
       "900": {
-        "value": "#003523",
+        "value": "#073430",
         "type": "color",
         "description": "13.69:1"
       }
@@ -516,7 +516,7 @@
           "description": "Lighter variant of the background tinted to the brand’s primary colour "
         },
         "inverse": {
-          "value": "#3a3e46",
+          "value": "#2c2e34",
           "type": "color",
           "description": "Reversed background"
         },
@@ -599,7 +599,7 @@
           "description": "Background of a primary interaction when pressed"
         }
       },
-      "main-light": {
+      "main-subtle": {
         "default": {
           "value": "#f7f9fb",
           "type": "color",
@@ -633,7 +633,7 @@
           "description": "Background of a secondary interaction when selected"
         }
       },
-      "sub-light": {
+      "sub-subtle": {
         "default": {
           "value": "#f8f9f9",
           "type": "color",
@@ -667,7 +667,7 @@
           "description": "Background and borders using critical-default when pressed"
         }
       },
-      "critical-light": {
+      "critical-subtle": {
         "default": {
           "value": "#fef7f7",
           "type": "color",
@@ -701,7 +701,7 @@
           "description": "Warning background when pressed"
         }
       },
-      "warning-light": {
+      "warning-subtle": {
         "default": {
           "value": "#fffae1",
           "type": "color",
@@ -720,39 +720,39 @@
       },
       "success": {
         "default": {
-          "value": "#00774e",
+          "value": "#0F796F",
           "type": "color",
           "description": "Success colour for texts, borders and background"
         },
         "hover": {
-          "value": "#005f3e",
+          "value": "#0C5F57",
           "type": "color",
           "description": "Background and borders using success.default when hovered over"
         },
         "active": {
-          "value": "#005336",
+          "value": "#0A524B",
           "type": "color",
           "description": "Background of success.active when pressed"
         }
       },
-      "success-light": {
+      "success-subtle": {
         "default": {
-          "value": "#f5fbf9",
+          "value": "#F5FAFA",
           "type": "color",
           "description": "Light background for success colours"
         },
         "hover": {
-          "value": "#d6f0e7",
+          "value": "#C6E3E0",
           "type": "color",
           "description": "Light background for success colours when hovered"
         },
         "active": {
-          "value": "#7ccfb3",
+          "value": "#98CCC7",
           "type": "color",
           "description": "Light background for success colours when pressed"
         }
       },
-      "neutral-light": {
+      "neutral-subtle": {
         "default": {
           "value": "#f8f9f9",
           "type": "color",
@@ -957,12 +957,12 @@
           "description": "Light background alternative to feedback.warning. Can be used for toasts and infoboxes."
         },
         "success": {
-          "value": "#00774e",
+          "value": "#0F796F",
           "type": "color",
           "description": "Success feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
         "success-light": {
-          "value": "#f5fbf9",
+          "value": "#F5FAFA",
           "type": "color",
           "description": "Light background alternative to feedback.success. Can be used for toasts and infoboxes."
         },

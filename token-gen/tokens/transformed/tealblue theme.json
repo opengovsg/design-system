@@ -42,45 +42,45 @@
         "type": "color"
       }
     },
-    "blue": {
+    "sky": {
       "50": {
-        "value": "#F1F4FC",
+        "value": "#F8FAFD",
         "type": "color"
       },
       "100": {
-        "value": "#C4D3F1",
+        "value": "#D2DDF4",
         "type": "color"
       },
       "200": {
-        "value": "#85A4E2",
+        "value": "#AEC2EB",
         "type": "color"
       },
       "300": {
-        "value": "#6087D9",
+        "value": "#86A4E2",
         "type": "color"
       },
       "400": {
-        "value": "#4573D2",
+        "value": "#5F86D8",
         "type": "color"
       },
       "500": {
-        "value": "#3D66BA",
+        "value": "#3667CE",
         "type": "color"
       },
       "600": {
-        "value": "#3457A0",
+        "value": "#2851A6",
         "type": "color"
       },
       "700": {
-        "value": "#2E4D8C",
+        "value": "#22468F",
         "type": "color"
       },
       "800": {
-        "value": "#263F74",
+        "value": "#1D3B7A",
         "type": "color"
       },
       "900": {
-        "value": "#1D3058",
+        "value": "#162C5B",
         "type": "color"
       }
     },
@@ -129,45 +129,97 @@
       },
       "secondary": {
         "50": {
-          "value": "#F1F4FC",
+          "value": "#F8FAFD",
           "type": "color"
         },
         "100": {
-          "value": "#C4D3F1",
+          "value": "#D2DDF4",
           "type": "color"
         },
         "200": {
-          "value": "#85A4E2",
+          "value": "#AEC2EB",
           "type": "color"
         },
         "300": {
-          "value": "#6087D9",
+          "value": "#86A4E2",
           "type": "color"
         },
         "400": {
-          "value": "#4573D2",
+          "value": "#5F86D8",
           "type": "color"
         },
         "500": {
-          "value": "#3D66BA",
+          "value": "#3667CE",
           "type": "color"
         },
         "600": {
-          "value": "#3457A0",
+          "value": "#2851A6",
           "type": "color"
         },
         "700": {
-          "value": "#2E4D8C",
+          "value": "#22468F",
           "type": "color"
         },
         "800": {
-          "value": "#263F74",
+          "value": "#1D3B7A",
           "type": "color"
         },
         "900": {
-          "value": "#1D3058",
+          "value": "#162C5B",
           "type": "color"
         }
+      }
+    },
+    "blue": {
+      "50": {
+        "value": "#F7F9FE",
+        "type": "color",
+        "description": "19.98:1"
+      },
+      "100": {
+        "value": "#E1EBFD",
+        "type": "color",
+        "description": "17.4:1"
+      },
+      "200": {
+        "value": "#ACC7FA",
+        "type": "color",
+        "description": "11.36:1"
+      },
+      "300": {
+        "value": "#82ABF7",
+        "type": "color",
+        "description": "8.07:1"
+      },
+      "400": {
+        "value": "#568DF4",
+        "type": "color",
+        "description": "5.58:1"
+      },
+      "500": {
+        "value": "#276EF1",
+        "type": "color",
+        "description": "5.58:1"
+      },
+      "600": {
+        "value": "#0D4FCA",
+        "type": "color",
+        "description": "7.79:1"
+      },
+      "700": {
+        "value": "#0B44AC",
+        "type": "color",
+        "description": "9.25:1"
+      },
+      "800": {
+        "value": "#093890",
+        "type": "color",
+        "description": "10.97:1"
+      },
+      "900": {
+        "value": "#072A69",
+        "type": "color",
+        "description": "13.66:1"
       }
     },
     "red": {
@@ -224,52 +276,52 @@
     },
     "green": {
       "50": {
-        "value": "#f5fbf9",
+        "value": "#F5FAFA",
         "type": "color",
         "description": "20.04:1"
       },
       "100": {
-        "value": "#d6f0e7",
+        "value": "#C6E3E0",
         "type": "color",
         "description": "17.47:1"
       },
       "200": {
-        "value": "#7ccfb3",
+        "value": "#98CCC7",
         "type": "color",
         "description": "11.43:1"
       },
       "300": {
-        "value": "#33b488",
+        "value": "#63B1AA",
         "type": "color",
         "description": "8.02:1"
       },
       "400": {
-        "value": "#009762",
+        "value": "#2D978C",
         "type": "color",
         "description": "5.6:1"
       },
       "500": {
-        "value": "#00774e",
+        "value": "#0F796F",
         "type": "color",
         "description": "5.6:1"
       },
       "600": {
-        "value": "#005f3e",
+        "value": "#0C5F57",
         "type": "color",
         "description": "7.75:1"
       },
       "700": {
-        "value": "#005336",
+        "value": "#0A524B",
         "type": "color",
         "description": "9.16:1"
       },
       "800": {
-        "value": "#00462e",
+        "value": "#09463F",
         "type": "color",
         "description": "10.96:1"
       },
       "900": {
-        "value": "#003523",
+        "value": "#073430",
         "type": "color",
         "description": "13.69:1"
       }
@@ -380,52 +432,52 @@
     },
     "grey": {
       "50": {
-        "value": "#f9f9f9",
+        "value": "#F8F9F9",
         "type": "color",
         "description": "19.94:1"
       },
       "100": {
-        "value": "#e9e9e9",
+        "value": "#DBDDE1",
         "type": "color",
         "description": "17.29:1"
       },
       "200": {
-        "value": "#bfbfbf",
+        "value": "#BFC2C8",
         "type": "color",
         "description": "11.41:1"
       },
       "300": {
-        "value": "#a0a0a0",
+        "value": "#A0A4AD",
         "type": "color",
         "description": "8.03:1"
       },
       "400": {
-        "value": "#848484",
+        "value": "#838894",
         "type": "color",
         "description": "5.62:1"
       },
       "500": {
-        "value": "#686868",
+        "value": "#666C7A",
         "type": "color",
         "description": "5.57:1"
       },
       "600": {
-        "value": "#535353",
+        "value": "#505660",
         "type": "color",
         "description": "7.69:1"
       },
       "700": {
-        "value": "#474747",
+        "value": "#454953",
         "type": "color",
         "description": "9.29:1"
       },
       "800": {
-        "value": "#3d3d3d",
+        "value": "#3A3E46",
         "type": "color",
         "description": "10.86:1"
       },
       "900": {
-        "value": "#2e2e2e",
+        "value": "#2C2E34",
         "type": "color",
         "description": "13.57:1"
       }
@@ -501,12 +553,12 @@
           "description": "Default page background"
         },
         "alt": {
-          "value": "#f9f9f9",
+          "value": "#F8F9F9",
           "type": "color",
           "description": "Alternative page background"
         },
         "backdrop": {
-          "value": "#e9e9e9",
+          "value": "#DBDDE1",
           "type": "color",
           "description": "A backdrop used under other canvasses to provide more depth"
         },
@@ -516,29 +568,29 @@
           "description": "Lighter variant of the background tinted to the brand’s primary colour "
         },
         "inverse": {
-          "value": "#3d3d3d",
+          "value": "#162C5B",
           "type": "color",
           "description": "Reversed background"
         },
         "overlay": {
-          "value": "#3d3d3dcc",
+          "value": "#3a3e46cc",
           "type": "color",
           "description": "Background under modal"
         }
       },
       "content": {
         "default": {
-          "value": "#474747",
+          "value": "#454953",
           "type": "color",
           "description": "Body copy"
         },
         "dark": {
-          "value": "#2e2e2e",
+          "value": "#2C2E34",
           "type": "color",
           "description": "Headers\nInput labels"
         },
         "light": {
-          "value": "#848484",
+          "value": "#838894",
           "type": "color",
           "description": "Descriptors"
         },
@@ -555,17 +607,17 @@
       },
       "divider": {
         "light": {
-          "value": "#f9f9f9",
+          "value": "#F8F9F9",
           "type": "color",
           "description": "Lightest divider colour\nDefault on white backgrounds"
         },
         "medium": {
-          "value": "#e9e9e9",
+          "value": "#DBDDE1",
           "type": "color",
           "description": "Medium divider colour\nDefault on light grey backgrounds\n"
         },
         "dark": {
-          "value": "#bfbfbf",
+          "value": "#BFC2C8",
           "type": "color",
           "description": "Darkest divider colour\nUsed when more differentiation is required\nUsed as the default border for input fields"
         },
@@ -599,7 +651,7 @@
           "description": "Background of a primary interaction when pressed"
         }
       },
-      "main-light": {
+      "main-subtle": {
         "default": {
           "value": "#F4F9FA",
           "type": "color",
@@ -618,34 +670,34 @@
       },
       "sub": {
         "default": {
-          "value": "#3D66BA",
+          "value": "#3667CE",
           "type": "color",
           "description": "Secondary interactive colour for texts, borders and background on canvas-default"
         },
         "hover": {
-          "value": "#3457A0",
+          "value": "#2851A6",
           "type": "color",
           "description": "Background of a secondary interaction when selected"
         },
         "active": {
-          "value": "#2E4D8C",
+          "value": "#22468F",
           "type": "color",
           "description": "Background of a secondary interaction when selected"
         }
       },
-      "sub-light": {
+      "sub-subtle": {
         "default": {
-          "value": "#F1F4FC",
+          "value": "#F8FAFD",
           "type": "color",
           "description": "Light background of a secondary interaction"
         },
         "hover": {
-          "value": "#C4D3F1",
+          "value": "#D2DDF4",
           "type": "color",
           "description": "Light background of a secondary interaction when hovering"
         },
         "active": {
-          "value": "#85A4E2",
+          "value": "#AEC2EB",
           "type": "color",
           "description": "Light background of a secondary interaction when pressed"
         }
@@ -667,7 +719,7 @@
           "description": "Background and borders using critical-default when pressed"
         }
       },
-      "critical-light": {
+      "critical-subtle": {
         "default": {
           "value": "#fef7f7",
           "type": "color",
@@ -701,7 +753,7 @@
           "description": "Warning background when pressed"
         }
       },
-      "warning-light": {
+      "warning-subtle": {
         "default": {
           "value": "#fffae1",
           "type": "color",
@@ -720,51 +772,51 @@
       },
       "success": {
         "default": {
-          "value": "#00774e",
+          "value": "#0F796F",
           "type": "color",
           "description": "Success colour for texts, borders and background"
         },
         "hover": {
-          "value": "#005f3e",
+          "value": "#0C5F57",
           "type": "color",
           "description": "Background and borders using success.default when hovered over"
         },
         "active": {
-          "value": "#005336",
+          "value": "#0A524B",
           "type": "color",
           "description": "Background of success.active when pressed"
         }
       },
-      "success-light": {
+      "success-subtle": {
         "default": {
-          "value": "#f5fbf9",
+          "value": "#F5FAFA",
           "type": "color",
           "description": "Light background for success colours"
         },
         "hover": {
-          "value": "#d6f0e7",
+          "value": "#C6E3E0",
           "type": "color",
           "description": "Light background for success colours when hovered"
         },
         "active": {
-          "value": "#7ccfb3",
+          "value": "#98CCC7",
           "type": "color",
           "description": "Light background for success colours when pressed"
         }
       },
-      "neutral-light": {
+      "neutral-subtle": {
         "default": {
-          "value": "#f9f9f9",
+          "value": "#F8F9F9",
           "type": "color",
           "description": "Light background for neutral colours"
         },
         "hover": {
-          "value": "#e9e9e9",
+          "value": "#DBDDE1",
           "type": "color",
           "description": "Light background for neutral colours on hover"
         },
         "active": {
-          "value": "#bfbfbf",
+          "value": "#BFC2C8",
           "type": "color",
           "description": "Light background for neutral colours when pressed"
         }
@@ -784,12 +836,12 @@
         },
         "sub": {
           "hover": {
-            "value": "#F1F4FC",
+            "value": "#F8FAFD",
             "type": "color",
             "description": "muted.sub.default when hovering"
           },
           "active": {
-            "value": "#C4D3F1",
+            "value": "#D2DDF4",
             "type": "color",
             "description": "muted.sub.default when pressed"
           }
@@ -808,12 +860,12 @@
         },
         "neutral": {
           "hover": {
-            "value": "#f9f9f9",
+            "value": "#F8F9F9",
             "type": "color",
             "description": "muted-neutral.default when hovered over"
           },
           "active": {
-            "value": "#e9e9e9",
+            "value": "#DBDDE1",
             "type": "color",
             "description": "muted-neutral.default when pressed"
           }
@@ -871,32 +923,32 @@
       },
       "support": {
         "unselected": {
-          "value": "#a0a0a0",
+          "value": "#A0A4AD",
           "type": "color",
           "description": "To denote unselected regions of the interface. Used for toggles and progress indicators"
         },
         "selected": {
-          "value": "#686868",
+          "value": "#666C7A",
           "type": "color",
           "description": "To be used when a neutral tone is preferred to showcase a selected state"
         },
         "unselected-dark": {
-          "value": "#686868",
+          "value": "#666C7A",
           "type": "color",
           "description": "Darker variant to denote unselected foreground elements on canvas-default. Used for tabs"
         },
         "disabled": {
-          "value": "#e9e9e9",
+          "value": "#DBDDE1",
           "type": "color",
           "description": "Fill colour of disabled regions, including inputs"
         },
         "disabled-content": {
-          "value": "#a0a0a0",
+          "value": "#A0A4AD",
           "type": "color",
           "description": "Colour of disabled foreground elements on the canvas-default or disabled"
         },
         "placeholder": {
-          "value": "#a0a0a0",
+          "value": "#A0A4AD",
           "type": "color",
           "description": "Colour of placeholder foreground elements"
         }
@@ -913,12 +965,12 @@
           "description": "Colour of links when hovered upon"
         },
         "dark-default": {
-          "value": "#474747",
+          "value": "#454953",
           "type": "color",
           "description": "Default colour for dark links"
         },
         "dark-hover": {
-          "value": "#2e2e2e",
+          "value": "#2C2E34",
           "type": "color",
           "description": "Colour of dark links when hovered upon"
         },
@@ -928,7 +980,7 @@
           "description": "Default colour of inverse links"
         },
         "inverse-hover": {
-          "value": "#e9e9e9",
+          "value": "#DBDDE1",
           "type": "color",
           "description": "Colour of inverse links when hovered upon"
         }
@@ -937,12 +989,12 @@
     "utility": {
       "feedback": {
         "info": {
-          "value": "#3D66BA",
+          "value": "#276EF1",
           "type": "color",
           "description": "Informational feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
         "info-light": {
-          "value": "#F1F4FC",
+          "value": "#F7F9FE",
           "type": "color",
           "description": "Light background alternative to feedback.info. Can be used for toasts and infoboxes."
         },
@@ -957,12 +1009,12 @@
           "description": "Light background alternative to feedback.warning. Can be used for toasts and infoboxes."
         },
         "success": {
-          "value": "#00774e",
+          "value": "#0F796F",
           "type": "color",
           "description": "Success feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
         "success-light": {
-          "value": "#f5fbf9",
+          "value": "#F5FAFA",
           "type": "color",
           "description": "Light background alternative to feedback.success. Can be used for toasts and infoboxes."
         },
@@ -978,7 +1030,7 @@
         }
       },
       "focus-default": {
-        "value": "#3D66BA",
+        "value": "#276EF1",
         "type": "color",
         "description": "Default focus ring over interactive elements of the interface"
       },

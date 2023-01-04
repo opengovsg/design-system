@@ -464,7 +464,7 @@
           "description": "Lighter variant of the background tinted to the brand’s primary colour "
         },
         "inverse": {
-          "value": "#3a3e46",
+          "value": "#2c2e34",
           "type": "color",
           "description": "Reversed background"
         },
@@ -547,7 +547,7 @@
           "description": "Background of a primary interaction when pressed"
         }
       },
-      "main-light": {
+      "main-subtle": {
         "default": {
           "value": "#f5fafa",
           "type": "color",
@@ -581,7 +581,7 @@
           "description": "Background of a secondary interaction when selected"
         }
       },
-      "sub-light": {
+      "sub-subtle": {
         "default": {
           "value": "#f8f9f9",
           "type": "color",
@@ -615,7 +615,7 @@
           "description": "Background and borders using critical-default when pressed"
         }
       },
-      "critical-light": {
+      "critical-subtle": {
         "default": {
           "value": "#fef7f7",
           "type": "color",
@@ -649,7 +649,7 @@
           "description": "Warning background when pressed"
         }
       },
-      "warning-light": {
+      "warning-subtle": {
         "default": {
           "value": "#fffae1",
           "type": "color",
@@ -683,7 +683,7 @@
           "description": "Background of success.active when pressed"
         }
       },
-      "success-light": {
+      "success-subtle": {
         "default": {
           "value": "#f5fafa",
           "type": "color",
@@ -700,7 +700,7 @@
           "description": "Light background for success colours when pressed"
         }
       },
-      "neutral-light": {
+      "neutral-subtle": {
         "default": {
           "value": "#f8f9f9",
           "type": "color",

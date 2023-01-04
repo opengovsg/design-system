@@ -42,45 +42,45 @@
         "type": "color"
       }
     },
-    "blue": {
+    "sky": {
       "50": {
-        "value": "#F1F4FC",
+        "value": "#F8FAFD",
         "type": "color"
       },
       "100": {
-        "value": "#C4D3F1",
+        "value": "#D2DDF4",
         "type": "color"
       },
       "200": {
-        "value": "#85A4E2",
+        "value": "#AEC2EB",
         "type": "color"
       },
       "300": {
-        "value": "#6087D9",
+        "value": "#86A4E2",
         "type": "color"
       },
       "400": {
-        "value": "#4573D2",
+        "value": "#5F86D8",
         "type": "color"
       },
       "500": {
-        "value": "#3D66BA",
+        "value": "#3667CE",
         "type": "color"
       },
       "600": {
-        "value": "#3457A0",
+        "value": "#2851A6",
         "type": "color"
       },
       "700": {
-        "value": "#2E4D8C",
+        "value": "#22468F",
         "type": "color"
       },
       "800": {
-        "value": "#263F74",
+        "value": "#1D3B7A",
         "type": "color"
       },
       "900": {
-        "value": "#1D3058",
+        "value": "#162C5B",
         "type": "color"
       }
     },
@@ -129,43 +129,43 @@
       },
       "secondary": {
         "50": {
-          "value": "{color.blue.50}",
+          "value": "{color.sky.50}",
           "type": "color"
         },
         "100": {
-          "value": "{color.blue.100}",
+          "value": "{color.sky.100}",
           "type": "color"
         },
         "200": {
-          "value": "{color.blue.200}",
+          "value": "{color.sky.200}",
           "type": "color"
         },
         "300": {
-          "value": "{color.blue.300}",
+          "value": "{color.sky.300}",
           "type": "color"
         },
         "400": {
-          "value": "{color.blue.400}",
+          "value": "{color.sky.400}",
           "type": "color"
         },
         "500": {
-          "value": "{color.blue.500}",
+          "value": "{color.sky.500}",
           "type": "color"
         },
         "600": {
-          "value": "{color.blue.600}",
+          "value": "{color.sky.600}",
           "type": "color"
         },
         "700": {
-          "value": "{color.blue.700}",
+          "value": "{color.sky.700}",
           "type": "color"
         },
         "800": {
-          "value": "{color.blue.800}",
+          "value": "{color.sky.800}",
           "type": "color"
         },
         "900": {
-          "value": "{color.blue.900}",
+          "value": "{color.sky.900}",
           "type": "color"
         }
       }

@@ -4,13 +4,7 @@
     "name": "tealblue theme",
     "selectedTokenSets": {
       "global": "enabled",
-      "cool grey": "disabled",
-      "green": "disabled",
-      "teal blue": "enabled",
-      "orange brown": "disabled",
-      "coral": "disabled",
-      "violet": "disabled",
-      "pink": "disabled"
+      "sea": "enabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -19,13 +13,7 @@
     "name": "orangebrown theme",
     "selectedTokenSets": {
       "global": "enabled",
-      "cool grey": "disabled",
-      "green": "disabled",
-      "teal blue": "disabled",
-      "orange brown": "enabled",
-      "coral": "disabled",
-      "violet": "disabled",
-      "pink": "disabled"
+      "psl": "enabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -34,13 +22,7 @@
     "name": "coral theme",
     "selectedTokenSets": {
       "global": "enabled",
-      "cool grey": "disabled",
-      "green": "disabled",
-      "teal blue": "disabled",
-      "orange brown": "disabled",
-      "coral": "enabled",
-      "violet": "disabled",
-      "pink": "disabled"
+      "jujube": "enabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -49,13 +31,7 @@
     "name": "violet theme",
     "selectedTokenSets": {
       "global": "enabled",
-      "cool grey": "disabled",
-      "green": "disabled",
-      "teal blue": "disabled",
-      "orange brown": "disabled",
-      "coral": "disabled",
-      "violet": "enabled",
-      "pink": "disabled"
+      "hichew": "enabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -64,13 +40,7 @@
     "name": "pink theme",
     "selectedTokenSets": {
       "global": "enabled",
-      "cool grey": "disabled",
-      "green": "disabled",
-      "teal blue": "disabled",
-      "orange brown": "disabled",
-      "coral": "disabled",
-      "violet": "disabled",
-      "pink": "enabled"
+      "BbBear": "enabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -78,14 +48,7 @@
     "id": "78706545f218dc9025b7de0a85288da29579bdf8",
     "name": "blue theme",
     "selectedTokenSets": {
-      "global": "enabled",
-      "cool grey": "disabled",
-      "green": "disabled",
-      "teal blue": "disabled",
-      "orange brown": "disabled",
-      "coral": "disabled",
-      "violet": "disabled",
-      "pink": "disabled"
+      "global": "enabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -94,13 +57,7 @@
     "name": "green theme",
     "selectedTokenSets": {
       "global": "enabled",
-      "cool grey": "disabled",
-      "green": "enabled",
-      "teal blue": "disabled",
-      "orange brown": "disabled",
-      "coral": "disabled",
-      "violet": "disabled",
-      "pink": "disabled"
+      "forest": "enabled"
     },
     "$figmaStyleReferences": {}
   },
@@ -109,13 +66,7 @@
     "name": "coolgrey theme",
     "selectedTokenSets": {
       "global": "enabled",
-      "cool grey": "enabled",
-      "green": "disabled",
-      "teal blue": "disabled",
-      "orange brown": "disabled",
-      "coral": "disabled",
-      "violet": "disabled",
-      "pink": "disabled"
+      "whale": "enabled"
     },
     "$figmaStyleReferences": {}
   }

@@ -190,52 +190,52 @@
     },
     "green": {
       "50": {
-        "value": "#f5fbf9",
+        "value": "#F5FAFA",
         "type": "color",
         "description": "20.04:1"
       },
       "100": {
-        "value": "#d6f0e7",
+        "value": "#C6E3E0",
         "type": "color",
         "description": "17.47:1"
       },
       "200": {
-        "value": "#7ccfb3",
+        "value": "#98CCC7",
         "type": "color",
         "description": "11.43:1"
       },
       "300": {
-        "value": "#33b488",
+        "value": "#63B1AA",
         "type": "color",
         "description": "8.02:1"
       },
       "400": {
-        "value": "#009762",
+        "value": "#2D978C",
         "type": "color",
         "description": "5.6:1"
       },
       "500": {
-        "value": "#00774e",
+        "value": "#0F796F",
         "type": "color",
         "description": "5.6:1"
       },
       "600": {
-        "value": "#005f3e",
+        "value": "#0C5F57",
         "type": "color",
         "description": "7.75:1"
       },
       "700": {
-        "value": "#005336",
+        "value": "#0A524B",
         "type": "color",
         "description": "9.16:1"
       },
       "800": {
-        "value": "#00462e",
+        "value": "#09463F",
         "type": "color",
         "description": "10.96:1"
       },
       "900": {
-        "value": "#003523",
+        "value": "#073430",
         "type": "color",
         "description": "13.69:1"
       }
@@ -346,52 +346,52 @@
     },
     "grey": {
       "50": {
-        "value": "#f9f9f9",
+        "value": "#F8F9F9",
         "type": "color",
         "description": "19.94:1"
       },
       "100": {
-        "value": "#e9e9e9",
+        "value": "#DBDDE1",
         "type": "color",
         "description": "17.29:1"
       },
       "200": {
-        "value": "#bfbfbf",
+        "value": "#BFC2C8",
         "type": "color",
         "description": "11.41:1"
       },
       "300": {
-        "value": "#a0a0a0",
+        "value": "#A0A4AD",
         "type": "color",
         "description": "8.03:1"
       },
       "400": {
-        "value": "#848484",
+        "value": "#838894",
         "type": "color",
         "description": "5.62:1"
       },
       "500": {
-        "value": "#686868",
+        "value": "#666C7A",
         "type": "color",
         "description": "5.57:1"
       },
       "600": {
-        "value": "#535353",
+        "value": "#505660",
         "type": "color",
         "description": "7.69:1"
       },
       "700": {
-        "value": "#474747",
+        "value": "#454953",
         "type": "color",
         "description": "9.29:1"
       },
       "800": {
-        "value": "#3d3d3d",
+        "value": "#3A3E46",
         "type": "color",
         "description": "10.86:1"
       },
       "900": {
-        "value": "#2e2e2e",
+        "value": "#2C2E34",
         "type": "color",
         "description": "13.57:1"
       }
@@ -588,7 +588,7 @@
           "description": "Lighter variant of the background tinted to the brand’s primary colour "
         },
         "inverse": {
-          "value": "{color.grey.800}",
+          "value": "{color.brand.secondary.900}",
           "type": "color",
           "description": "Reversed background"
         },
@@ -671,7 +671,7 @@
           "description": "Background of a primary interaction when pressed"
         }
       },
-      "main-light": {
+      "main-subtle": {
         "default": {
           "value": "{color.brand.primary.50}",
           "type": "color",
@@ -705,7 +705,7 @@
           "description": "Background of a secondary interaction when selected"
         }
       },
-      "sub-light": {
+      "sub-subtle": {
         "default": {
           "value": "{color.brand.secondary.50}",
           "type": "color",
@@ -739,7 +739,7 @@
           "description": "Background and borders using critical-default when pressed"
         }
       },
-      "critical-light": {
+      "critical-subtle": {
         "default": {
           "value": "{color.red.50}",
           "type": "color",
@@ -773,7 +773,7 @@
           "description": "Warning background when pressed"
         }
       },
-      "warning-light": {
+      "warning-subtle": {
         "default": {
           "value": "{color.yellow.50}",
           "type": "color",
@@ -807,7 +807,7 @@
           "description": "Background of success.active when pressed"
         }
       },
-      "success-light": {
+      "success-subtle": {
         "default": {
           "value": "{color.green.50}",
           "type": "color",
@@ -824,7 +824,7 @@
           "description": "Light background for success colours when pressed"
         }
       },
-      "neutral-light": {
+      "neutral-subtle": {
         "default": {
           "value": "{color.grey.50}",
           "type": "color",
