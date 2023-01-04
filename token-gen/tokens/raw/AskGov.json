@@ -1,0 +1,122 @@
+{
+  "color": {
+    "blue": {
+      "50": {
+        "value": "#F9F9F9D",
+        "type": "color"
+      },
+      "100": {
+        "value": "#EFF1FF",
+        "type": "color"
+      },
+      "200": {
+        "value": "#D1D6F9",
+        "type": "color"
+      },
+      "300": {
+        "value": "#909be5",
+        "type": "color"
+      },
+      "400": {
+        "value": "#6d7cdc",
+        "type": "color"
+      },
+      "500": {
+        "value": "#3045ce",
+        "type": "color"
+      },
+      "600": {
+        "value": "#2539b7",
+        "type": "color"
+      },
+      "700": {
+        "value": "#2133a4",
+        "type": "color"
+      },
+      "800": {
+        "value": "#1d2d93",
+        "type": "color"
+      },
+      "900": {
+        "value": "#182475",
+        "type": "color"
+      }
+    },
+    "orange": {
+      "50": {
+        "value": "#fffefd",
+        "type": "color"
+      },
+      "100": {
+        "value": "#fffcfa",
+        "type": "color"
+      },
+      "200": {
+        "value": "#ffede1",
+        "type": "color"
+      },
+      "300": {
+        "value": "#ffd6b9",
+        "type": "color"
+      },
+      "400": {
+        "value": "#ffb784",
+        "type": "color"
+      },
+      "500": {
+        "value": "#ff8f3f",
+        "type": "color"
+      },
+      "600": {
+        "value": "#f56700",
+        "type": "color"
+      },
+      "700": {
+        "value": "#cf5700",
+        "type": "color"
+      },
+      "800": {
+        "value": "#AD4900",
+        "type": "color"
+      },
+      "900": {
+        "value": "#863800",
+        "type": "color"
+      }
+    },
+    "base": {
+      "canvas": {
+        "alt": {
+          "value": "{color.orange.100}",
+          "type": "color"
+        },
+        "brandLight": {
+          "value": "{color.orange.300}",
+          "type": "color"
+        }
+      },
+      "content": {
+        "light": {
+          "value": "{color.brand.primary.300}",
+          "type": "color"
+        },
+        "light2": {
+          "value": "{color.brand.primary.400}",
+          "type": "color"
+        }
+      }
+    },
+    "interaction": {
+      "links": {
+        "light-default": {
+          "value": "{color.brand.primary.400}",
+          "type": "color"
+        },
+        "light-hover": {
+          "value": "{color.brand.primary.600}",
+          "type": "color"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "color": {
+    "teal": {
+      "50": {
+        "value": "#F4F9FA",
+        "type": "color"
+      },
+      "100": {
+        "value": "#DFEDF0",
+        "type": "color"
+      },
+      "200": {
+        "value": "#A0CAD2",
+        "type": "color"
+      },
+      "300": {
+        "value": "#6CAEBB",
+        "type": "color"
+      },
+      "400": {
+        "value": "#3B92A3",
+        "type": "color"
+      },
+      "500": {
+        "value": "#0F7A8F",
+        "type": "color"
+      },
+      "600": {
+        "value": "#0B5D6E",
+        "type": "color"
+      },
+      "700": {
+        "value": "#0A5260",
+        "type": "color"
+      },
+      "800": {
+        "value": "#094653",
+        "type": "color"
+      },
+      "900": {
+        "value": "#063039",
+        "type": "color"
+      }
+    },
+    "blue": {
+      "50": {
+        "value": "#F1F4FC",
+        "type": "color"
+      },
+      "100": {
+        "value": "#E4EBF9",
+        "type": "color"
+      },
+      "200": {
+        "value": "#85A4E2",
+        "type": "color"
+      },
+      "300": {
+        "value": "#6087D9",
+        "type": "color"
+      },
+      "400": {
+        "value": "#4573D2",
+        "type": "color"
+      },
+      "500": {
+        "value": "#3D66BA",
+        "type": "color"
+      },
+      "600": {
+        "value": "#3457A0",
+        "type": "color"
+      },
+      "700": {
+        "value": "#2E4D8C",
+        "type": "color"
+      },
+      "800": {
+        "value": "#263F74",
+        "type": "color"
+      },
+      "900": {
+        "value": "#1D3058",
+        "type": "color"
+      }
+    },
+    "green": {
+      "50": {
+        "value": "#F5FAF9",
+        "type": "color"
+      },
+      "100": {
+        "value": "#ECF6F2",
+        "type": "color"
+      },
+      "200": {
+        "value": "#97CDBB",
+        "type": "color"
+      },
+      "300": {
+        "value": "#61B397",
+        "type": "color"
+      },
+      "400": {
+        "value": "#299873",
+        "type": "color"
+      },
+      "500": {
+        "value": "#0B7D57",
+        "type": "color"
+      },
+      "600": {
+        "value": "#096748",
+        "type": "color"
+      },
+      "700": {
+        "value": "#096144",
+        "type": "color"
+      },
+      "800": {
+        "value": "#07543B",
+        "type": "color"
+      },
+      "900": {
+        "value": "#074B35",
+        "type": "color"
+      }
+    },
+    "red": {
+      "50": {
+        "value": "#FEF9F9",
+        "type": "color"
+      },
+      "100": {
+        "value": "#FCF0F0",
+        "type": "color"
+      },
+      "200": {
+        "value": "#EFB3B3",
+        "type": "color"
+      },
+      "300": {
+        "value": "#E68A8A",
+        "type": "color"
+      },
+      "400": {
+        "value": "#DD5E5E",
+        "type": "color"
+      },
+      "500": {
+        "value": "#D22C2C",
+        "type": "color"
+      },
+      "600": {
+        "value": "#B32626",
+        "type": "color"
+      },
+      "700": {
+        "value": "#A42222",
+        "type": "color"
+      },
+      "800": {
+        "value": "#8F1E1E",
+        "type": "color"
+      },
+      "900": {
+        "value": "#801B1B",
+        "type": "color"
+      }
+    },
+    "slate": {
+      "50": {
+        "value": "#FAFBFC",
+        "type": "color"
+      },
+      "100": {
+        "value": "#EEF0F3",
+        "type": "color"
+      },
+      "200": {
+        "value": "#B2BDC9",
+        "type": "color"
+      },
+      "300": {
+        "value": "#8394A8",
+        "type": "color"
+      },
+      "400": {
+        "value": "#5E748E",
+        "type": "color"
+      },
+      "500": {
+        "value": "#4D6582",
+        "type": "color"
+      },
+      "600": {
+        "value": "#435973",
+        "type": "color"
+      },
+      "700": {
+        "value": "#3B4F66",
+        "type": "color"
+      },
+      "800": {
+        "value": "#344559",
+        "type": "color"
+      },
+      "900": {
+        "value": "#2B3849",
+        "type": "color"
+      }
+    },
+    "brand": {
+      "primary": {
+        "50": {
+          "value": "{color.blue.50}",
+          "type": "color"
+        },
+        "100": {
+          "value": "{color.blue.100}",
+          "type": "color"
+        },
+        "200": {
+          "value": "{color.blue.200}",
+          "type": "color"
+        },
+        "300": {
+          "value": "{color.blue.300}",
+          "type": "color"
+        },
+        "400": {
+          "value": "{color.blue.400}",
+          "type": "color"
+        },
+        "500": {
+          "value": "{color.blue.500}",
+          "type": "color"
+        },
+        "600": {
+          "value": "{color.blue.600}",
+          "type": "color"
+        },
+        "700": {
+          "value": "{color.blue.700}",
+          "type": "color"
+        },
+        "800": {
+          "value": "{color.blue.800}",
+          "type": "color"
+        },
+        "900": {
+          "value": "{color.blue.900}",
+          "type": "color"
+        }
+      },
+      "secondary": {
+        "50": {
+          "value": "{color.slate.50}",
+          "type": "color"
+        },
+        "100": {
+          "value": "{color.slate.100}",
+          "type": "color"
+        },
+        "200": {
+          "value": "{color.slate.200}",
+          "type": "color"
+        },
+        "300": {
+          "value": "{color.slate.300}",
+          "type": "color"
+        },
+        "400": {
+          "value": "{color.slate.400}",
+          "type": "color"
+        },
+        "500": {
+          "value": "{color.slate.500}",
+          "type": "color"
+        },
+        "600": {
+          "value": "{color.slate.600}",
+          "type": "color"
+        },
+        "700": {
+          "value": "{color.slate.700}",
+          "type": "color"
+        },
+        "800": {
+          "value": "{color.slate.800}",
+          "type": "color"
+        },
+        "900": {
+          "value": "{color.slate.900}",
+          "type": "color"
+        }
+      }
+    }
+  },
+  "typography": {
+    "subhead-4": {
+      "value": {
+        "fontFamily": "{typography.fontFamilies.inter}",
+        "fontWeight": "{typography.fontWeights.semibold}",
+        "lineHeight": "{typography.lineHeights.6}",
+        "fontSize": "{typography.fontSize.md}",
+        "letterSpacing": "{typography.letterSpacing.2}",
+        "paragraphSpacing": "{typography.paragraphSpacing.0}",
+        "textCase": "{typography.textCase.none}",
+        "textDecoration": "{typography.textDecoration.none}"
+      },
+      "type": "typography",
+      "description": "This is for subheadings requiring more emphasis"
+    }
+  }
+}
