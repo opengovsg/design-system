@@ -49,7 +49,7 @@ export const DatePickerContentBase = ({
             borderBottom="1px solid"
             borderColor="base.divider.medium"
           >
-            <Text textStyle="subhead-2" color="base.content.dark">
+            <Text textStyle="subhead-2" color="base.content.strong">
               Select a date
             </Text>
           </DrawerHeader>
@@ -70,7 +70,7 @@ export const DatePickerContentBase = ({
             justifyContent="space-between"
             alignItems="center"
             textStyle="subhead-2"
-            color="base.content.dark"
+            color="base.content.strong"
           >
             Select a date
             <PopoverCloseButton position="initial" />

@@ -90,7 +90,7 @@
           "value": "{color.orange.100}",
           "type": "color"
         },
-        "brandLight": {
+        "brand-subtle": {
           "value": "{color.orange.300}",
           "type": "color"
         }

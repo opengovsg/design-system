@@ -458,7 +458,7 @@
           "type": "color",
           "description": "A backdrop used under other canvasses to provide more depth"
         },
-        "brandLight": {
+        "brand-subtle": {
           "value": "#f5fafa",
           "type": "color",
           "description": "Lighter variant of the background tinted to the brand’s primary colour "
@@ -480,12 +480,12 @@
           "type": "color",
           "description": "Body copy"
         },
-        "dark": {
+        "strong": {
           "value": "#2c2e34",
           "type": "color",
           "description": "Headers\nInput labels"
         },
-        "light": {
+        "medium": {
           "value": "#838894",
           "type": "color",
           "description": "Descriptors"
@@ -502,7 +502,7 @@
         }
       },
       "divider": {
-        "light": {
+        "subtle": {
           "value": "#f8f9f9",
           "type": "color",
           "description": "Lightest divider colour\nDefault on white backgrounds"
@@ -512,7 +512,7 @@
           "type": "color",
           "description": "Medium divider colour\nDefault on light grey backgrounds\n"
         },
-        "dark": {
+        "strong": {
           "value": "#bfc2c8",
           "type": "color",
           "description": "Darkest divider colour\nUsed when more differentiation is required\nUsed as the default border for input fields"
@@ -792,7 +792,7 @@
             "description": "Translucent background tinted with the critical interactive colour, upon pressing"
           }
         },
-        "dark": {
+        "neutral": {
           "hover": {
             "value": "#0000001a",
             "type": "color",
@@ -804,7 +804,7 @@
             "description": "Translucent background tinted with the neutral colour, upon pressing"
           }
         },
-        "light": {
+        "inverse": {
           "hover": {
             "value": "#ffffff1a",
             "type": "color",
@@ -828,7 +828,7 @@
           "type": "color",
           "description": "To be used when a neutral tone is preferred to showcase a selected state"
         },
-        "unselected-dark": {
+        "unselected-strong": {
           "value": "#666c7a",
           "type": "color",
           "description": "Darker variant to denote unselected foreground elements on canvas-default. Used for tabs"
@@ -860,12 +860,12 @@
           "type": "color",
           "description": "Colour of links when hovered upon"
         },
-        "dark-default": {
+        "neutral-default": {
           "value": "#454953",
           "type": "color",
           "description": "Default colour for dark links"
         },
-        "dark-hover": {
+        "neutral-hover": {
           "value": "#2c2e34",
           "type": "color",
           "description": "Colour of dark links when hovered upon"
@@ -889,7 +889,7 @@
           "type": "color",
           "description": "Informational feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
-        "info-light": {
+        "info-subtle": {
           "value": "#F7F9FE",
           "type": "color",
           "description": "Light background alternative to feedback.info. Can be used for toasts and infoboxes."
@@ -899,7 +899,7 @@
           "type": "color",
           "description": "Warning feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
-        "warning-light": {
+        "warning-subtle": {
           "value": "#fffae1",
           "type": "color",
           "description": "Light background alternative to feedback.warning. Can be used for toasts and infoboxes."
@@ -909,7 +909,7 @@
           "type": "color",
           "description": "Success feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
-        "success-light": {
+        "success-subtle": {
           "value": "#f5fafa",
           "type": "color",
           "description": "Light background alternative to feedback.success. Can be used for toasts and infoboxes."
@@ -919,7 +919,7 @@
           "type": "color",
           "description": "Critical feedback colour for texts, borders and background. Can be used for toasts, banners, infoboxes."
         },
-        "critical-light": {
+        "critical-subtle": {
           "value": "#fef7f7",
           "type": "color",
           "description": "Light background alternative to feedback.critical. Can be used for toasts and infoboxes."

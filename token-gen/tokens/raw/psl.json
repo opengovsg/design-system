@@ -176,7 +176,7 @@
           "value": "{color.brand.primary.900}",
           "type": "color"
         },
-        "brandLight": {
+        "brand-subtle": {
           "value": "{color.brand.secondary.50}",
           "type": "color"
         }

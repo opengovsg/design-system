@@ -16,7 +16,7 @@ const baseStyle = definePartsStyle({
   container: {
     transitionProperty: 'common',
     transitionDuration: 'normal',
-    color: 'base.content.dark',
+    color: 'base.content.strong',
     borderRadius: '4px',
     padding: '1.5rem',
     height: 'auto',
@@ -46,16 +46,16 @@ const baseStyle = definePartsStyle({
     justifyContent: 'stretch',
   },
   title: {
-    color: 'base.content.dark',
+    color: 'base.content.strong',
     textStyle: 'h5',
     mt: '1rem',
   },
   icon: {
     boxSize: '2.5rem',
-    color: 'base.content.dark',
+    color: 'base.content.strong',
   },
   subtitle: {
-    color: 'base.content.light',
+    color: 'base.content.medium',
     textStyle: 'body-2',
   },
   text: {

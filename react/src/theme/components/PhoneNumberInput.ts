@@ -27,7 +27,7 @@ const outlineVariant = definePartsStyle((props) => {
       transitionDuration: 'normal',
       bg: 'white',
       border: '1px solid',
-      borderColor: 'base.divider.dark',
+      borderColor: 'base.divider.strong',
       _disabled: {
         ...inputFieldStyle?._disabled,
         cursor: 'not-allowed',

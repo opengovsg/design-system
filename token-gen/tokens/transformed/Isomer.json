@@ -228,14 +228,9 @@
           "value": "#3c4764",
           "type": "color"
         },
-        "dark": {
+        "strong": {
           "value": "#272d41",
           "type": "color"
-        },
-        "strong": {
-          "value": "#2e2e2e",
-          "type": "color",
-          "description": "Used for text and icons requiring slightly more emphasis on pages and UI elements, includin Headlines, input labels, accordions, radios, checkboxes, dropdowns, etc"
         },
         "medium": {
           "value": "#686868",

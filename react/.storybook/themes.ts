@@ -18,13 +18,13 @@ export const StorybookTheme = {
     // Typography
     fontBase: '"Inter", san-serif',
     // Text colours
-    textColor: '#2E2E2E', // base.content.dark
+    textColor: '#2E2E2E', // base.content.strong
     textInverseColor: '#FFFFFF',
     colorPrimary: '#276EF1', // interaction.main.default
     colorSecondary: '#276EF1', // interaction.main.default
 
     // Toolbar default and active colors
-    barTextColor: '#2E2E2E', // base.content.dark
+    barTextColor: '#2E2E2E', // base.content.strong
     barSelectedColor: '#276EF1', // interaction.main.default
   }),
   docs: create({

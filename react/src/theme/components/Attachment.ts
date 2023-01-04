@@ -40,7 +40,7 @@ const baseStyle = definePartsStyle({
     flex: 1,
   },
   fileInfoDescription: {
-    color: 'base.content.light',
+    color: 'base.content.medium',
     _disabled: {
       color: 'interaction.support.disabled-content',
     },
@@ -86,7 +86,7 @@ const getOutlineColours = definePartsStyle(({ colorScheme: c }) => {
     case 'main': {
       return {
         dropzone: {
-          borderColor: 'base.divider.dark',
+          borderColor: 'base.divider.strong',
           bg: 'interaction.main-light.default',
           _active: {
             bg: 'interaction.main-light.active',

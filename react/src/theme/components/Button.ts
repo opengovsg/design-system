@@ -72,16 +72,16 @@ const genVariantOutlineColours = ({
     }
     case 'neutral': {
       return {
-        borderColor: 'base.content.dark',
-        hoverBg: 'interaction.tinted.dark.hover',
-        activeBg: 'interaction.tinted.dark.active',
+        borderColor: 'base.content.strong',
+        hoverBg: 'interaction.tinted.neutral.hover',
+        activeBg: 'interaction.tinted.neutral.active',
       }
     }
     case 'inverse': {
       return {
         borderColor: 'base.content.inverse',
-        hoverBg: 'interaction.tinted.light.hover',
-        activeBg: 'interaction.tinted.light.active',
+        hoverBg: 'interaction.tinted.inverse.hover',
+        activeBg: 'interaction.tinted.inverse.active',
       }
     }
     default: {
@@ -213,7 +213,7 @@ const variantInputAttached = defineStyle((props) => {
     bg: 'utility.ui',
     fontSize: '1.25rem',
     color: 'interaction.support.disabled-content',
-    borderColor: 'base.divider.dark',
+    borderColor: 'base.divider.strong',
     borderStartRadius: 0,
     borderEndRadius: '2px',
     _hover: {
@@ -224,7 +224,7 @@ const variantInputAttached = defineStyle((props) => {
     },
     outlineOffset: 0,
     _active: {
-      color: 'base.content.dark',
+      color: 'base.content.strong',
       _disabled: {
         color: 'interaction.support.disabled-content',
       },
@@ -244,7 +244,7 @@ const variantInputAttached = defineStyle((props) => {
     },
     _disabled: {
       bg: 'interaction.support.disabled',
-      borderColor: 'base.divider.dark',
+      borderColor: 'base.divider.strong',
       color: 'interaction.support.disabled-content',
     },
   }

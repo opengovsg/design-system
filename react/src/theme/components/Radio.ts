@@ -78,7 +78,7 @@ const baseStyle = definePartsStyle((props) => {
     },
     container: {
       w: '100%',
-      color: 'base.content.dark',
+      color: 'base.content.strong',
       _hover: {
         bg: hoverBg,
         _disabled: {
@@ -98,7 +98,7 @@ const baseStyle = definePartsStyle((props) => {
         opacity: 1,
       },
       textStyle: 'body-1',
-      color: 'base.content.dark',
+      color: 'base.content.strong',
     },
     othersContainer: {
       _hover: {

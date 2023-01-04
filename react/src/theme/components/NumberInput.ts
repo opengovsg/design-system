@@ -32,7 +32,7 @@ const baseStyle = definePartsStyle({
     border: '1px solid transparent',
   },
   stepperButton: {
-    color: 'base.content.dark',
+    color: 'base.content.strong',
     borderRadius: 0,
     minH: '100%',
     _disabled: {

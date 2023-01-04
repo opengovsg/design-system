@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 04 Jan 2023 05:48:57 GMT
+ * Generated on Wed, 04 Jan 2023 07:36:13 GMT
  */
 
 export const colours =  {
@@ -57,7 +57,7 @@ export const colours =  {
   base: {
     canvas: {
       inverse: "#362d26",
-      brandLight: "#FFF7F3",
+      "brand-subtle": "#FFF7F3",
       default: "#ffffff",
       alt: "#F8F9F9",
       backdrop: "#DBDDE1",
@@ -65,15 +65,15 @@ export const colours =  {
     },
     content: {
       default: "#454953",
-      dark: "#2C2E34",
-      light: "#838894",
+      strong: "#2C2E34",
+      medium: "#838894",
       brand: "#7b695B",
       inverse: "#ffffff",
     },
     divider: {
-      light: "#F8F9F9",
+      subtle: "#F8F9F9",
       medium: "#DBDDE1",
-      dark: "#BFC2C8",
+      strong: "#BFC2C8",
       inverse: "#ffffff",
       brand: "#7b695B",
     },
@@ -251,11 +251,11 @@ export const colours =  {
         hover: "rgba(192, 52, 52, 0.04)",
         active: "rgba(192, 52, 52, 0.12)",
       },
-      dark: {
+      neutral: {
         hover: "rgba(0, 0, 0, 0.1)",
         active: "rgba(0, 0, 0, 0.2)",
       },
-      light: {
+      inverse: {
         hover: "rgba(255, 255, 255, 0.1)",
         active: "rgba(255, 255, 255, 0.2)",
       },
@@ -263,7 +263,7 @@ export const colours =  {
     support: {
       unselected: "#A0A4AD",
       selected: "#666C7A",
-      "unselected-dark": "#666C7A",
+      "unselected-strong": "#666C7A",
       disabled: "#DBDDE1",
       "disabled-content": "#A0A4AD",
       placeholder: "#A0A4AD",
@@ -271,8 +271,8 @@ export const colours =  {
     links: {
       default: "#7b695B",
       hover: "#625248",
-      "dark-default": "#454953",
-      "dark-hover": "#2C2E34",
+      "neutral-default": "#454953",
+      "neutral-hover": "#2C2E34",
       "inverse-default": "#ffffff",
       "inverse-hover": "#DBDDE1",
     },
@@ -280,13 +280,13 @@ export const colours =  {
   utility: {
     feedback: {
       info: "#276EF1",
-      "info-light": "#F7F9FE",
+      "info-subtle": "#F7F9FE",
       warning: "#FFDA68",
-      "warning-light": "#fffae1",
+      "warning-subtle": "#fffae1",
       success: "#0F796F",
-      "success-light": "#F5FAFA",
+      "success-subtle": "#F5FAFA",
       critical: "#c03434",
-      "critical-light": "#fef7f7",
+      "critical-subtle": "#fef7f7",
     },
     "focus-default": "#276EF1",
     "focus-inverse": "#ffffff",

@@ -16,7 +16,7 @@ const baseStyleRequiredIndicator = defineStyle({
 
 const baseStyleHelperText = defineStyle({
   mt: '0.5rem',
-  color: 'base.content.light',
+  color: 'base.content.medium',
   textStyle: 'body-2',
   lineHeight: '1.25rem',
   alignItems: 'top',

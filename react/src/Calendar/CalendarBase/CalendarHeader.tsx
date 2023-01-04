@@ -28,7 +28,7 @@ const MonthYearSelect = ({ children, ...props }: MonthYearSelectProps) => {
       isInvalid={false}
       variant="flushed"
       borderRadius="4px"
-      color="base.content.dark"
+      color="base.content.strong"
       textStyle="subhead-1"
       flexBasis="fit-content"
       borderColor="transparent"
@@ -128,7 +128,7 @@ const MonthYear = memo(({ monthOffset }: CalendarHeaderProps) => {
     <HStack
       ml={{ base: '0.5rem', md: '1rem' }}
       textStyle="subhead-1"
-      color="base.content.dark"
+      color="base.content.strong"
       spacing="1.5rem"
     >
       <Text>{monthDisplay}</Text>

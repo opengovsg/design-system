@@ -23,7 +23,7 @@ export const Utilities = (): JSX.Element => {
   const prettyPrint = useCallback((key: string, value: string) => {
     return (
       <>
-        <Text color="base.content.light">{key}:&nbsp;</Text>
+        <Text color="base.content.medium">{key}:&nbsp;</Text>
         <Text>{value}</Text>
       </>
     )

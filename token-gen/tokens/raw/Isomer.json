@@ -176,7 +176,7 @@
           "value": "{color.brand.secondary.700}",
           "type": "color"
         },
-        "dark": {
+        "strong": {
           "value": "{color.brand.secondary.900}",
           "type": "color"
         }
