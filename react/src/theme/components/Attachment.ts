@@ -25,7 +25,7 @@ const baseStyle = definePartsStyle({
     borderRadius: '4px',
     border: '1px solid',
     borderColor: 'base.divider.medium',
-    bg: 'interaction.main-light.default',
+    bg: 'interaction.main-subtle.default',
     color: 'base.content.default',
     _disabled: {
       bg: 'interaction.support.disabled',
@@ -87,12 +87,12 @@ const getOutlineColours = definePartsStyle(({ colorScheme: c }) => {
       return {
         dropzone: {
           borderColor: 'base.divider.strong',
-          bg: 'interaction.main-light.default',
+          bg: 'interaction.main-subtle.default',
           _active: {
-            bg: 'interaction.main-light.active',
+            bg: 'interaction.main-subtle.active',
           },
           _hover: {
-            bg: 'interaction.main-light.hover',
+            bg: 'interaction.main-subtle.hover',
           },
         },
       }

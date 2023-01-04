@@ -13,11 +13,11 @@ import { get } from '@chakra-ui/utils'
 const backgrounds = {
   light: {
     name: 'light',
-    value: '#FFFFFF',
+    value: '#FFFFFF', // base.canvas.default
   },
   dark: {
     name: 'dark',
-    value: '#3D3D3D',
+    value: '#272D41', // base.canvas.inverse
   },
 }
 
