@@ -6,6 +6,14 @@ import { theme as orangebrownTheme } from './orangebrown/theme'
 import { theme as pinkTheme } from './pink/theme'
 import { theme as tealblueTheme } from './tealblue/theme'
 import { theme as violetTheme } from './violet/theme'
+import { theme as FormTheme } from './Form/theme'
+import { theme as AskGovTheme } from './AskGov/theme'
+import { theme as RedeemTheme } from './Redeem/theme'
+import { theme as Care360Theme } from './Care360/theme'
+import { theme as IsomerTheme } from './Isomer/theme'
+import { theme as PostmanTheme } from './Postman/theme'
+import { theme as ScamShieldTheme } from './ScamShield/theme'
+import { theme as VaultTheme } from './Vault/theme'
 
 export const THEME_MAP: Record<string, typeof blueTheme> = {
   blue: blueTheme,
@@ -16,4 +24,12 @@ export const THEME_MAP: Record<string, typeof blueTheme> = {
   pink: pinkTheme,
   tealblue: tealblueTheme,
   violet: violetTheme,
+  Form: FormTheme,
+  AskGov: AskGovTheme,
+  Redeem: RedeemTheme,
+  Care360: Care360Theme,
+  Isomer: IsomerTheme,
+  Postman: PostmanTheme,
+  ScamShield: ScamShieldTheme,
+  Vault: VaultTheme,
 }
