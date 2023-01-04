@@ -42,7 +42,7 @@ const variantSubtle = defineStyle((props) => {
   const { colorScheme: c, theme } = props
 
   const subtleBgTokenMap: Record<string, string> = {
-    main: 'interaction.main-light.default',
+    main: 'interaction.main-subtle.default',
     'brand.secondary': 'brand.secondary.50',
     success: 'utility.feedback.success-subtle',
     warning: 'utility.feedback.warning-subtle',
