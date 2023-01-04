@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 22 Dec 2022 16:56:39 GMT
+ * Generated on Wed, 04 Jan 2023 03:09:38 GMT
  */
 
 export const colours =  {
@@ -54,6 +54,30 @@ export const colours =  {
     "800": "#820000",
     "900": "#640000",
   },
+  base: {
+    canvas: {
+      inverse: "#362d26",
+      brandLight: "#FFF7F3",
+      default: "#ffffff",
+      alt: "#F8F9F9",
+      backdrop: "#DBDDE1",
+      overlay: "rgba(58, 62, 70, 0.8)",
+    },
+    content: {
+      default: "#454953",
+      dark: "#2C2E34",
+      light: "#838894",
+      brand: "#7b695B",
+      inverse: "#ffffff",
+    },
+    divider: {
+      light: "#F8F9F9",
+      medium: "#DBDDE1",
+      dark: "#BFC2C8",
+      inverse: "#ffffff",
+      brand: "#7b695B",
+    },
+  },
   blue: {
     "50": "#F7F9FE",
     "100": "#E1EBFD",
@@ -79,16 +103,16 @@ export const colours =  {
     "900": "#571717",
   },
   green: {
-    "50": "#f5fbf9",
-    "100": "#d6f0e7",
-    "200": "#7ccfb3",
-    "300": "#33b488",
-    "400": "#009762",
-    "500": "#00774e",
-    "600": "#005f3e",
-    "700": "#005336",
-    "800": "#00462e",
-    "900": "#003523",
+    "50": "#F5FAFA",
+    "100": "#C6E3E0",
+    "200": "#98CCC7",
+    "300": "#63B1AA",
+    "400": "#2D978C",
+    "500": "#0F796F",
+    "600": "#0C5F57",
+    "700": "#0A524B",
+    "800": "#09463F",
+    "900": "#073430",
   },
   yellow: {
     "50": "#fffae1",
@@ -115,16 +139,16 @@ export const colours =  {
     "900": "#272d41",
   },
   grey: {
-    "50": "#f9f9f9",
-    "100": "#e9e9e9",
-    "200": "#bfbfbf",
-    "300": "#a0a0a0",
-    "400": "#848484",
-    "500": "#686868",
-    "600": "#535353",
-    "700": "#474747",
-    "800": "#3d3d3d",
-    "900": "#2e2e2e",
+    "50": "#F8F9F9",
+    "100": "#DBDDE1",
+    "200": "#BFC2C8",
+    "300": "#A0A4AD",
+    "400": "#838894",
+    "500": "#666C7A",
+    "600": "#505660",
+    "700": "#454953",
+    "800": "#3A3E46",
+    "900": "#2C2E34",
   },
   standard: {
     white: "#ffffff",
@@ -144,37 +168,13 @@ export const colours =  {
     "6base": "#764738",
     "6shadow": "#633D32",
   },
-  base: {
-    canvas: {
-      default: "#ffffff",
-      alt: "#f9f9f9",
-      backdrop: "#e9e9e9",
-      brandLight: "#FAFAF9",
-      inverse: "#3d3d3d",
-      overlay: "rgba(61, 61, 61, 0.8)",
-    },
-    content: {
-      default: "#474747",
-      dark: "#2e2e2e",
-      light: "#848484",
-      brand: "#7b695B",
-      inverse: "#ffffff",
-    },
-    divider: {
-      light: "#f9f9f9",
-      medium: "#e9e9e9",
-      dark: "#bfbfbf",
-      inverse: "#ffffff",
-      brand: "#7b695B",
-    },
-  },
   interaction: {
     main: {
       default: "#7b695B",
       hover: "#625248",
       active: "#54463D",
     },
-    "main-light": {
+    "main-subtle": {
       default: "#FAFAF9",
       hover: "#E1DcD9",
       active: "#c9c0BA",
@@ -184,7 +184,7 @@ export const colours =  {
       hover: "#A61f00",
       active: "#960700",
     },
-    "sub-light": {
+    "sub-subtle": {
       default: "#FFF7F3",
       hover: "#FFd5bd",
       active: "#ffaf84",
@@ -194,7 +194,7 @@ export const colours =  {
       hover: "#992a2a",
       active: "#852424",
     },
-    "critical-light": {
+    "critical-subtle": {
       default: "#fef7f7",
       hover: "#fbe4e4",
       active: "#f4acac",
@@ -204,25 +204,25 @@ export const colours =  {
       hover: "#E2B73E",
       active: "#C4992A",
     },
-    "warning-light": {
+    "warning-subtle": {
       default: "#fffae1",
       hover: "#FFDA68",
       active: "#E2B73E",
     },
     success: {
-      default: "#00774e",
-      hover: "#005f3e",
-      active: "#005336",
+      default: "#0F796F",
+      hover: "#0C5F57",
+      active: "#0A524B",
     },
-    "success-light": {
-      default: "#f5fbf9",
-      hover: "#d6f0e7",
-      active: "#7ccfb3",
+    "success-subtle": {
+      default: "#F5FAFA",
+      hover: "#C6E3E0",
+      active: "#98CCC7",
     },
-    "neutral-light": {
-      default: "#f9f9f9",
-      hover: "#e9e9e9",
-      active: "#bfbfbf",
+    "neutral-subtle": {
+      default: "#F8F9F9",
+      hover: "#DBDDE1",
+      active: "#BFC2C8",
     },
     muted: {
       main: {
@@ -238,8 +238,8 @@ export const colours =  {
         active: "#fbe4e4",
       },
       neutral: {
-        hover: "#f9f9f9",
-        active: "#e9e9e9",
+        hover: "#F8F9F9",
+        active: "#DBDDE1",
       },
     },
     tinted: {
@@ -261,20 +261,20 @@ export const colours =  {
       },
     },
     support: {
-      unselected: "#a0a0a0",
-      selected: "#686868",
-      "unselected-dark": "#686868",
-      disabled: "#e9e9e9",
-      "disabled-content": "#a0a0a0",
-      placeholder: "#a0a0a0",
+      unselected: "#A0A4AD",
+      selected: "#666C7A",
+      "unselected-dark": "#666C7A",
+      disabled: "#DBDDE1",
+      "disabled-content": "#A0A4AD",
+      placeholder: "#A0A4AD",
     },
     links: {
       default: "#7b695B",
       hover: "#625248",
-      "dark-default": "#474747",
-      "dark-hover": "#2e2e2e",
+      "dark-default": "#454953",
+      "dark-hover": "#2C2E34",
       "inverse-default": "#ffffff",
-      "inverse-hover": "#e9e9e9",
+      "inverse-hover": "#DBDDE1",
     },
   },
   utility: {
@@ -283,8 +283,8 @@ export const colours =  {
       "info-light": "#F7F9FE",
       warning: "#FFDA68",
       "warning-light": "#fffae1",
-      success: "#00774e",
-      "success-light": "#f5fbf9",
+      success: "#0F796F",
+      "success-light": "#F5FAFA",
       critical: "#c03434",
       "critical-light": "#fef7f7",
     },

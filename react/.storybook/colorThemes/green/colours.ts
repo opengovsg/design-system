@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 22 Dec 2022 16:56:39 GMT
+ * Generated on Wed, 04 Jan 2023 03:09:38 GMT
  */
 
 export const colours =  {
@@ -126,7 +126,7 @@ export const colours =  {
       alt: "#f8f9f9",
       backdrop: "#dbdde1",
       brandLight: "#f5fafa",
-      inverse: "#3a3e46",
+      inverse: "#2c2e34",
       overlay: "rgba(58, 62, 70, 0.8)",
     },
     content: {
@@ -150,7 +150,7 @@ export const colours =  {
       hover: "#0c5f57",
       active: "#0a524b",
     },
-    "main-light": {
+    "main-subtle": {
       default: "#f5fafa",
       hover: "#c6e3e0",
       active: "#98ccc7",
@@ -160,7 +160,7 @@ export const colours =  {
       hover: "#505660",
       active: "#454953",
     },
-    "sub-light": {
+    "sub-subtle": {
       default: "#f8f9f9",
       hover: "#dbdde1",
       active: "#bfc2c8",
@@ -170,7 +170,7 @@ export const colours =  {
       hover: "#992a2a",
       active: "#852424",
     },
-    "critical-light": {
+    "critical-subtle": {
       default: "#fef7f7",
       hover: "#fbe4e4",
       active: "#f4acac",
@@ -180,7 +180,7 @@ export const colours =  {
       hover: "#E2B73E",
       active: "#C4992A",
     },
-    "warning-light": {
+    "warning-subtle": {
       default: "#fffae1",
       hover: "#FFDA68",
       active: "#E2B73E",
@@ -190,12 +190,12 @@ export const colours =  {
       hover: "#0c5f57",
       active: "#0a524b",
     },
-    "success-light": {
+    "success-subtle": {
       default: "#f5fafa",
       hover: "#c6e3e0",
       active: "#98ccc7",
     },
-    "neutral-light": {
+    "neutral-subtle": {
       default: "#f8f9f9",
       hover: "#dbdde1",
       active: "#bfc2c8",
