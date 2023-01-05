@@ -38,7 +38,7 @@ export interface RestrictedFooterVariantProps {
   /**
    * Whether to render the footer in dark or light mode.
    */
-  colorMode?: StyleFunctionProps['colorMode']
+  colorMode?: ResponsiveValue<StyleFunctionProps['colorMode']>
 }
 
 export interface RestrictedFooterProps
