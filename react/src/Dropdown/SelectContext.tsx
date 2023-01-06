@@ -1,7 +1,7 @@
 import { createContext, MutableRefObject, RefObject, useContext } from 'react'
-import { VirtuosoHandle } from 'react-virtuoso'
-import { FormControlOptions, SystemStyleObject } from '@chakra-ui/react'
-import { UseComboboxPropGetters, UseComboboxState } from 'downshift'
+import type { VirtuosoHandle } from 'react-virtuoso'
+import type { FormControlOptions, SystemStyleObject } from '@chakra-ui/react'
+import type { UseComboboxPropGetters, UseComboboxState } from 'downshift'
 
 import { ComboboxItem } from './types'
 
