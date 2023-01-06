@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "OGP Design System token generator",
   "scripts": {
+    "transform": "npx token-transformer tokens/raw --theme --themeOutputPath=tokens/transformed",
     "build": "npm run transform && node build.js",
-    "transform": "npx token-transformer tokens/raw --theme --themeOutputPath=tokens/transformed"
+    "transform:split": "node split.js && npm run transform",
+    "build:split": "npm run transform:split && node build.js"
   },
   "author": "karrui@open.gov.sg",
   "license": "SEE LICENSE IN LICENSE.md",

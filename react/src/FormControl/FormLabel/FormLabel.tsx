@@ -80,7 +80,7 @@ export const FormLabel = ({
           <Tooltip label={tooltipText} aria-label="Label tooltip">
             <Icon
               ml="0.5rem"
-              color="base.content.dark"
+              color="base.content.strong"
               as={BxsHelpCircle}
               verticalAlign="middle"
             />
@@ -123,7 +123,7 @@ const FormLabelDescription = ({
 
   const styleProps = {
     textStyle: 'body-2',
-    color: 'base.content.dark',
+    color: 'base.content.strong',
     mt: 0,
     ...props,
   }
@@ -156,7 +156,7 @@ FormLabel.QuestionNumber = ({ children, ...props }: TextProps): JSX.Element => {
     <Text
       as="span"
       textStyle="caption-1"
-      color="base.content.dark"
+      color="base.content.strong"
       mr="0.5rem"
       verticalAlign="baseline"
       lineHeight={0}

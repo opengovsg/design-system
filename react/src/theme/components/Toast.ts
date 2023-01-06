@@ -71,25 +71,25 @@ const getSubtleColors = ({ colorScheme: c }: StyleFunctionProps) => {
   switch (c) {
     case 'error':
       return {
-        bg: 'utility.feedback.critical-light',
+        bg: 'utility.feedback.critical-subtle',
         border: '1px solid var(--chakra-colors-utility-feedback-critical)',
         iconFill: 'utility.feedback.critical',
       }
     case 'success':
       return {
-        bg: 'utility.feedback.success-light',
+        bg: 'utility.feedback.success-subtle',
         border: '1px solid var(--chakra-colors-utility-feedback-success)',
         iconFill: 'utility.feedback.success',
       }
     case 'warning':
       return {
-        bg: 'utility.feedback.warning-light',
+        bg: 'utility.feedback.warning-subtle',
         border: '1px solid var(--chakra-colors-utility-feedback-warning)',
         iconFill: 'utility.feedback.warning',
       }
     default:
       return {
-        bg: 'utility.feedback.info-light',
+        bg: 'utility.feedback.info-subtle',
         border: '1px solid var(--chakra-colors-utility-feedback-info)',
         iconFill: 'utility.feedback.info',
       }

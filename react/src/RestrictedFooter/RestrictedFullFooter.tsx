@@ -101,7 +101,7 @@ export const RestrictedFullFooter = ({
             <Flex flexDirection="column">
               <Text
                 textStyle="caption-1"
-                color="base.content.light"
+                color="base.content.medium"
                 _dark={{
                   color: 'base.content.inverse',
                 }}
@@ -143,7 +143,7 @@ export const RestrictedFullFooter = ({
               </Stack>
               <Text
                 textStyle="legal"
-                color="base.content.light"
+                color="base.content.medium"
                 _dark={{
                   color: 'base.content.inverse',
                 }}

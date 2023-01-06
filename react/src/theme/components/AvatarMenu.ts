@@ -83,7 +83,7 @@ const baseStyle = definePartsStyle({
   button: {
     px: '0',
     bg: 'transparent',
-    color: 'base.content.dark',
+    color: 'base.content.strong',
     _hover: {
       bg: 'transparent',
     },

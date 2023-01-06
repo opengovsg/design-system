@@ -12,13 +12,13 @@ const baseStyle = definePartsStyle({
   messagebox: {
     display: 'flex',
     justifyContent: 'start',
-    color: 'base.content.dark',
+    color: 'base.content.strong',
   },
 })
 
 const variantInfo = definePartsStyle({
   messagebox: {
-    bg: 'utility.feedback.info-light',
+    bg: 'utility.feedback.info-subtle',
   },
   icon: {
     color: 'utility.feedback.info',
@@ -27,7 +27,7 @@ const variantInfo = definePartsStyle({
 
 const variantWarning = definePartsStyle({
   messagebox: {
-    bg: 'utility.feedback.warning-light',
+    bg: 'utility.feedback.warning-subtle',
   },
   icon: {
     color: 'utility.feedback.warning',
@@ -36,7 +36,7 @@ const variantWarning = definePartsStyle({
 
 const variantError = definePartsStyle({
   messagebox: {
-    bg: 'utility.feedback.critical-light',
+    bg: 'utility.feedback.critical-subtle',
   },
   icon: {
     color: 'utility.feedback.critical',

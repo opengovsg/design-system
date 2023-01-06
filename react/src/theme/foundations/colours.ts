@@ -1,16 +1,16 @@
 /**
  * Do not edit directly
- * Generated on Thu, 22 Dec 2022 16:18:22 GMT
+ * Generated on Fri, 06 Jan 2023 02:48:14 GMT
  */
 
 export const colours = {
   blue: {
     '50': '#F7F9FE',
-    '100': '#E1EBFD',
+    '100': '#E7EFFC',
     '200': '#ACC7FA',
     '300': '#82ABF7',
     '400': '#568DF4',
-    '500': '#276EF1',
+    '500': '#1361F0',
     '600': '#0D4FCA',
     '700': '#0B44AC',
     '800': '#093890',
@@ -18,7 +18,7 @@ export const colours = {
   },
   red: {
     '50': '#fef7f7',
-    '100': '#fbe4e4',
+    '100': '#FBE9E9',
     '200': '#f4acac',
     '300': '#ee8080',
     '400': '#e74f4f',
@@ -29,16 +29,16 @@ export const colours = {
     '900': '#571717',
   },
   green: {
-    '50': '#f5fbf9',
-    '100': '#d6f0e7',
-    '200': '#7ccfb3',
-    '300': '#33b488',
-    '400': '#009762',
-    '500': '#00774e',
-    '600': '#005f3e',
-    '700': '#005336',
-    '800': '#00462e',
-    '900': '#003523',
+    '50': '#F5FAFA',
+    '100': '#E2EEED',
+    '200': '#98CCC7',
+    '300': '#63B1AA',
+    '400': '#2D978C',
+    '500': '#0F796F',
+    '600': '#0C5F57',
+    '700': '#0A524B',
+    '800': '#09463F',
+    '900': '#073430',
   },
   yellow: {
     '50': '#fffae1',
@@ -83,11 +83,11 @@ export const colours = {
   brand: {
     primary: {
       '50': '#F7F9FE',
-      '100': '#E1EBFD',
+      '100': '#E7EFFC',
       '200': '#ACC7FA',
       '300': '#82ABF7',
       '400': '#568DF4',
-      '500': '#276EF1',
+      '500': '#1361F0',
       '600': '#0D4FCA',
       '700': '#0B44AC',
       '800': '#093890',
@@ -125,77 +125,82 @@ export const colours = {
       default: '#ffffff',
       alt: '#f9f9f9',
       backdrop: '#e9e9e9',
-      brandLight: '#F7F9FE',
+      'brand-subtle': '#F7F9FE',
       inverse: '#3d3d3d',
       overlay: 'rgba(61, 61, 61, 0.8)',
     },
     content: {
       default: '#474747',
-      dark: '#2e2e2e',
-      light: '#848484',
-      brand: '#276EF1',
+      strong: '#2e2e2e',
+      medium: '#686868',
+      brand: '#1361F0',
       inverse: '#ffffff',
     },
     divider: {
-      light: '#f9f9f9',
+      subtle: '#f9f9f9',
       medium: '#e9e9e9',
-      dark: '#bfbfbf',
+      strong: '#bfbfbf',
       inverse: '#ffffff',
-      brand: '#276EF1',
+      brand: '#1361F0',
     },
   },
   interaction: {
     main: {
-      default: '#276EF1',
+      default: '#1361F0',
       hover: '#0D4FCA',
       active: '#0B44AC',
     },
-    'main-light': {
-      default: '#F7F9FE',
-      hover: '#E1EBFD',
-      active: '#ACC7FA',
+    'main-subtle': {
+      default: '#E7EFFC',
+      hover: '#ACC7FA',
+      active: '#82ABF7',
     },
     sub: {
       default: '#5d6785',
       hover: '#465173',
       active: '#3c4764',
     },
-    'sub-light': {
-      default: '#f8f9fa',
-      hover: '#e9eaee',
-      active: '#babecb',
+    'sub-subtle': {
+      default: '#e9eaee',
+      hover: '#babecb',
+      active: '#9aa0b3',
     },
     critical: {
       default: '#c03434',
       hover: '#992a2a',
       active: '#852424',
     },
-    'critical-light': {
-      default: '#fef7f7',
-      hover: '#fbe4e4',
-      active: '#f4acac',
+    'critical-subtle': {
+      default: '#FBE9E9',
+      hover: '#f4acac',
+      active: '#ee8080',
     },
     warning: {
       default: '#FFDA68',
       hover: '#E2B73E',
       active: '#C4992A',
     },
-    'warning-light': {
+    'warning-subtle': {
       default: '#fffae1',
       hover: '#FFDA68',
       active: '#E2B73E',
     },
     success: {
-      default: '#00774e',
-      hover: '#005f3e',
-      active: '#005336',
+      default: '#0F796F',
+      hover: '#0C5F57',
+      active: '#0A524B',
     },
-    'success-light': {
-      default: '#f5fbf9',
-      hover: '#d6f0e7',
-      active: '#7ccfb3',
+    'success-subtle': {
+      default: '#E2EEED',
+      hover: '#98CCC7',
+      active: '#63B1AA',
     },
-    'neutral-light': {
+    neutral: {
+      default: '#686868',
+      hover: '#535353',
+      active: '#474747',
+    },
+    'neutral-subtle': {
       default: '#f9f9f9',
       hover: '#e9e9e9',
       active: '#bfbfbf',
@@ -203,7 +208,7 @@ export const colours = {
     muted: {
       main: {
         hover: '#F7F9FE',
-        active: '#E1EBFD',
+        active: '#E7EFFC',
       },
       sub: {
         hover: '#f8f9fa',
@@ -211,7 +216,7 @@ export const colours = {
       },
       critical: {
         hover: '#fef7f7',
-        active: '#fbe4e4',
+        active: '#FBE9E9',
       },
       neutral: {
         hover: '#f9f9f9',
@@ -220,18 +225,18 @@ export const colours = {
     },
     tinted: {
       main: {
-        hover: 'rgba(39, 110, 241, 0.04)',
-        active: 'rgba(39, 110, 241, 0.12)',
+        hover: 'rgba(19, 97, 240, 0.04)',
+        active: 'rgba(19, 97, 240, 0.12)',
       },
       critical: {
         hover: 'rgba(192, 52, 52, 0.04)',
         active: 'rgba(192, 52, 52, 0.12)',
       },
-      dark: {
+      neutral: {
         hover: 'rgba(0, 0, 0, 0.1)',
         active: 'rgba(0, 0, 0, 0.2)',
       },
-      light: {
+      inverse: {
         hover: 'rgba(255, 255, 255, 0.1)',
         active: 'rgba(255, 255, 255, 0.2)',
       },
@@ -239,32 +244,32 @@ export const colours = {
     support: {
       unselected: '#a0a0a0',
       selected: '#686868',
-      'unselected-dark': '#686868',
+      'unselected-strong': '#686868',
       disabled: '#e9e9e9',
       'disabled-content': '#a0a0a0',
       placeholder: '#a0a0a0',
     },
     links: {
-      default: '#276EF1',
+      default: '#1361F0',
       hover: '#0D4FCA',
-      'dark-default': '#474747',
-      'dark-hover': '#2e2e2e',
+      'neutral-default': '#474747',
+      'neutral-hover': '#2e2e2e',
       'inverse-default': '#ffffff',
       'inverse-hover': '#e9e9e9',
     },
   },
   utility: {
     feedback: {
-      info: '#276EF1',
-      'info-light': '#F7F9FE',
+      info: '#1361F0',
+      'info-subtle': '#F7F9FE',
       warning: '#FFDA68',
-      'warning-light': '#fffae1',
-      success: '#00774e',
-      'success-light': '#f5fbf9',
+      'warning-subtle': '#fffae1',
+      success: '#0F796F',
+      'success-subtle': '#F5FAFA',
       critical: '#c03434',
-      'critical-light': '#fef7f7',
+      'critical-subtle': '#fef7f7',
     },
-    'focus-default': '#276EF1',
+    'focus-default': '#1361F0',
     'focus-inverse': '#ffffff',
     'input-prefilled': '#fffae1',
     ui: '#ffffff',

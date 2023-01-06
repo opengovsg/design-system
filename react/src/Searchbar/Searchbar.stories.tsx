@@ -57,7 +57,7 @@ export const Playground: StoryFn<SearchbarProps> = ({
     <Box
       bg="brand.primary.50"
       p="2.625rem"
-      color="base.content.dark"
+      color="base.content.strong"
       transitionProperty="position"
     >
       <Text textStyle="h2">Form examples</Text>

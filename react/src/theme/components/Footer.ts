@@ -23,7 +23,7 @@ const variantFull = definePartsStyle({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    bg: 'base.canvas.brandLight',
+    bg: 'base.canvas.brand-subtle',
     _dark: {
       bg: 'base.canvas.inverse',
     },

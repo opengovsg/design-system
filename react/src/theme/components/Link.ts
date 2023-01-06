@@ -12,8 +12,13 @@ const getLinkColors = ({ colorScheme: c }: StyleFunctionProps) => {
       }
     case 'neutral':
       return {
-        color: 'interaction.links.dark-default',
-        hoverColor: 'interaction.links.dark-hover',
+        color: 'interaction.links.neutral-default',
+        hoverColor: 'interaction.links.neutral-hover',
+      }
+    case 'inverse':
+      return {
+        color: 'interaction.links.inverse-default',
+        hoverColor: 'interaction.links.inverse-hover',
       }
     // Special cases for accessibility.
     case 'success':

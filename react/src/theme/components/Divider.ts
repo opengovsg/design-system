@@ -9,7 +9,7 @@ const baseStyle = defineStyle({
 })
 
 const variantLight = defineStyle({
-  borderColor: 'base.divider.light',
+  borderColor: 'base.divider.subtle',
   _dark: {
     borderColor: 'base.divider.inverse',
   },
@@ -25,7 +25,7 @@ const variantMedium = defineStyle({
 })
 
 const variantThick = defineStyle({
-  borderColor: 'base.divider.dark',
+  borderColor: 'base.divider.strong',
   _dark: {
     borderColor: 'base.divider.inverse',
   },

@@ -29,14 +29,14 @@ const outlineVariant = definePartsStyle((props) => {
       border: '1px solid',
       borderColor: isSuccess
         ? 'interaction.success.default'
-        : 'base.divider.dark',
+        : 'base.divider.strong',
       _placeholder: {
         color: 'interaction.support.placeholder',
       },
       _hover: {
         borderColor: isSuccess
           ? 'interaction.success.default'
-          : 'base.divider.dark',
+          : 'base.divider.strong',
       },
       // Explicit styling here for other components that use a mock input.
       _invalid: {
@@ -51,7 +51,7 @@ const outlineVariant = definePartsStyle((props) => {
       },
       _disabled: {
         bg: 'interaction.support.disabled',
-        borderColor: 'base.divider.dark',
+        borderColor: 'base.divider.strong',
         color: 'interaction.support.disabled-content',
         cursor: 'not-allowed',
         opacity: 1,

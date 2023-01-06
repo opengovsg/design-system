@@ -1,12 +1,13 @@
 {
   "tokenSetOrder": [
     "global",
-    "cool grey",
-    "green",
-    "teal blue",
-    "orange brown",
-    "coral",
-    "violet",
-    "pink"
+    "Form",
+    "Redeem",
+    "AskGov",
+    "Vault",
+    "ScamShield",
+    "Isomer",
+    "Postman",
+    "Care360"
   ]
 }
