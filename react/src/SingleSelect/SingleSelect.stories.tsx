@@ -64,6 +64,7 @@ const INITIAL_COMBOBOX_ITEMS: ComboboxItem[] = [
 export default {
   title: 'Components/SingleSelect',
   component: SingleSelect,
+  tags: ['autodocs'],
   decorators: [fixedHeightDecorator('300px')],
   args: {
     items: INITIAL_COMBOBOX_ITEMS,

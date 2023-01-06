@@ -10,8 +10,9 @@ import { Meta, StoryFn } from '@storybook/react'
 import { Switch, SwitchProps } from './Switch'
 
 export default {
-  component: Switch,
   title: 'Components/Switch',
+  component: Switch,
+  tags: ['autodocs'],
 } as Meta<SwitchProps>
 
 const Template: StoryFn<SwitchProps> = (args) => <Switch {...args} />

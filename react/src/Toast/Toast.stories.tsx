@@ -48,6 +48,7 @@ const ToastStateProps: Record<string, ToastProps> = {
 export default {
   title: 'Components/Toast',
   component: Toast,
+  tags: ['autodocs'],
   parameters: { backgrounds: { default: 'light' } },
 } as Meta
 

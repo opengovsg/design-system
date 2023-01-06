@@ -1,17 +1,14 @@
 import { Meta, StoryFn } from '@storybook/react'
 
 import { Banner, BannerProps } from './Banner'
-import DocumentationPage from './Banner.mdx'
 
 export default {
   title: 'Components/Banner',
   component: Banner,
+  tags: ['autodocs'],
   decorators: [],
   parameters: {
     backgrounds: { default: 'light' },
-    docs: {
-      page: DocumentationPage,
-    },
   },
 } as Meta<BannerProps>
 

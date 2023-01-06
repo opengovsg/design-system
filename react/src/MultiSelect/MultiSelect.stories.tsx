@@ -51,6 +51,7 @@ const INITIAL_COMBOBOX_ITEMS: ComboboxItem[] = [
 export default {
   title: 'Components/MultiSelect',
   component: MultiSelect,
+  tags: ['autodocs'],
   decorators: [fixedHeightDecorator('300px')],
   args: {
     items: INITIAL_COMBOBOX_ITEMS,

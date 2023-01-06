@@ -9,6 +9,7 @@ import { Tooltip } from './Tooltip'
 export default {
   title: 'Components/Tooltip',
   component: Tooltip,
+  tags: ['autodocs'],
   decorators: [],
 } as Meta
 

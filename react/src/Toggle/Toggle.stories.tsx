@@ -4,8 +4,9 @@ import { Meta, StoryFn } from '@storybook/react'
 import { Toggle, ToggleProps } from './Toggle'
 
 export default {
-  component: Toggle,
   title: 'Templates/Toggle',
+  component: Toggle,
+  tags: ['autodocs'],
 } as Meta<ToggleProps>
 
 const AllToggleStates: StoryFn<ToggleProps> = (args) => {

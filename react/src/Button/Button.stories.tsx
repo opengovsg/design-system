@@ -4,15 +4,12 @@ import { Meta, StoryFn } from '@storybook/react'
 import { BxRightArrowAlt, BxUpload } from '~/icons'
 
 import { Button, ButtonProps } from './Button'
-import DocumentationPage from './Button.mdx'
 
 export default {
   title: 'Components/Button',
   component: Button,
+  tags: ['autodocs'],
   parameters: {
-    docs: {
-      page: DocumentationPage,
-    },
     backgrounds: { default: 'light' },
   },
 } as Meta

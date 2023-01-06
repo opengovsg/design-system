@@ -6,6 +6,7 @@ import { NumberInput, NumberInputProps } from './NumberInput'
 export default {
   title: 'Components/NumberInput',
   component: NumberInput,
+  tags: ['autodocs'],
   decorators: [],
 } as Meta
 

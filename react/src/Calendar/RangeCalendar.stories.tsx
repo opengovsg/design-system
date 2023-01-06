@@ -9,6 +9,7 @@ import { RangeCalendar, RangeCalendarProps } from './RangeCalendar'
 export default {
   title: 'Components/Calendar/RangeCalendar',
   component: RangeCalendar,
+  tags: ['autodocs'],
   decorators: [mockDateDecorator],
   parameters: {
     layout: 'fullscreen',

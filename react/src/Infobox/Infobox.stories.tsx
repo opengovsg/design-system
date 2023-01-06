@@ -6,6 +6,7 @@ import { Infobox, InfoboxProps } from './Infobox'
 export default {
   title: 'Components/Infobox',
   component: Infobox,
+  tags: ['autodocs'],
 } as Meta
 
 const InfoboxTemplate: StoryFn<InfoboxProps> = (args) => <Infobox {...args} />

@@ -11,6 +11,7 @@ import { Tile, TileProps } from './Tile'
 export default {
   title: 'Components/Tiles',
   component: Tile,
+  tags: ['autodocs'],
   decorators: [],
 } as Meta
 
