@@ -1,16 +1,16 @@
 /**
  * Do not edit directly
- * Generated on Wed, 04 Jan 2023 07:36:13 GMT
+ * Generated on Fri, 06 Jan 2023 02:48:14 GMT
  */
 
 export const colours = {
   blue: {
     '50': '#F7F9FE',
-    '100': '#E1EBFD',
+    '100': '#E7EFFC',
     '200': '#ACC7FA',
     '300': '#82ABF7',
     '400': '#568DF4',
-    '500': '#276EF1',
+    '500': '#1361F0',
     '600': '#0D4FCA',
     '700': '#0B44AC',
     '800': '#093890',
@@ -18,7 +18,7 @@ export const colours = {
   },
   red: {
     '50': '#fef7f7',
-    '100': '#fbe4e4',
+    '100': '#FBE9E9',
     '200': '#f4acac',
     '300': '#ee8080',
     '400': '#e74f4f',
@@ -30,7 +30,7 @@ export const colours = {
   },
   green: {
     '50': '#F5FAFA',
-    '100': '#C6E3E0',
+    '100': '#E2EEED',
     '200': '#98CCC7',
     '300': '#63B1AA',
     '400': '#2D978C',
@@ -65,16 +65,16 @@ export const colours = {
     '900': '#272d41',
   },
   grey: {
-    '50': '#F8F9F9',
-    '100': '#DBDDE1',
-    '200': '#BFC2C8',
-    '300': '#A0A4AD',
-    '400': '#838894',
-    '500': '#666C7A',
-    '600': '#505660',
-    '700': '#454953',
-    '800': '#3A3E46',
-    '900': '#2C2E34',
+    '50': '#f9f9f9',
+    '100': '#e9e9e9',
+    '200': '#bfbfbf',
+    '300': '#a0a0a0',
+    '400': '#848484',
+    '500': '#686868',
+    '600': '#535353',
+    '700': '#474747',
+    '800': '#3d3d3d',
+    '900': '#2e2e2e',
   },
   standard: {
     white: '#ffffff',
@@ -83,11 +83,11 @@ export const colours = {
   brand: {
     primary: {
       '50': '#F7F9FE',
-      '100': '#E1EBFD',
+      '100': '#E7EFFC',
       '200': '#ACC7FA',
       '300': '#82ABF7',
       '400': '#568DF4',
-      '500': '#276EF1',
+      '500': '#1361F0',
       '600': '#0D4FCA',
       '700': '#0B44AC',
       '800': '#093890',
@@ -123,37 +123,37 @@ export const colours = {
   base: {
     canvas: {
       default: '#ffffff',
-      alt: '#F8F9F9',
-      backdrop: '#DBDDE1',
+      alt: '#f9f9f9',
+      backdrop: '#e9e9e9',
       'brand-subtle': '#F7F9FE',
-      inverse: '#272d41',
-      overlay: 'rgba(58, 62, 70, 0.8)',
+      inverse: '#3d3d3d',
+      overlay: 'rgba(61, 61, 61, 0.8)',
     },
     content: {
-      default: '#454953',
-      strong: '#2C2E34',
-      medium: '#838894',
-      brand: '#276EF1',
+      default: '#474747',
+      strong: '#2e2e2e',
+      medium: '#686868',
+      brand: '#1361F0',
       inverse: '#ffffff',
     },
     divider: {
-      subtle: '#F8F9F9',
-      medium: '#DBDDE1',
-      strong: '#BFC2C8',
+      subtle: '#f9f9f9',
+      medium: '#e9e9e9',
+      strong: '#bfbfbf',
       inverse: '#ffffff',
-      brand: '#276EF1',
+      brand: '#1361F0',
     },
   },
   interaction: {
     main: {
-      default: '#276EF1',
+      default: '#1361F0',
       hover: '#0D4FCA',
       active: '#0B44AC',
     },
     'main-subtle': {
-      default: '#F7F9FE',
-      hover: '#E1EBFD',
-      active: '#ACC7FA',
+      default: '#E7EFFC',
+      hover: '#ACC7FA',
+      active: '#82ABF7',
     },
     sub: {
       default: '#5d6785',
@@ -161,9 +161,9 @@ export const colours = {
       active: '#3c4764',
     },
     'sub-subtle': {
-      default: '#f8f9fa',
-      hover: '#e9eaee',
-      active: '#babecb',
+      default: '#e9eaee',
+      hover: '#babecb',
+      active: '#9aa0b3',
     },
     critical: {
       default: '#c03434',
@@ -171,9 +171,9 @@ export const colours = {
       active: '#852424',
     },
     'critical-subtle': {
-      default: '#fef7f7',
-      hover: '#fbe4e4',
-      active: '#f4acac',
+      default: '#FBE9E9',
+      hover: '#f4acac',
+      active: '#ee8080',
     },
     warning: {
       default: '#FFDA68',
@@ -191,19 +191,24 @@ export const colours = {
       active: '#0A524B',
     },
     'success-subtle': {
-      default: '#F5FAFA',
-      hover: '#C6E3E0',
-      active: '#98CCC7',
+      default: '#E2EEED',
+      hover: '#98CCC7',
+      active: '#63B1AA',
+    },
+    neutral: {
+      default: '#686868',
+      hover: '#535353',
+      active: '#474747',
     },
     'neutral-subtle': {
-      default: '#F8F9F9',
-      hover: '#DBDDE1',
-      active: '#BFC2C8',
+      default: '#f9f9f9',
+      hover: '#e9e9e9',
+      active: '#bfbfbf',
     },
     muted: {
       main: {
         hover: '#F7F9FE',
-        active: '#E1EBFD',
+        active: '#E7EFFC',
       },
       sub: {
         hover: '#f8f9fa',
@@ -211,17 +216,17 @@ export const colours = {
       },
       critical: {
         hover: '#fef7f7',
-        active: '#fbe4e4',
+        active: '#FBE9E9',
       },
       neutral: {
-        hover: '#F8F9F9',
-        active: '#DBDDE1',
+        hover: '#f9f9f9',
+        active: '#e9e9e9',
       },
     },
     tinted: {
       main: {
-        hover: 'rgba(39, 110, 241, 0.04)',
-        active: 'rgba(39, 110, 241, 0.12)',
+        hover: 'rgba(19, 97, 240, 0.04)',
+        active: 'rgba(19, 97, 240, 0.12)',
       },
       critical: {
         hover: 'rgba(192, 52, 52, 0.04)',
@@ -237,25 +242,25 @@ export const colours = {
       },
     },
     support: {
-      unselected: '#A0A4AD',
-      selected: '#666C7A',
-      'unselected-strong': '#666C7A',
-      disabled: '#DBDDE1',
-      'disabled-content': '#A0A4AD',
-      placeholder: '#A0A4AD',
+      unselected: '#a0a0a0',
+      selected: '#686868',
+      'unselected-strong': '#686868',
+      disabled: '#e9e9e9',
+      'disabled-content': '#a0a0a0',
+      placeholder: '#a0a0a0',
     },
     links: {
-      default: '#276EF1',
+      default: '#1361F0',
       hover: '#0D4FCA',
-      'neutral-default': '#454953',
-      'neutral-hover': '#2C2E34',
+      'neutral-default': '#474747',
+      'neutral-hover': '#2e2e2e',
       'inverse-default': '#ffffff',
-      'inverse-hover': '#DBDDE1',
+      'inverse-hover': '#e9e9e9',
     },
   },
   utility: {
     feedback: {
-      info: '#276EF1',
+      info: '#1361F0',
       'info-subtle': '#F7F9FE',
       warning: '#FFDA68',
       'warning-subtle': '#fffae1',
@@ -264,7 +269,7 @@ export const colours = {
       critical: '#c03434',
       'critical-subtle': '#fef7f7',
     },
-    'focus-default': '#276EF1',
+    'focus-default': '#1361F0',
     'focus-inverse': '#ffffff',
     'input-prefilled': '#fffae1',
     ui: '#ffffff',
