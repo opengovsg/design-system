@@ -49,7 +49,7 @@ const baseStyle = definePartsStyle((props) => {
       bg: $bg.reference,
       textStyle: 'body-1',
       fontWeight: '400',
-      color: 'base.content.dark',
+      color: 'base.content.strong',
       _hover: {
         bg: hoverBg,
       },
@@ -85,6 +85,7 @@ const baseStyle = definePartsStyle((props) => {
 const getClearButtonColors = ({ colorScheme: c }: StyleFunctionProps) => {
   switch (c) {
     case 'main':
+    case 'sub':
     case 'success':
     case 'critical':
     case 'warning': {

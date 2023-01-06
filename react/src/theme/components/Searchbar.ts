@@ -11,7 +11,7 @@ const variantOutline = definePartsStyle({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    color: 'base.content.dark',
+    color: 'base.content.strong',
   },
 })
 

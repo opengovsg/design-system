@@ -13,7 +13,7 @@ const { definePartsStyle, defineMultiStyleConfig } =
 const baseStyle = definePartsStyle({
   label: {
     textStyle: 'subhead-1',
-    color: 'base.content.dark',
+    color: 'base.content.strong',
   },
   description: {
     textStyle: 'body-2',

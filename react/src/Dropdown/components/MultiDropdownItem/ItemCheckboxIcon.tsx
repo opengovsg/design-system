@@ -28,7 +28,7 @@ export const ItemCheckboxIcon = ({
       __css={styles.control}
       data-checked={dataAttr(isChecked)}
       aria-disabled={isDisabled}
-      borderColor="base.content.dark"
+      borderColor="base.content.strong"
     >
       <Icon as={BxCheckAnimated} __css={styles.icon} isChecked={isChecked} />
     </Box>

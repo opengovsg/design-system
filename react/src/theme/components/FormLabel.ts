@@ -6,6 +6,6 @@ export const FormLabel = defineStyleConfig({
   baseStyle: {
     ...textStyles['subhead-1'],
     mb: '0.75rem',
-    color: 'base.content.dark',
+    color: 'base.content.strong',
   },
 })

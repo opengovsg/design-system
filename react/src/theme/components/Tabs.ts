@@ -26,12 +26,12 @@ const getColorsForLineVariant = ({
         hoverColor: `interaction.${c}.hover`,
         hoverBg: isVertical ? `interaction.muted.${c}.hover` : 'transparent',
         activeBg: isVertical ? `interaction.muted.${c}.active` : 'transparent',
-        borderColor: isVertical ? 'base.divider.dark' : 'transparent',
+        borderColor: isVertical ? 'base.divider.strong' : 'transparent',
       }
     default:
       return {
         color: 'interaction.support.unselected',
-        borderColor: isVertical ? 'base.divider.dark' : 'transparent',
+        borderColor: isVertical ? 'base.divider.strong' : 'transparent',
         selectedColor: `${c}.500`,
         hoverColor: `${c}.600`,
         hoverBg: isVertical ? `${c}.50` : 'transparent',
@@ -51,7 +51,7 @@ const variantLine = definePartsStyle((props) => {
   return {
     tablist: {
       [borderProp]: '2px solid',
-      borderColor: isVertical ? 'base.divider.dark' : 'transparent',
+      borderColor: isVertical ? 'base.divider.strong' : 'transparent',
     },
     tab: {
       justifyContent: 'flex-start',

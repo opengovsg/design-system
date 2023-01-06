@@ -58,7 +58,7 @@ const baseStyle = definePartsStyle((props) => {
     },
     itemDescription: {
       textStyle: 'body-2',
-      color: 'base.content.light',
+      color: 'base.content.medium',
     },
     emptyItem: {
       ...itemStyle,
@@ -75,7 +75,7 @@ const baseStyle = definePartsStyle((props) => {
     icon: {
       transitionProperty: 'common',
       transitionDuration: 'normal',
-      color: 'base.content.dark',
+      color: 'base.content.strong',
       _disabled: {
         cursor: 'not-allowed',
         color: 'interaction.support.disabled-content',

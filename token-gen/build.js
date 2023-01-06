@@ -15,7 +15,12 @@ const path = require("path");
 const fs = require("fs");
 const tinycolor = require("tinycolor2");
 const StyleDictionary = require("style-dictionary");
-const { fontWeightToNumber, percentToEm, pxToRem } = require("./config/utils");
+const {
+  fontWeightToNumber,
+  percentToEm,
+  pxToRem,
+  setFallbackFonts,
+} = require("./config/utils");
 
 const { fileHeader, formattedVariables } = StyleDictionary.formatHelpers;
 
@@ -108,7 +113,11 @@ StyleDictionary.registerTransform({
   type: "value",
   matcher: (prop) => prop.type === "typography",
   transformer: (token) => {
-    const omitValues = omit(token.value, ["paragraphSpacing", "textCase"]);
+    const omitValues = omit(token.value, [
+      "paragraphSpacing",
+      "textCase",
+      "fontFamily",
+    ]);
 
     const {
       fontSize,
@@ -118,6 +127,7 @@ StyleDictionary.registerTransform({
       textCase,
       paragraphSpacing,
       textDecoration,
+      fontFamily,
     } = token.value;
 
     const fontSizeToRem = pxToRem(fontSize);
@@ -127,6 +137,8 @@ StyleDictionary.registerTransform({
 
     return {
       ...omitValues,
+      // Trebuchet MS is the closest height and width to Inter for best FOUT (flash of unstyled text) handling.
+      fontFamily: setFallbackFonts(fontFamily),
       textTransform: textCase === "none" ? undefined : textCase,
       textDecoration: textDecoration === "none" ? undefined : textDecoration,
       fontSize: fontSizeToRem,

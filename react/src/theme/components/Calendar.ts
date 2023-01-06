@@ -29,7 +29,7 @@ const getDayOfMonthColors = ({
       return {
         color: isOutsideCurrMonth
           ? 'interaction.support.disabled-content'
-          : 'base.content.dark',
+          : 'base.content.strong',
         activeColor: 'base.content.inverse',
         hoverBg: 'interaction.muted.main.hover',
         activeBg: 'interaction.main.default',
@@ -38,7 +38,7 @@ const getDayOfMonthColors = ({
       }
     default: {
       return {
-        color: 'base.content.dark',
+        color: 'base.content.strong',
         activeColor: 'base.content.inverse',
         selectedBg: `${c}.200`,
         hoverBg: `${c}.200`,

@@ -87,7 +87,7 @@ const baseStyle = definePartsStyle((props) => {
         // Chakra automatically sets opacity to 0.4, so override that
         opacity: 1,
       },
-      color: 'base.content.dark',
+      color: 'base.content.strong',
     },
     // Check mark icon
     icon: {
