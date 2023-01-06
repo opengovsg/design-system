@@ -85,6 +85,7 @@ const baseStyle = definePartsStyle((props) => {
 const getClearButtonColors = ({ colorScheme: c }: StyleFunctionProps) => {
   switch (c) {
     case 'main':
+    case 'sub':
     case 'success':
     case 'critical':
     case 'warning': {

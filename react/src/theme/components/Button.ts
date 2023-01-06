@@ -17,7 +17,12 @@ export type ThemeButtonVariant =
   | 'link'
   | 'inputAttached'
 
-export type ThemeButtonColorScheme = 'main' | 'success' | 'critical' | 'inverse'
+export type ThemeButtonColorScheme =
+  | 'main'
+  | 'success'
+  | 'critical'
+  | 'inverse'
+  | 'sub'
 
 const genVariantSolidColours = ({
   colorScheme: c,
@@ -28,8 +33,10 @@ const genVariantSolidColours = ({
 
   switch (c) {
     case 'main':
+    case 'sub':
     case 'success':
     case 'critical':
+    case 'warning':
       {
         solidVariantProps = {
           bg: `interaction.${c}.default`,
@@ -84,6 +91,14 @@ const genVariantOutlineColours = ({
         activeBg: 'interaction.tinted.inverse.active',
       }
     }
+    case 'sub': {
+      return {
+        borderColor: `interaction.${c}.default`,
+        activeBg: hexToRgba(getColor(theme, 'brand.secondary.500'), 0.12),
+        hoverBg: hexToRgba(getColor(theme, 'brand.secondary.500'), 0.04),
+      }
+    }
+
     default: {
       return {
         borderColor: `${c}.500` as const,
@@ -120,6 +135,8 @@ const variantSolid = defineStyle((props) => {
 const genVariantReverseColours = ({ colorScheme: c }: StyleFunctionProps) => {
   switch (c) {
     case 'main':
+    case 'sub':
+    case 'neutral':
     case 'critical': {
       return {
         activeBg: `interaction.muted.${c}.active`,
