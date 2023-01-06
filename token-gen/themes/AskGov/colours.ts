@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 06 Jan 2023 03:45:45 GMT
+ * Generated on Fri, 06 Jan 2023 04:09:42 GMT
  */
 
 export const colours =  {
@@ -33,23 +33,23 @@ export const colours =  {
       alt: "#fffcfa",
       "brand-subtle": "#ffd6b9",
       default: "#ffffff",
-      backdrop: "#e9e9e9",
-      inverse: "#3d3d3d",
-      overlay: "rgba(61, 61, 61, 0.8)",
+      backdrop: "#EDEDED",
+      inverse: "#3A3E46",
+      overlay: "rgba(58, 62, 70, 0.8)",
     },
     content: {
       light: "#909be5",
       light2: "#6d7cdc",
-      default: "#474747",
-      strong: "#2e2e2e",
-      medium: "#686868",
+      default: "#454953",
+      strong: "#2C2E34",
+      medium: "#666C7A",
       brand: "#3045ce",
       inverse: "#ffffff",
     },
     divider: {
-      subtle: "#f9f9f9",
-      medium: "#e9e9e9",
-      strong: "#bfbfbf",
+      subtle: "#F8F9F9",
+      medium: "#EDEDED",
+      strong: "#BFC2C8",
       inverse: "#ffffff",
       brand: "#3045ce",
     },
@@ -60,10 +60,10 @@ export const colours =  {
       "light-hover": "#2539b7",
       default: "#3045ce",
       hover: "#2539b7",
-      "neutral-default": "#474747",
-      "neutral-hover": "#2e2e2e",
+      "neutral-default": "#454953",
+      "neutral-hover": "#2C2E34",
       "inverse-default": "#ffffff",
-      "inverse-hover": "#e9e9e9",
+      "inverse-hover": "#EDEDED",
     },
     main: {
       default: "#3045ce",
@@ -116,14 +116,14 @@ export const colours =  {
       active: "#63B1AA",
     },
     neutral: {
-      default: "#686868",
-      hover: "#535353",
-      active: "#474747",
+      default: "#666C7A",
+      hover: "#505660",
+      active: "#454953",
     },
     "neutral-subtle": {
-      default: "#f9f9f9",
-      hover: "#e9e9e9",
-      active: "#bfbfbf",
+      default: "#F8F9F9",
+      hover: "#EDEDED",
+      active: "#BFC2C8",
     },
     muted: {
       main: {
@@ -139,8 +139,8 @@ export const colours =  {
         active: "#FBE9E9",
       },
       neutral: {
-        hover: "#f9f9f9",
-        active: "#e9e9e9",
+        hover: "#F8F9F9",
+        active: "#EDEDED",
       },
     },
     tinted: {
@@ -162,12 +162,12 @@ export const colours =  {
       },
     },
     support: {
-      unselected: "#a0a0a0",
-      selected: "#686868",
-      "unselected-strong": "#686868",
-      disabled: "#e9e9e9",
-      "disabled-content": "#a0a0a0",
-      placeholder: "#a0a0a0",
+      unselected: "#A0A4AD",
+      selected: "#666C7A",
+      "unselected-strong": "#666C7A",
+      disabled: "#EDEDED",
+      "disabled-content": "#A0A4AD",
+      placeholder: "#A0A4AD",
     },
   },
   red: {
@@ -219,16 +219,16 @@ export const colours =  {
     "900": "#272d41",
   },
   grey: {
-    "50": "#f9f9f9",
-    "100": "#e9e9e9",
-    "200": "#bfbfbf",
-    "300": "#a0a0a0",
-    "400": "#848484",
-    "500": "#686868",
-    "600": "#535353",
-    "700": "#474747",
-    "800": "#3d3d3d",
-    "900": "#2e2e2e",
+    "50": "#F8F9F9",
+    "100": "#EDEDED",
+    "200": "#BFC2C8",
+    "300": "#A0A4AD",
+    "400": "#838894",
+    "500": "#666C7A",
+    "600": "#505660",
+    "700": "#454953",
+    "800": "#3A3E46",
+    "900": "#2C2E34",
   },
   standard: {
     white: "#ffffff",
