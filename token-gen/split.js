@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const tokens = JSON.parse(fs.readFileSync("./tokens/raw/tokens.json", "utf8"));
+const tokens = JSON.parse(fs.readFileSync("./tokens/tokens.json", "utf8"));
 
 // Write to file
 Object.keys(tokens).forEach((key) => {
