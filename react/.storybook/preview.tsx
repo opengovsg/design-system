@@ -17,7 +17,7 @@ const backgrounds = {
   },
   dark: {
     name: 'dark',
-    value: '#272D41', // base.canvas.inverse
+    value: '#3d3d3d', // base.canvas.inverse
   },
 }
 
