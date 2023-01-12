@@ -1,9 +1,8 @@
 import { forwardRef } from 'react'
 
-import { SelectCombobox } from '../components/SelectCombobox'
-import { SelectMenu } from '../components/SelectMenu'
-import { SelectPopoverProvider } from '../components/SelectPopover'
-
+import { SelectCombobox } from './components/SelectCombobox'
+import { SelectMenu } from './components/SelectMenu'
+import { SelectPopoverProvider } from './components/SelectPopover'
 import {
   SingleSelectProvider,
   SingleSelectProviderProps,

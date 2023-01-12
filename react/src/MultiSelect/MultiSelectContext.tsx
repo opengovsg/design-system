@@ -7,7 +7,7 @@ import {
   UseMultipleSelectionState,
 } from 'downshift'
 
-import { ComboboxItem } from './types'
+import type { ComboboxItem } from '~/SingleSelect'
 
 interface MultiSelectContextReturn<Item extends ComboboxItem = ComboboxItem>
   extends UseMultipleSelectionPropGetters<Item>,
