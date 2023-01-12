@@ -8,16 +8,16 @@ import {
 } from '@chakra-ui/react'
 import { useCombobox, UseComboboxProps } from 'downshift'
 
-import { VIRTUAL_LIST_ITEM_HEIGHT, VIRTUAL_LIST_MAX_HEIGHT } from '../constants'
-import { useItems } from '../hooks/useItems'
-import { SelectContext, SharedSelectContextReturnProps } from '../SelectContext'
-import { ComboboxItem } from '../types'
-import { defaultFilter } from '../utils/defaultFilter'
+import { useItems } from './hooks/useItems'
+import { defaultFilter } from './utils/defaultFilter'
 import {
   isItemDisabled,
   itemToLabelString,
   itemToValue,
-} from '../utils/itemUtils'
+} from './utils/itemUtils'
+import { VIRTUAL_LIST_ITEM_HEIGHT, VIRTUAL_LIST_MAX_HEIGHT } from './constants'
+import { SelectContext, SharedSelectContextReturnProps } from './SelectContext'
+import { ComboboxItem } from './types'
 
 export interface SingleSelectProviderProps<
   Item extends ComboboxItem = ComboboxItem,

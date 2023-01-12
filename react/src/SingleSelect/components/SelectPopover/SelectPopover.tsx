@@ -7,7 +7,7 @@ import {
   offset,
   size,
   useFloating,
-} from '@floating-ui/react-dom-interactions'
+} from '@floating-ui/react'
 
 import { useSelectContext } from '../../SelectContext'
 

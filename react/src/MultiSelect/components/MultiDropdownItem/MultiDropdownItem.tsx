@@ -1,15 +1,15 @@
 import { useMemo } from 'react'
 import { Flex, Icon, ListItem, Stack, Text } from '@chakra-ui/react'
 
-import { useSelectContext } from '../../SelectContext'
-import { ComboboxItem } from '../../types'
+import type { ComboboxItem } from '~/SingleSelect'
+import { useSelectContext } from '~/SingleSelect'
+import { DropdownItemTextHighlighter } from '~/SingleSelect/components'
 import {
   isItemDisabled,
   itemToDescriptionString,
   itemToIcon,
   itemToLabelString,
-} from '../../utils/itemUtils'
-import { DropdownItemTextHighlighter } from '../DropdownItem/DropdownItemTextHighlighter'
+} from '~/SingleSelect/utils/itemUtils'
 
 import { ItemCheckboxIcon } from './ItemCheckboxIcon'
 

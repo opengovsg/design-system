@@ -2,7 +2,7 @@ import { PropsWithChildren, useMemo } from 'react'
 import { chakra } from '@chakra-ui/react'
 import fuzzysort from 'fuzzysort'
 
-import { useSelectContext } from '~/Dropdown/SelectContext'
+import { useSelectContext } from '../../SelectContext'
 
 const HighlightMark = ({ children }: PropsWithChildren) => {
   const { styles } = useSelectContext()
