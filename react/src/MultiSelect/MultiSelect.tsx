@@ -1,9 +1,9 @@
 import { forwardRef } from 'react'
 
-import { MultiSelectCombobox } from '../components/MultiSelectCombobox'
-import { MultiSelectMenu } from '../components/MultiSelectMenu'
-import { SelectPopoverProvider } from '../components/SelectPopover'
+import { SelectPopoverProvider } from '~/SingleSelect/components'
 
+import { MultiSelectCombobox } from './components/MultiSelectCombobox'
+import { MultiSelectMenu } from './components/MultiSelectMenu'
 import {
   MultiSelectProvider,
   MultiSelectProviderProps,

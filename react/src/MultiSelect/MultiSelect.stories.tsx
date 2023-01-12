@@ -3,12 +3,11 @@ import { Stack } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { BxsCheckCircle } from '~/icons'
+import type { ComboboxItem } from '~/SingleSelect'
 import {
   fixedHeightDecorator,
   getMobileViewParameters,
 } from '~/utils/storybook'
-
-import { ComboboxItem } from '../types'
 
 import { MultiSelect, MultiSelectProps } from './MultiSelect'
 

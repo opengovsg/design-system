@@ -9,9 +9,9 @@ import {
 } from '@chakra-ui/react'
 
 import { BxsChevronDown, BxsChevronUp } from '~/icons'
+import { useSelectContext } from '~/SingleSelect'
 
 import { useMultiSelectContext } from '../../MultiSelectContext'
-import { useSelectContext } from '../../SelectContext'
 
 import { SelectedItems } from './SelectedItems'
 

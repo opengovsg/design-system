@@ -1,12 +1,12 @@
 import { Virtuoso } from 'react-virtuoso'
 import { List, ListItem, Portal } from '@chakra-ui/react'
 
-import { VIRTUAL_LIST_OVERSCAN_HEIGHT } from '../constants'
-import { useSelectContext } from '../SelectContext'
-import { itemToValue } from '../utils/itemUtils'
+import { useSelectContext } from '~/SingleSelect'
+import { useSelectPopover } from '~/SingleSelect/components'
+import { VIRTUAL_LIST_OVERSCAN_HEIGHT } from '~/SingleSelect/constants'
+import { itemToValue } from '~/SingleSelect/utils'
 
 import { MultiDropdownItem } from './MultiDropdownItem'
-import { useSelectPopover } from './SelectPopover'
 
 export const MultiSelectMenu = (): JSX.Element => {
   const {

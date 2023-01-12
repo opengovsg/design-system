@@ -6,10 +6,9 @@ import { Meta, StoryFn } from '@storybook/react'
 import { BxGitMerge, BxHeart } from '~/icons'
 import { fixedHeightDecorator } from '~/utils/storybook'
 
-import { ComboboxItem } from '../types'
-import { itemToValue } from '../utils/itemUtils'
-
+import { itemToValue } from './utils/itemUtils'
 import { SingleSelect, SingleSelectProps } from './SingleSelect'
+import { ComboboxItem } from './types'
 
 const INITIAL_COMBOBOX_ITEMS: ComboboxItem[] = [
   {

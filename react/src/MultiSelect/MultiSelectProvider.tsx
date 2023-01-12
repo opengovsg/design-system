@@ -13,17 +13,24 @@ import {
   UseMultipleSelectionProps,
 } from 'downshift'
 
-import { VIRTUAL_LIST_ITEM_HEIGHT, VIRTUAL_LIST_MAX_HEIGHT } from '../constants'
-import { useItems } from '../hooks/useItems'
-import { MultiSelectContext } from '../MultiSelectContext'
-import { SelectContext, SharedSelectContextReturnProps } from '../SelectContext'
-import { ComboboxItem } from '../types'
-import { defaultFilter } from '../utils/defaultFilter'
 import {
+  ComboboxItem,
+  SelectContext,
+  SharedSelectContextReturnProps,
+} from '~/SingleSelect'
+import {
+  VIRTUAL_LIST_ITEM_HEIGHT,
+  VIRTUAL_LIST_MAX_HEIGHT,
+} from '~/SingleSelect/constants'
+import { useItems } from '~/SingleSelect/hooks/useItems'
+import {
+  defaultFilter,
   isItemDisabled,
   itemToLabelString,
   itemToValue,
-} from '../utils/itemUtils'
+} from '~/SingleSelect/utils'
+
+import { MultiSelectContext } from './MultiSelectContext'
 
 export interface MultiSelectProviderProps<
   Item extends ComboboxItem = ComboboxItem,
