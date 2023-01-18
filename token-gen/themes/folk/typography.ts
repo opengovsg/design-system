@@ -7,6 +7,7 @@ export const typography =  {
   fontFamilies: {
     inter: "Inter",
     ibmplexmono: "IBM Plex Mono",
+    cabin: "Cabin",
   },
   lineHeights: {
     "3": "0.75rem",
@@ -27,11 +28,11 @@ export const typography =  {
     "18": "4.5rem",
   },
   fontWeights: {
-    light: 300,
     normal: 400,
     medium: 500,
-    semibold: 600,
+    semibold: "SemiBold",
     bold: 700,
+    light: 300,
   },
   fontSize: {
     "2xs": "0.625rem",
