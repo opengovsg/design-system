@@ -13,6 +13,7 @@ export default {
     layout: 'fullscreen',
   },
   component: RestrictedGovtMastheadComponent,
+  tags: ['autodocs'],
   decorators: [],
 } as Meta
 

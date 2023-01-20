@@ -6,6 +6,7 @@ import { Textarea, TextareaProps } from './Textarea'
 export default {
   title: 'Components/Textarea',
   component: Textarea,
+  tags: ['autodocs'],
   decorators: [],
 } as Meta
 

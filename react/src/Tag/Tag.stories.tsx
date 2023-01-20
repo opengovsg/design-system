@@ -8,6 +8,7 @@ import { Tag, TagCloseButton, TagLeftIcon, TagRightIcon } from './Tag'
 export default {
   title: 'Components/Tag',
   component: Tag,
+  tags: ['autodocs'],
   decorators: [],
 } as Meta<TagProps>
 

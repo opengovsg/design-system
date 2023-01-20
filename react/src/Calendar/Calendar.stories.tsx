@@ -9,6 +9,7 @@ import { Calendar, CalendarProps } from './Calendar'
 export default {
   title: 'Components/Calendar/Calendar',
   component: Calendar,
+  tags: ['autodocs'],
   decorators: [mockDateDecorator],
   parameters: {
     layout: 'fullscreen',

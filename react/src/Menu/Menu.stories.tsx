@@ -19,6 +19,7 @@ import { Menu, MenuButtonProps } from './Menu'
 export default {
   title: 'Components/Menu',
   component: Menu,
+  tags: ['autodocs'],
 } as Meta
 
 type MenuTemplateProps = MenuButtonProps & {

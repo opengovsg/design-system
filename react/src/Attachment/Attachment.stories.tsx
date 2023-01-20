@@ -21,6 +21,7 @@ const MOCK_OGP_LOGO_FILE = new File(
 export default {
   title: 'Components/Attachment',
   component: Attachment,
+  tags: ['autodocs'],
   decorators: [],
 } as Meta<AttachmentProps>
 

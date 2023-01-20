@@ -6,6 +6,7 @@ import { FormErrorMessage, FormErrorMessageProps } from './FormErrorMessage'
 export default {
   title: 'Components/FormControl/FormErrorMessage',
   component: FormErrorMessage,
+  tags: ['autodocs'],
   decorators: [],
 } as Meta
 

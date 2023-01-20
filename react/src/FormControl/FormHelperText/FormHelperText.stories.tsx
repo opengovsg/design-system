@@ -6,6 +6,7 @@ import { FormHelperText, FormHelperTextProps } from './FormHelperText'
 export default {
   title: 'Components/FormControl/FormHelperText',
   component: FormHelperText,
+  tags: ['autodocs'],
   decorators: [],
 } as Meta<FormHelperTextProps>
 

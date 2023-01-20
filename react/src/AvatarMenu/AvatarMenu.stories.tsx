@@ -16,6 +16,7 @@ const DEFAULT_MENU_ITEMS = (
 export default {
   title: 'Templates/AvatarMenu',
   component: AvatarMenu,
+  tags: ['autodocs'],
   args: {
     name: 'My name',
     hasNotification: false,

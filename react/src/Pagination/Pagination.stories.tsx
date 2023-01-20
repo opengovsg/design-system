@@ -6,6 +6,7 @@ import { Pagination, PaginationProps } from './Pagination'
 export default {
   title: 'Components/Pagination',
   component: Pagination,
+  tags: ['autodocs'],
   decorators: [],
 } as Meta
 

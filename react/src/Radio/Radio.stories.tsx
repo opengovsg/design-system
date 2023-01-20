@@ -12,6 +12,7 @@ import { Radio, RadioProps } from './Radio'
 export default {
   title: 'Components/Radio',
   component: Radio,
+  tags: ['autodocs'],
 } as Meta<RadioProps>
 
 const Template: StoryFn<RadioProps> = (args) => (

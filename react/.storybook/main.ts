@@ -1,7 +1,6 @@
 import { mergeConfig, UserConfig } from 'vite'
 import turbosnap from 'vite-plugin-turbosnap'
 import path from 'path'
-
 export default {
   features: {
     previewMdx2: true,
@@ -23,11 +22,6 @@ export default {
   core: {
     disableTelemetry: true,
   },
-  refs: {
-    '@chakra-ui/react': {
-      disable: true,
-    },
-  },
   async viteFinal(config: UserConfig, { configType }: { configType: string }) {
     return mergeConfig(config, {
       plugins:
@@ -40,5 +34,8 @@ export default {
         },
       },
     })
+  },
+  docs: {
+    autodocs: 'tag',
   },
 }

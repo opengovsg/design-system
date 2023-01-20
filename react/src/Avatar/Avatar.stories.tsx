@@ -15,6 +15,7 @@ import { BxsUser } from '~/icons/BxsUser'
 export default {
   title: 'Components/Avatar',
   component: Avatar,
+  tags: ['autodocs'],
   args: {
     name: 'ABC',
     size: 'md',

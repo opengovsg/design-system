@@ -13,6 +13,7 @@ import { Checkbox, CheckboxProps } from './Checkbox'
 export default {
   title: 'Components/Checkbox',
   component: Checkbox,
+  tags: ['autodocs'],
 } as Meta<CheckboxProps>
 
 const Template: StoryFn<CheckboxProps> = (args) => {

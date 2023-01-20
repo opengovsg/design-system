@@ -10,6 +10,7 @@ import { Tabs, TabsProps } from './Tabs'
 export default {
   title: 'Components/Tabs',
   component: Tabs,
+  tags: ['autodocs'],
 } as Meta<TabsProps>
 
 const TabTemplate: StoryFn<TabsProps> = (args) => {
