@@ -4,7 +4,6 @@
   "description": "React components",
   "homepage": "https://github.com/opengovsg/design-system/react#readme",
   "bugs": "https://github.com/opengovsg/design-system/issues",
-  "sideEffects": false,
   "license": "SEE LICENSE IN LICENSE.md",
   "files": [
     "build/main",
