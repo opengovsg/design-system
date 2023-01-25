@@ -8,6 +8,7 @@ import { Badge, BadgeLeftIcon, BadgeProps, BadgeRightIcon } from './Badge'
 export default {
   title: 'Components/Badge',
   component: Badge,
+  tags: ['autodocs'],
   decorators: [],
 } as Meta
 

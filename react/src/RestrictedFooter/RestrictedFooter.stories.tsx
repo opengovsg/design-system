@@ -34,6 +34,7 @@ const DEFAULT_ARGS: RestrictedFooterProps = {
 export default {
   title: 'Components/RestrictedFooter',
   component: RestrictedFooter,
+  tags: ['autodocs'],
   decorators: [],
   parameters: {
     layout: 'fullscreen',

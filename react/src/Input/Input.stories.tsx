@@ -6,6 +6,7 @@ import { Input, InputProps } from './Input'
 export default {
   title: 'Components/Input',
   component: Input,
+  tags: ['autodocs'],
   decorators: [],
   args: {
     placeholder: 'Test placeholder',

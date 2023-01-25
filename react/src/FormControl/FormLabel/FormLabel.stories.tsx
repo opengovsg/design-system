@@ -5,6 +5,7 @@ import { FormLabel, FormLabelProps } from './FormLabel'
 export default {
   title: 'Components/FormControl/FormLabel',
   component: FormLabel,
+  tags: ['autodocs'],
   decorators: [],
 } as Meta
 

@@ -7,6 +7,7 @@ import { PhoneNumberInput, PhoneNumberInputProps } from './PhoneNumberInput'
 export default {
   title: 'Components/PhoneNumberInput/International',
   component: PhoneNumberInput,
+  tags: ['autodocs'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
   decorators: [],
 } as Meta

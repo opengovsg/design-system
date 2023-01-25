@@ -6,6 +6,7 @@ import { PhoneNumberInput, PhoneNumberInputProps } from './PhoneNumberInput'
 export default {
   title: 'Components/PhoneNumberInput/SingleCountry',
   component: PhoneNumberInput,
+  tags: ['autodocs'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
   args: {
     allowInternational: false,

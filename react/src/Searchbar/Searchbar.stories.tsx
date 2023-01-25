@@ -9,6 +9,7 @@ import { useSearchbar } from './useSearchbar'
 export default {
   title: 'Templates/Searchbar',
   component: Searchbar,
+  tags: ['autodocs'],
   decorators: [],
   args: {
     defaultIsExpanded: false,

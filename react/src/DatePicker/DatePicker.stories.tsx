@@ -7,6 +7,7 @@ import { DatePicker, DatePickerProps } from './DatePicker'
 export default {
   title: 'Components/DatePicker',
   component: DatePicker,
+  tags: ['autodocs'],
   decorators: [mockDateDecorator],
   parameters: {
     mockdate: new Date('2021-12-25T06:22:27.219Z'),

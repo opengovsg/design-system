@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 06 Jan 2023 04:09:42 GMT
+ * Generated on Wed, 18 Jan 2023 06:34:30 GMT
  */
 
 export const colours =  {
@@ -90,9 +90,33 @@ export const colours =  {
       "900": "#2B3849",
     },
   },
+  base: {
+    content: {
+      medium: "#5E748E",
+      default: "#454953",
+      strong: "#2C2E34",
+      brand: "#3D66BA",
+      inverse: "#ffffff",
+    },
+    canvas: {
+      default: "#ffffff",
+      alt: "#F8F9F9",
+      backdrop: "#EDEDED",
+      "brand-subtle": "#F1F4FC",
+      inverse: "#3A3E46",
+      overlay: "rgba(58, 62, 70, 0.8)",
+    },
+    divider: {
+      subtle: "#F8F9F9",
+      medium: "#EDEDED",
+      strong: "#BFC2C8",
+      inverse: "#ffffff",
+      brand: "#3D66BA",
+    },
+  },
   yellow: {
     "50": "#fffae1",
-    "100": "#FFDA68",
+    "100": "#FFF4C6",
     "200": "#E2B73E",
     "300": "#C4992A",
     "400": "#A77C18",
@@ -132,30 +156,6 @@ export const colours =  {
     "6base": "#764738",
     "6shadow": "#633D32",
   },
-  base: {
-    canvas: {
-      default: "#ffffff",
-      alt: "#F8F9F9",
-      backdrop: "#EDEDED",
-      "brand-subtle": "#F1F4FC",
-      inverse: "#3A3E46",
-      overlay: "rgba(58, 62, 70, 0.8)",
-    },
-    content: {
-      default: "#454953",
-      strong: "#2C2E34",
-      medium: "#666C7A",
-      brand: "#3D66BA",
-      inverse: "#ffffff",
-    },
-    divider: {
-      subtle: "#F8F9F9",
-      medium: "#EDEDED",
-      strong: "#BFC2C8",
-      inverse: "#ffffff",
-      brand: "#3D66BA",
-    },
-  },
   interaction: {
     main: {
       default: "#3D66BA",
@@ -188,13 +188,13 @@ export const colours =  {
       active: "#E68A8A",
     },
     warning: {
-      default: "#FFDA68",
+      default: "#FFF4C6",
       hover: "#E2B73E",
       active: "#C4992A",
     },
     "warning-subtle": {
       default: "#fffae1",
-      hover: "#FFDA68",
+      hover: "#FFF4C6",
       active: "#E2B73E",
     },
     success: {
@@ -274,7 +274,7 @@ export const colours =  {
     feedback: {
       info: "#3D66BA",
       "info-subtle": "#F1F4FC",
-      warning: "#FFDA68",
+      warning: "#FFF4C6",
       "warning-subtle": "#fffae1",
       success: "#0B7D57",
       "success-subtle": "#F5FAF9",

@@ -9,6 +9,7 @@ import { Link, LinkProps } from './Link'
 export default {
   title: 'Components/Link',
   component: Link,
+  tags: ['autodocs'],
   decorators: [],
 } as Meta<LinkProps>
 

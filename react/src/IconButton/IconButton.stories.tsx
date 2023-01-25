@@ -8,6 +8,7 @@ import { IconButton, IconButtonProps } from './IconButton'
 export default {
   title: 'Components/IconButton',
   component: IconButton,
+  tags: ['autodocs'],
   parameters: { backgrounds: { default: 'light' } },
 } as Meta
 
