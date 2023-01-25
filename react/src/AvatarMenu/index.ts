@@ -1,1 +1,1 @@
-export { AvatarMenu as default } from './AvatarMenu'
+export * from './AvatarMenu'
