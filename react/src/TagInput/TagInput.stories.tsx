@@ -12,6 +12,7 @@ export default {
   parameters: {
     actions: { argTypesRegex: '^on.*' },
   },
+  tags: ['autodocs'],
 } as Meta<TagInputProps>
 
 const Template: StoryFn<TagInputProps> = (args) => <TagInput {...args} />
