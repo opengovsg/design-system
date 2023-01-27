@@ -2,7 +2,7 @@
  * Mobile variant for the Pagination component.
  */
 
-import { useCallback } from 'react'
+import { FC, useCallback } from 'react'
 import { Box, IconButton, Text, useMultiStyleConfig } from '@chakra-ui/react'
 
 import { BxChevronLeft, BxChevronRight } from '~/icons'
@@ -11,13 +11,13 @@ import { PaginationProps } from './Pagination'
 
 type PaginationMobileProps = Omit<PaginationProps, 'siblingCount'>
 
-export const PaginationMinimal = ({
+export const PaginationMinimal: FC<PaginationMobileProps> = ({
   pageSize,
   onPageChange,
   totalCount,
   currentPage,
   isDisabled,
-}: PaginationMobileProps): JSX.Element => {
+}) => {
   const styles = useMultiStyleConfig('Pagination', { variant: 'minimal' })
 
   const totalPageCount = Math.ceil(totalCount / pageSize)

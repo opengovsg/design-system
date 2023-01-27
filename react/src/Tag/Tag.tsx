@@ -74,3 +74,5 @@ export const Tag = forwardRef<TagProps, 'span'>((props, ref): JSX.Element => {
     </StylesProvider>
   )
 })
+
+Tag.displayName = 'Tag'

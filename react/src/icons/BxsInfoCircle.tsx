@@ -17,3 +17,5 @@ export const BxsInfoCircle = forwardRef<
     </svg>
   )
 })
+
+BxsInfoCircle.displayName = 'BxsInfoCircle'

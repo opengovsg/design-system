@@ -105,3 +105,5 @@ export const CalendarPanel = forwardRef<{}, 'button'>(
     )
   },
 )
+
+CalendarPanel.displayName = 'CalendarPanel'

@@ -62,3 +62,5 @@ export const DateRangePickerWrapper = forwardRef<{}, 'input'>(
     )
   },
 )
+
+DateRangePickerWrapper.displayName = 'DateRangePickerWrapper'

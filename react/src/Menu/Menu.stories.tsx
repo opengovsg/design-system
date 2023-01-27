@@ -20,6 +20,7 @@ export default {
   title: 'Components/Menu',
   component: Menu,
   tags: ['autodocs'],
+  parameters: { docs: { source: { type: 'code' } } },
 } as Meta
 
 type MenuTemplateProps = MenuButtonProps & {

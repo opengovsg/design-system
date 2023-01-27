@@ -78,3 +78,5 @@ export const DatePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
     </>
   )
 })
+
+DatePickerInput.displayName = 'DatePickerInput'

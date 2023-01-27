@@ -257,3 +257,5 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
     )
   },
 )
+
+Attachment.displayName = 'Attachment'

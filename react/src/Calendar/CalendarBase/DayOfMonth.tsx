@@ -158,3 +158,5 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
     )
   },
 )
+
+DayOfMonth.displayName = 'DayOfMonth'

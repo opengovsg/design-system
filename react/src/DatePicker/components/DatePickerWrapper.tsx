@@ -42,3 +42,5 @@ export const DatePickerWrapper = forwardRef<{}, 'input'>(
     )
   },
 )
+
+DatePickerWrapper.displayName = 'DatePickerWrapper'

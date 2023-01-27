@@ -23,3 +23,5 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     )
   },
 )
+
+MultiSelect.displayName = 'MultiSelect'

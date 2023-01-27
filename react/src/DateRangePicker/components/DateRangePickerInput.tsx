@@ -135,3 +135,5 @@ export const DateRangePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
     </Flex>
   )
 })
+
+DateRangePickerInput.displayName = 'DateRangePickerInput'

@@ -22,3 +22,5 @@ export const SingleSelect = forwardRef<HTMLInputElement, SingleSelectProps>(
     )
   },
 )
+
+SingleSelect.displayName = 'SingleSelect'

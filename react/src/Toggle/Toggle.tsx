@@ -78,3 +78,5 @@ export const Toggle = forwardRef<ToggleProps, 'input'>(
     )
   },
 )
+
+Toggle.displayName = 'Toggle'

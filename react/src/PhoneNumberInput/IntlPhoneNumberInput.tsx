@@ -130,3 +130,5 @@ const CountrySelect: FC<CountrySelectProps> = (props) => {
     </InputLeftAddon>
   )
 }
+
+IntlPhoneNumberInput.displayName = 'IntlPhoneNumberInput'

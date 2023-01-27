@@ -198,3 +198,5 @@ export const Switch = forwardRef<SwitchProps, 'input'>(
     )
   },
 )
+
+Switch.displayName = 'Switch'

@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import {
   As,
   Button,
@@ -87,19 +88,19 @@ export const Tile = forwardRef<TileProps, 'button'>(
   },
 ) as TileWithParts
 
-const TileTitle = (props: TextProps): JSX.Element => {
+const TileTitle: FC<TextProps> = (props) => {
   const styles = useTileStyles()
   // Allow consumers to override default style props with their own styling
   return <Text sx={styles.title} {...props} />
 }
 
-const TileSubtitle = (props: TextProps): JSX.Element => {
+const TileSubtitle: FC<TextProps> = (props) => {
   const styles = useTileStyles()
   // Allow consumers to override default style props with their own styling
   return <Text sx={styles.subtitle} {...props} />
 }
 
-const TileText = (props: TextProps): JSX.Element => {
+const TileText: FC<TextProps> = (props) => {
   const styles = useTileStyles()
   // Allow consumers to override default style props with their own styling
   return <Text sx={styles.text} {...props} />
@@ -108,3 +109,8 @@ const TileText = (props: TextProps): JSX.Element => {
 Tile.Title = TileTitle
 Tile.Subtitle = TileSubtitle
 Tile.Text = TileText
+
+Tile.displayName = 'Tile'
+Tile.Title.displayName = 'Tile.Title'
+Tile.Subtitle.displayName = 'Tile.Subtitle'
+Tile.Text.displayName = 'Tile.Text'
