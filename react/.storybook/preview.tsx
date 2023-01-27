@@ -43,19 +43,19 @@ export const THEME_ADDON_BAR_ITEMS = Object.keys(THEME_MAP).map((key) => ({
   title: key,
 }))
 
-const withTheme: Decorator = (StoryFn, context) => {
+const withTheme: Decorator = (storyFn, context) => {
   // Get values from story parameter first, else fallback to globals
   const theme = context.parameters.theme || context.globals.theme
   const themeToUse = THEME_MAP[theme]
 
   return (
     <ThemeProvider theme={themeToUse ?? defaultTheme}>
-      <StoryFn />
+      {storyFn()}
     </ThemeProvider>
   )
 }
 
-const withColorMode: Decorator = (StoryFn, context) => {
+const withColorMode: Decorator = (storyFn, context) => {
   const colorMode =
     context.parameters.colorMode ||
     get(context, 'globals.backgrounds.value') === backgrounds.dark.value
@@ -64,7 +64,7 @@ const withColorMode: Decorator = (StoryFn, context) => {
 
   return (
     <ColorModeProvider value={colorMode}>
-      <StoryFn />
+      {storyFn()}
     </ColorModeProvider>
   )
 }
