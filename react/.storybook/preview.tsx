@@ -26,6 +26,9 @@ export const parameters = {
   docs: {
     theme: StorybookTheme.docs,
     inlineStories: true,
+    source: {
+      excludeDecorators: true,
+    }
   },
   controls: {
     matchers: {
