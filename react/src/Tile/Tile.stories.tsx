@@ -15,7 +15,7 @@ export default {
   decorators: [],
 } as Meta
 
-const List = ({
+const StorybookListChildrenExample = ({
   listTitle,
   listItems = [],
 }: {
@@ -74,7 +74,10 @@ const Template: StoryFn<TileTemplateProps> = ({
       <Tile.Title>{title}</Tile.Title>
       <Tile.Subtitle>{subtitle}</Tile.Subtitle>
       {hasDescription && (
-        <List listTitle={listTitle} listItems={values(listItems)} />
+        <StorybookListChildrenExample
+          listTitle={listTitle}
+          listItems={values(listItems)}
+        />
       )}
     </Tile>
   )
@@ -138,7 +141,7 @@ const EmailTile = ({ onClick, isSelected }: StoryTileProps) => (
   >
     <Tile.Title>Email Mode</Tile.Title>
     <Tile.Subtitle>Receive responses in your inbox</Tile.Subtitle>
-    <List
+    <StorybookListChildrenExample
       listTitle="Who is it for:"
       listItems={['Emailed copy of response', 'MyInfo fields']}
     />
@@ -156,7 +159,7 @@ const StorageTile = ({ onClick, isSelected }: StoryTileProps) => (
   >
     <Tile.Title>Storage Mode</Tile.Title>
     <Tile.Subtitle>Receive responses in Form</Tile.Subtitle>
-    <List
+    <StorybookListChildrenExample
       listTitle="Who is it for:"
       listItems={['High-volume forms', 'End to end encryption needs']}
     />
