@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import {
   ComponentWithAs,
   forwardRef,
@@ -60,7 +61,7 @@ export const Link = forwardRef<LinkProps, 'a'>(
   },
 ) as LinkWithParts
 
-const ExternalIcon = (): JSX.Element => {
+const ExternalIcon: FC = (): JSX.Element => {
   return (
     <Icon aria-hidden as={BxLinkExternal} ml="0.25rem" verticalAlign="middle" />
   )
@@ -69,3 +70,4 @@ const ExternalIcon = (): JSX.Element => {
 Link.displayName = 'Link'
 
 Link.ExternalIcon = ExternalIcon
+Link.ExternalIcon.displayName = 'Link.ExternalIcon'

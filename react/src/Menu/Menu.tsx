@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useMemo } from 'react'
+import { FC, useMemo } from 'react'
 import {
   Icon,
   Menu as ChakraMenu,
@@ -26,12 +25,12 @@ export interface MenuButtonProps extends Omit<ButtonProps, 'isFullWidth'> {
  * @preconditions Must be a child of Menu component,
  * and returned using a render prop (see implementation in Menu.stories).
  */
-const MenuButton = ({
+const MenuButton: FC<MenuButtonProps> = ({
   isOpen,
   isStretch,
   chevronSize,
   ...props
-}: MenuButtonProps): JSX.Element => {
+}) => {
   const styles = useMultiStyleConfig('Menu', props)
   const ChevronIcon = useMemo(
     () => (
@@ -90,3 +89,8 @@ Menu.Button = MenuButton
 Menu.List = MenuList
 Menu.Item = MenuItem
 Menu.Divider = MenuDivider
+
+Menu.Button.displayName = 'Menu.Button'
+Menu.List.displayName = 'Menu.List'
+Menu.Item.displayName = 'Menu.Item'
+Menu.Divider.displayName = 'Menu.Divider'

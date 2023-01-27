@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { FC, useRef } from 'react'
 import {
   RadioGroup as ChakraRadioGroup,
   RadioGroupProps as ChakraRadioGroupProps,
@@ -9,11 +9,11 @@ import { RadioGroupContext } from './useRadioGroupWithOthers'
 /**
  * Container for a group of radio buttons.
  */
-export const RadioGroup = ({
+export const RadioGroup: FC<ChakraRadioGroupProps> = ({
   onChange,
   children,
   ...props
-}: ChakraRadioGroupProps): JSX.Element => {
+}) => {
   const othersRadioRef = useRef<HTMLInputElement>(null)
   const othersInputRef = useRef<HTMLInputElement>(null)
 

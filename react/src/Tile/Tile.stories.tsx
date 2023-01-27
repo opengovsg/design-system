@@ -13,7 +13,6 @@ export default {
   component: Tile,
   tags: ['autodocs'],
   decorators: [],
-  parameters: { docs: { source: { type: 'code' } } },
 } as Meta
 
 const List = ({

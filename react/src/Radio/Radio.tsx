@@ -329,3 +329,7 @@ OthersWrapper.displayName = 'OthersWrapper'
 Radio.OthersWrapper = OthersWrapper
 Radio.RadioGroup = RadioGroup
 Radio.OthersInput = OthersInput
+
+Radio.OthersWrapper.displayName = 'Radio.OthersWrapper'
+Radio.RadioGroup.displayName = 'Radio.RadioGroup'
+Radio.OthersInput.displayName = 'Radio.OthersInput'

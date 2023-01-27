@@ -1,4 +1,4 @@
-import { ChangeEventHandler, ReactNode, useRef } from 'react'
+import { ChangeEventHandler, FC, ReactNode, useRef } from 'react'
 import {
   Box,
   Checkbox as ChakraCheckbox,
@@ -66,10 +66,10 @@ export interface CheckboxOthersWrapperProps {
 /**
  * Provides context values for the Others option.
  */
-const OthersWrapper = ({
+const OthersWrapper: FC<CheckboxOthersWrapperProps> = ({
   children,
   ...props
-}: CheckboxOthersWrapperProps): JSX.Element => {
+}) => {
   const checkboxRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   // Passing all props for cleanliness but size and colorScheme are the most relevant
@@ -147,3 +147,7 @@ OthersInput.displayName = 'OthersInput'
 Checkbox.OthersWrapper = OthersWrapper
 Checkbox.OthersCheckbox = OthersCheckbox
 Checkbox.OthersInput = OthersInput
+
+Checkbox.OthersInput.displayName = 'Checkbox.OthersInput'
+Checkbox.OthersWrapper.displayName = 'Checkbox.OthersWrapper'
+Checkbox.OthersCheckbox.displayName = 'Checkbox.OthersCheckbox'
