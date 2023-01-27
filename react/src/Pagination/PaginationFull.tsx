@@ -2,7 +2,7 @@
  * Desktop variant for the Pagination component.
  */
 
-import { useCallback, useMemo } from 'react'
+import { FC, useCallback, useMemo } from 'react'
 import {
   Button,
   chakra,
@@ -63,14 +63,14 @@ const FullPageButton = ({
   )
 }
 
-export const PaginationFull = ({
+export const PaginationFull: FC<PaginationProps> = ({
   siblingCount = 1,
   pageSize,
   onPageChange,
   totalCount,
   currentPage,
   isDisabled,
-}: PaginationProps): JSX.Element => {
+}) => {
   const paginationRange = usePaginationRange<typeof SEPARATOR>({
     totalCount,
     pageSize,

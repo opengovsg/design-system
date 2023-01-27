@@ -109,3 +109,5 @@ export const SelectCombobox = forwardRef<HTMLInputElement>(
     )
   },
 )
+
+SelectCombobox.displayName = 'SelectCombobox'

@@ -33,6 +33,7 @@ import { SingleSelect } from './SingleSelect'
 import { Switch } from './Switch'
 import { Tabs } from './Tabs'
 import { Tag } from './Tag'
+import { TagInput } from './TagInput'
 import { Textarea } from './Textarea'
 import { Tile } from './Tile'
 import { Toast } from './Toast'
@@ -75,6 +76,7 @@ export const components = {
   Switch,
   Tabs,
   Tag,
+  TagInput,
   Textarea,
   Tile,
   Toast,

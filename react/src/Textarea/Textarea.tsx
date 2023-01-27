@@ -51,3 +51,5 @@ export const Textarea = forwardRef<TextareaProps, 'textarea'>(
     )
   },
 )
+
+Textarea.displayName = 'Textarea'

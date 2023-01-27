@@ -165,3 +165,5 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
     )
   },
 )
+
+Searchbar.displayName = 'Searchbar'

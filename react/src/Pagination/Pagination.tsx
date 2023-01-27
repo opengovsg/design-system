@@ -62,3 +62,6 @@ export const Pagination = ({
 
 Pagination.Full = PaginationFull
 Pagination.Minimal = PaginationMinimal
+
+Pagination.Full.displayName = 'Pagination.Full'
+Pagination.Minimal.displayName = 'Pagination.Minimal'

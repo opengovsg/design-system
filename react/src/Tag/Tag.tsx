@@ -3,15 +3,25 @@ import {
   chakra,
   createStylesContext,
   forwardRef,
+  HTMLChakraProps,
   Icon,
   IconProps,
   Tag as ChakraTag,
   TagCloseButtonProps as ChakraTagCloseButtonProps,
-  TagProps,
+  TagProps as ChakraTagProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
 import { BxX } from '~/icons'
+
+export interface TagProps extends ChakraTagProps {
+  colorScheme?:
+    | ChakraTagProps['colorScheme']
+    | 'main'
+    | 'success'
+    | 'warning'
+    | 'critical'
+}
 
 const [StylesProvider, useStyles] = createStylesContext('Tag')
 
@@ -66,6 +76,15 @@ export const TagCloseButton = ({
   )
 }
 
+export type TagLabelProps = HTMLChakraProps<'span'>
+
+export const TagLabel = forwardRef<TagLabelProps, 'span'>((props, ref) => {
+  const styles = useStyles()
+  return <chakra.span ref={ref} noOfLines={1} {...props} __css={styles.label} />
+})
+
+TagLabel.displayName = 'TagLabel'
+
 export const Tag = forwardRef<TagProps, 'span'>((props, ref): JSX.Element => {
   const styles = useMultiStyleConfig('Tag', props)
   return (
@@ -74,3 +93,5 @@ export const Tag = forwardRef<TagProps, 'span'>((props, ref): JSX.Element => {
     </StylesProvider>
   )
 })
+
+Tag.displayName = 'Tag'

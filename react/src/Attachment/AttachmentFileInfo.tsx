@@ -79,3 +79,5 @@ export const AttachmentFileInfo = forwardRef<AttachmentFileInfoProps, 'div'>(
     )
   },
 )
+
+AttachmentFileInfo.displayName = 'AttachmentFileInfo'

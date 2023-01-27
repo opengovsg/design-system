@@ -151,3 +151,5 @@ export const RangeCalendar = forwardRef<RangeCalendarProps, 'input'>(
     )
   },
 )
+
+RangeCalendar.displayName = 'RangeCalendar'

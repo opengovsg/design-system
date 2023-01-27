@@ -54,3 +54,5 @@ export const SingleCountryPhoneNumberInput = forwardRef<
     </InputGroup>
   )
 })
+
+SingleCountryPhoneNumberInput.displayName = 'SingleCountryPhoneNumberInput'

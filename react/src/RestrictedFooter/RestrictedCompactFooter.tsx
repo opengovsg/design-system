@@ -1,4 +1,4 @@
-import { Fragment, useMemo } from 'react'
+import { FC, Fragment, useMemo } from 'react'
 import {
   Box,
   DarkMode,
@@ -94,10 +94,10 @@ export const RestrictedCompactFooter = ({
   )
 }
 
-const RestrictedCompactFooterContainer = ({
+const RestrictedCompactFooterContainer: FC<RestrictedFooterContainerProps> = ({
   children,
   ...props
-}: RestrictedFooterContainerProps): JSX.Element => {
+}) => {
   const styles = useFooterStyles()
 
   return (
@@ -108,3 +108,5 @@ const RestrictedCompactFooterContainer = ({
 }
 
 RestrictedCompactFooter.Container = RestrictedCompactFooterContainer
+RestrictedCompactFooter.Container.displayName =
+  'RestrictedCompactFooter.Container'

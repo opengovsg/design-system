@@ -267,6 +267,8 @@ const OthersRadio = forwardRef<RadioProps, 'input'>((props, ref) => {
   )
 })
 
+OthersRadio.displayName = 'OthersRadio'
+
 /**
  * Wrapper for the input part of the Others option.
  */
@@ -296,6 +298,8 @@ export const OthersInput = forwardRef<InputProps, 'input'>(
   },
 )
 
+OthersInput.displayName = 'OthersInput'
+
 export interface OthersProps extends RadioProps {
   children: React.ReactNode
 }
@@ -320,6 +324,12 @@ const OthersWrapper = forwardRef<OthersProps, 'input'>(
   },
 )
 
+OthersWrapper.displayName = 'OthersWrapper'
+
 Radio.OthersWrapper = OthersWrapper
 Radio.RadioGroup = RadioGroup
 Radio.OthersInput = OthersInput
+
+Radio.OthersWrapper.displayName = 'Radio.OthersWrapper'
+Radio.RadioGroup.displayName = 'Radio.RadioGroup'
+Radio.OthersInput.displayName = 'Radio.OthersInput'
