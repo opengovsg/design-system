@@ -106,3 +106,5 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
     )
   },
 )
+
+MultiSelectCombobox.displayName = 'MultiSelectCombobox'

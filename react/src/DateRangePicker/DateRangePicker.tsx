@@ -33,3 +33,5 @@ export const DateRangePicker = forwardRef<DateRangePickerProps, 'input'>(
     )
   },
 )
+
+DateRangePicker.displayName = 'DateRangePicker'

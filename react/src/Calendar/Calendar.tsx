@@ -62,3 +62,5 @@ export const Calendar = forwardRef<CalendarProps, 'input'>(
     )
   },
 )
+
+Calendar.displayName = 'Calendar'

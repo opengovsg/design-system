@@ -66,4 +66,6 @@ const ExternalIcon = (): JSX.Element => {
   )
 }
 
+Link.displayName = 'Link'
+
 Link.ExternalIcon = ExternalIcon

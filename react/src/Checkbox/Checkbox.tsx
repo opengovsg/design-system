@@ -48,6 +48,8 @@ export const Checkbox = forwardRef<CheckboxProps, 'input'>(
   },
 ) as CheckboxWithOthers
 
+Checkbox.displayName = 'Checkbox'
+
 /**
  * Components to support the "Others" option.
  */
@@ -111,6 +113,8 @@ const OthersCheckbox = forwardRef<CheckboxProps, 'input'>((props, ref) => {
   )
 })
 
+OthersCheckbox.displayName = 'OthersCheckbox'
+
 /**
  * Wrapper for the input part of the Others option.
  */
@@ -137,6 +141,8 @@ const OthersInput = forwardRef<InputProps, 'input'>((props, ref) => {
     />
   )
 })
+
+OthersInput.displayName = 'OthersInput'
 
 Checkbox.OthersWrapper = OthersWrapper
 Checkbox.OthersCheckbox = OthersCheckbox

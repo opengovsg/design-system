@@ -105,6 +105,8 @@ const TileText = (props: TextProps): JSX.Element => {
   return <Text sx={styles.text} {...props} />
 }
 
+Tile.displayName = 'Tile'
+
 Tile.Title = TileTitle
 Tile.Subtitle = TileSubtitle
 Tile.Text = TileText

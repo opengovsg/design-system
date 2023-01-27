@@ -64,3 +64,5 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
  * https://github.com/chakra-ui/chakra-ui/blob/main/packages/input/src/input-group.tsx#L58.
  */
 Input.id = 'Input'
+
+Input.displayName = 'Input'

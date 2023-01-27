@@ -117,3 +117,5 @@ export const PhoneNumberInput = forwardRef<PhoneNumberInputProps, 'input'>(
     )
   },
 )
+
+PhoneNumberInput.displayName = 'PhoneNumberInput'

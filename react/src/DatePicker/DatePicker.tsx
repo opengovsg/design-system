@@ -31,3 +31,5 @@ export const DatePicker = forwardRef<DatePickerProps, 'input'>((props, ref) => {
     </DatePickerProvider>
   )
 })
+
+DatePicker.displayName = 'DatePicker'

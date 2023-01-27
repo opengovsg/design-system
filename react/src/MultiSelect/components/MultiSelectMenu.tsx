@@ -26,10 +26,15 @@ export const MultiSelectMenu = (): JSX.Element => {
     <Portal>
       <List
         style={floatingStyles}
-        {...getMenuProps({
-          hidden: !isOpen,
-          ref: floatingRef,
-        })}
+        {...getMenuProps(
+          {
+            hidden: !isOpen,
+            ref: floatingRef,
+          },
+          {
+            suppressRefError: true,
+          },
+        )}
         sx={styles.list}
       >
         {isOpen && items.length > 0 && (
