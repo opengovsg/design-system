@@ -7,11 +7,13 @@ import {
   IconProps,
   Tag as ChakraTag,
   TagCloseButtonProps as ChakraTagCloseButtonProps,
-  TagProps,
+  TagProps as ChakraTagProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
 import { BxX } from '~/icons'
+
+export type TagProps = ChakraTagProps
 
 const [StylesProvider, useStyles] = createStylesContext('Tag')
 
