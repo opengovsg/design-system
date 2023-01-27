@@ -35,6 +35,7 @@ const baseStyleContainer = defineStyle({
 
 const baseStyleLabel = defineStyle({
   textStyle: 'body-2',
+  whiteSpace: 'initial',
 })
 
 const baseStyleCloseButton = defineStyle({
