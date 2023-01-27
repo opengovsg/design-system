@@ -28,7 +28,7 @@ export const parameters = {
     inlineStories: true,
     source: {
       excludeDecorators: true,
-    }
+    },
   },
   controls: {
     matchers: {
@@ -65,11 +65,7 @@ const withColorMode: Decorator = (storyFn, context) => {
       ? 'dark'
       : 'light'
 
-  return (
-    <ColorModeProvider value={colorMode}>
-      {storyFn()}
-    </ColorModeProvider>
-  )
+  return <ColorModeProvider value={colorMode}>{storyFn()}</ColorModeProvider>
 }
 
 // Add theme selector to storybook addon bar.
