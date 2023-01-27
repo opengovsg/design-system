@@ -1,4 +1,5 @@
-import { Meta, Story } from '@storybook/react'
+import { Stack } from '@chakra-ui/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { getMobileViewParameters } from '~/utils/storybook'
 
@@ -13,7 +14,7 @@ export default {
   },
 } as Meta<TagInputProps>
 
-const Template: Story<TagInputProps> = (args) => <TagInput {...args} />
+const Template: StoryFn<TagInputProps> = (args) => <TagInput {...args} />
 export const Default = Template.bind({})
 Default.args = {}
 
@@ -54,3 +55,20 @@ Mobile.args = {
   ],
 }
 Mobile.parameters = getMobileViewParameters()
+
+export const Sizes: StoryFn<TagInputProps> = (args) => {
+  return (
+    <Stack>
+      <TagInput
+        size="sm"
+        defaultValue={['this', 'is', 'a', 'demo', 'of', 'sm']}
+        {...args}
+      />
+      <TagInput
+        size="md"
+        defaultValue={['this', 'is', 'a', 'demo', 'of', 'md']}
+        {...args}
+      />
+    </Stack>
+  )
+}

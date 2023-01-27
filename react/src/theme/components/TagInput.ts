@@ -23,6 +23,9 @@ const baseStyle = definePartsStyle({
     transitionDuration: 'normal',
   },
   field: {
+    _focusVisible: {
+      outline: 'none',
+    },
     flexGrow: 1,
     _disabled: {
       cursor: 'not-allowed',
@@ -35,23 +38,37 @@ const variantOutline = definePartsStyle((props) => {
 
   return {
     container: {
-      borderRadius: '4px',
-      _focusWithin: inputFieldVariantOutline?._focusVisible,
       ...inputFieldVariantOutline,
+      _focusWithin: {
+        ...inputFieldVariantOutline?._focusVisible,
+      },
+      h: 'auto',
     },
   }
 })
 
 const sizes = {
-  md: definePartsStyle({
+  sm: definePartsStyle({
     container: {
-      p: '0.375rem',
-      minH: '2.75rem',
+      ...Input.sizes?.sm.field,
+      p: 'calc(0.5rem - 2px)',
+      minH: Input.sizes?.sm.field?.h,
       gap: '0.25rem',
     },
     field: {
-      ...Input.sizes?.md,
-      py: '0.25rem',
+      h: '1.5rem',
+      pl: '0.5rem',
+    },
+  }),
+  md: definePartsStyle({
+    container: {
+      ...Input.sizes?.md.field,
+      p: 'calc(0.5rem - 2px)',
+      minH: Input.sizes?.md.field?.h,
+      gap: '0.25rem',
+    },
+    field: {
+      h: '1.75rem',
       pl: '0.5rem',
     },
   }),

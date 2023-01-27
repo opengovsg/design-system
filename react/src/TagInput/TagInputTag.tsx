@@ -5,9 +5,8 @@ import {
   useRef,
 } from 'react'
 import { useFocusEffect, useRovingTabIndex } from 'react-roving-tabindex'
-import { TagLabel } from '@chakra-ui/react'
 
-import { Tag, TagCloseButton, TagProps } from '~/Tag'
+import { Tag, TagCloseButton, TagLabel, TagProps } from '~/Tag'
 
 export interface TagInputTagProps extends TagProps {
   isDisabled?: boolean
@@ -70,16 +69,14 @@ export const TagInputTag = ({
       cursor="pointer"
       aria-disabled={isDisabled}
       aria-invalid={isInvalid}
-      colorScheme={isInvalid ? 'danger' : colorScheme}
+      colorScheme={isInvalid ? 'critical' : colorScheme}
       {...props}
       ref={focusedRef}
       tabIndex={tabIndex}
       onKeyDown={handleKeyDown}
       onClick={handleClick}
     >
-      <TagLabel title={label} isTruncated>
-        {label}
-      </TagLabel>
+      <TagLabel title={label}>{label}</TagLabel>
       <TagCloseButton
         tabIndex={-1}
         isDisabled={isDisabled}

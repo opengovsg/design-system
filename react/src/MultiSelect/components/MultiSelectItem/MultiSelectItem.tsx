@@ -1,9 +1,9 @@
 import { MouseEvent, useCallback, useMemo } from 'react'
-import { Icon, TagLabel } from '@chakra-ui/react'
+import { Icon } from '@chakra-ui/react'
 
 import { ComboboxItem, useSelectContext } from '~/SingleSelect'
 import { itemToIcon, itemToLabelString } from '~/SingleSelect/utils'
-import { Tag, TagCloseButton } from '~/Tag'
+import { Tag, TagCloseButton, TagLabel } from '~/Tag'
 
 import { useMultiSelectContext } from '../../MultiSelectContext'
 

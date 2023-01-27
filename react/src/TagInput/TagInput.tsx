@@ -9,7 +9,6 @@ import { RovingTabIndexProvider } from 'react-roving-tabindex'
 import {
   Box,
   forwardRef,
-  StylesProvider,
   useControllableState,
   useFormControl,
   useMergeRefs,
@@ -20,6 +19,7 @@ import { InputProps } from '~/Input'
 import type { TagProps } from '~/Tag'
 
 import { TagInputInput } from './TagInputInput'
+import { TagInputProvider } from './TagInputProvider'
 import { TagInputTag } from './TagInputTag'
 
 export interface TagInputProps
@@ -63,15 +63,16 @@ export const TagInput = forwardRef<TagInputProps, 'input'>(
       onKeyDown,
       onBlur,
       keyDownKeys = ['Enter', ',', ' '],
-      tagColorScheme = 'secondary',
+      tagColorScheme = 'main',
       tagValidation = () => true,
       preventDuplicates = true,
+      size,
       ...props
     },
     ref,
   ): JSX.Element => {
     const inputProps = useFormControl<HTMLInputElement>(props)
-    const styles = useMultiStyleConfig('TagInput', inputProps)
+    const styles = useMultiStyleConfig('TagInput', { ...inputProps, size })
 
     const [value, onChange] = useControllableState({
       value: valueProp,
@@ -162,7 +163,7 @@ export const TagInput = forwardRef<TagInputProps, 'input'>(
 
     return (
       <RovingTabIndexProvider>
-        <StylesProvider value={styles}>
+        <TagInputProvider styles={styles}>
           <Box
             sx={styles.container}
             onClick={handleFieldClick}
@@ -179,6 +180,7 @@ export const TagInput = forwardRef<TagInputProps, 'input'>(
                 label={tag}
                 onClearTag={handleRemoveTag(index)}
                 onBlur={onBlur}
+                size={size}
               />
             ))}
             <TagInputInput
@@ -188,7 +190,7 @@ export const TagInput = forwardRef<TagInputProps, 'input'>(
               ref={mergedInputRefs}
             />
           </Box>
-        </StylesProvider>
+        </TagInputProvider>
       </RovingTabIndexProvider>
     )
   },
