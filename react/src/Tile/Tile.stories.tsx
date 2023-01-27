@@ -13,6 +13,7 @@ export default {
   component: Tile,
   tags: ['autodocs'],
   decorators: [],
+  parameters: { docs: { source: { type: 'code' } } },
 } as Meta
 
 const List = ({
@@ -35,9 +36,24 @@ const List = ({
 )
 
 interface TileTemplateProps extends TileProps {
+  /**
+   * This is a story-only prop, and NOT a prop of the component itself.
+   * Use the `Tile.Title` subcomponent to render the title.
+   */
   title: string
+
+  /**
+   * This is a story-only prop, and NOT a prop of the component itself.
+   * Use the `Tile.Subtitle` subcomponent to render the title.
+   */
   subtitle: string
+  /**
+   * This is a story-only prop, and NOT a prop of the component itself.
+   */
   listTitle: string
+  /**
+   * This is a story-only prop, and NOT a prop of the component itself.
+   */
   listItems: Record<string, string>
 }
 
