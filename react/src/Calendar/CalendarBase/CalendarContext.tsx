@@ -8,7 +8,6 @@ import {
   useState,
 } from 'react'
 import { ThemingProps } from '@chakra-ui/react'
-import cuid from 'cuid'
 import {
   addMonths,
   differenceInCalendarMonths,
@@ -17,6 +16,7 @@ import {
 } from 'date-fns'
 import { Props as DayzedProps, RenderProps, useDayzed } from 'dayzed'
 import { inRange } from 'lodash'
+import { nanoid } from 'nanoid'
 import { useKey } from 'rooks'
 
 import { useIsMobile } from '~/hooks'
@@ -144,7 +144,7 @@ const useProvideCalendar = ({
   // so component state doesn't suddenly jump at midnight
   const today = useMemo(() => new Date(), [])
   // Unique className for dates
-  const classNameId = useMemo(() => cuid(), [])
+  const classNameId = useMemo(() => nanoid(), [])
   const yearOptions = useMemo(() => getYearOptions(), [])
 
   // Date to focus on initial render if initialFocusRef is passed
