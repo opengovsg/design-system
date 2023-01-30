@@ -16,7 +16,7 @@ import {
 } from 'date-fns'
 import { Props as DayzedProps, RenderProps, useDayzed } from 'dayzed'
 import { inRange } from 'lodash'
-import { nanoid } from 'nanoid'
+import { customAlphabet } from 'nanoid'
 import { useKey } from 'rooks'
 
 import { useIsMobile } from '~/hooks'
@@ -75,6 +75,13 @@ type PassthroughProps = {
    */
   colorScheme?: ThemingProps<'Calendar'>['colorScheme']
 }
+
+// Removed - and _ from alphabets for simpler classnames
+const nanoid = customAlphabet(
+  '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+  16,
+)
+
 export interface UseProvideCalendarProps
   extends Pick<DayzedProps, 'monthsToDisplay'>,
     PassthroughProps,
