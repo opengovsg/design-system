@@ -235,10 +235,13 @@ const useProvideCalendar = ({
       // If newDate is outside current displayed months, scroll to that month
       updateMonthYear(newDate)
 
-      const elementToFocus = document.querySelector(
-        `.${generateClassNameForDate(classNameId, newDate)}`,
-      ) as HTMLButtonElement | null
-      elementToFocus?.focus()
+      // setTimeout is required so focusing happens after the DOM has updated.
+      setTimeout(() => {
+        const elementToFocus = document.querySelector(
+          `.${generateClassNameForDate(classNameId, newDate)}`,
+        ) as HTMLButtonElement | null
+        elementToFocus?.focus()
+      }, 0)
     },
     [updateMonthYear, classNameId],
   )
