@@ -8,7 +8,6 @@ import {
   useState,
 } from 'react'
 import { ThemingProps } from '@chakra-ui/react'
-import cuid from 'cuid'
 import {
   addMonths,
   differenceInCalendarMonths,
@@ -17,6 +16,7 @@ import {
 } from 'date-fns'
 import { Props as DayzedProps, RenderProps, useDayzed } from 'dayzed'
 import { inRange } from 'lodash'
+import { customAlphabet } from 'nanoid/non-secure'
 import { useKey } from 'rooks'
 
 import { useIsMobile } from '~/hooks'
@@ -75,6 +75,13 @@ type PassthroughProps = {
    */
   colorScheme?: ThemingProps<'Calendar'>['colorScheme']
 }
+
+// Removed - and _ from alphabets for simpler classnames
+const nanoid = customAlphabet(
+  '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+  16,
+)
+
 export interface UseProvideCalendarProps
   extends Pick<DayzedProps, 'monthsToDisplay'>,
     PassthroughProps,
@@ -144,7 +151,7 @@ const useProvideCalendar = ({
   // so component state doesn't suddenly jump at midnight
   const today = useMemo(() => new Date(), [])
   // Unique className for dates
-  const classNameId = useMemo(() => cuid(), [])
+  const classNameId = useMemo(() => nanoid(), [])
   const yearOptions = useMemo(() => getYearOptions(), [])
 
   // Date to focus on initial render if initialFocusRef is passed
@@ -235,10 +242,13 @@ const useProvideCalendar = ({
       // If newDate is outside current displayed months, scroll to that month
       updateMonthYear(newDate)
 
-      const elementToFocus = document.querySelector(
-        `.${generateClassNameForDate(classNameId, newDate)}`,
-      ) as HTMLButtonElement | null
-      elementToFocus?.focus()
+      // setTimeout is required so focusing happens after the DOM has updated.
+      setTimeout(() => {
+        const elementToFocus = document.querySelector(
+          `.${generateClassNameForDate(classNameId, newDate)}`,
+        ) as HTMLButtonElement | null
+        elementToFocus?.focus()
+      }, 0)
     },
     [updateMonthYear, classNameId],
   )
