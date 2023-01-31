@@ -100,6 +100,29 @@ export const RadioColors = () => (
   </VStack>
 )
 
+export const DisallowDeselect: StoryFn = ({
+  name = 'DisallowDeselect',
+  label,
+  ...args
+}) => {
+  const options = useMemo(() => ['Option 1', 'Option 2', 'Option 3'], [])
+
+  return (
+    <FormControl id={name} mb={6}>
+      <FormLabel>{label}</FormLabel>
+      <Radio.RadioGroup name={name} {...args} defaultValue="Option 1">
+        <Stack spacing="0.5rem">
+          {options.map((o, idx) => (
+            <Radio key={idx} value={o} allowDeselect={false}>
+              {o}
+            </Radio>
+          ))}
+        </Stack>
+      </Radio.RadioGroup>
+    </FormControl>
+  )
+}
+
 export const Playground: StoryFn = ({
   name = 'PlaygroundRadio',
   label,
