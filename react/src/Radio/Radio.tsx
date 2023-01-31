@@ -71,8 +71,8 @@ export interface RadioProps
 
   /**
    * Function called when checked state of the input changes
-   * If provided, will be called with empty string when user attempts to
-   * deselect the radio.
+   * If provided and if allowDeselect is true, will be called
+   * with empty string when user attempts to deselect the radio.
    */
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void
 
@@ -80,6 +80,12 @@ export interface RadioProps
    * Additional props to be forwarded to the `input` element
    */
   inputProps?: React.InputHTMLAttributes<HTMLInputElement>
+
+  /**
+   * Whether the radio button can be deselected once radio group has a value.
+   * @default true
+   */
+  allowDeselect?: boolean
 }
 
 type RadioWithSubcomponentProps = ComponentWithAs<'input', RadioProps> & {
@@ -94,139 +100,141 @@ type RadioWithSubcomponentProps = ComponentWithAs<'input', RadioProps> & {
  *
  * @see Docs https://chakra-ui.com/radio
  */
-export const Radio = forwardRef<RadioProps, 'input'>((props, ref) => {
-  const { onChange: onChangeProp, value: valueProp } = props
+export const Radio = forwardRef<RadioProps, 'input'>(
+  ({ allowDeselect = true, ...props }, ref) => {
+    const { onChange: onChangeProp, value: valueProp } = props
 
-  const group = useRadioGroupContext()
-  const styles = useMultiStyleConfig('Radio', { ...group, ...props })
+    const group = useRadioGroupContext()
+    const styles = useMultiStyleConfig('Radio', { ...group, ...props })
 
-  const ownProps = omitThemingProps(props)
+    const ownProps = omitThemingProps(props)
 
-  const {
-    spacing = '0.5rem',
-    children,
-    isDisabled = group?.isDisabled || props.isDisabled,
-    isFocusable = group?.isFocusable,
-    inputProps: htmlInputProps,
-    ...rest
-  } = ownProps
+    const {
+      spacing = '0.5rem',
+      children,
+      isDisabled = group?.isDisabled || props.isDisabled,
+      isFocusable = group?.isFocusable,
+      inputProps: htmlInputProps,
+      ...rest
+    } = ownProps
 
-  let isChecked = props.isChecked
-  if (group?.value != null && valueProp != null) {
-    isChecked = group.value === valueProp
-  }
+    let isChecked = props.isChecked
+    if (group?.value != null && valueProp != null) {
+      isChecked = group.value === valueProp
+    }
 
-  let onChange = onChangeProp
-  if (group?.onChange && valueProp != null) {
-    onChange = callAll(group.onChange, onChangeProp)
-  }
+    let onChange = onChangeProp
+    if (group?.onChange && valueProp != null) {
+      onChange = callAll(group.onChange, onChangeProp)
+    }
 
-  const name = props?.name ?? group?.name
+    const name = props?.name ?? group?.name
 
-  const {
-    getInputProps,
-    getCheckboxProps,
-    getLabelProps,
-    getRootProps,
-    htmlProps,
-  } = useRadio({
-    ...rest,
-    isChecked,
-    isFocusable,
-    isDisabled,
-    onChange,
-    name,
-  })
-
-  const [layoutProps, otherProps] = split(htmlProps, layoutPropNames as never)
-
-  const checkboxProps = getCheckboxProps(otherProps)
-  const inputProps = getInputProps(htmlInputProps, ref)
-  const rootProps = Object.assign({}, layoutProps, getRootProps())
-
-  const handleSelect = useCallback(
-    (e: SyntheticEvent) => {
-      if (isChecked) {
-        e.preventDefault()
-        // Toggle off if onChange is given.
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        onChange?.({ target: { value: '' } })
-      }
-    },
-    [isChecked, onChange],
-  )
-
-  const handleSpacebar = useCallback(
-    (e: KeyboardEvent<HTMLInputElement>) => {
-      if (e.key !== ' ') return
-      if (isChecked) {
-        handleSelect(e)
-      }
-    },
-    [handleSelect, isChecked],
-  )
-
-  // Update labelProps to include props to allow deselection of radio value if
-  // available
-  const labelProps = useMemo(() => {
-    return getLabelProps({
-      onClick: handleSelect,
-      onKeyDown: handleSpacebar,
+    const {
+      getInputProps,
+      getCheckboxProps,
+      getLabelProps,
+      getRootProps,
+      htmlProps,
+    } = useRadio({
+      ...rest,
+      isChecked,
+      isFocusable,
+      isDisabled,
+      onChange,
+      name,
     })
-  }, [getLabelProps, handleSelect, handleSpacebar])
 
-  const rootStyles = {
-    display: 'inline-flex',
-    alignItems: 'center',
-    verticalAlign: 'top',
-    cursor: 'pointer',
-    position: 'relative',
-    ...styles.container,
-    ...props.__css,
-  }
+    const [layoutProps, otherProps] = split(htmlProps, layoutPropNames as never)
 
-  const checkboxStyles = {
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexShrink: 0,
-    ...styles.control,
-  }
+    const checkboxProps = getCheckboxProps(otherProps)
+    const inputProps = getInputProps(htmlInputProps, ref)
+    const rootProps = Object.assign({}, layoutProps, getRootProps())
 
-  const labelStyles: SystemStyleObject = {
-    userSelect: 'none',
-    marginStart: spacing,
-    ...styles.label,
-  }
+    const handleSelect = useCallback(
+      (e: SyntheticEvent) => {
+        if (isChecked && allowDeselect) {
+          e.preventDefault()
+          // Toggle off if onChange is given.
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          onChange?.({ target: { value: '' } })
+        }
+      },
+      [allowDeselect, isChecked, onChange],
+    )
 
-  return (
-    <chakra.label
-      className="chakra-radio"
-      {...rootProps}
-      // This is the adapted line of code which applies the internal label styles
-      // to the whole container
-      {...labelProps}
-      __css={rootStyles}
-    >
-      <input className="chakra-radio__input" {...inputProps} />
-      <chakra.span
-        className="chakra-radio__control"
-        {...checkboxProps}
-        __css={checkboxStyles}
-      />
-      {children && (
+    const handleSpacebar = useCallback(
+      (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key !== ' ') return
+        if (isChecked && allowDeselect) {
+          handleSelect(e)
+        }
+      },
+      [allowDeselect, handleSelect, isChecked],
+    )
+
+    // Update labelProps to include props to allow deselection of radio value if
+    // available
+    const labelProps = useMemo(() => {
+      return getLabelProps({
+        onClick: handleSelect,
+        onKeyDown: handleSpacebar,
+      })
+    }, [getLabelProps, handleSelect, handleSpacebar])
+
+    const rootStyles = {
+      display: 'inline-flex',
+      alignItems: 'center',
+      verticalAlign: 'top',
+      cursor: 'pointer',
+      position: 'relative',
+      ...styles.container,
+      ...props.__css,
+    }
+
+    const checkboxStyles = {
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexShrink: 0,
+      ...styles.control,
+    }
+
+    const labelStyles: SystemStyleObject = {
+      userSelect: 'none',
+      marginStart: spacing,
+      ...styles.label,
+    }
+
+    return (
+      <chakra.label
+        className="chakra-radio"
+        {...rootProps}
+        // This is the adapted line of code which applies the internal label styles
+        // to the whole container
+        {...labelProps}
+        __css={rootStyles}
+      >
+        <input className="chakra-radio__input" {...inputProps} />
         <chakra.span
-          className="chakra-radio__label"
-          {...labelProps}
-          __css={labelStyles}
-        >
-          {children}
-        </chakra.span>
-      )}
-    </chakra.label>
-  )
-}) as RadioWithSubcomponentProps
+          className="chakra-radio__control"
+          {...checkboxProps}
+          __css={checkboxStyles}
+        />
+        {children && (
+          <chakra.span
+            className="chakra-radio__label"
+            {...labelProps}
+            __css={labelStyles}
+          >
+            {children}
+          </chakra.span>
+        )}
+      </chakra.label>
+    )
+  },
+) as RadioWithSubcomponentProps
 
 Radio.displayName = 'Radio'
 
