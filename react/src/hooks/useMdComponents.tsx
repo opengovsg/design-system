@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react'
 
 import { Link, LinkProps } from '~/Link'
+import type { WithSsr } from '~/types/WithSsr'
 
 type MdComponentStyles = {
   /**
@@ -25,23 +26,53 @@ type MdComponentProps = {
   /**
    * If exists, will be passed into Link component
    */
-  link?: LinkProps
+  link?: LinkProps & {
+    /**
+     * If exists, will be used to determine if link is an external link.
+     * If not provided, and if @param `ssr` is true, window.location.origin will be used to determine if link is external.
+     */
+    isExternalFn?: (href: string) => boolean
+  }
   /**
    * If exists, will be used for styling text
    */
   text?: TextProps
 }
 
-type UseMdComponentsProps = {
+interface UseMdComponentsProps extends WithSsr {
   styles?: MdComponentStyles
   overrides?: TransformOptions['components']
   props?: MdComponentProps
+}
+
+const calcIsExternal = ({
+  href,
+  ssr,
+  isExternalFn,
+}: {
+  href: unknown
+  ssr?: boolean
+  isExternalFn?: (href: string) => boolean
+}) => {
+  if (typeof href !== 'string') {
+    return false
+  }
+  if (isExternalFn) {
+    return isExternalFn?.(href)
+  }
+  if (ssr) {
+    return false
+  }
+  return (
+    typeof window !== 'undefined' && !href.startsWith(window.location.origin)
+  )
 }
 
 export const useMdComponents = ({
   styles = {},
   props = {},
   overrides = {},
+  ssr,
 }: UseMdComponentsProps = {}): TransformOptions['components'] => {
   const mdComponents: TransformOptions['components'] = useMemo(
     () => ({
@@ -50,25 +81,23 @@ export const useMdComponents = ({
       ),
       li: (p) => <ListItem {...p} sx={styles.text} />,
       a: (p) => {
+        const { isExternalFn, ...restLinkProps } = props.link || {}
         const { href } = p
-        const isExternal =
-          typeof window !== 'undefined' &&
-          typeof href === 'string' &&
-          !href.startsWith(window.location.origin)
+        const isExternal = calcIsExternal({ href, ssr, isExternalFn })
 
         return (
           <Link
             {...p}
             isExternal={isExternal}
             sx={styles.link}
-            {...props.link}
+            {...restLinkProps}
           />
         )
       },
       p: (p) => <Text {...p} sx={styles.text} {...props.text} />,
       ...overrides,
     }),
-    [overrides, props.link, props.text, styles.link, styles.text],
+    [overrides, props.link, props.text, ssr, styles.link, styles.text],
   )
 
   return mdComponents
