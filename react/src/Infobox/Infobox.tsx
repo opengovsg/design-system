@@ -12,8 +12,9 @@ import {
 import { useMdComponents } from '~/hooks/useMdComponents'
 import { BxsErrorCircle, BxsInfoCircle } from '~/icons'
 import { InfoboxVariant } from '~/theme/components/Infobox'
+import type { WithReactMarkdownSsr } from '~/types/WithSsr'
 
-export interface InfoboxProps extends FlexProps {
+export interface InfoboxProps extends FlexProps, WithReactMarkdownSsr {
   size?: ThemingProps<'Infobox'>['size']
   variant?: InfoboxVariant
   /**
@@ -39,15 +40,18 @@ export const Infobox = ({
   useMarkdown = false,
   icon: iconProp,
   size,
+  ssr,
+  mdIsExternalLinkFn,
   ...flexProps
 }: InfoboxProps): JSX.Element => {
   const styles = useMultiStyleConfig('Infobox', { variant, size })
 
   const mdComponents = useMdComponents({
-    styles,
+    ssr,
     props: {
       link: {
         colorScheme: 'neutral',
+        isExternalFn: mdIsExternalLinkFn,
       },
     },
   })
