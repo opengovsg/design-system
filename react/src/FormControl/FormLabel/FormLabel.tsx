@@ -15,9 +15,11 @@ import {
 import { useMdComponents } from '~/hooks/useMdComponents'
 import { BxsHelpCircle } from '~/icons/BxsHelpCircle'
 import { Tooltip } from '~/Tooltip'
-import type { WithSsr } from '~/types/WithSsr'
+import type { WithReactMarkdownSsr } from '~/types/WithSsr'
 
-export interface FormLabelProps extends ChakraFormLabelProps, WithSsr {
+export interface FormLabelProps
+  extends ChakraFormLabelProps,
+    WithReactMarkdownSsr {
   /**
    * Question number to be prefixed before each label, if any.
    */
@@ -63,6 +65,7 @@ export const FormLabel = ({
   useMarkdownForDescription = false,
   children,
   ssr,
+  mdIsExternalLinkFn,
   ...labelProps
 }: FormLabelProps): JSX.Element => {
   return (
@@ -92,6 +95,7 @@ export const FormLabel = ({
       {description && (
         <FormLabel.Description
           ssr={ssr}
+          mdIsExternalLinkFn={mdIsExternalLinkFn}
           useMarkdown={useMarkdownForDescription}
         >
           {description}
@@ -103,7 +107,7 @@ export const FormLabel = ({
 
 FormLabel.Label = ChakraFormLabel
 
-interface FormLabelDescriptionProps extends TextProps, WithSsr {
+interface FormLabelDescriptionProps extends TextProps, WithReactMarkdownSsr {
   useMarkdown?: boolean
   children: string
 }
@@ -111,6 +115,7 @@ const FormLabelDescription = ({
   children,
   useMarkdown = false,
   ssr,
+  mdIsExternalLinkFn,
   ...props
 }: FormLabelDescriptionProps): JSX.Element => {
   // useFormControlContext is a ChakraUI hook that returns props passed down
@@ -141,6 +146,11 @@ const FormLabelDescription = ({
   const mdComponents = useMdComponents({
     ssr,
     styles: mdComponentsStyles,
+    props: {
+      link: {
+        isExternalFn: mdIsExternalLinkFn,
+      },
+    },
     overrides: {
       p: (props) => (
         <ComponentToRender {...props} sx={mdComponentsStyles.text} />

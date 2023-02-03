@@ -14,9 +14,9 @@ import {
 import { useMdComponents } from '~/hooks/useMdComponents'
 import { BxsErrorCircle, BxsInfoCircle, BxX } from '~/icons'
 import { BannerVariant } from '~/theme/components/Banner'
-import type { WithSsr } from '~/types/WithSsr'
+import type { WithReactMarkdownSsr } from '~/types/WithSsr'
 
-export interface BannerProps extends WithSsr {
+export interface BannerProps extends WithReactMarkdownSsr {
   variant?: BannerVariant
   children: string
   /**
@@ -50,6 +50,7 @@ export const Banner = ({
   icon: iconProp,
   closeButton,
   ssr,
+  mdIsExternalLinkFn,
 }: BannerProps): JSX.Element => {
   const { isOpen, onToggle } = useDisclosure({
     defaultIsOpen: true,
@@ -57,7 +58,17 @@ export const Banner = ({
 
   const styles = useMultiStyleConfig('Banner', { variant })
 
-  const mdComponents = useMdComponents({ styles, ssr })
+  const mdComponents = useMdComponents({
+    styles: {
+      link: styles.link,
+    },
+    ssr,
+    props: {
+      link: {
+        isExternalFn: mdIsExternalLinkFn,
+      },
+    },
+  })
   const iconToUse = useMemo(() => {
     if (iconProp) {
       return iconProp
