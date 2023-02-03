@@ -14,8 +14,9 @@ import {
 import { useMdComponents } from '~/hooks/useMdComponents'
 import { BxsErrorCircle, BxsInfoCircle, BxX } from '~/icons'
 import { BannerVariant } from '~/theme/components/Banner'
+import type { WithSsr } from '~/types/WithSsr'
 
-export interface BannerProps {
+export interface BannerProps extends WithSsr {
   variant?: BannerVariant
   children: string
   /**
@@ -48,6 +49,7 @@ export const Banner = ({
   isDismissable: isDismissableProp,
   icon: iconProp,
   closeButton,
+  ssr,
 }: BannerProps): JSX.Element => {
   const { isOpen, onToggle } = useDisclosure({
     defaultIsOpen: true,
@@ -55,7 +57,7 @@ export const Banner = ({
 
   const styles = useMultiStyleConfig('Banner', { variant })
 
-  const mdComponents = useMdComponents({ styles })
+  const mdComponents = useMdComponents({ styles, ssr })
   const iconToUse = useMemo(() => {
     if (iconProp) {
       return iconProp

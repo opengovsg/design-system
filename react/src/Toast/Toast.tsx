@@ -14,17 +14,15 @@ import {
 
 import { useMdComponents } from '~/hooks/useMdComponents'
 import { BxsCheckCircle, BxsErrorCircle, BxsInfoCircle, BxX } from '~/icons'
+import type { WithSsr } from '~/types/WithSsr'
 
 import { SpinnerIcon } from '..'
-
 // Alias for convenience
 export type ToastStatus = AlertStatus
 
 export interface ToastProps
-  extends Omit<
-    UseToastOptions,
-    'duration' | 'position' | 'render' | 'variant'
-  > {
+  extends Omit<UseToastOptions, 'duration' | 'position' | 'render' | 'variant'>,
+    WithSsr {
   /**
    * RenderProps that chakra passes to all custom components that uses the
    * render function
@@ -62,6 +60,7 @@ export const Toast = ({
   isClosable,
   onClose,
   onCloseComplete,
+  ssr,
   ...toastStyleProps
 }: ToastProps): JSX.Element => {
   const styles = useMultiStyleConfig('Toast', {
@@ -73,7 +72,7 @@ export const Toast = ({
     return STATUS_TO_ICON[status]
   }, [status])
 
-  const mdComponents = useMdComponents(styles)
+  const mdComponents = useMdComponents({ ssr })
 
   const descriptionComponent = useMemo(() => {
     // ReactMarkdown requires children to be of string type. If description is
