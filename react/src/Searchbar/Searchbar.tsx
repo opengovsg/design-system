@@ -1,4 +1,4 @@
-import { KeyboardEvent, useCallback, useRef } from 'react'
+import { ChangeEvent, KeyboardEvent, useCallback, useRef } from 'react'
 import {
   Box,
   forwardRef,
@@ -16,12 +16,18 @@ import {
 import { IconButton } from '~/IconButton'
 import { BxSearch, BxX } from '~/icons'
 
-export interface SearchbarProps extends InputProps {
+export interface SearchbarProps extends Omit<InputProps, 'onChange'> {
   /**
    * Function to be invoked when user presses enter (to search).
    * @param searchValue value of the search input
    */
-  onSearch: (searchValue: string) => void
+  onSearch?: (searchValue: string) => void
+
+  /**
+   * Function to be invoked when the search input has changed.
+   * @param searchValue value of the search input
+   */
+  onChange?: (searchValue: string) => void
 
   /**
    * Whether the searchbar is expanded or not by default.
@@ -67,6 +73,7 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
   (
     {
       onSearch,
+      onChange,
       defaultIsExpanded,
       isExpanded: isExpandedProp,
       onExpansion: onExpansionProp,
@@ -95,8 +102,17 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
 
     const handleSearch = useCallback(
       (e: KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Enter' && innerRef.current) {
+        if (e.key === 'Enter' && innerRef.current && onSearch) {
           onSearch(innerRef.current.value)
+        }
+      },
+      [onSearch],
+    )
+
+    const handleChange = useCallback(
+      (e: ChangeEvent<HTMLInputElement>) => {
+        if (onChange) {
+          onChange(e.currentTarget.value)
         }
       },
       [onSearch],
@@ -146,6 +162,7 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
           ref={inputRef}
           sx={styles.field}
           onKeyDown={handleSearch}
+          onChange={handleChange}
           {...props}
         />
         {showClearButton && isExpanded && (
