@@ -46,6 +46,7 @@ const baseStyle = definePartsStyle((props) => {
       boxShadow: $shadow.reference,
     },
     item: {
+      mt: '0.125rem',
       bg: $bg.reference,
       textStyle: 'body-1',
       fontWeight: '400',
