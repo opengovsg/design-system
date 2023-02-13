@@ -27,7 +27,6 @@
     "lint:prettier": "prettier . -c --write",
     "lint:eslint": "eslint ./ --ignore-path .gitignore --fix",
     "gen:theme-typings": "chakra-cli tokens ./src/theme/theme.ts",
-    "prestorybook": "npm run gen:theme-typings",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "version": "auto-changelog -p && git add CHANGELOG.md"
