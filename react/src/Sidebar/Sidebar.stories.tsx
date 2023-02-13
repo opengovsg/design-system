@@ -1,5 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 
+import { BxBulb, BxHeart, BxsStar } from '..'
+
 import { Sidebar, SidebarProps } from './Sidebar'
 
 export default {
@@ -16,6 +18,7 @@ Default.args = {
     {
       id: '1',
       label: 'Dashboard',
+      icon: <BxBulb fontSize="1.5rem" />,
       subItems: [
         {
           id: '2',
@@ -24,7 +27,7 @@ Default.args = {
             {
               id: '3',
               label: 'Overview 1',
-              link: '/overview-1',
+              icon: <BxHeart fontSize="1.5rem" />,
             },
             {
               id: '4',
@@ -41,6 +44,11 @@ Default.args = {
           label: 'Analytics',
         },
       ],
+    },
+    {
+      id: '2',
+      label: 'Second',
+      icon: <BxsStar fontSize="1.5rem" />,
     },
   ],
 }
