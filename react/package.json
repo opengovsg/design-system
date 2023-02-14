@@ -55,7 +55,7 @@
     "use-draggable-scroll": "^0.1.0"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "^2.4.4",
+    "@chakra-ui/react": "^2.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.0 || ^6.0.0"
