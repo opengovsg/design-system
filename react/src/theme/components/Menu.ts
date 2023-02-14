@@ -4,6 +4,11 @@ import { StyleFunctionProps } from '@chakra-ui/theme-tools'
 
 const parts = menuAnatomy.extend('chevron')
 
+const MENU_ITEM_BORDER_STYLES = {
+  mt: '2px',
+  outlineOffset: '-2px',
+}
+
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)
 
@@ -46,7 +51,6 @@ const baseStyle = definePartsStyle((props) => {
       boxShadow: $shadow.reference,
     },
     item: {
-      mt: '0.125rem',
       bg: $bg.reference,
       textStyle: 'body-1',
       fontWeight: '400',
@@ -109,6 +113,7 @@ const getClearButtonColors = ({ colorScheme: c }: StyleFunctionProps) => {
 const variantClear = definePartsStyle((props) => {
   const { color, hoverColor, activeColor } = getClearButtonColors(props)
   return {
+    item: MENU_ITEM_BORDER_STYLES,
     button: {
       bg: 'transparent',
       color,
@@ -124,7 +129,7 @@ const variantClear = definePartsStyle((props) => {
 
 const variants = {
   clear: variantClear,
-  outline: {},
+  outline: { item: MENU_ITEM_BORDER_STYLES },
 }
 
 const sizes = {
