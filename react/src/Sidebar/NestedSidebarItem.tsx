@@ -39,8 +39,12 @@ export const NestedSidebarItem: FC<
     <Accordion variant="sidebar" colorScheme="main" allowToggle {...props}>
       <AccordionItem>
         <AccordionButton sx={itemStyles}>
-          <Flex gap="0.5rem">
-            <Flex flexShrink={0}>{icon}</Flex>
+          <Flex>
+            {icon && (
+              <Flex flexShrink={0} mr="0.5rem">
+                {icon}
+              </Flex>
+            )}
             <Text
               // Force single line usage for smooth text expansion if collapsed prop is provided
               noOfLines={collapsed !== undefined ? 1 : undefined}
