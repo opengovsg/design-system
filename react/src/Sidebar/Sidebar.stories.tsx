@@ -112,3 +112,8 @@ export const UseCustomComponentInItem = () => {
     </Sidebar.Container>
   )
 }
+
+export const Collapsed = Template.bind({})
+Collapsed.args = {
+  collapsed: true,
+}

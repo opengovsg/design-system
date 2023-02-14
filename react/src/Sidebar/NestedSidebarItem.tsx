@@ -12,8 +12,9 @@ import {
 } from '@chakra-ui/react'
 import { merge } from 'lodash'
 
+import { useSidebar } from './SidebarContext'
 import { useSidebarStyles } from './SidebarStylesContext'
-import { BaseSidebarItem } from './types'
+import type { BaseSidebarItem } from './types'
 
 export interface NestedSidebarItemProps extends BaseSidebarItem {
   /**
@@ -28,6 +29,8 @@ export const NestedSidebarItem: FC<
 > = ({ icon, label, props, root, children }) => {
   const styles = useSidebarStyles()
 
+  const { labelStyles, collapsed } = useSidebar()
+
   const itemStyles = useMemo(() => {
     return merge({}, styles.parent, root ? {} : styles.child, styles.item)
   }, [root, styles.child, styles.item, styles.parent])
@@ -38,9 +41,17 @@ export const NestedSidebarItem: FC<
         <AccordionButton sx={itemStyles}>
           <Flex gap="0.5rem">
             {icon}
-            <Text>{label}</Text>
+            <Text
+              // Force single line usage for smooth text expansion if collapsed prop is provided
+              noOfLines={collapsed !== undefined ? 1 : undefined}
+              sx={labelStyles}
+            >
+              {label}
+            </Text>
           </Flex>
-          <AccordionIcon ml="0.5rem" />
+          <Flex sx={labelStyles} ml="0.5rem">
+            <AccordionIcon />
+          </Flex>
         </AccordionButton>
         <AccordionPanel>
           <VStack __css={styles.container} align="flex-start">
