@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { BxBulb, BxHeart, BxsStar } from '~/icons'
+import { BxBulb, BxGitMerge, BxHeart, BxsStar } from '~/icons'
 
 import { Sidebar, SidebarProps } from './Sidebar'
 
@@ -73,6 +73,32 @@ export const UseSubcomponents = () => {
         <Sidebar.NestedItem label="Nested Parent Option 1">
           <Sidebar.Item label="Nested Child Option 1" />
         </Sidebar.NestedItem>
+      </Sidebar.NestedItem>
+    </Sidebar.Container>
+  )
+}
+
+export const UseCustomComponentInItem = () => {
+  return (
+    <Sidebar.Container>
+      <Sidebar.Item
+        icon={<BxHeart fontSize="1.5rem" />}
+        root
+        label="Link to OGP Website"
+        as="a"
+        href="https://open.gov.sg"
+      />
+      <Sidebar.NestedItem
+        root
+        label="Other sites"
+        icon={<BxGitMerge fontSize="1.5rem" />}
+      >
+        <Sidebar.Item label="FormSG" as="a" href="https://form.gov.sg" />
+        <Sidebar.Item
+          label="Design System"
+          as="a"
+          href="https://design.hack.gov.sg"
+        />
       </Sidebar.NestedItem>
     </Sidebar.Container>
   )
