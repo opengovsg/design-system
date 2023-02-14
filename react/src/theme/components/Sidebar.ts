@@ -70,12 +70,19 @@ const variantLine = definePartsStyle((props) => {
       ml: 'calc(1.75rem - 1px)',
     },
     child: {
+      outline: 'none',
+      outlineOffset: '-2px',
+      borderRadius: 0,
       borderLeftWidth: '2px',
       borderColor: 'base.divider.strong',
       p: '1rem',
       justifyContent: 'space-between',
       _active: {
         borderColor: 'base.divider.brand',
+      },
+      _focusVisible: {
+        ...layerStyles.focusRing.default._focusVisible,
+        outlineOffset: '-2px',
       },
     },
     parent: {
