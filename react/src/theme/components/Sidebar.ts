@@ -1,5 +1,5 @@
-import { createMultiStyleConfigHelpers, cssVar } from '@chakra-ui/react'
-import { anatomy, StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+import { anatomy } from '@chakra-ui/theme-tools'
 
 import { layerStyles } from '../layerStyles'
 
@@ -12,9 +12,6 @@ const parts = anatomy('sidebar').parts(
   'child',
   'icon',
 )
-
-const $fg = cssVar('sidebar-color')
-const $bg = cssVar('sidebar-bg')
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)
@@ -36,73 +33,45 @@ const sizes = {
     },
   }),
 }
-const getColorsForLineVariant = ({ colorScheme: c }: StyleFunctionProps) => {
-  switch (c) {
-    case 'main':
-    case 'sub':
-    case 'critical':
-      return {
-        color: 'interaction.support.unselected',
-        selectedColor: `interaction.${c}.default`,
-        hoverColor: `interaction.${c}.hover`,
-        hoverBg: `interaction.muted.${c}-subtle.hover`,
-        activeBg: `interaction.muted.${c}.active`,
-        borderColor: 'base.divider.strong',
-      }
-    default:
-      return {
-        color: 'interaction.support.unselected',
-        borderColor: 'base.divider.strong',
-        selectedColor: `${c}.500`,
-        hoverColor: `${c}.600`,
-        hoverBg: `${c}.50`,
-        activeBg: `${c}.100`,
-      }
-  }
-}
 
-const variantLine = definePartsStyle((props) => {
-  const { color, selectedColor, hoverColor, hoverBg, activeBg, borderColor } =
-    getColorsForLineVariant(props)
-  return {
-    container: {
-      // 1rem padding + (1.5rem icon/2) - (2px border/2) for true centering
-      ml: 'calc(1.75rem - 1px)',
+const variantLine = definePartsStyle({
+  container: {
+    // 1rem padding + (1.5rem icon/2) - (2px border/2) for true centering
+    ml: 'calc(1.75rem - 1px)',
+  },
+  child: {
+    borderRadius: 0,
+    borderLeftWidth: '2px',
+    borderColor: 'base.divider.strong',
+    p: '1rem',
+    _active: {
+      borderColor: 'base.divider.brand',
     },
-    child: {
-      borderRadius: 0,
-      borderLeftWidth: '2px',
-      borderColor: 'base.divider.strong',
-      p: '1rem',
-      _active: {
-        borderColor: 'base.divider.brand',
-      },
-      _focusVisible: {
-        ...layerStyles.focusRing.default._focusVisible,
-        outlineOffset: '-2px',
-      },
-    },
-    parent: {
-      ...Accordion.variants?.sidebar(props).button,
-      gap: 0,
-      borderLeftWidth: 0,
-    },
-    item: {
-      width: '100%',
-      outline: 'none',
+    _focusVisible: {
+      ...layerStyles.focusRing.default._focusVisible,
       outlineOffset: '-2px',
-      display: 'inline-flex',
-      alignItems: 'center',
-      color: 'interaction.support.unselected-strong',
-      p: '1rem',
-      _hover: {
-        color: 'interaction.main.hover',
-      },
-      _active: {
-        color: 'interaction.main.active',
-      },
     },
-  }
+  },
+  parent: {
+    ...Accordion.variants?.sidebar.button,
+    gap: 0,
+    borderLeftWidth: 0,
+  },
+  item: {
+    width: '100%',
+    outline: 'none',
+    outlineOffset: '-2px',
+    display: 'inline-flex',
+    alignItems: 'center',
+    color: 'interaction.support.unselected-strong',
+    p: '1rem',
+    _hover: {
+      color: 'interaction.main.hover',
+    },
+    _active: {
+      color: 'interaction.main.active',
+    },
+  },
 })
 
 const variants = {

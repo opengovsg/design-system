@@ -1,10 +1,8 @@
-import { Link } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
-import { BxBulb, BxHeart, BxsStar } from '..'
+import { BxBulb, BxHeart, BxsStar } from '~/icons'
 
 import { Sidebar, SidebarProps } from './Sidebar'
-import { SidebarItem } from './SidebarItem'
 
 export default {
   title: 'Components/Sidebar',
