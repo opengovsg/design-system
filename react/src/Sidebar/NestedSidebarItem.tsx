@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { merge } from 'lodash'
 
-import { useSidebar } from './SidebarContext'
+import { useSidebarContext } from './SidebarContext'
 import { useSidebarStyles } from './SidebarStylesContext'
 import type { BaseSidebarItem } from './types'
 
@@ -29,7 +29,7 @@ export const NestedSidebarItem: FC<
 > = ({ icon, label, props, root, children }) => {
   const styles = useSidebarStyles()
 
-  const { labelStyles, collapsed } = useSidebar()
+  const { labelStyles, collapsed } = useSidebarContext()
 
   const itemStyles = useMemo(() => {
     return merge({}, styles.parent, root ? {} : styles.child, styles.item)

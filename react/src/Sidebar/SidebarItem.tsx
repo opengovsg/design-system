@@ -5,7 +5,7 @@ import { cloneDeep, mergeWith } from 'lodash'
 
 import { Button, ButtonProps } from '~/Button'
 
-import { useSidebar } from './SidebarContext'
+import { useSidebarContext } from './SidebarContext'
 import { useSidebarStyles } from './SidebarStylesContext'
 import type { BaseSidebarItem } from './types'
 
@@ -17,7 +17,7 @@ export interface SidebarItemProps extends BaseSidebarItem, ButtonProps {
 export const SidebarItem = forwardRef<SidebarItemProps, 'button'>(
   ({ isActive, label, icon, as, root, ...props }, ref): JSX.Element => {
     const styles = useSidebarStyles()
-    const { labelStyles, collapsed } = useSidebar()
+    const { labelStyles, collapsed } = useSidebarContext()
 
     const itemStyles = useMemo(() => {
       return mergeWith(
