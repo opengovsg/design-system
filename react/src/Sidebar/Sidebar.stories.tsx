@@ -4,47 +4,49 @@ import { BxBulb, BxGitMerge, BxHeart, BxsStar } from '~/icons'
 
 import { Sidebar, SidebarProps } from './Sidebar'
 
+const DEFAULT_ITEMS = [
+  {
+    label: 'Dashboard',
+    icon: <BxBulb fontSize="1.5rem" />,
+    subItems: [
+      {
+        label: 'Overview',
+        subItems: [
+          {
+            label: 'Overview 1',
+            icon: <BxHeart fontSize="1.5rem" />,
+          },
+          {
+            label: 'Overview 2',
+          },
+        ],
+      },
+      {
+        label: 'Reports',
+      },
+      {
+        label: 'Analytics',
+      },
+    ],
+  },
+  {
+    label: 'Second',
+    icon: <BxsStar fontSize="1.5rem" />,
+  },
+]
+
 export default {
   title: 'Components/Sidebar',
   component: Sidebar,
   decorators: [],
   tags: ['autodocs'],
+  args: {
+    items: DEFAULT_ITEMS,
+  },
 } as Meta<SidebarProps>
 
 const Template: StoryFn<SidebarProps> = (args) => <Sidebar {...args} />
 export const Default = Template.bind({})
-Default.args = {
-  items: [
-    {
-      label: 'Dashboard',
-      icon: <BxBulb fontSize="1.5rem" />,
-      subItems: [
-        {
-          label: 'Overview',
-          subItems: [
-            {
-              label: 'Overview 1',
-              icon: <BxHeart fontSize="1.5rem" />,
-            },
-            {
-              label: 'Overview 2',
-            },
-          ],
-        },
-        {
-          label: 'Reports',
-        },
-        {
-          label: 'Analytics',
-        },
-      ],
-    },
-    {
-      label: 'Second',
-      icon: <BxsStar fontSize="1.5rem" />,
-    },
-  ],
-}
 
 export const UseSubcomponents = () => {
   return (

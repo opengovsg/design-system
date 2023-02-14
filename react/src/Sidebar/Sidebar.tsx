@@ -13,13 +13,17 @@ import { SidebarItemType } from './types'
 const [SidebarStylesProvider, useSidebarStyles] = createStylesContext('Sidebar')
 
 export { useSidebarStyles }
+
+type SidebarNestableItem = SidebarItemType & {
+  subItems?: SidebarNestableItem[]
+}
 export interface SidebarProps {
-  items: (SidebarItemType & { subItems?: SidebarProps['items'] })[]
+  items: SidebarNestableItem[]
 }
 
 // Generate recursive sidebar items if nested
 const generateSidebarItems = (
-  items: SidebarProps['items'],
+  items: SidebarNestableItem[],
   root?: boolean,
 ): JSX.Element[] => {
   return items.map((item, index) => {

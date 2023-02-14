@@ -10,7 +10,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react'
-import { cloneDeep, mergeWith } from 'lodash'
+import { merge } from 'lodash'
 
 import { useSidebarStyles } from './Sidebar'
 import { SidebarItemType } from './types'
@@ -29,10 +29,7 @@ export const NestedSidebarItem: FC<
   const styles = useSidebarStyles()
 
   const itemStyles = useMemo(() => {
-    return mergeWith(
-      cloneDeep(styles.item),
-      cloneDeep(root ? styles.parent : styles.child),
-    )
+    return merge({}, styles.parent, root ? {} : styles.child, styles.item)
   }, [root, styles.child, styles.item, styles.parent])
 
   console.log(root, itemStyles)
