@@ -70,13 +70,10 @@ const variantLine = definePartsStyle((props) => {
       ml: 'calc(1.75rem - 1px)',
     },
     child: {
-      outline: 'none',
-      outlineOffset: '-2px',
       borderRadius: 0,
       borderLeftWidth: '2px',
       borderColor: 'base.divider.strong',
       p: '1rem',
-      justifyContent: 'space-between',
       _active: {
         borderColor: 'base.divider.brand',
       },
@@ -87,14 +84,17 @@ const variantLine = definePartsStyle((props) => {
     },
     parent: {
       ...Accordion.variants?.sidebar(props).button,
+      gap: 0,
       borderLeftWidth: 0,
     },
     item: {
+      width: '100%',
+      outline: 'none',
+      outlineOffset: '-2px',
       display: 'inline-flex',
       alignItems: 'center',
       color: 'interaction.support.unselected-strong',
       p: '1rem',
-      justifyContent: 'space-between',
       _hover: {
         color: 'interaction.main.hover',
       },
