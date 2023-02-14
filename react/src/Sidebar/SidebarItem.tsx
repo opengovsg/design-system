@@ -5,7 +5,7 @@ import { cloneDeep, mergeWith } from 'lodash'
 
 import { Button, ButtonProps } from '~/Button'
 
-import { useSidebarStyles } from './Sidebar'
+import { useSidebarStyles } from './SidebarStylesContext'
 import { BaseSidebarItem } from './types'
 
 export interface SidebarItemProps extends BaseSidebarItem, ButtonProps {

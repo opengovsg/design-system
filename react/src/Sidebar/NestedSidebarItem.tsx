@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { merge } from 'lodash'
 
-import { useSidebarStyles } from './Sidebar'
+import { useSidebarStyles } from './SidebarStylesContext'
 import { BaseSidebarItem } from './types'
 
 export interface NestedSidebarItemProps extends BaseSidebarItem {

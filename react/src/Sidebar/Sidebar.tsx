@@ -1,18 +1,10 @@
 import { FC, PropsWithChildren, useMemo } from 'react'
-import {
-  createStylesContext,
-  StackProps,
-  useMultiStyleConfig,
-  VStack,
-} from '@chakra-ui/react'
+import { StackProps, useMultiStyleConfig, VStack } from '@chakra-ui/react'
 
 import { NestedSidebarItem } from './NestedSidebarItem'
 import { SidebarItem } from './SidebarItem'
+import { SidebarStylesProvider } from './SidebarStylesContext'
 import type { SidebarItemType, SidebarNestableItem } from './types'
-
-const [SidebarStylesProvider, useSidebarStyles] = createStylesContext('Sidebar')
-
-export { useSidebarStyles }
 
 export interface SidebarProps {
   items: SidebarItemType[]
@@ -46,12 +38,7 @@ const generateSidebarItems = (
   })
 }
 
-export const Sidebar = ({ items }: SidebarProps): JSX.Element => {
-  const sidebarItems = useMemo(() => generateSidebarItems(items, true), [items])
-  return <SidebarContainer>{sidebarItems}</SidebarContainer>
-}
-
-export const SidebarContainer: FC<PropsWithChildren<StackProps>> = ({
+const SidebarContainer: FC<PropsWithChildren<StackProps>> = ({
   children,
   ...props
 }) => {
@@ -63,6 +50,11 @@ export const SidebarContainer: FC<PropsWithChildren<StackProps>> = ({
       </VStack>
     </SidebarStylesProvider>
   )
+}
+
+export const Sidebar = ({ items }: SidebarProps): JSX.Element => {
+  const sidebarItems = useMemo(() => generateSidebarItems(items, true), [items])
+  return <SidebarContainer>{sidebarItems}</SidebarContainer>
 }
 
 Sidebar.Container = SidebarContainer
