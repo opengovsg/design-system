@@ -1,26 +1,18 @@
 import { useMemo } from 'react'
-import type { Options as TransformOptions } from 'react-markdown'
+import { Components } from 'react-markdown'
 import {
+  LinkProps,
   ListItem,
+  ListProps,
   OrderedList,
   SystemStyleObject,
   Text,
   TextProps,
+  UnorderedList,
 } from '@chakra-ui/react'
 
-import { Link, LinkProps } from '~/Link'
-import type { WithSsr } from '~/types/WithSsr'
-
-type MdComponentStyles = {
-  /**
-   * If exists, will be used for styling links
-   */
-  link?: SystemStyleObject
-  /**
-   * If exists, will be used for styling text
-   */
-  text?: SystemStyleObject
-}
+import { Link } from '~/Link'
+import { WithSsr } from '~/types/WithSsr'
 
 type MdComponentProps = {
   /**
@@ -34,15 +26,34 @@ type MdComponentProps = {
     isExternalFn?: (href: string) => boolean
   }
   /**
-   * If exists, will be used for styling text
+   * If exists, will be passed into List related component
+   */
+  list?: ListProps
+  /**
+   * If exists, will be passed into Text related component
    */
   text?: TextProps
 }
 
+type MdComponentStyles = {
+  /**
+   * If exists, will be used for styling links.
+   */
+  link?: SystemStyleObject
+  /**
+   * If exists, will be used for styling lists
+   */
+  list?: SystemStyleObject
+  /**
+   * If exists, will be used for styling text
+   */
+  text?: SystemStyleObject
+}
+
 interface UseMdComponentsProps extends WithSsr {
   styles?: MdComponentStyles
-  overrides?: TransformOptions['components']
   props?: MdComponentProps
+  overrides?: Components
 }
 
 const calcIsExternal = ({
@@ -73,31 +84,83 @@ export const useMdComponents = ({
   props = {},
   overrides = {},
   ssr,
-}: UseMdComponentsProps = {}): TransformOptions['components'] => {
-  const mdComponents: TransformOptions['components'] = useMemo(
+}: UseMdComponentsProps = {}): Components => {
+  const textStyles = useMemo(
     () => ({
-      ol: (p) => (
-        <OrderedList marginInlineStart="1.25rem" {...p} sx={styles.text} />
+      sx: styles.text,
+    }),
+    [styles.text],
+  )
+
+  const linkStyles = useMemo(
+    () => ({
+      sx: {
+        whiteSpace: 'pre-wrap',
+        display: 'initial',
+        ...(styles.link ?? {}),
+      },
+    }),
+    [styles.link],
+  )
+
+  const listStyles = useMemo(
+    () => ({
+      sx: {
+        whiteSpace: 'pre-wrap',
+        ...(styles.list ?? {}),
+      },
+    }),
+    [styles.list],
+  )
+
+  const mdComponents: Components = useMemo(
+    () => ({
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      ol: ({ node, ordered, ...rest }) => (
+        <OrderedList
+          marginInlineStart="1.25rem"
+          whiteSpace="initial"
+          {...props.list}
+          {...rest}
+          {...textStyles}
+        />
       ),
-      li: (p) => <ListItem {...p} sx={styles.text} />,
-      a: (p) => {
-        const { isExternalFn, ...restLinkProps } = props.link || {}
-        const { href } = p
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      ul: ({ node, ordered, ...rest }) => (
+        <UnorderedList {...props.list} {...rest} {...listStyles} />
+      ),
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      li: ({ node, ordered, ...rest }) => (
+        <ListItem {...rest} {...textStyles} />
+      ),
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      a: ({ node, href, ...rest }) => {
+        const { isExternalFn, ...restLinkProps } = props.link ?? {}
         const isExternal = calcIsExternal({ href, ssr, isExternalFn })
 
         return (
           <Link
-            {...p}
             isExternal={isExternal}
-            sx={styles.link}
+            href={href}
+            {...linkStyles}
+            {...rest}
             {...restLinkProps}
           />
         )
       },
-      p: (p) => <Text {...p} sx={styles.text} {...props.text} />,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      p: ({ node, ...props }) => <Text {...props} {...textStyles} />,
       ...overrides,
     }),
-    [overrides, props.link, props.text, ssr, styles.link, styles.text],
+    [
+      overrides,
+      props.list,
+      props.link,
+      textStyles,
+      listStyles,
+      linkStyles,
+      ssr,
+    ],
   )
 
   return mdComponents
