@@ -65,12 +65,15 @@ export const UseSubcomponents = () => {
         root
         label="Parent Option 2"
       />
-      <Sidebar.NestedItem root label="Parent Option 2">
+      <Sidebar.NestedItem
+        root
+        label="Nested Options 2 this is a very long title"
+      >
         <Sidebar.Item label="Child Option 1" />
         <Sidebar.Item label="Child Option 2" />
         <Sidebar.Item label="Child Option 3" />
 
-        <Sidebar.NestedItem label="Nested Parent Option 1">
+        <Sidebar.NestedItem label="Nested Parent Option 1 this is very long title">
           <Sidebar.Item label="Nested Child Option 1" />
         </Sidebar.NestedItem>
       </Sidebar.NestedItem>

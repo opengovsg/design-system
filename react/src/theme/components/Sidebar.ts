@@ -61,8 +61,8 @@ const variantLine = definePartsStyle({
     width: '100%',
     outline: 'none',
     outlineOffset: '-2px',
+    textAlign: 'start',
     display: 'inline-flex',
-    alignItems: 'center',
     color: 'interaction.support.unselected-strong',
     p: '1rem',
     _hover: {

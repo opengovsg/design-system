@@ -50,7 +50,7 @@ export const NestedSidebarItem: FC<
             {icon}
             <Text>{label}</Text>
           </Flex>
-          <AccordionIcon />
+          <AccordionIcon ml="0.5rem" />
         </AccordionButton>
         <AccordionPanel>
           <VStack __css={styles.container} align="flex-start">
