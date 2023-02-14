@@ -13,19 +13,19 @@ import {
 import { merge } from 'lodash'
 
 import { useSidebarStyles } from './Sidebar'
-import { SidebarItemType } from './types'
+import { BaseSidebarItem } from './types'
 
-export interface NestedSidebarItemProps extends SidebarItemType {
+export interface NestedSidebarItemProps extends BaseSidebarItem {
   /**
    * Whether the item is the root item of the sidebar. Determines styling.
    */
   root?: boolean
-  containerProps?: AccordionProps
+  props?: AccordionProps
 }
 
 export const NestedSidebarItem: FC<
   PropsWithChildren<NestedSidebarItemProps>
-> = ({ icon, label, containerProps, root, children }) => {
+> = ({ icon, label, props, root, children }) => {
   const styles = useSidebarStyles()
 
   const itemStyles = useMemo(() => {
@@ -33,12 +33,7 @@ export const NestedSidebarItem: FC<
   }, [root, styles.child, styles.item, styles.parent])
 
   return (
-    <Accordion
-      variant="sidebar"
-      colorScheme="main"
-      allowToggle
-      {...containerProps}
-    >
+    <Accordion variant="sidebar" colorScheme="main" allowToggle {...props}>
       <AccordionItem>
         <AccordionButton sx={itemStyles}>
           <Flex gap="0.5rem">

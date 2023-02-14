@@ -3,8 +3,9 @@ import { Meta, StoryFn } from '@storybook/react'
 import { BxBulb, BxGitMerge, BxHeart, BxsStar } from '~/icons'
 
 import { Sidebar, SidebarProps } from './Sidebar'
+import type { SidebarItemType } from './types'
 
-const DEFAULT_ITEMS = [
+const DEFAULT_ITEMS: SidebarItemType[] = [
   {
     label: 'Dashboard',
     icon: <BxBulb fontSize="1.5rem" />,
@@ -15,6 +16,9 @@ const DEFAULT_ITEMS = [
           {
             label: 'Overview 1',
             icon: <BxHeart fontSize="1.5rem" />,
+            props: {
+              onClick: () => alert('test'),
+            },
           },
           {
             label: 'Overview 2',

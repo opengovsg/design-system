@@ -6,9 +6,9 @@ import { cloneDeep, mergeWith } from 'lodash'
 import { Button, ButtonProps } from '~/Button'
 
 import { useSidebarStyles } from './Sidebar'
-import { SidebarItemType } from './types'
+import { BaseSidebarItem } from './types'
 
-export interface SidebarItemProps extends SidebarItemType, ButtonProps {
+export interface SidebarItemProps extends BaseSidebarItem, ButtonProps {
   isActive?: boolean
   root?: boolean
 }

@@ -8,38 +8,41 @@ import {
 
 import { NestedSidebarItem } from './NestedSidebarItem'
 import { SidebarItem } from './SidebarItem'
-import { SidebarItemType } from './types'
+import type { SidebarItemType, SidebarNestableItem } from './types'
 
 const [SidebarStylesProvider, useSidebarStyles] = createStylesContext('Sidebar')
 
 export { useSidebarStyles }
 
-type SidebarNestableItem = SidebarItemType & {
-  subItems?: SidebarNestableItem[]
-}
 export interface SidebarProps {
-  items: SidebarNestableItem[]
+  items: SidebarItemType[]
+}
+
+const isNestableItem = (item: SidebarItemType): item is SidebarNestableItem => {
+  return 'subItems' in item
 }
 
 // Generate recursive sidebar items if nested
 const generateSidebarItems = (
-  items: SidebarNestableItem[],
+  items: SidebarItemType[],
   root?: boolean,
 ): JSX.Element[] => {
   return items.map((item, index) => {
-    if (item.subItems) {
+    if (isNestableItem(item)) {
       return (
         <NestedSidebarItem
           root={root}
           key={index}
           label={item.label}
           icon={item.icon}
+          {...item.props}
         >
           {generateSidebarItems(item.subItems, false)}
         </NestedSidebarItem>
       )
     }
-    return <SidebarItem root={root} key={index} {...item} />
+    const { props, ...rest } = item
+    return <SidebarItem root={root} key={index} {...rest} {...props} />
   })
 }
 
