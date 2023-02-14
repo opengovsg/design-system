@@ -1,15 +1,21 @@
 import { createContext, useContext, useMemo } from 'react'
-import type { SystemStyleObject } from '@chakra-ui/react'
+import {
+  SystemStyleObject,
+  useControllableState,
+  useDisclosure,
+} from '@chakra-ui/react'
 
 export interface SidebarContextProps {
   collapsed?: boolean
+  onToggleCollapse?: (collapsed: boolean) => void
   children?:
     | React.ReactNode
     | ((props: SidebarContextReturn) => React.ReactNode)
 }
 
 export interface SidebarContextReturn {
-  collapsed?: boolean
+  collapsed: boolean
+  onToggleCollapse: () => void
   labelStyles: SystemStyleObject
   containerStyles: SystemStyleObject
 }
@@ -39,10 +45,24 @@ export const useSidebarContext = () => {
 }
 
 export const useProvideSidebar = ({
-  collapsed,
+  collapsed: collapsedProp,
+  onToggleCollapse: onToggleCollapseProp,
 }: SidebarContextProps): SidebarContextReturn => {
+  const [_collapsed, _onSetCollapsed] = useControllableState({
+    value: onToggleCollapseProp ? collapsedProp : undefined,
+    onChange: onToggleCollapseProp,
+    defaultValue: collapsedProp,
+  })
+
+  const { isOpen: expanded, onToggle: onToggleCollapse } = useDisclosure({
+    id: 'sidebar',
+    isOpen: !_collapsed,
+    onOpen: () => _onSetCollapsed(false),
+    onClose: () => _onSetCollapsed(true),
+  })
+
   const labelStyles: SystemStyleObject = useMemo(() => {
-    if (collapsed) {
+    if (!expanded) {
       return {
         opacity: 0,
         transitionProperty: 'common',
@@ -54,10 +74,10 @@ export const useProvideSidebar = ({
       transitionProperty: 'common',
       transitionDuration: 'normal',
     }
-  }, [collapsed])
+  }, [expanded])
 
   const containerStyles: SystemStyleObject = useMemo(() => {
-    if (collapsed) {
+    if (!expanded) {
       return {
         transition: 'width 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms',
         width: '3.5rem',
@@ -67,11 +87,12 @@ export const useProvideSidebar = ({
       width: '100%',
       transition: 'width 225ms cubic-bezier(0.4, 0, 0.6, 1) 0ms',
     }
-  }, [collapsed])
+  }, [expanded])
 
   return {
     labelStyles,
     containerStyles,
-    collapsed,
+    collapsed: !expanded,
+    onToggleCollapse,
   }
 }

@@ -1,4 +1,6 @@
 export * from './brand'
+export * from './BxArrowToLeft'
+export * from './BxArrowToRight'
 export * from './BxBulb'
 export * from './BxCalendar'
 export * from './BxCheck'

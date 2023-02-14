@@ -1,3 +1,4 @@
+import { Flex } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { BxBulb, BxGitMerge, BxHeart, BxsStar } from '~/icons'
@@ -52,68 +53,77 @@ export default {
 const Template: StoryFn<SidebarProps> = (args) => <Sidebar {...args} />
 export const Default = Template.bind({})
 
-export const UseSubcomponents = () => {
+const BuilderTemplate: StoryFn<SidebarProps> = ({ collapsed }) => {
   return (
-    <Sidebar.Container>
-      <Sidebar.NestedItem
-        icon={<BxBulb fontSize="1.5rem" />}
-        root
-        label="Parent Option 1"
-      >
-        <Sidebar.Item label="Child Option 1" />
-        <Sidebar.Item label="Child Option 2" />
-        <Sidebar.NestedItem label="Nestable Child Option 3">
-          <Sidebar.Item label="Child Option 2" />
-        </Sidebar.NestedItem>
-      </Sidebar.NestedItem>
-      <Sidebar.Item
-        icon={<BxHeart fontSize="1.5rem" />}
-        root
-        label="Parent Option 2"
-      />
-      <Sidebar.NestedItem
-        root
-        label="Nested Options 2 this is a very long title"
-      >
-        <Sidebar.Item label="Child Option 1" />
-        <Sidebar.Item label="Child Option 2" />
-        <Sidebar.Item label="Child Option 3" />
+    <Flex minH="30rem">
+      <Sidebar.Container justify="space-between" collapsed={collapsed}>
+        <Sidebar.Section>
+          <Sidebar.NestedItem
+            icon={<BxBulb fontSize="1.5rem" />}
+            root
+            label="Parent Option 1"
+          >
+            <Sidebar.Item label="Child Option 1" />
+            <Sidebar.Item label="Child Option 2" />
+            <Sidebar.NestedItem label="Nestable Child Option 3">
+              <Sidebar.Item label="Child Option 2" />
+            </Sidebar.NestedItem>
+          </Sidebar.NestedItem>
+          <Sidebar.Item
+            icon={<BxHeart fontSize="1.5rem" />}
+            root
+            label="Parent Option 2"
+          />
+          <Sidebar.NestedItem
+            root
+            label="Nested Options 2 this is a very long title"
+          >
+            <Sidebar.Item label="Child Option 1" />
+            <Sidebar.Item label="Child Option 2" />
+            <Sidebar.Item label="Child Option 3" />
 
-        <Sidebar.NestedItem label="Nested Parent Option 1 this is very long title">
-          <Sidebar.Item label="Nested Child Option 1" />
-        </Sidebar.NestedItem>
-      </Sidebar.NestedItem>
-    </Sidebar.Container>
+            <Sidebar.NestedItem label="Nested Parent Option 1 this is very long title">
+              <Sidebar.Item label="Nested Child Option 1" />
+            </Sidebar.NestedItem>
+          </Sidebar.NestedItem>
+        </Sidebar.Section>
+        <Sidebar.CollapseButton />
+      </Sidebar.Container>
+    </Flex>
   )
 }
+
+export const UseSubcomponents = BuilderTemplate.bind({})
 
 export const UseCustomComponentInItem = () => {
   return (
     <Sidebar.Container>
-      <Sidebar.Item
-        icon={<BxHeart fontSize="1.5rem" />}
-        root
-        label="Link to OGP Website"
-        as="a"
-        href="https://open.gov.sg"
-      />
-      <Sidebar.NestedItem
-        root
-        label="Other sites"
-        icon={<BxGitMerge fontSize="1.5rem" />}
-      >
-        <Sidebar.Item label="FormSG" as="a" href="https://form.gov.sg" />
+      <Sidebar.Section>
         <Sidebar.Item
-          label="Design System"
+          icon={<BxHeart fontSize="1.5rem" />}
+          root
+          label="Link to OGP Website"
           as="a"
-          href="https://design.hack.gov.sg"
+          href="https://open.gov.sg"
         />
-      </Sidebar.NestedItem>
+        <Sidebar.NestedItem
+          root
+          label="Other sites"
+          icon={<BxGitMerge fontSize="1.5rem" />}
+        >
+          <Sidebar.Item label="FormSG" as="a" href="https://form.gov.sg" />
+          <Sidebar.Item
+            label="Design System"
+            as="a"
+            href="https://design.hack.gov.sg"
+          />
+        </Sidebar.NestedItem>
+      </Sidebar.Section>
     </Sidebar.Container>
   )
 }
 
-export const Collapsed = Template.bind({})
+export const Collapsed = BuilderTemplate.bind({})
 Collapsed.args = {
   collapsed: true,
 }
