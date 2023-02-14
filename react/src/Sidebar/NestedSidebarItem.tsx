@@ -32,8 +32,6 @@ export const NestedSidebarItem: FC<
     return merge({}, styles.parent, root ? {} : styles.child, styles.item)
   }, [root, styles.child, styles.item, styles.parent])
 
-  console.log(root, itemStyles)
-
   return (
     <Accordion
       variant="sidebar"
