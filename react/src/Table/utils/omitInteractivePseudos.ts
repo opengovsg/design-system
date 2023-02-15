@@ -3,7 +3,7 @@ import { SystemStyleObject } from '@chakra-ui/react'
 import { omit } from 'lodash'
 
 type InteractableProps = Pick<
-  DOMAttributes<any>,
+  DOMAttributes<unknown>,
   | 'onClick'
   | 'onKeyDown'
   | 'onKeyUp'

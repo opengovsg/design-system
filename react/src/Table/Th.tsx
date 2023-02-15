@@ -1,5 +1,5 @@
 import { TableColumnHeaderProps, useTableStyles } from '@chakra-ui/react'
-import { chakra, forwardRef, HTMLChakraProps } from '@chakra-ui/system'
+import { chakra, forwardRef } from '@chakra-ui/system'
 
 import { omitInteractivePseudos } from './utils/omitInteractivePseudos'
 
