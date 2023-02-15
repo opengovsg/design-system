@@ -84,7 +84,6 @@ export const DateRangePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
             maskPlaceholder={placeholder}
             ref={mergedStartInputRef}
             {...fcProps}
-            borderRightRadius={0}
             onBlur={handleInputBlur}
             onClick={handleInputClick}
             isReadOnly={fcProps.isReadOnly || !allowManualInput}
@@ -117,7 +116,6 @@ export const DateRangePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
             onClick={handleInputClick}
             ref={endInputRef}
             {...fcProps}
-            borderRightRadius={0}
             onBlur={handleInputBlur}
             isReadOnly={fcProps.isReadOnly || !allowManualInput}
           />
