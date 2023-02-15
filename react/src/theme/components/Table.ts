@@ -29,13 +29,13 @@ const getSubtleVariantThStyles = (c: string): SystemStyleObject => {
   const baseStyles: SystemStyleObject = {
     ...textStyles['caption-1'],
     textTransform: 'initial',
+    _focusVisible: layerStyles.focusRing.tightDefault._focusVisible,
   }
 
   switch (c) {
     case 'main':
     case 'sub':
     case 'critical':
-    case 'neutral':
     case 'warning':
     case 'success': {
       return {
@@ -43,11 +43,25 @@ const getSubtleVariantThStyles = (c: string): SystemStyleObject => {
         color: `interaction.${c}.default`,
         _hover: {
           bg: `interaction.${c}-subtle.hover`,
+          cursor: 'pointer',
         },
         _active: {
           bg: `interaction.${c}-subtle.active`,
         },
-        _focusVisible: layerStyles.focusRing.tightDefault._focusVisible,
+        ...baseStyles,
+      }
+    }
+    case 'neutral': {
+      return {
+        bg: `interaction.${c}-subtle.default`,
+        color: 'base.content.medium',
+        _hover: {
+          bg: `interaction.${c}-subtle.hover`,
+          cursor: 'pointer',
+        },
+        _active: {
+          bg: `interaction.${c}-subtle.active`,
+        },
         ...baseStyles,
       }
     }
@@ -74,6 +88,7 @@ export const Table = defineMultiStyleConfig({
   baseStyle,
   variants,
   defaultProps: {
+    variant: 'subtle',
     colorScheme: 'main',
   },
   sizes,
