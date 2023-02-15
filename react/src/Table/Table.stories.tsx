@@ -23,7 +23,7 @@ export default {
 const Template: StoryFn<TableProps> = (args) => {
   return (
     <TableContainer>
-      <Table variant="subtle">
+      <Table {...args}>
         <TableCaption>Imperial to metric conversion factors</TableCaption>
         <Thead>
           <Tr>

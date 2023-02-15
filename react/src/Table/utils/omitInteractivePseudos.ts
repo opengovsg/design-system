@@ -1,7 +1,25 @@
-import { SystemStyleObject, TableProps } from '@chakra-ui/react'
+import { DOMAttributes } from 'react'
+import { SystemStyleObject } from '@chakra-ui/react'
 import { omit } from 'lodash'
 
-const isInteractive = (props: TableProps) => {
+type InteractableProps = Pick<
+  DOMAttributes<any>,
+  | 'onClick'
+  | 'onKeyDown'
+  | 'onKeyUp'
+  | 'onKeyPress'
+  | 'onMouseDown'
+  | 'onMouseUp'
+  | 'onMouseEnter'
+  | 'onMouseLeave'
+  | 'onMouseMove'
+  | 'onMouseOver'
+  | 'onMouseOut'
+  | 'onFocus'
+  | 'onBlur'
+>
+
+const isInteractive = (props: InteractableProps) => {
   return (
     !!props.onClick ||
     !!props.onKeyDown ||
@@ -26,9 +44,9 @@ const INTERACTIVE_PSEUDO_PROPS = ['_active', '_hover', '_pressed', '_selected']
  *  interactive (i.e. if it does not have an `onClick`, `onKeyDown` props, etc)
  */
 export function omitInteractivePseudos(
-  props: TableProps,
-  styles: Record<string, SystemStyleObject>,
-): Record<string, SystemStyleObject> {
+  props: InteractableProps,
+  styles: SystemStyleObject,
+): SystemStyleObject {
   if (!isInteractive(props)) {
     return omit(styles, INTERACTIVE_PSEUDO_PROPS)
   }
