@@ -1,7 +1,11 @@
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-import { anatomy, SystemStyleObject } from '@chakra-ui/theme-tools'
+import { anatomy } from '@chakra-ui/theme-tools'
 
-const parts = anatomy('toolbar').parts('container')
+import { layerStyles } from '../layerStyles'
+
+import { Button } from './Button'
+
+const parts = anatomy('toolbar').parts('container', 'button', 'group')
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys)
@@ -12,7 +16,7 @@ const baseStyle = definePartsStyle({
   },
 })
 
-const getSolidVariantContainerStyles = (c: string): SystemStyleObject => {
+const getSolidVariantContainerStyles = (c: string) => {
   switch (c) {
     case 'main':
       return {
@@ -31,9 +35,32 @@ const getSolidVariantContainerStyles = (c: string): SystemStyleObject => {
   }
 }
 
-const variantSolid = definePartsStyle(({ colorScheme: c }) => {
+const getSolidVariantButtonStyles = (c: string) => {
+  if (c === 'main') {
+    return {
+      // @ts-expect-error type mismatch
+      ...Button.variants?.clear({
+        colorScheme: 'inverse',
+      }),
+      _focusVisible: layerStyles.focusRing.inverse._focusVisible,
+    }
+  }
+
+  // @ts-expect-error type mismatch
+  return Button.variants?.clear({ colorScheme: c })
+}
+
+const variantSolid = definePartsStyle((props) => {
+  const { colorScheme: c } = props
+
   return {
-    container: getSolidVariantContainerStyles(c),
+    container: {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      ...getSolidVariantContainerStyles(c),
+    },
+    button: getSolidVariantButtonStyles(c),
   }
 })
 
@@ -46,6 +73,9 @@ const sizes = {
     container: {
       py: '0.625rem',
       px: '1rem',
+    },
+    group: {
+      gap: '0.5rem',
     },
   }),
 }

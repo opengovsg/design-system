@@ -1,22 +1,19 @@
 import { PropsWithChildren } from 'react'
 import {
-  Box,
-  BoxProps,
   createStylesContext,
   Flex,
-  ThemingProps,
+  FlexProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
-import { Button } from '~/Button'
 import { IconButton } from '~/IconButton'
 
 const [ToolbarStylesProvider, useToolbarStyles] = createStylesContext('Toolbar')
 
 export { useToolbarStyles }
 
-export interface ToolbarProps extends PropsWithChildren, BoxProps {
-  colorScheme: ThemingProps<'Toolbar'>['colorScheme']
+export interface ToolbarProps extends PropsWithChildren, FlexProps {
+  colorScheme: 'main' | 'neutral'
 }
 
 /**
@@ -26,9 +23,9 @@ export const Toolbar = ({ children, ...props }: ToolbarProps): JSX.Element => {
   const styles = useMultiStyleConfig('Toolbar', props)
   return (
     <ToolbarStylesProvider value={styles}>
-      <Box __css={styles.container} {...props}>
+      <Flex __css={styles.container} {...props}>
         {children}
-      </Box>
+      </Flex>
     </ToolbarStylesProvider>
   )
 }
@@ -52,5 +49,4 @@ export const ToolbarDivider = () => {
   return <Flex></Flex>
 }
 
-export const ToolbarButton = Button
 export const ToolbarIconButton = IconButton
