@@ -31,6 +31,7 @@ import { Searchbar } from './Searchbar'
 import { SingleCountryPhoneNumberInput } from './SingleCountryPhoneNumberInput'
 import { SingleSelect } from './SingleSelect'
 import { Switch } from './Switch'
+import { Table } from './Table'
 import { Tabs } from './Tabs'
 import { Tag } from './Tag'
 import { TagInput } from './TagInput'
@@ -74,6 +75,7 @@ export const components = {
   SingleCountryPhoneNumberInput,
   SingleSelect,
   Switch,
+  Table,
   Tabs,
   Tag,
   TagInput,
