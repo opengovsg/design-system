@@ -64,6 +64,9 @@ export const SelectCombobox = forwardRef<HTMLInputElement>(
           pos="relative"
           display="grid"
           marginInlineEnd={isClearable ? '-1px' : undefined}
+          _focusWithin={{
+            zIndex: 1,
+          }}
           gridTemplateColumns="1fr"
           {...getComboboxProps({
             disabled: isDisabled,
