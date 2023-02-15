@@ -1,10 +1,6 @@
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 import { anatomy } from '@chakra-ui/theme-tools'
 
-import { layerStyles } from '../layerStyles'
-
-import { Button } from './Button'
-
 const parts = anatomy('toolbar').parts('container', 'group', 'divider')
 
 const { defineMultiStyleConfig, definePartsStyle } =
@@ -21,9 +17,10 @@ const baseStyle = definePartsStyle({
 
 const getSolidVariantContainerStyles = (c: string) => {
   switch (c) {
+    case 'sub':
     case 'main':
       return {
-        bg: 'interaction.main.default',
+        bg: `interaction.${c}.default`,
         color: 'white',
       }
     case 'neutral':
@@ -90,7 +87,7 @@ export const Toolbar = defineMultiStyleConfig({
   variants,
   sizes,
   defaultProps: {
-    colorScheme: 'main',
+    colorScheme: 'sub',
     variant: 'solid',
     size: 'md',
   },

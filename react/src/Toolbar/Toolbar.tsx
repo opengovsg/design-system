@@ -7,8 +7,6 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
-import { IconButton } from '~/IconButton'
-
 import { ToolbarProvider } from './ToolbarContext'
 
 const [ToolbarStylesProvider, useToolbarStyles] = createStylesContext('Toolbar')
@@ -16,7 +14,7 @@ const [ToolbarStylesProvider, useToolbarStyles] = createStylesContext('Toolbar')
 export { useToolbarStyles }
 
 export interface ToolbarProps extends PropsWithChildren, FlexProps {
-  colorScheme?: 'main' | 'neutral'
+  colorScheme?: 'main' | 'neutral' | 'sub'
   size?: ThemingProps<'Toolbar'>['size']
 }
 
@@ -35,20 +33,3 @@ export const Toolbar = ({ children, ...props }: ToolbarProps): JSX.Element => {
     </ToolbarProvider>
   )
 }
-
-/**
- * Component to group togglable buttons to allow selection of only one in a group.
- */
-export const ToolbarToggleGroup = () => {
-  return <Flex></Flex>
-}
-
-export const ToolbarToggleButton = () => {
-  return <Flex></Flex>
-}
-
-export const ToolbarDivider = () => {
-  return <Flex></Flex>
-}
-
-export const ToolbarIconButton = IconButton

@@ -2,7 +2,7 @@ import { createContext, FC, PropsWithChildren, useContext } from 'react'
 import { ThemingProps } from '@chakra-ui/react'
 
 export interface ToolbarContextProps {
-  colorScheme?: 'main' | 'neutral'
+  colorScheme?: 'main' | 'neutral' | 'sub'
   size?: ThemingProps<'Toolbar'>['size']
 }
 
@@ -14,7 +14,7 @@ const ToolbarContext = createContext<ToolbarContextReturn | undefined>(
 
 export const ToolbarProvider: FC<PropsWithChildren<ToolbarContextProps>> = ({
   children,
-  colorScheme = 'main',
+  colorScheme = 'sub',
   size = 'md',
 }) => {
   return (
