@@ -1,10 +1,11 @@
-import { Spacer, Text } from '@chakra-ui/react'
+import { Spacer, Stack, Text } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { BxUpload } from '..'
 
 import { Toolbar, ToolbarProps } from './Toolbar'
 import { ToolbarButton } from './ToolbarButton'
+import { ToolbarGroup } from './ToolbarGroup'
 
 export default {
   title: 'Components/Toolbar',
@@ -19,9 +20,14 @@ const Template: StoryFn<ToolbarProps> = ({ children, ...args }) => {
       <Text>1 item selected</Text>
       <Spacer />
       {children}
-      <ToolbarButton leftIcon={<BxUpload fontSize="1.25rem" />}>
-        Button
-      </ToolbarButton>
+      <ToolbarGroup>
+        <ToolbarButton leftIcon={<BxUpload fontSize="1.25rem" />}>
+          Button
+        </ToolbarButton>
+        <ToolbarButton leftIcon={<BxUpload fontSize="1.25rem" />}>
+          Button
+        </ToolbarButton>
+      </ToolbarGroup>
     </Toolbar>
   )
 }

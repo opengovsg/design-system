@@ -74,9 +74,6 @@ const sizes = {
       py: '0.625rem',
       px: '1rem',
     },
-    group: {
-      gap: '0.5rem',
-    },
   }),
 }
 

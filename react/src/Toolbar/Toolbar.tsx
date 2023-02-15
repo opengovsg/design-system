@@ -37,10 +37,6 @@ export const ToolbarToggleGroup = () => {
   return <Flex></Flex>
 }
 
-export const ToolbarGroup = () => {
-  return <Flex></Flex>
-}
-
 export const ToolbarToggleButton = () => {
   return <Flex></Flex>
 }
