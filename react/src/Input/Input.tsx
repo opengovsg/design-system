@@ -7,7 +7,7 @@ import {
   InputRightElement,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
-import { mergeWith, omit } from '@chakra-ui/utils'
+import { merge, omit } from 'lodash'
 
 import { BxsCheckCircle } from '~/icons/BxsCheckCircle'
 
@@ -35,7 +35,7 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
       <ChakraInput
         ref={ref}
         {...inputProps}
-        sx={mergeWith(inputStyles.field, props.sx)}
+        sx={merge({}, inputStyles.field, props.sx)}
       />
     )
   }
@@ -47,7 +47,7 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
       <ChakraInput
         ref={ref}
         {...inputProps}
-        sx={mergeWith(inputStyles.field, props.sx)}
+        sx={merge(inputStyles.field, props.sx)}
       />
       <InputRightElement sx={inputStyles.success}>
         <Icon as={BxsCheckCircle} />
