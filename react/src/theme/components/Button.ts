@@ -4,7 +4,7 @@ import { merge } from 'lodash'
 
 import { layerStyles } from '../layerStyles'
 import { textStyles } from '../textStyles'
-import { meetsWcagAaRatio } from '../utils'
+import { getContrastColor } from '../utils'
 import { hexToRgba } from '../utils/hexToRgba'
 
 import { Link } from './Link'
@@ -53,14 +53,13 @@ const genVariantSolidColours = ({
       }
     }
   }
-  const hasSufficientContrast = meetsWcagAaRatio(
+  // Note that using the fallback content colour for the button text could still result in bad contrast.
+  color = getContrastColor(
     getColor(theme, color),
     getColor(theme, solidVariantProps.bg),
+    'base.content.default',
   )
-  // Note that using the default content colour for the button text could still result in bad contrast.
-  if (!hasSufficientContrast) {
-    color = 'base.content.default'
-  }
+
   return { ...solidVariantProps, color }
 }
 
