@@ -44,7 +44,7 @@ const baseStyle = definePartsStyle((props) => {
     // Control is the box containing the check icon
     control: {
       bg,
-      borderRadius: '0.25rem',
+      borderRadius: 'sm',
       border: '2px solid',
       borderColor,
       _checked: {

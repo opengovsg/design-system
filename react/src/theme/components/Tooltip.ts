@@ -12,7 +12,7 @@ const baseStyle = defineStyle({
   [$fg.variable]: 'colors.base.content.inverse',
   px: '0.75rem',
   py: '0.5rem',
-  borderRadius: '0.25rem',
+  borderRadius: 'sm',
   textAlign: 'left',
   margin: '0.25rem',
   maxWidth: '19.5rem',

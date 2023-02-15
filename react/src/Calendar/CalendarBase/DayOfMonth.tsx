@@ -125,10 +125,10 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
         if (isInRange) {
           const returnStyles: SystemStyleObject = {}
           if (isLastDayOfMonth(date) || isSaturday(date)) {
-            returnStyles.borderEndRadius = '4px'
+            returnStyles.borderEndRadius = 'sm'
           }
           if (isFirstDayOfMonth(date) || isSunday(date)) {
-            returnStyles.borderStartRadius = '4px'
+            returnStyles.borderStartRadius = 'sm'
           }
           return { bg: selectedBgColor, ...returnStyles }
         }

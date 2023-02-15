@@ -17,7 +17,7 @@ const { definePartsStyle, defineMultiStyleConfig } =
 const baseButtonStyling = defineStyle({
   h: 'auto',
   border: 'none',
-  borderRadius: '0.25rem',
+  borderRadius: 'sm',
   cursor: 'pointer',
   alignSelf: 'center',
   color: 'base.content.default',

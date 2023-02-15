@@ -14,7 +14,7 @@ const baseStyleOverlay = defineStyle({
 const baseStyleDialog = defineStyle((props) => {
   const { scrollBehavior } = props
   return {
-    borderRadius: '0.25rem',
+    borderRadius: 'sm',
     my: '8rem',
     maxH: scrollBehavior === 'inside' ? 'calc(100% - 16rem)' : undefined,
     boxShadow: 'md',

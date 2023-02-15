@@ -279,7 +279,7 @@ const variants = {
 const baseStyle = defineStyle({
   ...textStyles['subhead-1'],
   whiteSpace: 'pre-wrap',
-  borderRadius: '0.25rem',
+  borderRadius: 'sm',
   border: '1px solid',
   flexShrink: 0,
   // -1px for border

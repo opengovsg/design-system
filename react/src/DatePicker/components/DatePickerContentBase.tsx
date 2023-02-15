@@ -61,7 +61,7 @@ export const DatePickerContentBase = ({
 
   return (
     <Portal>
-      <PopoverContent borderRadius="4px" w="unset" maxW="100vw" bg="white">
+      <PopoverContent borderRadius="sm" w="unset" maxW="100vw" bg="white">
         <ReactFocusLock>
           <PopoverHeader
             h="3.5rem"
