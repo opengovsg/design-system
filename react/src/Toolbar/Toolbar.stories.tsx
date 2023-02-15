@@ -1,3 +1,4 @@
+import { Text } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { Toolbar, ToolbarProps } from './Toolbar'
@@ -11,4 +12,7 @@ export default {
 
 const Template: StoryFn<ToolbarProps> = (args) => <Toolbar {...args} />
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  children: <Text>Hello</Text>,
+  colorScheme: 'main',
+}
