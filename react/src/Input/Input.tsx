@@ -60,8 +60,8 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
  * This is used in by Chakra's `InputGroup` component to remove border radii
  * when paired with `InputLeftAddon` or `InputRightAddon`.
  *
- * See https://github.com/chakra-ui/chakra-ui/blob/main/packages/input/src/input.tsx#L70 and
- * https://github.com/chakra-ui/chakra-ui/blob/main/packages/input/src/input-group.tsx#L58.
+ * See https://github.com/chakra-ui/chakra-ui/blob/main/packages/components/input/src/input.tsx#L70 and
+ * https://github.com/chakra-ui/chakra-ui/blob/main/packages/components/input/src/input-group.tsx#L71.
  */
 Input.id = 'Input'
 
