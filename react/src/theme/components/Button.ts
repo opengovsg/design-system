@@ -295,18 +295,22 @@ const baseStyle = defineStyle({
 
 const sizes = {
   xs: defineStyle({
+    ...textStyles['subhead-2'],
     minH: '2.25rem',
     minW: '2.25rem',
   }),
   sm: defineStyle({
+    ...textStyles['subhead-1'],
     minH: '2.5rem',
     minW: '2.5rem',
   }),
   md: defineStyle({
+    ...textStyles['subhead-1'],
     minH: '2.75rem',
     minW: '2.75rem',
   }),
   lg: defineStyle({
+    ...textStyles['subhead-1'],
     minH: '3rem',
     minW: '3rem',
   }),
