@@ -1,12 +1,13 @@
 import { Spacer, Text } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
-import { BxUpload } from '..'
+import { BxsTimeFive, BxUpload } from '~/icons'
 
 import { Toolbar, ToolbarProps } from './Toolbar'
 import { ToolbarButton } from './ToolbarButton'
 import { ToolbarDivider } from './ToolbarDivider'
 import { ToolbarGroup } from './ToolbarGroup'
+import { ToolbarIconButton } from './ToolbarIconButton'
 
 export default {
   title: 'Components/Toolbar',
@@ -23,19 +24,27 @@ const Template: StoryFn<ToolbarProps> = ({ children, ...args }) => {
       {children}
       <ToolbarGroup>
         <ToolbarButton leftIcon={<BxUpload fontSize="1.25rem" />}>
-          Button
+          Download
         </ToolbarButton>
-        <ToolbarButton leftIcon={<BxUpload fontSize="1.25rem" />}>
-          Button
+        <ToolbarButton leftIcon={<BxsTimeFive fontSize="1.25rem" />}>
+          Move
         </ToolbarButton>
+        <ToolbarDivider />
+        <ToolbarIconButton icon={<BxUpload />} aria-label="Upload" />
+        <ToolbarDivider />
+        <ToolbarButton>Cancel</ToolbarButton>
       </ToolbarGroup>
-      <ToolbarDivider />
-      <ToolbarButton>Cancel</ToolbarButton>
     </Toolbar>
   )
 }
-export const Default = Template.bind({})
-Default.args = {
-  colorScheme: 'main',
-  size: 'md',
+export const TemplateExample = Template.bind({})
+
+export const NeutralColorScheme = Template.bind({})
+NeutralColorScheme.args = {
+  colorScheme: 'neutral',
+}
+
+export const SizeXs = Template.bind({})
+SizeXs.args = {
+  size: 'xs',
 }
