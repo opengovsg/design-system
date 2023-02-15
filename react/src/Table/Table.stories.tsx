@@ -66,3 +66,32 @@ export const NeutralColorScheme = Template.bind({})
 NeutralColorScheme.args = {
   colorScheme: 'neutral',
 }
+
+export const InteractableHeaders: StoryFn<TableProps> = (args) => {
+  return (
+    <TableContainer>
+      <Table {...args}>
+        <Thead>
+          <Tr>
+            <Th onClick={() => alert('Column 1 clicked')}>Interactable</Th>
+            <Th>Not interactable</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          <Tr>
+            <Td>inches</Td>
+            <Td>millimetres (mm)</Td>
+          </Tr>
+          <Tr>
+            <Td>feet</Td>
+            <Td>centimetres (cm)</Td>
+          </Tr>
+          <Tr>
+            <Td>yards</Td>
+            <Td>metres (m)</Td>
+          </Tr>
+        </Tbody>
+      </Table>
+    </TableContainer>
+  )
+}
