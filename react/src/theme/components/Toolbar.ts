@@ -56,9 +56,28 @@ const variants = {
 }
 
 const sizes = {
+  xs: definePartsStyle({
+    container: {
+      gap: '0.5rem',
+      h: '3rem',
+      py: '0.375rem',
+      pl: '1rem',
+      pr: '0.25rem',
+    },
+  }),
+  sm: definePartsStyle({
+    container: {
+      gap: '0.5rem',
+      h: '3.5rem',
+      py: '0.625rem',
+      pl: '1rem',
+      pr: '0.25rem',
+    },
+  }),
   md: definePartsStyle({
     container: {
-      h: '3rem',
+      gap: '0.5rem',
+      h: '3.5rem',
       py: '0.625rem',
       pl: '1rem',
       pr: '0.25rem',

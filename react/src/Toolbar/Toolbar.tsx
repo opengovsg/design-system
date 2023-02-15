@@ -3,6 +3,7 @@ import {
   createStylesContext,
   Flex,
   FlexProps,
+  ThemingProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
@@ -16,6 +17,7 @@ export { useToolbarStyles }
 
 export interface ToolbarProps extends PropsWithChildren, FlexProps {
   colorScheme?: 'main' | 'neutral'
+  size?: ThemingProps<'Toolbar'>['size']
 }
 
 /**
@@ -24,7 +26,7 @@ export interface ToolbarProps extends PropsWithChildren, FlexProps {
 export const Toolbar = ({ children, ...props }: ToolbarProps): JSX.Element => {
   const styles = useMultiStyleConfig('Toolbar', props)
   return (
-    <ToolbarProvider colorScheme={props.colorScheme}>
+    <ToolbarProvider {...props}>
       <ToolbarStylesProvider value={styles}>
         <Flex __css={styles.container} {...props}>
           {children}

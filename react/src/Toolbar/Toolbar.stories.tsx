@@ -1,4 +1,4 @@
-import { Spacer, Stack, Text } from '@chakra-ui/react'
+import { Spacer, Text } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { BxUpload } from '..'
@@ -37,4 +37,5 @@ const Template: StoryFn<ToolbarProps> = ({ children, ...args }) => {
 export const Default = Template.bind({})
 Default.args = {
   colorScheme: 'main',
+  size: 'md',
 }
