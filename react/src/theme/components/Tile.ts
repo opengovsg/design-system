@@ -17,7 +17,7 @@ const baseStyle = definePartsStyle({
     transitionProperty: 'common',
     transitionDuration: 'normal',
     color: 'base.content.strong',
-    borderRadius: 'sm',
+    borderRadius: 'base',
     padding: '1.5rem',
     height: 'auto',
     _hover: {

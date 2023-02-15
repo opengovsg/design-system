@@ -22,7 +22,7 @@ const baseStyle = definePartsStyle({
     transitionDuration: 'normal',
   },
   fileInfoContainer: {
-    borderRadius: 'sm',
+    borderRadius: 'base',
     border: '1px solid',
     borderColor: 'base.divider.medium',
     bg: 'interaction.main-subtle.default',
@@ -130,7 +130,7 @@ const variantOutline = definePartsStyle((props) => {
       justifyContent: 'center',
       cursor: 'pointer',
       border: '1px dashed',
-      borderRadius: 'sm',
+      borderRadius: 'base',
       outline: 'none',
       _invalid: {
         // Remove extra 1px of outline.

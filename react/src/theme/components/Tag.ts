@@ -19,7 +19,7 @@ const baseStyleContainer = defineStyle({
   transitionProperty: 'common',
   transitionDuration: 'normal',
   _focusWithin: layerStyles.focusRing.default._focusVisible,
-  borderRadius: 'sm',
+  borderRadius: 'base',
   _disabled: {
     bg: 'interaction.support.disabled',
     color: 'interaction.support.disabled-content',

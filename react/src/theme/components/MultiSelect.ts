@@ -94,7 +94,7 @@ const variantOutline = definePartsStyle((props) => {
   return {
     ...comboboxVariantOutline,
     fieldwrapper: {
-      borderRadius: 'sm',
+      borderRadius: 'base',
       ...inputFieldVariantOutline,
       _focusWithin: inputFieldVariantOutline?._focusVisible,
       ...(isFocused ? inputFieldVariantOutline?._focusVisible : {}),

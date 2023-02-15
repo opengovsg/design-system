@@ -90,7 +90,7 @@ const sizes: Record<string, SystemStyleObject> = {
   md: {
     py: '0.25rem',
     px: '0.5rem',
-    borderRadius: 'sm',
+    borderRadius: 'base',
   },
 }
 

@@ -27,7 +27,7 @@ const MonthYearSelect = ({ children, ...props }: MonthYearSelectProps) => {
       // Prevents any parent form control from applying error styles to this select.
       isInvalid={false}
       variant="flushed"
-      borderRadius="sm"
+      borderRadius="base"
       color="base.content.strong"
       textStyle="subhead-1"
       flexBasis="fit-content"
