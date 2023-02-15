@@ -1,18 +1,24 @@
 import { useMemo } from 'react'
-import { merge } from 'lodash'
 
 import { Button, ButtonProps } from '~/Button'
+import { layerStyles } from '~/theme/layerStyles'
 
-import { useToolbarStyles } from './Toolbar'
+import { useToolbarContext } from './ToolbarContext'
 
 export type ToolbarButtonProps = ButtonProps
 
 export const ToolbarButton = (props: ToolbarButtonProps): JSX.Element => {
-  const styles = useToolbarStyles()
-  const buttonStyles = useMemo(
-    () => merge({}, styles.button, props.sx),
-    [styles.button, props.sx],
-  )
+  const { colorScheme } = useToolbarContext()
 
-  return <Button size="xs" {...props} sx={buttonStyles} />
+  const toolbarButtonProps: Partial<ButtonProps> = useMemo(() => {
+    if (colorScheme === 'main') {
+      return {
+        colorScheme: 'inverse',
+        _focusVisible: layerStyles.focusRing.inverse._focusVisible,
+      }
+    }
+    return { colorScheme }
+  }, [colorScheme])
+
+  return <Button size="xs" variant="clear" {...toolbarButtonProps} {...props} />
 }

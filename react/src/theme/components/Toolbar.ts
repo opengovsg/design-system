@@ -5,7 +5,7 @@ import { layerStyles } from '../layerStyles'
 
 import { Button } from './Button'
 
-const parts = anatomy('toolbar').parts('container', 'button', 'group')
+const parts = anatomy('toolbar').parts('container', 'group', 'divider')
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys)
@@ -13,6 +13,9 @@ const { defineMultiStyleConfig, definePartsStyle } =
 const baseStyle = definePartsStyle({
   container: {
     textStyle: 'subhead-2',
+  },
+  divider: {
+    borderColor: 'base.divider.medium',
   },
 })
 
@@ -35,21 +38,6 @@ const getSolidVariantContainerStyles = (c: string) => {
   }
 }
 
-const getSolidVariantButtonStyles = (c: string) => {
-  if (c === 'main') {
-    return {
-      // @ts-expect-error type mismatch
-      ...Button.variants?.clear({
-        colorScheme: 'inverse',
-      }),
-      _focusVisible: layerStyles.focusRing.inverse._focusVisible,
-    }
-  }
-
-  // @ts-expect-error type mismatch
-  return Button.variants?.clear({ colorScheme: c })
-}
-
 const variantSolid = definePartsStyle((props) => {
   const { colorScheme: c } = props
 
@@ -60,7 +48,6 @@ const variantSolid = definePartsStyle((props) => {
       alignItems: 'center',
       ...getSolidVariantContainerStyles(c),
     },
-    button: getSolidVariantButtonStyles(c),
   }
 })
 
@@ -71,8 +58,10 @@ const variants = {
 const sizes = {
   md: definePartsStyle({
     container: {
+      h: '3rem',
       py: '0.625rem',
-      px: '1rem',
+      pl: '1rem',
+      pr: '0.25rem',
     },
   }),
 }

@@ -5,6 +5,7 @@ import { BxUpload } from '..'
 
 import { Toolbar, ToolbarProps } from './Toolbar'
 import { ToolbarButton } from './ToolbarButton'
+import { ToolbarDivider } from './ToolbarDivider'
 import { ToolbarGroup } from './ToolbarGroup'
 
 export default {
@@ -28,6 +29,8 @@ const Template: StoryFn<ToolbarProps> = ({ children, ...args }) => {
           Button
         </ToolbarButton>
       </ToolbarGroup>
+      <ToolbarDivider />
+      <ToolbarButton>Cancel</ToolbarButton>
     </Toolbar>
   )
 }

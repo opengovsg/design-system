@@ -8,12 +8,14 @@ import {
 
 import { IconButton } from '~/IconButton'
 
+import { ToolbarProvider } from './ToolbarContext'
+
 const [ToolbarStylesProvider, useToolbarStyles] = createStylesContext('Toolbar')
 
 export { useToolbarStyles }
 
 export interface ToolbarProps extends PropsWithChildren, FlexProps {
-  colorScheme: 'main' | 'neutral'
+  colorScheme?: 'main' | 'neutral'
 }
 
 /**
@@ -22,11 +24,13 @@ export interface ToolbarProps extends PropsWithChildren, FlexProps {
 export const Toolbar = ({ children, ...props }: ToolbarProps): JSX.Element => {
   const styles = useMultiStyleConfig('Toolbar', props)
   return (
-    <ToolbarStylesProvider value={styles}>
-      <Flex __css={styles.container} {...props}>
-        {children}
-      </Flex>
-    </ToolbarStylesProvider>
+    <ToolbarProvider colorScheme={props.colorScheme}>
+      <ToolbarStylesProvider value={styles}>
+        <Flex __css={styles.container} {...props}>
+          {children}
+        </Flex>
+      </ToolbarStylesProvider>
+    </ToolbarProvider>
   )
 }
 
