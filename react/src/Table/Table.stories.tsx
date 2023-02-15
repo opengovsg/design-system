@@ -61,3 +61,8 @@ const Template: StoryFn<TableProps> = (args) => {
   )
 }
 export const Default = Template.bind({})
+
+export const NeutralColorScheme = Template.bind({})
+NeutralColorScheme.args = {
+  colorScheme: 'neutral',
+}
