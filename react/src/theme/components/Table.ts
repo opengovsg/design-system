@@ -13,16 +13,48 @@ const { defineMultiStyleConfig, definePartsStyle } =
 const baseStyle = definePartsStyle({})
 
 const sizes = {
-  sm: definePartsStyle({
+  xs: definePartsStyle({
     th: {
-      py: '0.5rem',
-      px: '0.5rem',
+      py: '0.875rem',
+      px: '1rem',
     },
     td: {
-      px: { base: 0, md: '0.5rem' },
-      py: { base: '0.75rem', md: '0.375rem' },
+      py: '0.875rem',
+      px: '1rem',
+      textStyle: 'caption-2',
     },
   }),
+  sm: definePartsStyle({
+    th: {
+      py: '0.875rem',
+      px: '1rem',
+    },
+    td: {
+      py: '0.875rem',
+      px: '1rem',
+      textStyle: 'caption-2',
+    },
+  }),
+  md: {
+    th: {
+      p: '1rem',
+    },
+    td: {
+      textStyle: 'body-2',
+      p: '1rem',
+    },
+  },
+  lg: {
+    th: {
+      px: '1rem',
+      py: '1.125rem',
+    },
+    td: {
+      textStyle: 'body-2',
+      px: '1rem',
+      py: '1.125rem',
+    },
+  },
 }
 
 const getSubtleVariantThStyles = (c: string): SystemStyleObject => {
@@ -77,6 +109,9 @@ const getSubtleVariantThStyles = (c: string): SystemStyleObject => {
 const variantSubtle = definePartsStyle(({ colorScheme: c }) => {
   return {
     th: getSubtleVariantThStyles(c),
+    td: {
+      color: 'base.content.default',
+    },
   }
 })
 
