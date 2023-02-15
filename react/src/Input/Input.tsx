@@ -31,13 +31,7 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
 
   // Return normal input component if not success state.
   if (!props.isSuccess) {
-    return (
-      <ChakraInput
-        ref={ref}
-        {...inputProps}
-        sx={merge({}, inputStyles.field, props.sx)}
-      />
-    )
+    return <ChakraInput ref={ref} __css={inputStyles.field} {...inputProps} />
   }
 
   return (
@@ -46,8 +40,8 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
     <InputGroup>
       <ChakraInput
         ref={ref}
+        sx={merge({}, inputStyles.field, props.sx)}
         {...inputProps}
-        sx={merge(inputStyles.field, props.sx)}
       />
       <InputRightElement sx={inputStyles.success}>
         <Icon as={BxsCheckCircle} />
