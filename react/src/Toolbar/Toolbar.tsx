@@ -1,7 +1,11 @@
-import { Flex } from '@chakra-ui/react'
+import { createStylesContext, Flex } from '@chakra-ui/react'
 
 import { Button } from '~/Button'
 import { IconButton } from '~/IconButton'
+
+const [ToolbarStylesProvider, useToolbarStyles] = createStylesContext('Toolbar')
+
+export { useToolbarStyles }
 
 export interface ToolbarProps {}
 
