@@ -20,11 +20,11 @@ const baseStyle = definePartsStyle({
     position: 'absolute',
   },
   wrapper: {
-    borderRadius: '4px',
+    borderRadius: 'base',
     boxSizing: 'border-box',
   },
   container: {
-    borderRadius: '4px',
+    borderRadius: 'base',
     background: 'inherit',
   },
   close: {

@@ -53,7 +53,7 @@ const baseStyle = defineStyle((props) => {
         color: 'interaction.links.inverse-hover',
       },
     },
-    borderRadius: '0.25rem',
+    borderRadius: 'base',
     _hover: {
       color: hoverColor,
       _disabled: {

@@ -1,13 +1,13 @@
 import {
   FormHelperText as ChakraFormHelperText,
-  HelpTextProps,
+  FormHelperTextProps as ChakraFormHelperTextProps,
   Icon,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
 import { BxsCheckCircle } from '~/icons'
 
-export interface FormHelperTextProps extends HelpTextProps {
+export interface FormHelperTextProps extends ChakraFormHelperTextProps {
   /**
    * Variant of input message, determines the styling. Defaults to `info`.
    */

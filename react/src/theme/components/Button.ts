@@ -232,7 +232,7 @@ const variantInputAttached = defineStyle((props) => {
     color: 'interaction.support.disabled-content',
     borderColor: 'base.divider.strong',
     borderStartRadius: 0,
-    borderEndRadius: '2px',
+    borderEndRadius: 'sm',
     _hover: {
       bg: 'interaction.muted.main.hover',
       _disabled: {
@@ -279,7 +279,7 @@ const variants = {
 const baseStyle = defineStyle({
   ...textStyles['subhead-1'],
   whiteSpace: 'pre-wrap',
-  borderRadius: '0.25rem',
+  borderRadius: 'base',
   border: '1px solid',
   flexShrink: 0,
   // -1px for border

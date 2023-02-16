@@ -1,6 +1,6 @@
 import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
 import { anatomy } from '@chakra-ui/theme-tools'
-import { mergeWith } from '@chakra-ui/utils'
+import { merge } from 'lodash'
 
 import { Input } from './Input'
 import { Menu } from './Menu'
@@ -23,14 +23,14 @@ const { definePartsStyle, defineMultiStyleConfig } =
 
 const itemBaseStyle = defineStyle((props) => {
   const menuItemStyle = Menu.baseStyle?.(props).item
-  return mergeWith(menuItemStyle, {
+  return merge({}, menuItemStyle, {
     _selected: menuItemStyle?._focus,
   })
 })
 
 const listBaseStyle = defineStyle((props) => {
   const menuListStyle = Menu.baseStyle?.(props).list
-  return mergeWith(menuListStyle, {
+  return merge({}, menuListStyle, {
     // To accomodate focus ring.
     my: '1px',
     w: '100%',
@@ -91,7 +91,7 @@ const variantOutline = definePartsStyle((props) => {
   return {
     list: { py: 0 },
     item: { cursor: 'pointer' },
-    field: mergeWith(inputVariantOutline?.field, {
+    field: merge({}, inputVariantOutline?.field, {
       borderRightRadius: isClearable ? 0 : undefined,
       gridArea: '1 / 1 / 2 / 3',
     }),
