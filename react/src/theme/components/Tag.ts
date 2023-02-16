@@ -30,6 +30,7 @@ const baseStyleContainer = defineStyle({
       bg: 'interaction.support.disabled',
     },
   },
+  width: 'fit-content',
   height: 'fit-content',
 })
 
@@ -63,6 +64,25 @@ const baseStyle = definePartsStyle({
 })
 
 const sizes = {
+  xs: definePartsStyle({
+    container: {
+      ...textStyles['caption-1'],
+      px: '0.5rem',
+      py: '0.125rem',
+    },
+    label: textStyles['caption-1'],
+    icon: {
+      fontSize: '1rem',
+      marginStart: '0.125rem',
+      marginEnd: '0.125rem',
+      height: '1rem',
+    },
+    closeButton: {
+      fontSize: '1rem',
+      marginStart: '0.125rem',
+      height: '1rem',
+    },
+  }),
   sm: definePartsStyle({
     container: {
       ...textStyles['body-2'],
@@ -74,10 +94,12 @@ const sizes = {
       fontSize: '1.25rem',
       marginStart: '0.25rem',
       marginEnd: '0.25rem',
+      height: '1.25rem',
     },
     closeButton: {
       fontSize: '1.25rem',
       marginStart: '0.25rem',
+      height: '1.25rem',
     },
   }),
   md: definePartsStyle({
@@ -90,11 +112,13 @@ const sizes = {
     closeButton: {
       fontSize: '1.25rem',
       marginStart: '0.25rem',
+      height: '1.25rem',
     },
     icon: {
       fontSize: '1.25rem',
       marginStart: '0.25rem',
       marginEnd: '0.25rem',
+      height: '1.25rem',
     },
   }),
 }

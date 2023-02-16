@@ -1,4 +1,4 @@
-import { SimpleGrid, TagProps, Text } from '@chakra-ui/react'
+import { Box, SimpleGrid, TagProps, Text } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { BxsInfoCircle } from '~/icons'
@@ -76,27 +76,42 @@ Stretched.args = {
 
 const TemplateGroup: StoryFn<TagProps> = (args) => (
   <SimpleGrid
-    columns={5}
+    columns={7}
     spacing={8}
-    templateColumns="repeat(5, max-content)"
+    templateColumns="repeat(7, max-content)"
     alignItems="center"
   >
+    <Box />
+    <Text>xs</Text>
+    <Text>xs-disabled</Text>
+    <Text>sm</Text>
+    <Text>sm-disabled</Text>
+    <Text>md</Text>
+    <Text>md-disabled</Text>
     <Text>main</Text>
+    <Tag {...args} size="xs" colorScheme="main" />
+    <Tag {...args} size="xs" aria-disabled colorScheme="main" />
     <Tag {...args} size="sm" colorScheme="main" />
     <Tag {...args} size="sm" aria-disabled colorScheme="main" />
     <Tag {...args} colorScheme="main" />
     <Tag {...args} aria-disabled colorScheme="main" />
     <Text>warning</Text>
+    <Tag {...args} size="xs" colorScheme="warning" />
+    <Tag {...args} size="xs" aria-disabled colorScheme="warning" />
     <Tag {...args} size="sm" colorScheme="warning" />
     <Tag {...args} size="sm" aria-disabled colorScheme="warning" />
     <Tag {...args} colorScheme="warning" />
     <Tag {...args} aria-disabled colorScheme="warning" />
     <Text>success</Text>
+    <Tag {...args} size="xs" colorScheme="success" />
+    <Tag {...args} size="xs" aria-disabled colorScheme="success" />
     <Tag {...args} size="sm" colorScheme="success" />
     <Tag {...args} size="sm" aria-disabled colorScheme="success" />
     <Tag {...args} colorScheme="success" />
     <Tag {...args} aria-disabled colorScheme="success" />
     <Text>critical</Text>
+    <Tag {...args} size="xs" colorScheme="critical" />
+    <Tag {...args} size="xs" aria-disabled colorScheme="critical" />
     <Tag {...args} size="sm" colorScheme="critical" />
     <Tag {...args} size="sm" aria-disabled colorScheme="critical" />
     <Tag {...args} colorScheme="critical" />
@@ -106,12 +121,25 @@ const TemplateGroup: StoryFn<TagProps> = (args) => (
 
 export const SubtleColours = TemplateGroup.bind({})
 SubtleColours.args = {
-  children: 'Subtle',
+  children: (
+    <>
+      <TagLeftIcon as={BxsInfoCircle} />
+      subtle tag
+      <TagCloseButton />
+    </>
+  ),
   variant: 'subtle',
 }
 
 export const SolidColours = TemplateGroup.bind({})
 SolidColours.args = {
-  children: 'Solid',
+  children: (
+    <>
+      <TagLeftIcon as={BxsInfoCircle} />
+      solid tag
+      <TagCloseButton />
+    </>
+  ),
+
   variant: 'solid',
 }
