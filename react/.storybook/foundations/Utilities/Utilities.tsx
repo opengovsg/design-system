@@ -11,11 +11,11 @@ import {
   Tbody,
   Td,
   Text,
-  Th,
   Thead,
   Tr,
   useTheme,
 } from '@chakra-ui/react'
+import { Th } from '~/Table'
 
 export const Utilities = (): JSX.Element => {
   const theme = useTheme()
@@ -88,7 +88,7 @@ export const Utilities = (): JSX.Element => {
           <Text as="h2" textStyle="h2" color="brand.primary.500" mb="1.5rem">
             Spacing
           </Text>
-          <Table variant="simple">
+          <Table colorScheme='neutral'>
             <TableCaption>Spacing</TableCaption>
             <Thead>
               <Tr>
