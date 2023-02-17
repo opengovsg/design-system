@@ -11,6 +11,10 @@ import { layerStyles } from './layerStyles'
 import { textStyles } from './textStyles'
 
 export const theme = extendTheme({
+  config: {
+    initialColorMode: 'light',
+    useSystemColorMode: false,
+  },
   styles: {
     global: {
       body: {
