@@ -10,7 +10,7 @@ const ActiveIndicator = (): JSX.Element => (
     width="1.5rem"
     height="0.5rem"
     borderRadius="full"
-    backgroundColor="secondary.500"
+    backgroundColor="interaction.support.selected"
     position="absolute"
   />
 )
@@ -31,7 +31,7 @@ const CircleIndicator = ({
       height="0.75rem"
       padding="0.125rem"
       borderRadius="full"
-      backgroundColor="secondary.200"
+      backgroundColor="interaction.support.unselected"
       marginRight={isActiveIndicator ? '1.25rem' : '0.25rem'}
       onClick={onClick}
       _hover={{ backgroundColor: 'secondary.300' }}
@@ -50,9 +50,19 @@ const CircleIndicator = ({
   )
 }
 
-interface ProgressIndicatorProps {
+export interface ProgressIndicatorProps {
+  /**
+   * The number of indicators to display
+   */
   numIndicators: number
+  /**
+   * The current active indicator, this will be longer
+   */
   currActiveIdx: number
+  /**
+   * Action to take when the indicator is clicked
+   * @param indicatorIdx The indicator that was clicked
+   */
   onClick: (indicatorIdx: number) => void
 }
 
