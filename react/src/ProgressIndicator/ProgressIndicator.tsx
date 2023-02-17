@@ -1,19 +1,12 @@
 import { useMemo } from 'react'
-import { Box, BoxProps } from '@chakra-ui/react'
+import { Box, BoxProps, useMultiStyleConfig } from '@chakra-ui/react'
 
 import { MotionBox } from '../motion'
 
-const ActiveIndicator = (): JSX.Element => (
-  <Box
-    // Top required to align it with CircleIndicators
-    top="0.125rem"
-    width="1.5rem"
-    height="0.5rem"
-    borderRadius="full"
-    backgroundColor="interaction.support.selected"
-    position="absolute"
-  />
-)
+const ActiveIndicator = (): JSX.Element => {
+  const styles = useMultiStyleConfig('ProgressIndicator')
+  return <Box __css={styles.activeIndicator} />
+}
 
 interface CircleIndicatorProps extends BoxProps {
   onClick: () => void
@@ -25,14 +18,10 @@ const CircleIndicator = ({
   isActiveIndicator,
   ...props
 }: CircleIndicatorProps): JSX.Element => {
+  const styles = useMultiStyleConfig('ProgressIndicator', { isActiveIndicator })
   return (
     <Box
-      width="0.75rem"
-      height="0.75rem"
-      padding="0.125rem"
-      borderRadius="full"
-      backgroundColor="interaction.support.unselected"
-      marginRight={isActiveIndicator ? '1.25rem' : '0.25rem'}
+      __css={styles.circleIndicator}
       onClick={onClick}
       _hover={{ backgroundColor: 'secondary.300' }}
       _focus={
@@ -43,7 +32,6 @@ const CircleIndicator = ({
               boxShadow: `0 0 0 1px var(--chakra-colors-secondary-400)`,
             }
       }
-      backgroundClip="content-box"
       as="button"
       {...props}
     />
@@ -71,6 +59,8 @@ export const ProgressIndicator = ({
   currActiveIdx,
   onClick,
 }: ProgressIndicatorProps): JSX.Element => {
+  const styles = useMultiStyleConfig('ProgressIndicator')
+
   const indicators = useMemo(
     () => Array(numIndicators).fill(1),
     [numIndicators],
@@ -81,7 +71,7 @@ export const ProgressIndicator = ({
   }, [currActiveIdx])
 
   return (
-    <Box display="inline-flex" alignSelf="center">
+    <Box __css={styles.container}>
       {indicators.map((_, idx) => (
         <CircleIndicator
           key={idx}

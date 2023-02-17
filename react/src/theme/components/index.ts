@@ -26,6 +26,7 @@ import { NumberInput } from './NumberInput'
 import { Pagination } from './Pagination'
 import { PhoneNumberInput } from './PhoneNumberInput'
 import { Progress } from './Progress'
+import { ProgressIndicator } from './ProgressIndicator'
 import { Radio } from './Radio'
 import { Searchbar } from './Searchbar'
 import { SingleCountryPhoneNumberInput } from './SingleCountryPhoneNumberInput'
@@ -69,6 +70,7 @@ export const components = {
   Pagination,
   PhoneNumberInput,
   Progress,
+  ProgressIndicator,
   Radio,
   Searchbar,
   SingleCountryPhoneNumberInput,
