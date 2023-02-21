@@ -7,7 +7,6 @@ import {
   Text,
   VisuallyHidden,
 } from '@chakra-ui/react'
-import { dataAttr } from '@chakra-ui/utils'
 
 import type { ComboboxItem } from '~/SingleSelect'
 import { useSelectContext } from '~/SingleSelect'
@@ -47,7 +46,6 @@ export const MultiDropdownItem = ({
   return (
     <ListItem
       sx={styles.item}
-      data-active={dataAttr(isSelected)}
       {...getItemProps({
         item,
         index,
