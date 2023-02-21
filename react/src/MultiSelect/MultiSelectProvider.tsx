@@ -251,6 +251,11 @@ export const MultiSelectProvider = ({
             ...changes,
             isOpen: false, // keep the menu closed when input gets focused.
           }
+        case useCombobox.stateChangeTypes.ToggleButtonClick:
+          return {
+            ...changes,
+            isOpen: !state.isOpen,
+          }
         default:
           return changes
       }

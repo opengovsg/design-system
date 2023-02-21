@@ -151,7 +151,7 @@ export const SingleSelectProvider = ({
           return
       }
     },
-    stateReducer: (_state, { changes, type }) => {
+    stateReducer: (state, { changes, type }) => {
       switch (type) {
         // Handle controlled `value` prop changes.
         case useCombobox.stateChangeTypes.ControlledPropUpdatedSelectedItem:
@@ -159,8 +159,8 @@ export const SingleSelectProvider = ({
           // This suggests that there is some initial input state that we want to keep.
           // This can only happen on first mount, since inputValue will be empty string
           // on future actions.
-          if (_state.inputValue && !changes.selectedItem) {
-            return { ...changes, inputValue: _state.inputValue }
+          if (state.inputValue && !changes.selectedItem) {
+            return { ...changes, inputValue: state.inputValue }
           }
           return {
             ...changes,
@@ -171,7 +171,7 @@ export const SingleSelectProvider = ({
           if (isClearable) return changes
           return {
             ...changes,
-            selectedItem: _state.selectedItem,
+            selectedItem: state.selectedItem,
           }
         }
         case useCombobox.stateChangeTypes.FunctionSelectItem:
@@ -190,6 +190,11 @@ export const SingleSelectProvider = ({
           return {
             ...changes,
             isOpen: false, // keep the menu closed when input gets focused.
+          }
+        case useCombobox.stateChangeTypes.ToggleButtonClick:
+          return {
+            ...changes,
+            isOpen: !state.isOpen,
           }
         default:
           return changes

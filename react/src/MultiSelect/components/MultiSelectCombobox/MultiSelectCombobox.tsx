@@ -27,6 +27,7 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
       toggleMenu,
       isInvalid,
       inputRef,
+      getToggleButtonProps,
     } = useSelectContext()
 
     const { getDropdownProps } = useMultiSelectContext()
@@ -83,21 +84,25 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
         <Box
           as="button"
           type="button"
-          alignSelf="flex-start"
-          aria-disabled={isDisabled}
-          sx={styles.chevron}
-          // Needed for screen readers to trigger toggle action
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          //@ts-ignore
-          onClick={(e) => {
-            handleToggleMenu()
-            e.stopPropagation()
+          _disabled={{
+            cursor: 'not-allowed',
           }}
+          alignSelf="flex-start"
+          sx={styles.chevron}
+          aria-label={`${isOpen ? 'Close' : 'Open'} dropdown options`}
+          {...getToggleButtonProps({
+            disabled: isDisabled || isReadOnly,
+            // Allow navigation to this button with screen readers.
+            tabIndex: 0,
+            // onClick needs to be defined on the toggle button itself to allow
+            // screen readers to activate the click action, but need to stop
+            // bubbling up to the parent to avoid double-toggling
+            onClick: (e) => e.stopPropagation(),
+          })}
         >
           <Icon
             as={isOpen ? BxsChevronUp : BxsChevronDown}
-            aria-label={`${isOpen ? 'Close' : 'Open'} dropdown options icon`}
-            aria-disabled={isDisabled}
+            aria-disabled={isDisabled || isReadOnly}
           />
         </Box>
       </Flex>
