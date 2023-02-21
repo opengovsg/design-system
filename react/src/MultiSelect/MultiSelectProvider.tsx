@@ -86,7 +86,7 @@ export const MultiSelectProvider = ({
   maxItems = 4,
   downshiftComboboxProps = {},
   downshiftMultiSelectProps = {},
-  inputAria: inputAriaProp,
+  inputAria,
   children,
   size = 'md',
   colorScheme,
@@ -176,7 +176,6 @@ export const MultiSelectProvider = ({
     closeMenu,
     isOpen,
     getLabelProps,
-    getComboboxProps,
     getMenuProps,
     getInputProps,
     getItemProps,
@@ -247,8 +246,14 @@ export const MultiSelectProvider = ({
             inputValue: '',
             isOpen: false,
           }
+        case useCombobox.stateChangeTypes.InputFocus:
+          return {
+            ...changes,
+            isOpen: false, // keep the menu closed when input gets focused.
+          }
+        default:
+          return changes
       }
-      return changes
     },
     ...downshiftComboboxProps,
   })
@@ -266,20 +271,6 @@ export const MultiSelectProvider = ({
     },
     [selectedItems],
   )
-
-  const inputAria = useMemo(() => {
-    if (inputAriaProp) return inputAriaProp
-    let label = 'No options selected'
-    if (selectedItems.length > 0) {
-      label = `Options ${selectedItems
-        .map((i) => itemToValue(i))
-        .join(',')}, selected`
-    }
-    return {
-      id: `${name}-current-selection`,
-      label,
-    }
-  }, [inputAriaProp, name, selectedItems])
 
   const styles = useMultiStyleConfig('MultiSelect', {
     size,
@@ -305,7 +296,6 @@ export const MultiSelectProvider = ({
         isItemSelected,
         toggleMenu,
         closeMenu,
-        getComboboxProps,
         getInputProps,
         getItemProps,
         getLabelProps,

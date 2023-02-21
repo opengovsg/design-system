@@ -10,11 +10,7 @@ import { useCombobox, UseComboboxProps } from 'downshift'
 
 import { useItems } from './hooks/useItems'
 import { defaultFilter } from './utils/defaultFilter'
-import {
-  isItemDisabled,
-  itemToLabelString,
-  itemToValue,
-} from './utils/itemUtils'
+import { isItemDisabled, itemToValue } from './utils/itemUtils'
 import { VIRTUAL_LIST_ITEM_HEIGHT, VIRTUAL_LIST_MAX_HEIGHT } from './constants'
 import { SelectContext, SharedSelectContextReturnProps } from './SelectContext'
 import { ComboboxItem } from './types'
@@ -59,7 +55,7 @@ export const SingleSelectProvider = ({
   isDisabled: isDisabledProp,
   isRequired: isRequiredProp,
   children,
-  inputAria: inputAriaProp,
+  inputAria,
   colorScheme,
   size = 'md',
   comboboxProps = {},
@@ -109,7 +105,6 @@ export const SingleSelectProvider = ({
     closeMenu,
     isOpen,
     getLabelProps,
-    getComboboxProps,
     getMenuProps,
     getInputProps,
     getItemProps,
@@ -191,6 +186,11 @@ export const SingleSelectProvider = ({
             isOpen: false,
           }
         }
+        case useCombobox.stateChangeTypes.InputFocus:
+          return {
+            ...changes,
+            isOpen: false, // keep the menu closed when input gets focused.
+          }
         default:
           return changes
       }
@@ -218,18 +218,6 @@ export const SingleSelectProvider = ({
     colorScheme,
   })
 
-  const inputAria = useMemo(() => {
-    if (inputAriaProp) return inputAriaProp
-    let label = 'No option selected'
-    if (selectedItem) {
-      label = `Option ${itemToLabelString(selectedItem)}, selected`
-    }
-    return {
-      id: `${name}-current-selection`,
-      label,
-    }
-  }, [inputAriaProp, name, selectedItem])
-
   const virtualListHeight = useMemo(() => {
     const totalHeight = filteredItems.length * VIRTUAL_LIST_ITEM_HEIGHT[size]
     // If the total height is less than the max height, just return the total height.
@@ -246,7 +234,6 @@ export const SingleSelectProvider = ({
         isItemSelected,
         toggleMenu,
         closeMenu,
-        getComboboxProps,
         getInputProps,
         getItemProps,
         getLabelProps,
