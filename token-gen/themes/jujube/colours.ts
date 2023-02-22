@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Jan 2023 06:34:30 GMT
+ * Generated on Wed, 22 Feb 2023 03:49:41 GMT
  */
 
 export const colours =  {
@@ -30,22 +30,22 @@ export const colours =  {
       "900": "#272d41",
     },
     secondary: {
-      "50": "#fff8f9",
-      "100": "#FDDCE1",
-      "200": "#faadb8",
-      "300": "#f78092",
-      "400": "#f34862",
-      "500": "#cb2e46",
-      "600": "#ad0024",
-      "700": "#970016",
-      "800": "#820004",
-      "900": "#640000",
+      "50": "#fef7f7",
+      "100": "#FBE9E9",
+      "200": "#f4acac",
+      "300": "#ee8080",
+      "400": "#e74f4f",
+      "500": "#c03434",
+      "600": "#992a2a",
+      "700": "#852424",
+      "800": "#721f1f",
+      "900": "#571717",
     },
   },
   base: {
     canvas: {
       inverse: "#272d41",
-      "brand-subtle": "#fff8f9",
+      "brand-subtle": "#fef7f7",
       default: "#ffffff",
       alt: "#F8F9F9",
       backdrop: "#EDEDED",
@@ -168,14 +168,14 @@ export const colours =  {
       active: "#9aa0b3",
     },
     sub: {
-      default: "#cb2e46",
-      hover: "#ad0024",
-      active: "#970016",
+      default: "#c03434",
+      hover: "#992a2a",
+      active: "#852424",
     },
     "sub-subtle": {
-      default: "#FDDCE1",
-      hover: "#faadb8",
-      active: "#f78092",
+      default: "#FBE9E9",
+      hover: "#f4acac",
+      active: "#ee8080",
     },
     critical: {
       default: "#c03434",
@@ -223,8 +223,8 @@ export const colours =  {
         active: "#e9eaee",
       },
       sub: {
-        hover: "#fff8f9",
-        active: "#FDDCE1",
+        hover: "#fef7f7",
+        active: "#FBE9E9",
       },
       critical: {
         hover: "#fef7f7",
@@ -239,6 +239,10 @@ export const colours =  {
       main: {
         hover: "rgba(93, 103, 133, 0.04)",
         active: "rgba(93, 103, 133, 0.12)",
+      },
+      sub: {
+        hover: "rgba(192, 52, 52, 0.04)",
+        active: "rgba(192, 52, 52, 0.12)",
       },
       critical: {
         hover: "rgba(192, 52, 52, 0.04)",

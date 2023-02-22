@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Jan 2023 06:34:30 GMT
+ * Generated on Wed, 22 Feb 2023 03:49:41 GMT
  */
 
 export const colours =  {
@@ -227,6 +227,10 @@ export const colours =  {
       main: {
         hover: "rgba(0, 93, 234, 0.04)",
         active: "rgba(0, 93, 234, 0.12)",
+      },
+      sub: {
+        hover: "rgba(94, 101, 145, 0.04)",
+        active: "rgba(94, 101, 145, 0.12)",
       },
       critical: {
         hover: "rgba(192, 52, 52, 0.04)",

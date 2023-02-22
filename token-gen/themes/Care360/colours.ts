@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Jan 2023 06:34:30 GMT
+ * Generated on Wed, 22 Feb 2023 03:49:41 GMT
  */
 
 export const colours =  {
@@ -126,6 +126,23 @@ export const colours =  {
     "800": "#533800",
     "900": "#3f2b00",
   },
+  utility: {
+    feedback: {
+      warning: "#E2B73E",
+      info: "#3D66BA",
+      "info-subtle": "#F1F4FC",
+      "warning-subtle": "#fffae1",
+      success: "#0B7D57",
+      "success-subtle": "#F5FAF9",
+      critical: "#D22C2C",
+      "critical-subtle": "#FEF9F9",
+    },
+    "focus-default": "#3D66BA",
+    "focus-inverse": "#ffffff",
+    "input-prefilled": "#fffae1",
+    ui: "#ffffff",
+    "ui-clear": "rgba(255, 255, 255, 0)",
+  },
   grey: {
     "50": "#F8F9F9",
     "100": "#EDEDED",
@@ -240,6 +257,10 @@ export const colours =  {
         hover: "rgba(61, 102, 186, 0.04)",
         active: "rgba(61, 102, 186, 0.12)",
       },
+      sub: {
+        hover: "rgba(77, 101, 130, 0.04)",
+        active: "rgba(77, 101, 130, 0.12)",
+      },
       critical: {
         hover: "rgba(210, 44, 44, 0.04)",
         active: "rgba(210, 44, 44, 0.12)",
@@ -269,22 +290,5 @@ export const colours =  {
       "inverse-default": "#ffffff",
       "inverse-hover": "#EDEDED",
     },
-  },
-  utility: {
-    feedback: {
-      info: "#3D66BA",
-      "info-subtle": "#F1F4FC",
-      warning: "#FFF4C6",
-      "warning-subtle": "#fffae1",
-      success: "#0B7D57",
-      "success-subtle": "#F5FAF9",
-      critical: "#D22C2C",
-      "critical-subtle": "#FEF9F9",
-    },
-    "focus-default": "#3D66BA",
-    "focus-inverse": "#ffffff",
-    "input-prefilled": "#fffae1",
-    ui: "#ffffff",
-    "ui-clear": "rgba(255, 255, 255, 0)",
   },
 };
