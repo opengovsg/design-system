@@ -105,6 +105,8 @@ export const FormLabel = ({
   )
 }
 
+// Required for FormControl parent to be able to find FormLabel children components.
+FormLabel.displayName = 'FormLabel'
 FormLabel.Label = ChakraFormLabel
 
 interface FormLabelDescriptionProps extends TextProps, WithReactMarkdownSsr {
