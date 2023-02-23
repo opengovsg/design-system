@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import { Stack } from '@chakra-ui/react'
+import { FormControl, Stack } from '@chakra-ui/react'
 import { useArgs } from '@storybook/client-api'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { BxGitMerge, BxHeart } from '~/icons'
 import { fixedHeightDecorator } from '~/utils/storybook'
+
+import { FormLabel } from '..'
 
 import { itemToValue } from './utils/itemUtils'
 import { SingleSelect, SingleSelectProps } from './SingleSelect'
@@ -173,4 +175,20 @@ Invalid.args = {
 export const Disabled = Template.bind({})
 Disabled.args = {
   isDisabled: true,
+}
+
+export const FormInput: StoryFn<SingleSelectProps> = (args) => {
+  const [value, setValue] = useState<string>(args.value)
+
+  return (
+    <FormControl id="test">
+      <FormLabel>This is a label</FormLabel>
+      <SingleSelect
+        name="test"
+        value={value}
+        onChange={setValue}
+        items={INITIAL_COMBOBOX_ITEMS}
+      />
+    </FormControl>
+  )
 }
