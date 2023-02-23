@@ -26,6 +26,7 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
       isOpen,
       toggleMenu,
       isInvalid,
+      isSearchable,
       inputRef,
       getToggleButtonProps,
     } = useSelectContext()
@@ -73,7 +74,7 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
                 ref: mergedRefs,
                 onFocus: () => setIsFocused(true),
                 onKeyDown: handleInputTabKeydown,
-                readOnly: isReadOnly,
+                readOnly: isReadOnly || !isSearchable,
                 disabled: isDisabled,
               }),
               required: isRequired,
