@@ -43,6 +43,7 @@ const baseStyle = defineStyle((props) => {
   const { color, hoverColor } = getLinkColors(props)
 
   return {
+    outlineOffset: 0,
     height: 'fit-content',
     width: 'fit-content',
     position: 'relative',
