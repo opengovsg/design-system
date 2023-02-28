@@ -191,3 +191,60 @@ LinkPrimary.args = {
   variant: 'link',
   colorScheme: 'brand.primary',
 }
+
+export const Sizes = () => (
+  <SimpleGrid columns={4} gap="1rem" textAlign="center">
+    <Text>Solid</Text>
+    <Text>Outline</Text>
+    <Text>Clear</Text>
+    <Text>Reverse</Text>
+    <Button size="xs" variant="solid">
+      extra small
+    </Button>
+    <Button size="xs" variant="outline">
+      extra small
+    </Button>
+    <Button size="xs" variant="clear" colorScheme="neutral">
+      extra small
+    </Button>
+    <Button size="xs" variant="reverse">
+      extra small
+    </Button>
+    <Button size="sm" variant="solid">
+      small
+    </Button>
+    <Button size="sm" variant="outline">
+      small
+    </Button>
+    <Button size="sm" variant="clear" colorScheme="neutral">
+      small
+    </Button>
+    <Button size="sm" variant="reverse">
+      small
+    </Button>
+    <Button size="md" variant="solid">
+      medium
+    </Button>
+    <Button size="md" variant="outline">
+      medium
+    </Button>
+    <Button size="md" variant="clear" colorScheme="neutral">
+      medium
+    </Button>
+    <Button size="md" variant="reverse">
+      medium
+    </Button>
+    <Button size="lg" variant="solid">
+      large
+    </Button>
+    <Button size="lg" variant="outline">
+      large
+    </Button>
+    <Button size="lg" variant="clear" colorScheme="neutral">
+      large
+    </Button>
+    <Button size="lg" variant="reverse">
+      large
+    </Button>
+  </SimpleGrid>
+)

@@ -94,3 +94,14 @@ export const getContrast = (
 
   return (Math.max(lum1, lum2) + LUM_FLARE) / (Math.min(lum1, lum2) + LUM_FLARE)
 }
+
+export const getContrastColor = (
+  fg: string,
+  bg: string,
+  fallback: string,
+): string => {
+  if (meetsWcagAaRatio(fg, bg)) {
+    return fg
+  }
+  return fallback
+}
