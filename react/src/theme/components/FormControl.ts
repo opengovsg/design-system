@@ -23,7 +23,6 @@ const baseStyleRequiredIndicator = defineStyle({
 const baseStyleHelperText = defineStyle({
   [$fg.variable]: 'colors.base.content.medium',
   color: $fg.reference,
-  alignItems: 'top',
   ...textStyles['body-2'],
   mt: 0,
 })
@@ -43,6 +42,7 @@ const baseStyle = definePartsStyle({
     marginEnd: '0.5em',
     fontSize: '1rem',
     height: '1.25em',
+    verticalAlign: 'bottom',
   },
 })
 
