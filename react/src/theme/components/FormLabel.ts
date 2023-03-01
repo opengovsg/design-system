@@ -3,7 +3,7 @@ import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 import { textStyles } from '../textStyles'
 
 const baseStyle = defineStyle({
-  marginInlineEnd: 0,
+  marginBottom: '0.75rem',
   color: 'base.content.strong',
 })
 
