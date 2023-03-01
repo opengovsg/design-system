@@ -1,9 +1,11 @@
+import { useMemo } from 'react'
 import {
   FormHelperText as ChakraFormHelperText,
   FormHelperTextProps as ChakraFormHelperTextProps,
   Icon,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
+import { merge } from 'lodash'
 
 import { BxsCheckCircle } from '~/icons'
 
@@ -26,8 +28,12 @@ export const FormHelperText = ({
 }: FormHelperTextProps): JSX.Element => {
   const styles = useMultiStyleConfig('Form', props)
 
+  const mergedStyles = useMemo(
+    () => merge({}, styles.helperText, props.sx),
+    [props.sx, styles.helperText],
+  )
   return (
-    <ChakraFormHelperText {...props} sx={styles.helperText}>
+    <ChakraFormHelperText {...props} sx={mergedStyles}>
       {props.variant === 'success' && (
         <Icon aria-hidden as={BxsCheckCircle} sx={styles.icon} />
       )}

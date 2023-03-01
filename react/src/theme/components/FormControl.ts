@@ -16,12 +16,12 @@ const $fg = cssVar('form-control-color')
 
 const baseStyleRequiredIndicator = defineStyle({
   marginStart: '1',
-  [$fg.variable]: 'utility.feedback.critical',
+  [$fg.variable]: 'colors.utility.feedback.critical',
   color: $fg.reference,
 })
 
 const baseStyleHelperText = defineStyle({
-  [$fg.variable]: 'base.content.medium',
+  [$fg.variable]: 'colors.base.content.medium',
   color: $fg.reference,
   alignItems: 'top',
   ...textStyles['body-2'],
@@ -48,7 +48,7 @@ const baseStyle = definePartsStyle({
 
 const variantSuccess = definePartsStyle({
   helperText: {
-    [$fg.variable]: 'utility.feedback.success',
+    [$fg.variable]: 'colors.utility.feedback.success',
     color: $fg.reference,
   },
 })
