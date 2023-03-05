@@ -67,7 +67,7 @@
     "@storybook/addons": "7.0.0-beta.55",
     "@storybook/client-api": "7.0.0-beta.55",
     "@storybook/react": "7.0.0-beta.55",
-    "@storybook/react-vite": "7.0.0-beta.55",
+    "@storybook/react-vite": "7.0.0-beta.61",
     "@storybook/theming": "7.0.0-beta.55",
     "@types/country-flag-icons": "^1.2.0",
     "@types/react": "^18.0.14",
