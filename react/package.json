@@ -65,7 +65,7 @@
     "@storybook/addon-essentials": "7.0.0-beta.55",
     "@storybook/addon-links": "7.0.0-beta.55",
     "@storybook/addons": "7.0.0-beta.55",
-    "@storybook/client-api": "7.0.0-beta.55",
+    "@storybook/client-api": "7.0.0-beta.61",
     "@storybook/react": "7.0.0-beta.55",
     "@storybook/react-vite": "7.0.0-beta.55",
     "@storybook/theming": "7.0.0-beta.55",
