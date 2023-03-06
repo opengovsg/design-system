@@ -46,5 +46,11 @@ SizeSmall.args = {
   defaultValue: new Date('2021-09-13'),
 }
 
+export const SizeXs = Template.bind({})
+SizeXs.args = {
+  size: 'xs',
+  defaultValue: new Date('2021-09-13'),
+}
+
 export const Mobile = Template.bind({})
 Mobile.parameters = getMobileViewParameters()

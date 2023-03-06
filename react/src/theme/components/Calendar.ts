@@ -95,41 +95,47 @@ const baseDayOfMonthStyles = defineStyle((props) => {
   }
 })
 
+// Both sizes have the same styles for now.
+// Declared here since datepicker has xs styling, but calendar does not.
+// This allows datepicker's calendar to have sm styling in both xs and sm sizes.
+const xsSmStyle = definePartsStyle({
+  dayOfMonth: {
+    textStyle: 'body-2',
+    p: '0.25rem',
+    aspectRatio: '1 / 1',
+    w: '2.5rem',
+    minW: '2.5rem',
+  },
+  dayNamesContainer: {
+    textStyle: 'caption-1',
+    color: 'base.content.default',
+    w: '2.5rem',
+    minW: '2.5rem',
+    h: '2.25rem',
+  },
+  monthYearSelectorContainer: {
+    h: '3rem',
+  },
+  monthYearSelect: {
+    ...textStyles['subhead-2'],
+  },
+  calendarContainer: {
+    pb: '1rem',
+    px: '0.625rem',
+    mb: '-1px',
+  },
+  todayLinkContainer: {
+    py: '0.5rem',
+  },
+  todayLink: {
+    textStyle: 'body-2',
+    ...textStyles['body-2'],
+  },
+})
+
 const sizes = {
-  sm: definePartsStyle({
-    dayOfMonth: {
-      textStyle: 'body-2',
-      p: '0.25rem',
-      aspectRatio: '1 / 1',
-      w: '2.5rem',
-      minW: '2.5rem',
-    },
-    dayNamesContainer: {
-      textStyle: 'caption-1',
-      color: 'base.content.default',
-      w: '2.5rem',
-      minW: '2.5rem',
-      h: '2.25rem',
-    },
-    monthYearSelectorContainer: {
-      h: '3rem',
-    },
-    monthYearSelect: {
-      ...textStyles['subhead-2'],
-    },
-    calendarContainer: {
-      pb: '1rem',
-      px: '0.625rem',
-      mb: '-1px',
-    },
-    todayLinkContainer: {
-      py: '0.5rem',
-    },
-    todayLink: {
-      textStyle: 'body-2',
-      ...textStyles['body-2'],
-    },
-  }),
+  xs: xsSmStyle,
+  sm: xsSmStyle,
   md: definePartsStyle({
     dayOfMonth: {
       textStyle: 'body-1',
