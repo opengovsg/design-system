@@ -133,6 +133,7 @@ export const CalendarHeader = memo(
     const styles = useCalendarStyles()
     const {
       renderProps: { calendars, getBackProps, getForwardProps },
+      size,
     } = useCalendar()
 
     return (
@@ -147,6 +148,7 @@ export const CalendarHeader = memo(
             <IconButton
               variant="clear"
               colorScheme="neutral"
+              size={size}
               icon={<BxChevronLeft />}
               aria-label="Back one month"
               {...getBackProps({ calendars })}
@@ -154,6 +156,7 @@ export const CalendarHeader = memo(
             <IconButton
               variant="clear"
               colorScheme="neutral"
+              size={size}
               icon={<BxChevronRight />}
               aria-label="Forward one month"
               {...getForwardProps({ calendars })}
