@@ -1,16 +1,22 @@
-import { useMemo } from 'react'
+import { FC, useMemo } from 'react'
 import ReactMarkdown from 'react-markdown'
 import {
   Box,
+  chakra,
   FormHelperText,
   FormLabel as ChakraFormLabel,
   FormLabelProps as ChakraFormLabelProps,
+  forwardRef,
+  HTMLChakraProps,
   Icon,
   Text,
   TextProps,
+  ThemingProps,
   useFormControlContext,
+  useMultiStyleConfig,
   VisuallyHidden,
 } from '@chakra-ui/react'
+import { merge } from 'lodash'
 
 import { useMdComponents } from '~/hooks/useMdComponents'
 import { BxsHelpCircle } from '~/icons/BxsHelpCircle'
@@ -66,6 +72,7 @@ export const FormLabel = ({
   children,
   ssr,
   mdIsExternalLinkFn,
+  size,
   ...labelProps
 }: FormLabelProps): JSX.Element => {
   return (
@@ -73,21 +80,31 @@ export const FormLabel = ({
       requiredIndicator={<Box />}
       display="flex"
       flexDir="column"
+      size={size}
       {...labelProps}
     >
       <Box>
         {questionNumber && (
-          <FormLabel.QuestionNumber>{questionNumber}</FormLabel.QuestionNumber>
+          <FormLabel.QuestionNumber size={size}>
+            {questionNumber}
+          </FormLabel.QuestionNumber>
         )}
         {children}
-        <FormLabel.OptionalIndicator isRequired={isRequired} />
+        <FormLabel.OptionalIndicator size={size} isRequired={isRequired} />
         {tooltipText && (
-          <Tooltip label={tooltipText} aria-label="Label tooltip">
+          <Tooltip
+            size={size}
+            label={tooltipText}
+            aria-label="Label tooltip"
+            wrapperStyles={{
+              display: 'inline-flex',
+            }}
+          >
             <Icon
+              lineHeight={1}
               ml="0.5rem"
               color="base.content.strong"
               as={BxsHelpCircle}
-              verticalAlign="middle"
             />
           </Tooltip>
         )}
@@ -105,19 +122,21 @@ export const FormLabel = ({
   )
 }
 
+// Required for FormControl parent to be able to find FormLabel children components.
+FormLabel.displayName = 'FormLabel'
 FormLabel.Label = ChakraFormLabel
 
 interface FormLabelDescriptionProps extends TextProps, WithReactMarkdownSsr {
   useMarkdown?: boolean
   children: string
 }
-const FormLabelDescription = ({
+const FormLabelDescription: FC<FormLabelDescriptionProps> = ({
   children,
   useMarkdown = false,
   ssr,
   mdIsExternalLinkFn,
   ...props
-}: FormLabelDescriptionProps): JSX.Element => {
+}) => {
   // useFormControlContext is a ChakraUI hook that returns props passed down
   // from a parent ChakraUI's `FormControl` component.
   // The return object is used to determine whether FormHelperText or Text is
@@ -125,6 +144,12 @@ const FormLabelDescription = ({
   // Using FormHelperText allows for the children text to be added to the parent
   // FormLabel's aria-describedby attribute. This is done internally by ChakraUI.
   const field = useFormControlContext()
+  const styles = useMultiStyleConfig('Form', props)
+
+  const mergedStyles = useMemo(
+    () => merge({}, styles.helperText, props.sx),
+    [props.sx, styles.helperText],
+  )
 
   // Render normal Text component if no form context is found.
   const ComponentToRender = useMemo(() => {
@@ -132,17 +157,14 @@ const FormLabelDescription = ({
     return Text
   }, [field])
 
-  const styleProps = {
-    textStyle: 'body-2',
-    color: 'base.content.strong',
-    mt: 0,
-    ...props,
-  }
+  const mdComponentsStyles = useMemo(
+    () => ({
+      text: mergedStyles,
+      link: { display: 'initial' },
+    }),
+    [mergedStyles],
+  )
 
-  const mdComponentsStyles = {
-    text: styleProps,
-    link: { display: 'initial' },
-  }
   const mdComponents = useMdComponents({
     ssr,
     styles: mdComponentsStyles,
@@ -161,10 +183,11 @@ const FormLabelDescription = ({
   return useMarkdown ? (
     <ReactMarkdown components={mdComponents}>{children}</ReactMarkdown>
   ) : (
-    <ComponentToRender {...styleProps}>{children}</ComponentToRender>
+    <ComponentToRender {...props} sx={mergedStyles}>
+      {children}
+    </ComponentToRender>
   )
 }
-FormLabel.Description = FormLabelDescription
 
 FormLabel.Description = FormLabelDescription
 
@@ -185,30 +208,38 @@ FormLabel.QuestionNumber = ({ children, ...props }: TextProps): JSX.Element => {
   )
 }
 
-FormLabel.OptionalIndicator = ({
-  isRequired,
-  ...props
-}: TextProps & { isRequired?: boolean }): JSX.Element | null => {
-  // useFormControlContext is a ChakraUI hook that returns props passed down
-  // from a parent ChakraUI's `FormControl` component.
-  // Valid hook usage since composited component is still a component.
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const field = useFormControlContext()
-
-  // If isRequired is explicitly provided, ignore form control context value.
-  if (isRequired ?? field?.isRequired) return null
-
-  return (
-    <Text
-      as="span"
-      role="presentation"
-      textStyle="body-2"
-      ml="0.5rem"
-      color="neutral.700"
-      lineHeight={0}
-      {...props}
-    >
-      (optional)
-    </Text>
-  )
+interface OptionalIndicatorProps extends HTMLChakraProps<'span'> {
+  size?: ThemingProps<'Form'>['size']
+  isRequired?: boolean
 }
+
+const OptionalIndicator = forwardRef<OptionalIndicatorProps, 'span'>(
+  ({ isRequired, ...props }, ref) => {
+    // useFormControlContext is a ChakraUI hook that returns props passed down
+    // from a parent ChakraUI's `FormControl` component.
+    // Valid hook usage since composited component is still a component.
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const field = useFormControlContext()
+    const styles = useMultiStyleConfig('Form', props)
+
+    // If isRequired is explicitly provided, ignore form control context value.
+    if (isRequired ?? field?.isRequired) return null
+
+    return (
+      <chakra.span
+        ref={ref}
+        role="presentation"
+        aria-hidden
+        __css={styles.optionalIndicator}
+        {...props}
+      >
+        (optional)
+      </chakra.span>
+    )
+  },
+)
+
+OptionalIndicator.displayName = 'OptionalIndicator'
+
+FormLabel.OptionalIndicator = OptionalIndicator
+FormLabel.OptionalIndicator.displayName = 'FormLabel.OptionalIndicator'

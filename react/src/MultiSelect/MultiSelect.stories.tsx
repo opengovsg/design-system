@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Stack } from '@chakra-ui/react'
+import { FormControl, Stack } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { BxsCheckCircle } from '~/icons'
@@ -8,6 +8,8 @@ import {
   fixedHeightDecorator,
   getMobileViewParameters,
 } from '~/utils/storybook'
+
+import { FormLabel } from '..'
 
 import { MultiSelect, MultiSelectProps } from './MultiSelect'
 
@@ -123,5 +125,21 @@ export const Sizes = () => {
         name="md"
       />
     </Stack>
+  )
+}
+
+export const FormInput: StoryFn<MultiSelectProps> = (args) => {
+  const [values, setValues] = useState<string[]>(args.values)
+
+  return (
+    <FormControl id="test">
+      <FormLabel>This is a label</FormLabel>
+      <MultiSelect
+        name="test"
+        values={values}
+        onChange={setValues}
+        items={INITIAL_COMBOBOX_ITEMS}
+      />
+    </FormControl>
   )
 }

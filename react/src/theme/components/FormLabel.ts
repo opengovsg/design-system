@@ -1,11 +1,25 @@
-import { defineStyleConfig } from '@chakra-ui/react'
+import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 
 import { textStyles } from '../textStyles'
 
-export const FormLabel = defineStyleConfig({
-  baseStyle: {
+const baseStyle = defineStyle({
+  marginBottom: '0.75rem',
+  color: 'base.content.strong',
+})
+
+const sizes = {
+  sm: defineStyle({
+    ...textStyles['subhead-2'],
+  }),
+  md: defineStyle({
     ...textStyles['subhead-1'],
-    mb: '0.75rem',
-    color: 'base.content.strong',
+  }),
+}
+
+export const FormLabel = defineStyleConfig({
+  baseStyle,
+  sizes,
+  defaultProps: {
+    size: 'md',
   },
 })

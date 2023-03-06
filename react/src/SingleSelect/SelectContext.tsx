@@ -26,11 +26,6 @@ export interface SharedSelectContextReturnProps<
   name: string
   /** Item data used to render items in dropdown */
   items: Item[]
-  /** aria-describedby to be attached to the combobox input, if any. */
-  inputAria?: {
-    id: string
-    label: string
-  }
   size?: 'xs' | 'sm' | 'md'
 }
 
@@ -47,6 +42,11 @@ interface SelectContextReturn<Item extends ComboboxItem = ComboboxItem>
   isFocused: boolean
   setIsFocused: (isFocused: boolean) => void
   inputRef?: MutableRefObject<HTMLInputElement | null>
+  /** aria-describedby to be attached to the combobox input, if any. */
+  inputAria?: {
+    id: string
+    label: string
+  }
   resetInputValue: () => void
   /** Ref for list virtualization */
   virtualListRef: RefObject<VirtuosoHandle>

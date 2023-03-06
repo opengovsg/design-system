@@ -6,7 +6,6 @@ import {
   Stack,
   Text,
   useMergeRefs,
-  VisuallyHidden,
 } from '@chakra-ui/react'
 
 import { Input } from '~/Input'
@@ -20,7 +19,6 @@ import { ToggleChevron } from './ToggleChevron'
 export const SelectCombobox = forwardRef<HTMLInputElement>(
   (_props, ref): JSX.Element => {
     const {
-      getComboboxProps,
       toggleMenu,
       selectedItem,
       getInputProps,
@@ -32,10 +30,8 @@ export const SelectCombobox = forwardRef<HTMLInputElement>(
       inputValue,
       isRequired,
       placeholder,
-      setIsFocused,
       isOpen,
       resetInputValue,
-      inputAria,
       inputRef,
       isClearable,
       size,
@@ -58,7 +54,6 @@ export const SelectCombobox = forwardRef<HTMLInputElement>(
 
     return (
       <Flex>
-        <VisuallyHidden id={inputAria.id}>{inputAria.label}</VisuallyHidden>
         <InputGroup
           size={size}
           pos="relative"
@@ -68,13 +63,6 @@ export const SelectCombobox = forwardRef<HTMLInputElement>(
             zIndex: 1,
           }}
           gridTemplateColumns="1fr"
-          {...getComboboxProps({
-            disabled: isDisabled,
-            readOnly: isReadOnly,
-            required: isRequired,
-            'aria-expanded': !!isOpen,
-            onFocus: () => setIsFocused(true),
-          })}
         >
           <Stack
             visibility={inputValue ? 'hidden' : 'initial'}
@@ -82,6 +70,7 @@ export const SelectCombobox = forwardRef<HTMLInputElement>(
             spacing="1rem"
             aria-disabled={isDisabled}
             sx={styles.selected}
+            aria-hidden
           >
             {selectedItemMeta.icon ? (
               <Icon
@@ -102,7 +91,10 @@ export const SelectCombobox = forwardRef<HTMLInputElement>(
               onClick: handleToggleMenu,
               onBlur: () => !isOpen && resetInputValue(),
               ref: mergedInputRef,
-              'aria-describedby': inputAria.id,
+              disabled: isDisabled,
+              readOnly: isReadOnly,
+              required: isRequired,
+              'aria-expanded': !!isOpen,
             })}
           />
           <ToggleChevron />
