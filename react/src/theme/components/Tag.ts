@@ -72,13 +72,13 @@ const sizes = {
     },
     label: textStyles['caption-1'],
     icon: {
-      fontSize: '1rem',
+      fontSize: '0.875rem',
       marginStart: '0.125rem',
       marginEnd: '0.125rem',
       height: '1rem',
     },
     closeButton: {
-      fontSize: '1rem',
+      fontSize: '0.875rem',
       marginStart: '0.125rem',
       height: '1rem',
     },
@@ -91,13 +91,13 @@ const sizes = {
     },
     label: textStyles['body-2'],
     icon: {
-      fontSize: '1.25rem',
+      fontSize: '1.125rem',
       marginStart: '0.25rem',
       marginEnd: '0.25rem',
       height: '1.25rem',
     },
     closeButton: {
-      fontSize: '1.25rem',
+      fontSize: '1.125rem',
       marginStart: '0.25rem',
       height: '1.25rem',
     },
@@ -110,12 +110,12 @@ const sizes = {
     },
     label: textStyles['subhead-2'],
     closeButton: {
-      fontSize: '1.25rem',
+      fontSize: '1.125rem',
       marginStart: '0.25rem',
       height: '1.25rem',
     },
     icon: {
-      fontSize: '1.25rem',
+      fontSize: '1.125rem',
       marginStart: '0.25rem',
       marginEnd: '0.25rem',
       height: '1.25rem',
