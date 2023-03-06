@@ -9,12 +9,11 @@ import {
   PopoverContent,
   PopoverHeader,
   Portal,
+  SystemStyleObject,
 } from '@chakra-ui/react'
 
 import { DrawerCloseButton } from '~/Drawer'
 import { PopoverCloseButton } from '~/Popover'
-
-import { useDatePicker } from '../DatePickerContext'
 
 interface DatePickerContentBaseProps {
   children: React.ReactNode
@@ -22,6 +21,7 @@ interface DatePickerContentBaseProps {
   isOpen: boolean
   onClose: () => void
   initialFocusRef: React.RefObject<HTMLElement>
+  headerStyles?: SystemStyleObject
 }
 
 export const DatePickerContentBase = ({
@@ -29,10 +29,9 @@ export const DatePickerContentBase = ({
   isMobile,
   isOpen,
   onClose,
+  headerStyles,
   initialFocusRef,
 }: DatePickerContentBaseProps): JSX.Element => {
-  const { styles } = useDatePicker()
-
   if (isMobile) {
     return (
       <Drawer
@@ -44,7 +43,7 @@ export const DatePickerContentBase = ({
         <DrawerOverlay />
         <DrawerContent maxH="100%" overflow="auto">
           <DrawerCloseButton colorScheme="neutral" />
-          <DrawerHeader sx={styles.header} borderBottomWidth="1px">
+          <DrawerHeader sx={headerStyles} borderBottomWidth="1px">
             Select a date
           </DrawerHeader>
           {children}
@@ -57,7 +56,7 @@ export const DatePickerContentBase = ({
     <Portal>
       <PopoverContent borderRadius="base" w="unset" maxW="100vw" bg="white">
         <ReactFocusLock>
-          <PopoverHeader sx={styles.header}>
+          <PopoverHeader sx={headerStyles}>
             Select a date
             <PopoverCloseButton position="initial" />
           </PopoverHeader>

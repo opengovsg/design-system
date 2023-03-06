@@ -11,10 +11,12 @@ export const DatePickerContent = ({
     isMobile,
     disclosureProps: { isOpen, onClose },
     initialFocusRef,
+    styles,
   } = useDatePicker()
   return (
     <DatePickerContentBase
       isMobile={isMobile}
+      headerStyles={styles.header}
       isOpen={isOpen}
       onClose={onClose}
       initialFocusRef={initialFocusRef}

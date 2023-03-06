@@ -53,6 +53,7 @@ interface DateRangePickerContextReturn {
   disclosureProps: UseDisclosureReturn
   labelSeparator: string
   colorScheme?: ThemingProps<'DatePicker'>['colorScheme']
+  size?: ThemingProps<'DatePicker'>['size']
   monthsToDisplay?: number
 }
 
@@ -103,6 +104,7 @@ const useProvideDateRangePicker = ({
   colorScheme,
   monthsToDisplay,
   refocusOnClose = true,
+  size,
   ssr,
   ...props
 }: DateRangePickerProps): DateRangePickerContextReturn => {
@@ -312,6 +314,7 @@ const useProvideDateRangePicker = ({
   }, [allowManualInput, disclosureProps])
 
   const styles = useMultiStyleConfig('DateRangePicker', {
+    size,
     colorScheme,
   })
 
@@ -341,6 +344,7 @@ const useProvideDateRangePicker = ({
     placeholder,
     allowManualInput,
     colorScheme,
+    size,
     isDateUnavailable,
     disclosureProps,
     labelSeparator,

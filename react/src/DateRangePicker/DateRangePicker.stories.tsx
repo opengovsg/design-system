@@ -44,3 +44,13 @@ DatePickerDisabled.args = {
 
 export const Mobile = Template.bind({})
 Mobile.parameters = getMobileViewParameters()
+
+export const SizeSmall = Template.bind({})
+SizeSmall.args = {
+  size: 'sm',
+}
+
+export const SizeXs = Template.bind({})
+SizeXs.args = {
+  size: 'xs',
+}

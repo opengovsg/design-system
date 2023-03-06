@@ -1,9 +1,9 @@
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-import { anatomy } from '@chakra-ui/theme-tools'
 
+import { DatePicker, datepickerAnatomy } from './DatePicker'
 import { Input } from './Input'
 
-const parts = anatomy('daterangepicker').parts('fieldwrapper', 'field')
+const parts = datepickerAnatomy.extend('fieldwrapper', 'field')
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)
@@ -36,12 +36,29 @@ const variantOutline = definePartsStyle((props) => {
   }
 })
 
+const sizes = {
+  xs: definePartsStyle({
+    fieldwrapper: Input.sizes?.xs.field,
+    inputButton: DatePicker.sizes?.xs.inputButton,
+  }),
+  sm: definePartsStyle({
+    fieldwrapper: Input.sizes?.sm.field,
+    inputButton: DatePicker.sizes?.sm.inputButton,
+  }),
+  md: definePartsStyle({
+    fieldwrapper: Input.sizes?.md.field,
+    inputButton: DatePicker.sizes?.md.inputButton,
+  }),
+}
+
 const variants = {
   outline: variantOutline,
 }
 
 export const DateRangePicker = defineMultiStyleConfig({
   variants,
+  sizes,
+  baseStyle: DatePicker.baseStyle,
   defaultProps: {
     variant: 'outline',
     size: 'md',

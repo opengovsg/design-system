@@ -10,10 +10,15 @@ export const DateRangePickerCalendar = (): JSX.Element => {
     handleCalendarDateChange,
     initialFocusRef,
     monthsToDisplay,
+    size,
+    isMobile,
   } = useDateRangePicker()
+
+  const displayedSize = isMobile ? 'sm' : size
 
   return (
     <RangeCalendar
+      size={displayedSize}
       monthsToDisplay={monthsToDisplay}
       colorScheme={colorScheme}
       value={internalValue ?? undefined}
