@@ -117,6 +117,11 @@ const sizes = {
     monthYearSelect: {
       ...textStyles['subhead-2'],
     },
+    calendarContainer: {
+      pb: '1rem',
+      px: '0.625rem',
+      mb: '-1px',
+    },
     todayLinkContainer: {
       py: '0.5rem',
     },
@@ -128,19 +133,10 @@ const sizes = {
   md: definePartsStyle({
     dayOfMonth: {
       textStyle: 'body-1',
-      p: {
-        base: 0,
-        md: 0.75,
-      },
+      p: '0.25rem',
       aspectRatio: '1 / 1',
-      w: {
-        base: '100%',
-        md: '2.75rem',
-      },
-      minW: {
-        base: '2.25rem',
-        md: '2.75rem',
-      },
+      w: '2.75rem',
+      minW: '2.75rem',
       maxW: '3rem',
     },
     monthYearSelectorContainer: {
@@ -157,14 +153,8 @@ const sizes = {
     },
     dayNamesContainer: {
       textStyle: 'subhead-2',
-      w: {
-        base: '2.25rem',
-        md: '3.25rem',
-      },
-      h: {
-        base: '2.25rem',
-        md: '2.75rem',
-      },
+      w: '3.25rem',
+      h: '2.75rem',
     },
     todayLinkContainer: {
       py: '0.75rem',
