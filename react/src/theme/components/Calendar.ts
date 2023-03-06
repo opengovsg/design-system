@@ -115,7 +115,7 @@ const sizes = {
       h: '3rem',
     },
     monthYearSelect: {
-      textStyle: 'subhead-2',
+      ...textStyles['subhead-2'],
     },
     todayLinkContainer: {
       py: '0.5rem',
@@ -148,7 +148,7 @@ const sizes = {
       h: '3.5rem',
     },
     monthYearSelect: {
-      textStyle: 'subhead-1',
+      ...textStyles['subhead-1'],
     },
     calendarContainer: {
       pb: '1rem',
