@@ -1,3 +1,4 @@
+import { Stack, StackDivider } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { FormLabel, FormLabelProps } from './FormLabel'
@@ -50,3 +51,22 @@ WithTooltipText.args = {
   tooltipText: 'This is a tooltip',
   children: 'This is a label that is very very very long',
 }
+
+export const Sizes = () => (
+  <Stack divider={<StackDivider />}>
+    <FormLabel
+      size="sm"
+      description="Small label description"
+      tooltipText="Small label tooltip"
+    >
+      Small label
+    </FormLabel>
+    <FormLabel
+      size="md"
+      description="Medium label description"
+      tooltipText="Medium label tooltip"
+    >
+      Medium label
+    </FormLabel>
+  </Stack>
+)
