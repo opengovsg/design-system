@@ -16,6 +16,7 @@ export const CalendarButton = (): JSX.Element => {
 
   return (
     <IconButton
+      data-group
       size={size}
       aria-invalid={isInvalid}
       onClick={onOpen}

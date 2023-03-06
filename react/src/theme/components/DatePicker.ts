@@ -39,6 +39,12 @@ export const DatePicker = defineMultiStyleConfig({
       px: '1.5rem',
       ...textStyles['subhead-2'],
     },
+    inputButton: {
+      color: 'base.content.strong',
+      _groupDisabled: {
+        color: 'interaction.support.disabled-content',
+      },
+    },
   },
   sizes,
 })
