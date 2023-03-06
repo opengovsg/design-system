@@ -227,7 +227,6 @@ const variantInputAttached = defineStyle((props) => {
 
   return {
     bg: 'utility.ui',
-    fontSize: '1.25rem',
     color: 'interaction.support.disabled-content',
     borderColor: 'base.divider.strong',
     borderStartRadius: 0,

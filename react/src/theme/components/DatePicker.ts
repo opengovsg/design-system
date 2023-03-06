@@ -3,8 +3,27 @@ import { anatomy } from '@chakra-ui/theme-tools'
 
 import { textStyles } from '../textStyles'
 
-const parts = anatomy('datepicker').parts('header')
-const { defineMultiStyleConfig } = createMultiStyleConfigHelpers(parts.keys)
+const parts = anatomy('datepicker').parts('header', 'inputButton')
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(parts.keys)
+
+const sizes = {
+  xs: definePartsStyle({
+    inputButton: {
+      fontSize: '1rem',
+    },
+  }),
+  sm: definePartsStyle({
+    inputButton: {
+      fontSize: '1.25rem',
+    },
+  }),
+  md: definePartsStyle({
+    inputButton: {
+      fontSize: '1.25rem',
+    },
+  }),
+}
 
 export const DatePicker = defineMultiStyleConfig({
   baseStyle: {
@@ -18,4 +37,5 @@ export const DatePicker = defineMultiStyleConfig({
       ...textStyles['subhead-2'],
     },
   },
+  sizes,
 })
