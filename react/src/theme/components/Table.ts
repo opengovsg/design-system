@@ -10,13 +10,16 @@ import { textStyles } from '../textStyles'
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys)
 
-const baseStyle = definePartsStyle({})
+const baseStyle = definePartsStyle({
+  tr: {
+    pos: 'relative',
+  },
+})
 
 const sizes = {
   xs: definePartsStyle({
     th: {
       py: '0.875rem',
-      px: '1rem',
     },
     td: {
       py: '0.875rem',
@@ -26,8 +29,8 @@ const sizes = {
   }),
   sm: definePartsStyle({
     th: {
+      ...textStyles['subhead-2'],
       py: '0.875rem',
-      px: '1rem',
     },
     td: {
       py: '0.875rem',
@@ -37,7 +40,7 @@ const sizes = {
   }),
   md: {
     th: {
-      p: '1rem',
+      py: '1rem',
     },
     td: {
       textStyle: 'body-2',
@@ -46,7 +49,6 @@ const sizes = {
   },
   lg: {
     th: {
-      px: '1rem',
       py: '1.125rem',
     },
     td: {
@@ -59,9 +61,11 @@ const sizes = {
 
 const getSubtleVariantThStyles = (c: string): SystemStyleObject => {
   const baseStyles: SystemStyleObject = {
-    ...textStyles['caption-1'],
     textTransform: 'initial',
-    _focusVisible: layerStyles.focusRing.tightDefault._focusVisible,
+    _focusVisible: {
+      ...layerStyles.focusRing.tightDefault._focusVisible,
+      outlineOffset: '-2px',
+    },
   }
 
   switch (c) {
@@ -108,6 +112,11 @@ const getSubtleVariantThStyles = (c: string): SystemStyleObject => {
 
 const variantSubtle = definePartsStyle(({ colorScheme: c }) => {
   return {
+    thead: {
+      bg: `interaction.${c}-subtle.default`,
+      opacity: 1,
+      zIndex: 1,
+    },
     th: getSubtleVariantThStyles(c),
     td: {
       color: 'base.content.default',
@@ -124,6 +133,7 @@ export const Table = defineMultiStyleConfig({
   variants,
   defaultProps: {
     variant: 'subtle',
+    size: 'md',
     colorScheme: 'main',
   },
   sizes,
