@@ -22,23 +22,14 @@ interface CalendarHeaderProps {
 type MonthYearSelectProps = PropsWithChildren<SelectProps>
 
 const MonthYearSelect = ({ children, ...props }: MonthYearSelectProps) => {
+  const styles = useCalendarStyles()
   return (
     <Select
       // Prevents any parent form control from applying error styles to this select.
       isInvalid={false}
       variant="flushed"
-      borderRadius="base"
-      color="base.content.strong"
-      textStyle="subhead-1"
       flexBasis="fit-content"
-      borderColor="transparent"
-      cursor="pointer"
-      _hover={{
-        borderColor: 'transparent',
-      }}
-      _focus={{
-        boxShadow: '0 0 0 4px var(--chakra-colors-secondary-300)',
-      }}
+      sx={styles.monthYearSelect}
       {...props}
     >
       {children}
