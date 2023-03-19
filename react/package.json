@@ -95,7 +95,7 @@
     "rollup-plugin-copy": "^3.4.0",
     "storybook": "7.0.0-beta.55",
     "tsc-alias": "^1.8.2",
-    "typescript": "^4.9.4",
+    "typescript": "^5.0.2",
     "vite": "^4.0.2",
     "vite-plugin-turbosnap": "^1.0.1"
   },
