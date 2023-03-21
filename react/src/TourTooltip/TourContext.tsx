@@ -1,7 +1,10 @@
 import { createContext, useContext } from 'react'
+import { Step } from 'react-joyride'
 
 type TourContextProps = {
   paginationCallback: (indicatorIdx: number) => void
+  steps: Array<Step>
+  setSteps: (steps: Step[]) => void
 }
 
 export const TourContext = createContext<TourContextProps | undefined>(
