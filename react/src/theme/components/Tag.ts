@@ -131,10 +131,10 @@ const getSubtleColors = defineStyle(({ colorScheme: c }) => {
     case 'critical':
       return {
         _hover: {
-          background: `interaction.${c}-light.hover`,
+          background: `interaction.${c}-subtle.hover`,
         },
         _active: {
-          background: `interaction.${c}-light.active`,
+          background: `interaction.${c}-subtle.active`,
         },
       }
   }
