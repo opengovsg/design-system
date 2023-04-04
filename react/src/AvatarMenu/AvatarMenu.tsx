@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import {
   Avatar,
   AvatarBadge,
@@ -7,6 +8,7 @@ import {
   MenuProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
+import { merge } from 'lodash'
 
 import { Menu, MenuButtonProps } from '~/Menu'
 
@@ -37,7 +39,7 @@ export const AvatarMenuDivider = (): JSX.Element => {
 
 export interface AvatarMenuProps
   extends Pick<MenuProps, 'defaultIsOpen'>,
-    Pick<AvatarProps, 'name' | 'colorScheme' | 'size' | 'variant'> {
+    AvatarProps {
   hasNotification?: boolean
   menuListProps?: Omit<MenuListProps, 'children'>
   /** Badge to render when there are notifications. Defaults to AvatarBadge component. */
@@ -52,9 +54,15 @@ export const AvatarMenu = ({
   menuListProps,
   children,
   badge = <AvatarBadge />,
-  ...styleProps
+  sx,
+  ...avatarProps
 }: AvatarMenuProps): JSX.Element => {
-  const styles = useMultiStyleConfig('AvatarMenu', styleProps)
+  const styles = useMultiStyleConfig('AvatarMenu', avatarProps)
+
+  const mergedAvatarStyles = useMemo(
+    () => merge({}, styles.avatar, sx),
+    [styles.avatar, sx],
+  )
 
   return (
     <Menu autoSelect={false} defaultIsOpen={defaultIsOpen}>
@@ -66,7 +74,7 @@ export const AvatarMenu = ({
             isOpen={isOpen}
             sx={styles.button}
           >
-            <Avatar name={name} sx={styles.avatar} {...styleProps}>
+            <Avatar name={name} sx={mergedAvatarStyles} {...avatarProps}>
               {hasNotification && badge}
             </Avatar>
           </AvatarMenuButton>
