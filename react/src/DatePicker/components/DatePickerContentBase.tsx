@@ -66,7 +66,7 @@ export const DatePickerContentBase = ({
         <ReactFocusLock>
           <PopoverHeader sx={headerStyles}>
             Select a date
-            <PopoverCloseButton position="initial" />
+            <PopoverCloseButton mr="-0.875rem" size={size} position="initial" />
           </PopoverHeader>
           <PopoverBody p={0}>{children}</PopoverBody>
         </ReactFocusLock>

@@ -10,15 +10,15 @@ const $size = cssVar('close-button-size')
 const sizes = {
   lg: defineStyle({
     [$size.variable]: Button.sizes?.lg.minH,
-    fontSize: 'md',
   }),
   md: defineStyle({
     [$size.variable]: Button.sizes?.md.minH,
-    fontSize: 'xs',
   }),
   sm: defineStyle({
     [$size.variable]: Button.sizes?.sm.minH,
-    fontSize: '2xs',
+  }),
+  xs: defineStyle({
+    [$size.variable]: Button.sizes?.xs.minH,
   }),
 }
 
