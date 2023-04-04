@@ -10,6 +10,7 @@ import {
   PopoverHeader,
   Portal,
   SystemStyleObject,
+  ThemingProps,
 } from '@chakra-ui/react'
 
 import { DrawerCloseButton } from '~/Drawer'
@@ -22,6 +23,7 @@ interface DatePickerContentBaseProps {
   onClose: () => void
   initialFocusRef: React.RefObject<HTMLElement>
   headerStyles?: SystemStyleObject
+  size: ThemingProps<'DatePicker'>['size']
 }
 
 export const DatePickerContentBase = ({
@@ -31,6 +33,7 @@ export const DatePickerContentBase = ({
   onClose,
   headerStyles,
   initialFocusRef,
+  size,
 }: DatePickerContentBaseProps): JSX.Element => {
   if (isMobile) {
     return (
@@ -42,7 +45,12 @@ export const DatePickerContentBase = ({
       >
         <DrawerOverlay />
         <DrawerContent maxH="100%" overflow="auto">
-          <DrawerCloseButton colorScheme="neutral" />
+          <DrawerCloseButton
+            size="sm"
+            right="0.625rem"
+            top="0.375rem"
+            colorScheme="neutral"
+          />
           <DrawerHeader sx={headerStyles} borderBottomWidth="1px">
             Select a date
           </DrawerHeader>
