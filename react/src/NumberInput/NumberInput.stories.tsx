@@ -1,5 +1,7 @@
-import { SimpleGrid } from '@chakra-ui/react'
+import { FormControl, SimpleGrid } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
+
+import { FormLabel } from '..'
 
 import { NumberInput, NumberInputProps } from './NumberInput'
 
@@ -89,3 +91,12 @@ export const Sizes = () => (
     <NumberInput placeholder="Medium invalid" size="md" isInvalid />
   </SimpleGrid>
 )
+
+export const FormInput: StoryFn<NumberInputProps> = (args) => {
+  return (
+    <FormControl id="test">
+      <FormLabel>This is a label</FormLabel>
+      <NumberInput name="test" {...args} />
+    </FormControl>
+  )
+}

@@ -1,7 +1,7 @@
 import { defineStyle } from '@chakra-ui/react'
 import { getColor, SystemStyleObject } from '@chakra-ui/theme-tools'
 
-import { meetsWcagAaRatio } from '~/theme/utils/contrast'
+import { getContrastColor } from '~/theme/utils/contrast'
 
 import { textStyles } from '../textStyles'
 
@@ -27,10 +27,7 @@ const variantSolid = defineStyle((props) => {
   const bgColor = getColor(theme, solidBgTokenMap[c] ?? `${c}.500`)
   let textColor = getColor(theme, 'base.content.inverse')
 
-  const hasSufficientContrast = meetsWcagAaRatio(textColor, bgColor)
-  if (!hasSufficientContrast) {
-    textColor = 'base.content.default'
-  }
+  textColor = getContrastColor(textColor, bgColor, 'base.content.default')
 
   return {
     bg: bgColor,
@@ -90,7 +87,7 @@ const sizes: Record<string, SystemStyleObject> = {
   md: {
     py: '0.25rem',
     px: '0.5rem',
-    borderRadius: '4px',
+    borderRadius: 'base',
   },
 }
 

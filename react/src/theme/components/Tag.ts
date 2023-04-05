@@ -19,7 +19,7 @@ const baseStyleContainer = defineStyle({
   transitionProperty: 'common',
   transitionDuration: 'normal',
   _focusWithin: layerStyles.focusRing.default._focusVisible,
-  borderRadius: '4px',
+  borderRadius: 'base',
   _disabled: {
     bg: 'interaction.support.disabled',
     color: 'interaction.support.disabled-content',
@@ -30,6 +30,7 @@ const baseStyleContainer = defineStyle({
       bg: 'interaction.support.disabled',
     },
   },
+  width: 'fit-content',
   height: 'fit-content',
 })
 
@@ -63,6 +64,25 @@ const baseStyle = definePartsStyle({
 })
 
 const sizes = {
+  xs: definePartsStyle({
+    container: {
+      ...textStyles['caption-1'],
+      px: '0.5rem',
+      py: '0.125rem',
+    },
+    label: textStyles['caption-1'],
+    icon: {
+      fontSize: '0.875rem',
+      marginStart: '0.125rem',
+      marginEnd: '0.125rem',
+      height: '1rem',
+    },
+    closeButton: {
+      fontSize: '0.875rem',
+      marginStart: '0.125rem',
+      height: '1rem',
+    },
+  }),
   sm: definePartsStyle({
     container: {
       ...textStyles['body-2'],
@@ -71,13 +91,15 @@ const sizes = {
     },
     label: textStyles['body-2'],
     icon: {
-      fontSize: '1.25rem',
+      fontSize: '1.125rem',
       marginStart: '0.25rem',
       marginEnd: '0.25rem',
+      height: '1.25rem',
     },
     closeButton: {
-      fontSize: '1.25rem',
+      fontSize: '1.125rem',
       marginStart: '0.25rem',
+      height: '1.25rem',
     },
   }),
   md: definePartsStyle({
@@ -88,13 +110,15 @@ const sizes = {
     },
     label: textStyles['subhead-2'],
     closeButton: {
-      fontSize: '1.25rem',
+      fontSize: '1.125rem',
       marginStart: '0.25rem',
+      height: '1.25rem',
     },
     icon: {
-      fontSize: '1.25rem',
+      fontSize: '1.125rem',
       marginStart: '0.25rem',
       marginEnd: '0.25rem',
+      height: '1.25rem',
     },
   }),
 }
@@ -107,10 +131,10 @@ const getSubtleColors = defineStyle(({ colorScheme: c }) => {
     case 'critical':
       return {
         _hover: {
-          background: `interaction.${c}-light.hover`,
+          background: `interaction.${c}-subtle.hover`,
         },
         _active: {
-          background: `interaction.${c}-light.active`,
+          background: `interaction.${c}-subtle.active`,
         },
       }
   }

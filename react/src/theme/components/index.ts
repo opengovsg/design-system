@@ -39,6 +39,7 @@ import { Textarea } from './Textarea'
 import { Tile } from './Tile'
 import { Toast } from './Toast'
 import { Toggle } from './Toggle'
+import { Toolbar } from './Toolbar'
 import { Tooltip } from './Tooltip'
 
 export const components = {
@@ -83,5 +84,6 @@ export const components = {
   Tile,
   Toast,
   Toggle,
+  Toolbar,
   Tooltip,
 }

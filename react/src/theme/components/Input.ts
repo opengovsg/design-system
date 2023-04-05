@@ -21,10 +21,10 @@ const outlineVariant = definePartsStyle((props) => {
 
   return {
     addon: {
-      borderRadius: '4px',
+      borderRadius: 'base',
     },
     field: {
-      borderRadius: '4px',
+      borderRadius: 'base',
       bg: isPrefilled ? 'utility.input-prefilled' : 'utility.ui',
       border: '1px solid',
       borderColor: isSuccess

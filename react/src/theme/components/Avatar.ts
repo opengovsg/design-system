@@ -16,7 +16,7 @@ const getSubtleColorProps = ({ colorScheme: c }: StyleFunctionProps) => {
     case 'sub':
       return {
         color: `interaction.${c}.default`,
-        bg: `interaction.${c}-light.default`,
+        bg: `interaction.${c}-subtle.default`,
       }
     default:
       return {

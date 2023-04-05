@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Jan 2023 06:34:30 GMT
+ * Generated on Wed, 22 Feb 2023 03:49:41 GMT
  */
 
 export const colours =  {
@@ -123,6 +123,10 @@ export const colours =  {
       inverse: {
         hover: "rgba(255, 255, 255, 0.1)",
         active: "rgba(255, 255, 255, 0.2)",
+      },
+      sub: {
+        hover: "rgba(93, 103, 133, 0.04)",
+        active: "rgba(93, 103, 133, 0.12)",
       },
     },
     support: {

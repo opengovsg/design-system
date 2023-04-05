@@ -26,7 +26,6 @@ export const ToggleChevron = (): JSX.Element => {
       <Icon
         sx={styles.icon}
         as={isOpen ? BxsChevronUp : BxsChevronDown}
-        aria-hidden
         aria-disabled={isDisabled || isReadOnly}
       />
     </InputRightElement>

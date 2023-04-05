@@ -4,7 +4,7 @@ import { merge } from 'lodash'
 
 import { layerStyles } from '../layerStyles'
 import { textStyles } from '../textStyles'
-import { meetsWcagAaRatio } from '../utils'
+import { getContrastColor } from '../utils'
 import { hexToRgba } from '../utils/hexToRgba'
 
 import { Link } from './Link'
@@ -53,14 +53,13 @@ const genVariantSolidColours = ({
       }
     }
   }
-  const hasSufficientContrast = meetsWcagAaRatio(
+  // Note that using the fallback content colour for the button text could still result in bad contrast.
+  color = getContrastColor(
     getColor(theme, color),
     getColor(theme, solidVariantProps.bg),
+    'base.content.default',
   )
-  // Note that using the default content colour for the button text could still result in bad contrast.
-  if (!hasSufficientContrast) {
-    color = 'base.content.default'
-  }
+
   return { ...solidVariantProps, color }
 }
 
@@ -232,7 +231,7 @@ const variantInputAttached = defineStyle((props) => {
     color: 'interaction.support.disabled-content',
     borderColor: 'base.divider.strong',
     borderStartRadius: 0,
-    borderEndRadius: '2px',
+    borderEndRadius: 'sm',
     _hover: {
       bg: 'interaction.muted.main.hover',
       _disabled: {
@@ -279,7 +278,7 @@ const variants = {
 const baseStyle = defineStyle({
   ...textStyles['subhead-1'],
   whiteSpace: 'pre-wrap',
-  borderRadius: '0.25rem',
+  borderRadius: 'base',
   border: '1px solid',
   flexShrink: 0,
   // -1px for border
@@ -296,18 +295,22 @@ const baseStyle = defineStyle({
 
 const sizes = {
   xs: defineStyle({
+    ...textStyles['subhead-2'],
     minH: '2.25rem',
     minW: '2.25rem',
   }),
   sm: defineStyle({
+    ...textStyles['subhead-1'],
     minH: '2.5rem',
     minW: '2.5rem',
   }),
   md: defineStyle({
+    ...textStyles['subhead-1'],
     minH: '2.75rem',
     minW: '2.75rem',
   }),
   lg: defineStyle({
+    ...textStyles['subhead-1'],
     minH: '3rem',
     minW: '3rem',
   }),

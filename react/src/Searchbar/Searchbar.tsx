@@ -21,7 +21,7 @@ export interface SearchbarProps extends InputProps {
    * Function to be invoked when user presses enter (to search).
    * @param searchValue value of the search input
    */
-  onSearch: (searchValue: string) => void
+  onSearch?: (searchValue: string) => void
 
   /**
    * Whether the searchbar is expanded or not by default.
@@ -95,7 +95,7 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
 
     const handleSearch = useCallback(
       (e: KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Enter' && innerRef.current) {
+        if (e.key === 'Enter' && innerRef.current && onSearch) {
           onSearch(innerRef.current.value)
         }
       },

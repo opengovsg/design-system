@@ -6,27 +6,38 @@ export default {
     previewMdx2: true,
   },
   stories: [
-    // Introduction stories set first so stories are ordered correctly.
     './introduction/Welcome/Welcome.stories.tsx',
     './introduction/Principles/Principles.stories.tsx',
-    './foundations/**/*.stories.@(mdx|js|jsx|ts|tsx)',
-    '../src/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+    './foundations/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
+    '../src/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
   ],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
+    '@storybook/addon-styling',
   ],
   framework: '@storybook/react-vite',
   staticDirs: ['./static'],
   core: {
     disableTelemetry: true,
   },
-  async viteFinal(config: UserConfig, { configType }: { configType: string }) {
+  async viteFinal(
+    config: UserConfig,
+    {
+      configType,
+    }: {
+      configType: string
+    },
+  ) {
     return mergeConfig(config, {
       plugins:
         configType === 'PRODUCTION'
-          ? [turbosnap({ rootDir: config.root ?? process.cwd() })]
+          ? [
+              turbosnap({
+                rootDir: config.root ?? process.cwd(),
+              }),
+            ]
           : [],
       resolve: {
         alias: {

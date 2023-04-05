@@ -39,7 +39,7 @@ const MenuTemplate: StoryFn<MenuTemplateProps> = ({
   isOpen,
 }) => {
   return (
-    <Menu size={size} isStretch={isStretch} {...(isOpen ? { isOpen } : {})}>
+    <Menu size={size} isStretch={isStretch} isOpen={isOpen}>
       {({ isOpen }) => (
         <>
           <Menu.Button
