@@ -8,6 +8,7 @@ const parts = anatomy('calendar').parts(
   'container', // overall container
   'monthYearSelectorContainer', // container for month, year dropdowns and arrows
   'monthYearSelect', // select for month and year
+  'monthYearDisplay', // container for month and year text
   'monthYearDropdownContainer', // container for month, year dropdowns
   'monthArrowContainer', // container for month forward/backward arrows
   'calendarContainer', // container for all month grids
@@ -119,6 +120,10 @@ const xsSmStyle = definePartsStyle({
   monthYearSelect: {
     ...textStyles['subhead-2'],
   },
+  monthYearDisplay: {
+    ...textStyles['subhead-2'],
+    ml: '0.5rem',
+  },
   calendarContainer: {
     pb: '1rem',
     px: '0.625rem',
@@ -152,6 +157,10 @@ const sizes = {
     monthYearSelect: {
       ...textStyles['subhead-1'],
     },
+    monthYearDisplay: {
+      ...textStyles['subhead-1'],
+      ml: '1rem',
+    },
     calendarContainer: {
       pb: '1rem',
       px: '0.625rem',
@@ -174,6 +183,13 @@ const sizes = {
   }),
 }
 
+const monthYearDisplayStyles = defineStyle({
+  borderRadius: 'base',
+  color: 'base.content.strong',
+  height: 'fit-content',
+  py: '0.25rem',
+})
+
 const baseStyle = definePartsStyle((props) => ({
   container: {
     display: 'inline-block',
@@ -184,12 +200,9 @@ const baseStyle = definePartsStyle((props) => ({
     alignItems: 'center',
   },
   monthYearSelect: {
-    borderRadius: 'base',
-    color: 'base.content.strong',
+    ...monthYearDisplayStyles,
     borderColor: 'transparent',
     cursor: 'pointer',
-    height: 'fit-content',
-    py: '0.25rem',
     _hover: {
       borderColor: 'transparent',
     },
@@ -197,6 +210,7 @@ const baseStyle = definePartsStyle((props) => ({
       ...layerStyles.focusRing.default._focusVisible,
     },
   },
+  monthYearDisplay: monthYearDisplayStyles,
   monthYearDropdownContainer: {
     display: 'flex',
     justifyContent: 'flex-start',

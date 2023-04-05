@@ -100,6 +100,7 @@ const SelectableMonthYear = memo(() => {
 
 const MonthYear = memo(({ monthOffset }: CalendarHeaderProps) => {
   const { currMonth, currYear, isMobile } = useCalendar()
+  const styles = useCalendarStyles()
 
   const newOffsetDate = useMemo(
     () => addMonths(new Date(currYear, currMonth), monthOffset),
@@ -116,12 +117,7 @@ const MonthYear = memo(({ monthOffset }: CalendarHeaderProps) => {
   }, [newOffsetDate])
 
   return (
-    <HStack
-      ml={{ base: '0.5rem', md: '1rem' }}
-      textStyle="subhead-1"
-      color="base.content.strong"
-      spacing="1.5rem"
-    >
+    <HStack sx={styles.monthYearDisplay}>
       <Text>{monthDisplay}</Text>
       <Text>{yearDisplay}</Text>
     </HStack>
