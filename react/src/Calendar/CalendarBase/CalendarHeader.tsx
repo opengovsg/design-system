@@ -79,8 +79,6 @@ const SelectableMonthYear = memo(() => {
   return (
     <HStack>
       <MonthYearSelect
-        // Align with dates in the calendar
-        pl={{ base: '0.5rem', md: '1rem' }}
         value={currMonth}
         onChange={handleMonthChange}
         aria-label="Change displayed month"

@@ -118,15 +118,16 @@ const xsSmStyle = definePartsStyle({
     h: '3rem',
   },
   monthYearSelect: {
+    pl: '1rem',
     ...textStyles['subhead-2'],
   },
   monthYearDisplay: {
     ...textStyles['subhead-2'],
-    ml: '0.5rem',
+    pl: '1rem',
   },
   calendarContainer: {
     pb: '1rem',
-    px: '0.625rem',
+    px: '0.5rem',
     mb: '-1px',
   },
   todayLinkContainer: {
@@ -155,15 +156,16 @@ const sizes = {
       h: '3.5rem',
     },
     monthYearSelect: {
+      pl: '1rem',
       ...textStyles['subhead-1'],
     },
     monthYearDisplay: {
       ...textStyles['subhead-1'],
-      ml: '1rem',
+      pl: '1rem',
     },
     calendarContainer: {
       pb: '1rem',
-      px: '0.625rem',
+      px: '0.5rem',
       mb: '-1px',
     },
     dayNamesContainer: {
