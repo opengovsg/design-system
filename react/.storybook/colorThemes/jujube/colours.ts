@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 06 Jan 2023 04:09:42 GMT
+ * Generated on Thu, 06 Apr 2023 06:58:16 GMT
  */
 
 export const colours = {
@@ -16,18 +16,6 @@ export const colours = {
     '800': '#820004',
     '900': '#640000',
   },
-  slate: {
-    '50': '#f8f9fa',
-    '100': '#e9eaee',
-    '200': '#babecb',
-    '300': '#9aa0b3',
-    '400': '#7b849c',
-    '500': '#5d6785',
-    '600': '#465173',
-    '700': '#3c4764',
-    '800': '#333c56',
-    '900': '#272d41',
-  },
   brand: {
     primary: {
       '50': '#f8f9fa',
@@ -42,22 +30,22 @@ export const colours = {
       '900': '#272d41',
     },
     secondary: {
-      '50': '#fff8f9',
-      '100': '#FDDCE1',
-      '200': '#faadb8',
-      '300': '#f78092',
-      '400': '#f34862',
-      '500': '#cb2e46',
-      '600': '#ad0024',
-      '700': '#970016',
-      '800': '#820004',
-      '900': '#640000',
+      '50': '#fef7f7',
+      '100': '#FBE9E9',
+      '200': '#f4acac',
+      '300': '#ee8080',
+      '400': '#e74f4f',
+      '500': '#c03434',
+      '600': '#992a2a',
+      '700': '#852424',
+      '800': '#721f1f',
+      '900': '#571717',
     },
   },
   base: {
     canvas: {
       inverse: '#272d41',
-      'brand-subtle': '#fff8f9',
+      'brand-subtle': '#fef7f7',
       default: '#ffffff',
       alt: '#F8F9F9',
       backdrop: '#EDEDED',
@@ -126,6 +114,18 @@ export const colours = {
     '800': '#533800',
     '900': '#3f2b00',
   },
+  slate: {
+    '50': '#f8f9fa',
+    '100': '#e9eaee',
+    '200': '#babecb',
+    '300': '#9aa0b3',
+    '400': '#7b849c',
+    '500': '#5d6785',
+    '600': '#465173',
+    '700': '#3c4764',
+    '800': '#333c56',
+    '900': '#272d41',
+  },
   grey: {
     '50': '#F8F9F9',
     '100': '#EDEDED',
@@ -168,14 +168,14 @@ export const colours = {
       active: '#9aa0b3',
     },
     sub: {
-      default: '#cb2e46',
-      hover: '#ad0024',
-      active: '#970016',
+      default: '#c03434',
+      hover: '#992a2a',
+      active: '#852424',
     },
     'sub-subtle': {
-      default: '#FDDCE1',
-      hover: '#faadb8',
-      active: '#f78092',
+      default: '#FBE9E9',
+      hover: '#f4acac',
+      active: '#ee8080',
     },
     critical: {
       default: '#c03434',
@@ -223,8 +223,8 @@ export const colours = {
         active: '#e9eaee',
       },
       sub: {
-        hover: '#fff8f9',
-        active: '#FDDCE1',
+        hover: '#fef7f7',
+        active: '#FBE9E9',
       },
       critical: {
         hover: '#fef7f7',
@@ -239,6 +239,10 @@ export const colours = {
       main: {
         hover: 'rgba(93, 103, 133, 0.04)',
         active: 'rgba(93, 103, 133, 0.12)',
+      },
+      sub: {
+        hover: 'rgba(192, 52, 52, 0.04)',
+        active: 'rgba(192, 52, 52, 0.12)',
       },
       critical: {
         hover: 'rgba(192, 52, 52, 0.04)',

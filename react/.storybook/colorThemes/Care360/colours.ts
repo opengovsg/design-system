@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 06 Jan 2023 04:09:42 GMT
+ * Generated on Thu, 06 Apr 2023 06:58:16 GMT
  */
 
 export const colours = {
@@ -70,7 +70,7 @@ export const colours = {
       '100': '#E4EBF9',
       '200': '#85A4E2',
       '300': '#6087D9',
-      '400': '#4573D2',
+      '400': '#6087D9',
       '500': '#3D66BA',
       '600': '#3457A0',
       '700': '#2E4D8C',
@@ -90,9 +90,33 @@ export const colours = {
       '900': '#2B3849',
     },
   },
+  base: {
+    content: {
+      medium: '#5E748E',
+      default: '#454953',
+      strong: '#2C2E34',
+      brand: '#3D66BA',
+      inverse: '#ffffff',
+    },
+    canvas: {
+      default: '#ffffff',
+      alt: '#F8F9F9',
+      backdrop: '#EDEDED',
+      'brand-subtle': '#F1F4FC',
+      inverse: '#3A3E46',
+      overlay: 'rgba(58, 62, 70, 0.8)',
+    },
+    divider: {
+      subtle: '#F8F9F9',
+      medium: '#EDEDED',
+      strong: '#BFC2C8',
+      inverse: '#ffffff',
+      brand: '#3D66BA',
+    },
+  },
   yellow: {
     '50': '#fffae1',
-    '100': '#FFDA68',
+    '100': '#FFF4C6',
     '200': '#E2B73E',
     '300': '#C4992A',
     '400': '#A77C18',
@@ -101,6 +125,23 @@ export const colours = {
     '700': '#624200',
     '800': '#533800',
     '900': '#3f2b00',
+  },
+  utility: {
+    feedback: {
+      warning: '#E2B73E',
+      info: '#3D66BA',
+      'info-subtle': '#F1F4FC',
+      'warning-subtle': '#fffae1',
+      success: '#0B7D57',
+      'success-subtle': '#F5FAF9',
+      critical: '#D22C2C',
+      'critical-subtle': '#FEF9F9',
+    },
+    'focus-default': '#3D66BA',
+    'focus-inverse': '#ffffff',
+    'input-prefilled': '#fffae1',
+    ui: '#ffffff',
+    'ui-clear': 'rgba(255, 255, 255, 0)',
   },
   grey: {
     '50': '#F8F9F9',
@@ -131,30 +172,6 @@ export const colours = {
     '5shadow': '#8B5544',
     '6base': '#764738',
     '6shadow': '#633D32',
-  },
-  base: {
-    canvas: {
-      default: '#ffffff',
-      alt: '#F8F9F9',
-      backdrop: '#EDEDED',
-      'brand-subtle': '#F1F4FC',
-      inverse: '#3A3E46',
-      overlay: 'rgba(58, 62, 70, 0.8)',
-    },
-    content: {
-      default: '#454953',
-      strong: '#2C2E34',
-      medium: '#666C7A',
-      brand: '#3D66BA',
-      inverse: '#ffffff',
-    },
-    divider: {
-      subtle: '#F8F9F9',
-      medium: '#EDEDED',
-      strong: '#BFC2C8',
-      inverse: '#ffffff',
-      brand: '#3D66BA',
-    },
   },
   interaction: {
     main: {
@@ -188,13 +205,13 @@ export const colours = {
       active: '#E68A8A',
     },
     warning: {
-      default: '#FFDA68',
+      default: '#FFF4C6',
       hover: '#E2B73E',
       active: '#C4992A',
     },
     'warning-subtle': {
       default: '#fffae1',
-      hover: '#FFDA68',
+      hover: '#FFF4C6',
       active: '#E2B73E',
     },
     success: {
@@ -240,6 +257,10 @@ export const colours = {
         hover: 'rgba(61, 102, 186, 0.04)',
         active: 'rgba(61, 102, 186, 0.12)',
       },
+      sub: {
+        hover: 'rgba(77, 101, 130, 0.04)',
+        active: 'rgba(77, 101, 130, 0.12)',
+      },
       critical: {
         hover: 'rgba(210, 44, 44, 0.04)',
         active: 'rgba(210, 44, 44, 0.12)',
@@ -269,22 +290,5 @@ export const colours = {
       'inverse-default': '#ffffff',
       'inverse-hover': '#EDEDED',
     },
-  },
-  utility: {
-    feedback: {
-      info: '#3D66BA',
-      'info-subtle': '#F1F4FC',
-      warning: '#FFDA68',
-      'warning-subtle': '#fffae1',
-      success: '#0B7D57',
-      'success-subtle': '#F5FAF9',
-      critical: '#D22C2C',
-      'critical-subtle': '#FEF9F9',
-    },
-    'focus-default': '#3D66BA',
-    'focus-inverse': '#ffffff',
-    'input-prefilled': '#fffae1',
-    ui: '#ffffff',
-    'ui-clear': 'rgba(255, 255, 255, 0)',
   },
 }
