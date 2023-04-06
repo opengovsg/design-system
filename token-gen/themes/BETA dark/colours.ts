@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 06 Apr 2023 06:24:39 GMT
+ * Generated on Thu, 06 Apr 2023 06:58:16 GMT
  */
 
 export const colours =  {
@@ -22,7 +22,7 @@ export const colours =  {
       default: "#F8F9F9",
       strong: "#EDEDED",
       medium: "#838894",
-      brand: "#82ABF7",
+      brand: "#568DF4",
       inverse: "#111111",
     },
     divider: {
@@ -30,12 +30,12 @@ export const colours =  {
       medium: "#454953",
       strong: "#505660",
       inverse: "#ffffff",
-      brand: "#82ABF7",
+      brand: "#568DF4",
     },
   },
   interaction: {
     main: {
-      default: "#82ABF7",
+      default: "#568DF4",
       hover: "#82ABF7",
       active: "#ACC7FA",
     },
@@ -138,7 +138,7 @@ export const colours =  {
       placeholder: "#838894",
     },
     links: {
-      default: "#82ABF7",
+      default: "#568DF4",
       hover: "#82ABF7",
       "neutral-default": "#F8F9F9",
       "neutral-hover": "#EDEDED",
@@ -246,7 +246,7 @@ export const colours =  {
       "100": "#E7EFFC",
       "200": "#ACC7FA",
       "300": "#82ABF7",
-      "400": "#82ABF7",
+      "400": "#568DF4",
       "500": "#1361F0",
       "600": "#0D4FCA",
       "700": "#0B44AC",

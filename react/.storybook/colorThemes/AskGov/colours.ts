@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 06 Apr 2023 06:24:39 GMT
+ * Generated on Thu, 06 Apr 2023 06:58:16 GMT
  */
 
 export const colours = {
@@ -39,7 +39,7 @@ export const colours = {
     },
     content: {
       light: '#909be5',
-      light2: '#909be5',
+      light2: '#6d7cdc',
       default: '#454953',
       strong: '#2C2E34',
       medium: '#666C7A',
@@ -56,7 +56,7 @@ export const colours = {
   },
   interaction: {
     links: {
-      'light-default': '#909be5',
+      'light-default': '#6d7cdc',
       'light-hover': '#2539b7',
       default: '#3045ce',
       hover: '#2539b7',
@@ -244,7 +244,7 @@ export const colours = {
       '100': '#EFF1FF',
       '200': '#D1D6F9',
       '300': '#909be5',
-      '400': '#909be5',
+      '400': '#6d7cdc',
       '500': '#3045ce',
       '600': '#2539b7',
       '700': '#2133a4',

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 06 Apr 2023 06:24:39 GMT
+ * Generated on Thu, 06 Apr 2023 06:58:16 GMT
  */
 
 export const colours = {
@@ -86,7 +86,7 @@ export const colours = {
       '100': '#E7EFFC',
       '200': '#ACC7FA',
       '300': '#82ABF7',
-      '400': '#82ABF7',
+      '400': '#568DF4',
       '500': '#1361F0',
       '600': '#0D4FCA',
       '700': '#0B44AC',
