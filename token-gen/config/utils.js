@@ -29,21 +29,17 @@ const fontWeightToNumber = (fontWeight) => {
   return fontWeightValue;
 };
 
-const setFallbackFonts = (fontFamily) => {
+const setFontFamily = (fontFamily) => {
   if (!fontFamily) return undefined;
-  if (fontFamily === "Inter") {
-    // Trebuchet MS is the closest height and width to Inter for best FOUT (flash of unstyled text) handling.
-    return `${fontFamily},Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif`;
-  }
   if (fontFamily === "IBM Plex Mono") {
-    return `${fontFamily},Courier,Monaco,Courier New,monospace`;
+    return 'code';
   }
-  return `${fontFamily},-apple-system,Arial,BlinkMacSystemFont,sans-serif`;
+  return 'body';
 };
 
 module.exports = {
   pxToRem,
   percentToEm,
   fontWeightToNumber,
-  setFallbackFonts,
+  setFontFamily,
 };

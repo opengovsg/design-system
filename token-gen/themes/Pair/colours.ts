@@ -4,30 +4,30 @@
  */
 
 export const colours =  {
-  violet: {
-    "50": "#faf9fe",
-    "100": "#E5E1FC",
-    "200": "#c6baf8",
-    "300": "#ab96f5",
-    "400": "#9272f2",
-    "500": "#7a49ed",
-    "600": "#632dd0",
-    "700": "#5627b3",
-    "800": "#492198",
-    "900": "#371972",
+  blue: {
+    "50": "#F4F8FE",
+    "100": "#CCE0FC",
+    "200": "#A7C9F9",
+    "300": "#7CAFF7",
+    "400": "#4E93F4",
+    "500": "#1F76F1",
+    "600": "#065EDB",
+    "700": "#054DB4",
+    "800": "#043D8F",
+    "900": "#022B63",
   },
   brand: {
     primary: {
-      "50": "#faf9fe",
-      "100": "#E5E1FC",
-      "200": "#c6baf8",
-      "300": "#ab96f5",
-      "400": "#9272f2",
-      "500": "#7a49ed",
-      "600": "#632dd0",
-      "700": "#5627b3",
-      "800": "#492198",
-      "900": "#371972",
+      "50": "#F4F8FE",
+      "100": "#CCE0FC",
+      "200": "#A7C9F9",
+      "300": "#7CAFF7",
+      "400": "#4E93F4",
+      "500": "#1F76F1",
+      "600": "#065EDB",
+      "700": "#054DB4",
+      "800": "#043D8F",
+      "900": "#022B63",
     },
     secondary: {
       "50": "#f8f9fa",
@@ -42,17 +42,147 @@ export const colours =  {
       "900": "#272d41",
     },
   },
-  blue: {
-    "50": "#F7F9FE",
-    "100": "#E7EFFC",
-    "200": "#ACC7FA",
-    "300": "#82ABF7",
-    "400": "#568DF4",
-    "500": "#1361F0",
-    "600": "#0D4FCA",
-    "700": "#0B44AC",
-    "800": "#093890",
-    "900": "#072A69",
+  base: {
+    canvas: {
+      alt: "#f8f9fa",
+      backdrop: "#e9eaee",
+      inverse: "#3c4764",
+      overlay: "rgba(60, 71, 100, 0.8)",
+      default: "#ffffff",
+      "brand-subtle": "#F4F8FE",
+    },
+    content: {
+      default: "#454953",
+      strong: "#2C2E34",
+      medium: "#666C7A",
+      brand: "#1F76F1",
+      inverse: "#ffffff",
+    },
+    divider: {
+      subtle: "#F8F9F9",
+      medium: "#EDEDED",
+      strong: "#BFC2C8",
+      inverse: "#ffffff",
+      brand: "#1F76F1",
+    },
+  },
+  interaction: {
+    links: {
+      "neutral-default": "#3c4764",
+      "neutral-hover": "#272d41",
+      default: "#1F76F1",
+      hover: "#065EDB",
+      "inverse-default": "#ffffff",
+      "inverse-hover": "#EDEDED",
+    },
+    main: {
+      default: "#1F76F1",
+      hover: "#065EDB",
+      active: "#054DB4",
+    },
+    "main-subtle": {
+      default: "#CCE0FC",
+      hover: "#A7C9F9",
+      active: "#7CAFF7",
+    },
+    sub: {
+      default: "#5d6785",
+      hover: "#465173",
+      active: "#3c4764",
+    },
+    "sub-subtle": {
+      default: "#e9eaee",
+      hover: "#babecb",
+      active: "#9aa0b3",
+    },
+    critical: {
+      default: "#c03434",
+      hover: "#992a2a",
+      active: "#852424",
+    },
+    "critical-subtle": {
+      default: "#FBE9E9",
+      hover: "#f4acac",
+      active: "#ee8080",
+    },
+    warning: {
+      default: "#FFDA68",
+      hover: "#E2B73E",
+      active: "#C4992A",
+    },
+    "warning-subtle": {
+      default: "#fffae1",
+      hover: "#FFDA68",
+      active: "#E2B73E",
+    },
+    success: {
+      default: "#0F796F",
+      hover: "#0C5F57",
+      active: "#0A524B",
+    },
+    "success-subtle": {
+      default: "#E2EEED",
+      hover: "#98CCC7",
+      active: "#63B1AA",
+    },
+    neutral: {
+      default: "#666C7A",
+      hover: "#505660",
+      active: "#454953",
+    },
+    "neutral-subtle": {
+      default: "#F8F9F9",
+      hover: "#EDEDED",
+      active: "#BFC2C8",
+    },
+    muted: {
+      main: {
+        hover: "#F4F8FE",
+        active: "#CCE0FC",
+      },
+      sub: {
+        hover: "#f8f9fa",
+        active: "#e9eaee",
+      },
+      critical: {
+        hover: "#fef7f7",
+        active: "#FBE9E9",
+      },
+      neutral: {
+        hover: "#F8F9F9",
+        active: "#EDEDED",
+      },
+    },
+    tinted: {
+      main: {
+        hover: "rgba(31, 118, 241, 0.04)",
+        active: "rgba(31, 118, 241, 0.12)",
+      },
+      sub: {
+        hover: "rgba(93, 103, 133, 0.04)",
+        active: "rgba(93, 103, 133, 0.12)",
+      },
+      critical: {
+        hover: "rgba(192, 52, 52, 0.04)",
+        active: "rgba(192, 52, 52, 0.12)",
+      },
+      neutral: {
+        hover: "rgba(0, 0, 0, 0.1)",
+        active: "rgba(0, 0, 0, 0.2)",
+      },
+      inverse: {
+        hover: "rgba(255, 255, 255, 0.1)",
+        active: "rgba(255, 255, 255, 0.2)",
+      },
+    },
+    support: {
+      unselected: "#A0A4AD",
+      selected: "#666C7A",
+      "unselected-strong": "#666C7A",
+      disabled: "#EDEDED",
+      "disabled-content": "#A0A4AD",
+      placeholder: "#A0A4AD",
+    },
   },
   red: {
     "50": "#fef7f7",
@@ -132,152 +262,10 @@ export const colours =  {
     "6base": "#764738",
     "6shadow": "#633D32",
   },
-  base: {
-    canvas: {
-      default: "#ffffff",
-      alt: "#F8F9F9",
-      backdrop: "#EDEDED",
-      "brand-subtle": "#faf9fe",
-      inverse: "#3A3E46",
-      overlay: "rgba(58, 62, 70, 0.8)",
-    },
-    content: {
-      default: "#454953",
-      strong: "#2C2E34",
-      medium: "#666C7A",
-      brand: "#7a49ed",
-      inverse: "#ffffff",
-    },
-    divider: {
-      subtle: "#F8F9F9",
-      medium: "#EDEDED",
-      strong: "#BFC2C8",
-      inverse: "#ffffff",
-      brand: "#7a49ed",
-    },
-  },
-  interaction: {
-    main: {
-      default: "#7a49ed",
-      hover: "#632dd0",
-      active: "#5627b3",
-    },
-    "main-subtle": {
-      default: "#E5E1FC",
-      hover: "#c6baf8",
-      active: "#ab96f5",
-    },
-    sub: {
-      default: "#5d6785",
-      hover: "#465173",
-      active: "#3c4764",
-    },
-    "sub-subtle": {
-      default: "#e9eaee",
-      hover: "#babecb",
-      active: "#9aa0b3",
-    },
-    critical: {
-      default: "#c03434",
-      hover: "#992a2a",
-      active: "#852424",
-    },
-    "critical-subtle": {
-      default: "#FBE9E9",
-      hover: "#f4acac",
-      active: "#ee8080",
-    },
-    warning: {
-      default: "#FFDA68",
-      hover: "#E2B73E",
-      active: "#C4992A",
-    },
-    "warning-subtle": {
-      default: "#fffae1",
-      hover: "#FFDA68",
-      active: "#E2B73E",
-    },
-    success: {
-      default: "#0F796F",
-      hover: "#0C5F57",
-      active: "#0A524B",
-    },
-    "success-subtle": {
-      default: "#E2EEED",
-      hover: "#98CCC7",
-      active: "#63B1AA",
-    },
-    neutral: {
-      default: "#666C7A",
-      hover: "#505660",
-      active: "#454953",
-    },
-    "neutral-subtle": {
-      default: "#F8F9F9",
-      hover: "#EDEDED",
-      active: "#BFC2C8",
-    },
-    muted: {
-      main: {
-        hover: "#faf9fe",
-        active: "#E5E1FC",
-      },
-      sub: {
-        hover: "#f8f9fa",
-        active: "#e9eaee",
-      },
-      critical: {
-        hover: "#fef7f7",
-        active: "#FBE9E9",
-      },
-      neutral: {
-        hover: "#F8F9F9",
-        active: "#EDEDED",
-      },
-    },
-    tinted: {
-      main: {
-        hover: "rgba(122, 73, 237, 0.04)",
-        active: "rgba(122, 73, 237, 0.12)",
-      },
-      sub: {
-        hover: "rgba(93, 103, 133, 0.04)",
-        active: "rgba(93, 103, 133, 0.12)",
-      },
-      critical: {
-        hover: "rgba(192, 52, 52, 0.04)",
-        active: "rgba(192, 52, 52, 0.12)",
-      },
-      neutral: {
-        hover: "rgba(0, 0, 0, 0.1)",
-        active: "rgba(0, 0, 0, 0.2)",
-      },
-      inverse: {
-        hover: "rgba(255, 255, 255, 0.1)",
-        active: "rgba(255, 255, 255, 0.2)",
-      },
-    },
-    support: {
-      unselected: "#A0A4AD",
-      selected: "#666C7A",
-      "unselected-strong": "#666C7A",
-      disabled: "#EDEDED",
-      "disabled-content": "#A0A4AD",
-      placeholder: "#A0A4AD",
-    },
-    links: {
-      default: "#7a49ed",
-      hover: "#632dd0",
-      "neutral-default": "#454953",
-      "neutral-hover": "#2C2E34",
-      "inverse-default": "#ffffff",
-      "inverse-hover": "#EDEDED",
-    },
-  },
   utility: {
     feedback: {
-      info: "#1361F0",
-      "info-subtle": "#F7F9FE",
+      info: "#1F76F1",
+      "info-subtle": "#F4F8FE",
       warning: "#FFDA68",
       "warning-subtle": "#fffae1",
       success: "#0F796F",
@@ -285,7 +273,7 @@ export const colours =  {
       critical: "#c03434",
       "critical-subtle": "#fef7f7",
     },
-    "focus-default": "#1361F0",
+    "focus-default": "#1F76F1",
     "focus-inverse": "#ffffff",
     "input-prefilled": "#fffae1",
     ui: "#ffffff",
