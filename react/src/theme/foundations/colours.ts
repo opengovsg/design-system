@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 06 Jan 2023 04:09:42 GMT
+ * Generated on Thu, 06 Apr 2023 06:24:39 GMT
  */
 
 export const colours = {
@@ -86,7 +86,7 @@ export const colours = {
       '100': '#E7EFFC',
       '200': '#ACC7FA',
       '300': '#82ABF7',
-      '400': '#568DF4',
+      '400': '#82ABF7',
       '500': '#1361F0',
       '600': '#0D4FCA',
       '700': '#0B44AC',
@@ -227,6 +227,10 @@ export const colours = {
       main: {
         hover: 'rgba(19, 97, 240, 0.04)',
         active: 'rgba(19, 97, 240, 0.12)',
+      },
+      sub: {
+        hover: 'rgba(93, 103, 133, 0.04)',
+        active: 'rgba(93, 103, 133, 0.12)',
       },
       critical: {
         hover: 'rgba(192, 52, 52, 0.04)',
