@@ -26,8 +26,10 @@ export const theme = extendTheme({
   space: spacing,
   transition,
   fonts: {
-    heading: 'Inter,Helvetica,Arial,system-ui,sans-serif',
-    body: 'Inter,Helvetica,Arial,system-ui,sans-serif',
+    heading:
+      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    body: 'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    code: 'IBM Plex Mono,Courier,Monaco,Courier New,monospace',
   },
   fontSizes: typography.fontSize,
   fontWeights: typography.fontWeights,
