@@ -2,10 +2,13 @@ import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
 import { anatomy, StyleFunctionProps } from '@chakra-ui/theme-tools'
 
 import { layerStyles } from '../layerStyles'
+import { textStyles } from '../textStyles'
 
 const parts = anatomy('calendar').parts(
   'container', // overall container
   'monthYearSelectorContainer', // container for month, year dropdowns and arrows
+  'monthYearSelect', // select for month and year
+  'monthYearDisplay', // container for month and year text
   'monthYearDropdownContainer', // container for month, year dropdowns
   'monthArrowContainer', // container for month forward/backward arrows
   'calendarContainer', // container for all month grids
@@ -13,7 +16,8 @@ const parts = anatomy('calendar').parts(
   'dayNamesContainer', // container for names of days in the week
   'dayOfMonthContainer',
   'dayOfMonth', // container for single date
-  'todayLinkContainer', // container for "Today" link
+  'todayLinkContainer', // container for "Today" link,
+  'todayLink', // "Today" link
 )
 
 const { definePartsStyle, defineMultiStyleConfig } =
@@ -59,7 +63,6 @@ const baseDayOfMonthStyles = defineStyle((props) => {
 
   return {
     display: 'inline-block',
-    textStyle: 'body-1',
     borderRadius: '50%',
     color,
     outline: 'none',
@@ -93,48 +96,101 @@ const baseDayOfMonthStyles = defineStyle((props) => {
   }
 })
 
+// Both sizes have the same styles for now.
+// Declared here since datepicker has xs styling, but calendar does not.
+// This allows datepicker's calendar to have sm styling in both xs and sm sizes.
+const xsSmStyle = definePartsStyle({
+  dayOfMonth: {
+    textStyle: 'body-2',
+    p: '0.25rem',
+    aspectRatio: '1 / 1',
+    w: '2.5rem',
+    minW: '2.5rem',
+  },
+  dayNamesContainer: {
+    textStyle: 'caption-1',
+    color: 'base.content.default',
+    w: '2.5rem',
+    minW: '2.5rem',
+    h: '2.25rem',
+  },
+  monthYearSelectorContainer: {
+    h: '3rem',
+  },
+  monthYearSelect: {
+    pl: '1rem',
+    ...textStyles['subhead-2'],
+  },
+  monthYearDisplay: {
+    ...textStyles['subhead-2'],
+    pl: '1rem',
+  },
+  calendarContainer: {
+    pb: '1rem',
+    px: '0.5rem',
+    mb: '-1px',
+  },
+  todayLinkContainer: {
+    py: '0.5rem',
+  },
+  todayLink: {
+    textStyle: 'body-2',
+    ...textStyles['body-2'],
+  },
+})
+
 const sizes = {
+  xs: xsSmStyle,
+  sm: xsSmStyle,
   md: definePartsStyle({
     dayOfMonth: {
-      p: {
-        base: 0,
-        md: 0.75,
-      },
+      textStyle: 'body-1',
+      p: '0.25rem',
       aspectRatio: '1 / 1',
-      w: {
-        base: '100%',
-        md: '2.75rem',
-      },
-      minW: {
-        base: '2.25rem',
-        md: '2.75rem',
-      },
+      w: '2.75rem',
+      minW: '2.75rem',
       maxW: '3rem',
     },
     monthYearSelectorContainer: {
       pt: '0.75rem',
       h: '3.5rem',
     },
+    monthYearSelect: {
+      pl: '1rem',
+      ...textStyles['subhead-1'],
+    },
+    monthYearDisplay: {
+      ...textStyles['subhead-1'],
+      pl: '1rem',
+    },
     calendarContainer: {
       pb: '1rem',
-      px: '0.625rem',
+      px: '0.5rem',
       mb: '-1px',
     },
     dayNamesContainer: {
-      w: {
-        base: '2.25rem',
-        md: '3.25rem',
-      },
-      h: {
-        base: '2.25rem',
-        md: '3rem',
-      },
+      textStyle: 'subhead-2',
+      w: '3.25rem',
+      h: '2.75rem',
     },
     todayLinkContainer: {
       py: '0.75rem',
     },
+    todayLink: {
+      // Both required since link is both a button and a link, and both
+      // components override different props.
+      textStyle: 'body-1',
+      ...textStyles['body-1'],
+    },
   }),
 }
+
+const monthYearDisplayStyles = defineStyle({
+  borderRadius: 'base',
+  color: 'base.content.strong',
+  height: 'fit-content',
+  py: '0.25rem',
+})
 
 const baseStyle = definePartsStyle((props) => ({
   container: {
@@ -143,7 +199,20 @@ const baseStyle = definePartsStyle((props) => ({
   monthYearSelectorContainer: {
     display: 'flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
+  monthYearSelect: {
+    ...monthYearDisplayStyles,
+    borderColor: 'transparent',
+    cursor: 'pointer',
+    _hover: {
+      borderColor: 'transparent',
+    },
+    _focusVisible: {
+      ...layerStyles.focusRing.default._focusVisible,
+    },
+  },
+  monthYearDisplay: monthYearDisplayStyles,
   monthYearDropdownContainer: {
     display: 'flex',
     justifyContent: 'flex-start',
@@ -157,15 +226,12 @@ const baseStyle = definePartsStyle((props) => ({
       base: 'block',
       md: 'flex',
     },
-    borderBottom: '1px solid',
-    borderColor: 'base.divider.medium',
   },
   monthGrid: {
     w: '100%',
     justifyItems: 'left',
   },
   dayNamesContainer: {
-    textStyle: 'subhead-2',
     color: 'base.content.default',
   },
   dayOfMonthContainer: baseDayOfMonthContainerStyles,

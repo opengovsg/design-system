@@ -43,3 +43,8 @@ export const CalendarWeekdayOnly = CalendarOnlyTemplate.bind({})
 CalendarWeekdayOnly.args = {
   isDateUnavailable: (d) => isWeekend(d),
 }
+
+export const SizeSmall = CalendarOnlyTemplate.bind({})
+SizeSmall.args = {
+  size: 'sm',
+}

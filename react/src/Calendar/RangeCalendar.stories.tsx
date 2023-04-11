@@ -52,3 +52,8 @@ export const RangeCalendarWeekdayOnly = RangeCalendarOnlyTemplate.bind({})
 RangeCalendarWeekdayOnly.args = {
   isDateUnavailable: (d) => isWeekend(d),
 }
+
+export const SizeSmall = RangeCalendarOnlyTemplate.bind({})
+SizeSmall.args = {
+  size: 'sm',
+}

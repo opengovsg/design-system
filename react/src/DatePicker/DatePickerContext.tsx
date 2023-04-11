@@ -12,7 +12,7 @@ import React, {
 } from 'react'
 import {
   FormControlProps,
-  SystemStyleObjectRecord,
+  SystemStyleObject,
   ThemingProps,
   useControllableState,
   useDisclosure,
@@ -29,7 +29,7 @@ import { DatePickerProps } from './DatePicker'
 
 interface DatePickerContextReturn {
   isMobile: boolean
-  styles: SystemStyleObjectRecord
+  styles: Record<string, SystemStyleObject>
   handleInputChange: ChangeEventHandler<HTMLInputElement>
   handleInputClick: MouseEventHandler<HTMLInputElement>
   handleDateChange: (date: Date | null) => void
@@ -44,6 +44,7 @@ interface DatePickerContextReturn {
   placeholder: string
   allowManualInput: boolean
   colorScheme?: ThemingProps<'DatePicker'>['colorScheme']
+  size?: ThemingProps<'DatePicker'>['size']
   isDateUnavailable?: (date: Date) => boolean
   disclosureProps: UseDisclosureReturn
   monthsToDisplay?: number
@@ -96,6 +97,7 @@ const useProvideDatePicker = ({
   monthsToDisplay,
   refocusOnClose = true,
   ssr,
+  size,
   ...props
 }: DatePickerProps): DatePickerContextReturn => {
   const initialFocusRef = useRef<HTMLInputElement>(null)
@@ -230,6 +232,7 @@ const useProvideDatePicker = ({
   )
 
   const styles = useMultiStyleConfig('DatePicker', {
+    size,
     colorScheme,
   })
 
@@ -255,6 +258,7 @@ const useProvideDatePicker = ({
     placeholder,
     allowManualInput,
     colorScheme,
+    size,
     isDateUnavailable,
     disclosureProps,
     monthsToDisplay,

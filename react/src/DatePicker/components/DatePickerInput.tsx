@@ -26,6 +26,7 @@ export const DatePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
     placeholder,
     inputRef,
     internalValue,
+    size,
   } = useDatePicker()
 
   const mergedInputRef = useMergeRefs(inputRef, ref)
@@ -50,9 +51,10 @@ export const DatePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
       <VisuallyHidden aria-live="assertive">
         {selectedDateAriaLiveText}
       </VisuallyHidden>
-      <InputGroup>
+      <InputGroup size={size}>
         {hasMounted ? (
           <Input
+            size={size}
             inputMode="numeric" // Nudge Android mobile keyboard to be numeric
             pattern="\d*" // Nudge numeric keyboard on iOS Safari.
             as={ReactInputMask}
@@ -68,7 +70,12 @@ export const DatePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
             isReadOnly={fcProps.isReadOnly || !allowManualInput}
           />
         ) : (
-          <Input pattern="\d*" inputMode="numeric" placeholder={placeholder} />
+          <Input
+            pattern="\d*"
+            size={size}
+            inputMode="numeric"
+            placeholder={placeholder}
+          />
         )}
         <InputRightAddon p={0} border="none">
           <CalendarButton />

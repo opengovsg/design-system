@@ -19,7 +19,7 @@ const {
   fontWeightToNumber,
   percentToEm,
   pxToRem,
-  setFallbackFonts,
+  setFontFamily,
 } = require("./config/utils");
 
 const { fileHeader, formattedVariables } = StyleDictionary.formatHelpers;
@@ -137,8 +137,7 @@ StyleDictionary.registerTransform({
 
     return {
       ...omitValues,
-      // Trebuchet MS is the closest height and width to Inter for best FOUT (flash of unstyled text) handling.
-      fontFamily: setFallbackFonts(fontFamily),
+      fontFamily: setFontFamily(fontFamily),
       textTransform: textCase === "none" ? undefined : textCase,
       textDecoration: textDecoration === "none" ? undefined : textDecoration,
       fontSize: fontSizeToRem,

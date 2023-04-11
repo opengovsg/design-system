@@ -22,23 +22,14 @@ interface CalendarHeaderProps {
 type MonthYearSelectProps = PropsWithChildren<SelectProps>
 
 const MonthYearSelect = ({ children, ...props }: MonthYearSelectProps) => {
+  const styles = useCalendarStyles()
   return (
     <Select
       // Prevents any parent form control from applying error styles to this select.
       isInvalid={false}
       variant="flushed"
-      borderRadius="base"
-      color="base.content.strong"
-      textStyle="subhead-1"
       flexBasis="fit-content"
-      borderColor="transparent"
-      cursor="pointer"
-      _hover={{
-        borderColor: 'transparent',
-      }}
-      _focus={{
-        boxShadow: '0 0 0 4px var(--chakra-colors-secondary-300)',
-      }}
+      sx={styles.monthYearSelect}
       {...props}
     >
       {children}
@@ -88,8 +79,6 @@ const SelectableMonthYear = memo(() => {
   return (
     <HStack>
       <MonthYearSelect
-        // Align with dates in the calendar
-        pl={{ base: '0.5rem', md: '1rem' }}
         value={currMonth}
         onChange={handleMonthChange}
         aria-label="Change displayed month"
@@ -109,6 +98,7 @@ const SelectableMonthYear = memo(() => {
 
 const MonthYear = memo(({ monthOffset }: CalendarHeaderProps) => {
   const { currMonth, currYear, isMobile } = useCalendar()
+  const styles = useCalendarStyles()
 
   const newOffsetDate = useMemo(
     () => addMonths(new Date(currYear, currMonth), monthOffset),
@@ -125,12 +115,7 @@ const MonthYear = memo(({ monthOffset }: CalendarHeaderProps) => {
   }, [newOffsetDate])
 
   return (
-    <HStack
-      ml={{ base: '0.5rem', md: '1rem' }}
-      textStyle="subhead-1"
-      color="base.content.strong"
-      spacing="1.5rem"
-    >
+    <HStack sx={styles.monthYearDisplay}>
       <Text>{monthDisplay}</Text>
       <Text>{yearDisplay}</Text>
     </HStack>
@@ -142,6 +127,7 @@ export const CalendarHeader = memo(
     const styles = useCalendarStyles()
     const {
       renderProps: { calendars, getBackProps, getForwardProps },
+      size,
     } = useCalendar()
 
     return (
@@ -156,6 +142,7 @@ export const CalendarHeader = memo(
             <IconButton
               variant="clear"
               colorScheme="neutral"
+              size={size}
               icon={<BxChevronLeft />}
               aria-label="Back one month"
               {...getBackProps({ calendars })}
@@ -163,6 +150,7 @@ export const CalendarHeader = memo(
             <IconButton
               variant="clear"
               colorScheme="neutral"
+              size={size}
               icon={<BxChevronRight />}
               aria-label="Forward one month"
               {...getForwardProps({ calendars })}

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 06 Jan 2023 04:09:42 GMT
+ * Generated on Thu, 06 Apr 2023 06:58:16 GMT
  */
 
 export const textStyles = {
@@ -9,8 +9,7 @@ export const textStyles = {
     lineHeight: '1.5rem',
     fontSize: '1rem',
     letterSpacing: '-0.014em',
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
   'responsive-display': {
     'heavy-1280': {
@@ -18,48 +17,42 @@ export const textStyles = {
       lineHeight: '4.5rem',
       fontSize: '4rem',
       letterSpacing: '-0.022em',
-      fontFamily:
-        'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+      fontFamily: 'body',
     },
     'heavy-480': {
       fontWeight: 700,
       lineHeight: '4rem',
       fontSize: '3.5rem',
       letterSpacing: '-0.022em',
-      fontFamily:
-        'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+      fontFamily: 'body',
     },
     heavy: {
       fontWeight: 600,
       lineHeight: '3rem',
       fontSize: '2.5rem',
       letterSpacing: '-0.022em',
-      fontFamily:
-        'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+      fontFamily: 'body',
     },
     'light-1280': {
       fontWeight: 300,
       lineHeight: '4.5rem',
       fontSize: '4rem',
       letterSpacing: '-0.022em',
-      fontFamily:
-        'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+      fontFamily: 'body',
     },
     'light-480': {
       fontWeight: 300,
       lineHeight: '4rem',
       fontSize: '3.5rem',
       letterSpacing: '-0.022em',
-      fontFamily:
-        'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+      fontFamily: 'body',
     },
     light: {
       fontWeight: 300,
       lineHeight: '3rem',
       fontSize: '2.5rem',
       letterSpacing: '-0.022em',
-      fontFamily:
-        'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+      fontFamily: 'body',
     },
   },
   'responsive-heading': {
@@ -68,48 +61,42 @@ export const textStyles = {
       lineHeight: '3.5rem',
       fontSize: '3rem',
       letterSpacing: '-0.022em',
-      fontFamily:
-        'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+      fontFamily: 'body',
     },
     'heavy-480': {
       fontWeight: 600,
       lineHeight: '3rem',
       fontSize: '2.5rem',
       letterSpacing: '-0.022em',
-      fontFamily:
-        'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+      fontFamily: 'body',
     },
     heavy: {
       fontWeight: 600,
       lineHeight: '2.5rem',
       fontSize: '2rem',
       letterSpacing: '-0.022em',
-      fontFamily:
-        'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+      fontFamily: 'body',
     },
     'light-1280': {
       fontWeight: 300,
       lineHeight: '3.5rem',
       fontSize: '3rem',
       letterSpacing: '-0.022em',
-      fontFamily:
-        'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+      fontFamily: 'body',
     },
     'light-480': {
       fontWeight: 300,
       lineHeight: '3rem',
       fontSize: '2.5rem',
       letterSpacing: '-0.022em',
-      fontFamily:
-        'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+      fontFamily: 'body',
     },
     light: {
       fontWeight: 300,
       lineHeight: '2.5rem',
       fontSize: '2rem',
       letterSpacing: '-0.022em',
-      fontFamily:
-        'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+      fontFamily: 'body',
     },
   },
   h1: {
@@ -117,72 +104,63 @@ export const textStyles = {
     lineHeight: '3rem',
     fontSize: '2.5rem',
     letterSpacing: '-0.022em',
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
   h2: {
     fontWeight: 600,
     lineHeight: '2.75rem',
     fontSize: '2.25rem',
     letterSpacing: '-0.022em',
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
   h3: {
     fontWeight: 700,
     lineHeight: '2.25rem',
     fontSize: '1.75rem',
     letterSpacing: '-0.019em',
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
   h4: {
     fontWeight: 600,
     lineHeight: '2rem',
     fontSize: '1.5rem',
     letterSpacing: '-0.019em',
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
   h5: {
     fontWeight: 600,
     lineHeight: '1.75rem',
     fontSize: '1.25rem',
     letterSpacing: '-0.014em',
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
   h6: {
     fontWeight: 500,
     lineHeight: '1.5rem',
     fontSize: '1.125rem',
     letterSpacing: '-0.014em',
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
   'subhead-1': {
     fontWeight: 500,
     lineHeight: '1.5rem',
     fontSize: '1rem',
     letterSpacing: '-0.006em',
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
   'subhead-2': {
     fontWeight: 500,
     lineHeight: '1.25rem',
     fontSize: '0.875rem',
     letterSpacing: 0,
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
   'subhead-3': {
     fontWeight: 600,
     lineHeight: '1.5rem',
     fontSize: '0.875rem',
     letterSpacing: '0.080em',
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
     textTransform: 'uppercase',
   },
   'body-1': {
@@ -190,61 +168,55 @@ export const textStyles = {
     lineHeight: '1.5rem',
     fontSize: '1rem',
     letterSpacing: '-0.006em',
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
   'body-2': {
     fontWeight: 400,
     lineHeight: '1.25rem',
     fontSize: '0.875rem',
     letterSpacing: 0,
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
   'body-3': {
     fontWeight: 400,
     lineHeight: '1.75rem',
     fontSize: '1rem',
     letterSpacing: '-0.006em',
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
   'caption-1': {
     fontWeight: 500,
     lineHeight: '1rem',
     fontSize: '0.75rem',
     letterSpacing: 0,
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
   'caption-2': {
     fontWeight: 400,
     lineHeight: '1rem',
     fontSize: '0.75rem',
     letterSpacing: 0,
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
   'code-1': {
     fontWeight: 400,
     lineHeight: '1.25rem',
     fontSize: '0.875rem',
     letterSpacing: 0,
-    fontFamily: 'IBM Plex Mono,Courier,Monaco,Courier New,monospace',
+    fontFamily: 'code',
   },
   'code-2': {
     fontWeight: 400,
     lineHeight: '1rem',
     fontSize: '0.75rem',
     letterSpacing: 0,
-    fontFamily: 'IBM Plex Mono,Courier,Monaco,Courier New,monospace',
+    fontFamily: 'code',
   },
   legal: {
     fontWeight: 400,
     lineHeight: '0.75rem',
     fontSize: '0.625rem',
     letterSpacing: 0,
-    fontFamily:
-      'Inter,Trebuchet MS,-apple-system,Arial,BlinkMacSystemFont,sans-serif',
+    fontFamily: 'body',
   },
 }

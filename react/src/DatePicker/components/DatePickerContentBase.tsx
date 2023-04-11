@@ -9,7 +9,8 @@ import {
   PopoverContent,
   PopoverHeader,
   Portal,
-  Text,
+  SystemStyleObject,
+  ThemingProps,
 } from '@chakra-ui/react'
 
 import { DrawerCloseButton } from '~/Drawer'
@@ -21,6 +22,8 @@ interface DatePickerContentBaseProps {
   isOpen: boolean
   onClose: () => void
   initialFocusRef: React.RefObject<HTMLElement>
+  headerStyles?: SystemStyleObject
+  size: ThemingProps<'DatePicker'>['size']
 }
 
 export const DatePickerContentBase = ({
@@ -28,7 +31,9 @@ export const DatePickerContentBase = ({
   isMobile,
   isOpen,
   onClose,
+  headerStyles,
   initialFocusRef,
+  size,
 }: DatePickerContentBaseProps): JSX.Element => {
   if (isMobile) {
     return (
@@ -40,18 +45,14 @@ export const DatePickerContentBase = ({
       >
         <DrawerOverlay />
         <DrawerContent maxH="100%" overflow="auto">
-          <DrawerCloseButton colorScheme="neutral" />
-          <DrawerHeader
-            h="3.5rem"
-            px={{ base: '1rem', md: '1.5rem' }}
-            justifyContent="space-between"
-            alignItems="center"
-            borderBottom="1px solid"
-            borderColor="base.divider.medium"
-          >
-            <Text textStyle="subhead-2" color="base.content.strong">
-              Select a date
-            </Text>
+          <DrawerCloseButton
+            size="sm"
+            right="0.625rem"
+            top="0.375rem"
+            colorScheme="neutral"
+          />
+          <DrawerHeader sx={headerStyles} borderBottomWidth="1px">
+            Select a date
           </DrawerHeader>
           {children}
         </DrawerContent>
@@ -63,17 +64,9 @@ export const DatePickerContentBase = ({
     <Portal>
       <PopoverContent borderRadius="base" w="unset" maxW="100vw" bg="white">
         <ReactFocusLock>
-          <PopoverHeader
-            h="3.5rem"
-            display="flex"
-            px={{ base: '1rem', md: '1.5rem' }}
-            justifyContent="space-between"
-            alignItems="center"
-            textStyle="subhead-2"
-            color="base.content.strong"
-          >
+          <PopoverHeader sx={headerStyles}>
             Select a date
-            <PopoverCloseButton position="initial" />
+            <PopoverCloseButton mr="-0.875rem" size={size} position="initial" />
           </PopoverHeader>
           <PopoverBody p={0}>{children}</PopoverBody>
         </ReactFocusLock>

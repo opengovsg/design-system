@@ -16,8 +16,8 @@ const getAvatarSubtleColorProps = ({ colorScheme: c }: StyleFunctionProps) => {
     case 'warning':
     case 'sub':
       return {
-        hoverBg: `interaction.${c}-light.hover`,
-        activeBg: `interaction.${c}-light.active`,
+        hoverBg: `interaction.${c}-subtle.hover`,
+        activeBg: `interaction.${c}-subtle.active`,
       }
     default:
       return {

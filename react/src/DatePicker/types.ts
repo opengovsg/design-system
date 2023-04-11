@@ -5,7 +5,7 @@ import { WithSsr } from '~/types/WithSsr'
 export interface DatePickerBaseProps
   extends Omit<
       InputProps,
-      'value' | 'defaultValue' | 'onChange' | 'colorScheme'
+      'value' | 'defaultValue' | 'onChange' | 'colorScheme' | 'size'
     >,
     WithSsr {
   /**

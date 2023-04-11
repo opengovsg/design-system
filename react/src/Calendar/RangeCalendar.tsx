@@ -1,7 +1,8 @@
 import { useCallback, useState } from 'react'
 import {
-  Box,
   forwardRef,
+  Stack,
+  StackDivider,
   useControllableState,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
@@ -142,10 +143,10 @@ export const RangeCalendar = forwardRef<RangeCalendarProps, 'input'>(
       >
         <CalendarStylesProvider value={styles}>
           <CalendarAria />
-          <Box sx={styles.container}>
+          <Stack spacing={0} divider={<StackDivider />} sx={styles.container}>
             <CalendarPanel ref={initialFocusRef} />
             <CalendarTodayButton />
-          </Box>
+          </Stack>
         </CalendarStylesProvider>
       </CalendarProvider>
     )

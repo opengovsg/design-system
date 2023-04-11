@@ -47,6 +47,7 @@ const baseStyle = defineStyle((props) => {
     height: 'fit-content',
     width: 'fit-content',
     position: 'relative',
+    textUnderlineOffset: '0.125rem',
     color,
     _dark: {
       color: 'interaction.links.inverse-default',
@@ -74,12 +75,10 @@ const baseStyle = defineStyle((props) => {
 
 const variantInline = defineStyle({
   textDecorationLine: 'underline',
-  textUnderlineOffset: '0.125rem',
 })
 
 const variantStandalone = defineStyle({
   p: '0.25rem',
-  textUnderlineOffset: '0.125rem',
   textStyle: { sm: 'subhead-2', md: 'subhead-1' },
   _hover: {
     textDecorationLine: 'underline',

@@ -3,7 +3,8 @@ import 'inter-ui/inter.css'
 
 import { Decorator } from '@storybook/react'
 
-import { ThemeProvider, theme as defaultTheme } from '../src/theme'
+import { ThemeProvider } from '../src/theme'
+import { withThemeFromJSXProvider } from '@storybook/addon-styling'
 
 import { StorybookTheme } from './themes'
 import { THEME_MAP } from './colorThemes'
@@ -41,22 +42,11 @@ export const parameters = {
   },
 }
 
-export const THEME_ADDON_BAR_ITEMS = Object.keys(THEME_MAP).map((key) => ({
-  value: key,
-  title: key,
-}))
-
-const withTheme: Decorator = (storyFn, context) => {
-  // Get values from story parameter first, else fallback to globals
-  const theme = context.parameters.theme || context.globals.theme
-  const themeToUse = THEME_MAP[theme]
-
-  return (
-    <ThemeProvider theme={themeToUse ?? defaultTheme}>
-      {storyFn()}
-    </ThemeProvider>
-  )
-}
+const withTheme = withThemeFromJSXProvider({
+  themes: THEME_MAP,
+  defaultTheme: 'default',
+  Provider: ThemeProvider,
+})
 
 const withColorMode: Decorator = (storyFn, context) => {
   const colorMode =
@@ -68,19 +58,4 @@ const withColorMode: Decorator = (storyFn, context) => {
   return <ColorModeProvider value={colorMode}>{storyFn()}</ColorModeProvider>
 }
 
-// Add theme selector to storybook addon bar.
-export const globalTypes = {
-  theme: {
-    name: 'Theme',
-    description: 'Global theme for components',
-    defaultValue: 'default',
-    toolbar: {
-      // The icon for the toolbar item
-      icon: 'paintbrush',
-      // Array of options
-      items: THEME_ADDON_BAR_ITEMS,
-    },
-  },
-}
-
-export const decorators: Decorator[] = [withColorMode, withTheme]
+export const decorators = [withColorMode, withTheme]
