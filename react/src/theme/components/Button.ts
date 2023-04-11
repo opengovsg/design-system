@@ -211,7 +211,7 @@ const variantOutlineClear = defineStyle((props) => {
 })
 
 const variantLink = defineStyle((props) => {
-  return merge(Link.baseStyle?.(props), Link.variants?.standalone, {
+  return merge({}, Link.baseStyle?.(props), Link.variants?.standalone, {
     border: 'none',
     minHeight: 'auto',
     fontWeight: 'normal',
@@ -227,7 +227,6 @@ const variantInputAttached = defineStyle((props) => {
 
   return {
     bg: 'utility.ui',
-    fontSize: '1.25rem',
     color: 'interaction.support.disabled-content',
     borderColor: 'base.divider.strong',
     borderStartRadius: 0,

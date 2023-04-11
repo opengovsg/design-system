@@ -46,6 +46,7 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
       isDateInRange,
       selectedDates,
       hoveredDate,
+      size,
       colorScheme,
     } = useCalendar()
 
@@ -68,7 +69,7 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
     )
 
     const styles = useMultiStyleConfig('Calendar', {
-      isSelected: selected,
+      size,
       isToday: today,
       isOutsideCurrMonth,
       colorScheme,

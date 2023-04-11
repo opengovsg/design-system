@@ -11,14 +11,18 @@ export const DateRangePickerContent = ({
     isMobile,
     disclosureProps: { isOpen, onClose },
     initialFocusRef,
+    styles,
+    size,
   } = useDateRangePicker()
 
   return (
     <DatePickerContentBase
+      size={size}
       isMobile={isMobile}
       isOpen={isOpen}
       onClose={onClose}
       initialFocusRef={initialFocusRef}
+      headerStyles={styles.header}
     >
       {children}
     </DatePickerContentBase>

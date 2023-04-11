@@ -10,9 +10,15 @@ export const DatePickerCalendar = (): JSX.Element => {
     handleDateChange,
     initialFocusRef,
     monthsToDisplay,
+    size,
+    isMobile,
   } = useDatePicker()
+
+  const displayedSize = isMobile ? 'sm' : size
+
   return (
     <Calendar
+      size={displayedSize}
       monthsToDisplay={monthsToDisplay}
       colorScheme={colorScheme}
       value={internalValue ?? undefined}

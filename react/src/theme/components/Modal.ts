@@ -46,7 +46,7 @@ const sizes = {
     },
     dialog: fullDialogStyle,
     closeButton: {
-      top: '2rem',
+      top: '1.5rem',
       insetEnd: '1.5rem',
     },
   }),
@@ -59,7 +59,7 @@ const sizes = {
       px: '2rem',
     },
     closeButton: {
-      top: '2rem',
+      top: '1.5rem',
       insetEnd: '2rem',
     },
     body: {

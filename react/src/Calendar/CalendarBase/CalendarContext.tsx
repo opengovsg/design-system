@@ -74,6 +74,9 @@ type PassthroughProps = {
    * Color scheme of date input
    */
   colorScheme?: ThemingProps<'Calendar'>['colorScheme']
+
+  /** Size of the component */
+  size?: ThemingProps<'Calendar'>['size']
 }
 
 // Removed - and _ from alphabets for simpler classnames
@@ -144,6 +147,7 @@ const useProvideCalendar = ({
   isDateInRange,
   hoveredDate,
   colorScheme,
+  size,
   ssr,
 }: UseProvideCalendarProps) => {
   const isMobile = useIsMobile({ ssr })
@@ -326,6 +330,7 @@ const useProvideCalendar = ({
     isDateInRange,
     hoveredDate,
     colorScheme,
+    size,
     monthsToDisplay,
   }
 }

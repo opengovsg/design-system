@@ -1,6 +1,7 @@
 import {
-  Box,
   forwardRef,
+  Stack,
+  StackDivider,
   ThemingProps,
   useControllableState,
   useMultiStyleConfig,
@@ -53,10 +54,10 @@ export const Calendar = forwardRef<CalendarProps, 'input'>(
       >
         <CalendarStylesProvider value={styles}>
           <CalendarAria />
-          <Box sx={styles.container}>
+          <Stack spacing={0} divider={<StackDivider />} sx={styles.container}>
             <CalendarPanel ref={initialFocusRef} />
             <CalendarTodayButton />
-          </Box>
+          </Stack>
         </CalendarStylesProvider>
       </CalendarProvider>
     )

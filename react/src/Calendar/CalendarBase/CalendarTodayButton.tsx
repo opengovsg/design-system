@@ -15,6 +15,7 @@ export const CalendarTodayButton = (): JSX.Element => {
         colorScheme={colorScheme}
         variant="link"
         type="button"
+        sx={styles.todayLink}
         onClick={handleTodayClick}
       >
         Today

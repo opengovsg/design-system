@@ -1,3 +1,5 @@
+import { Icon } from '@chakra-ui/react'
+
 import { IconButton } from '~/IconButton'
 import { BxCalendar } from '~/icons'
 
@@ -8,15 +10,19 @@ export const CalendarButton = (): JSX.Element => {
     disclosureProps: { onOpen, isOpen },
     calendarButtonAria,
     fcProps: { isDisabled, isReadOnly, isInvalid },
+    size,
+    styles,
   } = useDateRangePicker()
 
   return (
     <IconButton
+      data-group
+      size={size}
       aria-invalid={isInvalid}
       onClick={onOpen}
       variant="inputAttached"
       aria-label={calendarButtonAria}
-      icon={<BxCalendar />}
+      icon={<Icon as={BxCalendar} sx={styles.inputButton} />}
       isActive={isOpen}
       isDisabled={isDisabled || isReadOnly}
     />
