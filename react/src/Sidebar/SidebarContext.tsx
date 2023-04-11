@@ -14,7 +14,7 @@ export interface SidebarContextProps {
 }
 
 export interface SidebarContextReturn {
-  collapsed: boolean
+  collapsed: boolean | undefined
   onToggleCollapse: () => void
   labelStyles: SystemStyleObject
   containerStyles: SystemStyleObject
@@ -92,7 +92,7 @@ const useProvideSidebar = ({
   return {
     labelStyles,
     containerStyles,
-    collapsed: !expanded,
+    collapsed: collapsedProp === undefined ? undefined : !expanded,
     onToggleCollapse,
   }
 }

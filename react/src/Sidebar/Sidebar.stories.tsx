@@ -1,7 +1,7 @@
 import { Flex } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
-import { BxBulb, BxGitMerge, BxHeart, BxsStar } from '~/icons'
+import { BxBulb, BxGitMerge, BxHeart, BxsStar, BxStar } from '~/icons'
 
 import { Sidebar, SidebarProps } from './Sidebar'
 import type { SidebarItemType } from './types'
@@ -50,10 +50,17 @@ export default {
   },
 } as Meta<SidebarProps>
 
+type StoryProps = SidebarProps & {
+  showCollapsedButton?: boolean
+}
+
 const Template: StoryFn<SidebarProps> = (args) => <Sidebar {...args} />
 export const Default = Template.bind({})
 
-const BuilderTemplate: StoryFn<SidebarProps> = ({ collapsed }) => {
+const BuilderTemplate: StoryFn<StoryProps> = ({
+  showCollapsedButton,
+  collapsed,
+}) => {
   return (
     <Flex minH="30rem">
       <Sidebar.Container justify="space-between" collapsed={collapsed}>
@@ -76,6 +83,7 @@ const BuilderTemplate: StoryFn<SidebarProps> = ({ collapsed }) => {
           />
           <Sidebar.NestedItem
             root
+            icon={<BxStar fontSize="1.5rem" />}
             label="Nested Options 2 this is a very long title"
           >
             <Sidebar.Item label="Child Option 1" />
@@ -87,7 +95,7 @@ const BuilderTemplate: StoryFn<SidebarProps> = ({ collapsed }) => {
             </Sidebar.NestedItem>
           </Sidebar.NestedItem>
         </Sidebar.Section>
-        <Sidebar.CollapseButton />
+        {showCollapsedButton && <Sidebar.CollapseButton />}
       </Sidebar.Container>
     </Flex>
   )
@@ -125,5 +133,6 @@ export const UseCustomComponentInItem = () => {
 
 export const Collapsed = BuilderTemplate.bind({})
 Collapsed.args = {
+  showCollapsedButton: true,
   collapsed: true,
 }

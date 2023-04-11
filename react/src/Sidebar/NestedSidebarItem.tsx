@@ -53,7 +53,13 @@ export const NestedSidebarItem: FC<
               {label}
             </Text>
           </Flex>
-          <Flex sx={labelStyles} ml="0.5rem">
+          <Flex
+            sx={labelStyles}
+            alignSelf="flex-start"
+            align="center"
+            h="1.5rem"
+            ml="0.5rem"
+          >
             <AccordionIcon />
           </Flex>
         </AccordionButton>
