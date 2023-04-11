@@ -1,12 +1,13 @@
 import { useMemo } from 'react'
-import { forwardRef } from '@chakra-ui/react'
+import { forwardRef, Text } from '@chakra-ui/react'
 import { dataAttr } from '@chakra-ui/utils'
 import { cloneDeep, mergeWith } from 'lodash'
 
 import { Button, ButtonProps } from '~/Button'
 
+import { useSidebarContext } from './SidebarContext'
 import { useSidebarStyles } from './SidebarStylesContext'
-import { BaseSidebarItem } from './types'
+import type { BaseSidebarItem } from './types'
 
 export interface SidebarItemProps extends BaseSidebarItem, ButtonProps {
   isActive?: boolean
@@ -16,6 +17,7 @@ export interface SidebarItemProps extends BaseSidebarItem, ButtonProps {
 export const SidebarItem = forwardRef<SidebarItemProps, 'button'>(
   ({ isActive, label, icon, as, root, ...props }, ref): JSX.Element => {
     const styles = useSidebarStyles()
+    const { labelStyles, collapsed } = useSidebarContext()
 
     const itemStyles = useMemo(() => {
       return mergeWith(
@@ -34,7 +36,13 @@ export const SidebarItem = forwardRef<SidebarItemProps, 'button'>(
         as={as}
         {...props}
       >
-        {label}
+        <Text
+          // Force single line usage for smooth text expansion if collapsed prop is provided
+          noOfLines={collapsed !== undefined ? 1 : undefined}
+          sx={labelStyles}
+        >
+          {label}
+        </Text>
       </Button>
     )
   },

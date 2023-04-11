@@ -1,13 +1,15 @@
-import { FC, PropsWithChildren, useMemo } from 'react'
-import { StackProps, useMultiStyleConfig, VStack } from '@chakra-ui/react'
+import { useMemo } from 'react'
 
 import { NestedSidebarItem } from './NestedSidebarItem'
+import { SidebarCollapseButton } from './SidebarCollapseButton'
+import { SidebarContainer } from './SidebarContainer'
 import { SidebarItem } from './SidebarItem'
-import { SidebarStylesProvider } from './SidebarStylesContext'
+import { SidebarSection } from './SidebarSection'
 import type { SidebarItemType, SidebarNestableItem } from './types'
 
 export interface SidebarProps {
   items: SidebarItemType[]
+  collapsed?: boolean
 }
 
 const isNestableItem = (item: SidebarItemType): item is SidebarNestableItem => {
@@ -38,28 +40,20 @@ const generateSidebarItems = (
   })
 }
 
-const SidebarContainer: FC<PropsWithChildren<StackProps>> = ({
-  children,
-  ...props
-}) => {
-  const styles = useMultiStyleConfig('Sidebar', {})
-  return (
-    <SidebarStylesProvider value={styles}>
-      <VStack align="flex-start" spacing={0} {...props}>
-        {children}
-      </VStack>
-    </SidebarStylesProvider>
-  )
-}
-
-export const Sidebar = ({ items }: SidebarProps): JSX.Element => {
+export const Sidebar = ({ items, collapsed }: SidebarProps): JSX.Element => {
   const sidebarItems = useMemo(() => generateSidebarItems(items, true), [items])
-  return <SidebarContainer>{sidebarItems}</SidebarContainer>
+  return (
+    <SidebarContainer collapsed={collapsed}>{sidebarItems}</SidebarContainer>
+  )
 }
 
 Sidebar.Container = SidebarContainer
 Sidebar.Container.displayName = 'Sidebar.Container'
+Sidebar.Section = SidebarSection
+Sidebar.Section.displayName = 'Sidebar.Section'
 Sidebar.Item = SidebarItem
 Sidebar.Item.displayName = 'Sidebar.Item'
 Sidebar.NestedItem = NestedSidebarItem
 Sidebar.NestedItem.displayName = 'Sidebar.NestedItem'
+Sidebar.CollapseButton = SidebarCollapseButton
+Sidebar.CollapseButton.displayName = 'Sidebar.CollapseButton'

@@ -82,6 +82,10 @@ export const Sidebar = defineMultiStyleConfig({
   sizes,
   variants,
   baseStyle: {
+    container: {
+      transitionProperty: 'common',
+      transitionDuration: 'normal',
+    },
     item: {
       transitionProperty: 'common',
       transitionDuration: 'normal',
