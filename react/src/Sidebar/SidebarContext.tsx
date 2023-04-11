@@ -44,7 +44,7 @@ export const useSidebarContext = () => {
   return context
 }
 
-export const useProvideSidebar = ({
+const useProvideSidebar = ({
   collapsed: collapsedProp,
   onToggleCollapse: onToggleCollapseProp,
 }: SidebarContextProps): SidebarContextReturn => {
