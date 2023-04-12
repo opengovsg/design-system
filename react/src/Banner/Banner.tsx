@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-import ReactMarkdown from 'react-markdown'
 import {
   As,
   Box,
@@ -11,20 +10,12 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
-import { useMdComponents } from '~/hooks/useMdComponents'
 import { BxsErrorCircle, BxsInfoCircle, BxX } from '~/icons'
 import { BannerVariant } from '~/theme/components/Banner'
-import type { WithReactMarkdownSsr } from '~/types/WithSsr'
 
-export interface BannerProps extends WithReactMarkdownSsr {
+export interface BannerProps {
   variant?: BannerVariant
   children: string
-  /**
-   * Whether to parse the banner's content as markdown.
-   * Defaults to `false`.
-   * @default false
-   */
-  useMarkdown?: boolean
   /**
    * Whether to allow collapsing of the banner.
    * Defaults to `true` if `info` variant is used, `false` otherwise.
@@ -45,12 +36,9 @@ export interface BannerProps extends WithReactMarkdownSsr {
 export const Banner = ({
   variant = 'info',
   children,
-  useMarkdown = false,
   isDismissable: isDismissableProp,
   icon: iconProp,
   closeButton,
-  ssr,
-  mdIsExternalLinkFn,
 }: BannerProps): JSX.Element => {
   const { isOpen, onToggle } = useDisclosure({
     defaultIsOpen: true,
@@ -58,17 +46,6 @@ export const Banner = ({
 
   const styles = useMultiStyleConfig('Banner', { variant })
 
-  const mdComponents = useMdComponents({
-    styles: {
-      link: styles.link,
-    },
-    ssr,
-    props: {
-      link: {
-        isExternalFn: mdIsExternalLinkFn,
-      },
-    },
-  })
   const iconToUse = useMemo(() => {
     if (iconProp) {
       return iconProp
@@ -97,13 +74,7 @@ export const Banner = ({
         <Flex sx={styles.item}>
           <Flex>
             <Icon as={iconToUse} __css={styles.icon} />
-            {useMarkdown ? (
-              <ReactMarkdown components={mdComponents}>
-                {children}
-              </ReactMarkdown>
-            ) : (
-              children
-            )}
+            {children}
           </Flex>
           {closeButtonRendered}
         </Flex>
