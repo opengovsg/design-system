@@ -65,14 +65,6 @@ const ButtonWithToastTemplate: StoryFn<UseToastOptions> = (args) => {
   )
 }
 
-export const WithMarkdown = ToastTemplate.bind({})
-WithMarkdown.args = {
-  ...ToastStateProps.Success,
-  title: `Markdown can be used in the _title_`,
-  description: `Markdown can be used in the _description_ too`,
-  useMarkdown: true,
-}
-
 export const Success = ToastTemplate.bind({})
 Success.args = ToastStateProps.Success
 

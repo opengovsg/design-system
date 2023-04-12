@@ -6,19 +6,15 @@ import {
 } from '@chakra-ui/react'
 import { omit } from 'lodash'
 
-import type { WithReactMarkdownSsr } from '~/types/WithSsr'
-
 import { Toast } from './Toast'
 
-interface UseToastOptions extends ChakraUseToastOptions, WithReactMarkdownSsr {}
+type UseToastOptions = ChakraUseToastOptions
 
 export const useToast = ({
   status = 'success',
   duration = 6000,
   position = 'top',
   containerStyle: containerStyleProps,
-  ssr,
-  mdIsExternalLinkFn,
   ...initialProps
 }: UseToastOptions = {}): CreateToastFnReturn => {
   const initialToastProps = omit(initialProps, ['onClose', 'status'])
@@ -33,7 +29,7 @@ export const useToast = ({
     duration,
     position,
     render: (props) => {
-      return createElement(Toast, { ...props, ssr, mdIsExternalLinkFn })
+      return createElement(Toast, props)
     },
   })
 }
