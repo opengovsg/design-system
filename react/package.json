@@ -56,8 +56,7 @@
   "peerDependencies": {
     "@chakra-ui/react": "^2.5.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-markdown": "^8.0.0 || ^6.0.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@chakra-ui/cli": "^2.3.0",
