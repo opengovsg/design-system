@@ -15,7 +15,7 @@ import { BannerVariant } from '~/theme/components/Banner'
 
 export interface BannerProps {
   variant?: BannerVariant
-  children: string
+  children: React.ReactNode
   /**
    * Whether to allow collapsing of the banner.
    * Defaults to `true` if `info` variant is used, `false` otherwise.

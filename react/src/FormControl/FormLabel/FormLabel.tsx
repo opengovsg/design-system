@@ -36,7 +36,7 @@ export interface FormLabelProps extends ChakraFormLabelProps {
   /**
    * Label text.
    */
-  children: string
+  children: React.ReactNode
   /**
    * Whether form label is required. This is optional; if this prop is not
    * provided, the value from it's parent `FormContext` (if any) will be used.
