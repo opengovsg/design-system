@@ -69,7 +69,7 @@
     "@storybook/client-api": "7.0.5",
     "@storybook/react": "7.0.5",
     "@storybook/react-vite": "7.0.5",
-    "@storybook/theming": "7.0.2",
+    "@storybook/theming": "7.0.6",
     "@types/country-flag-icons": "^1.2.0",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
