@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { get } from 'lodash'
 
-interface ColourTableProps {
+export interface ColourTableProps {
   label: string
   colours: {
     palette: string
