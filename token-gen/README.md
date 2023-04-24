@@ -71,14 +71,14 @@ The theme files can then be imported into your application's theme as follows:
 ```typescript
 // src/theme/theme.ts
 
-import { extendTheme } from "@chakra-ui/react";
-import { colours } from "./colours";
-import { shadows } from "./shadows";
-import { spacing } from "./spacing";
-import { textStyles } from "./textStyles";
-import { typography } from "./typography";
+import { extendTheme } from '@chakra-ui/react'
+import { colours } from './colours'
+import { shadows } from './shadows'
+import { spacing } from './spacing'
+import { textStyles } from './textStyles'
+import { typography } from './typography'
 
-import { theme as ogpTheme } from "@opengovsg/design-system-react";
+import { theme as ogpTheme } from '@opengovsg/design-system-react'
 
 export const theme = extendTheme(ogpTheme, {
   colors: colours,
@@ -89,7 +89,7 @@ export const theme = extendTheme(ogpTheme, {
   lineHeights: typography.lineHeights,
   letterSpacings: typography.letterSpacing,
   textStyles,
-});
+})
 ```
 
 The exported theme can then be used in your application as follows:
@@ -97,9 +97,9 @@ The exported theme can then be used in your application as follows:
 ```typescript
 // src/index.tsx
 
-import { theme } from "./theme/theme";
+import { theme } from './theme/theme'
 
 function App() {
-  return <ThemeProvider theme={theme}>...</ThemeProvider>;
+  return <ThemeProvider theme={theme}>...</ThemeProvider>
 }
 ```
