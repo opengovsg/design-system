@@ -125,7 +125,7 @@ const sizes = {
         fontSize: '1rem',
       },
       chevron: {
-        pt: '0.25rem',
+        pt: '0.5rem',
         fontSize: '1rem',
         px: '0.5rem',
       },
