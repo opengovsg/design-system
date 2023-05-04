@@ -272,11 +272,8 @@ const useProvideDateRangePicker = ({
 
   const handleCalendarDateChange = useCallback(
     (date: DateRangeValue) => {
-      const zonedDateRange = date.map((d) =>
-        d,
-      ) as DateRangeValue
-      const [nextStartDate, nextEndDate] = zonedDateRange
-      setInternalValue(zonedDateRange)
+      const [nextStartDate, nextEndDate] = date
+      setInternalValue(date)
       setStartInputDisplay(
         nextStartDate ? format(nextStartDate, displayFormat, { locale }) : '',
       )
