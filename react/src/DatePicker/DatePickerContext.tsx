@@ -21,7 +21,6 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 import { format, isValid, parse } from 'date-fns'
-import { zonedTimeToUtc } from 'date-fns-tz'
 
 import { useIsMobile } from '~/hooks'
 
@@ -85,7 +84,6 @@ const useProvideDatePicker = ({
   isReadOnly: isReadOnlyProp,
   isRequired: isRequiredProp,
   isInvalid: isInvalidProp,
-  timeZone = 'UTC',
   locale,
   isDateUnavailable,
   allowManualInput = true,
@@ -123,9 +121,9 @@ const useProvideDatePicker = ({
   const formatInputValue = useCallback(
     (date: Date | null) => {
       if (!date || !isValid(date)) return ''
-      return format(zonedTimeToUtc(date, timeZone), displayFormat, { locale })
+      return format(date, displayFormat, { locale })
     },
-    [displayFormat, locale, timeZone],
+    [displayFormat, locale],
   )
 
   // What is rendered as a string in the input according to given display format.
@@ -148,7 +146,7 @@ const useProvideDatePicker = ({
       const date = parse(
         internalInputValue,
         dateFormat,
-        zonedTimeToUtc(new Date(), timeZone),
+        new Date(),
       )
       // Clear if input is invalid on blur if invalid dates are not allowed.
       if (!allowInvalidDates && !isValid(date)) {
@@ -164,7 +162,6 @@ const useProvideDatePicker = ({
       onBlur,
       setInternalInputValue,
       setInternalValue,
-      timeZone,
     ],
   )
 
@@ -182,12 +179,11 @@ const useProvideDatePicker = ({
 
   const handleDateChange = useCallback(
     (date: Date | null) => {
-      const zonedDate = date ? zonedTimeToUtc(date, timeZone) : null
-      if (allowInvalidDates || isValid(zonedDate) || !zonedDate) {
-        setInternalValue(zonedDate)
+      if (allowInvalidDates || isValid(date) || !date) {
+        setInternalValue(date)
       }
-      if (zonedDate) {
-        setInternalInputValue(format(zonedDate, displayFormat, { locale }))
+      if (date) {
+        setInternalInputValue(format(date, displayFormat, { locale }))
       } else {
         setInternalInputValue('')
       }
@@ -201,7 +197,6 @@ const useProvideDatePicker = ({
       locale,
       setInternalInputValue,
       setInternalValue,
-      timeZone,
     ],
   )
 
@@ -210,14 +205,14 @@ const useProvideDatePicker = ({
       const date = parse(
         event.target.value,
         dateFormat,
-        zonedTimeToUtc(new Date(), timeZone),
+        new Date(),
       )
       setInternalInputValue(event.target.value)
       if (isValid(date)) {
         setInternalValue(date)
       }
     },
-    [dateFormat, setInternalInputValue, setInternalValue, timeZone],
+    [dateFormat, setInternalInputValue, setInternalValue],
   )
 
   const handleInputClick: MouseEventHandler<HTMLInputElement> = useCallback(
