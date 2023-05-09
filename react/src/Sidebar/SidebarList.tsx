@@ -1,4 +1,4 @@
-import { type PropsWithChildren, useMemo } from 'react'
+import { type PropsWithChildren, useCallback, useMemo } from 'react'
 import {
   chakra,
   Collapse,
@@ -74,22 +74,17 @@ export const SidebarList = forwardRef<
     const styles = useSidebarStyles()
     const { reduceMotion } = useSidebarContext()
 
-    const { isOpen, getButtonProps } = useDisclosure({
+    const { isOpen, onToggle } = useDisclosure({
       defaultIsOpen: defaultIsExpanded,
       isOpen: isExpandedProp,
       onClose: () => onExpandProp?.(false),
       onOpen: () => onExpandProp?.(true),
     })
 
-    const buttonProps = getButtonProps()
-    const sectionButtonProps = useMemo(() => {
-      if (onlyCaretToggle) {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { onClick, ...rest } = buttonProps
-        return rest
-      }
-      return buttonProps
-    }, [buttonProps, onlyCaretToggle])
+    const handleExpandSection = useCallback(() => {
+      if (onlyCaretToggle) return
+      return onToggle()
+    }, [onToggle, onlyCaretToggle])
 
     const dataActive = useMemo(() => {
       if (isFunction(isActive)) {
@@ -108,9 +103,9 @@ export const SidebarList = forwardRef<
       <chakra.li __css={styles.list} pl={0} ref={ref} {...props}>
         <Flex
           __css={itemCss}
-          aria-expanded={isOpen}
+          data-expanded={dataAttr(isOpen)}
           data-active={dataAttr(dataActive)}
-          {...sectionButtonProps}
+          onClick={handleExpandSection}
         >
           <chakra.span flex={1} __css={styles.label}>
             {icon ? (
@@ -122,7 +117,7 @@ export const SidebarList = forwardRef<
             reduceMotion={reduceMotion}
             isOpen={isOpen}
             styles={styles.icon}
-            {...buttonProps}
+            onClick={onToggle}
           />
         </Flex>
         <SidebarNestProvider nested>
