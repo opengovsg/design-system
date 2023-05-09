@@ -1,11 +1,13 @@
 import { useMemo } from 'react'
 
 import { SidebarContainer } from './SidebarContainer'
-import { SidebarItem } from './SidebarItem'
+import { SidebarItem, SidebarItemProps } from './SidebarItem'
 import { SidebarList } from './SidebarList'
 import type { BaseSidebarItemProps } from './types'
 
-type GeneratedBase = BaseSidebarItemProps & {
+interface GeneratedBase
+  extends BaseSidebarItemProps,
+    Pick<SidebarItemProps, 'isActive'> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   props?: any
 }

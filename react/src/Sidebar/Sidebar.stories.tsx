@@ -35,7 +35,7 @@ const DEFAULT_ITEMS: SidebarProps['items'] = [
           {
             label: 'Nested again',
             subItems: [
-              { children: 'Overview 2' },
+              { children: 'Overview 2', isActive: true },
               { children: <Link href="https://google.com">Link</Link> },
             ],
           },
@@ -64,10 +64,16 @@ export const Explicit = {
   render: () => (
     <SidebarContainer>
       <SidebarItem>Child</SidebarItem>
-      <SidebarList label="Dashboard">
+      <SidebarList
+        onlyCaretToggle
+        label={<Link href="https://google.com">Google</Link>}
+      >
         <SidebarItem>
           <Link href="https://google.com">Google</Link>
         </SidebarItem>
+      </SidebarList>
+      <SidebarList isActive label="Label">
+        <SidebarItem>Nested child</SidebarItem>
       </SidebarList>
     </SidebarContainer>
   ),

@@ -6,10 +6,11 @@ import { layerStyles } from '../layerStyles'
 const parts = anatomy('sidebar').parts(
   'item',
   'list',
+  'label',
   'nest',
   'section',
-  'parent',
   'child',
+  'caret',
 )
 
 const { definePartsStyle, defineMultiStyleConfig } =
@@ -29,10 +30,14 @@ const baseStyle = definePartsStyle({
       borderColor: 'base.divider.brand',
     },
   },
-  item: {
-    listStyleType: 'none',
+  label: {
     display: 'flex',
     alignItems: 'center',
+  },
+  item: {
+    display: 'flex',
+    alignItems: 'center',
+    listStyleType: 'none',
     color: 'base.content.default',
     borderRadius: 'md',
     _hover: {
@@ -42,15 +47,17 @@ const baseStyle = definePartsStyle({
       bg: 'interaction.muted.main.active',
       color: 'interaction.main.default',
     },
-    _focusVisible: {
-      ...layerStyles.focusRing.default._focusVisible,
-      outlineOffset: '-2px',
+    _groupActive: {
+      bg: 'interaction.muted.main.active',
+      color: 'interaction.main.default',
     },
-  },
-  parent: {
     _expanded: {
       bg: 'interaction.muted.main.active',
       color: 'interaction.main.default',
+    },
+    _focusVisible: {
+      ...layerStyles.focusRing.default._focusVisible,
+      outlineOffset: '-2px',
     },
   },
   list: {
@@ -71,14 +78,16 @@ const sizes = {
     nest: {
       paddingInlineStart: '1.75rem',
     },
-    item: {
+    label: {
       gap: '0.5rem',
+    },
+    item: {
       py: '0.75rem',
       px: '1rem',
     },
-    parent: {
-      py: '0.75rem',
-      px: '1rem',
+    caret: {
+      cursor: 'pointer',
+      fontSize: '1.25rem',
     },
   }),
 }

@@ -3,8 +3,7 @@ import { chakra, forwardRef } from '@chakra-ui/react'
 import { dataAttr, isFunction } from '@chakra-ui/utils'
 import { merge } from 'lodash'
 
-import { useSidebarNestContext } from './SidebarNestContext'
-import { useSidebarStyles } from './SidebarStyleProvider'
+import { useSidebarNestContext, useSidebarStyles } from './SidebarContext'
 import type { BaseSidebarItemProps } from './types'
 
 export interface SidebarItemProps extends BaseSidebarItemProps {
@@ -17,10 +16,10 @@ export const SidebarItem = forwardRef<SidebarItemProps, 'li'>(
     const { nested } = useSidebarNestContext()
     const css = useMemo(() => {
       if (!nested) {
-        return styles.item
+        return merge({}, styles.item, styles.label)
       }
       return merge({}, styles.item, styles.child)
-    }, [nested, styles.child, styles.item])
+    }, [nested, styles.child, styles.item, styles.label])
 
     const dataActive = useMemo(() => {
       if (isFunction(isActive)) {
