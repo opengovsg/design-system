@@ -1,4 +1,4 @@
-import { PropsWithChildren, useMemo } from 'react'
+import { type PropsWithChildren, useMemo } from 'react'
 import {
   chakra,
   Collapse,
@@ -6,19 +6,19 @@ import {
   forwardRef,
   Icon,
   useDisclosure,
-  UseDisclosureReturn,
+  type UseDisclosureReturn,
 } from '@chakra-ui/react'
 import { dataAttr, isFunction } from '@chakra-ui/utils'
 import { merge } from 'lodash'
 
-import { BxsChevronDown } from '..'
+import { ToggleChevron } from '~/icons'
 
 import {
   SidebarNestProvider,
   useSidebarContext,
   useSidebarStyles,
 } from './SidebarContext'
-import { BaseSidebarItemProps } from './types'
+import type { BaseSidebarItemProps } from './types'
 
 const SidebarSection = ({
   children,
@@ -72,6 +72,7 @@ export const SidebarList = forwardRef<
     ref,
   ): JSX.Element => {
     const styles = useSidebarStyles()
+    const { reduceMotion } = useSidebarContext()
 
     const { isOpen, getButtonProps } = useDisclosure({
       defaultIsOpen: defaultIsExpanded,
@@ -117,7 +118,12 @@ export const SidebarList = forwardRef<
             ) : null}
             {label}
           </chakra.span>
-          <Icon {...buttonProps} __css={styles.icon} as={BxsChevronDown} />
+          <ToggleChevron
+            reduceMotion={reduceMotion}
+            isOpen={isOpen}
+            styles={styles.icon}
+            {...buttonProps}
+          />
         </Flex>
         <SidebarNestProvider nested>
           <SidebarSection isOpen={isOpen}>{children}</SidebarSection>

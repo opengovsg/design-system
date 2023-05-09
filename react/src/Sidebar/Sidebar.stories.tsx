@@ -61,6 +61,7 @@ type Story = StoryObj<typeof meta>
 export const WithItemsProp: Story = {
   args: {
     items: DEFAULT_ITEMS,
+    size: 'md',
   },
 }
 
@@ -107,6 +108,7 @@ export const NoNest = {
 export const Mobile: Story = {
   args: {
     items: DEFAULT_ITEMS,
+    size: 'md',
   },
   parameters: getMobileViewParameters(),
 }
