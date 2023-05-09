@@ -1,29 +1,28 @@
 import { useMemo } from 'react'
 
-import { SidebarChildItem } from './SidebarChildItem'
 import { SidebarContainer } from './SidebarContainer'
-import { SidebarParentItem } from './SidebarParentItem'
+import { SidebarItem } from './SidebarItem'
+import { SidebarList } from './SidebarList'
 import type { BaseSidebarItemProps } from './types'
 
-type GeneratedItemBase = BaseSidebarItemProps & {
+type GeneratedBase = BaseSidebarItemProps & {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   props?: any
 }
-type GeneratedItemChild = GeneratedItemBase
-type GeneratedItemParent = GeneratedItemBase & {
-  subItems: (GeneratedItemParent | GeneratedItemChild)[]
+type GeneratedItem = GeneratedBase
+type GeneratedList = Omit<GeneratedBase, 'children'> & {
+  label: string
+  subItems: (GeneratedList | GeneratedItem)[]
   root?: boolean
 }
 
-type GeneratedSidebarItem = GeneratedItemParent | GeneratedItemChild
+type GeneratedSidebarItem = GeneratedList | GeneratedItem
 
 export interface SidebarProps {
   items: GeneratedSidebarItem[]
 }
 
-const isNestableItem = (
-  item: GeneratedSidebarItem,
-): item is GeneratedItemParent => {
+const isNestableItem = (item: GeneratedSidebarItem): item is GeneratedList => {
   return 'subItems' in item
 }
 
@@ -35,7 +34,7 @@ export const generateSidebarItems = (
   return items.map((item, index) => {
     if (isNestableItem(item)) {
       return (
-        <SidebarParentItem
+        <SidebarList
           root={root}
           key={index}
           label={item.label}
@@ -43,12 +42,12 @@ export const generateSidebarItems = (
           {...item.props}
         >
           {generateSidebarItems(item.subItems, root)}
-        </SidebarParentItem>
+        </SidebarList>
       )
     }
 
     const { props, ...rest } = item
-    return <SidebarChildItem key={index} {...rest} {...props} />
+    return <SidebarItem key={index} {...rest} {...props} />
   })
 }
 

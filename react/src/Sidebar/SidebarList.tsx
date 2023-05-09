@@ -1,10 +1,10 @@
-import { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
 import { forwardRef, ListItem, UnorderedList } from '@chakra-ui/react'
 
-import type { SidebarParentItemProps } from './types'
+import type { SidebarListProps } from './types'
 
-export const SidebarParentItem = forwardRef<
-  PropsWithChildren<SidebarParentItemProps>,
+export const SidebarList = forwardRef<
+  PropsWithChildren<SidebarListProps>,
   'li'
 >(({ label, children, icon, ...props }, ref): JSX.Element => {
   return (
@@ -14,3 +14,5 @@ export const SidebarParentItem = forwardRef<
     </ListItem>
   )
 })
+
+SidebarList.displayName = 'SidebarList'

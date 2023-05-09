@@ -1,16 +1,12 @@
-import type { ListItemProps } from '@chakra-ui/react'
+import type { PropsWithChildren } from 'react'
 
-export type BaseSidebarItemProps = {
-  label: string
+export type BaseSidebarItemProps = PropsWithChildren<{
   icon?: JSX.Element
-}
+}>
 
-export interface SidebarChildItemProps
-  extends BaseSidebarItemProps,
-    ListItemProps {}
+export type SidebarItemProps = BaseSidebarItemProps
 
-export interface SidebarParentItemProps
-  extends BaseSidebarItemProps,
-    ListItemProps {
+export interface SidebarListProps extends BaseSidebarItemProps {
+  label: string
   root?: boolean
 }

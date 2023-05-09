@@ -4,9 +4,9 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { BxBulb, BxHeart, BxsStar } from '~/icons'
 
 import { Sidebar, SidebarProps } from './Sidebar'
-import { SidebarChildItem } from './SidebarChildItem'
 import { SidebarContainer } from './SidebarContainer'
-import { SidebarParentItem } from './SidebarParentItem'
+import { SidebarItem } from './SidebarItem'
+import { SidebarList } from './SidebarList'
 
 const meta = {
   title: 'Components/Sidebar',
@@ -24,34 +24,22 @@ const DEFAULT_ITEMS: SidebarProps['items'] = [
         label: 'Overview',
         subItems: [
           {
-            label: 'Overview 1',
+            children: 'Overview 1',
             icon: <BxHeart fontSize="1.5rem" />,
             props: {
               onClick: () => alert('test'),
             },
           },
-          {
-            label: 'Overview 2',
-          },
-          {
-            label: 'Link',
-            props: {
-              as: Link,
-              href: 'https://google.com',
-            },
-          },
+          { children: 'Overview 2' },
+          { children: <Link href="https://google.com">Link</Link> },
         ],
       },
-      {
-        label: 'Reports',
-      },
-      {
-        label: 'Analytics',
-      },
+      { children: 'Reports' },
+      { children: 'Analytics' },
     ],
   },
   {
-    label: 'Second',
+    children: 'Second',
     icon: <BxsStar fontSize="1.5rem" />,
   },
 ]
@@ -68,9 +56,12 @@ export const WithItemsProp: Story = {
 export const Explicit = {
   render: () => (
     <SidebarContainer>
-      <SidebarParentItem label="Dashboard">
-        <SidebarChildItem label="Link" as={Link} href="https://google.com" />
-      </SidebarParentItem>
+      <SidebarItem>Child</SidebarItem>
+      <SidebarList label="Dashboard">
+        <SidebarItem>
+          <Link href="https://google.com">Google</Link>
+        </SidebarItem>
+      </SidebarList>
     </SidebarContainer>
   ),
 }
