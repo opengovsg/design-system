@@ -1,12 +1,22 @@
 import { PropsWithChildren } from 'react'
-import { chakra, List } from '@chakra-ui/react'
+import { chakra, ThemingProps, useMultiStyleConfig } from '@chakra-ui/react'
+
+import { SidebarStylesProvider } from './SidebarStyleProvider'
+
+interface SidebarContainerProps
+  extends ThemingProps<'Sidebar'>,
+    PropsWithChildren {}
 
 export const SidebarContainer = ({
   children,
-}: PropsWithChildren): JSX.Element => {
+  ...props
+}: SidebarContainerProps): JSX.Element => {
+  const styles = useMultiStyleConfig('Sidebar', props)
   return (
-    <chakra.nav>
-      <List>{children}</List>
-    </chakra.nav>
+    <SidebarStylesProvider value={styles}>
+      <chakra.nav>
+        <chakra.ul __css={styles.section}>{children}</chakra.ul>
+      </chakra.nav>
+    </SidebarStylesProvider>
   )
 }

@@ -1,7 +1,7 @@
 import { Link } from '@chakra-ui/react'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { BxBulb, BxHeart, BxsStar } from '~/icons'
+import { BxBulb, BxHeart, BxsStar, BxStar } from '~/icons'
 
 import { Sidebar, SidebarProps } from './Sidebar'
 import { SidebarContainer } from './SidebarContainer'
@@ -32,6 +32,13 @@ const DEFAULT_ITEMS: SidebarProps['items'] = [
           },
           { children: 'Overview 2' },
           { children: <Link href="https://google.com">Link</Link> },
+          {
+            label: 'Nested again',
+            subItems: [
+              { children: 'Overview 2' },
+              { children: <Link href="https://google.com">Link</Link> },
+            ],
+          },
         ],
       },
       { children: 'Reports' },
@@ -62,6 +69,20 @@ export const Explicit = {
           <Link href="https://google.com">Google</Link>
         </SidebarItem>
       </SidebarList>
+    </SidebarContainer>
+  ),
+}
+
+export const NoNest = {
+  render: () => (
+    <SidebarContainer>
+      <SidebarItem isActive icon={<BxStar fontSize="1.25rem" />}>
+        Item 1
+      </SidebarItem>
+      <SidebarItem icon={<BxStar fontSize="1.25rem" />}>Item 2</SidebarItem>
+      <SidebarItem icon={<BxStar fontSize="1.25rem" />}>Item 3</SidebarItem>
+      <SidebarItem icon={<BxStar fontSize="1.25rem" />}>Item 4</SidebarItem>
+      <SidebarItem icon={<BxStar fontSize="1.25rem" />}>Item 5</SidebarItem>
     </SidebarContainer>
   ),
 }

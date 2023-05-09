@@ -13,7 +13,6 @@ type GeneratedItem = GeneratedBase
 type GeneratedList = Omit<GeneratedBase, 'children'> & {
   label: string
   subItems: (GeneratedList | GeneratedItem)[]
-  root?: boolean
 }
 
 type GeneratedSidebarItem = GeneratedList | GeneratedItem
@@ -29,19 +28,17 @@ const isNestableItem = (item: GeneratedSidebarItem): item is GeneratedList => {
 // Generate recursive sidebar items if nested
 export const generateSidebarItems = (
   items: GeneratedSidebarItem[],
-  root?: boolean,
 ): JSX.Element[] => {
   return items.map((item, index) => {
     if (isNestableItem(item)) {
       return (
         <SidebarList
-          root={root}
           key={index}
           label={item.label}
           icon={item.icon}
           {...item.props}
         >
-          {generateSidebarItems(item.subItems, root)}
+          {generateSidebarItems(item.subItems)}
         </SidebarList>
       )
     }
@@ -52,7 +49,7 @@ export const generateSidebarItems = (
 }
 
 export const Sidebar = ({ items }: SidebarProps): JSX.Element => {
-  const sidebarItems = useMemo(() => generateSidebarItems(items, true), [items])
+  const sidebarItems = useMemo(() => generateSidebarItems(items), [items])
 
   return <SidebarContainer>{sidebarItems}</SidebarContainer>
 }
