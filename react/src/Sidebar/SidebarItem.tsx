@@ -16,10 +16,10 @@ export const SidebarItem = forwardRef<SidebarItemProps, 'li'>(
     const { nested } = useSidebarNestContext()
     const css = useMemo(() => {
       if (!nested) {
-        return merge({}, styles.item, styles.label)
+        return merge({}, styles.item, styles.label, styles.parent)
       }
-      return merge({}, styles.item, styles.child)
-    }, [nested, styles.child, styles.item, styles.label])
+      return merge({}, styles.item, styles.label, styles.child)
+    }, [nested, styles.child, styles.item, styles.label, styles.parent])
 
     const dataActive = useMemo(() => {
       if (isFunction(isActive)) {

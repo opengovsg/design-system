@@ -9,6 +9,7 @@ import {
   UseDisclosureReturn,
 } from '@chakra-ui/react'
 import { dataAttr, isFunction } from '@chakra-ui/utils'
+import { merge } from 'lodash'
 
 import { BxsChevronDown } from '..'
 
@@ -95,10 +96,15 @@ export const SidebarList = forwardRef<
       return isActive
     }, [isActive])
 
+    const itemCss = useMemo(
+      () => merge({}, styles.item, styles.parent),
+      [styles.item, styles.parent],
+    )
+
     return (
       <chakra.li __css={styles.list} pl={0} ref={ref} {...props}>
         <Flex
-          __css={styles.item}
+          __css={itemCss}
           aria-expanded={isOpen}
           data-active={dataAttr(dataActive)}
           {...sectionButtonProps}

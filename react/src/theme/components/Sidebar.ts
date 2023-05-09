@@ -1,5 +1,5 @@
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
-import { anatomy, StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+import { anatomy } from '@chakra-ui/theme-tools'
 
 import { layerStyles } from '../layerStyles'
 
@@ -9,6 +9,7 @@ const parts = anatomy('sidebar').parts(
   'label',
   'nest',
   'section',
+  'parent',
   'child',
   'caret',
 )
@@ -24,11 +25,28 @@ const baseStyle = definePartsStyle({
   },
   child: {
     borderRadius: 0,
-    borderLeftWidth: '2px',
-    borderColor: 'base.divider.strong',
+    borderLeftWidth: '1px',
+    borderColor: 'base.divider.medium',
     _active: {
+      ml: '-1px',
+      borderLeftWidth: '2px',
+      color: 'interaction.main.default',
       borderColor: 'base.divider.brand',
     },
+  },
+  parent: {
+    _hover: {
+      bg: 'interaction.muted.main.hover',
+    },
+    _active: {
+      bg: 'interaction.muted.main.active',
+      color: 'interaction.main.default',
+    },
+    _expanded: {
+      bg: 'interaction.muted.main.active',
+      color: 'interaction.main.default',
+    },
+    borderRadius: 'md',
   },
   label: {
     display: 'flex',
@@ -39,20 +57,7 @@ const baseStyle = definePartsStyle({
     alignItems: 'center',
     listStyleType: 'none',
     color: 'base.content.default',
-    borderRadius: 'md',
     _hover: {
-      color: 'interaction.main.default',
-    },
-    _active: {
-      bg: 'interaction.muted.main.active',
-      color: 'interaction.main.default',
-    },
-    _groupActive: {
-      bg: 'interaction.muted.main.active',
-      color: 'interaction.main.default',
-    },
-    _expanded: {
-      bg: 'interaction.muted.main.active',
       color: 'interaction.main.default',
     },
     _focusVisible: {

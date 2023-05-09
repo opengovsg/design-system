@@ -1,8 +1,9 @@
 import { useMemo } from 'react'
+import { type ThemingProps } from '@chakra-ui/react'
 
 import { SidebarContainer } from './SidebarContainer'
-import { SidebarItem, SidebarItemProps } from './SidebarItem'
-import { SidebarList } from './SidebarList'
+import { SidebarItem, type SidebarItemProps } from './SidebarItem'
+import { SidebarList, type SidebarListProps } from './SidebarList'
 import type { BaseSidebarItemProps } from './types'
 
 interface GeneratedBase
@@ -11,15 +12,16 @@ interface GeneratedBase
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   props?: any
 }
-type GeneratedItem = GeneratedBase
-type GeneratedList = Omit<GeneratedBase, 'children'> & {
-  label: string
+interface GeneratedItem extends GeneratedBase, SidebarItemProps {}
+interface GeneratedList
+  extends Omit<GeneratedBase, 'children'>,
+    SidebarListProps {
   subItems: (GeneratedList | GeneratedItem)[]
 }
 
 type GeneratedSidebarItem = GeneratedList | GeneratedItem
 
-export interface SidebarProps {
+export interface SidebarProps extends ThemingProps<'Sidebar'> {
   items: GeneratedSidebarItem[]
 }
 
@@ -33,14 +35,10 @@ export const generateSidebarItems = (
 ): JSX.Element[] => {
   return items.map((item, index) => {
     if (isNestableItem(item)) {
+      const { label, icon, subItems, props, ...rest } = item
       return (
-        <SidebarList
-          key={index}
-          label={item.label}
-          icon={item.icon}
-          {...item.props}
-        >
-          {generateSidebarItems(item.subItems)}
+        <SidebarList key={index} label={label} icon={icon} {...props} {...rest}>
+          {generateSidebarItems(subItems)}
         </SidebarList>
       )
     }
@@ -50,8 +48,8 @@ export const generateSidebarItems = (
   })
 }
 
-export const Sidebar = ({ items }: SidebarProps): JSX.Element => {
+export const Sidebar = ({ items, ...rest }: SidebarProps): JSX.Element => {
   const sidebarItems = useMemo(() => generateSidebarItems(items), [items])
 
-  return <SidebarContainer>{sidebarItems}</SidebarContainer>
+  return <SidebarContainer {...rest}>{sidebarItems}</SidebarContainer>
 }

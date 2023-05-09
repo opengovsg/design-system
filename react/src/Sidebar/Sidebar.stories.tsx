@@ -1,7 +1,17 @@
 import { Link } from '@chakra-ui/react'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { BxBulb, BxHeart, BxsStar, BxStar } from '~/icons'
+import {
+  BxCalendar,
+  BxLinkExternal,
+  BxMailSend,
+  BxsStar,
+  BxStar,
+  BxsTimeFive,
+  BxsUser,
+  BxTrash,
+  BxWrench,
+} from '~/icons'
 
 import { Sidebar, SidebarProps } from './Sidebar'
 import { SidebarContainer } from './SidebarContainer'
@@ -16,38 +26,30 @@ const meta = {
 } satisfies Meta<typeof Sidebar>
 
 const DEFAULT_ITEMS: SidebarProps['items'] = [
+  { children: 'Inbox', icon: <BxMailSend fontSize="1.25rem" /> },
+  { children: 'Notes', icon: <BxsStar fontSize="1.25rem" /> },
+  { children: 'Activity', icon: <BxCalendar fontSize="1.25rem" /> },
+  { children: 'Expore', icon: <BxLinkExternal fontSize="1.25rem" /> },
   {
-    label: 'Dashboard',
-    icon: <BxBulb fontSize="1.5rem" />,
+    label: 'Settings',
+    icon: <BxWrench fontSize="1.25rem" />,
+    defaultIsExpanded: true,
+    isActive: true,
     subItems: [
       {
-        label: 'Overview',
-        subItems: [
-          {
-            children: 'Overview 1',
-            icon: <BxHeart fontSize="1.5rem" />,
-            props: {
-              onClick: () => alert('test'),
-            },
-          },
-          { children: 'Overview 2' },
-          { children: <Link href="https://google.com">Link</Link> },
-          {
-            label: 'Nested again',
-            subItems: [
-              { children: 'Overview 2', isActive: true },
-              { children: <Link href="https://google.com">Link</Link> },
-            ],
-          },
-        ],
+        icon: <BxsUser fontSize="1.25rem" />,
+        children: 'Profile',
       },
-      { children: 'Reports' },
-      { children: 'Analytics' },
+      {
+        children: 'Security & Privacy',
+        icon: <BxTrash fontSize="1.25rem" />,
+        isActive: true,
+      },
+      {
+        children: 'Notifications',
+        icon: <BxsTimeFive fontSize="1.25rem" />,
+      },
     ],
-  },
-  {
-    children: 'Second',
-    icon: <BxsStar fontSize="1.5rem" />,
   },
 ]
 
