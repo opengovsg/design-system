@@ -11,7 +11,7 @@ const parts = anatomy('sidebar').parts(
   'section',
   'parent',
   'child',
-  'caret',
+  'icon',
 )
 
 const { definePartsStyle, defineMultiStyleConfig } =
@@ -21,7 +21,6 @@ const baseStyle = definePartsStyle({
   section: {
     display: 'flex',
     flexDirection: 'column',
-    textStyle: 'subhead-2',
   },
   child: {
     borderRadius: 0,
@@ -50,11 +49,11 @@ const baseStyle = definePartsStyle({
   },
   label: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'start',
   },
   item: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'start',
     listStyleType: 'none',
     color: 'base.content.default',
     _hover: {
@@ -76,7 +75,10 @@ const baseStyle = definePartsStyle({
 })
 
 const sizes = {
-  md: definePartsStyle({
+  sm: definePartsStyle({
+    section: {
+      textStyle: 'subhead-2',
+    },
     list: {
       paddingInlineStart: '0.75rem',
     },
@@ -90,9 +92,37 @@ const sizes = {
       py: '0.75rem',
       px: '1rem',
     },
-    caret: {
+    child: {
+      px: '1.5rem',
+    },
+    icon: {
       cursor: 'pointer',
       fontSize: '1.25rem',
+    },
+  }),
+  md: definePartsStyle({
+    section: {
+      textStyle: 'subhead-1',
+    },
+    list: {
+      paddingInlineStart: '0.75rem',
+    },
+    nest: {
+      paddingInlineStart: '1.75rem',
+    },
+    label: {
+      gap: '0.5rem',
+    },
+    item: {
+      py: '1rem',
+      px: '1rem',
+    },
+    child: {
+      px: '1.5rem',
+    },
+    icon: {
+      cursor: 'pointer',
+      fontSize: '1.5rem',
     },
   }),
 }

@@ -12,6 +12,7 @@ import {
   BxTrash,
   BxWrench,
 } from '~/icons'
+import { getMobileViewParameters } from '~/utils/storybook'
 
 import { Sidebar, SidebarProps } from './Sidebar'
 import { SidebarContainer } from './SidebarContainer'
@@ -26,28 +27,29 @@ const meta = {
 } satisfies Meta<typeof Sidebar>
 
 const DEFAULT_ITEMS: SidebarProps['items'] = [
-  { children: 'Inbox', icon: <BxMailSend fontSize="1.25rem" /> },
-  { children: 'Notes', icon: <BxsStar fontSize="1.25rem" /> },
-  { children: 'Activity', icon: <BxCalendar fontSize="1.25rem" /> },
-  { children: 'Expore', icon: <BxLinkExternal fontSize="1.25rem" /> },
+  { children: 'Inbox', icon: BxMailSend },
+  { children: 'Notes', icon: BxsStar },
+  { children: 'Activity', icon: BxCalendar },
+  { children: 'Expore', icon: BxLinkExternal },
   {
     label: 'Settings',
-    icon: <BxWrench fontSize="1.25rem" />,
+    icon: BxWrench,
     defaultIsExpanded: true,
     isActive: true,
     subItems: [
       {
-        icon: <BxsUser fontSize="1.25rem" />,
+        icon: BxsUser,
         children: 'Profile',
       },
       {
         children: 'Security & Privacy',
-        icon: <BxTrash fontSize="1.25rem" />,
+        icon: BxTrash,
         isActive: true,
       },
       {
-        children: 'Notifications',
-        icon: <BxsTimeFive fontSize="1.25rem" />,
+        children:
+          'Notifications With Long Label That Definitely Overflows In Mobile',
+        icon: BxsTimeFive,
       },
     ],
   },
@@ -62,7 +64,14 @@ export const WithItemsProp: Story = {
   },
 }
 
-export const Explicit = {
+export const SizeSmall: Story = {
+  args: {
+    items: DEFAULT_ITEMS,
+    size: 'sm',
+  },
+}
+
+export const OnlyCaretToggle = {
   render: () => (
     <SidebarContainer>
       <SidebarItem>Child</SidebarItem>
@@ -71,10 +80,10 @@ export const Explicit = {
         label={<Link href="https://google.com">Google</Link>}
       >
         <SidebarItem>
-          <Link href="https://google.com">Google</Link>
+          <Link href="https://google.com">Nested link</Link>
         </SidebarItem>
       </SidebarList>
-      <SidebarList isActive label="Label">
+      <SidebarList label="Label">
         <SidebarItem>Nested child</SidebarItem>
       </SidebarList>
     </SidebarContainer>
@@ -84,13 +93,20 @@ export const Explicit = {
 export const NoNest = {
   render: () => (
     <SidebarContainer>
-      <SidebarItem isActive icon={<BxStar fontSize="1.25rem" />}>
+      <SidebarItem isActive icon={BxStar}>
         Item 1
       </SidebarItem>
-      <SidebarItem icon={<BxStar fontSize="1.25rem" />}>Item 2</SidebarItem>
-      <SidebarItem icon={<BxStar fontSize="1.25rem" />}>Item 3</SidebarItem>
-      <SidebarItem icon={<BxStar fontSize="1.25rem" />}>Item 4</SidebarItem>
-      <SidebarItem icon={<BxStar fontSize="1.25rem" />}>Item 5</SidebarItem>
+      <SidebarItem icon={BxStar}>Item 2</SidebarItem>
+      <SidebarItem icon={BxStar}>Item 3</SidebarItem>
+      <SidebarItem icon={BxStar}>Item 4</SidebarItem>
+      <SidebarItem icon={BxStar}>Item 5</SidebarItem>
     </SidebarContainer>
   ),
+}
+
+export const Mobile: Story = {
+  args: {
+    items: DEFAULT_ITEMS,
+  },
+  parameters: getMobileViewParameters(),
 }

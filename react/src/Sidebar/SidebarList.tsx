@@ -61,6 +61,7 @@ export const SidebarList = forwardRef<
       label,
       children,
       icon,
+      iconProps,
       isActive,
       defaultIsExpanded,
       isExpanded: isExpandedProp,
@@ -96,10 +97,11 @@ export const SidebarList = forwardRef<
       return isActive
     }, [isActive])
 
-    const itemCss = useMemo(
-      () => merge({}, styles.item, styles.parent),
-      [styles.item, styles.parent],
-    )
+    const itemCss = useMemo(() => {
+      const mergedStyles = merge({}, styles.item, styles.parent)
+      if (onlyCaretToggle) return mergedStyles
+      return merge({}, mergedStyles, { cursor: 'pointer' })
+    }, [onlyCaretToggle, styles.item, styles.parent])
 
     return (
       <chakra.li __css={styles.list} pl={0} ref={ref} {...props}>
@@ -110,10 +112,12 @@ export const SidebarList = forwardRef<
           {...sectionButtonProps}
         >
           <chakra.span flex={1} __css={styles.label}>
-            {icon}
+            {icon ? (
+              <Icon as={icon} __css={styles.icon} {...iconProps} />
+            ) : null}
             {label}
           </chakra.span>
-          <Icon {...buttonProps} __css={styles.caret} as={BxsChevronDown} />
+          <Icon {...buttonProps} __css={styles.icon} as={BxsChevronDown} />
         </Flex>
         <SidebarNestProvider nested>
           <SidebarSection isOpen={isOpen}>{children}</SidebarSection>
