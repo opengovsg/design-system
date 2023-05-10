@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { chakra, forwardRef, Icon } from '@chakra-ui/react'
+import { Box, chakra, forwardRef, Icon } from '@chakra-ui/react'
 import { dataAttr, isFunction } from '@chakra-ui/utils'
 import { merge } from 'lodash'
 
@@ -29,14 +29,16 @@ export const SidebarItem = forwardRef<SidebarItemProps, 'li'>(
     }, [isActive])
 
     return (
-      <chakra.li
-        __css={css}
-        ref={ref}
-        {...props}
-        data-active={dataAttr(dataActive)}
-      >
-        {icon ? <Icon as={icon} __css={styles.icon} {...iconProps} /> : null}
-        {children}
+      <chakra.li listStyleType="none">
+        <Box
+          __css={css}
+          ref={ref}
+          {...props}
+          data-active={dataAttr(dataActive)}
+        >
+          {icon ? <Icon as={icon} __css={styles.icon} {...iconProps} /> : null}
+          {children}
+        </Box>
       </chakra.li>
     )
   },

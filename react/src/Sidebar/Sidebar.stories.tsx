@@ -1,4 +1,3 @@
-import { Link } from '@chakra-ui/react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import {
@@ -27,7 +26,7 @@ const meta = {
 } satisfies Meta<typeof Sidebar>
 
 const DEFAULT_ITEMS: SidebarProps['items'] = [
-  { children: 'Inbox', icon: BxMailSend },
+  { children: 'Inbox', icon: BxMailSend, props: { as: 'a', href: '#' } },
   { children: 'Notes', icon: BxsStar },
   { children: 'Activity', icon: BxCalendar },
   { children: 'Expore', icon: BxLinkExternal },
@@ -78,14 +77,20 @@ export const OnlyCaretToggle = {
       <SidebarItem>Child</SidebarItem>
       <SidebarList
         onlyCaretToggle
-        label={<Link href="https://google.com">Google</Link>}
+        label="Clicking this will not toggle the list, will need to click the caret"
       >
-        <SidebarItem>
-          <Link href="https://google.com">Nested link</Link>
-        </SidebarItem>
+        <SidebarItem>Child item</SidebarItem>
       </SidebarList>
-      <SidebarList label="Label">
-        <SidebarItem>Nested child</SidebarItem>
+      <SidebarList defaultIsExpanded label="Default expanded">
+        <SidebarItem
+          as="button"
+          onClick={() => alert('This could be a link too')}
+        >
+          Child button example
+        </SidebarItem>
+        <SidebarItem as="a" href="https://open.gov.sg">
+          Child link example
+        </SidebarItem>
       </SidebarList>
     </SidebarContainer>
   ),

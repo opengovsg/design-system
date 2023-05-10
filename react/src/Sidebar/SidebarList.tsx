@@ -1,5 +1,6 @@
 import { type PropsWithChildren, useCallback, useMemo } from 'react'
 import {
+  Box,
   chakra,
   Collapse,
   forwardRef,
@@ -41,14 +42,16 @@ export interface SidebarListProps extends BaseSidebarItemProps {
   defaultIsExpanded?: boolean
   /** Controlled callback for when section's expansion state changes */
   onExpand?: (nextState: boolean) => void
-
   /** Only allow toggling of expand state when clicking the caret.
    * Could be useful if user wants to use the list item as a link.
    *
    * @default false
    */
   onlyCaretToggle?: boolean
+  /** Whether the element is currently active */
   isActive?: boolean | (() => boolean)
+  /** Callback invoked when section is clicked */
+  onClick?: () => void
 }
 
 export const SidebarList = forwardRef<
@@ -66,6 +69,7 @@ export const SidebarList = forwardRef<
       isExpanded: isExpandedProp,
       onExpand: onExpandProp,
       onlyCaretToggle = false,
+      onClick,
       ...props
     },
     ref,
@@ -81,9 +85,11 @@ export const SidebarList = forwardRef<
     })
 
     const handleExpandSection = useCallback(() => {
-      if (onlyCaretToggle) return
-      return onToggle()
-    }, [onToggle, onlyCaretToggle])
+      if (!onlyCaretToggle) {
+        onToggle()
+      }
+      onClick?.()
+    }, [onClick, onToggle, onlyCaretToggle])
 
     const dataActive = useMemo(() => {
       if (isFunction(isActive)) {
@@ -110,35 +116,37 @@ export const SidebarList = forwardRef<
 
     return (
       <chakra.li __css={styles.list} pl={0} ref={ref} {...props}>
-        <SectionWrapper
-          __css={itemCss}
-          data-expanded={dataAttr(isOpen)}
-          data-active={dataAttr(dataActive)}
-          onClick={handleExpandSection}
-        >
-          <chakra.span flex={1} __css={styles.label}>
-            {icon ? (
-              <Icon as={icon} __css={styles.icon} {...iconProps} />
-            ) : null}
-            {label}
-          </chakra.span>
-          <ToggleChevronWrapper
-            layerStyle="focusRing.default"
-            aria-label={onlyCaretToggle ? 'Toggle section' : undefined}
-            onClick={onToggle}
-            display="flex"
-            outline="none"
+        <Box>
+          <SectionWrapper
+            __css={itemCss}
+            data-expanded={dataAttr(isOpen)}
+            data-active={dataAttr(dataActive)}
+            onClick={handleExpandSection}
           >
-            <ToggleChevron
-              reduceMotion={reduceMotion}
-              isOpen={isOpen}
-              styles={styles.icon}
-            />
-          </ToggleChevronWrapper>
-        </SectionWrapper>
-        <SidebarNestProvider nested>
-          <SidebarSection isOpen={isOpen}>{children}</SidebarSection>
-        </SidebarNestProvider>
+            <chakra.span flex={1} __css={styles.label}>
+              {icon ? (
+                <Icon as={icon} __css={styles.icon} {...iconProps} />
+              ) : null}
+              {label}
+            </chakra.span>
+            <ToggleChevronWrapper
+              layerStyle="focusRing.default"
+              aria-label={onlyCaretToggle ? 'Toggle section' : undefined}
+              onClick={onToggle}
+              display="flex"
+              outline="none"
+            >
+              <ToggleChevron
+                reduceMotion={reduceMotion}
+                isOpen={isOpen}
+                styles={styles.icon}
+              />
+            </ToggleChevronWrapper>
+          </SectionWrapper>
+          <SidebarNestProvider nested>
+            <SidebarSection isOpen={isOpen}>{children}</SidebarSection>
+          </SidebarNestProvider>
+        </Box>
       </chakra.li>
     )
   },

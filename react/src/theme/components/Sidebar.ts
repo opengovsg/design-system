@@ -32,6 +32,9 @@ const baseStyle = definePartsStyle({
       color: 'interaction.main.default',
       borderColor: 'base.divider.brand',
     },
+    _focusVisible: {
+      borderRadius: 'md',
+    },
   },
   parent: {
     _hover: {
@@ -52,6 +55,7 @@ const baseStyle = definePartsStyle({
     alignItems: 'start',
   },
   item: {
+    width: '100%',
     display: 'flex',
     alignItems: 'start',
     listStyleType: 'none',
