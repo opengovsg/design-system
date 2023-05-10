@@ -5,7 +5,7 @@ import {
   type SystemStyleObject,
 } from '@chakra-ui/react'
 
-import { BxsChevronUp } from './BxsChevronUp'
+import { BxsChevronDown } from './BxsChevronDown'
 
 export interface ToggleChevronProps extends IconProps {
   reduceMotion?: boolean
@@ -32,7 +32,7 @@ export const ToggleChevron = forwardRef<ToggleChevronProps, 'div'>(
         ref={ref}
         viewBox="0 0 24 24"
         __css={iconStyles}
-        as={BxsChevronUp}
+        as={BxsChevronDown}
         {...props}
       />
     )
