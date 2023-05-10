@@ -89,6 +89,7 @@ const sizes = {
       gap: '0.5rem',
     },
     item: {
+      textStyle: 'subhead-2',
       py: '0.75rem',
       px: '1rem',
     },
@@ -114,6 +115,7 @@ const sizes = {
       gap: '0.5rem',
     },
     item: {
+      textStyle: 'subhead-1',
       py: '1rem',
       px: '1rem',
     },

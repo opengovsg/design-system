@@ -1,4 +1,9 @@
-import { Icon, type IconProps, type SystemStyleObject } from '@chakra-ui/react'
+import {
+  forwardRef,
+  Icon,
+  type IconProps,
+  type SystemStyleObject,
+} from '@chakra-ui/react'
 
 import { BxsChevronUp } from './BxsChevronUp'
 
@@ -13,26 +18,23 @@ export interface ToggleChevronProps extends IconProps {
  * It rotates `180deg` based on the open/close state.
  */
 
-export const ToggleChevron = ({
-  isOpen,
-  reduceMotion,
-  styles,
-  ...props
-}: ToggleChevronProps) => {
-  const iconStyles: SystemStyleObject = {
-    transform: isOpen ? 'rotate(-180deg)' : undefined,
-    transition: reduceMotion ? undefined : 'transform 0.2s',
-    transformOrigin: 'center',
-    ...styles,
-  }
+export const ToggleChevron = forwardRef<ToggleChevronProps, 'div'>(
+  ({ isOpen, reduceMotion, styles, ...props }, ref) => {
+    const iconStyles: SystemStyleObject = {
+      transform: isOpen ? 'rotate(-180deg)' : undefined,
+      transition: reduceMotion ? undefined : 'transform 0.2s',
+      transformOrigin: 'center',
+      ...styles,
+    }
 
-  return (
-    <Icon
-      viewBox="0 0 24 24"
-      aria-hidden
-      __css={iconStyles}
-      as={BxsChevronUp}
-      {...props}
-    />
-  )
-}
+    return (
+      <Icon
+        ref={ref}
+        viewBox="0 0 24 24"
+        __css={iconStyles}
+        as={BxsChevronUp}
+        {...props}
+      />
+    )
+  },
+)

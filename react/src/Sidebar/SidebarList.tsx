@@ -2,7 +2,6 @@ import { type PropsWithChildren, useCallback, useMemo } from 'react'
 import {
   chakra,
   Collapse,
-  Flex,
   forwardRef,
   Icon,
   useDisclosure,
@@ -99,9 +98,19 @@ export const SidebarList = forwardRef<
       return merge({}, mergedStyles, { cursor: 'pointer' })
     }, [onlyCaretToggle, styles.item, styles.parent])
 
+    const SectionWrapper = useMemo(() => {
+      if (onlyCaretToggle) return chakra.div
+      return chakra.button
+    }, [onlyCaretToggle])
+
+    const ToggleChevronWrapper = useMemo(() => {
+      if (onlyCaretToggle) return chakra.button
+      return chakra.div
+    }, [onlyCaretToggle])
+
     return (
       <chakra.li __css={styles.list} pl={0} ref={ref} {...props}>
-        <Flex
+        <SectionWrapper
           __css={itemCss}
           data-expanded={dataAttr(isOpen)}
           data-active={dataAttr(dataActive)}
@@ -113,13 +122,20 @@ export const SidebarList = forwardRef<
             ) : null}
             {label}
           </chakra.span>
-          <ToggleChevron
-            reduceMotion={reduceMotion}
-            isOpen={isOpen}
-            styles={styles.icon}
+          <ToggleChevronWrapper
+            layerStyle="focusRing.default"
+            aria-label={onlyCaretToggle ? 'Toggle section' : undefined}
             onClick={onToggle}
-          />
-        </Flex>
+            display="flex"
+            outline="none"
+          >
+            <ToggleChevron
+              reduceMotion={reduceMotion}
+              isOpen={isOpen}
+              styles={styles.icon}
+            />
+          </ToggleChevronWrapper>
+        </SectionWrapper>
         <SidebarNestProvider nested>
           <SidebarSection isOpen={isOpen}>{children}</SidebarSection>
         </SidebarNestProvider>
