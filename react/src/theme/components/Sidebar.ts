@@ -60,6 +60,7 @@ const baseStyle = definePartsStyle({
     alignItems: 'start',
     listStyleType: 'none',
     color: 'base.content.default',
+    cursor: 'pointer',
     _hover: {
       color: 'interaction.main.default',
     },
@@ -90,7 +91,7 @@ const sizes = {
       paddingInlineStart: '1.75rem',
     },
     label: {
-      gap: '0.5rem',
+      gap: '0.75rem',
     },
     item: {
       textStyle: 'subhead-2',
@@ -116,7 +117,7 @@ const sizes = {
       paddingInlineStart: '1.75rem',
     },
     label: {
-      gap: '0.5rem',
+      gap: '0.75rem',
     },
     item: {
       textStyle: 'subhead-1',
