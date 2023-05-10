@@ -15,6 +15,7 @@ import { getMobileViewParameters } from '~/utils/storybook'
 
 import { Sidebar, SidebarProps } from './Sidebar'
 import { SidebarContainer } from './SidebarContainer'
+import { SidebarHeader } from './SidebarHeader'
 import { SidebarItem } from './SidebarItem'
 import { SidebarList } from './SidebarList'
 
@@ -26,6 +27,7 @@ const meta = {
 } satisfies Meta<typeof Sidebar>
 
 const DEFAULT_ITEMS: SidebarProps['items'] = [
+  { type: 'header', children: 'Header' },
   {
     children: 'Inbox',
     icon: BxMailSend,
@@ -103,6 +105,7 @@ export const OnlyCaretToggle = {
 export const NoNest = {
   render: () => (
     <SidebarContainer>
+      <SidebarHeader>Header</SidebarHeader>
       <SidebarItem isActive icon={BxStar}>
         Item 1
       </SidebarItem>

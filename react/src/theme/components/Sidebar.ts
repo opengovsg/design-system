@@ -6,6 +6,7 @@ import { layerStyles } from '../layerStyles'
 const parts = anatomy('sidebar').parts(
   'item',
   'list',
+  'header',
   'label',
   'nest',
   'section',
@@ -18,6 +19,12 @@ const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)
 
 const baseStyle = definePartsStyle({
+  header: {
+    textStyle: 'subhead-3',
+    px: '1rem',
+    pt: '1rem',
+    pb: '0.75rem',
+  },
   section: {
     display: 'flex',
     flexDirection: 'column',

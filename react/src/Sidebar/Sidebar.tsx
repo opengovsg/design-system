@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { type ThemingProps } from '@chakra-ui/react'
 
 import { SidebarContainer } from './SidebarContainer'
+import { SidebarHeader, type SidebarHeaderProps } from './SidebarHeader'
 import { SidebarItem, type SidebarItemProps } from './SidebarItem'
 import { SidebarList, type SidebarListProps } from './SidebarList'
 import type { BaseSidebarItemProps } from './types'
@@ -13,13 +14,16 @@ interface GeneratedBase
   props?: any
 }
 interface GeneratedItem extends GeneratedBase, SidebarItemProps {}
+interface GeneratedHeader extends SidebarHeaderProps {
+  type: 'header'
+}
 interface GeneratedList
   extends Omit<GeneratedBase, 'children'>,
     SidebarListProps {
-  subItems: (GeneratedList | GeneratedItem)[]
+  subItems: (GeneratedList | GeneratedItem | GeneratedHeader)[]
 }
 
-type GeneratedSidebarItem = GeneratedList | GeneratedItem
+type GeneratedSidebarItem = GeneratedList | GeneratedItem | GeneratedHeader
 
 export interface SidebarProps extends ThemingProps<'Sidebar'> {
   items: GeneratedSidebarItem[]
@@ -27,6 +31,9 @@ export interface SidebarProps extends ThemingProps<'Sidebar'> {
 
 const isNestableItem = (item: GeneratedSidebarItem): item is GeneratedList => {
   return 'subItems' in item
+}
+const isHeaderItem = (item: GeneratedSidebarItem): item is GeneratedHeader => {
+  return 'type' in item && item.type === 'header'
 }
 
 // Generate recursive sidebar items if nested
@@ -41,6 +48,9 @@ export const generateSidebarItems = (
           {generateSidebarItems(subItems)}
         </SidebarList>
       )
+    }
+    if (isHeaderItem(item)) {
+      return <SidebarHeader key={index} {...item} />
     }
 
     const { props, ...rest } = item
