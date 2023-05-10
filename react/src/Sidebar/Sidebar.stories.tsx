@@ -26,10 +26,14 @@ const meta = {
 } satisfies Meta<typeof Sidebar>
 
 const DEFAULT_ITEMS: SidebarProps['items'] = [
-  { children: 'Inbox', icon: BxMailSend, props: { as: 'a', href: '#' } },
+  {
+    children: 'Inbox',
+    icon: BxMailSend,
+    props: { as: 'a', href: '#' },
+  },
   { children: 'Notes', icon: BxsStar },
   { children: 'Activity', icon: BxCalendar },
-  { children: 'Expore', icon: BxLinkExternal },
+  { children: 'Explore', icon: BxLinkExternal },
   {
     label: 'Settings',
     icon: BxWrench,
