@@ -28,6 +28,7 @@ import { PhoneNumberInput } from './PhoneNumberInput'
 import { Progress } from './Progress'
 import { Radio } from './Radio'
 import { Searchbar } from './Searchbar'
+import { Sidebar } from './Sidebar'
 import { SingleCountryPhoneNumberInput } from './SingleCountryPhoneNumberInput'
 import { SingleSelect } from './SingleSelect'
 import { Switch } from './Switch'
@@ -72,6 +73,7 @@ export const components = {
   Progress,
   Radio,
   Searchbar,
+  Sidebar,
   SingleCountryPhoneNumberInput,
   SingleSelect,
   Switch,
