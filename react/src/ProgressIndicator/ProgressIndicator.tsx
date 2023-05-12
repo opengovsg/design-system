@@ -1,5 +1,8 @@
 import { useMemo } from 'react'
 import { Box, BoxProps, useMultiStyleConfig } from '@chakra-ui/react'
+// NOTE: Required since any declaration of data-* is considered truthy.
+// This util removes the prop on any falsey value
+import { dataAttr } from '@chakra-ui/utils'
 
 import { MotionBox } from '../motion'
 
@@ -10,28 +13,17 @@ const ActiveIndicator = (): JSX.Element => {
 
 interface CircleIndicatorProps extends BoxProps {
   onClick: () => void
-  isActiveIndicator: boolean
 }
 
 const CircleIndicator = ({
   onClick,
-  isActiveIndicator,
   ...props
 }: CircleIndicatorProps): JSX.Element => {
-  const styles = useMultiStyleConfig('ProgressIndicator', { isActiveIndicator })
+  const styles = useMultiStyleConfig('ProgressIndicator')
   return (
     <Box
       __css={styles.circleIndicator}
       onClick={onClick}
-      _hover={{ backgroundColor: 'secondary.300' }}
-      _focus={
-        isActiveIndicator
-          ? undefined
-          : {
-              backgroundColor: 'secondary.300',
-              boxShadow: `0 0 0 1px var(--chakra-colors-secondary-400)`,
-            }
-      }
       as="button"
       {...props}
     />
@@ -75,7 +67,7 @@ export const ProgressIndicator = ({
       {indicators.map((_, idx) => (
         <CircleIndicator
           key={idx}
-          isActiveIndicator={idx === currActiveIdx}
+          data-active={dataAttr(idx === currActiveIdx)}
           onClick={() => onClick(idx)}
           aria-label={`Page ${idx + 1} of ${numIndicators}`}
         />
