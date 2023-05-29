@@ -1,9 +1,9 @@
 /**
  * Do not edit directly
- * Generated on Wed, 19 Apr 2023 03:37:26 GMT
+ * Generated on Mon, 29 May 2023 06:43:10 GMT
  */
 
-export const colours = {
+export const colors = {
   teal: {
     '50': '#F4F9FA',
     '100': '#DFEDF0',
