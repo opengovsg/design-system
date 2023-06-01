@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-import ReactMarkdown from 'react-markdown'
 import {
   Alert,
   AlertDescription,
@@ -12,27 +11,22 @@ import {
   UseToastOptions,
 } from '@chakra-ui/react'
 
-import { useMdComponents } from '~/hooks/useMdComponents'
 import { BxsCheckCircle, BxsErrorCircle, BxsInfoCircle, BxX } from '~/icons'
-import type { WithReactMarkdownSsr } from '~/types/WithSsr'
+import { SpinnerIcon } from '~/Spinner'
 
-import { SpinnerIcon } from '..'
 // Alias for convenience
 export type ToastStatus = AlertStatus
 
 export interface ToastProps
-  extends Omit<UseToastOptions, 'duration' | 'position' | 'render' | 'variant'>,
-    WithReactMarkdownSsr {
+  extends Omit<
+    UseToastOptions,
+    'duration' | 'position' | 'render' | 'variant'
+  > {
   /**
    * RenderProps that chakra passes to all custom components that uses the
    * render function
    */
   onClose?: () => void
-  /**
-   * Whether markdown is enabled for rendering strings in toast.
-   * Defaults to `true`.
-   */
-  useMarkdown?: boolean
 }
 
 const STATUS_TO_COLOR_SCHEME: Record<ToastStatus, string> = {
@@ -52,7 +46,6 @@ const STATUS_TO_ICON = {
 }
 
 export const Toast = ({
-  useMarkdown = true,
   status = 'success',
   title,
   id,
@@ -60,8 +53,6 @@ export const Toast = ({
   isClosable,
   onClose,
   onCloseComplete,
-  ssr,
-  mdIsExternalLinkFn,
   ...toastStyleProps
 }: ToastProps): JSX.Element => {
   const styles = useMultiStyleConfig('Toast', {
@@ -73,41 +64,14 @@ export const Toast = ({
     return STATUS_TO_ICON[status]
   }, [status])
 
-  const mdComponents = useMdComponents({
-    ssr,
-    props: {
-      link: {
-        isExternalFn: mdIsExternalLinkFn,
-      },
-    },
-  })
-
-  const descriptionComponent = useMemo(() => {
-    // ReactMarkdown requires children to be of string type. If description is
-    // not a string, return description as is.
-    if (!description || !useMarkdown || typeof description !== 'string')
-      return description
-    return (
-      <ReactMarkdown components={mdComponents}>{description}</ReactMarkdown>
-    )
-  }, [description, mdComponents, useMarkdown])
-
-  const titleComponent = useMemo(() => {
-    // ReactMarkdown requires children to be of string type. If title is not a
-    // string, return title as is.
-    if (!title || !useMarkdown || typeof title !== 'string') return title
-
-    return <ReactMarkdown components={mdComponents}>{title}</ReactMarkdown>
-  }, [title, mdComponents, useMarkdown])
-
   return (
     <Box sx={styles.wrapper}>
       <Alert sx={styles.container} id={String(id)} aria-live="assertive">
         <Icon sx={styles.icon} as={StatusIcon} />
         <Box sx={styles.content}>
-          <AlertTitle sx={styles.title}>{titleComponent}</AlertTitle>
+          <AlertTitle sx={styles.title}>{title}</AlertTitle>
           <AlertDescription sx={styles.description}>
-            {descriptionComponent}
+            {description}
           </AlertDescription>
         </Box>
         {isClosable && (
