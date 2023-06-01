@@ -21,7 +21,7 @@ Default.args = {
 export const Info = Template.bind({})
 Info.args = {
   variant: 'info',
-  children: `This is a dismissiable info banner`,
+  children: `This is a dismissable info banner`,
   isDismissable: true,
 }
 
