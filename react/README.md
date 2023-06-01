@@ -96,25 +96,13 @@ For convenience, you can add a postinstall script to your package.json, so you d
 
 ## Common problems
 
-### I am seeing
-
-```bash
-Error [ERR_REQUIRE_ESM]: Must use import to load ES Module: /path/to/project/node_modules/react-markdown/index.js
-```
-
-> `react-markdown` is a peer dependency of this design system, and version 8 is automatically installed if your `npm` version is >= 7
-
-Your build pipeline is not configured to run ES Modules. Try using version 6 of `react-markdown`.
-
-```bash
-$ npm install react-markdown@6
-```
+````
 
 ### I am seeing
 
 ```bash
 Module not found: Can't resolve 'libphonenumber-js/examples.mobile.json'
-```
+````
 
 > `libphonenumber-js` is a peer dependency of this design system, and version 8 is automatically installed if your `npm` version is >= 7
 
@@ -123,6 +111,29 @@ If you're on npm version 4 to 6, install `libphonenumber-js` explicitly by execu
 ```bash
 $ npm install libphonenumber-js
 ```
+
+### I am seeing
+
+When running your build script with `tsc`:
+
+```bash
+./../node_modules/@chakra-ui/theme/dist/index.d.ts:1636:25 - error TS2411: Property '_dark' of type 'undefined' is not assignable to 'string' index type 'string'.
+
+1636                         _dark?: undefined;
+                             ~~~~~
+
+../../node_modules/@chakra-ui/theme/dist/index.d.ts:1637:25 - error TS2411: Property 'opacity' of type 'undefined' is not assignable to 'string' index type 'string'.
+
+1637                         opacity?: undefined;
+                             ~~~~~~~
+
+../../node_modules/@chakra-ui/theme/dist/index.d.ts:1638:25 - error TS2411: Property 'cursor' of type 'undefined' is not assignable to 'string' index type 'string'.
+
+1638                         cursor?: undefined;
+                             ~~~~~~
+```
+
+To fix this, ensure that `skipLibCheck` is set to `false` in your `tsconfig.json`
 
 ## Publishing a new version
 

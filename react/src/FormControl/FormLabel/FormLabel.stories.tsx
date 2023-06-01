@@ -37,14 +37,6 @@ WithDescription.args = {
   children: 'This is a label that is very very very long',
 }
 
-export const WithMarkdownDescription = Template.bind({})
-WithMarkdownDescription.args = {
-  children: 'This is a label',
-  description:
-    'Description _can_ **have** [Markdown](https://guides.github.com/features/mastering-markdown/)',
-  useMarkdownForDescription: true,
-}
-
 export const WithTooltipText = Template.bind({})
 WithTooltipText.args = {
   questionNumber: '1.',

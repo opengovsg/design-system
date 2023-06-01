@@ -1,5 +1,4 @@
 import { FC, useMemo } from 'react'
-import ReactMarkdown from 'react-markdown'
 import {
   Box,
   chakra,
@@ -18,14 +17,10 @@ import {
 } from '@chakra-ui/react'
 import { merge } from 'lodash'
 
-import { useMdComponents } from '~/hooks/useMdComponents'
 import { BxsHelpCircle } from '~/icons/BxsHelpCircle'
 import { Tooltip } from '~/Tooltip'
-import type { WithReactMarkdownSsr } from '~/types/WithSsr'
 
-export interface FormLabelProps
-  extends ChakraFormLabelProps,
-    WithReactMarkdownSsr {
+export interface FormLabelProps extends ChakraFormLabelProps {
   /**
    * Question number to be prefixed before each label, if any.
    */
@@ -41,17 +36,12 @@ export interface FormLabelProps
   /**
    * Label text.
    */
-  children: string
+  children: React.ReactNode
   /**
    * Whether form label is required. This is optional; if this prop is not
    * provided, the value from it's parent `FormContext` (if any) will be used.
    */
   isRequired?: boolean
-
-  /**
-   * Whether markdown is enabled for description text.
-   */
-  useMarkdownForDescription?: boolean
 }
 
 /**
@@ -68,10 +58,7 @@ export const FormLabel = ({
   tooltipText,
   questionNumber,
   description,
-  useMarkdownForDescription = false,
   children,
-  ssr,
-  mdIsExternalLinkFn,
   size,
   ...labelProps
 }: FormLabelProps): JSX.Element => {
@@ -110,13 +97,7 @@ export const FormLabel = ({
         )}
       </Box>
       {description && (
-        <FormLabel.Description
-          ssr={ssr}
-          mdIsExternalLinkFn={mdIsExternalLinkFn}
-          useMarkdown={useMarkdownForDescription}
-        >
-          {description}
-        </FormLabel.Description>
+        <FormLabel.Description>{description}</FormLabel.Description>
       )}
     </FormLabel.Label>
   )
@@ -126,15 +107,11 @@ export const FormLabel = ({
 FormLabel.displayName = 'FormLabel'
 FormLabel.Label = ChakraFormLabel
 
-interface FormLabelDescriptionProps extends TextProps, WithReactMarkdownSsr {
-  useMarkdown?: boolean
+interface FormLabelDescriptionProps extends TextProps {
   children: string
 }
 const FormLabelDescription: FC<FormLabelDescriptionProps> = ({
   children,
-  useMarkdown = false,
-  ssr,
-  mdIsExternalLinkFn,
   ...props
 }) => {
   // useFormControlContext is a ChakraUI hook that returns props passed down
@@ -157,32 +134,7 @@ const FormLabelDescription: FC<FormLabelDescriptionProps> = ({
     return Text
   }, [field])
 
-  const mdComponentsStyles = useMemo(
-    () => ({
-      text: mergedStyles,
-      link: { display: 'initial' },
-    }),
-    [mergedStyles],
-  )
-
-  const mdComponents = useMdComponents({
-    ssr,
-    styles: mdComponentsStyles,
-    props: {
-      link: {
-        isExternalFn: mdIsExternalLinkFn,
-      },
-    },
-    overrides: {
-      p: (props) => (
-        <ComponentToRender {...props} sx={mdComponentsStyles.text} />
-      ),
-    },
-  })
-
-  return useMarkdown ? (
-    <ReactMarkdown components={mdComponents}>{children}</ReactMarkdown>
-  ) : (
+  return (
     <ComponentToRender {...props} sx={mergedStyles}>
       {children}
     </ComponentToRender>

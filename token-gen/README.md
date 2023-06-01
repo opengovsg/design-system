@@ -17,13 +17,13 @@ The CLI is built using [Style Dictionary](https://amzn.github.io/style-dictionar
 │       ├── <theme name>.json
 ├── themes/
 │   ├── default/
-│      ├── colours.ts
+│      ├── colors.ts
 │      ├── shadows.ts
 │      ├── spacing.ts
 │      ├── textStyles.ts
 │      ├── typography.ts
 │   ├── <themes>/
-│      ├── colours.ts
+│      ├── colors.ts
 │      ├── shadows.ts
 │      ├── spacing.ts
 │      ├── textStyles.ts
@@ -56,7 +56,7 @@ The generated themes are located in the `themes` directory. The theme files are 
 │   ├── App.tsx
 │   ├── index.tsx
 │   ├── theme/    // <- Import theme files from token-gen/themes/<name> here
-│       ├── colours.ts
+│       ├── colors.ts
 │       ├── shadows.ts
 │       ├── spacing.ts
 │       ├── textStyles.ts
