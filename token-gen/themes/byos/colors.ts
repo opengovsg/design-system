@@ -1,35 +1,11 @@
 /**
  * Do not edit directly
- * Generated on Wed, 19 Apr 2023 03:37:26 GMT
+ * Generated on Mon, 29 May 2023 06:43:10 GMT
  */
 
-export const colours = {
-  coral: {
-    '50': '#fff8f9',
-    '100': '#FDDCE1',
-    '200': '#faadb8',
-    '300': '#f78092',
-    '400': '#f34862',
-    '500': '#cb2e46',
-    '600': '#ad0024',
-    '700': '#970016',
-    '800': '#820004',
-    '900': '#640000',
-  },
+export const colors = {
   brand: {
     primary: {
-      '50': '#f8f9fa',
-      '100': '#e9eaee',
-      '200': '#babecb',
-      '300': '#9aa0b3',
-      '400': '#7b849c',
-      '500': '#5d6785',
-      '600': '#465173',
-      '700': '#3c4764',
-      '800': '#333c56',
-      '900': '#272d41',
-    },
-    secondary: {
       '50': '#fef7f7',
       '100': '#FBE9E9',
       '200': '#f4acac',
@@ -41,21 +17,45 @@ export const colours = {
       '800': '#721f1f',
       '900': '#571717',
     },
+    secondary: {
+      '50': '#FFF7F3',
+      '100': '#FFDDCA',
+      '200': '#ffaf84',
+      '300': '#ff8140',
+      '400': '#e95a01',
+      '500': '#c53c00',
+      '600': '#A61f00',
+      '700': '#960700',
+      '800': '#820000',
+      '900': '#640000',
+    },
+  },
+  orange: {
+    '50': '#FFF7F3',
+    '100': '#FFDDCA',
+    '200': '#ffaf84',
+    '300': '#ff8140',
+    '400': '#e95a01',
+    '500': '#c53c00',
+    '600': '#A61f00',
+    '700': '#960700',
+    '800': '#820000',
+    '900': '#640000',
   },
   base: {
     canvas: {
-      inverse: '#272d41',
-      'brand-subtle': '#fef7f7',
+      'brand-subtle': '#FFF7F3',
       default: '#ffffff',
       alt: '#F8F9F9',
       backdrop: '#EDEDED',
+      inverse: '#3A3E46',
       overlay: 'rgba(58, 62, 70, 0.8)',
     },
     content: {
+      brand: '#e74f4f',
       default: '#454953',
       strong: '#2C2E34',
       medium: '#666C7A',
-      brand: '#5d6785',
       inverse: '#ffffff',
     },
     divider: {
@@ -63,7 +63,125 @@ export const colours = {
       medium: '#EDEDED',
       strong: '#BFC2C8',
       inverse: '#ffffff',
-      brand: '#5d6785',
+      brand: '#c03434',
+    },
+  },
+  interaction: {
+    main: {
+      default: '#e74f4f',
+      hover: '#c03434',
+      active: '#992a2a',
+    },
+    'main-subtle': {
+      default: '#FBE9E9',
+      hover: '#f4acac',
+      active: '#ee8080',
+    },
+    sub: {
+      default: '#c53c00',
+      hover: '#A61f00',
+      active: '#960700',
+    },
+    'sub-subtle': {
+      default: '#FFDDCA',
+      hover: '#ffaf84',
+      active: '#ff8140',
+    },
+    critical: {
+      default: '#c03434',
+      hover: '#992a2a',
+      active: '#852424',
+    },
+    'critical-subtle': {
+      default: '#FBE9E9',
+      hover: '#f4acac',
+      active: '#ee8080',
+    },
+    warning: {
+      default: '#FFDA68',
+      hover: '#E2B73E',
+      active: '#C4992A',
+    },
+    'warning-subtle': {
+      default: '#fffae1',
+      hover: '#FFDA68',
+      active: '#E2B73E',
+    },
+    success: {
+      default: '#0F796F',
+      hover: '#0C5F57',
+      active: '#0A524B',
+    },
+    'success-subtle': {
+      default: '#E2EEED',
+      hover: '#98CCC7',
+      active: '#63B1AA',
+    },
+    neutral: {
+      default: '#666C7A',
+      hover: '#505660',
+      active: '#454953',
+    },
+    'neutral-subtle': {
+      default: '#F8F9F9',
+      hover: '#EDEDED',
+      active: '#BFC2C8',
+    },
+    muted: {
+      main: {
+        hover: '#fef7f7',
+        active: '#FBE9E9',
+      },
+      sub: {
+        hover: '#FFF7F3',
+        active: '#FFDDCA',
+      },
+      critical: {
+        hover: '#fef7f7',
+        active: '#FBE9E9',
+      },
+      neutral: {
+        hover: '#F8F9F9',
+        active: '#EDEDED',
+      },
+    },
+    tinted: {
+      main: {
+        hover: 'rgba(192, 52, 52, 0.04)',
+        active: 'rgba(192, 52, 52, 0.12)',
+      },
+      sub: {
+        hover: 'rgba(197, 60, 0, 0.04)',
+        active: 'rgba(197, 60, 0, 0.12)',
+      },
+      critical: {
+        hover: 'rgba(192, 52, 52, 0.04)',
+        active: 'rgba(192, 52, 52, 0.12)',
+      },
+      neutral: {
+        hover: 'rgba(0, 0, 0, 0.1)',
+        active: 'rgba(0, 0, 0, 0.2)',
+      },
+      inverse: {
+        hover: 'rgba(255, 255, 255, 0.1)',
+        active: 'rgba(255, 255, 255, 0.2)',
+      },
+    },
+    support: {
+      unselected: '#A0A4AD',
+      selected: '#666C7A',
+      'unselected-strong': '#666C7A',
+      disabled: '#EDEDED',
+      'disabled-content': '#A0A4AD',
+      placeholder: '#A0A4AD',
+    },
+    links: {
+      default: '#c03434',
+      hover: '#992a2a',
+      'neutral-default': '#454953',
+      'neutral-hover': '#2C2E34',
+      'inverse-default': '#ffffff',
+      'inverse-hover': '#EDEDED',
     },
   },
   blue: {
@@ -155,124 +273,6 @@ export const colours = {
     '5shadow': '#8B5544',
     '6base': '#764738',
     '6shadow': '#633D32',
-  },
-  interaction: {
-    main: {
-      default: '#5d6785',
-      hover: '#465173',
-      active: '#3c4764',
-    },
-    'main-subtle': {
-      default: '#e9eaee',
-      hover: '#babecb',
-      active: '#9aa0b3',
-    },
-    sub: {
-      default: '#c03434',
-      hover: '#992a2a',
-      active: '#852424',
-    },
-    'sub-subtle': {
-      default: '#FBE9E9',
-      hover: '#f4acac',
-      active: '#ee8080',
-    },
-    critical: {
-      default: '#c03434',
-      hover: '#992a2a',
-      active: '#852424',
-    },
-    'critical-subtle': {
-      default: '#FBE9E9',
-      hover: '#f4acac',
-      active: '#ee8080',
-    },
-    warning: {
-      default: '#FFDA68',
-      hover: '#E2B73E',
-      active: '#C4992A',
-    },
-    'warning-subtle': {
-      default: '#fffae1',
-      hover: '#FFDA68',
-      active: '#E2B73E',
-    },
-    success: {
-      default: '#0F796F',
-      hover: '#0C5F57',
-      active: '#0A524B',
-    },
-    'success-subtle': {
-      default: '#E2EEED',
-      hover: '#98CCC7',
-      active: '#63B1AA',
-    },
-    neutral: {
-      default: '#666C7A',
-      hover: '#505660',
-      active: '#454953',
-    },
-    'neutral-subtle': {
-      default: '#F8F9F9',
-      hover: '#EDEDED',
-      active: '#BFC2C8',
-    },
-    muted: {
-      main: {
-        hover: '#f8f9fa',
-        active: '#e9eaee',
-      },
-      sub: {
-        hover: '#fef7f7',
-        active: '#FBE9E9',
-      },
-      critical: {
-        hover: '#fef7f7',
-        active: '#FBE9E9',
-      },
-      neutral: {
-        hover: '#F8F9F9',
-        active: '#EDEDED',
-      },
-    },
-    tinted: {
-      main: {
-        hover: 'rgba(93, 103, 133, 0.04)',
-        active: 'rgba(93, 103, 133, 0.12)',
-      },
-      sub: {
-        hover: 'rgba(192, 52, 52, 0.04)',
-        active: 'rgba(192, 52, 52, 0.12)',
-      },
-      critical: {
-        hover: 'rgba(192, 52, 52, 0.04)',
-        active: 'rgba(192, 52, 52, 0.12)',
-      },
-      neutral: {
-        hover: 'rgba(0, 0, 0, 0.1)',
-        active: 'rgba(0, 0, 0, 0.2)',
-      },
-      inverse: {
-        hover: 'rgba(255, 255, 255, 0.1)',
-        active: 'rgba(255, 255, 255, 0.2)',
-      },
-    },
-    support: {
-      unselected: '#A0A4AD',
-      selected: '#666C7A',
-      'unselected-strong': '#666C7A',
-      disabled: '#EDEDED',
-      'disabled-content': '#A0A4AD',
-      placeholder: '#A0A4AD',
-    },
-    links: {
-      default: '#5d6785',
-      hover: '#465173',
-      'neutral-default': '#454953',
-      'neutral-hover': '#2C2E34',
-      'inverse-default': '#ffffff',
-      'inverse-hover': '#EDEDED',
-    },
   },
   utility: {
     feedback: {

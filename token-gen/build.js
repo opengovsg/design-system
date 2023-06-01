@@ -200,11 +200,11 @@ function getStyleDictionaryConfig(src, name) {
         buildPath: `themes/${name}/`,
         files: [
           {
-            destination: 'colours.ts',
+            destination: 'colors.ts',
             filter: (token) => token.type === 'color',
             format: 'typescript/design-system',
             options: {
-              exportName: 'colours',
+              exportName: 'colors',
             },
           },
           {
