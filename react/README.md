@@ -112,6 +112,29 @@ If you're on npm version 4 to 6, install `libphonenumber-js` explicitly by execu
 $ npm install libphonenumber-js
 ```
 
+### I am seeing
+
+When running your build script with `tsc`:
+
+```bash
+./../node_modules/@chakra-ui/theme/dist/index.d.ts:1636:25 - error TS2411: Property '_dark' of type 'undefined' is not assignable to 'string' index type 'string'.
+
+1636                         _dark?: undefined;
+                             ~~~~~
+
+../../node_modules/@chakra-ui/theme/dist/index.d.ts:1637:25 - error TS2411: Property 'opacity' of type 'undefined' is not assignable to 'string' index type 'string'.
+
+1637                         opacity?: undefined;
+                             ~~~~~~~
+
+../../node_modules/@chakra-ui/theme/dist/index.d.ts:1638:25 - error TS2411: Property 'cursor' of type 'undefined' is not assignable to 'string' index type 'string'.
+
+1638                         cursor?: undefined;
+                             ~~~~~~
+```
+
+To fix this, ensure that `skipLibCheck` is set to `false` in your `tsconfig.json`
+
 ## Publishing a new version
 
 In the `react` directory:

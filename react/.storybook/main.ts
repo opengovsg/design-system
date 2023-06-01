@@ -16,6 +16,7 @@ export default {
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/addon-styling',
+    '@storybook/addon-mdx-gfm',
   ],
   framework: '@storybook/react-vite',
   staticDirs: ['./static'],
