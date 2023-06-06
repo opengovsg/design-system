@@ -34,8 +34,6 @@ export interface CalendarProps extends CalendarBaseProps {
   isDateUnavailable?: (d: Date) => boolean
   /** Color scheme for component */
   colorScheme?: ThemingProps<'Calendar'>['colorScheme']
-  /** The date to focus when calendar first renders. */
-  defaultFocusedDate?: Date
 }
 
 export const Calendar = forwardRef<CalendarProps, 'input'>(

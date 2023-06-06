@@ -57,3 +57,16 @@ export const SizeSmall = RangeCalendarOnlyTemplate.bind({})
 SizeSmall.args = {
   size: 'sm',
 }
+
+export const RangeCalendarWithDefaultFocusedDate =
+  RangeCalendarOnlyTemplate.bind({})
+RangeCalendarWithDefaultFocusedDate.args = {
+  defaultFocusedDate: new Date('2010-01-01'),
+}
+
+export const RangeCalendarWithDefaultFocusedDateOverriddenByDefaultValue =
+  RangeCalendarOnlyTemplate.bind({})
+RangeCalendarWithDefaultFocusedDateOverriddenByDefaultValue.args = {
+  defaultFocusedDate: new Date('2010-01-01'),
+  defaultValue: [new Date('2001-01-01'), null],
+}

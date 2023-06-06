@@ -47,6 +47,7 @@ interface DatePickerContextReturn {
   isDateUnavailable?: (date: Date) => boolean
   disclosureProps: UseDisclosureReturn
   monthsToDisplay?: number
+  defaultFocusedDate?: Date
 }
 
 const DatePickerContext = createContext<DatePickerContextReturn | null>(null)
@@ -143,11 +144,7 @@ const useProvideDatePicker = ({
 
   const handleInputBlur: FocusEventHandler<HTMLInputElement> = useCallback(
     (e) => {
-      const date = parse(
-        internalInputValue,
-        dateFormat,
-        new Date(),
-      )
+      const date = parse(internalInputValue, dateFormat, new Date())
       // Clear if input is invalid on blur if invalid dates are not allowed.
       if (!allowInvalidDates && !isValid(date)) {
         setInternalValue(null)
@@ -202,11 +199,7 @@ const useProvideDatePicker = ({
 
   const handleInputChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      const date = parse(
-        event.target.value,
-        dateFormat,
-        new Date(),
-      )
+      const date = parse(event.target.value, dateFormat, new Date())
       setInternalInputValue(event.target.value)
       if (isValid(date)) {
         setInternalValue(date)
@@ -257,5 +250,6 @@ const useProvideDatePicker = ({
     isDateUnavailable,
     disclosureProps,
     monthsToDisplay,
+    defaultFocusedDate: props.defaultFocusedDate,
   }
 }

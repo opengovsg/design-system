@@ -89,6 +89,7 @@ export interface UseProvideCalendarProps
   extends Pick<DayzedProps, 'monthsToDisplay'>,
     PassthroughProps,
     WithSsr {
+  /** The date to focus when calendar first renders. */
   defaultFocusedDate?: Date
 }
 
@@ -162,14 +163,15 @@ const useProvideCalendar = ({
   const yearOptions = useMemo(() => getYearOptions(), [])
   // Date to focus on initial render if initialFocusRef is passed
   const dateToFocus = useMemo(() => {
-    if (defaultFocusedDate) {
-      return defaultFocusedDate
+    if (Array.isArray(selectedDates) && selectedDates[0]) {
+      return selectedDates[0]
     }
-    if (Array.isArray(selectedDates)) {
-      return selectedDates[0] ?? today
+    if (selectedDates instanceof Date) {
+      return selectedDates
     }
-    return selectedDates ?? today
-  }, [today, selectedDates])
+
+    return defaultFocusedDate ?? today
+  }, [today, selectedDates, defaultFocusedDate])
   const [currMonth, setCurrMonth] = useState<number>(dateToFocus.getMonth())
   const [currYear, setCurrYear] = useState<number>(dateToFocus.getFullYear())
 

@@ -48,3 +48,15 @@ export const SizeSmall = CalendarOnlyTemplate.bind({})
 SizeSmall.args = {
   size: 'sm',
 }
+
+export const CalendarWithDefaultFocusedDate = CalendarOnlyTemplate.bind({})
+CalendarWithDefaultFocusedDate.args = {
+  defaultFocusedDate: new Date('2010-01-01'),
+}
+
+export const CalendarWithDefaultFocusedDateOverriddenByDefaultValue =
+  CalendarOnlyTemplate.bind({})
+CalendarWithDefaultFocusedDateOverriddenByDefaultValue.args = {
+  defaultFocusedDate: new Date('2010-01-01'),
+  defaultValue: new Date('2001-01-01'),
+}
