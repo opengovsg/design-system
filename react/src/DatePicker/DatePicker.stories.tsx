@@ -52,16 +52,5 @@ SizeXs.args = {
   defaultValue: new Date('2021-09-13'),
 }
 
-export const DefaultFocusedDate = Template.bind({})
-DefaultFocusedDate.args = {
-  defaultFocusedDate: new Date('2020-09-13'),
-}
-
-export const DefaultFocusedDateOverridenByDefaultValue = Template.bind({})
-DefaultFocusedDateOverridenByDefaultValue.args = {
-  defaultFocusedDate: new Date('2020-09-13'),
-  defaultValue: new Date('2021-09-13'),
-}
-
 export const Mobile = Template.bind({})
 Mobile.parameters = getMobileViewParameters()

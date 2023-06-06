@@ -57,6 +57,6 @@ CalendarWithDefaultFocusedDate.args = {
 export const CalendarWithDefaultFocusedDateOverriddenByDefaultValue =
   CalendarOnlyTemplate.bind({})
 CalendarWithDefaultFocusedDateOverriddenByDefaultValue.args = {
-  defaultFocusedDate: new Date('2010-01-01'),
+  defaultFocusedDate: new Date('2010-05-01'),
   defaultValue: new Date('2001-01-01'),
 }
