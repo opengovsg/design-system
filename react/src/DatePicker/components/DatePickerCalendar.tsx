@@ -12,6 +12,7 @@ export const DatePickerCalendar = (): JSX.Element => {
     monthsToDisplay,
     size,
     isMobile,
+    defaultFocusedDate,
   } = useDatePicker()
 
   const displayedSize = isMobile ? 'sm' : size
@@ -25,6 +26,7 @@ export const DatePickerCalendar = (): JSX.Element => {
       isDateUnavailable={isDateUnavailable}
       onChange={handleDateChange}
       ref={initialFocusRef}
+      defaultFocusedDate={defaultFocusedDate}
     />
   )
 }
