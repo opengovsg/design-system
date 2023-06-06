@@ -97,6 +97,7 @@ const useProvideDatePicker = ({
   refocusOnClose = true,
   ssr,
   size,
+  defaultFocusedDate,
   ...props
 }: DatePickerProps): DatePickerContextReturn => {
   const initialFocusRef = useRef<HTMLInputElement>(null)
@@ -236,8 +237,6 @@ const useProvideDatePicker = ({
     () => displayFormat.toLowerCase(),
     [displayFormat],
   )
-
-  const { defaultFocusedDate } = props
 
   return {
     isMobile,
