@@ -88,7 +88,10 @@ const nanoid = customAlphabet(
 export interface UseProvideCalendarProps
   extends Pick<DayzedProps, 'monthsToDisplay'>,
     PassthroughProps,
-    WithSsr {}
+    WithSsr {
+  /** The date to focus when calendar first renders. */
+  defaultFocusedDate?: Date
+}
 
 interface CalendarContextProps extends CalendarProps, PassthroughProps {
   classNameId: string
@@ -149,6 +152,7 @@ const useProvideCalendar = ({
   colorScheme,
   size,
   ssr,
+  defaultFocusedDate,
 }: UseProvideCalendarProps) => {
   const isMobile = useIsMobile({ ssr })
   // Ensure that calculations are always made based on date of initial render,
@@ -157,14 +161,17 @@ const useProvideCalendar = ({
   // Unique className for dates
   const classNameId = useMemo(() => nanoid(), [])
   const yearOptions = useMemo(() => getYearOptions(), [])
-
   // Date to focus on initial render if initialFocusRef is passed
   const dateToFocus = useMemo(() => {
-    if (Array.isArray(selectedDates)) {
-      return selectedDates[0] ?? today
+    if (Array.isArray(selectedDates) && selectedDates[0]) {
+      return selectedDates[0]
     }
-    return selectedDates ?? today
-  }, [today, selectedDates])
+    if (selectedDates instanceof Date) {
+      return selectedDates
+    }
+
+    return defaultFocusedDate ?? today
+  }, [today, selectedDates, defaultFocusedDate])
   const [currMonth, setCurrMonth] = useState<number>(dateToFocus.getMonth())
   const [currYear, setCurrYear] = useState<number>(dateToFocus.getFullYear())
 
