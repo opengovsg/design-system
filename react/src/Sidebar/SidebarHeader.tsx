@@ -5,7 +5,7 @@ import type { BaseSidebarItemProps } from './types'
 
 export type SidebarHeaderProps = BaseSidebarItemProps
 
-export const SidebarHeader = forwardRef<SidebarHeaderProps, 'li'>(
+export const SidebarHeader = forwardRef<SidebarHeaderProps, 'div'>(
   ({ children, icon, iconProps, ...props }, ref): JSX.Element => {
     const styles = useSidebarStyles()
 
