@@ -5,6 +5,7 @@ import {
   ThemingProps,
   useFormControlProps,
   useMultiStyleConfig,
+  useTheme,
 } from '@chakra-ui/react'
 import {
   useCombobox,
@@ -88,9 +89,20 @@ export const MultiSelectProvider = ({
   downshiftMultiSelectProps = {},
   inputAria,
   children,
-  size = 'md',
+  size: _size,
   colorScheme,
 }: MultiSelectProviderProps): JSX.Element => {
+  const theme = useTheme()
+  // Required in case size is set in theme, we should respect the one set in theme.
+  const size = useMemo(
+    () =>
+      (_size ?? theme?.components?.MultiSelect?.defaultProps?.size ?? 'md') as
+        | 'xs'
+        | 'sm'
+        | 'md',
+    [_size, theme?.components?.MultiSelect?.defaultProps?.size],
+  )
+
   const { items, getItemByValue } = useItems({ rawItems })
   const [isFocused, setIsFocused] = useState(false)
 
