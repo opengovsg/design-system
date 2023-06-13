@@ -5,6 +5,7 @@ import {
   ThemingProps,
   useFormControlProps,
   useMultiStyleConfig,
+  useTheme,
 } from '@chakra-ui/react'
 import { useCombobox, UseComboboxProps } from 'downshift'
 
@@ -57,9 +58,20 @@ export const SingleSelectProvider = ({
   children,
   inputAria,
   colorScheme,
-  size = 'md',
+  size: _size,
   comboboxProps = {},
 }: SingleSelectProviderProps): JSX.Element => {
+  const theme = useTheme()
+  // Required in case size is set in theme, we should respect the one set in theme.
+  const size = useMemo(
+    () =>
+      (_size ?? theme?.components?.SingleSelect?.defaultProps?.size ?? 'md') as
+        | 'xs'
+        | 'sm'
+        | 'md',
+    [_size, theme?.components?.SingleSelect?.defaultProps?.size],
+  )
+
   const { items, getItemByValue } = useItems({ rawItems })
   const [isFocused, setIsFocused] = useState(false)
 
