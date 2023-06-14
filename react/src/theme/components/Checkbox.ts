@@ -28,6 +28,14 @@ const getColorProps = ({ colorScheme: c }: StyleFunctionProps) => {
         hoverBg: 'interaction.muted.main.hover',
         borderColor: 'interaction.main.default',
       }
+    case 'inverse':
+      return {
+        bg: 'white',
+        checkedBg: 'white',
+        iconColor: 'interaction.main.default',
+        hoverBg: 'interaction.muted.main.hover',
+        borderColor: 'interaction.main.default',
+      }
     default: {
       return {
         bg: 'white',
@@ -39,7 +47,8 @@ const getColorProps = ({ colorScheme: c }: StyleFunctionProps) => {
 }
 
 const baseStyle = definePartsStyle((props) => {
-  const { bg, hoverBg, borderColor, checkedBg } = getColorProps(props)
+  const { bg, hoverBg, borderColor, checkedBg, iconColor } =
+    getColorProps(props)
   return {
     // Control is the box containing the check icon
     control: {
@@ -92,7 +101,7 @@ const baseStyle = definePartsStyle((props) => {
     // Check mark icon
     icon: {
       // Chakra changes the icon colour if disabled, but we want it to always be white
-      color: 'white',
+      color: iconColor ?? 'white',
       // Remove default Chakra animations so we can replace with our own. This is because
       // we ran into issues where we could not increase the size of the tick icon without
       // the animation messing up.

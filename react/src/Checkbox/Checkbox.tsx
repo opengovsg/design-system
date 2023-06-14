@@ -11,7 +11,8 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
-import { BxCheckAnimated } from '~/icons'
+import { BxCheckAnimated, BxsCircle } from '~/icons'
+import { BxIndeterminate } from '~/icons/BxIndeterminate'
 import { Input, InputProps } from '~/Input'
 
 import { CheckboxOthersContext, useCheckboxOthers } from './useCheckboxOthers'
@@ -25,14 +26,15 @@ type CheckboxWithOthers = ComponentWithAs<'input', CheckboxProps> & {
 }
 
 export const Checkbox = forwardRef<CheckboxProps, 'input'>(
-  ({ children, colorScheme, ...props }, ref) => {
+  ({ children, colorScheme, isIndeterminate, ...props }, ref) => {
     // Passing all props for cleanliness but the size prop is the most relevant
     const { icon: iconStyles } = useMultiStyleConfig('Checkbox', props)
+
     return (
       <ChakraCheckbox
         icon={
           <Icon
-            as={BxCheckAnimated}
+            as={isIndeterminate ? BxIndeterminate : BxCheckAnimated}
             __css={iconStyles}
             // This prop needs to be passed explicitly for animations
             isChecked={props.isChecked}

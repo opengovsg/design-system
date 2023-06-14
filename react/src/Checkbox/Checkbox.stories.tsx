@@ -26,6 +26,20 @@ Default.args = {
   name: 'Default',
 }
 
+export const Indeterminate = Template.bind({})
+Indeterminate.args = {
+  name: 'Indeterminate',
+  isIndeterminate: true,
+}
+
+export const Inverse = Template.bind({})
+Inverse.args = {
+  name: 'Inverse',
+  colorScheme: 'inverse',
+  isIndeterminate: false,
+  isChecked: false,
+}
+
 export const Mobile = Template.bind({})
 Mobile.args = {
   name: 'Mobile',
