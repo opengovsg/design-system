@@ -1,12 +1,5 @@
 import { useMemo } from 'react'
-import {
-  Box,
-  CheckboxGroup,
-  DarkMode,
-  FormControl,
-  Stack,
-  VStack,
-} from '@chakra-ui/react'
+import { CheckboxGroup, FormControl, Stack, VStack } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { FormLabel } from '~/FormControl/FormLabel'
@@ -71,6 +64,11 @@ const AllStates: StoryFn<CheckboxProps> = (args) => {
 
 export const CheckboxStates = AllStates.bind({})
 
+export const DarkmodeCheckboxStates: StoryFn = AllStates.bind({})
+DarkmodeCheckboxStates.parameters = {
+  backgrounds: { default: 'dark' },
+}
+
 export const CheckboxSizes = () => (
   <VStack>
     <Checkbox size="xs">xs</Checkbox>
@@ -83,7 +81,7 @@ export const CheckboxSizes = () => (
   </VStack>
 )
 
-export const CheckboxColors = () => (
+export const CheckboxColors: StoryFn = () => (
   <VStack>
     <Checkbox defaultChecked colorScheme="main">
       main
@@ -109,10 +107,11 @@ export const CheckboxColors = () => (
   </VStack>
 )
 
-export const DarkmodeCheckboxColors: StoryFn = () => <CheckboxColors />
+export const DarkmodeCheckboxColors = CheckboxColors.bind({})
 DarkmodeCheckboxColors.parameters = {
   backgrounds: { default: 'dark' },
 }
+
 export const Playground: StoryFn = ({ label, ...args }) => {
   const options = useMemo(() => ['Option 1', 'Option 2', 'Option 3'], [])
 
