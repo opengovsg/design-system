@@ -30,6 +30,7 @@ export const Checkbox = forwardRef<CheckboxProps, 'input'>(
     const { icon: iconStyles } = useMultiStyleConfig('Checkbox', props)
     return (
       <ChakraCheckbox
+        data-group
         icon={
           <Icon
             as={BxCheckAnimated}

@@ -1,6 +1,6 @@
 import { checkboxAnatomy } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-import { StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { mode, StyleFunctionProps } from '@chakra-ui/theme-tools'
 
 import { layerStyles } from '../layerStyles'
 
@@ -19,18 +19,23 @@ const parts = checkboxAnatomy.extend(
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)
 
-const getColorProps = ({ colorScheme: c }: StyleFunctionProps) => {
+const getColorProps = (props: StyleFunctionProps) => {
+  const { colorScheme: c } = props
+
   switch (c) {
     case 'main':
       return {
         bg: 'white',
-        checkedBg: 'interaction.main.default',
+        checkedBg: mode('interaction.main.default', 'white')(props),
+        iconColor: mode('white', 'interaction.main.default')(props),
         hoverBg: 'interaction.muted.main.hover',
         borderColor: 'interaction.main.default',
       }
     default: {
       return {
         bg: 'white',
+        iconColor: mode('white', `${c}.500`)(props),
+        checkedBg: mode(`${c}.500`, 'white')(props),
         hoverBg: `${c}.100`,
         borderColor: `${c}.500`,
       }
@@ -39,7 +44,8 @@ const getColorProps = ({ colorScheme: c }: StyleFunctionProps) => {
 }
 
 const baseStyle = definePartsStyle((props) => {
-  const { bg, hoverBg, borderColor, checkedBg } = getColorProps(props)
+  const { bg, hoverBg, borderColor, iconColor, checkedBg } =
+    getColorProps(props)
   return {
     // Control is the box containing the check icon
     control: {
@@ -87,12 +93,18 @@ const baseStyle = definePartsStyle((props) => {
         // Chakra automatically sets opacity to 0.4, so override that
         opacity: 1,
       },
-      color: 'base.content.strong',
+      color: mode('base.content.strong', 'white')(props),
+      _groupHover: {
+        color: 'base.content.strong',
+        _disabled: {
+          color: 'interaction.support.disabled-content',
+        },
+      },
     },
     // Check mark icon
     icon: {
       // Chakra changes the icon colour if disabled, but we want it to always be white
-      color: 'white',
+      color: iconColor,
       // Remove default Chakra animations so we can replace with our own. This is because
       // we ran into issues where we could not increase the size of the tick icon without
       // the animation messing up.
