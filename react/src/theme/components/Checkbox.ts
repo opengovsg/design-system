@@ -39,6 +39,7 @@ const getColorProps = (props: StyleFunctionProps) => {
         iconColor: 'interaction.main.default',
         hoverBg: 'interaction.muted.main.hover',
         borderColor: 'interaction.main.default',
+        focusRingOutline: `2px solid var(--chakra-colors-utility-focus-inverse)`,
       }
     default: {
       return {
@@ -53,7 +54,7 @@ const getColorProps = (props: StyleFunctionProps) => {
 }
 
 const baseStyle = definePartsStyle((props) => {
-  const { bg, hoverBg, borderColor, iconColor, checkedBg } =
+  const { bg, hoverBg, borderColor, iconColor, checkedBg, focusRingOutline } =
     getColorProps(props)
   return {
     // Control is the box containing the check icon
@@ -92,6 +93,7 @@ const baseStyle = definePartsStyle((props) => {
       },
       _focusWithin: {
         ...layerStyles.focusRing.default._focusVisible,
+        ...(focusRingOutline ? { outline: focusRingOutline } : {}),
         outlineOffset: 0,
       },
     },
