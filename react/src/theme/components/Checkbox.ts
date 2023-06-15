@@ -103,8 +103,10 @@ const baseStyle = definePartsStyle((props) => {
     },
     // Check mark icon
     icon: {
-      // Chakra changes the icon colour if disabled, but we want it to always be white
       color: iconColor,
+      _groupDisabled: {
+        color: 'white',
+      },
       // Remove default Chakra animations so we can replace with our own. This is because
       // we ran into issues where we could not increase the size of the tick icon without
       // the animation messing up.
