@@ -62,7 +62,7 @@ export const Banner = ({
 
   const closeButtonRendered = useMemo(() => {
     if (!isDismissable) return null
-    if (closeButton !== undefined) closeButton
+    if (closeButton !== undefined) return closeButton
     return (
       <CloseButton children={<BxX />} onClick={onToggle} sx={styles.close} />
     )
