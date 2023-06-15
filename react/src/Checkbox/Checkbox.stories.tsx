@@ -49,6 +49,9 @@ const AllStates: StoryFn<CheckboxProps> = (args) => {
       <Checkbox data-hover {...args}>
         Hover
       </Checkbox>
+      <Checkbox {...args} isIndeterminate>
+        Indeterminate
+      </Checkbox>
       <Checkbox {...args} defaultChecked>
         Selected
       </Checkbox>
