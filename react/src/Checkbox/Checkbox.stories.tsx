@@ -86,6 +86,9 @@ export const CheckboxColors: StoryFn = () => (
     <Checkbox defaultChecked colorScheme="main">
       main
     </Checkbox>
+    <Checkbox defaultChecked colorScheme="inverse">
+      inverse
+    </Checkbox>
     <Checkbox defaultChecked colorScheme="red">
       red
     </Checkbox>

@@ -31,6 +31,15 @@ const getColorProps = (props: StyleFunctionProps) => {
         hoverBg: 'interaction.muted.main.hover',
         borderColor: 'interaction.main.default',
       }
+    // Darkmode without setting dark mode, but only for main color scheme.
+    case 'inverse':
+      return {
+        bg: 'white',
+        checkedBg: 'white',
+        iconColor: 'interaction.main.default',
+        hoverBg: 'interaction.muted.main.hover',
+        borderColor: 'interaction.main.default',
+      }
     default: {
       return {
         bg: 'white',
