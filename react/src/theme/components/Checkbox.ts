@@ -1,8 +1,9 @@
 import { checkboxAnatomy } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-import { mode, StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { getColor, mode, StyleFunctionProps } from '@chakra-ui/theme-tools'
 
 import { layerStyles } from '../layerStyles'
+import { getContrastColor } from '../utils'
 
 import { Input } from './Input'
 
@@ -25,36 +26,49 @@ const getColorProps = (props: StyleFunctionProps) => {
   switch (c) {
     case 'main':
       return {
-        bg: 'white',
-        checkedBg: mode('interaction.main.default', 'white')(props),
-        iconColor: mode('white', 'interaction.main.default')(props),
-        hoverBg: 'interaction.muted.main.hover',
-        borderColor: 'interaction.main.default',
+        bg: mode('white', 'transparent')(props),
+        checkedBg: 'interaction.main.default',
+        iconColor: 'white',
+        hoverBg: mode(
+          'interaction.muted.main.hover',
+          'interaction.tinted.main.active',
+        )(props),
+        borderColor: mode('interaction.main.default', 'white')(props),
+        labelColor: mode('base.content.default', 'base.content.inverse')(props),
       }
-    // Darkmode without setting dark mode, but only for main color scheme.
+    // Inverse color scheme, used for darker backgrounds.
     case 'inverse':
       return {
-        bg: 'white',
+        bg: 'transparent',
         checkedBg: 'white',
-        iconColor: 'interaction.main.default',
-        hoverBg: 'interaction.muted.main.hover',
-        borderColor: 'interaction.main.default',
+        iconColor: 'base.content.strong',
+        hoverBg: 'interaction.tinted.inverse.hover',
+        borderColor: 'white',
+        labelColor: 'base.content.inverse',
       }
     default: {
       return {
-        bg: 'white',
-        iconColor: mode('white', `${c}.500`)(props),
-        checkedBg: mode(`${c}.500`, 'white')(props),
+        bg: mode('white', 'transparent')(props),
+        checkedBg: `${c}.500`,
+        iconColor: 'white',
         hoverBg: `${c}.100`,
         borderColor: `${c}.500`,
+        labelColor: mode('base.content.default', 'base.content.inverse')(props),
       }
     }
   }
 }
 
 const baseStyle = definePartsStyle((props) => {
-  const { bg, hoverBg, borderColor, iconColor, checkedBg } =
+  const { bg, hoverBg, borderColor, iconColor, checkedBg, labelColor } =
     getColorProps(props)
+
+  const hoverLabelColor = getContrastColor(
+    getColor(props.theme, labelColor),
+    getColor(props.theme, hoverBg),
+    'base.content.default',
+  )
+
   return {
     // Control is the box containing the check icon
     control: {
@@ -64,7 +78,7 @@ const baseStyle = definePartsStyle((props) => {
       borderColor,
       _checked: {
         bg: checkedBg,
-        borderColor,
+        borderColor: checkedBg,
       },
       // When the label is long and overflows to the next line, we want
       // the checkbox to be aligned with the first line rather than the center
@@ -74,7 +88,7 @@ const baseStyle = definePartsStyle((props) => {
       },
       _disabled: {
         borderColor: 'interaction.support.disabled-content',
-        bg: 'white',
+        bg,
         _checked: {
           borderColor: 'interaction.support.disabled-content',
           bg: 'interaction.support.disabled-content',
@@ -102,9 +116,9 @@ const baseStyle = definePartsStyle((props) => {
         // Chakra automatically sets opacity to 0.4, so override that
         opacity: 1,
       },
-      color: mode('base.content.strong', 'white')(props),
+      color: labelColor,
       _groupHover: {
-        color: 'base.content.strong',
+        color: hoverLabelColor,
         _disabled: {
           color: 'interaction.support.disabled-content',
         },

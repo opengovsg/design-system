@@ -38,7 +38,13 @@ export const parameters = {
     },
   },
   backgrounds: {
-    values: Object.values(backgrounds),
+    values: [
+      ...Object.values(backgrounds),
+      {
+        name: 'blue',
+        value: '#1361F0',
+      },
+    ],
   },
 }
 
@@ -53,7 +59,9 @@ const withColorMode: Decorator = (storyFn, context) => {
   const bgFromDefault = get(context, 'parameters.backgrounds.default')
   let colorMode: 'dark' | 'light' = 'light'
   if (!bgFromContext && bgFromDefault) {
-    colorMode = context.parameters.backgrounds.default as 'dark' | 'light'
+    if (['dark', 'light'].includes(context.parameters.backgrounds.default)) {
+      colorMode = context.parameters.backgrounds.default as 'dark' | 'light'
+    }
   } else {
     colorMode =
       context.parameters.colorMode ||
