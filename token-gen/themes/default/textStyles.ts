@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 29 May 2023 06:43:10 GMT
+ * Generated on Fri, 23 Jun 2023 09:14:33 GMT
  */
 
 export const textStyles = {

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 06 Apr 2023 06:58:16 GMT
+ * Generated on Fri, 23 Jun 2023 09:14:33 GMT
  */
 
 export const typography = {
@@ -30,7 +30,7 @@ export const typography = {
   fontWeights: {
     normal: 400,
     medium: 500,
-    semibold: 'SemiBold',
+    semibold: 600,
     bold: 700,
     light: 300,
   },

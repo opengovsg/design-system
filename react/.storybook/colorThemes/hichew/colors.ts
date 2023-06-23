@@ -1,9 +1,47 @@
 /**
  * Do not edit directly
- * Generated on Thu, 06 Apr 2023 06:58:16 GMT
+ * Generated on Fri, 23 Jun 2023 09:14:33 GMT
  */
 
-export const colours = {
+export const colors = {
+  violet: {
+    '50': '#faf9fe',
+    '100': '#E5E1FC',
+    '200': '#c6baf8',
+    '300': '#ab96f5',
+    '400': '#9272f2',
+    '500': '#7a49ed',
+    '600': '#632dd0',
+    '700': '#5627b3',
+    '800': '#492198',
+    '900': '#371972',
+  },
+  brand: {
+    primary: {
+      '50': '#faf9fe',
+      '100': '#E5E1FC',
+      '200': '#c6baf8',
+      '300': '#ab96f5',
+      '400': '#9272f2',
+      '500': '#7a49ed',
+      '600': '#632dd0',
+      '700': '#5627b3',
+      '800': '#492198',
+      '900': '#371972',
+    },
+    secondary: {
+      '50': '#f8f9fa',
+      '100': '#e9eaee',
+      '200': '#babecb',
+      '300': '#9aa0b3',
+      '400': '#7b849c',
+      '500': '#5d6785',
+      '600': '#465173',
+      '700': '#3c4764',
+      '800': '#333c56',
+      '900': '#272d41',
+    },
+  },
   blue: {
     '50': '#F7F9FE',
     '100': '#E7EFFC',
@@ -80,32 +118,6 @@ export const colours = {
     white: '#ffffff',
     black: '#000000',
   },
-  brand: {
-    primary: {
-      '50': '#F7F9FE',
-      '100': '#E7EFFC',
-      '200': '#ACC7FA',
-      '300': '#82ABF7',
-      '400': '#568DF4',
-      '500': '#1361F0',
-      '600': '#0D4FCA',
-      '700': '#0B44AC',
-      '800': '#093890',
-      '900': '#072A69',
-    },
-    secondary: {
-      '50': '#f8f9fa',
-      '100': '#e9eaee',
-      '200': '#babecb',
-      '300': '#9aa0b3',
-      '400': '#7b849c',
-      '500': '#5d6785',
-      '600': '#465173',
-      '700': '#3c4764',
-      '800': '#333c56',
-      '900': '#272d41',
-    },
-  },
   skin: {
     '1base': '#FFCAA4',
     '1shadow': '#F5B896',
@@ -125,7 +137,7 @@ export const colours = {
       default: '#ffffff',
       alt: '#F8F9F9',
       backdrop: '#EDEDED',
-      'brand-subtle': '#F7F9FE',
+      'brand-subtle': '#faf9fe',
       inverse: '#3A3E46',
       overlay: 'rgba(58, 62, 70, 0.8)',
     },
@@ -133,7 +145,7 @@ export const colours = {
       default: '#454953',
       strong: '#2C2E34',
       medium: '#666C7A',
-      brand: '#1361F0',
+      brand: '#7a49ed',
       inverse: '#ffffff',
     },
     divider: {
@@ -141,19 +153,19 @@ export const colours = {
       medium: '#EDEDED',
       strong: '#BFC2C8',
       inverse: '#ffffff',
-      brand: '#1361F0',
+      brand: '#7a49ed',
     },
   },
   interaction: {
     main: {
-      default: '#1361F0',
-      hover: '#0D4FCA',
-      active: '#0B44AC',
+      default: '#7a49ed',
+      hover: '#632dd0',
+      active: '#5627b3',
     },
     'main-subtle': {
-      default: '#E7EFFC',
-      hover: '#ACC7FA',
-      active: '#82ABF7',
+      default: '#E5E1FC',
+      hover: '#c6baf8',
+      active: '#ab96f5',
     },
     sub: {
       default: '#5d6785',
@@ -207,8 +219,8 @@ export const colours = {
     },
     muted: {
       main: {
-        hover: '#F7F9FE',
-        active: '#E7EFFC',
+        hover: '#faf9fe',
+        active: '#E5E1FC',
       },
       sub: {
         hover: '#f8f9fa',
@@ -225,8 +237,8 @@ export const colours = {
     },
     tinted: {
       main: {
-        hover: 'rgba(19, 97, 240, 0.04)',
-        active: 'rgba(19, 97, 240, 0.12)',
+        hover: 'rgba(122, 73, 237, 0.04)',
+        active: 'rgba(122, 73, 237, 0.12)',
       },
       sub: {
         hover: 'rgba(93, 103, 133, 0.04)',
@@ -254,8 +266,8 @@ export const colours = {
       placeholder: '#A0A4AD',
     },
     links: {
-      default: '#1361F0',
-      hover: '#0D4FCA',
+      default: '#7a49ed',
+      hover: '#632dd0',
       'neutral-default': '#454953',
       'neutral-hover': '#2C2E34',
       'inverse-default': '#ffffff',
