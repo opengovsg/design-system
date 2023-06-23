@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 23 Jun 2023 08:22:18 GMT
+ * Generated on Fri, 23 Jun 2023 09:14:33 GMT
  */
 
 export const colors = {
@@ -265,12 +265,12 @@ export const colors = {
       },
     },
     support: {
-      unselected: '#BFBFBF',
+      unselected: '#A0A0A0',
       selected: '#686868',
       'unselected-strong': '#686868',
       disabled: '#E9EAEE',
-      'disabled-content': '#BFBFBF',
-      placeholder: '#BFBFBF',
+      'disabled-content': '#A0A0A0',
+      placeholder: '#A0A0A0',
     },
     links: {
       default: '#6253E8',
