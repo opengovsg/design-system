@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 29 May 2023 06:43:10 GMT
+ * Generated on Fri, 23 Jun 2023 08:22:18 GMT
  */
 
 export const colors = {
@@ -33,7 +33,7 @@ export const colors = {
       '50': '#F8F9F9',
       '100': '#EDEDED',
       '200': '#BFC2C8',
-      '300': '#A0A4AD',
+      '300': '#BFC2C8',
       '400': '#838894',
       '500': '#666C7A',
       '600': '#505660',
@@ -175,7 +175,7 @@ export const colors = {
     'sub-subtle': {
       default: '#EDEDED',
       hover: '#BFC2C8',
-      active: '#A0A4AD',
+      active: '#BFC2C8',
     },
     critical: {
       default: '#c03434',
@@ -258,12 +258,12 @@ export const colors = {
       },
     },
     support: {
-      unselected: '#A0A4AD',
+      unselected: '#BFC2C8',
       selected: '#666C7A',
       'unselected-strong': '#666C7A',
       disabled: '#EDEDED',
-      'disabled-content': '#A0A4AD',
-      placeholder: '#A0A4AD',
+      'disabled-content': '#BFC2C8',
+      placeholder: '#BFC2C8',
     },
     links: {
       default: '#576d93',

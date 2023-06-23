@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 29 May 2023 06:43:10 GMT
+ * Generated on Fri, 23 Jun 2023 08:22:18 GMT
  */
 
 export const textStyles = {
@@ -20,7 +20,7 @@ export const textStyles = {
       fontFamily: 'body',
     },
     heavy: {
-      fontWeight: 'SemiBold',
+      fontWeight: 600,
       lineHeight: '3rem',
       fontSize: '2.5rem',
       letterSpacing: '-0.022em',
@@ -50,21 +50,21 @@ export const textStyles = {
   },
   'responsive-heading': {
     'heavy-1280': {
-      fontWeight: 'SemiBold',
+      fontWeight: 600,
       lineHeight: '3.5rem',
       fontSize: '3rem',
       letterSpacing: '-0.022em',
       fontFamily: 'body',
     },
     'heavy-480': {
-      fontWeight: 'SemiBold',
+      fontWeight: 600,
       lineHeight: '3rem',
       fontSize: '2.5rem',
       letterSpacing: '-0.022em',
       fontFamily: 'body',
     },
     heavy: {
-      fontWeight: 'SemiBold',
+      fontWeight: 600,
       lineHeight: '2.5rem',
       fontSize: '2rem',
       letterSpacing: '-0.022em',
@@ -93,14 +93,14 @@ export const textStyles = {
     },
   },
   h1: {
-    fontWeight: 'SemiBold',
+    fontWeight: 600,
     lineHeight: '3rem',
     fontSize: '2.5rem',
     letterSpacing: '-0.022em',
     fontFamily: 'body',
   },
   h2: {
-    fontWeight: 'SemiBold',
+    fontWeight: 600,
     lineHeight: '2.75rem',
     fontSize: '2.25rem',
     letterSpacing: '-0.022em',
@@ -114,14 +114,14 @@ export const textStyles = {
     fontFamily: 'body',
   },
   h4: {
-    fontWeight: 'SemiBold',
+    fontWeight: 600,
     lineHeight: '2rem',
     fontSize: '1.5rem',
     letterSpacing: '-0.019em',
     fontFamily: 'body',
   },
   h5: {
-    fontWeight: 'SemiBold',
+    fontWeight: 600,
     lineHeight: '1.75rem',
     fontSize: '1.25rem',
     letterSpacing: '-0.014em',
@@ -149,7 +149,7 @@ export const textStyles = {
     fontFamily: 'body',
   },
   'subhead-3': {
-    fontWeight: 'SemiBold',
+    fontWeight: 600,
     lineHeight: '1.5rem',
     fontSize: '0.875rem',
     letterSpacing: '0.080em',
