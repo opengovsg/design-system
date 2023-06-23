@@ -1,9 +1,9 @@
 /**
  * Do not edit directly
- * Generated on Thu, 06 Apr 2023 06:58:16 GMT
+ * Generated on Fri, 23 Jun 2023 09:14:33 GMT
  */
 
-export const colours = {
+export const colors = {
   standard: {
     white: '#ffffff',
     black: '#000000',
@@ -14,7 +14,7 @@ export const colours = {
       default: '#111111',
       alt: '#2C2E34',
       backdrop: '#3A3E46',
-      'brand-subtle': '#072A69',
+      'brand-subtle': '#0A237D',
       inverse: '#f8f9fa',
       overlay: 'rgba(58, 62, 70, 0.8)',
     },
@@ -22,7 +22,7 @@ export const colours = {
       default: '#F8F9F9',
       strong: '#EDEDED',
       medium: '#838894',
-      brand: '#568DF4',
+      brand: '#6578EF',
       inverse: '#111111',
     },
     divider: {
@@ -30,19 +30,19 @@ export const colours = {
       medium: '#454953',
       strong: '#505660',
       inverse: '#ffffff',
-      brand: '#568DF4',
+      brand: '#6578EF',
     },
   },
   interaction: {
     main: {
-      default: '#568DF4',
-      hover: '#82ABF7',
-      active: '#ACC7FA',
+      default: '#6578EF',
+      hover: '#8C9AF3',
+      active: '#B2BCF7',
     },
     'main-subtle': {
-      default: '#072A69',
-      hover: '#093890',
-      active: '#0B44AC',
+      default: '#0A237D',
+      hover: '#102F9F',
+      active: '#1538B8',
     },
     sub: {
       default: '#5d6785',
@@ -95,8 +95,8 @@ export const colours = {
         active: '#333c56',
       },
       sub: {
-        hover: '#072A69',
-        active: '#093890',
+        hover: '#0A237D',
+        active: '#102F9F',
       },
       critical: {
         hover: '#571717',
@@ -109,8 +109,8 @@ export const colours = {
     },
     tinted: {
       main: {
-        hover: 'rgba(19, 97, 240, 0.04)',
-        active: 'rgba(19, 97, 240, 0.12)',
+        hover: 'rgba(63, 86, 235, 0.04)',
+        active: 'rgba(63, 86, 235, 0.12)',
       },
       critical: {
         hover: 'rgba(192, 52, 52, 0.04)',
@@ -138,8 +138,8 @@ export const colours = {
       placeholder: '#838894',
     },
     links: {
-      default: '#568DF4',
-      hover: '#82ABF7',
+      default: '#6578EF',
+      hover: '#8C9AF3',
       'neutral-default': '#F8F9F9',
       'neutral-hover': '#EDEDED',
       'inverse-default': '#3A3E46',
@@ -153,8 +153,8 @@ export const colours = {
   },
   utility: {
     feedback: {
-      info: '#82ABF7',
-      'info-subtle': '#072A69',
+      info: '#8C9AF3',
+      'info-subtle': '#0A237D',
       warning: '#FFDA68',
       'warning-subtle': '#3f2b00',
       success: '#2D978C',
@@ -162,23 +162,49 @@ export const colours = {
       critical: '#e74f4f',
       'critical-subtle': '#571717',
     },
-    'focus-default': '#82ABF7',
+    'focus-default': '#8C9AF3',
     'focus-inverse': '#111111',
     'input-prefilled': '#3f2b00',
     ui: '#111111',
     'ui-clear': 'rgba(17, 17, 17, 0)',
   },
   blue: {
-    '50': '#F7F9FE',
-    '100': '#E7EFFC',
-    '200': '#ACC7FA',
-    '300': '#82ABF7',
-    '400': '#568DF4',
-    '500': '#1361F0',
-    '600': '#0D4FCA',
-    '700': '#0B44AC',
-    '800': '#093890',
-    '900': '#072A69',
+    '50': '#F8F9FE',
+    '100': '#E5E8FC',
+    '200': '#B2BCF7',
+    '300': '#8C9AF3',
+    '400': '#6578EF',
+    '500': '#3F56EB',
+    '600': '#1941D1',
+    '700': '#1538B8',
+    '800': '#102F9F',
+    '900': '#0A237D',
+  },
+  brand: {
+    primary: {
+      '50': '#F8F9FE',
+      '100': '#E5E8FC',
+      '200': '#B2BCF7',
+      '300': '#8C9AF3',
+      '400': '#6578EF',
+      '500': '#3F56EB',
+      '600': '#1941D1',
+      '700': '#1538B8',
+      '800': '#102F9F',
+      '900': '#0A237D',
+    },
+    secondary: {
+      '50': '#f8f9fa',
+      '100': '#e9eaee',
+      '200': '#babecb',
+      '300': '#9aa0b3',
+      '400': '#7b849c',
+      '500': '#5d6785',
+      '600': '#465173',
+      '700': '#3c4764',
+      '800': '#333c56',
+      '900': '#272d41',
+    },
   },
   red: {
     '50': '#fef7f7',
@@ -239,32 +265,6 @@ export const colours = {
     '700': '#454953',
     '800': '#3A3E46',
     '900': '#2C2E34',
-  },
-  brand: {
-    primary: {
-      '50': '#F7F9FE',
-      '100': '#E7EFFC',
-      '200': '#ACC7FA',
-      '300': '#82ABF7',
-      '400': '#568DF4',
-      '500': '#1361F0',
-      '600': '#0D4FCA',
-      '700': '#0B44AC',
-      '800': '#093890',
-      '900': '#072A69',
-    },
-    secondary: {
-      '50': '#f8f9fa',
-      '100': '#e9eaee',
-      '200': '#babecb',
-      '300': '#9aa0b3',
-      '400': '#7b849c',
-      '500': '#5d6785',
-      '600': '#465173',
-      '700': '#3c4764',
-      '800': '#333c56',
-      '900': '#272d41',
-    },
   },
   skin: {
     '1base': '#FFCAA4',

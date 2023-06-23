@@ -18,7 +18,8 @@ import { theme as calSgTheme } from './CalSG/theme'
 import { theme as distributeTheme } from './Distribute/theme'
 import { theme as folkTheme } from './folk/theme'
 import { theme as pairTheme } from './Pair/theme'
-import { theme as paySg } from './PaySG/theme'
+import { theme as paySgTheme } from './PaySG/theme'
+import { theme as pinPointTheme } from './PinPoint/theme'
 
 export const THEME_MAP: Record<string, typeof defaultTheme> = {
   default: defaultTheme,
@@ -31,7 +32,8 @@ export const THEME_MAP: Record<string, typeof defaultTheme> = {
   Form: FormTheme,
   Isomer: IsomerTheme,
   Pair: pairTheme,
-  PaySG: paySg,
+  PinPoint: pinPointTheme,
+  PaySG: paySgTheme,
   Redeem: RedeemTheme,
   Postman: PostmanTheme,
   ScamShield: ScamShieldTheme,

@@ -1,9 +1,30 @@
 /**
  * Do not edit directly
- * Generated on Thu, 06 Apr 2023 06:58:16 GMT
+ * Generated on Fri, 23 Jun 2023 09:14:33 GMT
  */
 
 export const textStyles = {
+  'subhead-1': {
+    fontWeight: 600,
+    lineHeight: '1.5rem',
+    fontSize: '1rem',
+    letterSpacing: '-0.006em',
+    fontFamily: 'body',
+  },
+  'subhead-2': {
+    fontWeight: 600,
+    lineHeight: '1.25rem',
+    fontSize: '0.875rem',
+    letterSpacing: 0,
+    fontFamily: 'body',
+  },
+  h6: {
+    fontWeight: 600,
+    lineHeight: '1.5rem',
+    fontSize: '1.125rem',
+    letterSpacing: '-0.006em',
+    fontFamily: 'body',
+  },
   'responsive-display': {
     'heavy-1280': {
       fontWeight: 700,
@@ -125,27 +146,6 @@ export const textStyles = {
     lineHeight: '1.75rem',
     fontSize: '1.25rem',
     letterSpacing: '-0.014em',
-    fontFamily: 'body',
-  },
-  h6: {
-    fontWeight: 500,
-    lineHeight: '1.5rem',
-    fontSize: '1.125rem',
-    letterSpacing: '-0.014em',
-    fontFamily: 'body',
-  },
-  'subhead-1': {
-    fontWeight: 500,
-    lineHeight: '1.5rem',
-    fontSize: '1rem',
-    letterSpacing: '-0.006em',
-    fontFamily: 'body',
-  },
-  'subhead-2': {
-    fontWeight: 500,
-    lineHeight: '1.25rem',
-    fontSize: '0.875rem',
-    letterSpacing: 0,
     fontFamily: 'body',
   },
   'subhead-3': {
