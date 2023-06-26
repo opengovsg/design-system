@@ -39,7 +39,7 @@ export const CalendarPanel = forwardRef<{}, 'button'>(
     return (
       <Stack
         direction={{ base: 'column', md: 'row' }}
-        spacing="2rem"
+        spacing={{ md: '2rem' }}
         sx={styles.calendarContainer}
         onMouseLeave={onMouseLeaveCalendar}
       >
