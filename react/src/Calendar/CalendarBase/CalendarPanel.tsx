@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import {
   chakra,
   forwardRef,
@@ -22,7 +23,18 @@ export const CalendarPanel = forwardRef<{}, 'button'>(
       dateToFocus,
       onMouseLeaveCalendar,
       renderProps: { calendars, getDateProps },
+      isCalendarFixedHeight,
     } = useCalendar()
+
+    const createFillerRows = useCallback(
+      (weeksDisplayed: number) => {
+        if (!isCalendarFixedHeight) return null
+        const weeksToFill = 6 - weeksDisplayed
+        const singleRow = <chakra.tr aria-hidden sx={styles.fillerRow} />
+        return Array.from({ length: weeksToFill }, () => singleRow)
+      },
+      [isCalendarFixedHeight, styles.fillerRow],
+    )
 
     return (
       <Stack
@@ -94,6 +106,7 @@ export const CalendarPanel = forwardRef<{}, 'button'>(
                     </chakra.tr>
                   )
                 })}
+                {createFillerRows(calendar.weeks.length)}
               </chakra.tbody>
             </chakra.table>
             <VisuallyHidden aria-live="polite">

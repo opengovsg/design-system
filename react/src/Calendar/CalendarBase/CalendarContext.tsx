@@ -77,6 +77,14 @@ type PassthroughProps = {
 
   /** Size of the component */
   size?: ThemingProps<'Calendar'>['size']
+
+  /**
+   * Whether to set the calendar to always be a fixed height.
+   * This is useful for ensuring that the calendar does not jump around when the user switches between months
+   * if the months have different numbers of weeks and the calendar is positioned from the bottom.
+   * @default false
+   */
+  isCalendarFixedHeight?: boolean
 }
 
 // Removed - and _ from alphabets for simpler classnames
@@ -154,6 +162,7 @@ const useProvideCalendar = ({
   ssr,
   defaultFocusedDate,
   showOutsideDays,
+  isCalendarFixedHeight,
 }: UseProvideCalendarProps) => {
   const isMobile = useIsMobile({ ssr })
   // Ensure that calculations are always made based on date of initial render,
@@ -340,5 +349,6 @@ const useProvideCalendar = ({
     colorScheme,
     size,
     monthsToDisplay,
+    isCalendarFixedHeight,
   }
 }

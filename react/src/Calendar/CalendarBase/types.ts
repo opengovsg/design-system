@@ -7,6 +7,7 @@ export type CalendarBaseProps = Pick<
   | 'monthsToDisplay'
   | 'size'
   | 'defaultFocusedDate'
+  | 'isCalendarFixedHeight'
 > & {
   /**
    * Whether to show or hide the button to focus on Today.
