@@ -6,12 +6,11 @@ export const DateRangePickerCalendar = (): JSX.Element => {
   const {
     colorScheme,
     internalValue,
-    isDateUnavailable,
     handleCalendarDateChange,
     initialFocusRef,
-    monthsToDisplay,
     size,
     isMobile,
+    calendarProps: { isCalendarFixedHeight, ...restCalendarProps },
   } = useDateRangePicker()
 
   const displayedSize = isMobile ? 'sm' : size
@@ -19,12 +18,12 @@ export const DateRangePickerCalendar = (): JSX.Element => {
   return (
     <RangeCalendar
       size={displayedSize}
-      monthsToDisplay={monthsToDisplay}
       colorScheme={colorScheme}
       value={internalValue ?? undefined}
-      isDateUnavailable={isDateUnavailable}
       onChange={handleCalendarDateChange}
       ref={initialFocusRef}
+      isCalendarFixedHeight={isMobile ? false : isCalendarFixedHeight}
+      {...restCalendarProps}
     />
   )
 }
