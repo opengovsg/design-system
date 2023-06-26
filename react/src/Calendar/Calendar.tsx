@@ -40,7 +40,10 @@ export interface CalendarProps
 }
 
 export const Calendar = forwardRef<CalendarProps, 'input'>(
-  ({ value, onChange, defaultValue, ...props }, initialFocusRef) => {
+  (
+    { value, onChange, defaultValue, showTodayButton = true, ...props },
+    initialFocusRef,
+  ) => {
     const styles = useMultiStyleConfig('Calendar', props)
 
     const [internalValue, setInternalValue] = useControllableState({
@@ -59,7 +62,7 @@ export const Calendar = forwardRef<CalendarProps, 'input'>(
           <CalendarAria />
           <Stack spacing={0} divider={<StackDivider />} sx={styles.container}>
             <CalendarPanel ref={initialFocusRef} />
-            <CalendarTodayButton />
+            {showTodayButton && <CalendarTodayButton />}
           </Stack>
         </CalendarStylesProvider>
       </CalendarProvider>

@@ -40,6 +40,7 @@ export const RangeCalendar = forwardRef<RangeCalendarProps, 'input'>(
       onChange,
       defaultValue = [null, null],
       monthsToDisplay = 2,
+      showTodayButton = true,
       ...props
     },
     initialFocusRef,
@@ -145,7 +146,7 @@ export const RangeCalendar = forwardRef<RangeCalendarProps, 'input'>(
           <CalendarAria />
           <Stack spacing={0} divider={<StackDivider />} sx={styles.container}>
             <CalendarPanel ref={initialFocusRef} />
-            <CalendarTodayButton />
+            {showTodayButton && <CalendarTodayButton />}
           </Stack>
         </CalendarStylesProvider>
       </CalendarProvider>
