@@ -14,9 +14,12 @@ import {
   CalendarProvider,
   CalendarStylesProvider,
   CalendarTodayButton,
+  UseProvideCalendarProps,
 } from './CalendarBase'
 
-export interface CalendarProps extends CalendarBaseProps {
+export interface CalendarProps
+  extends CalendarBaseProps,
+    Pick<UseProvideCalendarProps, 'showOutsideDays'> {
   /**
    * The current selected date.
    * If provided, the input will be a controlled input, and `onChange` must be provided.

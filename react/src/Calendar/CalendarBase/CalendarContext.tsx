@@ -86,7 +86,7 @@ const nanoid = customAlphabet(
 )
 
 export interface UseProvideCalendarProps
-  extends Pick<DayzedProps, 'monthsToDisplay'>,
+  extends Pick<DayzedProps, 'monthsToDisplay' | 'showOutsideDays'>,
     PassthroughProps,
     WithSsr {
   /** The date to focus when calendar first renders. */
@@ -153,6 +153,7 @@ const useProvideCalendar = ({
   size,
   ssr,
   defaultFocusedDate,
+  showOutsideDays,
 }: UseProvideCalendarProps) => {
   const isMobile = useIsMobile({ ssr })
   // Ensure that calculations are always made based on date of initial render,
@@ -279,7 +280,7 @@ const useProvideCalendar = ({
   const renderProps = useDayzed({
     date: today,
     onDateSelected: ({ date }) => handleDateSelected(date),
-    showOutsideDays: monthsToDisplay === 1,
+    showOutsideDays: showOutsideDays ?? monthsToDisplay === 1,
     offset: getMonthOffsetFromToday(today, currMonth, currYear),
     onOffsetChanged,
     selected: !Array.isArray(selectedDates)
