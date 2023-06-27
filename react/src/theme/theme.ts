@@ -1,7 +1,7 @@
 import { extendTheme } from '@chakra-ui/react'
 
 import { breakpoints } from './foundations/breakpoints'
-import { colours } from './foundations/colours'
+import { colors } from './foundations/colors'
 import { semanticTokens } from './foundations/semanticTokens'
 import { shadows } from './foundations/shadows'
 import { spacing } from './foundations/spacing'
@@ -20,7 +20,7 @@ export const theme = extendTheme({
     },
   },
   semanticTokens,
-  colors: colours,
+  colors,
   breakpoints,
   shadows: shadows,
   space: spacing,

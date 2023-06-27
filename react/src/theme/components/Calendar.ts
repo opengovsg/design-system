@@ -18,6 +18,7 @@ const parts = anatomy('calendar').parts(
   'dayOfMonth', // container for single date
   'todayLinkContainer', // container for "Today" link,
   'todayLink', // "Today" link
+  'fillerRow', // Filler row for months with only 5 weeks displayed.
 )
 
 const { definePartsStyle, defineMultiStyleConfig } =
@@ -107,6 +108,9 @@ const xsSmStyle = definePartsStyle({
     w: '2.5rem',
     minW: '2.5rem',
   },
+  fillerRow: {
+    height: '2.75rem',
+  },
   dayNamesContainer: {
     textStyle: 'caption-1',
     color: 'base.content.default',
@@ -181,6 +185,9 @@ const sizes = {
       // components override different props.
       textStyle: 'body-1',
       ...textStyles['body-1'],
+    },
+    fillerRow: {
+      height: '3rem',
     },
   }),
 }

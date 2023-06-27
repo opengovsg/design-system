@@ -53,6 +53,11 @@ RangeCalendarWeekdayOnly.args = {
   isDateUnavailable: (d) => isWeekend(d),
 }
 
+export const HideTodayButton = RangeCalendarOnlyTemplate.bind({})
+HideTodayButton.args = {
+  showTodayButton: false,
+}
+
 export const SizeSmall = RangeCalendarOnlyTemplate.bind({})
 SizeSmall.args = {
   size: 'sm',

@@ -14,9 +14,12 @@ import {
   CalendarProvider,
   CalendarStylesProvider,
   CalendarTodayButton,
+  UseProvideCalendarProps,
 } from './CalendarBase'
 
-export interface CalendarProps extends CalendarBaseProps {
+export interface CalendarProps
+  extends CalendarBaseProps,
+    Pick<UseProvideCalendarProps, 'showOutsideDays'> {
   /**
    * The current selected date.
    * If provided, the input will be a controlled input, and `onChange` must be provided.
@@ -37,7 +40,10 @@ export interface CalendarProps extends CalendarBaseProps {
 }
 
 export const Calendar = forwardRef<CalendarProps, 'input'>(
-  ({ value, onChange, defaultValue, ...props }, initialFocusRef) => {
+  (
+    { value, onChange, defaultValue, showTodayButton = true, ...props },
+    initialFocusRef,
+  ) => {
     const styles = useMultiStyleConfig('Calendar', props)
 
     const [internalValue, setInternalValue] = useControllableState({
@@ -56,7 +62,7 @@ export const Calendar = forwardRef<CalendarProps, 'input'>(
           <CalendarAria />
           <Stack spacing={0} divider={<StackDivider />} sx={styles.container}>
             <CalendarPanel ref={initialFocusRef} />
-            <CalendarTodayButton />
+            {showTodayButton && <CalendarTodayButton />}
           </Stack>
         </CalendarStylesProvider>
       </CalendarProvider>
