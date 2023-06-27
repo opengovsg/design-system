@@ -128,7 +128,15 @@ export const CalendarHeader = memo(
     const {
       renderProps: { calendars, getBackProps, getForwardProps },
       size,
+      isMobile,
     } = useCalendar()
+
+    const displayNavigateButtons = useMemo(() => {
+      if (isMobile) {
+        return monthOffset === 0
+      }
+      return calendars.length - 1 === monthOffset
+    }, [calendars.length, isMobile, monthOffset])
 
     return (
       <Flex sx={styles.monthYearSelectorContainer}>
@@ -137,7 +145,7 @@ export const CalendarHeader = memo(
         ) : (
           <MonthYear monthOffset={monthOffset} />
         )}
-        {calendars.length - 1 === monthOffset ? (
+        {displayNavigateButtons ? (
           <Flex sx={styles.monthArrowContainer}>
             <IconButton
               variant="clear"
