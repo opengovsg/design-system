@@ -296,6 +296,8 @@ export const MultiSelectProvider = ({
 
   const virtualListHeight = useMemo(() => {
     const itemHeight = fixedItemHeight ?? VIRTUAL_LIST_ITEM_HEIGHT[size]
+    // If the total height is less than the max height, just return the total height.
+    // Otherwise, return the max height.
     return Math.min(filteredItems.length, 4) * itemHeight
   }, [filteredItems.length, fixedItemHeight, size])
 

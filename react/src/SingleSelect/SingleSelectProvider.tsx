@@ -12,7 +12,7 @@ import { useCombobox, UseComboboxProps } from 'downshift'
 import { useItems } from './hooks/useItems'
 import { defaultFilter } from './utils/defaultFilter'
 import { isItemDisabled, itemToValue } from './utils/itemUtils'
-import { VIRTUAL_LIST_ITEM_HEIGHT, VIRTUAL_LIST_MAX_HEIGHT } from './constants'
+import { VIRTUAL_LIST_ITEM_HEIGHT } from './constants'
 import { SelectContext, SharedSelectContextReturnProps } from './SelectContext'
 import { ComboboxItem } from './types'
 
