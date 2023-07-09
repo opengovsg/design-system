@@ -58,6 +58,7 @@ export const MultiDropdownItem = ({
           isDisabled={isDisabled}
           isChecked={isSelected}
           size={size}
+          alignSelf="center"
         />
         <Flex flexDir="column" minW={0}>
           <Stack direction="row" spacing="0.5rem" align="center">

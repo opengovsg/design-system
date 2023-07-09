@@ -6,13 +6,14 @@ import { BxCheckAnimated } from '~/icons'
 
 type ItemCheckboxIconProps = Pick<
   CheckboxProps,
-  'isChecked' | 'isDisabled' | 'size'
+  'isChecked' | 'isDisabled' | 'size' | 'alignSelf'
 >
 
 export const ItemCheckboxIcon = ({
   isChecked,
   isDisabled,
   size,
+  alignSelf,
 }: ItemCheckboxIconProps): JSX.Element => {
   const styles = useMultiStyleConfig('Checkbox', { size })
 
@@ -23,6 +24,7 @@ export const ItemCheckboxIcon = ({
       justifyContent="center"
       verticalAlign="top"
       userSelect="none"
+      alignSelf={alignSelf}
       flexShrink={0}
       bg="white"
       __css={styles.control}
