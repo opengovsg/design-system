@@ -35,7 +35,7 @@ const listBaseStyle = defineStyle((props) => {
     my: '1px',
     w: '100%',
     overflowY: 'auto',
-    maxH: '12rem',
+    maxH: 'none',
     bg: 'white',
   })
 })
