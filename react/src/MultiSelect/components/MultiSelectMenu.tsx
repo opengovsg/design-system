@@ -3,7 +3,6 @@ import { List, ListItem, Portal } from '@chakra-ui/react'
 
 import { useSelectContext } from '~/SingleSelect'
 import { useSelectPopover } from '~/SingleSelect/components'
-import { VIRTUAL_LIST_OVERSCAN_HEIGHT } from '~/SingleSelect/constants'
 import { itemToValue } from '~/SingleSelect/utils'
 
 import { MultiDropdownItem } from './MultiDropdownItem'
@@ -17,7 +16,6 @@ export const MultiSelectMenu = (): JSX.Element => {
     styles,
     virtualListRef,
     virtualListHeight,
-    size,
   } = useSelectContext()
 
   const { floatingRef, floatingStyles } = useSelectPopover()
@@ -41,7 +39,7 @@ export const MultiSelectMenu = (): JSX.Element => {
           <Virtuoso
             ref={virtualListRef}
             data={items}
-            overscan={VIRTUAL_LIST_OVERSCAN_HEIGHT[size]}
+            overscan={virtualListHeight / 2}
             style={{ height: virtualListHeight }}
             itemContent={(index, item) => {
               return (

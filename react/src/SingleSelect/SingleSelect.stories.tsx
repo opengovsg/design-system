@@ -159,6 +159,9 @@ WithIconSelected.args = {
   isDisabled: false,
 }
 
+export const WithFixedItemHeight = Template.bind({})
+WithFixedItemHeight.args = { ...WithIconSelected.args, fixedItemHeight: 68 }
+
 export const WithHalfFilledValue = Template.bind({})
 WithHalfFilledValue.args = {
   comboboxProps: {

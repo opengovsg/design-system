@@ -19,10 +19,7 @@ import {
   SelectContext,
   SharedSelectContextReturnProps,
 } from '~/SingleSelect'
-import {
-  VIRTUAL_LIST_ITEM_HEIGHT,
-  VIRTUAL_LIST_MAX_HEIGHT,
-} from '~/SingleSelect/constants'
+import { VIRTUAL_LIST_ITEM_HEIGHT } from '~/SingleSelect/constants'
 import { useItems } from '~/SingleSelect/hooks/useItems'
 import {
   defaultFilter,
@@ -68,6 +65,7 @@ export interface MultiSelectProviderProps<
    */
   downshiftMultiSelectProps?: Partial<UseMultipleSelectionProps<Item>>
   colorScheme?: ThemingProps<'MultiSelect'>['colorScheme']
+  fixedItemHeight?: number
 }
 export const MultiSelectProvider = ({
   items: rawItems,
@@ -91,6 +89,7 @@ export const MultiSelectProvider = ({
   children,
   size: _size,
   colorScheme,
+  fixedItemHeight,
 }: MultiSelectProviderProps): JSX.Element => {
   const theme = useTheme()
   // Required in case size is set in theme, we should respect the one set in theme.
@@ -296,11 +295,11 @@ export const MultiSelectProvider = ({
   })
 
   const virtualListHeight = useMemo(() => {
-    const totalHeight = filteredItems.length * VIRTUAL_LIST_ITEM_HEIGHT[size]
+    const itemHeight = fixedItemHeight ?? VIRTUAL_LIST_ITEM_HEIGHT[size]
     // If the total height is less than the max height, just return the total height.
     // Otherwise, return the max height.
-    return Math.min(totalHeight, VIRTUAL_LIST_MAX_HEIGHT[size])
-  }, [filteredItems.length, size])
+    return Math.min(filteredItems.length, 4) * itemHeight
+  }, [filteredItems.length, fixedItemHeight, size])
 
   return (
     <SelectContext.Provider
