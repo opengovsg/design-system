@@ -107,6 +107,7 @@ export const WithFixedItemHeight = Template.bind({})
 WithFixedItemHeight.args = {
   size: 'md',
   fixedItemHeight: 68,
+  defaultIsOpen: true,
   items: [
     {
       value: 'My height is 68',
