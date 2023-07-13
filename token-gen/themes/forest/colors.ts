@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 29 May 2023 06:43:10 GMT
+ * Generated on Fri, 23 Jun 2023 09:14:33 GMT
  */
 
 export const colors = {
@@ -21,7 +21,7 @@ export const colors = {
       '50': '#F8F9F9',
       '100': '#EDEDED',
       '200': '#BFC2C8',
-      '300': '#A0A4AD',
+      '300': '#BFC2C8',
       '400': '#838894',
       '500': '#666C7A',
       '600': '#505660',
@@ -163,7 +163,7 @@ export const colors = {
     'sub-subtle': {
       default: '#EDEDED',
       hover: '#BFC2C8',
-      active: '#A0A4AD',
+      active: '#BFC2C8',
     },
     critical: {
       default: '#c03434',

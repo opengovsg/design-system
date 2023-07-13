@@ -6,13 +6,11 @@ export const DatePickerCalendar = (): JSX.Element => {
   const {
     colorScheme,
     internalValue,
-    isDateUnavailable,
     handleDateChange,
     initialFocusRef,
-    monthsToDisplay,
     size,
     isMobile,
-    defaultFocusedDate,
+    calendarProps: { isCalendarFixedHeight, ...restCalendarProps },
   } = useDatePicker()
 
   const displayedSize = isMobile ? 'sm' : size
@@ -20,13 +18,12 @@ export const DatePickerCalendar = (): JSX.Element => {
   return (
     <Calendar
       size={displayedSize}
-      monthsToDisplay={monthsToDisplay}
       colorScheme={colorScheme}
       value={internalValue ?? undefined}
-      isDateUnavailable={isDateUnavailable}
       onChange={handleDateChange}
       ref={initialFocusRef}
-      defaultFocusedDate={defaultFocusedDate}
+      isCalendarFixedHeight={isMobile ? true : isCalendarFixedHeight}
+      {...restCalendarProps}
     />
   )
 }

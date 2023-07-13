@@ -22,9 +22,11 @@ import {
 } from '@chakra-ui/react'
 import { format, isValid, parse } from 'date-fns'
 
+import { type CalendarProps } from '~/Calendar'
 import { useIsMobile } from '~/hooks'
 
 import { DatePickerProps } from './DatePicker'
+import { pickCalendarProps } from './utils'
 
 interface DatePickerContextReturn {
   isMobile: boolean
@@ -44,10 +46,16 @@ interface DatePickerContextReturn {
   allowManualInput: boolean
   colorScheme?: ThemingProps<'DatePicker'>['colorScheme']
   size?: ThemingProps<'DatePicker'>['size']
-  isDateUnavailable?: (date: Date) => boolean
   disclosureProps: UseDisclosureReturn
-  monthsToDisplay?: number
-  defaultFocusedDate?: Date
+  calendarProps: Pick<
+    CalendarProps,
+    | 'isCalendarFixedHeight'
+    | 'monthsToDisplay'
+    | 'isDateUnavailable'
+    | 'defaultFocusedDate'
+    | 'showOutsideDays'
+    | 'showTodayButton'
+  >
 }
 
 const DatePickerContext = createContext<DatePickerContextReturn | null>(null)
@@ -86,22 +94,21 @@ const useProvideDatePicker = ({
   isRequired: isRequiredProp,
   isInvalid: isInvalidProp,
   locale,
-  isDateUnavailable,
   allowManualInput = true,
   allowInvalidDates = true,
   closeCalendarOnChange = true,
   onBlur,
   onClick,
   colorScheme,
-  monthsToDisplay,
   refocusOnClose = true,
   ssr,
   size,
-  defaultFocusedDate,
   ...props
 }: DatePickerProps): DatePickerContextReturn => {
   const initialFocusRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  const calendarProps = pickCalendarProps(props)
 
   const isMobile = useIsMobile({ ssr })
 
@@ -145,11 +152,7 @@ const useProvideDatePicker = ({
 
   const handleInputBlur: FocusEventHandler<HTMLInputElement> = useCallback(
     (e) => {
-      const date = parse(
-        internalInputValue,
-        dateFormat,
-        new Date(),
-      )
+      const date = parse(internalInputValue, dateFormat, new Date())
       // Clear if input is invalid on blur if invalid dates are not allowed.
       if (!allowInvalidDates && !isValid(date)) {
         setInternalValue(null)
@@ -204,11 +207,7 @@ const useProvideDatePicker = ({
 
   const handleInputChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      const date = parse(
-        event.target.value,
-        dateFormat,
-        new Date(),
-      )
+      const date = parse(event.target.value, dateFormat, new Date())
       setInternalInputValue(event.target.value)
       if (isValid(date)) {
         setInternalValue(date)
@@ -256,9 +255,7 @@ const useProvideDatePicker = ({
     allowManualInput,
     colorScheme,
     size,
-    isDateUnavailable,
     disclosureProps,
-    monthsToDisplay,
-    defaultFocusedDate,
+    calendarProps,
   }
 }

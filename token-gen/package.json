@@ -16,7 +16,7 @@
     "lodash": "^4.17.21",
     "prettier": "^2.8.7",
     "rimraf": "^3.0.2",
-    "style-dictionary": "^3.7.1",
-    "token-transformer": "^0.0.28"
+    "style-dictionary": "^3.8.0",
+    "token-transformer": "^0.0.33"
   }
 }

@@ -23,7 +23,8 @@ import {
 } from '@chakra-ui/react'
 import { format, isValid, parse } from 'date-fns'
 
-import { DateRangeValue } from '~/Calendar'
+import { DateRangeValue, RangeCalendarProps } from '~/Calendar'
+import { pickCalendarProps } from '~/DatePicker/utils'
 import { useIsMobile } from '~/hooks/useIsMobile'
 
 import { DateRangePickerProps } from './DateRangePicker'
@@ -48,12 +49,18 @@ interface DateRangePickerContextReturn {
   closeCalendarOnChange: boolean
   placeholder: string
   allowManualInput: boolean
-  isDateUnavailable?: (date: Date) => boolean
   disclosureProps: UseDisclosureReturn
   labelSeparator: string
   colorScheme?: ThemingProps<'DatePicker'>['colorScheme']
   size?: ThemingProps<'DatePicker'>['size']
-  monthsToDisplay?: number
+  calendarProps: Pick<
+    RangeCalendarProps,
+    | 'isCalendarFixedHeight'
+    | 'monthsToDisplay'
+    | 'isDateUnavailable'
+    | 'defaultFocusedDate'
+    | 'showTodayButton'
+  >
 }
 
 const DateRangePickerContext =
@@ -92,16 +99,13 @@ const useProvideDateRangePicker = ({
   isReadOnly: isReadOnlyProp,
   isRequired: isRequiredProp,
   isInvalid: isInvalidProp,
-  timeZone = 'UTC',
   locale,
-  isDateUnavailable,
   allowManualInput = true,
   allowInvalidDates = true,
   closeCalendarOnChange = true,
   onBlur,
   onClick,
   colorScheme,
-  monthsToDisplay,
   refocusOnClose = true,
   size,
   ssr,
@@ -110,6 +114,8 @@ const useProvideDateRangePicker = ({
   const initialFocusRef = useRef<HTMLInputElement>(null)
   const startInputRef = useRef<HTMLInputElement>(null)
   const endInputRef = useRef<HTMLInputElement>(null)
+
+  const calendarProps = pickCalendarProps(props)
 
   const isMobile = useIsMobile({ ssr })
 
@@ -155,9 +161,7 @@ const useProvideDateRangePicker = ({
       const [nextStart, nextEnd] = sortedRange
       if (nextStart) {
         if (isValid(nextStart)) {
-          setStartInputDisplay(
-            format(nextStart, displayFormat, { locale }),
-          )
+          setStartInputDisplay(format(nextStart, displayFormat, { locale }))
         } else if (!allowInvalidDates) {
           setStartInputDisplay('')
         }
@@ -175,7 +179,7 @@ const useProvideDateRangePicker = ({
       }
       setInternalValue(validRange)
     },
-    [allowInvalidDates, displayFormat, locale, setInternalValue, timeZone],
+    [allowInvalidDates, displayFormat, locale, setInternalValue],
   )
 
   const fcProps = useFormControlProps({
@@ -293,7 +297,6 @@ const useProvideDateRangePicker = ({
       displayFormat,
       locale,
       setInternalValue,
-      timeZone,
     ],
   )
 
@@ -337,9 +340,8 @@ const useProvideDateRangePicker = ({
     allowManualInput,
     colorScheme,
     size,
-    isDateUnavailable,
     disclosureProps,
     labelSeparator,
-    monthsToDisplay,
+    calendarProps,
   }
 }

@@ -39,6 +39,16 @@ CalendarWithValue.args = {
   value: new Date('2001-01-01'),
 }
 
+export const HideOutsideDays = CalendarOnlyTemplate.bind({})
+HideOutsideDays.args = {
+  showOutsideDays: false,
+}
+
+export const HideTodayButton = CalendarOnlyTemplate.bind({})
+HideTodayButton.args = {
+  showTodayButton: false,
+}
+
 export const CalendarWeekdayOnly = CalendarOnlyTemplate.bind({})
 CalendarWeekdayOnly.args = {
   isDateUnavailable: (d) => isWeekend(d),

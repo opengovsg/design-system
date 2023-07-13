@@ -30,6 +30,11 @@ DateRangePickerDisallowManualInput.args = {
   defaultValue: [new Date('2021-09-13'), null],
 }
 
+export const FixedHeightCalendarPopover = Template.bind({})
+FixedHeightCalendarPopover.args = {
+  isCalendarFixedHeight: true,
+}
+
 export const DatePickerInvalid = Template.bind({})
 DatePickerInvalid.args = {
   isInvalid: true,
