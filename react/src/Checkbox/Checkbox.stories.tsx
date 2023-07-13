@@ -101,9 +101,6 @@ export const CheckboxColors: StoryFn = () => (
     <Checkbox defaultChecked colorScheme="main">
       main
     </Checkbox>
-    <Checkbox defaultChecked colorScheme="inverse">
-      inverse
-    </Checkbox>
     <Checkbox defaultChecked colorScheme="red">
       red
     </Checkbox>
@@ -125,7 +122,16 @@ export const CheckboxColors: StoryFn = () => (
   </VStack>
 )
 
-export const DarkmodeCheckboxColors = CheckboxColors.bind({})
+export const DarkmodeCheckboxColors: StoryFn = () => (
+  <VStack>
+    <Checkbox defaultChecked colorScheme="main">
+      main
+    </Checkbox>
+    <Checkbox defaultChecked colorScheme="inverse">
+      inverse
+    </Checkbox>
+  </VStack>
+)
 DarkmodeCheckboxColors.parameters = {
   backgrounds: { default: 'dark' },
 }
