@@ -80,6 +80,10 @@ const baseStyle = definePartsStyle((props) => {
         bg: checkedBg,
         borderColor: checkedBg,
       },
+      _indeterminate: {
+        bg: checkedBg,
+        borderColor: checkedBg,
+      },
       // When the label is long and overflows to the next line, we want
       // the checkbox to be aligned with the first line rather than the center
       alignSelf: 'start',
@@ -130,11 +134,6 @@ const baseStyle = definePartsStyle((props) => {
       _groupDisabled: {
         color: 'white',
       },
-      // Remove default Chakra animations so we can replace with our own. This is because
-      // we ran into issues where we could not increase the size of the tick icon without
-      // the animation messing up.
-      transform: 'scale(1)',
-      transition: 'none',
     },
     othersContainer: {
       display: 'flex',
