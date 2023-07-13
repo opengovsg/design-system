@@ -17,7 +17,26 @@ on:
 
 # List of jobs
 jobs:
+  # JOB to run change detection
+  changes:
+    runs-on: ubuntu-latest
+    # Set job outputs to values from filter step
+    outputs:
+      react: ${{ steps.filter.outputs.react }}
+      tokengen: ${{ steps.filter.outputs.tokengen }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            react:
+              - react/**
+            tokengen:
+              - token-gen/**
   chromatic-deployment:
+    needs: [changes]
+    if: ${{ needs.changes.outputs.react == 'true' }}
     # Operating System
     runs-on: ubuntu-latest
     defaults:
@@ -41,5 +60,5 @@ jobs:
           autoAcceptChanges: main
           # Skip running Chromatic on dependabot PRs
           skip: dependabot/**
-          # Only run when the react directory has changes
-          untraced: "!(react)/**"
+          # Ignore storybook colorTheme changes
+          untraced: "react/.storybook/colorThemes/**"
