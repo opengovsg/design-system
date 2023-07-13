@@ -82,7 +82,7 @@ const baseStyle = definePartsStyle((props) => {
       },
       _indeterminate: {
         bg: checkedBg,
-        borderColor,
+        borderColor: checkedBg,
       },
       // When the label is long and overflows to the next line, we want
       // the checkbox to be aligned with the first line rather than the center
