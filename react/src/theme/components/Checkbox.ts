@@ -1,8 +1,9 @@
 import { checkboxAnatomy } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-import { StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { getColor, mode, StyleFunctionProps } from '@chakra-ui/theme-tools'
 
 import { layerStyles } from '../layerStyles'
+import { getContrastColor } from '../utils'
 
 import { Input } from './Input'
 
@@ -19,27 +20,55 @@ const parts = checkboxAnatomy.extend(
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)
 
-const getColorProps = ({ colorScheme: c }: StyleFunctionProps) => {
+const getColorProps = (props: StyleFunctionProps) => {
+  const { colorScheme: c } = props
+
   switch (c) {
     case 'main':
       return {
-        bg: 'white',
+        bg: mode('white', 'transparent')(props),
         checkedBg: 'interaction.main.default',
-        hoverBg: 'interaction.muted.main.hover',
-        borderColor: 'interaction.main.default',
+        iconColor: 'white',
+        hoverBg: mode(
+          'interaction.muted.main.hover',
+          'interaction.tinted.main.active',
+        )(props),
+        borderColor: mode('interaction.main.default', 'white')(props),
+        labelColor: mode('base.content.default', 'base.content.inverse')(props),
+      }
+    // Inverse color scheme, used for darker backgrounds.
+    case 'inverse':
+      return {
+        bg: 'transparent',
+        checkedBg: 'white',
+        iconColor: 'base.content.strong',
+        hoverBg: 'interaction.tinted.inverse.hover',
+        borderColor: 'white',
+        labelColor: 'base.content.inverse',
       }
     default: {
       return {
-        bg: 'white',
+        bg: mode('white', 'transparent')(props),
+        checkedBg: `${c}.500`,
+        iconColor: 'white',
         hoverBg: `${c}.100`,
         borderColor: `${c}.500`,
+        labelColor: mode('base.content.default', 'base.content.inverse')(props),
       }
     }
   }
 }
 
 const baseStyle = definePartsStyle((props) => {
-  const { bg, hoverBg, borderColor, checkedBg } = getColorProps(props)
+  const { bg, hoverBg, borderColor, iconColor, checkedBg, labelColor } =
+    getColorProps(props)
+
+  const hoverLabelColor = getContrastColor(
+    getColor(props.theme, labelColor),
+    getColor(props.theme, hoverBg),
+    'base.content.default',
+  )
+
   return {
     // Control is the box containing the check icon
     control: {
@@ -49,7 +78,11 @@ const baseStyle = definePartsStyle((props) => {
       borderColor,
       _checked: {
         bg: checkedBg,
-        borderColor,
+        borderColor: checkedBg,
+      },
+      _indeterminate: {
+        bg: checkedBg,
+        borderColor: checkedBg,
       },
       // When the label is long and overflows to the next line, we want
       // the checkbox to be aligned with the first line rather than the center
@@ -59,7 +92,7 @@ const baseStyle = definePartsStyle((props) => {
       },
       _disabled: {
         borderColor: 'interaction.support.disabled-content',
-        bg: 'white',
+        bg,
         _checked: {
           borderColor: 'interaction.support.disabled-content',
           bg: 'interaction.support.disabled-content',
@@ -87,17 +120,20 @@ const baseStyle = definePartsStyle((props) => {
         // Chakra automatically sets opacity to 0.4, so override that
         opacity: 1,
       },
-      color: 'base.content.strong',
+      color: labelColor,
+      _groupHover: {
+        color: hoverLabelColor,
+        _disabled: {
+          color: 'interaction.support.disabled-content',
+        },
+      },
     },
     // Check mark icon
     icon: {
-      // Chakra changes the icon colour if disabled, but we want it to always be white
-      color: 'white',
-      // Remove default Chakra animations so we can replace with our own. This is because
-      // we ran into issues where we could not increase the size of the tick icon without
-      // the animation messing up.
-      transform: 'scale(1)',
-      transition: 'none',
+      color: iconColor,
+      _groupDisabled: {
+        color: 'white',
+      },
     },
     othersContainer: {
       display: 'flex',

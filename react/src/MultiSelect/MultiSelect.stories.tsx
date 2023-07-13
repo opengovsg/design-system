@@ -103,6 +103,25 @@ DisabledWithSelection.args = {
   values: ['What happens when the label is fairly long', 'Bat'],
 }
 
+export const WithFixedItemHeight = Template.bind({})
+WithFixedItemHeight.args = {
+  size: 'md',
+  fixedItemHeight: 68,
+  defaultIsOpen: true,
+  items: [
+    {
+      value: 'My height is 68',
+      icon: BxsCheckCircle,
+      description: 'With description',
+    },
+    {
+      value: 'Mine too',
+      icon: BxsCheckCircle,
+      description: 'With description',
+    },
+  ],
+}
+
 export const Sizes = () => {
   const items = ['sm', 'md']
   const [first, setFirst] = useState(['sm'])
