@@ -64,12 +64,12 @@ const getLuminance = (rgbColour: RgbColour) => {
  * @param background the background colour
  * @returns true if the contrast ratio is greater than 4.5; false otherwise (or if one of the colours are invalid)
  */
-export const meetsWcagAaRatio = (
+export const isMeetsWcagAaRatio = (
   foreground: string,
   background: string,
-): boolean => {
+): boolean | null => {
   const contrast = getContrast(foreground, background)
-  if (!contrast) return false
+  if (contrast === null) return null
   return contrast >= MIN_WCAG_AA_CONTRAST_RATIO
 }
 
@@ -100,8 +100,7 @@ export const getContrastColor = (
   bg: string,
   fallback: string,
 ): string => {
-  if (meetsWcagAaRatio(fg, bg)) {
-    return fg
-  }
-  return fallback
+  const meetsWcagAaRatio = isMeetsWcagAaRatio(fg, bg)
+  if (meetsWcagAaRatio === null) return fg
+  return meetsWcagAaRatio ? fg : fallback
 }

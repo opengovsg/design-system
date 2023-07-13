@@ -38,7 +38,13 @@ export const parameters = {
     },
   },
   backgrounds: {
-    values: Object.values(backgrounds),
+    values: [
+      ...Object.values(backgrounds),
+      {
+        name: 'blue',
+        value: '#1361F0',
+      },
+    ],
   },
 }
 
@@ -49,11 +55,20 @@ const withTheme = withThemeFromJSXProvider({
 })
 
 const withColorMode: Decorator = (storyFn, context) => {
-  const colorMode =
-    context.parameters.colorMode ||
-    get(context, 'globals.backgrounds.value') === backgrounds.dark.value
-      ? 'dark'
-      : 'light'
+  const bgFromContext = get(context, 'globals.backgrounds.value')
+  const bgFromDefault = get(context, 'parameters.backgrounds.default')
+  let colorMode: 'dark' | 'light' = 'light'
+  if (!bgFromContext && bgFromDefault) {
+    if (['dark', 'light'].includes(context.parameters.backgrounds.default)) {
+      colorMode = context.parameters.backgrounds.default as 'dark' | 'light'
+    }
+  } else {
+    colorMode =
+      context.parameters.colorMode ||
+      get(context, 'globals.backgrounds.value') === backgrounds.dark.value
+        ? 'dark'
+        : 'light'
+  }
 
   return <ColorModeProvider value={colorMode}>{storyFn()}</ColorModeProvider>
 }
