@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Box, Flex, Stack, Text } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
@@ -33,6 +34,23 @@ ExpandableOpen.args = {
   defaultValue: 'Search field filled',
 }
 ExpandableOpen.storyName = 'Expandable/Open'
+
+export const Controlled: StoryFn<SearchbarProps> = (args) => {
+  const [state, setState] = useState<string>('')
+  return (
+    <Stack direction="column" align="flex-start">
+      <Text>External State: {state}</Text>
+      <Searchbar
+        {...args}
+        value={state}
+        onChange={(e) => setState(e.target.value)}
+      />
+    </Stack>
+  )
+}
+Controlled.args = {
+  defaultIsExpanded: true,
+}
 
 export const Sizes: StoryFn<SearchbarProps> = (args) => {
   return (

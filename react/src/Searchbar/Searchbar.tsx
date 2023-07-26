@@ -67,6 +67,7 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
   (
     {
       onSearch,
+      onChange,
       defaultIsExpanded,
       isExpanded: isExpandedProp,
       onExpansion: onExpansionProp,
@@ -103,6 +104,11 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
     )
 
     const handleClearButtonClick = useCallback(() => {
+      if (onChange) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        onChange({ target: { value: '' } })
+      }
       if (innerRef.current) {
         innerRef.current.value = ''
       }
@@ -110,7 +116,7 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
         onExpansion(false)
       }
       innerRef.current?.focus()
-    }, [collapseOnClear, onExpansion])
+    }, [onChange, collapseOnClear, onExpansion])
 
     const handleExpansion = useCallback(() => {
       onExpansion(true)
@@ -146,6 +152,7 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
           ref={inputRef}
           sx={styles.field}
           onKeyDown={handleSearch}
+          onChange={onChange}
           {...props}
         />
         {showClearButton && isExpanded && (
