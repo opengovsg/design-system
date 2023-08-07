@@ -11,6 +11,9 @@ export default {
   component: Link,
   tags: ['autodocs'],
   decorators: [],
+  args: {
+    size: 'md',
+  },
 } as Meta<LinkProps>
 
 const Template: StoryFn<LinkProps> = (args) => <Link {...args} />
