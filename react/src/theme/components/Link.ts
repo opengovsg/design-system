@@ -79,7 +79,6 @@ const variantInline = defineStyle({
 
 const variantStandalone = defineStyle({
   p: '0.25rem',
-  textStyle: { sm: 'subhead-2', md: 'subhead-1' },
   _hover: {
     textDecorationLine: 'underline',
   },
@@ -90,9 +89,22 @@ const variants = {
   standalone: variantStandalone,
 }
 
+const sizes = {
+  xs: defineStyle({
+    textStyle: 'caption-1',
+  }),
+  sm: defineStyle({
+    textStyle: 'subhead-2',
+  }),
+  md: defineStyle({
+    textStyle: 'subhead-1',
+  }),
+}
+
 export const Link = defineStyleConfig({
   baseStyle,
   variants,
+  sizes,
   defaultProps: {
     variant: 'inline',
     colorScheme: 'main',

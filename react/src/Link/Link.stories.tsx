@@ -1,5 +1,5 @@
 import Icon from '@chakra-ui/icon'
-import { SimpleGrid, Text } from '@chakra-ui/react'
+import { SimpleGrid, Stack, StackDivider, Text } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { BxRightArrowAlt } from '~/icons'
@@ -40,6 +40,16 @@ VariantInline.args = {
   children: 'Inline variant link',
   isExternal: false,
   href: '',
+}
+
+export const Sizes = () => {
+  return (
+    <Stack divider={<StackDivider />}>
+      <Link size="sm">xs link</Link>
+      <Link size="sm">sm link</Link>
+      <Link size="md">md link</Link>
+    </Stack>
+  )
 }
 
 export const VariantStandalone = Template.bind({})
