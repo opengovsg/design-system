@@ -6,6 +6,7 @@ import {
 } from '@chakra-ui/styled-system'
 
 import { layerStyles } from '../layerStyles'
+import { textStyles } from '../textStyles'
 
 import { Link } from './Link'
 
@@ -32,10 +33,10 @@ const baseStyleLink = defineStyle((props) => {
       _hover: {
         [$decor.variable]: 'underline',
       },
-      outlineOffset: 0,
+      outlineOffset: '0.25rem',
       _focusVisible: {
         ...layerStyles.focusRing.default._focusVisible,
-        outlineOffset: 0,
+        outlineOffset: '0.25rem',
       },
     },
   }
@@ -54,19 +55,19 @@ const sizes = {
   xs: definePartsStyle({
     link: Link.sizes?.xs,
     separator: {
-      fontSize: '1rem',
+      ...textStyles['caption-1'],
     },
   }),
   sm: definePartsStyle({
     link: Link.sizes?.sm,
     separator: {
-      fontSize: '1.25rem',
+      ...textStyles['subhead-2'],
     },
   }),
   md: definePartsStyle({
     link: Link.sizes?.md,
     separator: {
-      fontSize: '1.5rem',
+      ...textStyles['subhead-1'],
     },
   }),
 }
