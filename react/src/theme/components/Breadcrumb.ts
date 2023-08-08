@@ -76,7 +76,7 @@ export const Breadcrumb = defineMultiStyleConfig({
   baseStyle,
   sizes,
   defaultProps: {
-    size: 'sm',
+    size: 'md',
     colorScheme: 'main',
   },
 })
