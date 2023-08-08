@@ -53,19 +53,25 @@ const baseStyle = definePartsStyle((props) => {
 
 const sizes = {
   xs: definePartsStyle({
-    link: Link.sizes?.xs,
+    link: {
+      textStyle: 'caption-1',
+    },
     separator: {
       ...textStyles['caption-1'],
     },
   }),
   sm: definePartsStyle({
-    link: Link.sizes?.sm,
+    link: {
+      textStyle: 'subhead-2',
+    },
     separator: {
       ...textStyles['subhead-2'],
     },
   }),
   md: definePartsStyle({
-    link: Link.sizes?.md,
+    link: {
+      textStyle: 'subhead-1',
+    },
     separator: {
       ...textStyles['subhead-1'],
     },
