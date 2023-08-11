@@ -1,5 +1,5 @@
 import Icon from '@chakra-ui/icon'
-import { SimpleGrid, Text } from '@chakra-ui/react'
+import { SimpleGrid, Stack, Text } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { BxRightArrowAlt } from '~/icons'
@@ -63,6 +63,22 @@ VariantStandalone.args = {
   ),
   isExternal: false,
   href: '',
+}
+
+export const VariantStandaloneSizes = () => {
+  return (
+    <Stack>
+      <Link href="" size="xs" variant="standalone">
+        Standalone variant xs
+      </Link>
+      <Link href="" size="sm" variant="standalone">
+        Standalone variant sm
+      </Link>
+      <Link href="" size="md" variant="standalone">
+        Standalone variant md
+      </Link>
+    </Stack>
+  )
 }
 
 export const VariantStandaloneFocused = Template.bind({})
