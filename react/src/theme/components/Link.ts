@@ -77,12 +77,24 @@ const variantInline = defineStyle({
   textDecorationLine: 'underline',
 })
 
-const variantStandalone = defineStyle({
+const getVariantStandaloneTextStyle = ({ size }: StyleFunctionProps) => {
+  switch (size) {
+    case 'xs':
+      return 'caption-1'
+    case 'sm':
+      return 'subhead-2'
+    case 'md':
+      return 'subhead-1'
+  }
+}
+
+const variantStandalone = defineStyle((props) => ({
   p: '0.25rem',
   _hover: {
     textDecorationLine: 'underline',
   },
-})
+  textStyle: getVariantStandaloneTextStyle(props),
+}))
 
 const variants = {
   inline: variantInline,
