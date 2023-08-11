@@ -4,6 +4,7 @@ import { Avatar } from './Avatar'
 import { AvatarMenu } from './AvatarMenu'
 import { Badge } from './Badge'
 import { Banner } from './Banner'
+import { Breadcrumb } from './Breadcrumb'
 import { Button } from './Button'
 import { Calendar } from './Calendar'
 import { Checkbox } from './Checkbox'
@@ -49,6 +50,7 @@ export const components = {
   AvatarMenu,
   Badge,
   Banner,
+  Breadcrumb,
   Button,
   Calendar,
   Checkbox,

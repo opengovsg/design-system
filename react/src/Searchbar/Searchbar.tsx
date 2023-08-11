@@ -66,6 +66,9 @@ export interface SearchbarProps extends InputProps {
 export const Searchbar = forwardRef<SearchbarProps, 'input'>(
   (
     {
+      defaultValue: defaultValueProp,
+      value: valueProp,
+      onChange: onChangeProp,
       onSearch,
       defaultIsExpanded,
       isExpanded: isExpandedProp,
@@ -78,6 +81,17 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
     },
     ref,
   ) => {
+    const [value, onChange] = useControllableState<string>({
+      defaultValue:
+        defaultValueProp === undefined ? '' : String(defaultValueProp),
+      value: valueProp === undefined ? undefined : String(valueProp),
+      onChange: onChangeProp
+        ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          (value) => onChangeProp({ target: { value } })
+        : undefined,
+    })
+
     const [isExpanded, onExpansion] = useControllableState({
       defaultValue: defaultIsExpanded,
       value: isExpandedProp,
@@ -95,22 +109,20 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
 
     const handleSearch = useCallback(
       (e: KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Enter' && innerRef.current && onSearch) {
-          onSearch(innerRef.current.value)
+        if (e.key === 'Enter' && onSearch) {
+          onSearch(value)
         }
       },
-      [onSearch],
+      [value, onSearch],
     )
 
     const handleClearButtonClick = useCallback(() => {
-      if (innerRef.current) {
-        innerRef.current.value = ''
-      }
+      onChange('')
       if (collapseOnClear) {
         onExpansion(false)
       }
       innerRef.current?.focus()
-    }, [collapseOnClear, onExpansion])
+    }, [onChange, collapseOnClear, onExpansion])
 
     const handleExpansion = useCallback(() => {
       onExpansion(true)
@@ -146,6 +158,8 @@ export const Searchbar = forwardRef<SearchbarProps, 'input'>(
           ref={inputRef}
           sx={styles.field}
           onKeyDown={handleSearch}
+          onChange={(e) => onChange(e.target.value)}
+          value={value}
           {...props}
         />
         {showClearButton && isExpanded && (

@@ -9,10 +9,6 @@ import {
 
 export interface TooltipProps extends ChakraTooltipProps {
   /**
-   * Text which appears on hover/focus.
-   */
-  label: string
-  /**
    * Styles for the container which wraps the children.
    */
   wrapperStyles?: SystemStyleObject
