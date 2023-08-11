@@ -1,5 +1,5 @@
 import Icon from '@chakra-ui/icon'
-import { SimpleGrid, Text } from '@chakra-ui/react'
+import { SimpleGrid, Stack, Text } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { BxRightArrowAlt } from '~/icons'
@@ -11,6 +11,9 @@ export default {
   component: Link,
   tags: ['autodocs'],
   decorators: [],
+  args: {
+    href: '#',
+  },
 } as Meta<LinkProps>
 
 const Template: StoryFn<LinkProps> = (args) => <Link {...args} />
@@ -42,6 +45,13 @@ VariantInline.args = {
   href: '',
 }
 
+export const VariantInlineFocused = Template.bind({})
+VariantInlineFocused.args = {
+  ...VariantInline.args,
+  // @ts-expect-error triggering focus-visible state
+  'data-focus-visible': true,
+}
+
 export const VariantStandalone = Template.bind({})
 VariantStandalone.args = {
   variant: 'standalone',
@@ -55,18 +65,27 @@ VariantStandalone.args = {
   href: '',
 }
 
-export const VariantStandaloneSmall = Template.bind({})
-VariantStandaloneSmall.args = {
-  variant: 'standalone',
-  children: (
-    <>
-      Standalone variant link
-      <Icon as={BxRightArrowAlt} fontSize="1.25rem" ml="0.5rem" />
-    </>
-  ),
-  isExternal: false,
-  href: '',
-  size: 'sm',
+export const VariantStandaloneSizes = () => {
+  return (
+    <Stack>
+      <Link href="" size="xs" variant="standalone">
+        Standalone variant xs
+      </Link>
+      <Link href="" size="sm" variant="standalone">
+        Standalone variant sm
+      </Link>
+      <Link href="" size="md" variant="standalone">
+        Standalone variant md
+      </Link>
+    </Stack>
+  )
+}
+
+export const VariantStandaloneFocused = Template.bind({})
+VariantStandaloneFocused.args = {
+  ...VariantStandalone.args,
+  // @ts-expect-error triggering focus-visible state
+  'data-focus-visible': true,
 }
 
 const TemplateGroup: StoryFn<LinkProps> = (args) => (
