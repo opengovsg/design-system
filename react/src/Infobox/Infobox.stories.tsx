@@ -35,6 +35,12 @@ Error.args = {
   children: `Only 30 MyInfo fields are allowed in Email mode (30/30).`,
 }
 
+export const Success = InfoboxTemplate.bind({})
+Success.args = {
+  variant: 'success',
+  children: `You are your mother's proudest moment.`,
+}
+
 export const CustomIcon = InfoboxTemplate.bind({})
 CustomIcon.args = {
   variant: 'info',
