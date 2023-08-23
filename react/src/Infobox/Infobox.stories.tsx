@@ -50,23 +50,17 @@ CustomIcon.args = {
 
 export const Sizes = () => (
   <SimpleGrid columns={2} gap="1rem">
-    <Infobox variant="info" size="sm" height="fit-content">
-      Small info
-    </Infobox>
-    <Infobox variant="info" size="md" height="fit-content">
-      Medium info
-    </Infobox>
-    <Infobox variant="warning" size="sm" height="fit-content">
-      Small warning
-    </Infobox>
-    <Infobox variant="warning" size="md" height="fit-content">
-      Medium warning
-    </Infobox>
-    <Infobox variant="error" size="sm" height="fit-content">
-      Small error
-    </Infobox>
-    <Infobox variant="error" size="md" height="fit-content">
-      Medium error
-    </Infobox>
+    {['info', 'warning', 'error', 'success'].map((variant) =>
+      ['sm', 'md'].map((size) => (
+        <Infobox
+          key={`${variant}-${size}`}
+          variant={variant as InfoboxProps['variant']}
+          size={size}
+          height="fit-content"
+        >
+          {`${size === 'sm' ? 'Small' : 'Medium'} ${variant}`}
+        </Infobox>
+      )),
+    )}
   </SimpleGrid>
 )
