@@ -146,9 +146,8 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
           }
           return onError?.(errorMessage)
         }
-        const fileValidationErrorMessage = await onFileValidation?.(
-          acceptedFile,
-        )
+        const fileValidationErrorMessage =
+          await onFileValidation?.(acceptedFile)
         if (fileValidationErrorMessage) {
           return onError?.(fileValidationErrorMessage)
         }
