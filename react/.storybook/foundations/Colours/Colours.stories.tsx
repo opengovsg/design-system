@@ -8,7 +8,9 @@ const meta: Meta<ColourTableProps> = {
 }
 export default meta
 
-const createPalette = (palette: string, shades: string[] = [
+const createPalette = (
+  palette: string,
+  shades: string[] = [
     '50',
     '100',
     '200',
@@ -19,7 +21,8 @@ const createPalette = (palette: string, shades: string[] = [
     '700',
     '800',
     '900',
-  ]) => {
+  ],
+) => {
   return shades.map((shade) => ({
     palette,
     shade,
@@ -81,10 +84,18 @@ Grey.args = {
 export const Skin = Template.bind({})
 Skin.args = {
   label: 'Skin colours',
-  colours: createPalette('skin', ['1base',
-    '1shadow', '2base', '2shadow',
-    '3base', '3shadow', '4base', '4shadow',
-    '5base', '5shadow', '6base', '6shadow',
+  colours: createPalette('skin', [
+    '1base',
+    '1shadow',
+    '2base',
+    '2shadow',
+    '3base',
+    '3shadow',
+    '4base',
+    '4shadow',
+    '5base',
+    '5shadow',
+    '6base',
+    '6shadow',
   ]),
 }
-  
