@@ -8,7 +8,7 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
-import { BxsErrorCircle, BxsInfoCircle } from '~/icons'
+import { BxsCheckCircle, BxsErrorCircle, BxsInfoCircle } from '~/icons'
 import { InfoboxVariant } from '~/theme/components/Infobox'
 
 export interface InfoboxProps extends FlexProps {
@@ -39,12 +39,13 @@ export const Infobox = ({
     if (iconProp) {
       return <Box __css={styles.icon}>{iconProp}</Box>
     }
-    return (
-      <Icon
-        as={variant !== 'error' ? BxsInfoCircle : BxsErrorCircle}
-        __css={styles.icon}
-      />
-    )
+    if (variant === 'error') {
+      return <Icon as={BxsErrorCircle} __css={styles.icon} />
+    }
+    if (variant === 'success') {
+      return <Icon as={BxsCheckCircle} __css={styles.icon} />
+    }
+    return <Icon as={BxsInfoCircle} __css={styles.icon} />
   }, [iconProp, styles.icon, variant])
 
   return (
