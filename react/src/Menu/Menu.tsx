@@ -7,15 +7,15 @@ import {
   MenuItem as ChakraMenuItem,
   MenuList as ChakraMenuList,
   MenuProps as ChakraMenuProps,
+  ThemingProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
 import { Button, ButtonProps } from '~/Button'
 import { BxsChevronDown, BxsChevronUp } from '~/icons'
-import { MenuVariant } from '~/theme/components/Menu'
 
 export interface MenuButtonProps extends Omit<ButtonProps, 'isFullWidth'> {
-  variant?: MenuVariant
+  variant?: ThemingProps<'Menu'>['variant']
   isStretch?: boolean
   isOpen?: boolean
   chevronSize?: string
