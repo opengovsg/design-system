@@ -8,18 +8,11 @@ import {
   useStyleConfig,
 } from '@chakra-ui/react'
 
-import { BadgeVariants } from '~/theme/components/Badge'
-
 const [BadgeStylesProvider, useBadgeStyles] = createStylesContext('Badge')
 
 export { useBadgeStyles }
 
-export interface BadgeProps extends ChakraBadgeProps {
-  /**
-   * The theme of the tag to display
-   */
-  variant?: BadgeVariants
-}
+export interface BadgeProps extends ChakraBadgeProps {}
 
 export const Badge = (props: BadgeProps): JSX.Element => {
   const styles = useStyleConfig('Badge', props)
