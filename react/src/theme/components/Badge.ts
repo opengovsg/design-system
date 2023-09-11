@@ -5,8 +5,6 @@ import { getContrastColor } from '~/theme/utils/contrast'
 
 import { textStyles } from '../textStyles'
 
-export type BadgeVariants = 'solid' | 'subtle' | 'clear'
-
 const baseStyle = defineStyle({
   ...textStyles['caption-1'],
   textTransform: 'initial',
