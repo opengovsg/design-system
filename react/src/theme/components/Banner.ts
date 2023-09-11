@@ -3,8 +3,6 @@ import { anatomy } from '@chakra-ui/theme-tools'
 
 import { layerStyles } from '../layerStyles'
 
-export type BannerVariant = 'info' | 'error' | 'warn'
-
 const parts = anatomy('banner').parts('banner', 'item', 'icon', 'link', 'close')
 
 const { definePartsStyle, defineMultiStyleConfig } =

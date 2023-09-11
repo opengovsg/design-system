@@ -6,15 +6,15 @@ import {
   Collapse,
   Flex,
   Icon,
+  ThemingProps,
   useDisclosure,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 
 import { BxsErrorCircle, BxsInfoCircle, BxX } from '~/icons'
-import { BannerVariant } from '~/theme/components/Banner'
 
 export interface BannerProps {
-  variant?: BannerVariant
+  variant?: ThemingProps<'Banner'>['variant']
   children: React.ReactNode
   /**
    * Whether to allow collapsing of the banner.
