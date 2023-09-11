@@ -9,11 +9,10 @@ import {
 } from '@chakra-ui/react'
 
 import { BxsCheckCircle, BxsErrorCircle, BxsInfoCircle } from '~/icons'
-import { InfoboxVariant } from '~/theme/components/Infobox'
 
 export interface InfoboxProps extends FlexProps {
   size?: ThemingProps<'Infobox'>['size']
-  variant?: InfoboxVariant
+  variant?: ThemingProps<'Infobox'>['variant']
   /**
    * The content of the infobox.
    */

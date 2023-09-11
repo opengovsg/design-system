@@ -1,8 +1,6 @@
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 import { anatomy } from '@chakra-ui/theme-tools'
 
-export type InfoboxVariant = 'info' | 'error' | 'warning' | 'success'
-
 const parts = anatomy('infobox').parts('messagebox', 'icon')
 
 const { definePartsStyle, defineMultiStyleConfig } =
