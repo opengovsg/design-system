@@ -50,7 +50,7 @@ export interface TileProps
   /**
    * The variant of the tile - whether it is complex (many elements) or simple (title and subtitle only).
    */
-  variant: ThemingProps<'Tile'>['variant']
+  variant?: ThemingProps<'Tile'>['variant']
 
   /**
    * Whether the tile is selected or not

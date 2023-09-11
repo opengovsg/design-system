@@ -3,6 +3,7 @@ import {
   FormHelperText as ChakraFormHelperText,
   FormHelperTextProps as ChakraFormHelperTextProps,
   Icon,
+  ThemingProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 import { merge } from 'lodash'
@@ -11,9 +12,9 @@ import { BxsCheckCircle } from '~/icons'
 
 export interface FormHelperTextProps extends ChakraFormHelperTextProps {
   /**
-   * Variant of input message, determines the styling. Defaults to `info`.
+   * Variant of input message, determines the styling.
    */
-  variant?: 'success' | 'info'
+  variant?: ThemingProps<'Form'>['variant']
 }
 
 /**

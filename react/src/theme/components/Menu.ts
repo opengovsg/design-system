@@ -7,8 +7,6 @@ const parts = menuAnatomy.extend('chevron')
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)
 
-export type MenuVariant = 'outline' | 'clear'
-
 const $bg = cssVar('menu-bg')
 const $shadow = cssVar('menu-shadow')
 
