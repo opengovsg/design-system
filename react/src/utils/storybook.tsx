@@ -18,8 +18,7 @@ const breakpointToViewportWidth = (breakpoint: keyof typeof breakpoints) => {
 
 export const fixedHeightDecorator =
   (height: BoxProps['h']): Decorator =>
-  (storyFn) =>
-    <Box h={height}>{storyFn()}</Box>
+  (storyFn) => <Box h={height}>{storyFn()}</Box>
 
 /**
  * Viewports mapping viewport key to their width in (pixel) number.

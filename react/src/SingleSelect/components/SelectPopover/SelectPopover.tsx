@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect, useMemo, useRef } from 'react'
+import { PropsWithChildren, useLayoutEffect, useMemo, useRef } from 'react'
 import { Box, useMergeRefs, useOutsideClick } from '@chakra-ui/react'
 import {
   autoUpdate,
@@ -20,7 +20,13 @@ export const SelectPopoverProvider = ({
 
   const wrapperRef = useRef<HTMLDivElement | null>(null)
 
-  const { x, y, refs, reference, floating, strategy, update } = useFloating({
+  const {
+    x,
+    y,
+    refs: { reference, floating, setFloating, setReference },
+    strategy,
+    update,
+  } = useFloating({
     placement: 'bottom-start',
     strategy: 'absolute',
     open: isOpen,
@@ -40,7 +46,7 @@ export const SelectPopoverProvider = ({
     ],
   })
 
-  const mergedReferenceRefs = useMergeRefs(wrapperRef, reference)
+  const mergedReferenceRefs = useMergeRefs(wrapperRef, setReference)
 
   const floatingStyles = useMemo(
     () => ({
@@ -51,11 +57,11 @@ export const SelectPopoverProvider = ({
     [strategy, x, y],
   )
 
-  useEffect(() => {
-    if (isOpen && refs.reference.current && refs.floating.current) {
-      return autoUpdate(refs.reference.current, refs.floating.current, update)
+  useLayoutEffect(() => {
+    if (isOpen && reference.current && floating.current) {
+      return autoUpdate(reference.current, floating.current, update)
     }
-  }, [isOpen, update, refs.floating, refs.reference])
+  }, [floating, isOpen, reference, update])
 
   useOutsideClick({
     ref: wrapperRef,
@@ -65,7 +71,7 @@ export const SelectPopoverProvider = ({
   return (
     <SelectPopoverContext.Provider
       value={{
-        floatingRef: floating,
+        floatingRef: setFloating,
         floatingStyles,
       }}
     >

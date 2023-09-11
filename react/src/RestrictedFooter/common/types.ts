@@ -2,6 +2,7 @@ import {
   FlexProps,
   ResponsiveValue,
   StyleFunctionProps,
+  ThemingProps,
 } from '@chakra-ui/react'
 import { SetOptional } from 'type-fest'
 
@@ -48,7 +49,7 @@ export interface RestrictedFooterProps
     >,
     WithSsr {
   /**
-   * The footer variant to display. Defaults to `full` if not provided.
+   * The footer variant to display.
    */
-  variant?: ResponsiveValue<'full' | 'compact'>
+  variant?: ThemingProps<'Footer'>['variant']
 }
