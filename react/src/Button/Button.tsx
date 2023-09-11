@@ -7,17 +7,9 @@ import {
 } from '@chakra-ui/react'
 
 import { Spinner } from '~/Spinner'
-import {
-  ThemeButtonColorScheme,
-  ThemeButtonVariant,
-} from '~/theme/components/Button'
+import { ThemeButtonColorScheme } from '~/theme/components/Button'
 
 export interface ButtonProps extends ChakraButtonProps {
-  /**
-   * The variant of the button.
-   */
-  variant?: ThemeButtonVariant
-
   /**
    * Specifies whether the button is full-width.
    * If so, set button width to 100%, height to auto and padding to 15px

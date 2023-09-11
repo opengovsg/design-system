@@ -9,14 +9,6 @@ import { hexToRgba } from '../utils/hexToRgba'
 
 import { Link } from './Link'
 
-export type ThemeButtonVariant =
-  | 'solid'
-  | 'reverse'
-  | 'outline'
-  | 'clear'
-  | 'link'
-  | 'inputAttached'
-
 export type ThemeButtonColorScheme =
   | 'main'
   | 'success'
