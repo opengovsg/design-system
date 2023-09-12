@@ -175,8 +175,9 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
       accept,
       disabled: inputProps.disabled,
       validator: fileValidator,
-      noClick: inputProps.readOnly,
-      noDrag: inputProps.readOnly,
+      noKeyboard: inputProps.readOnly || value !== undefined,
+      noClick: inputProps.readOnly || value !== undefined,
+      noDrag: inputProps.readOnly || value !== undefined,
       onDrop: handleFileDrop,
     })
 

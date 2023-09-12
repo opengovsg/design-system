@@ -45,7 +45,12 @@ export const AttachmentFileInfo = forwardRef<AttachmentFileInfoProps, 'div'>(
     }, [file])
 
     return (
-      <Flex aria-disabled={isDisabled} ref={ref} sx={styles.fileInfoContainer}>
+      <Flex
+        aria-disabled={isDisabled}
+        ref={ref}
+        tabIndex={0}
+        sx={styles.fileInfoContainer}
+      >
         <VisuallyHidden>
           File attached: {file.name} with file size of {readableFileSize}
         </VisuallyHidden>

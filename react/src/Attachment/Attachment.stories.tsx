@@ -23,6 +23,10 @@ export default {
   component: Attachment,
   tags: ['autodocs'],
   decorators: [],
+  parameters: {
+    name: 'Test-input',
+    maxSize: 23000,
+  },
 } as Meta<AttachmentProps>
 
 const Template: StoryFn<AttachmentProps> = ({ value, onChange, ...args }) => {
@@ -35,33 +39,31 @@ const Template: StoryFn<AttachmentProps> = ({ value, onChange, ...args }) => {
 }
 
 export const Default = Template.bind({})
-Default.args = {
-  name: 'Test-input',
-  maxSize: 23000,
+
+export const OnlyAcceptImages = Template.bind({})
+OnlyAcceptImages.args = {
+  accept: {
+    'image/*': [],
+  },
 }
 
 export const ShowMaxSize = Template.bind({})
 ShowMaxSize.args = {
-  name: 'Test-input',
-  maxSize: 23000,
   showFileSize: true,
 }
 
 export const Invalid = Template.bind({})
 Invalid.args = {
-  name: 'Test-input',
   isInvalid: true,
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
-  name: 'Test-input',
   isDisabled: true,
 }
 
 export const WithUploadedFile = Template.bind({})
 WithUploadedFile.args = {
-  name: 'Test-input',
   value: MOCK_OGP_LOGO_FILE,
 }
 
