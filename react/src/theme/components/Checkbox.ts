@@ -26,31 +26,31 @@ const getColorProps = (props: StyleFunctionProps) => {
   switch (c) {
     case 'main':
       return {
-        bg: mode('white', 'transparent')(props),
+        bg: mode('utility.ui', 'transparent')(props),
         checkedBg: 'interaction.main.default',
         iconColor: 'white',
         hoverBg: mode(
           'interaction.muted.main.hover',
           'interaction.tinted.main.active',
         )(props),
-        borderColor: mode('interaction.main.default', 'white')(props),
+        borderColor: mode('interaction.main.default', 'utility.ui')(props),
         labelColor: mode('base.content.default', 'base.content.inverse')(props),
       }
     // Inverse color scheme, used for darker backgrounds.
     case 'inverse':
       return {
         bg: 'transparent',
-        checkedBg: 'white',
+        checkedBg: 'utility.ui',
         iconColor: 'base.content.strong',
         hoverBg: 'interaction.tinted.inverse.hover',
-        borderColor: 'white',
+        borderColor: 'utility.ui',
         labelColor: 'base.content.inverse',
       }
     default: {
       return {
-        bg: mode('white', 'transparent')(props),
+        bg: mode('utility.ui', 'transparent')(props),
         checkedBg: `${c}.500`,
-        iconColor: 'white',
+        iconColor: 'utility.ui',
         hoverBg: `${c}.100`,
         borderColor: `${c}.500`,
         labelColor: mode('base.content.default', 'base.content.inverse')(props),

@@ -19,6 +19,7 @@ export const DatePickerContent = ({
       size={size}
       isMobile={isMobile}
       headerStyles={styles.header}
+      containerStyles={styles.container}
       isOpen={isOpen}
       onClose={onClose}
       initialFocusRef={initialFocusRef}

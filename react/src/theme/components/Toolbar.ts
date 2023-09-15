@@ -21,7 +21,7 @@ const getSolidVariantContainerStyles = (c: string) => {
     case 'main':
       return {
         bg: `interaction.${c}.default`,
-        color: 'white',
+        color: 'utility.ui',
       }
     case 'neutral':
       return {

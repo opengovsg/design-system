@@ -25,7 +25,7 @@ const outlineVariant = definePartsStyle((props) => {
     country: {
       transitionProperty: 'common',
       transitionDuration: 'normal',
-      bg: 'white',
+      bg: 'utility.ui',
       border: '1px solid',
       borderColor: 'base.divider.strong',
       _disabled: {

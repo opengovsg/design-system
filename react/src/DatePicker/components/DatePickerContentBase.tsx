@@ -23,6 +23,7 @@ interface DatePickerContentBaseProps {
   onClose: () => void
   initialFocusRef: React.RefObject<HTMLElement>
   headerStyles?: SystemStyleObject
+  containerStyles?: SystemStyleObject
   size: ThemingProps<'DatePicker'>['size']
 }
 
@@ -32,6 +33,7 @@ export const DatePickerContentBase = ({
   isOpen,
   onClose,
   headerStyles,
+  containerStyles,
   initialFocusRef,
   size,
 }: DatePickerContentBaseProps): JSX.Element => {
@@ -44,7 +46,7 @@ export const DatePickerContentBase = ({
         initialFocusRef={initialFocusRef}
       >
         <DrawerOverlay />
-        <DrawerContent maxH="100%" overflow="auto">
+        <DrawerContent sx={containerStyles} maxH="100%" overflow="auto">
           <DrawerCloseButton
             size="sm"
             right="0.625rem"
@@ -62,7 +64,12 @@ export const DatePickerContentBase = ({
 
   return (
     <Portal>
-      <PopoverContent borderRadius="base" w="unset" maxW="100vw" bg="white">
+      <PopoverContent
+        borderRadius="base"
+        w="unset"
+        maxW="100vw"
+        sx={containerStyles}
+      >
         <ReactFocusLock>
           <PopoverHeader sx={headerStyles}>
             Select a date

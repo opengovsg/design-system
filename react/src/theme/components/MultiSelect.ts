@@ -16,6 +16,7 @@ export const parts = anatomy('multiselect').parts(
   'chevron',
   'fieldwrapper',
   'itemContainer',
+  'checkContainer',
 )
 
 const { definePartsStyle, defineMultiStyleConfig } =
@@ -50,6 +51,15 @@ const baseStyle = definePartsStyle((props) => {
     icon: {
       display: 'inline-flex',
       h: 'fit-content',
+    },
+    checkContainer: {
+      flexShrink: 0,
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      verticalAlign: 'top',
+      borderColor: 'base.content.strong',
+      bg: 'utility.ui',
     },
     tagIcon: {
       display: 'inline-flex',

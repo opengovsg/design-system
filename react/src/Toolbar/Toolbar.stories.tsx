@@ -39,6 +39,11 @@ const Template: StoryFn<ToolbarProps> = ({ children, ...args }) => {
 }
 export const TemplateExample = Template.bind({})
 
+export const MainColorScheme = Template.bind({})
+MainColorScheme.args = {
+  colorScheme: 'main',
+}
+
 export const NeutralColorScheme = Template.bind({})
 NeutralColorScheme.args = {
   colorScheme: 'neutral',
