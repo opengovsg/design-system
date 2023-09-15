@@ -45,6 +45,8 @@ const baseStyle = definePartsStyle((props) => {
       boxShadow: $shadow.reference,
     },
     item: {
+      // Required for items to also have variable colors
+      bg: $bg.reference,
       [$bg.variable]: 'colors.utility.ui',
       textStyle: 'body-1',
       fontWeight: '400',
