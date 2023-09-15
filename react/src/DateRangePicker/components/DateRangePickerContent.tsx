@@ -23,6 +23,7 @@ export const DateRangePickerContent = ({
       onClose={onClose}
       initialFocusRef={initialFocusRef}
       headerStyles={styles.header}
+      containerStyles={styles.container}
     >
       {children}
     </DatePickerContentBase>
