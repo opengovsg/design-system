@@ -23,7 +23,7 @@ export default {
   component: Attachment,
   tags: ['autodocs'],
   decorators: [],
-  parameters: {
+  args: {
     name: 'Test-input',
     maxSize: 23000,
   },
