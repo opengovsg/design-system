@@ -150,12 +150,12 @@ const variantReverse = defineStyle((props) => {
   const { hoverBg, activeBg, color } = genVariantReverseColours(props)
 
   return {
-    bg: 'white',
+    bg: 'utility.ui',
     borderColor: 'transparent',
     color,
     px: '15px',
     _disabled: {
-      bg: 'white',
+      bg: 'utility.ui',
       borderColor: 'transparent',
     },
     _active: {
@@ -164,7 +164,7 @@ const variantReverse = defineStyle((props) => {
     _hover: {
       bg: hoverBg,
       _disabled: {
-        bg: 'white',
+        bg: 'utility.ui',
       },
     },
   }

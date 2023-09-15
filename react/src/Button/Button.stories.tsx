@@ -9,9 +9,6 @@ export default {
   title: 'Components/Button',
   component: Button,
   tags: ['autodocs'],
-  parameters: {
-    backgrounds: { default: 'light' },
-  },
 } as Meta
 
 const ButtonTemplate: StoryFn<ButtonProps> = (args) => <Button {...args} />
