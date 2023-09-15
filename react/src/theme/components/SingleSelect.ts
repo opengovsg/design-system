@@ -36,7 +36,7 @@ const listBaseStyle = defineStyle((props) => {
     w: '100%',
     overflowY: 'auto',
     maxH: 'none',
-    bg: 'white',
+    bg: 'utility.ui',
   })
 })
 

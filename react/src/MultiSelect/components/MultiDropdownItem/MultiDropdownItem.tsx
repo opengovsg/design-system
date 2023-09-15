@@ -57,6 +57,7 @@ export const MultiDropdownItem = ({
         <ItemCheckboxIcon
           isDisabled={isDisabled}
           isChecked={isSelected}
+          sx={styles.checkContainer}
           size={size}
         />
         <Flex flexDir="column" minW={0}>

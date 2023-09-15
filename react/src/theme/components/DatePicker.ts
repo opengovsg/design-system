@@ -6,6 +6,7 @@ import { textStyles } from '../textStyles'
 export const datepickerAnatomy = anatomy('datepicker').parts(
   'header',
   'inputButton',
+  'container',
 )
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(datepickerAnatomy.keys)
@@ -30,6 +31,9 @@ const sizes = {
 
 export const DatePicker = defineMultiStyleConfig({
   baseStyle: {
+    container: {
+      bg: 'utility.ui',
+    },
     header: {
       h: '3.5rem',
       display: 'flex',

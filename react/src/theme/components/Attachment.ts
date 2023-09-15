@@ -49,7 +49,7 @@ const baseStyle = definePartsStyle({
   fileInfoImage: {
     borderRight: '1px solid',
     borderColor: 'inherit',
-    bg: 'white',
+    bg: 'utility.ui',
   },
 })
 
