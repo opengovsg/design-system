@@ -41,15 +41,17 @@ const baseStyle = definePartsStyle((props) => {
       borderRadius: 0,
       minWidth: '0rem',
       [$shadow.variable]: 'shadows.sm',
+      [$bg.variable]: 'colors.utility.ui',
       boxShadow: $shadow.reference,
     },
     item: {
       bg: $bg.reference,
+      [$bg.variable]: 'colors.utility.ui',
       textStyle: 'body-1',
       fontWeight: '400',
       color: 'base.content.strong',
       _hover: {
-        bg: hoverBg,
+        [$bg.variable]: `colors.${hoverBg}`,
       },
       _disabled: {
         color: 'interaction.support.disabled-content',
