@@ -3,12 +3,12 @@ import {
   As,
   Button,
   ButtonProps,
+  chakra,
   ComponentWithAs,
   createStylesContext,
   forwardRef,
   HStack,
   Icon,
-  Text,
   TextProps,
   ThemingProps,
   useMultiStyleConfig,
@@ -72,7 +72,7 @@ export const Tile = forwardRef<TileProps, 'button'>(
       <TileStylesProvider value={styles}>
         <Button
           variant="unstyled"
-          sx={styles.container}
+          __css={styles.container}
           isActive={isSelected}
           ref={ref}
           {...props}
@@ -91,19 +91,19 @@ export const Tile = forwardRef<TileProps, 'button'>(
 const TileTitle: FC<TextProps> = (props) => {
   const styles = useTileStyles()
   // Allow consumers to override default style props with their own styling
-  return <Text sx={styles.title} {...props} />
+  return <chakra.p __css={styles.title} {...props} />
 }
 
 const TileSubtitle: FC<TextProps> = (props) => {
   const styles = useTileStyles()
   // Allow consumers to override default style props with their own styling
-  return <Text sx={styles.subtitle} {...props} />
+  return <chakra.p __css={styles.subtitle} {...props} />
 }
 
 const TileText: FC<TextProps> = (props) => {
   const styles = useTileStyles()
   // Allow consumers to override default style props with their own styling
-  return <Text sx={styles.text} {...props} />
+  return <chakra.p __css={styles.text} {...props} />
 }
 
 Tile.Title = TileTitle
