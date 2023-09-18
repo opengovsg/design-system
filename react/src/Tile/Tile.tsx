@@ -66,7 +66,7 @@ type TileWithParts = ComponentWithAs<'button', TileProps> & {
 
 export const Tile = forwardRef<TileProps, 'button'>(
   ({ badge, icon, children, variant, isSelected, ...props }, ref) => {
-    const styles = useMultiStyleConfig('Tile', { ...props, variant })
+    const styles = useMultiStyleConfig('Tile', { variant, ...props })
     return (
       // Ref passed into the component as a whole so that it can be focused
       <TileStylesProvider value={styles}>
