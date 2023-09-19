@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 import {
   As,
   Button,
@@ -13,6 +13,7 @@ import {
   ThemingProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
+import { merge } from 'lodash'
 
 const [TileStylesProvider, useTileStyles] = createStylesContext('Tile')
 
@@ -67,12 +68,18 @@ type TileWithParts = ComponentWithAs<'button', TileProps> & {
 export const Tile = forwardRef<TileProps, 'button'>(
   ({ badge, icon, children, variant, isSelected, ...props }, ref) => {
     const styles = useMultiStyleConfig('Tile', { ...props, variant })
+
+    const mergedContainerStyles = useMemo(
+      () => merge({}, styles.container, props.sx),
+      [props.sx, styles.container],
+    )
+
     return (
       // Ref passed into the component as a whole so that it can be focused
       <TileStylesProvider value={styles}>
         <Button
           variant="unstyled"
-          sx={styles.container}
+          sx={mergedContainerStyles}
           isActive={isSelected}
           ref={ref}
           {...props}
