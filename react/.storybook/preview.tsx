@@ -4,7 +4,7 @@ import 'inter-ui/inter.css'
 import { Decorator } from '@storybook/react'
 
 import { ThemeProvider } from '../src/theme'
-import { withThemeFromJSXProvider } from '@storybook/addon-styling'
+import { withThemeFromJSXProvider } from '@storybook/addon-themes'
 
 import { StorybookTheme } from './themes'
 import { THEME_MAP } from './colorThemes'
