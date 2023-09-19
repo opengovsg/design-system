@@ -68,10 +68,10 @@ type TileWithParts = ComponentWithAs<'button', TileProps> & {
 export const Tile = forwardRef<TileProps, 'button'>(
   ({ badge, icon, children, variant, isSelected, ...props }, ref) => {
     const styles = useMultiStyleConfig('Tile', { ...props, variant })
-    
+
     const mergedContainerStyles = useMemo(
       () => merge({}, styles.container, props.sx),
-      [props.sx, styles.container]
+      [props.sx, styles.container],
     )
 
     return (
