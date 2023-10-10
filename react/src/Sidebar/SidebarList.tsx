@@ -71,13 +71,11 @@ const SectionWrapper: FC<PropsWithChildren & SectionWrapperProps> = ({
     </chakra.button>
   )
 }
-
-type ToggleChevronWrapperProps = HTMLChakraProps<'button'> &
-  HTMLChakraProps<'div'> & { onlyCaretToggle: boolean }
-
-const ToggleChevronWrapper: FC<
-  PropsWithChildren & ToggleChevronWrapperProps
-> = ({ children, onlyCaretToggle, ...props }) => {
+const ToggleChevronWrapper: FC<PropsWithChildren & SectionWrapperProps> = ({
+  children,
+  onlyCaretToggle,
+  ...props
+}) => {
   if (onlyCaretToggle)
     return (
       <chakra.button {...props} type="button">
