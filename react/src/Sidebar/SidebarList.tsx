@@ -72,6 +72,22 @@ const SectionWrapper: FC<PropsWithChildren & SectionWrapperProps> = ({
   )
 }
 
+type ToggleChevronWrapperProps = HTMLChakraProps<'button'> &
+  HTMLChakraProps<'div'> & { onlyCaretToggle: boolean }
+
+const ToggleChevronWrapper: FC<
+  PropsWithChildren & ToggleChevronWrapperProps
+> = ({ children, onlyCaretToggle, ...props }) => {
+  if (onlyCaretToggle)
+    return (
+      <chakra.button {...props} type="button">
+        {children}
+      </chakra.button>
+    )
+
+  return <chakra.div {...props}>{children}</chakra.div>
+}
+
 export const SidebarList = forwardRef<
   PropsWithChildren<SidebarListProps>,
   'li'
@@ -122,11 +138,6 @@ export const SidebarList = forwardRef<
       return merge({}, mergedStyles, { cursor: 'pointer' })
     }, [onlyCaretToggle, styles.item, styles.parent])
 
-    const ToggleChevronWrapper = useMemo(() => {
-      if (onlyCaretToggle) return chakra.button
-      return chakra.div
-    }, [onlyCaretToggle])
-
     return (
       <chakra.li __css={styles.list} pl={0} ref={ref} {...props}>
         <Box>
@@ -143,12 +154,14 @@ export const SidebarList = forwardRef<
               ) : null}
               {label}
             </chakra.span>
+
             <ToggleChevronWrapper
               layerStyle="focusRing.default"
               aria-label={onlyCaretToggle ? 'Toggle section' : undefined}
               onClick={onToggle}
               display="flex"
               outline="none"
+              onlyCaretToggle={onlyCaretToggle}
             >
               <ToggleChevron
                 reduceMotion={reduceMotion}
