@@ -1,9 +1,10 @@
-import { type PropsWithChildren, useCallback, useMemo } from 'react'
+import { FC, type PropsWithChildren, useCallback, useMemo } from 'react'
 import {
   Box,
   chakra,
   Collapse,
   forwardRef,
+  HTMLChakraProps,
   Icon,
   useDisclosure,
   type UseDisclosureReturn,
@@ -52,6 +53,23 @@ export interface SidebarListProps extends BaseSidebarItemProps {
   isActive?: boolean | (() => boolean)
   /** Callback invoked when section is clicked */
   onClick?: () => void
+}
+
+type SectionWrapperProps = HTMLChakraProps<'button'> &
+  HTMLChakraProps<'div'> & { onlyCaretToggle: boolean }
+
+const SectionWrapper: FC<PropsWithChildren & SectionWrapperProps> = ({
+  children,
+  onlyCaretToggle,
+  ...props
+}) => {
+  if (onlyCaretToggle) return <chakra.div {...props}>{children}</chakra.div>
+
+  return (
+    <chakra.button {...props} type="button">
+      {children}
+    </chakra.button>
+  )
 }
 
 export const SidebarList = forwardRef<
@@ -104,11 +122,6 @@ export const SidebarList = forwardRef<
       return merge({}, mergedStyles, { cursor: 'pointer' })
     }, [onlyCaretToggle, styles.item, styles.parent])
 
-    const SectionWrapper = useMemo(() => {
-      if (onlyCaretToggle) return chakra.div
-      return chakra.button
-    }, [onlyCaretToggle])
-
     const ToggleChevronWrapper = useMemo(() => {
       if (onlyCaretToggle) return chakra.button
       return chakra.div
@@ -122,6 +135,7 @@ export const SidebarList = forwardRef<
             data-expanded={dataAttr(isOpen)}
             data-active={dataAttr(dataActive)}
             onClick={handleExpandSection}
+            onlyCaretToggle={onlyCaretToggle}
           >
             <chakra.span flex={1} __css={styles.label}>
               {icon ? (
