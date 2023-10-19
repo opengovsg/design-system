@@ -66,7 +66,7 @@ const SectionWrapper: FC<PropsWithChildren & SectionWrapperProps> = ({
   if (onlyCaretToggle) return <chakra.div {...props}>{children}</chakra.div>
 
   return (
-    <chakra.button {...props} type="button">
+    <chakra.button type="button" {...props}>
       {children}
     </chakra.button>
   )
@@ -78,7 +78,7 @@ const ToggleChevronWrapper: FC<PropsWithChildren & SectionWrapperProps> = ({
 }) => {
   if (onlyCaretToggle)
     return (
-      <chakra.button {...props} type="button">
+      <chakra.button type="button" {...props}>
         {children}
       </chakra.button>
     )
