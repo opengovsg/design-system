@@ -24,7 +24,7 @@ export const Principles = (): JSX.Element => {
         </Text>
       </Box>
       <Box mb="1rem">
-        <Text textStyle="h4">User centred</Text>
+        <Text textStyle="h4">User-Centred</Text>
         <Text textStyle="body-1">
           Our design decisions should be driven by the needs of real users and
           backed up by research and/or data. All components and design patterns
@@ -50,25 +50,25 @@ export const Principles = (): JSX.Element => {
         </Text>
       </Box>
       <Box mb="1rem">
-        <Text textStyle="h4">Meaningful</Text>
+        <Text textStyle="h4">Meaningful Aesthetics</Text>
         <Text textStyle="body-1">
-          aesthetics The appearance of Form should be pleasing, but it must also
-          complement or enhance our purpose. Thoughtful aesthetics can help
-          guide, nudge, or prompt a user, and it supports and enhances the
-          product’s functionality. Aesthetics is not a common principle in
-          government where tangible concerns such as functionality, price,
-          speed, and efficiency are highly valued. But putting thought and craft
-          into our design and integrating it well with functionality shows our
-          users we value them and their time spent on our product. While the
-          benefits of good aesthetics might not sound so tangible, the
-          consequences of poor aesthetics and attention to detail are very
-          tangible - distraction from work objectives, decreased confidence in
-          product (increased anxiety) and poorer motivation to digitalise
-          current and future workflows. This creates friction for every workflow
-          launched and barriers to digitalisation (adoption of more efficient
-          practices). Additionally, [thoughtful aesthetics] helps raise the bar
-          for government products and show by example that government design can
-          be functional, usable, and be delightful at the same time.
+          The appearance of Form should be pleasing, but it must also complement
+          or enhance our purpose. Thoughtful aesthetics can help guide, nudge,
+          or prompt a user, and it supports and enhances the product’s
+          functionality. Aesthetics is not a common principle in government
+          where tangible concerns such as functionality, price, speed, and
+          efficiency are highly valued. But putting thought and craft into our
+          design and integrating it well with functionality shows our users we
+          value them and their time spent on our product. While the benefits of
+          good aesthetics might not sound so tangible, the consequences of poor
+          aesthetics and attention to detail are very tangible - distraction
+          from work objectives, decreased confidence in product (increased
+          anxiety) and poorer motivation to digitalise current and future
+          workflows. This creates friction for every workflow launched and
+          barriers to digitalisation (adoption of more efficient practices).
+          Additionally, [thoughtful aesthetics] helps raise the bar for
+          government products and show by example that government design can be
+          functional, usable, and be delightful at the same time.
         </Text>
       </Box>
     </Box>
