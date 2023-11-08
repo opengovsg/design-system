@@ -2,7 +2,7 @@
 
 This design system extends from the wonderful [Chakra UI library](https://github.com/chakra-ui/chakra-ui).
 
-The available components can be viewed at our [Storybook](https://design.hack.gov.sg)
+The available components can be viewed at our [Storybook](https://design.open.gov.sg)
 
 ## Installing the design system
 
