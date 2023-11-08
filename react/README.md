@@ -80,7 +80,7 @@ npx @chakra-ui/cli tokens <path/to/your/theme.(js|ts)>
 If generating for the base design system:
 
 ```bash
-npx chakra-cli tokens node_modules/@opengovsg/design-system-react/build/theme/theme.js
+npx chakra-cli tokens node_modules/@opengovsg/design-system-react/build/main/theme/theme.js
 ```
 
 > Note 🚨: If you delete the node_modules directory, you'll need to re-run the command to get proper typings again.
@@ -89,7 +89,7 @@ For convenience, you can add a postinstall script to your package.json, so you d
 
 ```json
 "scripts": {
-  "gen:theme-typings": "chakra-cli tokens node_modules/@opengovsg/design-system-react/build/theme/theme.js",
+  "gen:theme-typings": "chakra-cli tokens node_modules/@opengovsg/design-system-react/build/main/theme/theme.js",
   "postinstall": "npm run gen:theme-typings"
 }
 ```
