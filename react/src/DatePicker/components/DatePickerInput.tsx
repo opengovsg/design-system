@@ -55,8 +55,7 @@ export const DatePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
         {hasMounted ? (
           <Input
             size={size}
-            inputMode="numeric" // Nudge Android mobile keyboard to be numeric
-            pattern="\d*" // Nudge numeric keyboard on iOS Safari.
+            inputMode="numeric" // Nudge Android mobile keyboard to be numeric.
             as={ReactInputMask}
             mask="99/99/9999"
             value={internalInputValue}
@@ -70,12 +69,7 @@ export const DatePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
             isReadOnly={fcProps.isReadOnly || !allowManualInput}
           />
         ) : (
-          <Input
-            pattern="\d*"
-            size={size}
-            inputMode="numeric"
-            placeholder={placeholder}
-          />
+          <Input size={size} inputMode="numeric" placeholder={placeholder} />
         )}
         <InputRightAddon p={0} border="none">
           <CalendarButton />

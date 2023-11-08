@@ -75,7 +75,6 @@ export const DateRangePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
             variant="unstyled"
             aria-label="Start date of range"
             inputMode="numeric" // Nudge Android mobile keyboard to be numeric
-            pattern="\d*" // Nudge numeric keyboard on iOS Safari.
             sx={styles.field}
             width="6rem"
             as={ReactInputMask}
@@ -95,7 +94,6 @@ export const DateRangePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
             size={size}
             variant="unstyled"
             inputMode="numeric"
-            pattern="\d*"
             placeholder={placeholder}
             sx={styles.field}
             width="6rem"
@@ -108,7 +106,6 @@ export const DateRangePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
             size={size}
             aria-label="Start date of range"
             inputMode="numeric" // Nudge Android mobile keyboard to be numeric
-            pattern="\d*" // Nudge numeric keyboard on iOS Safari.
             sx={styles.field}
             width="6rem"
             as={ReactInputMask}
@@ -128,7 +125,6 @@ export const DateRangePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
             size={size}
             variant="unstyled"
             inputMode="numeric"
-            pattern="\d*"
             placeholder={placeholder}
             sx={styles.field}
             width="6rem"
