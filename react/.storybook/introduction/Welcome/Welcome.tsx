@@ -28,12 +28,12 @@ export const Welcome = (): JSX.Element => {
         </Box>
         <Box maxW="43.75rem">
           <Text textStyle="body-1" color="white" mb="1rem">
-            Camp is the design system for FormSG. It helps us create consistent,
-            accessible, highly usable, and delightful experiences for our public
-            users. It is a living library and guide, and will evolve according
-            to our product and user needs. Browse the stories in the sidebar to
-            play with different React components, and see usage examples for
-            every component.
+            Camp is the design system for Open Government Products. It helps us
+            create consistent, accessible, highly usable, and delightful
+            experiences for our public users. It is a living library and guide,
+            and will evolve according to our product and user needs. Browse the
+            stories in the sidebar to play with different React components, and
+            see usage examples for every component.
           </Text>
           <Flex align="center" color="white">
             <Icon as={BxBulb} aria-hidden mr="0.5rem" fontSize="1.5rem" />
