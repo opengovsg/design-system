@@ -27,6 +27,7 @@ export const DatePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
     inputRef,
     internalValue,
     size,
+    inputPattern,
   } = useDatePicker()
 
   const mergedInputRef = useMergeRefs(inputRef, ref)
@@ -55,6 +56,7 @@ export const DatePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
         {hasMounted ? (
           <Input
             size={size}
+            pattern={inputPattern}
             inputMode="numeric" // Nudge Android mobile keyboard to be numeric.
             as={ReactInputMask}
             mask="99/99/9999"
@@ -69,7 +71,12 @@ export const DatePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
             isReadOnly={fcProps.isReadOnly || !allowManualInput}
           />
         ) : (
-          <Input size={size} inputMode="numeric" placeholder={placeholder} />
+          <Input
+            size={size}
+            inputMode="numeric"
+            placeholder={placeholder}
+            pattern={inputPattern}
+          />
         )}
         <InputRightAddon p={0} border="none">
           <CalendarButton />

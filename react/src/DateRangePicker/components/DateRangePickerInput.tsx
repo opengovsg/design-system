@@ -31,6 +31,7 @@ export const DateRangePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
     handleEndDateChange,
     internalValue: [startDate, endDate],
     size,
+    inputPattern,
   } = useDateRangePicker()
 
   const mergedStartInputRef = useMergeRefs(startInputRef, ref)
@@ -75,6 +76,7 @@ export const DateRangePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
             variant="unstyled"
             aria-label="Start date of range"
             inputMode="numeric" // Nudge Android mobile keyboard to be numeric
+            pattern={inputPattern}
             sx={styles.field}
             width="6rem"
             as={ReactInputMask}
@@ -92,6 +94,7 @@ export const DateRangePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
         ) : (
           <Input
             size={size}
+            pattern={inputPattern}
             variant="unstyled"
             inputMode="numeric"
             placeholder={placeholder}
@@ -104,6 +107,7 @@ export const DateRangePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
           <Input
             variant="unstyled"
             size={size}
+            pattern={inputPattern}
             aria-label="Start date of range"
             inputMode="numeric" // Nudge Android mobile keyboard to be numeric
             sx={styles.field}
@@ -123,6 +127,7 @@ export const DateRangePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
         ) : (
           <Input
             size={size}
+            pattern={inputPattern}
             variant="unstyled"
             inputMode="numeric"
             placeholder={placeholder}
