@@ -33,11 +33,11 @@ export interface DatePickerBaseProps
   /**
    * Whether to force the number keyboard on iOS.
    *
-   * This will set the inputmode to `numeric` and pattern to `[0-9]*` on the input, which
+   * This will set the `pattern` prop on the input to `[0-9]*`, which
    * will force the number keyboard to show on iOS for a better user experience.
    *
    * ⚠️ This will break native form input validation if set, since the value of the input
-   * will always be `"DD/MM/YYYY"`, which does not conform to the input.
+   * will always be `"DD/MM/YYYY"`, which does not conform to the pattern.
    * To prevent native form validation, set `noValidate` on the parent `form` component.
    */
   experimental_forceIosNumberKeyboard?: boolean
