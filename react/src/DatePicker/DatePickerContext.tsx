@@ -56,6 +56,7 @@ interface DatePickerContextReturn {
     | 'showOutsideDays'
     | 'showTodayButton'
   >
+  inputPattern?: string
 }
 
 const DatePickerContext = createContext<DatePickerContextReturn | null>(null)
@@ -103,6 +104,7 @@ const useProvideDatePicker = ({
   refocusOnClose = true,
   ssr,
   size,
+  experimental_forceIosNumberKeyboard,
   ...props
 }: DatePickerProps): DatePickerContextReturn => {
   const initialFocusRef = useRef<HTMLInputElement>(null)
@@ -111,6 +113,12 @@ const useProvideDatePicker = ({
   const calendarProps = pickCalendarProps(props)
 
   const isMobile = useIsMobile({ ssr })
+
+  const inputPattern = useMemo(() => {
+    if (experimental_forceIosNumberKeyboard) {
+      return '[0-9]*'
+    }
+  }, [experimental_forceIosNumberKeyboard])
 
   const disclosureProps = useDisclosure({
     onClose: () => {
@@ -257,5 +265,6 @@ const useProvideDatePicker = ({
     size,
     disclosureProps,
     calendarProps,
+    inputPattern,
   }
 }

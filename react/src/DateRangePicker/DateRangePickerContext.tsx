@@ -61,6 +61,7 @@ interface DateRangePickerContextReturn {
     | 'defaultFocusedDate'
     | 'showTodayButton'
   >
+  inputPattern?: string
 }
 
 const DateRangePickerContext =
@@ -109,6 +110,7 @@ const useProvideDateRangePicker = ({
   refocusOnClose = true,
   size,
   ssr,
+  experimental_forceIosNumberKeyboard,
   ...props
 }: DateRangePickerProps): DateRangePickerContextReturn => {
   const initialFocusRef = useRef<HTMLInputElement>(null)
@@ -118,6 +120,12 @@ const useProvideDateRangePicker = ({
   const calendarProps = pickCalendarProps(props)
 
   const isMobile = useIsMobile({ ssr })
+
+  const inputPattern = useMemo(() => {
+    if (experimental_forceIosNumberKeyboard) {
+      return '[0-9]*'
+    }
+  }, [experimental_forceIosNumberKeyboard])
 
   const disclosureProps = useDisclosure({
     onClose: () => {
@@ -343,5 +351,6 @@ const useProvideDateRangePicker = ({
     disclosureProps,
     labelSeparator,
     calendarProps,
+    inputPattern,
   }
 }
