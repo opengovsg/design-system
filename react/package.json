@@ -83,7 +83,7 @@
     "@vitejs/plugin-react": "^4.0.0",
     "auto-changelog": "^2.4.0",
     "esbuild": "^0.19.2",
-    "eslint": "8.53.0",
+    "eslint": "8.54.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-import": "2.29.0",
     "eslint-plugin-prettier": "5.0.1",
