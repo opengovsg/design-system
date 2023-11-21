@@ -16,22 +16,43 @@ const baseStyle = definePartsStyle({
 })
 
 const sizes = {
+  sm: definePartsStyle({
+    item: {
+      py: '0.5rem',
+      px: '1rem',
+      textStyle: 'body-2',
+    },
+    icon: {
+      my: '0.125rem',
+      fontSize: '1rem',
+      mr: '0.5rem',
+    },
+    close: {
+      my: '-0.5rem',
+      ml: '0.5rem',
+      mr: '-0.5rem',
+      fontSize: '1rem',
+      w: '2.25rem',
+      h: '2.25rem',
+    },
+  }),
   md: definePartsStyle({
     item: {
       py: '0.5rem',
       px: '1rem',
+      textStyle: 'body-1',
     },
     icon: {
       fontSize: '1.5rem',
       mr: '0.5rem',
     },
     close: {
-      padding: 0,
       ml: '0.5rem',
       mr: '-0.5rem',
+      my: '-0.375rem',
       fontSize: '1.5rem',
-      w: '1.5rem',
-      h: '1.5rem',
+      w: '2.25rem',
+      h: '2.25rem',
     },
   }),
 }

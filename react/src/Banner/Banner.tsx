@@ -31,10 +31,12 @@ export interface BannerProps {
    * If `null`, the close button will not be rendered.
    */
   closeButton?: React.ReactNode
+  size?: ThemingProps<'Banner'>['size']
 }
 
 export const Banner = ({
-  variant = 'info',
+  variant,
+  size,
   children,
   isDismissable: isDismissableProp,
   icon: iconProp,
@@ -44,7 +46,7 @@ export const Banner = ({
     defaultIsOpen: true,
   })
 
-  const styles = useMultiStyleConfig('Banner', { variant })
+  const styles = useMultiStyleConfig('Banner', { variant, size })
 
   const iconToUse = useMemo(() => {
     if (iconProp) {

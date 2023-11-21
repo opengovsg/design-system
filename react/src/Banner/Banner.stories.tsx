@@ -1,3 +1,4 @@
+import { Divider, Stack } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { Banner, BannerProps } from './Banner'
@@ -35,4 +36,20 @@ export const Error = Template.bind({})
 Error.args = {
   variant: 'error',
   children: `This is an error banner`,
+}
+
+export const SmSize = () => {
+  return (
+    <Stack>
+      <Template size="sm" variant="info">
+        This is a small dismissable info banner
+      </Template>
+      <Template size="sm" variant="warn">
+        This is a small warning banner
+      </Template>
+      <Template size="sm" variant="error">
+        This is a small error banner
+      </Template>
+    </Stack>
+  )
 }
