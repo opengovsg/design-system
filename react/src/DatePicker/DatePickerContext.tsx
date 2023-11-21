@@ -55,6 +55,7 @@ interface DatePickerContextReturn {
     | 'defaultFocusedDate'
     | 'showOutsideDays'
     | 'showTodayButton'
+    | 'shouldSetDateOnTodayButtonClick'
   >
   inputPattern?: string
 }

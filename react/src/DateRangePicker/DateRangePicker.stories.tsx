@@ -23,6 +23,10 @@ export const DateRangePickerWithValue = Template.bind({})
 DateRangePickerWithValue.args = {
   defaultValue: [new Date('2001-01-01'), null],
 }
+export const SelectTodayWhenTodayButtonClicked = Template.bind({})
+SelectTodayWhenTodayButtonClicked.args = {
+  shouldSetDateOnTodayButtonClick: true,
+}
 
 export const DateRangePickerDisallowManualInput = Template.bind({})
 DateRangePickerDisallowManualInput.args = {

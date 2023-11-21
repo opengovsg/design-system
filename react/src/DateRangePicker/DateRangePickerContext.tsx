@@ -60,6 +60,7 @@ interface DateRangePickerContextReturn {
     | 'isDateUnavailable'
     | 'defaultFocusedDate'
     | 'showTodayButton'
+    | 'shouldSetDateOnTodayButtonClick'
   >
   inputPattern?: string
 }
