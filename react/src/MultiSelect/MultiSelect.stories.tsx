@@ -122,6 +122,13 @@ WithFixedItemHeight.args = {
   ],
 }
 
+export const WithIsStretchLayoutProp = Template.bind({})
+WithIsStretchLayoutProp.args = {
+  isStretchLayout: true,
+  values: ['What happens when the label is fairly long', 'Bat'],
+}
+WithIsStretchLayoutProp.storyName = 'With isStretchLayout Prop'
+
 export const Sizes = () => {
   const items = ['xs', 'sm', 'md']
   const [xs, setXs] = useState(['xs'])
