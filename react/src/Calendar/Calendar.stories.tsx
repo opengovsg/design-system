@@ -8,7 +8,7 @@ import { mockDateDecorator } from '~/utils/storybook'
 import { Calendar, CalendarProps } from './Calendar'
 
 export default {
-  title: 'Components/Calendar/Calendar',
+  title: 'Components/Calendar',
   component: Calendar,
   tags: ['autodocs'],
   decorators: [mockDateDecorator],

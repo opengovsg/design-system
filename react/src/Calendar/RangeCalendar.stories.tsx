@@ -8,7 +8,7 @@ import { mockDateDecorator } from '~/utils/storybook'
 import { RangeCalendar, RangeCalendarProps } from './RangeCalendar'
 
 export default {
-  title: 'Components/Calendar/RangeCalendar',
+  title: 'Components/RangeCalendar',
   component: RangeCalendar,
   tags: ['autodocs'],
   decorators: [mockDateDecorator],
