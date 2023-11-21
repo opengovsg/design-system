@@ -1,6 +1,8 @@
 import { Divider, Stack } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
+import { getMobileViewParameters } from '~/utils/storybook'
+
 import { Banner, BannerProps } from './Banner'
 
 export default {
@@ -38,18 +40,30 @@ Error.args = {
   children: `This is an error banner`,
 }
 
-export const SmSize = () => {
+const SizeTemplate: StoryFn<BannerProps> = (args) => {
   return (
     <Stack>
-      <Template size="sm" variant="info">
+      <Template variant="info" {...args}>
         This is a small dismissable info banner
       </Template>
-      <Template size="sm" variant="warn">
+      <Template variant="warn" {...args}>
         This is a small warning banner
       </Template>
-      <Template size="sm" variant="error">
+      <Template variant="error" {...args}>
         This is a small error banner
       </Template>
     </Stack>
   )
 }
+
+export const Mobile = SizeTemplate.bind({})
+Mobile.args = {
+  size: 'md',
+}
+Mobile.parameters = getMobileViewParameters()
+
+export const SmSizeMobile = SizeTemplate.bind({})
+SmSizeMobile.args = {
+  size: 'sm',
+}
+SmSizeMobile.parameters = getMobileViewParameters()
