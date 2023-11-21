@@ -18,6 +18,10 @@ interface MultiSelectContextReturn<Item extends ComboboxItem = ComboboxItem>
     > {
   maxItems: number | null
   colorScheme?: ThemingProps<'MultiSelect'>['colorScheme']
+  /**
+   * If `true`, the selected items will take up the full width of the input container. Defaults to `false`.
+   */
+  isStretchLayout?: boolean
 }
 
 export const MultiSelectContext = createContext<
