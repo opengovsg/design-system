@@ -35,8 +35,7 @@ const baseStyle = definePartsStyle((props) => {
       display: 'inline-flex',
       flexWrap: 'wrap',
       flexGrow: 1,
-      // Margin difference for selected items.
-      my: '-3px',
+      gap: '4px',
     },
     fieldwrapper: {
       display: 'flex',
@@ -123,10 +122,6 @@ const sizes = {
         // Padding for dropdown toggle.
         maxW: 'calc(100% - 2rem)',
       },
-      tag: {
-        my: '6px',
-        mx: '2px',
-      },
       tagIcon: {
         fontSize: '1rem',
         mr: '0.25rem',
@@ -161,10 +156,6 @@ const sizes = {
       },
       icon: {
         fontSize: '1.25rem',
-      },
-      tag: {
-        my: '4px',
-        mx: '2px',
       },
       tagIcon: {
         fontSize: '1.25rem',
