@@ -7,18 +7,30 @@ import {
   VisuallyHidden,
 } from '@chakra-ui/react'
 
-export interface TooltipProps extends ChakraTooltipProps {
+export interface TouchableTooltipProps
+  extends Omit<ChakraTooltipProps, 'delay'> {
   /**
    * Styles for the container which wraps the children.
    */
   wrapperStyles?: SystemStyleObject
 }
 
-export const Tooltip = ({
+/** @deprecated Use TouchableTooltipProps instead */
+export interface TooltipProps extends TouchableTooltipProps {}
+
+/**
+ * This component allows for touchable tooltips on mobile.
+ *
+ * Only use this component if you want the tooltip to be triggerable on mobile, otherwise
+ * use the `Tooltip` component.
+ *
+ * The component will not support the `delay` prop as the tooltip will open instantly when touched.
+ */
+export const TouchableTooltip = ({
   children,
   wrapperStyles,
   ...props
-}: TooltipProps): JSX.Element => {
+}: TouchableTooltipProps): JSX.Element => {
   // ChakraTooltip does not work on mobile by design. (see
   // https://github.com/chakra-ui/chakra-ui/issues/2691)
   // Hence adapt the tooltip to open when clicked on mobile
@@ -41,3 +53,12 @@ export const Tooltip = ({
     </>
   )
 }
+
+/**
+ * @deprecated Use `TouchableTooltip` instead.
+ *
+ * If you need to use the `delay` prop, use ChakraUI's `Tooltip` component instead.
+ * This is because the current tooltip implementation does not support the `delay` prop
+ * as the tooltip will open instantly when touched (for mobile compatibility).
+ */
+export const Tooltip = TouchableTooltip
