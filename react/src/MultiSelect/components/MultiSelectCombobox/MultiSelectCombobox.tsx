@@ -56,6 +56,7 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
       [setIsFocused],
     )
 
+
     return (
       <Flex
         aria-disabled={isDisabled}
@@ -72,8 +73,9 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
             {...getInputProps({
               ...getDropdownProps({
                 ref: mergedRefs,
+                // We do not remove focus on blur since the focus state
+                // refers to the entire field and not just this input.
                 onFocus: () => setIsFocused(true),
-                onBlur: () => setIsFocused(false),
                 onKeyDown: handleInputTabKeydown,
                 readOnly: isReadOnly || !isSearchable,
                 disabled: isDisabled,
