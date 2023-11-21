@@ -1,5 +1,6 @@
 import { useControllableState } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
+import { userEvent, within } from '@storybook/testing-library'
 import { isWeekend } from 'date-fns'
 
 import { mockDateDecorator } from '~/utils/storybook'
@@ -41,6 +42,18 @@ export const Default = RangeCalendarOnlyTemplate.bind({})
 export const RangeCalendarWithValue = RangeCalendarOnlyTemplate.bind({})
 RangeCalendarWithValue.args = {
   value: [new Date('2001-01-01'), null],
+}
+
+export const SelectTodayWhenTodayButtonClicked = RangeCalendarOnlyTemplate.bind(
+  {},
+)
+SelectTodayWhenTodayButtonClicked.args = {
+  shouldSetDateOnTodayButtonClick: true,
+}
+SelectTodayWhenTodayButtonClicked.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const todayButton = canvas.getByText('Today')
+  userEvent.click(todayButton)
 }
 
 export const RangeCalendarWithRange = RangeCalendarOnlyTemplate.bind({})
