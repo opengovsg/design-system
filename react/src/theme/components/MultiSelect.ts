@@ -31,6 +31,9 @@ const baseStyle = definePartsStyle((props) => {
 
   return {
     ...comboboxBaseStyle,
+    chevron: {
+      display: 'flex',
+    },
     itemContainer: {
       display: 'inline-flex',
       flexWrap: 'wrap',
@@ -39,6 +42,7 @@ const baseStyle = definePartsStyle((props) => {
     },
     fieldwrapper: {
       display: 'flex',
+      justifyContent: 'space-between',
       flexWrap: 'wrap',
       cursor: 'pointer',
       _disabled: {
@@ -116,6 +120,38 @@ const variants = {
 }
 
 const sizes = {
+  xs: definePartsStyle(
+    mergeThemeOverride(omit(SingleSelect.sizes?.xs, ['field', 'icon']), {
+      itemContainer: {
+        // Padding for dropdown toggle.
+        maxW: 'calc(100% - 2.5rem)',
+      },
+      tagIcon: {
+        fontSize: '0.875rem',
+        mr: '0.25rem',
+      },
+      icon: {
+        fontSize: '0.875rem',
+      },
+      chevron: {
+        py: '0.125rem',
+        fontSize: '1rem',
+        px: '0.5rem',
+      },
+      fieldwrapper: {
+        ...SingleSelect.sizes?.xs.field,
+        p: '0.5rem',
+        minH: SingleSelect.sizes?.xs.field?.h,
+        h: 'auto',
+      },
+      field: {
+        minW: '3.75rem',
+        px: '2px',
+        my: '2px',
+        pl: '0.5rem',
+      },
+    }),
+  ),
   sm: definePartsStyle(
     mergeThemeOverride(omit(SingleSelect.sizes?.sm, ['field', 'icon']), {
       itemContainer: {
@@ -130,10 +166,9 @@ const sizes = {
         fontSize: '1rem',
       },
       chevron: {
-        pt: '0.25rem',
+        py: '0.25rem',
         fontSize: '1rem',
         px: '0.5rem',
-        ml: '0.5rem',
       },
       fieldwrapper: {
         ...SingleSelect.sizes?.sm.field,
@@ -163,8 +198,7 @@ const sizes = {
         mr: '0.25rem',
       },
       chevron: {
-        ml: '0.5rem',
-        pt: '0.25rem',
+        py: '0.25rem',
         px: '0.5rem',
         fontSize: '1.25rem',
       },

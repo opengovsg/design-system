@@ -123,22 +123,30 @@ WithFixedItemHeight.args = {
 }
 
 export const Sizes = () => {
-  const items = ['sm', 'md']
-  const [first, setFirst] = useState(['sm'])
-  const [second, setSecond] = useState(['md'])
+  const items = ['xs', 'sm', 'md']
+  const [xs, setXs] = useState(['xs'])
+  const [sm, setSm] = useState(['sm'])
+  const [md, setMd] = useState(['md'])
 
   return (
     <Stack>
       <MultiSelect
-        values={first}
-        onChange={setFirst}
+        values={xs}
+        onChange={setXs}
+        size="xs"
+        items={items}
+        name="xs"
+      />
+      <MultiSelect
+        values={sm}
+        onChange={setSm}
         size="sm"
         items={items}
         name="sm"
       />
       <MultiSelect
-        values={second}
-        onChange={setSecond}
+        values={md}
+        onChange={setMd}
         size="md"
         items={items}
         name="md"
