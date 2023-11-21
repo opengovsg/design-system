@@ -18,7 +18,7 @@ const baseStyle = definePartsStyle({
 const sizes = {
   md: definePartsStyle({
     item: {
-      py: ['1rem', '1rem', '0.5rem'],
+      py: '0.5rem',
       px: '1rem',
     },
     icon: {
