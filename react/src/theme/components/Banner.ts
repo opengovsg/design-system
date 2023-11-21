@@ -19,7 +19,7 @@ const sizes = {
   sm: definePartsStyle({
     item: {
       py: '0.5rem',
-      px: '1rem',
+      px: '0.75rem',
       textStyle: 'body-2',
     },
     icon: {
