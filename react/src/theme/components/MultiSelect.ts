@@ -120,7 +120,7 @@ const sizes = {
     mergeThemeOverride(omit(SingleSelect.sizes?.sm, ['field', 'icon']), {
       itemContainer: {
         // Padding for dropdown toggle.
-        maxW: 'calc(100% - 2rem)',
+        maxW: 'calc(100% - 2.5rem)',
       },
       tagIcon: {
         fontSize: '1rem',
@@ -130,13 +130,14 @@ const sizes = {
         fontSize: '1rem',
       },
       chevron: {
-        pt: '0.5rem',
+        pt: '0.25rem',
         fontSize: '1rem',
         px: '0.5rem',
+        ml: '0.5rem',
       },
       fieldwrapper: {
         ...SingleSelect.sizes?.sm.field,
-        p: '0.25rem',
+        p: '0.5rem',
         minH: SingleSelect.sizes?.sm.field?.h,
         h: 'auto',
       },
@@ -152,7 +153,7 @@ const sizes = {
     mergeThemeOverride(omit(SingleSelect.sizes?.md, ['field', 'icon']), {
       itemContainer: {
         // Padding for dropdown toggle.
-        maxW: 'calc(100% - 2.5rem)',
+        maxW: 'calc(100% - 2.75rem)',
       },
       icon: {
         fontSize: '1.25rem',
@@ -162,13 +163,14 @@ const sizes = {
         mr: '0.25rem',
       },
       chevron: {
+        ml: '0.5rem',
         pt: '0.25rem',
         px: '0.5rem',
         fontSize: '1.25rem',
       },
       fieldwrapper: {
         ...SingleSelect.sizes?.md.field,
-        p: '0.375rem',
+        p: '0.5rem',
         minH: SingleSelect.sizes?.md.field?.h,
         h: 'auto',
       },
