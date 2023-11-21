@@ -9,6 +9,7 @@ import {
   ThemingProps,
   useDisclosure,
   useMultiStyleConfig,
+  useTheme,
 } from '@chakra-ui/react'
 
 import { BxsErrorCircle, BxsInfoCircle, BxX } from '~/icons'
@@ -35,7 +36,7 @@ export interface BannerProps {
 }
 
 export const Banner = ({
-  variant,
+  variant: _variant,
   size,
   children,
   isDismissable: isDismissableProp,
@@ -46,7 +47,14 @@ export const Banner = ({
     defaultIsOpen: true,
   })
 
-  const styles = useMultiStyleConfig('Banner', { variant, size })
+  const theme = useTheme()
+  const styles = useMultiStyleConfig('Banner', { variant: _variant, size })
+
+  // Required in case variant is set in theme, we should respect the one set in theme.
+  const variant = useMemo(
+    () => _variant ?? theme?.components?.Banner?.defaultProps?.size ?? 'info',
+    [_variant, theme?.components?.Banner?.defaultProps?.size],
+  )
 
   const iconToUse = useMemo(() => {
     if (iconProp) {
