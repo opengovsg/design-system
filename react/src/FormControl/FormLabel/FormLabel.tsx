@@ -24,15 +24,15 @@ export interface FormLabelProps extends ChakraFormLabelProps {
   /**
    * Question number to be prefixed before each label, if any.
    */
-  questionNumber?: string
+  questionNumber?: React.ReactNode
   /**
    * Tooltip text to be postfixed at the end of each label, if any.
    */
-  tooltipText?: string
+  tooltipText?: React.ReactNode
   /**
    * Description text to be shown below the label text, if any.
    */
-  description?: string
+  description?: React.ReactNode
   /**
    * Label text.
    */
@@ -107,9 +107,7 @@ export const FormLabel = ({
 FormLabel.displayName = 'FormLabel'
 FormLabel.Label = ChakraFormLabel
 
-interface FormLabelDescriptionProps extends TextProps {
-  children: string
-}
+interface FormLabelDescriptionProps extends TextProps {}
 const FormLabelDescription: FC<FormLabelDescriptionProps> = ({
   children,
   ...props
