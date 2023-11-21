@@ -13,6 +13,7 @@ import {
   differenceInCalendarMonths,
   isFirstDayOfMonth,
   isSameDay,
+  startOfDay,
 } from 'date-fns'
 import { Props as DayzedProps, RenderProps, useDayzed } from 'dayzed'
 import { inRange } from 'lodash'
@@ -85,6 +86,11 @@ type PassthroughProps = {
    * @default false
    */
   isCalendarFixedHeight?: boolean
+  /**
+   * Whether clicking the Today button should set the date on the input to today.
+   * @default false
+   */
+  shouldSetDateOnTodayButtonClick?: boolean
 }
 
 // Removed - and _ from alphabets for simpler classnames
@@ -163,6 +169,7 @@ const useProvideCalendar = ({
   defaultFocusedDate,
   showOutsideDays,
   isCalendarFixedHeight,
+  shouldSetDateOnTodayButtonClick,
 }: UseProvideCalendarProps) => {
   const isMobile = useIsMobile({ ssr })
   // Ensure that calculations are always made based on date of initial render,
@@ -216,7 +223,11 @@ const useProvideCalendar = ({
       ) as HTMLButtonElement | null
       elementToFocus?.focus()
     })
-  }, [classNameId])
+
+    if (shouldSetDateOnTodayButtonClick) {
+      onSelectDate?.(startOfDay(today))
+    }
+  }, [classNameId, onSelectDate, shouldSetDateOnTodayButtonClick])
 
   const updateMonthYear = useCallback(
     (newDate: Date) => {

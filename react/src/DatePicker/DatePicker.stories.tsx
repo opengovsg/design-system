@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
+import { userEvent, within } from '@storybook/testing-library'
 
 import { getMobileViewParameters, mockDateDecorator } from '~/utils/storybook'
 
@@ -20,6 +21,11 @@ export const Default = Template.bind({})
 export const DatePickerWithValue = Template.bind({})
 DatePickerWithValue.args = {
   defaultValue: new Date('2001-01-01'),
+}
+
+export const SelectTodayWhenTodayButtonClicked = Template.bind({})
+SelectTodayWhenTodayButtonClicked.args = {
+  shouldSetDateOnTodayButtonClick: true,
 }
 
 export const DatePickerInvalid = Template.bind({})

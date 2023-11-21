@@ -1,5 +1,6 @@
 import { useControllableState } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
+import { userEvent, within } from '@storybook/testing-library'
 import { isWeekend } from 'date-fns'
 
 import { mockDateDecorator } from '~/utils/storybook'
@@ -7,7 +8,7 @@ import { mockDateDecorator } from '~/utils/storybook'
 import { Calendar, CalendarProps } from './Calendar'
 
 export default {
-  title: 'Components/Calendar/Calendar',
+  title: 'Components/Calendar',
   component: Calendar,
   tags: ['autodocs'],
   decorators: [mockDateDecorator],
@@ -37,6 +38,16 @@ export const Default = CalendarOnlyTemplate.bind({})
 export const CalendarWithValue = CalendarOnlyTemplate.bind({})
 CalendarWithValue.args = {
   value: new Date('2001-01-01'),
+}
+
+export const SelectTodayWhenTodayButtonClicked = CalendarOnlyTemplate.bind({})
+SelectTodayWhenTodayButtonClicked.args = {
+  shouldSetDateOnTodayButtonClick: true,
+}
+SelectTodayWhenTodayButtonClicked.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const todayButton = canvas.getByText('Today')
+  userEvent.click(todayButton)
 }
 
 export const HideOutsideDays = CalendarOnlyTemplate.bind({})
