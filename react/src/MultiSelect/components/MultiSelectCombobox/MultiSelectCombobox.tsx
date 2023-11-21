@@ -1,5 +1,12 @@
-import { forwardRef, PropsWithChildren, useCallback } from 'react'
-import { Box, chakra, Flex, Icon, useMergeRefs } from '@chakra-ui/react'
+import { forwardRef, PropsWithChildren, useCallback, useMemo } from 'react'
+import {
+  Box,
+  chakra,
+  Flex,
+  Icon,
+  SystemStyleObject,
+  useMergeRefs,
+} from '@chakra-ui/react'
 
 import { BxsChevronDown, BxsChevronUp } from '~/icons'
 import { useSelectContext } from '~/SingleSelect'
@@ -10,7 +17,21 @@ import { SelectedItems } from './SelectedItems'
 
 const MultiItemsContainer = ({ children }: PropsWithChildren) => {
   const { styles } = useSelectContext()
-  return <Box sx={styles.itemContainer}>{children}</Box>
+  const { isStretchLayout } = useMultiSelectContext()
+
+  const containerStyles = useMemo(() => {
+    if (isStretchLayout)
+      return {
+        columnGap: '0',
+      }
+    return {}
+  }, [isStretchLayout])
+
+  return (
+    <Box __css={styles.itemContainer} {...containerStyles}>
+      {children}
+    </Box>
+  )
 }
 
 export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
@@ -23,6 +44,7 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
       isRequired,
       placeholder,
       setIsFocused,
+      isFocused,
       isOpen,
       toggleMenu,
       isInvalid,
@@ -31,7 +53,7 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
       getToggleButtonProps,
     } = useSelectContext()
 
-    const { getDropdownProps } = useMultiSelectContext()
+    const { getDropdownProps, selectedItems } = useMultiSelectContext()
 
     const mergedRefs = useMergeRefs(inputRef, ref)
 
@@ -56,6 +78,14 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
       [setIsFocused],
     )
 
+    const focusInputStyles: SystemStyleObject = useMemo(() => {
+      if (isFocused || selectedItems.length === 0) return {}
+      return {
+        width: 0,
+        padding: 0,
+        flex: 0,
+      }
+    }, [isFocused, selectedItems.length])
 
     return (
       <Flex
@@ -70,6 +100,7 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
           <chakra.input
             placeholder={placeholder}
             __css={styles.field}
+            {...focusInputStyles}
             {...getInputProps({
               ...getDropdownProps({
                 ref: mergedRefs,

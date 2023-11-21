@@ -72,6 +72,8 @@ const baseStyle = definePartsStyle((props) => {
       flexGrow: 1,
       width: 0,
       bg: 'transparent',
+      minW: '3.75rem',
+      px: '0.25rem',
       _disabled: {
         cursor: 'not-allowed',
       },
@@ -144,11 +146,6 @@ const sizes = {
         minH: SingleSelect.sizes?.xs.field?.h,
         h: 'auto',
       },
-      field: {
-        minW: '3.75rem',
-        px: '2px',
-        my: '2px',
-      },
     }),
   ),
   sm: definePartsStyle(
@@ -175,11 +172,6 @@ const sizes = {
         minH: SingleSelect.sizes?.sm.field?.h,
         h: 'auto',
       },
-      field: {
-        minW: '3.75rem',
-        px: '2px',
-        my: '2px',
-      },
     }),
   ),
   md: definePartsStyle(
@@ -205,11 +197,6 @@ const sizes = {
         p: '0.5rem',
         minH: SingleSelect.sizes?.md.field?.h,
         h: 'auto',
-      },
-      field: {
-        minW: '3.75rem',
-        px: '2px',
-        my: '2px',
       },
     }),
   ),
