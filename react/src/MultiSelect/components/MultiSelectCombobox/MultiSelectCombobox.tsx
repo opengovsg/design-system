@@ -73,6 +73,7 @@ export const MultiSelectCombobox = forwardRef<HTMLInputElement>(
               ...getDropdownProps({
                 ref: mergedRefs,
                 onFocus: () => setIsFocused(true),
+                onBlur: () => setIsFocused(false),
                 onKeyDown: handleInputTabKeydown,
                 readOnly: isReadOnly || !isSearchable,
                 disabled: isDisabled,
