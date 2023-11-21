@@ -196,7 +196,9 @@ const useProvideDateRangePicker = ({
     isDisabled: isDisabledProp,
     isReadOnly: isReadOnlyProp,
     isRequired: isRequiredProp,
-    ...props,
+    'aria-describedby': props['aria-describedby'],
+    onFocus: props.onFocus,
+    id: props.id,
   })
 
   const handleInputBlur: FocusEventHandler<HTMLInputElement> = useCallback(
