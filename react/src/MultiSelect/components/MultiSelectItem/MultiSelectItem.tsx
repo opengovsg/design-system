@@ -27,8 +27,12 @@ export const MultiSelectItem = ({
     styles,
     size,
   } = useSelectContext()
-  const { getSelectedItemProps, removeSelectedItem, colorScheme } =
-    useMultiSelectContext()
+  const {
+    getSelectedItemProps,
+    removeSelectedItem,
+    colorScheme,
+    isStretchLayout,
+  } = useMultiSelectContext()
 
   const itemMeta = useMemo(() => {
     return {
@@ -62,10 +66,18 @@ export const MultiSelectItem = ({
     [closeMenu, isDisabled, isOpen, isReadOnly, setIsFocused],
   )
 
+  const tagStyles = useMemo(() => {
+    if (!isStretchLayout) return styles.tag
+    return {
+      ...styles.tag,
+      width: '100%',
+    }
+  }, [isStretchLayout, styles.tag])
+
   return (
     <Tag
       title={itemMeta.label}
-      sx={styles.tag}
+      sx={tagStyles}
       size={size}
       colorScheme={colorScheme}
       {...getSelectedItemProps({

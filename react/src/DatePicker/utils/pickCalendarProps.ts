@@ -11,5 +11,6 @@ export const pickCalendarProps = (props: DatePickerProps) => {
     'defaultFocusedDate',
     'showOutsideDays',
     'showTodayButton',
+    'shouldSetDateOnTodayButtonClick',
   )
 }

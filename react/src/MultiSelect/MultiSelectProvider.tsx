@@ -66,6 +66,10 @@ export interface MultiSelectProviderProps<
   downshiftMultiSelectProps?: Partial<UseMultipleSelectionProps<Item>>
   colorScheme?: ThemingProps<'MultiSelect'>['colorScheme']
   fixedItemHeight?: number
+  /**
+   * If `true`, the selected items will take up the full width of the input container. Defaults to `false`.
+   */
+  isStretchLayout?: boolean
 }
 export const MultiSelectProvider = ({
   items: rawItems,
@@ -90,6 +94,7 @@ export const MultiSelectProvider = ({
   size: _size,
   colorScheme,
   fixedItemHeight,
+  isStretchLayout,
 }: MultiSelectProviderProps): JSX.Element => {
   const theme = useTheme()
   // Required in case size is set in theme, we should respect the one set in theme.
@@ -351,6 +356,7 @@ export const MultiSelectProvider = ({
           activeIndex,
           setActiveIndex,
           colorScheme,
+          isStretchLayout,
         }}
       >
         {children}

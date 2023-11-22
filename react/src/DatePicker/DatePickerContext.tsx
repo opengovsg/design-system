@@ -47,6 +47,8 @@ interface DatePickerContextReturn {
   colorScheme?: ThemingProps<'DatePicker'>['colorScheme']
   size?: ThemingProps<'DatePicker'>['size']
   disclosureProps: UseDisclosureReturn
+  inputElement?: React.ReactNode
+  innerRef?: React.Ref<HTMLElement>
   calendarProps: Pick<
     CalendarProps,
     | 'isCalendarFixedHeight'
@@ -55,16 +57,21 @@ interface DatePickerContextReturn {
     | 'defaultFocusedDate'
     | 'showOutsideDays'
     | 'showTodayButton'
+    | 'shouldSetDateOnTodayButtonClick'
   >
   inputPattern?: string
 }
 
 const DatePickerContext = createContext<DatePickerContextReturn | null>(null)
 
+interface DatePickerProviderProps extends DatePickerProps {
+  innerRef?: React.Ref<HTMLElement>
+}
+
 export const DatePickerProvider = ({
   children,
   ...props
-}: PropsWithChildren<DatePickerProps>) => {
+}: PropsWithChildren<DatePickerProviderProps>) => {
   const value = useProvideDatePicker(props)
   return (
     <DatePickerContext.Provider value={value}>
@@ -105,8 +112,10 @@ const useProvideDatePicker = ({
   ssr,
   size,
   experimental_forceIosNumberKeyboard,
+  inputElement,
+  innerRef,
   ...props
-}: DatePickerProps): DatePickerContextReturn => {
+}: DatePickerProviderProps): DatePickerContextReturn => {
   const initialFocusRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -155,7 +164,9 @@ const useProvideDatePicker = ({
     isDisabled: isDisabledProp,
     isReadOnly: isReadOnlyProp,
     isRequired: isRequiredProp,
-    ...props,
+    'aria-describedby': props['aria-describedby'],
+    onFocus: props.onFocus,
+    id: props.id,
   })
 
   const handleInputBlur: FocusEventHandler<HTMLInputElement> = useCallback(
@@ -266,5 +277,7 @@ const useProvideDatePicker = ({
     disclosureProps,
     calendarProps,
     inputPattern,
+    inputElement,
+    innerRef,
   }
 }

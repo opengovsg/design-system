@@ -1,20 +1,22 @@
-import { Box, Icon, Placement, TooltipProps, VStack } from '@chakra-ui/react'
+import { Box, Icon, Placement, VStack } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { BxsHelpCircle } from '~/icons/BxsHelpCircle'
 import { getMobileViewParameters } from '~/utils/storybook'
 
-import { Tooltip } from './Tooltip'
+import { TouchableTooltip, TouchableTooltipProps } from './Tooltip'
 
 export default {
-  title: 'Components/Tooltip',
-  component: Tooltip,
+  title: 'Components/TouchableTooltip',
+  component: TouchableTooltip,
   tags: ['autodocs'],
   decorators: [],
 } as Meta
 
-const TooltipStack = (
-  args: TooltipProps & { labels: { value: string; placement: Placement }[] },
+const TouchableTooltipStack = (
+  args: TouchableTooltipProps & {
+    labels: { value: string; placement: Placement }[]
+  },
 ): JSX.Element => {
   return (
     // bottom margin just so that story snapshot does not get cut off at bottom
@@ -22,22 +24,22 @@ const TooltipStack = (
       {args.labels.map(({ value, placement }, idx) => (
         <Box key={idx}>
           {value}
-          <Tooltip
+          <TouchableTooltip
             {...args}
             label="Tooltip content goes here"
             placement={placement}
           >
             <Icon as={BxsHelpCircle} aria-hidden ml="0.5rem" />
-          </Tooltip>
+          </TouchableTooltip>
         </Box>
       ))}
     </VStack>
   )
 }
 
-const Template: StoryFn<TooltipProps> = (args) => {
+const Template: StoryFn<TouchableTooltipProps> = (args) => {
   return (
-    <TooltipStack
+    <TouchableTooltipStack
       {...args}
       labels={[
         { value: 'Tooltip on the right', placement: 'right' },
@@ -51,16 +53,16 @@ const Template: StoryFn<TooltipProps> = (args) => {
     />
   )
 }
-export const TooltipOnHover = Template.bind({})
+export const OnHover = Template.bind({})
 
 export const OpenTooltip = Template.bind({})
 OpenTooltip.args = {
   isOpen: true,
 }
 
-const MobileTemplate: StoryFn<TooltipProps> = (args) => {
+const MobileTemplate: StoryFn<TouchableTooltipProps> = (args) => {
   return (
-    <TooltipStack
+    <TouchableTooltipStack
       {...args}
       labels={[
         { value: 'Right', placement: 'right' },
