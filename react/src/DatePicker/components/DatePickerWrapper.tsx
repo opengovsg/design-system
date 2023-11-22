@@ -21,7 +21,7 @@ export const DatePickerWrapper = ({ children }: PropsWithChildren) => {
   if (isMobile) {
     return (
       <Flex>
-        <DatePickerInput />
+        {inputToRender}
         {children}
       </Flex>
     )
