@@ -1,6 +1,5 @@
-import { Button, chakra, forwardRef, useMergeRefs } from '@chakra-ui/react'
+import { Button, forwardRef, useMergeRefs } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
-import { userEvent, within } from '@storybook/testing-library'
 
 import { getMobileViewParameters, mockDateDecorator } from '~/utils/storybook'
 
