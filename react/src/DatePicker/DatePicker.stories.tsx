@@ -68,12 +68,16 @@ SizeXs.args = {
 export const Mobile = Template.bind({})
 Mobile.parameters = getMobileViewParameters()
 
+// !!REQUIRES `forwardRef` to be set so Popover parent knows where to anchor to.
 const CustomInputButton = forwardRef<object, 'button'>((_props, ref) => {
-  const { inputRef, innerRef, disclosureProps } = useDatePicker()
-
+  const {
+    inputRef,
+    innerRef,
+    disclosureProps: { onOpen },
+  } = useDatePicker()
+  // !!Important to use forwarded ref so popover knows where to anchor to
   const refs = useMergeRefs(inputRef, innerRef, ref)
 
-  const { onOpen } = disclosureProps
   return (
     <Button ref={refs} onClick={onOpen}>
       please look at source code to see how to use custom elements
