@@ -47,6 +47,8 @@ interface DatePickerContextReturn {
   colorScheme?: ThemingProps<'DatePicker'>['colorScheme']
   size?: ThemingProps<'DatePicker'>['size']
   disclosureProps: UseDisclosureReturn
+  inputElement?: React.ReactNode
+  innerRef?: React.Ref<HTMLElement>
   calendarProps: Pick<
     CalendarProps,
     | 'isCalendarFixedHeight'
@@ -62,10 +64,14 @@ interface DatePickerContextReturn {
 
 const DatePickerContext = createContext<DatePickerContextReturn | null>(null)
 
+interface DatePickerProviderProps extends DatePickerProps {
+  innerRef?: React.Ref<HTMLElement>
+}
+
 export const DatePickerProvider = ({
   children,
   ...props
-}: PropsWithChildren<DatePickerProps>) => {
+}: PropsWithChildren<DatePickerProviderProps>) => {
   const value = useProvideDatePicker(props)
   return (
     <DatePickerContext.Provider value={value}>
@@ -106,8 +112,10 @@ const useProvideDatePicker = ({
   ssr,
   size,
   experimental_forceIosNumberKeyboard,
+  inputElement,
+  innerRef,
   ...props
-}: DatePickerProps): DatePickerContextReturn => {
+}: DatePickerProviderProps): DatePickerContextReturn => {
   const initialFocusRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -269,5 +277,7 @@ const useProvideDatePicker = ({
     disclosureProps,
     calendarProps,
     inputPattern,
+    inputElement,
+    innerRef,
   }
 }

@@ -1,9 +1,11 @@
+import { Button, chakra, forwardRef, useMergeRefs } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 import { userEvent, within } from '@storybook/testing-library'
 
 import { getMobileViewParameters, mockDateDecorator } from '~/utils/storybook'
 
 import { DatePicker, DatePickerProps } from './DatePicker'
+import { useDatePicker } from './DatePickerContext'
 
 export default {
   title: 'Components/DatePicker',
@@ -65,3 +67,25 @@ SizeXs.args = {
 
 export const Mobile = Template.bind({})
 Mobile.parameters = getMobileViewParameters()
+
+// !!REQUIRES `forwardRef` to be set so Popover parent knows where to anchor to.
+const CustomInputButton = forwardRef<object, 'button'>((_props, ref) => {
+  const {
+    inputRef,
+    innerRef,
+    disclosureProps: { onOpen },
+  } = useDatePicker()
+  // !!Important to use forwarded ref so popover knows where to anchor to
+  const refs = useMergeRefs(inputRef, innerRef, ref)
+
+  return (
+    <Button ref={refs} onClick={onOpen}>
+      please look at source code to see how to use custom elements
+    </Button>
+  )
+})
+
+export const CustomInput = Template.bind({})
+CustomInput.args = {
+  inputElement: <CustomInputButton />,
+}

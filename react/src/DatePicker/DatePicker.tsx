@@ -22,8 +22,8 @@ export interface DatePickerProps extends DatePickerBaseProps, CalendarProps {
 
 export const DatePicker = forwardRef<DatePickerProps, 'input'>((props, ref) => {
   return (
-    <DatePickerProvider {...props}>
-      <DatePickerWrapper ref={ref}>
+    <DatePickerProvider {...props} innerRef={ref}>
+      <DatePickerWrapper>
         <DatePickerContent>
           <DatePickerCalendar />
         </DatePickerContent>

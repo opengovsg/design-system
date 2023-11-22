@@ -28,9 +28,10 @@ export const DatePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
     internalValue,
     size,
     inputPattern,
+    innerRef,
   } = useDatePicker()
 
-  const mergedInputRef = useMergeRefs(inputRef, ref)
+  const mergedInputRef = useMergeRefs(inputRef, innerRef, ref)
 
   const selectedDateAriaLiveText = useMemo(() => {
     if (!internalValue) {
