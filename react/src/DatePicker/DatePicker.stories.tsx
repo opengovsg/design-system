@@ -78,7 +78,7 @@ const CustomInputButton = forwardRef<object, 'button'>((_props, ref) => {
   const refs = useMergeRefs(inputRef, innerRef, ref)
 
   return (
-    <Button ref={refs} onClick={onOpen}>
+    <Button ref={refs} onClick={onOpen} maxWidth="full">
       please look at source code to see how to use custom elements
     </Button>
   )
@@ -88,3 +88,9 @@ export const CustomInput = Template.bind({})
 CustomInput.args = {
   inputElement: <CustomInputButton />,
 }
+
+export const MobileCustomInput = Template.bind({})
+MobileCustomInput.args = {
+  inputElement: <CustomInputButton />,
+}
+MobileCustomInput.parameters = getMobileViewParameters()
