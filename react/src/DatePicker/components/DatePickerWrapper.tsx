@@ -1,28 +1,10 @@
 import { PropsWithChildren, useMemo } from 'react'
-import { Box, Flex, Popover, PopoverAnchor } from '@chakra-ui/react'
+import { Flex, Popover, PopoverAnchor } from '@chakra-ui/react'
 
 import { useDatePicker } from '../DatePickerContext'
 
 import { DatePickerInput } from './DatePickerInput'
-
-const DatePickerOverlay = () => {
-  const {
-    disclosureProps: { isOpen },
-  } = useDatePicker()
-
-  return (
-    <Box
-      position="fixed"
-      left="0px"
-      top="0px"
-      width="100vw"
-      height="$100vh"
-      display={isOpen ? 'block' : 'none'}
-      aria-hidden
-      bg="transparent"
-    />
-  )
-}
+import { DatePickerOverlay } from './DatePickerOverlay'
 
 export const DatePickerWrapper = ({ children }: PropsWithChildren) => {
   const {

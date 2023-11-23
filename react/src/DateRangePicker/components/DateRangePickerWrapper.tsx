@@ -3,6 +3,7 @@ import { Flex, forwardRef, Popover, PopoverAnchor } from '@chakra-ui/react'
 import { useDateRangePicker } from '../DateRangePickerContext'
 
 import { DateRangePickerInput } from './DateRangePickerInput'
+import { DateRangePickerOverlay } from './DateRangePickerOverlay'
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export const DateRangePickerWrapper = forwardRef<{}, 'input'>(
@@ -58,6 +59,7 @@ export const DateRangePickerWrapper = forwardRef<{}, 'input'>(
           </PopoverAnchor>
           {children}
         </Popover>
+        <DateRangePickerOverlay />
       </Flex>
     )
   },
