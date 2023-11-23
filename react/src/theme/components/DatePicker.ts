@@ -7,6 +7,7 @@ export const datepickerAnatomy = anatomy('datepicker').parts(
   'header',
   'inputButton',
   'container',
+  'calendarButton',
 )
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(datepickerAnatomy.keys)
@@ -33,6 +34,17 @@ export const DatePicker = defineMultiStyleConfig({
   baseStyle: {
     container: {
       bg: 'utility.ui',
+    },
+    calendarButton: {
+      _active: {
+        zIndex: '1',
+        borderColor: 'utility.focus-default',
+        bg: 'interaction.muted.main.hover',
+        boxShadow: 'none',
+        _disabled: {
+          bg: 'interaction.support.disabled',
+        },
+      },
     },
     header: {
       h: '3.5rem',

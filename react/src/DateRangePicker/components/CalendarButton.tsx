@@ -21,6 +21,7 @@ export const CalendarButton = (): JSX.Element => {
       aria-invalid={isInvalid}
       onClick={onOpen}
       variant="inputAttached"
+      sx={styles.calendarButton}
       aria-label={calendarButtonAria}
       icon={<Icon as={BxCalendar} sx={styles.inputButton} />}
       isActive={isOpen}

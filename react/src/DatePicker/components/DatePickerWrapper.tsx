@@ -4,6 +4,7 @@ import { Flex, Popover, PopoverAnchor } from '@chakra-ui/react'
 import { useDatePicker } from '../DatePickerContext'
 
 import { DatePickerInput } from './DatePickerInput'
+import { DatePickerOverlay } from './DatePickerOverlay'
 
 export const DatePickerWrapper = ({ children }: PropsWithChildren) => {
   const {
@@ -40,6 +41,7 @@ export const DatePickerWrapper = ({ children }: PropsWithChildren) => {
         <PopoverAnchor>{inputToRender}</PopoverAnchor>
         {children}
       </Popover>
+      <DatePickerOverlay />
     </Flex>
   )
 }
