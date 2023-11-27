@@ -136,12 +136,14 @@ export const RestrictedGovtMasthead = ({
         isOpen={isOpen}
         ariaControlId={ariaControlId}
       >
-        <RestrictedGovtMastheadIcon
-          aria-hidden
-          fontSize="1rem"
-          mr={{ base: '0.25rem', lg: '0.5rem' }}
-          my={{ base: '0px', md: '2px' }}
-        />
+        <Box aria-hidden>
+          <RestrictedGovtMastheadIcon
+            aria-hidden
+            fontSize="1rem"
+            mr={{ base: '0.25rem', lg: '0.5rem' }}
+            my={{ base: '0px', md: '2px' }}
+          />
+        </Box>
         <Flex alignItems="center" flexWrap="wrap">
           <Text textAlign="initial" my="2px">
             A Singapore Government Agency Website&ensp;
