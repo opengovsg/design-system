@@ -143,7 +143,9 @@ export const RestrictedGovtMasthead = ({
           my={{ base: '0px', md: '2px' }}
         />
         <Flex alignItems="center" flexWrap="wrap">
-          <Text my="2px">A Singapore Government Agency Website&ensp;</Text>
+          <Text textAlign="initial" my="2px">
+            A Singapore Government Agency Website&ensp;
+          </Text>
           <RestrictedHowToIdentify
             isOpen={isOpen}
             onToggle={onToggle}
