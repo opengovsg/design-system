@@ -19,7 +19,10 @@ import {
 } from './RestrictedFooterStyleProvider'
 
 interface RestrictedCompactFooterProps extends RestrictedFooterVariantProps {
-  /** Logo to display on the compact footer. Will use @param appName if not provided. */
+  /**
+   * Logo to display on the compact footer.
+   * Will use @param appName if not provided.
+   */
   brandLogo?: React.ReactNode
 }
 

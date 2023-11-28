@@ -1,9 +1,13 @@
+import { Image } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import {
   getMobileViewParameters,
   getTabletViewParameters,
 } from '~/utils/storybook'
+
+// @ts-expect-error png module
+import appImage from '../../.storybook/assets/restricted_ogp_logo.png'
 
 import { RestrictedFooterProps } from './common/types'
 import { RestrictedFooter } from './RestrictedFooter'
@@ -47,15 +51,18 @@ const Template: StoryFn<RestrictedFooterProps> = (args) => (
 )
 export const Default = Template.bind({})
 
+export const WithAppIcon = Template.bind({})
+WithAppIcon.args = {
+  appName: <Image src={appImage} />,
+}
+
 export const CompactVariant = Template.bind({})
 CompactVariant.args = {
-  ...DEFAULT_ARGS,
   variant: 'compact',
 }
 
 export const FullVariantDarkMode = Template.bind({})
 FullVariantDarkMode.args = {
-  ...DEFAULT_ARGS,
   colorMode: 'dark',
 }
 FullVariantDarkMode.parameters = {
@@ -73,7 +80,6 @@ CompactVariantDarkMode.parameters = {
 
 export const FullVariantWithTagline = Template.bind({})
 FullVariantWithTagline.args = {
-  ...DEFAULT_ARGS,
   tagline: `Helping to create consistent, accessible, highly usable, and delightful experiences for our public users`,
 }
 
