@@ -1,4 +1,4 @@
-import { Divider, Stack } from '@chakra-ui/react'
+import { Stack } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { getMobileViewParameters } from '~/utils/storybook'
