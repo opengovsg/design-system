@@ -23,8 +23,8 @@ export interface RestrictedFooterContainerProps extends FlexProps {
 }
 
 export interface RestrictedFooterVariantProps {
-  /** Application name to display in footer. */
-  appName: string
+  /** Application name to display in footer. Also accepts a ReactNode. */
+  appName: React.ReactNode
   /** Link when clicking on application name or logo. */
   appLink: string
   /** Tagline to display beside application name, if provided. */
