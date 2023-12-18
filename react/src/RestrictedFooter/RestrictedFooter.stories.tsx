@@ -1,4 +1,4 @@
-import { Image } from '@chakra-ui/react'
+import { HStack, Image, Text } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import {
@@ -53,7 +53,14 @@ export const Default = Template.bind({})
 
 export const WithAppIcon = Template.bind({})
 WithAppIcon.args = {
-  appName: <Image src={appImage} />,
+  appName: (
+    <HStack spacing="1rem">
+      <Image src={appImage} alt="Test image" height="24px" />
+      <Text textStyle="body-2" as="span">
+        Additional subtext
+      </Text>
+    </HStack>
+  ),
 }
 
 export const CompactVariant = Template.bind({})

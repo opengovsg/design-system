@@ -1,4 +1,4 @@
-import { Fragment, useMemo } from 'react'
+import { Fragment, isValidElement, useMemo } from 'react'
 import {
   Box,
   DarkMode,
@@ -60,7 +60,11 @@ export const RestrictedFullFooter = ({
                 isExternal
                 href={appLink}
               >
-                <Text textStyle="h4">{appName}</Text>
+                {isValidElement(appName) ? (
+                  appName
+                ) : (
+                  <Text textStyle="h4">{appName}</Text>
+                )}
               </Link>
               {tagline && (
                 <Text
