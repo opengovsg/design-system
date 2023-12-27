@@ -29,7 +29,7 @@ const baseStyle = definePartsStyle((props) => ({
 
 const fullDialogStyle: SystemStyleObject = {
   maxW: '100vw',
-  minH: '100vh',
+  minH: '$100vh',
   my: 0,
   borderRadius: 0,
 }
