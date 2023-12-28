@@ -6,5 +6,6 @@ const tokens = JSON.parse(fs.readFileSync('./tokens/tokens.json', 'utf8'))
 Object.keys(tokens).forEach((key) => {
   const token = tokens[key]
   const path = `./tokens/raw/${key}.json`
+  fs.mkdirSync('./tokens/raw', { recursive: true })
   fs.writeFileSync(path, JSON.stringify(token, null, 2), 'utf8')
 })
