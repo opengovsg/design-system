@@ -77,10 +77,14 @@ const TemplateGroup: StoryFn<BadgeProps> = (args) => (
     templateColumns="max-content max-content"
     alignItems="center"
   >
-    <Text>Main</Text>
+    <Text>main</Text>
     <Badge {...args} colorScheme="main" />
     <Text>secondary</Text>
     <Badge {...args} colorScheme="brand.secondary" />
+    <Text>sub</Text>
+    <Badge {...args} colorScheme="sub" />
+    <Text>info</Text>
+    <Badge {...args} colorScheme="info" />
     <Text>warning</Text>
     <Badge {...args} colorScheme="warning" />
     <Text>success</Text>

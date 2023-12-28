@@ -16,7 +16,9 @@ const variantSolid = defineStyle((props) => {
   const { colorScheme: c, theme } = props
 
   const solidBgTokenMap: Record<string, string> = {
-    main: 'utility.feedback.info',
+    main: 'interaction.main.default',
+    sub: 'interaction.sub.default',
+    info: 'utility.feedback.info',
     success: 'utility.feedback.success',
     warning: 'utility.feedback.warning',
     critical: 'utility.feedback.critical',
@@ -39,13 +41,15 @@ const variantSubtle = defineStyle((props) => {
   const subtleBgTokenMap: Record<string, string> = {
     main: 'interaction.main-subtle.default',
     sub: 'interaction.sub-subtle.default',
+    info: 'utility.feedback.info-subtle',
     success: 'utility.feedback.success-subtle',
     warning: 'utility.feedback.warning-subtle',
     critical: 'utility.feedback.critical-subtle',
   }
   const subtleColorTokenMap: Record<string, string> = {
-    main: 'utility.feedback.info',
+    main: 'interaction.main.default',
     sub: 'interaction.sub.default',
+    info: 'utility.feedback.info',
     success: 'utility.feedback.success',
     warning: 'base.content.default',
     critical: 'utility.feedback.critical',
@@ -62,7 +66,9 @@ const variantSubtle = defineStyle((props) => {
 
 const variantClear = defineStyle(({ colorScheme: c }) => {
   const clearIconColorTokenMap: Record<string, string> = {
-    main: 'utility.feedback.info',
+    main: 'interaction.main.default',
+    sub: 'interaction.sub.default',
+    info: 'utility.feedback.info',
     success: 'utility.feedback.success',
     warning: 'utility.feedback.warning',
     critical: 'utility.feedback.critical',
