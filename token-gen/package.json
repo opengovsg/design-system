@@ -4,7 +4,7 @@
   "description": "OGP Design System token generator",
   "scripts": {
     "prebuild": "rimraf tokens/raw/* tokens/transformed/*",
-    "transform": "node split.js && npx token-transformer tokens/raw --theme --themeOutputPath=tokens/transformed",
+    "transform": "node split.js && npx token-transformer tokens-generated/raw --theme --themeOutputPath=tokens-generated/transformed",
     "build": "npm run transform && node build.js",
     "postbuild": "npm run lint",
     "lint": "prettier . -c --write"
