@@ -51,7 +51,7 @@ const variantSubtle = defineStyle((props) => {
     sub: 'interaction.sub.default',
     info: 'utility.feedback.info',
     success: 'utility.feedback.success',
-    warning: 'base.content.default',
+    warning: 'yellow.700',
     critical: 'utility.feedback.critical',
   }
 
