@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 23 Jun 2023 09:14:33 GMT
+ * Generated on Thu, 28 Dec 2023 08:07:08 GMT
  */
 
 export const colors = {
@@ -30,16 +30,16 @@ export const colors = {
       '900': '#640000',
     },
     secondary: {
-      '50': '#F7F9FE',
-      '100': '#E7EFFC',
-      '200': '#ACC7FA',
-      '300': '#82ABF7',
-      '400': '#82ABF7',
-      '500': '#1361F0',
-      '600': '#0D4FCA',
-      '700': '#0B44AC',
-      '800': '#093890',
-      '900': '#072A69',
+      '50': '#F5FAFA',
+      '100': '#E2EEED',
+      '200': '#98CCC7',
+      '300': '#63B1AA',
+      '400': '#63B1AA',
+      '500': '#0F796F',
+      '600': '#0C5F57',
+      '700': '#0A524B',
+      '800': '#09463F',
+      '900': '#073430',
     },
   },
   blue: {
@@ -156,14 +156,14 @@ export const colors = {
       active: '#f78092',
     },
     sub: {
-      default: '#1361F0',
-      hover: '#0D4FCA',
-      active: '#0B44AC',
+      default: '#0F796F',
+      hover: '#0C5F57',
+      active: '#0A524B',
     },
     'sub-subtle': {
-      default: '#E7EFFC',
-      hover: '#ACC7FA',
-      active: '#82ABF7',
+      default: '#E2EEED',
+      hover: '#98CCC7',
+      active: '#63B1AA',
     },
     critical: {
       default: '#cb2e46',
@@ -201,9 +201,9 @@ export const colors = {
       active: '#454953',
     },
     'neutral-subtle': {
-      default: '#F8F9F9',
-      hover: '#EDEDED',
-      active: '#BFC2C8',
+      default: '#EDEDED',
+      hover: '#BFC2C8',
+      active: '#A0A4AD',
     },
     muted: {
       main: {
@@ -211,8 +211,8 @@ export const colors = {
         active: '#FDDCE1',
       },
       sub: {
-        hover: '#F7F9FE',
-        active: '#E7EFFC',
+        hover: '#F5FAFA',
+        active: '#E2EEED',
       },
       critical: {
         hover: '#fff8f9',
@@ -229,8 +229,8 @@ export const colors = {
         active: 'rgba(203, 46, 70, 0.12)',
       },
       sub: {
-        hover: 'rgba(19, 97, 240, 0.04)',
-        active: 'rgba(19, 97, 240, 0.12)',
+        hover: 'rgba(15, 121, 111, 0.04)',
+        active: 'rgba(15, 121, 111, 0.12)',
       },
       critical: {
         hover: 'rgba(203, 46, 70, 0.04)',
@@ -251,7 +251,7 @@ export const colors = {
       'unselected-strong': '#666C7A',
       disabled: '#EDEDED',
       'disabled-content': '#A0A4AD',
-      placeholder: '#A0A4AD',
+      placeholder: '#838894',
     },
     links: {
       default: '#cb2e46',
