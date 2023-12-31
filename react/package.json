@@ -43,7 +43,7 @@
     "dayzed": "^3.2.3",
     "downshift": "^7.2.0",
     "fuzzysort": "^2.0.1",
-    "inter-ui": "^3.19.3",
+    "inter-ui": "^4.0.1",
     "libphonenumber-js": "^1.9.44",
     "lodash": "^4.17.21",
     "nanoid": "^3.3.7",
