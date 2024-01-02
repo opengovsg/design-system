@@ -89,8 +89,8 @@ const TemplateGroup: StoryFn<BadgeProps> = (args) => (
     <Badge {...args} colorScheme="success" />
     <Text>critical</Text>
     <Badge {...args} colorScheme="critical" />
-    <Text>grey</Text>
-    <Badge {...args} colorScheme="grey" />
+    <Text>neutral</Text>
+    <Badge {...args} colorScheme="neutral" />
   </SimpleGrid>
 )
 

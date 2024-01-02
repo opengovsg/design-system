@@ -18,6 +18,7 @@ const variantSolid = defineStyle((props) => {
   const solidBgTokenMap: Record<string, string> = {
     main: 'interaction.main.default',
     sub: 'interaction.sub.default',
+    neutral: 'interaction.neutral.default',
     info: 'utility.feedback.info',
     success: 'utility.feedback.success',
     warning: 'utility.feedback.warning',
@@ -41,6 +42,7 @@ const variantSubtle = defineStyle((props) => {
   const subtleBgTokenMap: Record<string, string> = {
     main: 'interaction.main-subtle.default',
     sub: 'interaction.sub-subtle.default',
+    neutral: 'interaction.neutral-subtle.default',
     info: 'utility.feedback.info-subtle',
     success: 'utility.feedback.success-subtle',
     warning: 'utility.feedback.warning-subtle',
@@ -49,6 +51,7 @@ const variantSubtle = defineStyle((props) => {
   const subtleColorTokenMap: Record<string, string> = {
     main: 'interaction.main.default',
     sub: 'interaction.sub.default',
+    neutral: 'interaction.neutral.default',
     info: 'utility.feedback.info',
     success: 'utility.feedback.success',
     warning: 'yellow.700',
@@ -68,6 +71,7 @@ const variantClear = defineStyle(({ colorScheme: c }) => {
   const clearIconColorTokenMap: Record<string, string> = {
     main: 'interaction.main.default',
     sub: 'interaction.sub.default',
+    neutral: 'interaction.neutral.default',
     info: 'utility.feedback.info',
     success: 'utility.feedback.success',
     warning: 'utility.feedback.warning',
