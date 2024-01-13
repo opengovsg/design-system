@@ -1,7 +1,7 @@
-import { SimpleGrid, Text } from '@chakra-ui/react'
+import { SimpleGrid, Stack, Text } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
-import { BxsBank, BxsCircle, BxsHeart } from '~/icons'
+import { BxBulb, BxsBank, BxsCircle, BxsHeart } from '~/icons'
 
 import { Badge, BadgeLeftIcon, BadgeProps, BadgeRightIcon } from './Badge'
 
@@ -69,6 +69,19 @@ ClearWithIcon.args = {
   variant: 'clear',
   colorScheme: 'warning',
 }
+
+export const Sizes: StoryFn<BadgeProps> = () => (
+  <Stack spacing={8}>
+    <Badge>
+      <BadgeLeftIcon as={BxBulb} />
+      Small
+    </Badge>
+    <Badge size="xs">
+      <BadgeLeftIcon as={BxBulb} />
+      Extra Small
+    </Badge>
+  </Stack>
+)
 
 const TemplateGroup: StoryFn<BadgeProps> = (args) => (
   <SimpleGrid

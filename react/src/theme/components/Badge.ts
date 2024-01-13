@@ -6,9 +6,12 @@ import { getContrastColor } from '~/theme/utils/contrast'
 import { textStyles } from '../textStyles'
 
 const baseStyle = defineStyle({
-  ...textStyles['caption-1'],
   textTransform: 'initial',
+  width: 'fit-content',
   display: 'inline-flex',
+  py: '0.25rem',
+  px: '0.5rem',
+  borderRadius: 'base',
   alignItems: 'center',
 })
 
@@ -92,10 +95,11 @@ const variants = {
 }
 
 const sizes: Record<string, SystemStyleObject> = {
-  md: {
-    py: '0.25rem',
-    px: '0.5rem',
-    borderRadius: 'base',
+  xs: {
+    ...textStyles['legal'],
+  },
+  sm: {
+    ...textStyles['caption-1'],
   },
 }
 
@@ -105,7 +109,7 @@ export const Badge = {
   sizes,
   defaultProps: {
     variant: 'solid',
-    size: 'md',
+    size: 'sm',
     colorScheme: 'main',
   },
 }
