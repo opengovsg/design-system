@@ -1,15 +1,5 @@
 // For each theme in tokens/transformed directory, run Style Dictionary build.
-const {
-  camelCase,
-  groupBy,
-  get,
-  set,
-  isObject,
-  setWith,
-  has,
-  some,
-  omit,
-} = require('lodash')
+const { camelCase, isObject, omit } = require('lodash')
 const JSON5 = require('json5')
 const path = require('path')
 const fs = require('fs')
@@ -22,9 +12,9 @@ const {
   setFontFamily,
 } = require('./config/utils')
 
-const { fileHeader, formattedVariables } = StyleDictionary.formatHelpers
+const { fileHeader } = StyleDictionary.formatHelpers
 
-const designSystemFormatter = ({ dictionary, platform, options, file }) => {
+const designSystemFormatter = ({ dictionary, options, file }) => {
   // Recursively replace all nested objects with "value" key with the value of the "value" key.
   const replaceNestedObjects = (obj) => {
     Object.keys(obj).forEach((key) => {
@@ -186,7 +176,7 @@ StyleDictionary.registerTransform({
 
 function getStyleDictionaryConfig(src, name) {
   return {
-    source: [`tokens/transformed/${src}`],
+    source: [`tokens-generated/transformed/${src}`],
     platforms: {
       javascript: {
         transforms: [
@@ -273,7 +263,7 @@ function getStyleDictionaryConfig(src, name) {
 
 console.log('Build started...')
 
-const themes = fs.readdirSync('./tokens/transformed/')
+const themes = fs.readdirSync('./tokens-generated/transformed/')
 
 // Process each theme to its own theme directory.
 themes.map((themeAddr) => {
