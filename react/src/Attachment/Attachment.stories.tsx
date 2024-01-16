@@ -42,9 +42,7 @@ export const Default = Template.bind({})
 
 export const OnlyAcceptImages = Template.bind({})
 OnlyAcceptImages.args = {
-  accept: {
-    'image/*': [],
-  },
+  accept: ['image/*'],
 }
 
 export const ShowMaxSize = Template.bind({})
