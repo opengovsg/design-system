@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 23 Jun 2023 09:14:33 GMT
+ * Generated on Thu, 28 Dec 2023 08:07:08 GMT
  */
 
 export const colors = {
@@ -213,9 +213,9 @@ export const colors = {
       active: '#454953',
     },
     'neutral-subtle': {
-      default: '#F8F9F9',
-      hover: '#EDEDED',
-      active: '#BFC2C8',
+      default: '#EDEDED',
+      hover: '#BFC2C8',
+      active: '#A0A4AD',
     },
     muted: {
       main: {
@@ -263,7 +263,7 @@ export const colors = {
       'unselected-strong': '#666C7A',
       disabled: '#EDEDED',
       'disabled-content': '#A0A4AD',
-      placeholder: '#A0A4AD',
+      placeholder: '#838894',
     },
     links: {
       default: '#cf1a68',

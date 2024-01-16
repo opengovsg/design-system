@@ -1,0 +1,4 @@
+[submodule "token-gen/tokens"]
+	path = token-gen/tokens
+	url = https://github.com/opengovsg/design-tokens.git
+	branch = develop

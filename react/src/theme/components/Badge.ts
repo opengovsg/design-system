@@ -6,9 +6,12 @@ import { getContrastColor } from '~/theme/utils/contrast'
 import { textStyles } from '../textStyles'
 
 const baseStyle = defineStyle({
-  ...textStyles['caption-1'],
   textTransform: 'initial',
+  width: 'fit-content',
   display: 'inline-flex',
+  py: '0.25rem',
+  px: '0.5rem',
+  borderRadius: 'base',
   alignItems: 'center',
 })
 
@@ -16,7 +19,10 @@ const variantSolid = defineStyle((props) => {
   const { colorScheme: c, theme } = props
 
   const solidBgTokenMap: Record<string, string> = {
-    main: 'utility.feedback.info',
+    main: 'interaction.main.default',
+    sub: 'interaction.sub.default',
+    neutral: 'interaction.neutral.default',
+    info: 'utility.feedback.info',
     success: 'utility.feedback.success',
     warning: 'utility.feedback.warning',
     critical: 'utility.feedback.critical',
@@ -39,15 +45,19 @@ const variantSubtle = defineStyle((props) => {
   const subtleBgTokenMap: Record<string, string> = {
     main: 'interaction.main-subtle.default',
     sub: 'interaction.sub-subtle.default',
+    neutral: 'interaction.neutral-subtle.default',
+    info: 'utility.feedback.info-subtle',
     success: 'utility.feedback.success-subtle',
     warning: 'utility.feedback.warning-subtle',
     critical: 'utility.feedback.critical-subtle',
   }
   const subtleColorTokenMap: Record<string, string> = {
-    main: 'utility.feedback.info',
+    main: 'interaction.main.default',
     sub: 'interaction.sub.default',
+    neutral: 'interaction.neutral.default',
+    info: 'utility.feedback.info',
     success: 'utility.feedback.success',
-    warning: 'base.content.default',
+    warning: 'yellow.700',
     critical: 'utility.feedback.critical',
   }
 
@@ -62,7 +72,10 @@ const variantSubtle = defineStyle((props) => {
 
 const variantClear = defineStyle(({ colorScheme: c }) => {
   const clearIconColorTokenMap: Record<string, string> = {
-    main: 'utility.feedback.info',
+    main: 'interaction.main.default',
+    sub: 'interaction.sub.default',
+    neutral: 'interaction.neutral.default',
+    info: 'utility.feedback.info',
     success: 'utility.feedback.success',
     warning: 'utility.feedback.warning',
     critical: 'utility.feedback.critical',
@@ -82,10 +95,11 @@ const variants = {
 }
 
 const sizes: Record<string, SystemStyleObject> = {
-  md: {
-    py: '0.25rem',
-    px: '0.5rem',
-    borderRadius: 'base',
+  xs: {
+    ...textStyles['legal'],
+  },
+  sm: {
+    ...textStyles['caption-1'],
   },
 }
 
@@ -95,7 +109,7 @@ export const Badge = {
   sizes,
   defaultProps: {
     variant: 'solid',
-    size: 'md',
+    size: 'sm',
     colorScheme: 'main',
   },
 }

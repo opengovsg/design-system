@@ -1,7 +1,7 @@
-import { SimpleGrid, Text } from '@chakra-ui/react'
+import { SimpleGrid, Stack, Text } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
-import { BxsBank, BxsCircle, BxsHeart } from '~/icons'
+import { BxBulb, BxsBank, BxsCircle, BxsHeart } from '~/icons'
 
 import { Badge, BadgeLeftIcon, BadgeProps, BadgeRightIcon } from './Badge'
 
@@ -70,6 +70,19 @@ ClearWithIcon.args = {
   colorScheme: 'warning',
 }
 
+export const Sizes: StoryFn<BadgeProps> = () => (
+  <Stack spacing={8}>
+    <Badge>
+      <BadgeLeftIcon as={BxBulb} />
+      Small
+    </Badge>
+    <Badge size="xs">
+      <BadgeLeftIcon as={BxBulb} />
+      Extra Small
+    </Badge>
+  </Stack>
+)
+
 const TemplateGroup: StoryFn<BadgeProps> = (args) => (
   <SimpleGrid
     columns={2}
@@ -77,18 +90,20 @@ const TemplateGroup: StoryFn<BadgeProps> = (args) => (
     templateColumns="max-content max-content"
     alignItems="center"
   >
-    <Text>Main</Text>
+    <Text>main</Text>
     <Badge {...args} colorScheme="main" />
-    <Text>secondary</Text>
-    <Badge {...args} colorScheme="brand.secondary" />
+    <Text>sub</Text>
+    <Badge {...args} colorScheme="sub" />
+    <Text>info</Text>
+    <Badge {...args} colorScheme="info" />
     <Text>warning</Text>
     <Badge {...args} colorScheme="warning" />
     <Text>success</Text>
     <Badge {...args} colorScheme="success" />
     <Text>critical</Text>
     <Badge {...args} colorScheme="critical" />
-    <Text>grey</Text>
-    <Badge {...args} colorScheme="grey" />
+    <Text>neutral</Text>
+    <Badge {...args} colorScheme="neutral" />
   </SimpleGrid>
 )
 
