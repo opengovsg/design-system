@@ -23,6 +23,8 @@ export const Badge = (props: BadgeProps): JSX.Element => {
   )
 }
 
+Badge.displayName = 'Badge'
+
 export const BadgeLeftIcon = forwardRef<IconProps, 'svg'>((props, ref) => {
   const { styles } = useBadgeStyles()
   return (
