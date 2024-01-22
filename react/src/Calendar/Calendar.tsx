@@ -45,6 +45,8 @@ export interface CalendarProps
   defaultValue?: Date | null
   /** Function to determine whether a date should be made unavailable. */
   isDateUnavailable?: (d: Date) => boolean
+  /** Whether to render a loading state. */
+  isLoading?: boolean
   /** Color scheme for component */
   colorScheme?: ThemingProps<'Calendar'>['colorScheme']
 }
@@ -63,7 +65,6 @@ export const Calendar = forwardRef<CalendarProps, 'input'>(
     initialFocusRef,
   ) => {
     const styles = useMultiStyleConfig('Calendar', props)
-
     const [internalValue, setInternalValue] = useControllableState({
       value,
       onChange,

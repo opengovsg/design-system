@@ -31,6 +31,8 @@ export interface RangeCalendarProps extends CalendarBaseProps {
   onChange?: (value: DateRangeValue) => void
   /** The default selected date, used if input is uncontrolled */
   defaultValue?: DateRangeValue
+  /** Whether to render a loading state. */
+  isLoading?: boolean
 }
 
 export const RangeCalendar = forwardRef<RangeCalendarProps, 'input'>(

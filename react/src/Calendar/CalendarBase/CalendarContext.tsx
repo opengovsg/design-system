@@ -128,6 +128,7 @@ interface CalendarContextProps extends CalendarProps, PassthroughProps {
   selectedDates?: Date | DateRangeValue
   monthsToDisplay: Required<CalendarProps>['monthsToDisplay']
   isMobile: boolean
+  isLoading: boolean
 }
 
 const CalendarContext = createContext<CalendarContextProps | undefined>(
@@ -169,6 +170,7 @@ const useProvideCalendar = ({
   currYear,
   setCurrYear,
   isDateUnavailable,
+  isLoading = false,
   monthsToDisplay = 1,
   onMouseEnterHighlight,
   onMouseLeaveCalendar,
@@ -362,6 +364,7 @@ const useProvideCalendar = ({
     setCurrYear,
     renderProps,
     yearOptions,
+    isLoading,
     isDateUnavailable,
     selectedDates,
     onSelectDate,

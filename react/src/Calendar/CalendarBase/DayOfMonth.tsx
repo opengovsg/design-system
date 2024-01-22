@@ -4,6 +4,8 @@ import {
   chakra,
   Flex,
   forwardRef,
+  Skeleton,
+  SkeletonText,
   SystemStyleObject,
   useMultiStyleConfig,
   useToken,
@@ -40,6 +42,7 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
     ref,
   ) => {
     const {
+      isLoading,
       isDateUnavailable,
       isDateFocusable,
       onMouseEnterHighlight,
@@ -153,7 +156,7 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
           ref={ref}
           {...props}
         >
-          {date.getDate()}
+          {isLoading ? <Skeleton>{date.getDate()}</Skeleton> : date.getDate()}
         </chakra.button>
       </Flex>
     )

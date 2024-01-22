@@ -89,3 +89,8 @@ CalendarWithOnMonthYearChangeCallback.args = {
   onMonthChange: (month) => alert(`month changed to: ${month}`),
   onYearChange: (year) => alert(`year changed to: ${year}`),
 }
+
+export const Loading = CalendarOnlyTemplate.bind({})
+Loading.args = {
+  isLoading: true,
+}
