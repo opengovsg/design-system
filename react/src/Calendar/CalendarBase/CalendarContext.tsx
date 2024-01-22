@@ -5,7 +5,6 @@ import {
   useCallback,
   useContext,
   useMemo,
-  useState,
 } from 'react'
 import { ThemingProps } from '@chakra-ui/react'
 import {
@@ -105,6 +104,14 @@ export interface UseProvideCalendarProps
     WithSsr {
   /** The date to focus when calendar first renders. */
   defaultFocusedDate?: Date
+  /** The current viewed month. */
+  currMonth: number
+  setCurrMonth: Dispatch<SetStateAction<number>>
+  /** The current viewed year. */
+  currYear: number
+  setCurrYear: Dispatch<SetStateAction<number>>
+  /** Whether to render in a loading state */
+  isLoading?: boolean
 }
 
 interface CalendarContextProps extends CalendarProps, PassthroughProps {
@@ -157,6 +164,10 @@ export const useCalendar = (): CalendarContextProps => {
 const useProvideCalendar = ({
   selectedDates,
   onSelectDate,
+  currMonth,
+  setCurrMonth,
+  currYear,
+  setCurrYear,
   isDateUnavailable,
   monthsToDisplay = 1,
   onMouseEnterHighlight,
@@ -189,8 +200,6 @@ const useProvideCalendar = ({
 
     return defaultFocusedDate ?? today
   }, [today, selectedDates, defaultFocusedDate])
-  const [currMonth, setCurrMonth] = useState<number>(dateToFocus.getMonth())
-  const [currYear, setCurrYear] = useState<number>(dateToFocus.getFullYear())
 
   /**
    * Updates the current year and month when the forward/back arrows are clicked.
@@ -203,7 +212,7 @@ const useProvideCalendar = ({
       setCurrYear(newDate.getFullYear())
       setCurrMonth(newDate.getMonth())
     },
-    [today],
+    [setCurrMonth, setCurrYear, today],
   )
 
   /**
@@ -227,7 +236,13 @@ const useProvideCalendar = ({
     if (shouldSetDateOnTodayButtonClick) {
       onSelectDate?.(startOfDay(today))
     }
-  }, [classNameId, onSelectDate, shouldSetDateOnTodayButtonClick])
+  }, [
+    classNameId,
+    onSelectDate,
+    setCurrMonth,
+    setCurrYear,
+    shouldSetDateOnTodayButtonClick,
+  ])
 
   const updateMonthYear = useCallback(
     (newDate: Date) => {
@@ -240,7 +255,7 @@ const useProvideCalendar = ({
         setCurrYear(newDate.getFullYear())
       }
     },
-    [currMonth, currYear, monthsToDisplay],
+    [currMonth, currYear, monthsToDisplay, setCurrMonth, setCurrYear],
   )
 
   /**

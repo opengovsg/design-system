@@ -31,6 +31,16 @@ export interface CalendarProps
    * @param {Date | null} date The new selected date.
    */
   onChange?: (date: Date | null) => void
+  /**
+   * Callback fired when the currently viewed month changes.
+   * @param {number} currMonth The new month being viewed.
+   */
+  onMonthChange?: (currMonth: number) => void
+  /**
+   * Callback fired when the currently viewed year changes.
+   * @param {number} currYear The new year being viewed.
+   */
+  onYearChange?: (currYear: number) => void
   /** The default selected date, used if input is uncontrolled */
   defaultValue?: Date | null
   /** Function to determine whether a date should be made unavailable. */
@@ -41,7 +51,15 @@ export interface CalendarProps
 
 export const Calendar = forwardRef<CalendarProps, 'input'>(
   (
-    { value, onChange, defaultValue, showTodayButton = true, ...props },
+    {
+      value,
+      onChange,
+      onMonthChange,
+      onYearChange,
+      defaultValue,
+      showTodayButton = true,
+      ...props
+    },
     initialFocusRef,
   ) => {
     const styles = useMultiStyleConfig('Calendar', props)
@@ -49,7 +67,19 @@ export const Calendar = forwardRef<CalendarProps, 'input'>(
     const [internalValue, setInternalValue] = useControllableState({
       value,
       onChange,
-      defaultValue,
+      defaultValue: defaultValue,
+    })
+
+    const [currMonth, setCurrMonth] = useControllableState<number>({
+      defaultValue:
+        props.defaultFocusedDate?.getMonth() ?? new Date().getMonth(),
+      onChange: onMonthChange,
+    })
+
+    const [currYear, setCurrYear] = useControllableState<number>({
+      defaultValue:
+        props.defaultFocusedDate?.getFullYear() ?? new Date().getFullYear(),
+      onChange: onYearChange,
     })
 
     return (
@@ -57,6 +87,10 @@ export const Calendar = forwardRef<CalendarProps, 'input'>(
         {...props}
         selectedDates={internalValue ?? undefined}
         onSelectDate={setInternalValue}
+        currMonth={currMonth}
+        setCurrMonth={setCurrMonth}
+        currYear={currYear}
+        setCurrYear={setCurrYear}
       >
         <CalendarStylesProvider value={styles}>
           <CalendarAria />
