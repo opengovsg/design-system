@@ -1,5 +1,6 @@
 import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
 import { anatomy, StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
 import { textStyles } from '../textStyles'
@@ -62,6 +63,12 @@ const baseDayOfMonthStyles = defineStyle((props) => {
   const { color, activeBg, borderColor, activeColor, hoverBg, selectedBg } =
     getDayOfMonthColors(props)
 
+  const focusRingStyle = get(
+    props.theme,
+    'layerStyles.focusRing.default._focusVisible',
+    layerStyles.focusRing.default._focusVisible,
+  )
+
   return {
     display: 'inline-block',
     borderRadius: '50%',
@@ -79,9 +86,7 @@ const baseDayOfMonthStyles = defineStyle((props) => {
     _selected: {
       bg: selectedBg,
     },
-    _focus: {
-      ...layerStyles.focusRing.default._focusVisible,
-    },
+    _focus: focusRingStyle,
     _disabled: {
       _hover: {
         bg: hoverBg,
@@ -199,54 +204,60 @@ const monthYearDisplayStyles = defineStyle({
   py: '0.25rem',
 })
 
-const baseStyle = definePartsStyle((props) => ({
-  container: {
-    display: 'inline-block',
-  },
-  monthYearSelectorContainer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  monthYearSelect: {
-    ...monthYearDisplayStyles,
-    borderColor: 'transparent',
-    cursor: 'pointer',
-    _hover: {
+const baseStyle = definePartsStyle((props) => {
+  const focusRingStyle = get(
+    props.theme,
+    'layerStyles.focusRing.default._focusVisible',
+    layerStyles.focusRing.default._focusVisible,
+  )
+
+  return {
+    container: {
+      display: 'inline-block',
+    },
+    monthYearSelectorContainer: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    monthYearSelect: {
+      ...monthYearDisplayStyles,
       borderColor: 'transparent',
+      cursor: 'pointer',
+      _hover: {
+        borderColor: 'transparent',
+      },
+      _focusVisible: focusRingStyle,
     },
-    _focusVisible: {
-      ...layerStyles.focusRing.default._focusVisible,
+    monthYearDisplay: monthYearDisplayStyles,
+    monthYearDropdownContainer: {
+      display: 'flex',
+      justifyContent: 'flex-start',
     },
-  },
-  monthYearDisplay: monthYearDisplayStyles,
-  monthYearDropdownContainer: {
-    display: 'flex',
-    justifyContent: 'flex-start',
-  },
-  monthArrowContainer: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
-  calendarContainer: {
-    display: {
-      base: 'block',
-      md: 'flex',
+    monthArrowContainer: {
+      display: 'flex',
+      justifyContent: 'flex-end',
     },
-  },
-  monthGrid: {
-    w: '100%',
-    justifyItems: 'left',
-  },
-  dayNamesContainer: {
-    color: 'base.content.default',
-  },
-  dayOfMonthContainer: baseDayOfMonthContainerStyles,
-  dayOfMonth: baseDayOfMonthStyles(props),
-  todayLinkContainer: {
-    textAlign: 'center',
-  },
-}))
+    calendarContainer: {
+      display: {
+        base: 'block',
+        md: 'flex',
+      },
+    },
+    monthGrid: {
+      w: '100%',
+      justifyItems: 'left',
+    },
+    dayNamesContainer: {
+      color: 'base.content.default',
+    },
+    dayOfMonthContainer: baseDayOfMonthContainerStyles,
+    dayOfMonth: baseDayOfMonthStyles(props),
+    todayLinkContainer: {
+      textAlign: 'center',
+    },
+  }
+})
 
 export const Calendar = defineMultiStyleConfig({
   baseStyle,

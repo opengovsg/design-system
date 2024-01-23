@@ -1,5 +1,6 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 import { cssVar } from '@chakra-ui/theme-tools'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
 
@@ -22,11 +23,19 @@ const sizes = {
   }),
 }
 
-const baseStyle = defineStyle({
-  p: 0,
-  _focusVisible: layerStyles.focusRing.default._focusVisible,
-  w: [$size.reference],
-  h: [$size.reference],
+const baseStyle = defineStyle(({ theme }) => {
+  const focusRingStyle = get(
+    theme,
+    'layerStyles.focusRing.default._focusVisible',
+    layerStyles.focusRing.default._focusVisible,
+  )
+
+  return {
+    p: 0,
+    _focusVisible: focusRingStyle,
+    w: [$size.reference],
+    h: [$size.reference],
+  }
 })
 
 const variantClear = defineStyle((props) => {

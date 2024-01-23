@@ -1,5 +1,6 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 import { getColor, StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { memoizedGet as get } from '@chakra-ui/utils'
 import { merge } from 'lodash'
 
 import { layerStyles } from '../layerStyles'
@@ -266,22 +267,29 @@ const variants = {
   inputAttached: variantInputAttached,
 }
 
-const baseStyle = defineStyle({
-  ...textStyles['subhead-1'],
-  whiteSpace: 'pre-wrap',
-  borderRadius: 'base',
-  border: '1px solid',
-  flexShrink: 0,
-  // -1px for border
-  px: '15px',
-  py: '9px',
-  _disabled: {
-    bg: 'interaction.support.disabled',
-    borderColor: 'interaction.support.disabled',
-    opacity: 1,
-    color: 'interaction.support.disabled-content',
-  },
-  ...layerStyles.focusRing.default,
+const baseStyle = defineStyle(({ theme }) => {
+  const focusRingStyle = get(
+    theme,
+    'layerStyles.focusRing.default',
+    layerStyles.focusRing.default,
+  )
+  return {
+    ...textStyles['subhead-1'],
+    whiteSpace: 'pre-wrap',
+    borderRadius: 'base',
+    border: '1px solid',
+    flexShrink: 0,
+    // -1px for border
+    px: '15px',
+    py: '9px',
+    _disabled: {
+      bg: 'interaction.support.disabled',
+      borderColor: 'interaction.support.disabled',
+      opacity: 1,
+      color: 'interaction.support.disabled-content',
+    },
+    ...focusRingStyle,
+  }
 })
 
 const sizes = {
