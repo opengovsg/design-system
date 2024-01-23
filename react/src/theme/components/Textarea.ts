@@ -3,20 +3,26 @@ import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 import { Input } from './Input'
 
 const sizes = {
-  xs: defineStyle({
-    ...Input.sizes?.xs.field,
-    px: '0.75rem',
-    py: '0.5rem',
+  xs: defineStyle((props) => {
+    return {
+      ...Input.sizes?.xs(props).field,
+      px: '0.75rem',
+      py: '0.5rem',
+    }
   }),
-  sm: defineStyle({
-    ...Input.sizes?.sm.field,
-    px: '0.75rem',
-    py: '0.625rem',
+  sm: defineStyle((props) => {
+    return {
+      ...Input.sizes?.sm(props).field,
+      px: '0.75rem',
+      py: '0.625rem',
+    }
   }),
-  md: defineStyle({
-    ...Input.sizes?.md.field,
-    px: '1rem',
-    py: '0.625rem',
+  md: defineStyle((props) => {
+    return {
+      ...Input.sizes?.md(props).field,
+      px: '1rem',
+      py: '0.625rem',
+    }
   }),
 }
 

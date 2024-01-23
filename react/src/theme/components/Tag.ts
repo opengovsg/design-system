@@ -7,7 +7,6 @@ import {
 import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
-import { textStyles } from '../textStyles'
 
 import { Badge } from './Badge'
 
@@ -75,62 +74,71 @@ const baseStyle = definePartsStyle((props) => {
 })
 
 const sizes = {
-  xs: definePartsStyle({
-    container: {
-      ...textStyles['caption-1'],
-      px: '0.5rem',
-      py: '0.125rem',
-    },
-    label: textStyles['caption-1'],
-    icon: {
-      fontSize: '0.875rem',
-      marginStart: '0.125rem',
-      marginEnd: '0.125rem',
-      height: '1rem',
-    },
-    closeButton: {
-      fontSize: '0.875rem',
-      marginStart: '0.125rem',
-      height: '1rem',
-    },
+  xs: definePartsStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      container: {
+        ...themeTextStyles['caption-1'],
+        px: '0.5rem',
+        py: '0.125rem',
+      },
+      label: themeTextStyles['caption-1'],
+      icon: {
+        fontSize: '0.875rem',
+        marginStart: '0.125rem',
+        marginEnd: '0.125rem',
+        height: '1rem',
+      },
+      closeButton: {
+        fontSize: '0.875rem',
+        marginStart: '0.125rem',
+        height: '1rem',
+      },
+    }
   }),
-  sm: definePartsStyle({
-    container: {
-      ...textStyles['body-2'],
-      px: '0.5rem',
-      py: '0.125rem',
-    },
-    label: textStyles['body-2'],
-    icon: {
-      fontSize: '1.125rem',
-      marginStart: '0.25rem',
-      marginEnd: '0.25rem',
-      height: '1.25rem',
-    },
-    closeButton: {
-      fontSize: '1.125rem',
-      marginStart: '0.25rem',
-      height: '1.25rem',
-    },
+  sm: definePartsStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      container: {
+        ...themeTextStyles['body-2'],
+        px: '0.5rem',
+        py: '0.125rem',
+      },
+      label: themeTextStyles['body-2'],
+      icon: {
+        fontSize: '1.125rem',
+        marginStart: '0.25rem',
+        marginEnd: '0.25rem',
+        height: '1.25rem',
+      },
+      closeButton: {
+        fontSize: '1.125rem',
+        marginStart: '0.25rem',
+        height: '1.25rem',
+      },
+    }
   }),
-  md: definePartsStyle({
-    container: {
-      ...textStyles['subhead-2'],
-      px: '0.5rem',
-      py: '0.25rem',
-    },
-    label: textStyles['subhead-2'],
-    closeButton: {
-      fontSize: '1.125rem',
-      marginStart: '0.25rem',
-      height: '1.25rem',
-    },
-    icon: {
-      fontSize: '1.125rem',
-      marginStart: '0.25rem',
-      marginEnd: '0.25rem',
-      height: '1.25rem',
-    },
+  md: definePartsStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      container: {
+        ...themeTextStyles['subhead-2'],
+        px: '0.5rem',
+        py: '0.25rem',
+      },
+      label: themeTextStyles['subhead-2'],
+      closeButton: {
+        fontSize: '1.125rem',
+        marginStart: '0.25rem',
+        height: '1.25rem',
+      },
+      icon: {
+        fontSize: '1.125rem',
+        marginStart: '0.25rem',
+        marginEnd: '0.25rem',
+        height: '1.25rem',
+      },
+    }
   }),
 }
 

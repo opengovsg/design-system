@@ -103,44 +103,50 @@ const variants = {
 }
 
 const sizes = {
-  xs: definePartsStyle({
-    item: Menu.sizes?.sm.item,
-    emptyItem: Menu.sizes?.sm.item,
-    field: Input.sizes?.xs.field,
-    icon: {
-      fontSize: '1rem',
-    },
-    selected: {
-      pl: 'calc(0.75rem + 1px)',
-      pr: 'calc(2.5rem + 1px)',
-      textStyle: 'body-2',
-    },
+  xs: definePartsStyle((props) => {
+    return {
+      item: Menu.sizes?.sm.item,
+      emptyItem: Menu.sizes?.sm.item,
+      field: Input.sizes?.xs(props).field,
+      icon: {
+        fontSize: '1rem',
+      },
+      selected: {
+        pl: 'calc(0.75rem + 1px)',
+        pr: 'calc(2.5rem + 1px)',
+        textStyle: 'body-2',
+      },
+    }
   }),
-  sm: definePartsStyle({
-    item: Menu.sizes?.sm.item,
-    emptyItem: Menu.sizes?.sm.item,
-    field: Input.sizes?.sm.field,
-    icon: {
-      fontSize: '1rem',
-    },
-    selected: {
-      pl: 'calc(0.75rem + 1px)',
-      pr: 'calc(2.5rem + 1px)',
-      textStyle: 'body-2',
-    },
+  sm: definePartsStyle((props) => {
+    return {
+      item: Menu.sizes?.sm.item,
+      emptyItem: Menu.sizes?.sm.item,
+      field: Input.sizes?.sm(props).field,
+      icon: {
+        fontSize: '1rem',
+      },
+      selected: {
+        pl: 'calc(0.75rem + 1px)',
+        pr: 'calc(2.5rem + 1px)',
+        textStyle: 'body-2',
+      },
+    }
   }),
-  md: definePartsStyle({
-    icon: {
-      fontSize: '1.25rem',
-    },
-    item: Menu.sizes?.md?.item,
-    emptyItem: Menu.sizes?.md?.item,
-    field: Input.sizes?.md.field,
-    selected: {
-      pl: 'calc(1rem + 1px)',
-      pr: 'calc(2.75rem + 1px)',
-      textStyle: 'body-1',
-    },
+  md: definePartsStyle((props) => {
+    return {
+      icon: {
+        fontSize: '1.25rem',
+      },
+      item: Menu.sizes?.md?.item,
+      emptyItem: Menu.sizes?.md?.item,
+      field: Input.sizes?.md(props).field,
+      selected: {
+        pl: 'calc(1rem + 1px)',
+        pr: 'calc(2.75rem + 1px)',
+        textStyle: 'body-1',
+      },
+    }
   }),
 }
 

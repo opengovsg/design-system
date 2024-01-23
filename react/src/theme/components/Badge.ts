@@ -1,9 +1,8 @@
 import { defineStyle } from '@chakra-ui/react'
-import { getColor, SystemStyleObject } from '@chakra-ui/theme-tools'
+import { getColor } from '@chakra-ui/theme-tools'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { getContrastColor } from '~/theme/utils/contrast'
-
-import { textStyles } from '../textStyles'
 
 const baseStyle = defineStyle({
   textTransform: 'initial',
@@ -70,7 +69,9 @@ const variantSubtle = defineStyle((props) => {
   }
 })
 
-const variantClear = defineStyle(({ colorScheme: c }) => {
+const variantClear = defineStyle(({ theme, colorScheme: c }) => {
+  const themeTextStyles = get(theme, 'textStyles')
+
   const clearIconColorTokenMap: Record<string, string> = {
     main: 'interaction.main.default',
     sub: 'interaction.sub.default',
@@ -82,7 +83,7 @@ const variantClear = defineStyle(({ colorScheme: c }) => {
   }
 
   return {
-    ...textStyles['body-2'],
+    ...themeTextStyles['body-2'],
     color: 'base.content.default',
     accentColor: clearIconColorTokenMap[c] ?? `${c}.500`,
   }
@@ -94,13 +95,20 @@ const variants = {
   clear: variantClear,
 }
 
-const sizes: Record<string, SystemStyleObject> = {
-  xs: {
-    ...textStyles['legal'],
-  },
-  sm: {
-    ...textStyles['caption-1'],
-  },
+const sizes = {
+  xs: defineStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+
+    return {
+      ...themeTextStyles['legal'],
+    }
+  }),
+  sm: defineStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      ...themeTextStyles['caption-1'],
+    }
+  }),
 }
 
 export const Badge = {

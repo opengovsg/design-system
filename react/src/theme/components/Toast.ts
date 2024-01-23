@@ -3,33 +3,35 @@ import {
   createMultiStyleConfigHelpers,
   StyleFunctionProps,
 } from '@chakra-ui/react'
-
-import { textStyles } from '../textStyles'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 const parts = alertAnatomy.extend('close', 'content', 'wrapper')
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)
 
-const baseStyle = definePartsStyle({
-  title: textStyles['subhead-1'],
-  description: {
-    textStyle: 'body-1',
-  },
-  icon: {
-    position: 'absolute',
-  },
-  wrapper: {
-    borderRadius: 'base',
-    boxSizing: 'border-box',
-  },
-  container: {
-    borderRadius: 'base',
-    background: 'inherit',
-  },
-  close: {
-    position: 'absolute',
-  },
+const baseStyle = definePartsStyle(({ theme }) => {
+  const themeTextStyles = get(theme, 'textStyles')
+  return {
+    title: themeTextStyles['subhead-1'],
+    description: {
+      textStyle: 'body-1',
+    },
+    icon: {
+      position: 'absolute',
+    },
+    wrapper: {
+      borderRadius: 'base',
+      boxSizing: 'border-box',
+    },
+    container: {
+      borderRadius: 'base',
+      background: 'inherit',
+    },
+    close: {
+      position: 'absolute',
+    },
+  }
 })
 
 const sizes = {

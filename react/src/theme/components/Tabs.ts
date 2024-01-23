@@ -4,7 +4,6 @@ import type { StyleFunctionProps } from '@chakra-ui/theme-tools'
 import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
-import { textStyles } from '../textStyles'
 
 const $fg = cssVar('tabs-color')
 const $bg = cssVar('tabs-bg')
@@ -62,6 +61,8 @@ const variantLine = definePartsStyle((props) => {
     layerStyles.focusRing.inverse._focusVisible,
   )
 
+  const themeTextStyles = get(props.theme, 'textStyles')
+
   return {
     tablist: {
       [borderProp]: '2px solid',
@@ -88,7 +89,7 @@ const variantLine = definePartsStyle((props) => {
         _hover: {
           borderColor: 'currentColor',
         },
-        ...textStyles['subhead-3'],
+        ...themeTextStyles['subhead-3'],
       },
       _active: {
         [$bg.variable]: `colors.${activeBg}`,
@@ -112,27 +113,33 @@ const variantLine = definePartsStyle((props) => {
 })
 
 const sizes = {
-  sm: definePartsStyle(({ orientation }) => ({
-    tablist: {
-      gap: orientation === 'vertical' ? 0 : '2rem',
-    },
-    tab: {
-      px: orientation === 'vertical' ? '2rem' : 0,
-      py: orientation === 'vertical' ? '1.125rem' : '0.25rem',
-      ...textStyles['body-2'],
-    },
-  })),
-  md: definePartsStyle(({ orientation }) => ({
-    tablist: {
-      gap: orientation === 'vertical' ? 0 : '2rem',
-    },
-    tab: {
-      px: orientation === 'vertical' ? '1.5rem' : 0,
-      py: orientation === 'vertical' ? '1rem' : '0.25rem',
-      mx: '0.25rem',
-      ...textStyles['subhead-3'],
-    },
-  })),
+  sm: definePartsStyle(({ orientation, theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      tablist: {
+        gap: orientation === 'vertical' ? 0 : '2rem',
+      },
+      tab: {
+        px: orientation === 'vertical' ? '2rem' : 0,
+        py: orientation === 'vertical' ? '1.125rem' : '0.25rem',
+        ...themeTextStyles['body-2'],
+      },
+    }
+  }),
+  md: definePartsStyle(({ orientation, theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      tablist: {
+        gap: orientation === 'vertical' ? 0 : '2rem',
+      },
+      tab: {
+        px: orientation === 'vertical' ? '1.5rem' : 0,
+        py: orientation === 'vertical' ? '1rem' : '0.25rem',
+        mx: '0.25rem',
+        ...themeTextStyles['subhead-3'],
+      },
+    }
+  }),
 }
 
 const baseStyle = definePartsStyle(({ orientation }) => {

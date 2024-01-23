@@ -3,7 +3,6 @@ import { anatomy, StyleFunctionProps } from '@chakra-ui/theme-tools'
 import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
-import { textStyles } from '../textStyles'
 
 const parts = anatomy('calendar').parts(
   'container', // overall container
@@ -105,71 +104,36 @@ const baseDayOfMonthStyles = defineStyle((props) => {
 // Both sizes have the same styles for now.
 // Declared here since datepicker has xs styling, but calendar does not.
 // This allows datepicker's calendar to have sm styling in both xs and sm sizes.
-const xsSmStyle = definePartsStyle({
-  dayOfMonth: {
-    textStyle: 'body-2',
-    p: '0.25rem',
-    aspectRatio: '1 / 1',
-    w: '2.5rem',
-    minW: '2.5rem',
-  },
-  fillerRow: {
-    height: '2.75rem',
-  },
-  dayNamesContainer: {
-    textStyle: 'caption-1',
-    color: 'base.content.default',
-    w: '2.5rem',
-    minW: '2.5rem',
-    h: '2.25rem',
-  },
-  monthYearSelectorContainer: {
-    h: '3rem',
-  },
-  monthYearSelect: {
-    pl: '1rem',
-    ...textStyles['subhead-2'],
-  },
-  monthYearDisplay: {
-    ...textStyles['subhead-2'],
-    pl: '1rem',
-  },
-  calendarContainer: {
-    pb: '1rem',
-    px: '0.5rem',
-    mb: '-1px',
-  },
-  todayLinkContainer: {
-    py: '0.5rem',
-  },
-  todayLink: {
-    textStyle: 'body-2',
-    ...textStyles['body-2'],
-  },
-})
+const xsSmStyle = definePartsStyle(({ theme }) => {
+  const themeTextStyles = get(theme, 'textStyles')
 
-const sizes = {
-  xs: xsSmStyle,
-  sm: xsSmStyle,
-  md: definePartsStyle({
+  return {
     dayOfMonth: {
-      textStyle: 'body-1',
+      textStyle: 'body-2',
       p: '0.25rem',
       aspectRatio: '1 / 1',
-      w: '2.75rem',
-      minW: '2.75rem',
-      maxW: '3rem',
+      w: '2.5rem',
+      minW: '2.5rem',
+    },
+    fillerRow: {
+      height: '2.75rem',
+    },
+    dayNamesContainer: {
+      textStyle: 'caption-1',
+      color: 'base.content.default',
+      w: '2.5rem',
+      minW: '2.5rem',
+      h: '2.25rem',
     },
     monthYearSelectorContainer: {
-      pt: '0.75rem',
-      h: '3.5rem',
+      h: '3rem',
     },
     monthYearSelect: {
       pl: '1rem',
-      ...textStyles['subhead-1'],
+      ...themeTextStyles['subhead-2'],
     },
     monthYearDisplay: {
-      ...textStyles['subhead-1'],
+      ...themeTextStyles['subhead-2'],
       pl: '1rem',
     },
     calendarContainer: {
@@ -177,23 +141,66 @@ const sizes = {
       px: '0.5rem',
       mb: '-1px',
     },
-    dayNamesContainer: {
-      textStyle: 'subhead-2',
-      w: '3.25rem',
-      h: '2.75rem',
-    },
     todayLinkContainer: {
-      py: '0.75rem',
+      py: '0.5rem',
     },
     todayLink: {
-      // Both required since link is both a button and a link, and both
-      // components override different props.
-      textStyle: 'body-1',
-      ...textStyles['body-1'],
+      textStyle: 'body-2',
+      ...themeTextStyles['body-2'],
     },
-    fillerRow: {
-      height: '3rem',
-    },
+  }
+})
+
+const sizes = {
+  xs: xsSmStyle,
+  sm: xsSmStyle,
+  md: definePartsStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+
+    return {
+      dayOfMonth: {
+        textStyle: 'body-1',
+        p: '0.25rem',
+        aspectRatio: '1 / 1',
+        w: '2.75rem',
+        minW: '2.75rem',
+        maxW: '3rem',
+      },
+      monthYearSelectorContainer: {
+        pt: '0.75rem',
+        h: '3.5rem',
+      },
+      monthYearSelect: {
+        pl: '1rem',
+        ...themeTextStyles['subhead-1'],
+      },
+      monthYearDisplay: {
+        ...themeTextStyles['subhead-1'],
+        pl: '1rem',
+      },
+      calendarContainer: {
+        pb: '1rem',
+        px: '0.5rem',
+        mb: '-1px',
+      },
+      dayNamesContainer: {
+        textStyle: 'subhead-2',
+        w: '3.25rem',
+        h: '2.75rem',
+      },
+      todayLinkContainer: {
+        py: '0.75rem',
+      },
+      todayLink: {
+        // Both required since link is both a button and a link, and both
+        // components override different props.
+        textStyle: 'body-1',
+        ...themeTextStyles['body-1'],
+      },
+      fillerRow: {
+        height: '3rem',
+      },
+    }
   }),
 }
 
