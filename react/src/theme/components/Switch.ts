@@ -3,6 +3,7 @@ import {
   createMultiStyleConfigHelpers,
   StyleFunctionProps,
 } from '@chakra-ui/react'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
 
@@ -25,6 +26,11 @@ const getTrackColor = ({ colorScheme: c }: StyleFunctionProps) => {
 
 const baseStyle = definePartsStyle((props) => {
   const trackColor = getTrackColor(props)
+  const focusRingStyle = get(
+    props.theme,
+    'layerStyles.focusRing.default._focusVisible',
+    layerStyles.focusRing.default._focusVisible,
+  )
 
   return {
     track: {
@@ -39,7 +45,7 @@ const baseStyle = definePartsStyle((props) => {
       p: 0,
       outlineWidth: '1px',
       _focusVisible: {
-        ...layerStyles.focusRing.default._focusVisible,
+        ...focusRingStyle,
         outlineWidth: '1px',
       },
       _focus: {

@@ -1,6 +1,7 @@
 import { tabsAnatomy as parts } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers, cssVar } from '@chakra-ui/react'
 import type { StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
 import { textStyles } from '../textStyles'
@@ -48,6 +49,19 @@ const variantLine = definePartsStyle((props) => {
 
   const { color, selectedColor, hoverColor, hoverBg, activeBg, borderColor } =
     getColorsForLineVariant(props)
+
+  const defaultFocusRingStyle = get(
+    props.theme,
+    'layerStyles.focusRing.default._focusVisible',
+    layerStyles.focusRing.default._focusVisible,
+  )
+
+  const inverseFocusRingStyle = get(
+    props.theme,
+    'layerStyles.focusRing.inverse._focusVisible',
+    layerStyles.focusRing.inverse._focusVisible,
+  )
+
   return {
     tablist: {
       [borderProp]: '2px solid',
@@ -89,9 +103,9 @@ const variantLine = definePartsStyle((props) => {
         },
       },
       _focusVisible: {
-        ...layerStyles.focusRing.default._focusVisible,
+        ...defaultFocusRingStyle,
         outlineOffset: 0,
-        _dark: layerStyles.focusRing.inverse._focusVisible,
+        _dark: inverseFocusRingStyle,
       },
     },
   }

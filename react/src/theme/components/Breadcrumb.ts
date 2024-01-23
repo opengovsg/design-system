@@ -4,6 +4,7 @@ import {
   cssVar,
   defineStyle,
 } from '@chakra-ui/styled-system'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
 import { textStyles } from '../textStyles'
@@ -17,6 +18,11 @@ const $decor = cssVar('breadcrumb-link-decor')
 
 const baseStyleLink = defineStyle((props) => {
   const linkStyle = Link.baseStyle?.(props)
+  const focusRingStyle = get(
+    props.theme,
+    'layerStyles.focusRing.default._focusVisible',
+    layerStyles.focusRing.default._focusVisible,
+  )
 
   return {
     transitionProperty: 'common',
@@ -35,7 +41,7 @@ const baseStyleLink = defineStyle((props) => {
       },
       outlineOffset: '0.25rem',
       _focusVisible: {
-        ...layerStyles.focusRing.default._focusVisible,
+        ...focusRingStyle,
         outlineOffset: '0.25rem',
       },
     },

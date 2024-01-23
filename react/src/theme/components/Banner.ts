@@ -1,5 +1,6 @@
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 import { anatomy } from '@chakra-ui/theme-tools'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
 
@@ -57,58 +58,81 @@ const sizes = {
   }),
 }
 
-const variantInfo = definePartsStyle({
-  banner: {
-    color: 'base.content.inverse',
-    bg: 'utility.feedback.info',
-  },
-  link: {
-    color: 'base.content.inverse',
-    _hover: {
+const variantInfo = definePartsStyle(({ theme }) => {
+  const focusRingStyle = get(
+    theme,
+    'layerStyles.focusRing.inverse',
+    layerStyles.focusRing.inverse,
+  )
+
+  return {
+    banner: {
       color: 'base.content.inverse',
+      bg: 'utility.feedback.info',
     },
-    ...layerStyles.focusRing.inverse,
-  },
-  close: {
-    color: 'base.content.inverse',
-    ...layerStyles.focusRing.inverse,
-  },
+    link: {
+      color: 'base.content.inverse',
+      _hover: {
+        color: 'base.content.inverse',
+      },
+      ...focusRingStyle,
+    },
+    close: {
+      color: 'base.content.inverse',
+      ...focusRingStyle,
+    },
+  }
 })
 
-const variantWarn = definePartsStyle({
-  banner: {
-    color: 'base.content.strong',
-    bg: 'utility.feedback.warning',
-  },
-  link: {
-    color: 'base.content.strong',
-    _hover: {
+const variantWarn = definePartsStyle(({ theme }) => {
+  const focusRingStyle = get(
+    theme,
+    'layerStyles.focusRing.default',
+    layerStyles.focusRing.default,
+  )
+  return {
+    banner: {
       color: 'base.content.strong',
+      bg: 'utility.feedback.warning',
     },
-    ...layerStyles.focusRing.default,
-  },
-  close: {
-    color: 'base.content.strong',
-    ...layerStyles.focusRing.default,
-  },
+    link: {
+      color: 'base.content.strong',
+      _hover: {
+        color: 'base.content.strong',
+      },
+      ...focusRingStyle,
+    },
+    close: {
+      color: 'base.content.strong',
+      ...focusRingStyle,
+    },
+  }
 })
 
-const variantError = definePartsStyle({
-  banner: {
-    color: 'base.content.inverse',
-    bg: 'utility.feedback.critical',
-  },
-  link: {
-    color: 'base.content.inverse',
-    _hover: {
+const variantError = definePartsStyle(({ theme }) => {
+  const focusRingStyle = get(
+    theme,
+    'layerStyles.focusRing.inverse',
+    layerStyles.focusRing.inverse,
+  )
+
+  return {
+    banner: {
       color: 'base.content.inverse',
+      bg: 'utility.feedback.critical',
     },
-    ...layerStyles.focusRing.inverse,
-  },
-  close: {
-    color: 'base.content.inverse',
-    ...layerStyles.focusRing.inverse,
-  },
+    link: {
+      color: 'base.content.inverse',
+      _hover: {
+        color: 'base.content.inverse',
+      },
+      ...focusRingStyle,
+    },
+    close: {
+      color: 'base.content.inverse',
+      ...focusRingStyle,
+    },
+  }
 })
 
 const variants = {

@@ -4,6 +4,7 @@ import {
   defineStyle,
   mergeThemeOverride,
 } from '@chakra-ui/react'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
 import { textStyles } from '../textStyles'
@@ -15,23 +16,31 @@ const parts = tagAnatomy.extend('icon')
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)
 
-const baseStyleContainer = defineStyle({
-  transitionProperty: 'common',
-  transitionDuration: 'normal',
-  _focusWithin: layerStyles.focusRing.default._focusVisible,
-  borderRadius: 'base',
-  _disabled: {
-    bg: 'interaction.support.disabled',
-    color: 'interaction.support.disabled-content',
-    cursor: 'not-allowed',
-  },
-  _hover: {
+const baseStyleContainer = defineStyle(({ theme }) => {
+  const focusRingStyle = get(
+    theme,
+    'layerStyles.focusRing.default._focusVisible',
+    layerStyles.focusRing.default._focusVisible,
+  )
+
+  return {
+    transitionProperty: 'common',
+    transitionDuration: 'normal',
+    _focusWithin: focusRingStyle,
+    borderRadius: 'base',
     _disabled: {
       bg: 'interaction.support.disabled',
+      color: 'interaction.support.disabled-content',
+      cursor: 'not-allowed',
     },
-  },
-  width: 'fit-content',
-  height: 'fit-content',
+    _hover: {
+      _disabled: {
+        bg: 'interaction.support.disabled',
+      },
+    },
+    width: 'fit-content',
+    height: 'fit-content',
+  }
 })
 
 const baseStyleLabel = defineStyle({
@@ -57,10 +66,12 @@ const baseStyleCloseButton = defineStyle({
   },
 })
 
-const baseStyle = definePartsStyle({
-  container: baseStyleContainer,
-  label: baseStyleLabel,
-  closeButton: baseStyleCloseButton,
+const baseStyle = definePartsStyle((props) => {
+  return {
+    container: baseStyleContainer(props),
+    label: baseStyleLabel,
+    closeButton: baseStyleCloseButton,
+  }
 })
 
 const sizes = {

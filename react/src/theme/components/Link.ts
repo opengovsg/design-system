@@ -1,5 +1,6 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 import { StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
 
@@ -41,6 +42,11 @@ const getLinkColors = ({ colorScheme: c }: StyleFunctionProps) => {
 
 const baseStyle = defineStyle((props) => {
   const { color, hoverColor } = getLinkColors(props)
+  const focusRingStyle = get(
+    props.theme,
+    'layerStyles.focusRing.default._focusVisible',
+    layerStyles.focusRing.default._focusVisible,
+  )
 
   return {
     outlineOffset: 0,
@@ -67,7 +73,7 @@ const baseStyle = defineStyle((props) => {
       cursor: 'not-allowed',
     },
     _focusVisible: {
-      ...layerStyles.focusRing.default._focusVisible,
+      ...focusRingStyle,
       outlineOffset: 0,
     },
   }
