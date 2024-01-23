@@ -37,17 +37,23 @@ const variantOutline = definePartsStyle((props) => {
 })
 
 const sizes = {
-  xs: definePartsStyle({
-    fieldwrapper: Input.sizes?.xs.field,
-    inputButton: DatePicker.sizes?.xs.inputButton,
+  xs: definePartsStyle((props) => {
+    return {
+      fieldwrapper: Input.sizes?.xs(props).field,
+      inputButton: DatePicker.sizes?.xs.inputButton,
+    }
   }),
-  sm: definePartsStyle({
-    fieldwrapper: Input.sizes?.sm.field,
-    inputButton: DatePicker.sizes?.sm.inputButton,
+  sm: definePartsStyle((props) => {
+    return {
+      fieldwrapper: Input.sizes?.sm(props).field,
+      inputButton: DatePicker.sizes?.sm.inputButton,
+    }
   }),
-  md: definePartsStyle({
-    fieldwrapper: Input.sizes?.md.field,
-    inputButton: DatePicker.sizes?.md.inputButton,
+  md: definePartsStyle((props) => {
+    return {
+      fieldwrapper: Input.sizes?.md(props).field,
+      inputButton: DatePicker.sizes?.md.inputButton,
+    }
   }),
 }
 

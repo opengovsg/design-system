@@ -122,7 +122,7 @@ const variants = {
 }
 
 const sizes = {
-  xs: definePartsStyle(
+  xs: definePartsStyle((props) =>
     mergeThemeOverride(omit(SingleSelect.sizes?.xs, ['field', 'icon']), {
       itemContainer: {
         // Padding for dropdown toggle.
@@ -141,14 +141,14 @@ const sizes = {
         px: '0.5rem',
       },
       fieldwrapper: {
-        ...SingleSelect.sizes?.xs.field,
+        ...SingleSelect.sizes?.xs(props).field,
         p: '0.5rem',
-        minH: SingleSelect.sizes?.xs.field?.h,
+        minH: SingleSelect.sizes?.xs(props).field?.h,
         h: 'auto',
       },
     }),
   ),
-  sm: definePartsStyle(
+  sm: definePartsStyle((props) =>
     mergeThemeOverride(omit(SingleSelect.sizes?.sm, ['field', 'icon']), {
       itemContainer: {
         // Padding for dropdown toggle.
@@ -167,14 +167,14 @@ const sizes = {
         px: '0.5rem',
       },
       fieldwrapper: {
-        ...SingleSelect.sizes?.sm.field,
+        ...SingleSelect.sizes?.sm(props).field,
         p: '0.5rem',
-        minH: SingleSelect.sizes?.sm.field?.h,
+        minH: SingleSelect.sizes?.sm(props).field?.h,
         h: 'auto',
       },
     }),
   ),
-  md: definePartsStyle(
+  md: definePartsStyle((props) =>
     mergeThemeOverride(omit(SingleSelect.sizes?.md, ['field', 'icon']), {
       itemContainer: {
         // Padding for dropdown toggle.
@@ -193,9 +193,9 @@ const sizes = {
         fontSize: '1.25rem',
       },
       fieldwrapper: {
-        ...SingleSelect.sizes?.md.field,
+        ...SingleSelect.sizes?.md(props).field,
         p: '0.5rem',
-        minH: SingleSelect.sizes?.md.field?.h,
+        minH: SingleSelect.sizes?.md(props).field?.h,
         h: 'auto',
       },
     }),
