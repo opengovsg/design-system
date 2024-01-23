@@ -9,17 +9,25 @@ import { Button } from './Button'
 const $size = cssVar('close-button-size')
 
 const sizes = {
-  lg: defineStyle({
-    [$size.variable]: Button.sizes?.lg.minH,
+  lg: defineStyle((props) => {
+    return {
+      [$size.variable]: Button.sizes?.lg(props).minH,
+    }
   }),
-  md: defineStyle({
-    [$size.variable]: Button.sizes?.md.minH,
+  md: defineStyle((props) => {
+    return {
+      [$size.variable]: Button.sizes?.md(props).minH,
+    }
   }),
-  sm: defineStyle({
-    [$size.variable]: Button.sizes?.sm.minH,
+  sm: defineStyle((props) => {
+    return {
+      [$size.variable]: Button.sizes?.sm(props).minH,
+    }
   }),
-  xs: defineStyle({
-    [$size.variable]: Button.sizes?.xs.minH,
+  xs: defineStyle((props) => {
+    return {
+      [$size.variable]: Button.sizes?.xs(props).minH,
+    }
   }),
 }
 

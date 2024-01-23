@@ -7,7 +7,6 @@ import {
 import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
-import { textStyles } from '../textStyles'
 
 import { Link } from './Link'
 
@@ -58,29 +57,41 @@ const baseStyle = definePartsStyle((props) => {
 })
 
 const sizes = {
-  xs: definePartsStyle({
-    link: {
-      textStyle: 'caption-1',
-    },
-    separator: {
-      ...textStyles['caption-1'],
-    },
+  xs: definePartsStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+
+    return {
+      link: {
+        textStyle: 'caption-1',
+      },
+      separator: {
+        ...themeTextStyles['caption-1'],
+      },
+    }
   }),
-  sm: definePartsStyle({
-    link: {
-      textStyle: 'subhead-2',
-    },
-    separator: {
-      ...textStyles['subhead-2'],
-    },
+  sm: definePartsStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+
+    return {
+      link: {
+        textStyle: 'subhead-2',
+      },
+      separator: {
+        ...themeTextStyles['subhead-2'],
+      },
+    }
   }),
-  md: definePartsStyle({
-    link: {
-      textStyle: 'subhead-1',
-    },
-    separator: {
-      ...textStyles['subhead-1'],
-    },
+  md: definePartsStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+
+    return {
+      link: {
+        textStyle: 'subhead-1',
+      },
+      separator: {
+        ...themeTextStyles['subhead-1'],
+      },
+    }
   }),
 }
 

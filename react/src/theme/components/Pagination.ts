@@ -1,7 +1,6 @@
 import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
 import { anatomy } from '@chakra-ui/theme-tools'
-
-import { textStyles } from '../textStyles'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 const parts = anatomy('pagination').parts(
   'button',
@@ -52,39 +51,42 @@ const baseButtonStyling = defineStyle({
 })
 
 const sizes = {
-  md: definePartsStyle({
-    container: {
-      textStyle: 'subhead-2',
-    },
-    stepper: {
-      px: '0.5rem',
-      py: '0.25rem',
-      minH: 'auto',
-      minW: 'auto',
-      fontSize: '1.5rem',
-      pl: 0,
-      pr: 0,
-      _first: {
-        mr: '0.25rem',
+  md: definePartsStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      container: {
+        textStyle: 'subhead-2',
       },
-      _last: {
-        ml: '0.25rem',
+      stepper: {
+        px: '0.5rem',
+        py: '0.25rem',
+        minH: 'auto',
+        minW: 'auto',
+        fontSize: '1.5rem',
+        pl: 0,
+        pr: 0,
+        _first: {
+          mr: '0.25rem',
+        },
+        _last: {
+          ml: '0.25rem',
+        },
       },
-    },
-    separator: {
-      textStyle: 'subhead-2',
-      minW: '2rem',
-    },
-    button: {
-      ...textStyles['subhead-2'],
-      p: '0.25rem 0.625rem',
-      minH: 'auto',
-      minW: 'auto',
-    },
-    text: {
-      textStyle: 'body-2',
-      p: '0.25rem 0.75rem',
-    },
+      separator: {
+        textStyle: 'subhead-2',
+        minW: '2rem',
+      },
+      button: {
+        ...themeTextStyles['subhead-2'],
+        p: '0.25rem 0.625rem',
+        minH: 'auto',
+        minW: 'auto',
+      },
+      text: {
+        textStyle: 'body-2',
+        p: '0.25rem 0.75rem',
+      },
+    }
   }),
 }
 
