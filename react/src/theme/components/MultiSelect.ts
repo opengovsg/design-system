@@ -123,7 +123,7 @@ const variants = {
 
 const sizes = {
   xs: definePartsStyle((props) =>
-    mergeThemeOverride(omit(SingleSelect.sizes?.xs, ['field', 'icon']), {
+    mergeThemeOverride(omit(SingleSelect.sizes?.xs(props), ['field', 'icon']), {
       itemContainer: {
         // Padding for dropdown toggle.
         maxW: 'calc(100% - 2.5rem)',
@@ -149,7 +149,7 @@ const sizes = {
     }),
   ),
   sm: definePartsStyle((props) =>
-    mergeThemeOverride(omit(SingleSelect.sizes?.sm, ['field', 'icon']), {
+    mergeThemeOverride(omit(SingleSelect.sizes?.sm(props), ['field', 'icon']), {
       itemContainer: {
         // Padding for dropdown toggle.
         maxW: 'calc(100% - 2.5rem)',
@@ -175,7 +175,7 @@ const sizes = {
     }),
   ),
   md: definePartsStyle((props) =>
-    mergeThemeOverride(omit(SingleSelect.sizes?.md, ['field', 'icon']), {
+    mergeThemeOverride(omit(SingleSelect.sizes?.md(props), ['field', 'icon']), {
       itemContainer: {
         // Padding for dropdown toggle.
         maxW: 'calc(100% - 2.75rem)',
