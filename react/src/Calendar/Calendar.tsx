@@ -71,27 +71,13 @@ export const Calendar = forwardRef<CalendarProps, 'input'>(
       defaultValue: defaultValue,
     })
 
-    const [currMonth, setCurrMonth] = useControllableState<number>({
-      defaultValue:
-        props.defaultFocusedDate?.getMonth() ?? new Date().getMonth(),
-      onChange: onMonthChange,
-    })
-
-    const [currYear, setCurrYear] = useControllableState<number>({
-      defaultValue:
-        props.defaultFocusedDate?.getFullYear() ?? new Date().getFullYear(),
-      onChange: onYearChange,
-    })
-
     return (
       <CalendarProvider
         {...props}
         selectedDates={internalValue ?? undefined}
         onSelectDate={setInternalValue}
-        currMonth={currMonth}
-        setCurrMonth={setCurrMonth}
-        currYear={currYear}
-        setCurrYear={setCurrYear}
+        onMonthChange={onMonthChange}
+        onYearChange={onYearChange}
       >
         <CalendarStylesProvider value={styles}>
           <CalendarAria />

@@ -6,7 +6,7 @@ import {
   useContext,
   useMemo,
 } from 'react'
-import { ThemingProps } from '@chakra-ui/react'
+import { ThemingProps, useControllableState } from '@chakra-ui/react'
 import {
   addMonths,
   differenceInCalendarMonths,
@@ -104,12 +104,16 @@ export interface UseProvideCalendarProps
     WithSsr {
   /** The date to focus when calendar first renders. */
   defaultFocusedDate?: Date
-  /** The current viewed month. */
-  currMonth: number
-  setCurrMonth: Dispatch<SetStateAction<number>>
-  /** The current viewed year. */
-  currYear: number
-  setCurrYear: Dispatch<SetStateAction<number>>
+  /**
+   * Callback fired when the currently viewed month changes.
+   * @param {number} currMonth The new month being viewed.
+   */
+  onMonthChange?: (currMonth: number) => void
+  /**
+   * Callback fired when the currently viewed year changes.
+   * @param {number} currYear The new year being viewed.
+   */
+  onYearChange?: (currYear: number) => void
   /** Whether to render in a loading state */
   isLoading?: boolean
 }
@@ -165,10 +169,8 @@ export const useCalendar = (): CalendarContextProps => {
 const useProvideCalendar = ({
   selectedDates,
   onSelectDate,
-  currMonth,
-  setCurrMonth,
-  currYear,
-  setCurrYear,
+  onMonthChange,
+  onYearChange,
   isDateUnavailable,
   isLoading = false,
   monthsToDisplay = 1,
@@ -202,6 +204,16 @@ const useProvideCalendar = ({
 
     return defaultFocusedDate ?? today
   }, [today, selectedDates, defaultFocusedDate])
+
+  const [currMonth, setCurrMonth] = useControllableState<number>({
+    defaultValue: dateToFocus.getMonth(),
+    onChange: onMonthChange,
+  })
+
+  const [currYear, setCurrYear] = useControllableState<number>({
+    defaultValue: dateToFocus.getFullYear(),
+    onChange: onYearChange,
+  })
 
   /**
    * Updates the current year and month when the forward/back arrows are clicked.
