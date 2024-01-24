@@ -5,7 +5,6 @@ import {
   Flex,
   forwardRef,
   Skeleton,
-  SkeletonText,
   SystemStyleObject,
   useMultiStyleConfig,
   useToken,
@@ -143,21 +142,23 @@ export const DayOfMonth = forwardRef<DayOfMonthProps, 'button'>(
 
     return (
       <Flex sx={{ ...styles.dayOfMonthContainer, ...buttonBoxStyles }}>
-        <chakra.button
-          onMouseEnter={handleMouseEnter}
-          // Prevent form submission if this component is nested in a form.
-          type="button"
-          data-hover={dataAttr(isCurrentDateHovered)}
-          data-active={dataAttr(selected)}
-          sx={styles.dayOfMonth}
-          aria-label={date.toLocaleDateString()}
-          tabIndex={isFocusable ? 0 : -1}
-          aria-disabled={!isAvailable}
-          ref={ref}
-          {...props}
-        >
-          {isLoading ? <Skeleton>{date.getDate()}</Skeleton> : date.getDate()}
-        </chakra.button>
+        <Skeleton isLoaded={!isLoading}>
+          <chakra.button
+            onMouseEnter={handleMouseEnter}
+            // Prevent form submission if this component is nested in a form.
+            type="button"
+            data-hover={dataAttr(isCurrentDateHovered)}
+            data-active={dataAttr(selected)}
+            sx={styles.dayOfMonth}
+            aria-label={date.toLocaleDateString()}
+            tabIndex={isFocusable ? 0 : -1}
+            aria-disabled={!isAvailable}
+            ref={ref}
+            {...props}
+          >
+            {date.getDate()}
+          </chakra.button>
+        </Skeleton>
       </Flex>
     )
   },
