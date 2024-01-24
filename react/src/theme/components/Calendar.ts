@@ -245,6 +245,7 @@ const baseStyle = definePartsStyle((props) => ({
   dayOfMonth: baseDayOfMonthStyles(props),
   todayLinkContainer: {
     textAlign: 'center',
+    px: '0.75rem',
   },
 }))
 
