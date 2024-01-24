@@ -1,8 +1,7 @@
 import { modalAnatomy as parts } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
 import { SystemStyleObject } from '@chakra-ui/theme-tools'
-
-import { textStyles } from '../textStyles'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)
@@ -35,57 +34,67 @@ const fullDialogStyle: SystemStyleObject = {
 }
 
 const sizes = {
-  mobile: definePartsStyle({
-    header: {
-      pt: '2rem',
-      pb: '1.5rem',
-      px: '1.5rem',
-      ...textStyles['h5'],
-    },
-    body: {
-      flex: 'initial',
-    },
-    dialog: fullDialogStyle,
-    closeButton: {
-      top: '1.5rem',
-      insetEnd: '1.5rem',
-    },
+  mobile: definePartsStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+
+    return {
+      header: {
+        pt: '2rem',
+        pb: '1.5rem',
+        px: '1.5rem',
+        ...themeTextStyles['h5'],
+      },
+      body: {
+        flex: 'initial',
+      },
+      dialog: fullDialogStyle,
+      closeButton: {
+        top: '1.5rem',
+        insetEnd: '1.5rem',
+      },
+    }
   }),
-  md: definePartsStyle({
-    dialog: { maxW: '42.5rem' },
-    header: {
-      ...textStyles['h4'],
-      pt: '2rem',
-      pb: '1rem',
-      px: '2rem',
-    },
-    closeButton: {
-      top: '1.5rem',
-      insetEnd: '2rem',
-    },
-    body: {
-      py: 0,
-      px: '2rem',
-    },
-    footer: {
-      pt: '2rem',
-      pb: '2.75rem',
-      px: '2rem',
-    },
+  md: definePartsStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      dialog: { maxW: '42.5rem' },
+      header: {
+        ...themeTextStyles['h4'],
+        pt: '2rem',
+        pb: '1rem',
+        px: '2rem',
+      },
+      closeButton: {
+        top: '1.5rem',
+        insetEnd: '2rem',
+      },
+      body: {
+        py: 0,
+        px: '2rem',
+      },
+      footer: {
+        pt: '2rem',
+        pb: '2.75rem',
+        px: '2rem',
+      },
+    }
   }),
-  full: definePartsStyle({
-    overlay: {
-      bg: 'none',
-    },
-    dialog: fullDialogStyle,
-    header: {
-      ...textStyles['h4'],
-      p: '1.5rem',
-    },
-    closeButton: {
-      top: '1.5rem',
-      insetEnd: '1.5rem',
-    },
+  full: definePartsStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      overlay: {
+        bg: 'none',
+      },
+      dialog: fullDialogStyle,
+      header: {
+        ...themeTextStyles['h4'],
+        p: '1.5rem',
+      },
+      closeButton: {
+        top: '1.5rem',
+        insetEnd: '1.5rem',
+      },
+    }
   }),
 }
 

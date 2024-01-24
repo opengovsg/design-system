@@ -1,5 +1,5 @@
 import { useMediaQuery, UseMediaQueryOptions, useTheme } from '@chakra-ui/react'
-import { get } from '@chakra-ui/utils'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { breakpoints } from '~/theme/foundations/breakpoints'
 

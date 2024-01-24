@@ -1,5 +1,6 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 import { cssVar } from '@chakra-ui/theme-tools'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
 
@@ -8,25 +9,41 @@ import { Button } from './Button'
 const $size = cssVar('close-button-size')
 
 const sizes = {
-  lg: defineStyle({
-    [$size.variable]: Button.sizes?.lg.minH,
+  lg: defineStyle((props) => {
+    return {
+      [$size.variable]: Button.sizes?.lg(props).minH,
+    }
   }),
-  md: defineStyle({
-    [$size.variable]: Button.sizes?.md.minH,
+  md: defineStyle((props) => {
+    return {
+      [$size.variable]: Button.sizes?.md(props).minH,
+    }
   }),
-  sm: defineStyle({
-    [$size.variable]: Button.sizes?.sm.minH,
+  sm: defineStyle((props) => {
+    return {
+      [$size.variable]: Button.sizes?.sm(props).minH,
+    }
   }),
-  xs: defineStyle({
-    [$size.variable]: Button.sizes?.xs.minH,
+  xs: defineStyle((props) => {
+    return {
+      [$size.variable]: Button.sizes?.xs(props).minH,
+    }
   }),
 }
 
-const baseStyle = defineStyle({
-  p: 0,
-  _focusVisible: layerStyles.focusRing.default._focusVisible,
-  w: [$size.reference],
-  h: [$size.reference],
+const baseStyle = defineStyle(({ theme }) => {
+  const focusRingStyle = get(
+    theme,
+    'layerStyles.focusRing.default._focusVisible',
+    layerStyles.focusRing.default._focusVisible,
+  )
+
+  return {
+    p: 0,
+    _focusVisible: focusRingStyle,
+    w: [$size.reference],
+    h: [$size.reference],
+  }
 })
 
 const variantClear = defineStyle((props) => {

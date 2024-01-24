@@ -1,6 +1,7 @@
 import { checkboxAnatomy } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 import { getColor, mode, StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
 import { getContrastColor } from '../utils'
@@ -63,6 +64,12 @@ const baseStyle = definePartsStyle((props) => {
   const { bg, hoverBg, borderColor, iconColor, checkedBg, labelColor } =
     getColorProps(props)
 
+  const focusRingStyle = get(
+    props.theme,
+    'layerStyles.focusRing.default._focusVisible',
+    layerStyles.focusRing.default._focusVisible,
+  )
+
   const hoverLabelColor = getContrastColor(
     getColor(props.theme, labelColor),
     getColor(props.theme, hoverBg),
@@ -109,7 +116,7 @@ const baseStyle = definePartsStyle((props) => {
         },
       },
       _focusWithin: {
-        ...layerStyles.focusRing.default._focusVisible,
+        ...focusRingStyle,
         outlineOffset: 0,
       },
     },
@@ -146,7 +153,7 @@ const baseStyle = definePartsStyle((props) => {
         },
       },
       _focusWithin: {
-        ...layerStyles.focusRing.default._focusVisible,
+        ...focusRingStyle,
         outlineOffset: 0,
       },
     },

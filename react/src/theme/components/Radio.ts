@@ -1,6 +1,7 @@
 import { radioAnatomy } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 import { StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
 
@@ -39,6 +40,12 @@ const getColorProps = ({ colorScheme: c }: StyleFunctionProps) => {
 
 const baseStyle = definePartsStyle((props) => {
   const { bg, hoverBg, borderColor, checkedBg } = getColorProps(props)
+
+  const focusRingStyle = get(
+    props.theme,
+    'layerStyles.focusRing.default._focusVisible',
+    layerStyles.focusRing.default._focusVisible,
+  )
 
   return {
     control: {
@@ -86,7 +93,7 @@ const baseStyle = definePartsStyle((props) => {
         },
       },
       _focusWithin: {
-        ...layerStyles.focusRing.default._focusVisible,
+        ...focusRingStyle,
         outlineOffset: 0,
       },
     },
@@ -108,7 +115,7 @@ const baseStyle = definePartsStyle((props) => {
         },
       },
       _focusWithin: {
-        ...layerStyles.focusRing.default._focusVisible,
+        ...focusRingStyle,
         outlineOffset: 0,
       },
     },

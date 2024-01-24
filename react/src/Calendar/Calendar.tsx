@@ -68,7 +68,7 @@ export const Calendar = forwardRef<CalendarProps, 'input'>(
     const [internalValue, setInternalValue] = useControllableState({
       value,
       onChange,
-      defaultValue: defaultValue,
+      defaultValue,
     })
 
     return (

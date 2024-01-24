@@ -1,8 +1,7 @@
 import { inputAnatomy } from '@chakra-ui/anatomy'
 import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
 import { getColor } from '@chakra-ui/theme-tools'
-
-import { textStyles } from '../textStyles'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 // Additional success part.
 const parts = inputAnatomy.extend('success')
@@ -71,53 +70,72 @@ const outlineVariant = definePartsStyle((props) => {
 })
 
 const coreSizes = {
-  xs: defineStyle({
-    textStyle: 'body-2',
-    fontSize: textStyles['body-2'].fontSize,
-    px: '0.75rem',
-    h: '2.25rem',
+  xs: defineStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+
+    return {
+      textStyle: 'body-2',
+      fontSize: themeTextStyles['body-2'].fontSize,
+      px: '0.75rem',
+      h: '2.25rem',
+    }
   }),
-  sm: defineStyle({
-    textStyle: 'body-2',
-    fontSize: textStyles['body-2'].fontSize,
-    px: '0.75rem',
-    h: '2.5rem',
+  sm: defineStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      textStyle: 'body-2',
+      fontSize: themeTextStyles['body-2'].fontSize,
+      px: '0.75rem',
+      h: '2.5rem',
+    }
   }),
-  md: defineStyle({
-    px: '1rem',
-    h: '2.75rem',
-    textStyle: 'body-1',
-    fontSize: textStyles['body-1'].fontSize,
+  md: defineStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      px: '1rem',
+      h: '2.75rem',
+      textStyle: 'body-1',
+      fontSize: themeTextStyles['body-1'].fontSize,
+    }
   }),
 }
 
 const sizes = {
-  xs: definePartsStyle({
-    field: coreSizes.xs,
-    addon: coreSizes.xs,
-    element: coreSizes.xs,
-    success: {
-      ...coreSizes.xs,
-      fontSize: '1rem',
-    },
+  xs: definePartsStyle((props) => {
+    const xsCoreSizes = coreSizes.xs(props)
+    return {
+      field: xsCoreSizes,
+      addon: xsCoreSizes,
+      element: xsCoreSizes,
+      success: {
+        ...xsCoreSizes,
+        fontSize: '1rem',
+      },
+    }
   }),
-  sm: definePartsStyle({
-    field: coreSizes.sm,
-    addon: coreSizes.sm,
-    element: coreSizes.sm,
-    success: {
-      ...coreSizes.sm,
-      fontSize: '1rem',
-    },
+  sm: definePartsStyle((props) => {
+    const smCoreSizes = coreSizes.sm(props)
+    return {
+      field: smCoreSizes,
+      addon: smCoreSizes,
+      element: smCoreSizes,
+      success: {
+        ...smCoreSizes,
+        fontSize: '1rem',
+      },
+    }
   }),
-  md: definePartsStyle({
-    field: coreSizes.md,
-    addon: coreSizes.md,
-    element: coreSizes.md,
-    success: {
-      ...coreSizes.md,
-      fontSize: '1.25rem',
-    },
+  md: definePartsStyle((props) => {
+    const mdCoreSizes = coreSizes.md(props)
+    return {
+      field: mdCoreSizes,
+      addon: mdCoreSizes,
+      element: mdCoreSizes,
+      success: {
+        ...mdCoreSizes,
+        fontSize: '1.25rem',
+      },
+    }
   }),
 }
 

@@ -1,5 +1,6 @@
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 import { anatomy } from '@chakra-ui/theme-tools'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
 
@@ -18,72 +19,80 @@ const parts = anatomy('sidebar').parts(
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys)
 
-const baseStyle = definePartsStyle({
-  header: {
-    textStyle: 'subhead-3',
-    px: '1rem',
-    pt: '1rem',
-    pb: '0.75rem',
-  },
-  section: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  child: {
-    borderRadius: 0,
-    borderLeftWidth: '1px',
-    borderColor: 'base.divider.medium',
-    _active: {
-      ml: '-1px',
-      borderLeftWidth: '2px',
-      color: 'interaction.main.default',
-      borderColor: 'base.divider.brand',
+const baseStyle = definePartsStyle(({ theme }) => {
+  const focusRingStyle = get(
+    theme,
+    'layerStyles.focusRing.default._focusVisible',
+    layerStyles.focusRing.default._focusVisible,
+  )
+
+  return {
+    header: {
+      textStyle: 'subhead-3',
+      px: '1rem',
+      pt: '1rem',
+      pb: '0.75rem',
     },
-    _focusVisible: {
+    section: {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    child: {
+      borderRadius: 0,
+      borderLeftWidth: '1px',
+      borderColor: 'base.divider.medium',
+      _active: {
+        ml: '-1px',
+        borderLeftWidth: '2px',
+        color: 'interaction.main.default',
+        borderColor: 'base.divider.brand',
+      },
+      _focusVisible: {
+        borderRadius: 'md',
+      },
+    },
+    parent: {
+      _hover: {
+        bg: 'interaction.muted.main.hover',
+      },
+      _active: {
+        bg: 'interaction.muted.main.active',
+        color: 'interaction.main.default',
+      },
+      _expanded: {
+        bg: 'interaction.muted.main.active',
+        color: 'interaction.main.default',
+      },
       borderRadius: 'md',
     },
-  },
-  parent: {
-    _hover: {
-      bg: 'interaction.muted.main.hover',
+    label: {
+      display: 'flex',
+      alignItems: 'start',
     },
-    _active: {
-      bg: 'interaction.muted.main.active',
-      color: 'interaction.main.default',
+    item: {
+      width: '100%',
+      display: 'flex',
+      alignItems: 'start',
+      listStyleType: 'none',
+      color: 'base.content.default',
+      cursor: 'pointer',
+      _hover: {
+        color: 'interaction.main.default',
+      },
+      _focusVisible: {
+        ...focusRingStyle,
+        outlineOffset: '-2px',
+      },
     },
-    _expanded: {
-      bg: 'interaction.muted.main.active',
-      color: 'interaction.main.default',
+    list: {
+      listStyleType: 'none',
+      display: 'flex',
+      flexDirection: 'column',
     },
-    borderRadius: 'md',
-  },
-  label: {
-    display: 'flex',
-    alignItems: 'start',
-  },
-  item: {
-    width: '100%',
-    display: 'flex',
-    alignItems: 'start',
-    listStyleType: 'none',
-    color: 'base.content.default',
-    cursor: 'pointer',
-    _hover: {
-      color: 'interaction.main.default',
+    nest: {
+      listStyleType: 'none',
     },
-    _focusVisible: {
-      ...layerStyles.focusRing.default._focusVisible,
-      outlineOffset: '-2px',
-    },
-  },
-  list: {
-    listStyleType: 'none',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  nest: {
-    listStyleType: 'none',
-  },
+  }
 })
 
 const sizes = {

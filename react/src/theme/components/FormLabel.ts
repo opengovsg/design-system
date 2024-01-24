@@ -1,6 +1,5 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
-
-import { textStyles } from '../textStyles'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 const baseStyle = defineStyle({
   marginBottom: '0.75rem',
@@ -8,11 +7,19 @@ const baseStyle = defineStyle({
 })
 
 const sizes = {
-  sm: defineStyle({
-    ...textStyles['subhead-2'],
+  sm: defineStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+
+    return {
+      ...themeTextStyles['subhead-2'],
+    }
   }),
-  md: defineStyle({
-    ...textStyles['subhead-1'],
+  md: defineStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+
+    return {
+      ...themeTextStyles['subhead-1'],
+    }
   }),
 }
 

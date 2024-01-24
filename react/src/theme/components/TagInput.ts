@@ -48,29 +48,35 @@ const variantOutline = definePartsStyle((props) => {
 })
 
 const sizes = {
-  sm: definePartsStyle({
-    container: {
-      ...Input.sizes?.sm.field,
-      p: 'calc(0.5rem - 2px)',
-      minH: Input.sizes?.sm.field?.h,
-      gap: '0.25rem',
-    },
-    field: {
-      h: '1.5rem',
-      pl: '0.5rem',
-    },
+  sm: definePartsStyle((props) => {
+    const smInputFieldProps = Input.sizes?.sm(props).field
+    return {
+      container: {
+        ...smInputFieldProps,
+        p: 'calc(0.5rem - 2px)',
+        minH: smInputFieldProps?.h,
+        gap: '0.25rem',
+      },
+      field: {
+        h: '1.5rem',
+        pl: '0.5rem',
+      },
+    }
   }),
-  md: definePartsStyle({
-    container: {
-      ...Input.sizes?.md.field,
-      p: 'calc(0.5rem - 2px)',
-      minH: Input.sizes?.md.field?.h,
-      gap: '0.25rem',
-    },
-    field: {
-      h: '1.75rem',
-      pl: '0.5rem',
-    },
+  md: definePartsStyle((props) => {
+    const mdInputFieldProps = Input.sizes?.md(props).field
+    return {
+      container: {
+        ...mdInputFieldProps,
+        p: 'calc(0.5rem - 2px)',
+        minH: mdInputFieldProps?.h,
+        gap: '0.25rem',
+      },
+      field: {
+        h: '1.75rem',
+        pl: '0.5rem',
+      },
+    }
   }),
 }
 

@@ -72,33 +72,39 @@ const outlineVariant = definePartsStyle((props) => {
 })
 
 const sizes = {
-  xs: definePartsStyle({
-    country: {
-      ...Input.sizes?.xs.addon,
-      px: '0.5rem',
-    },
-    icon: {
-      fontSize: '0.75rem',
-    },
+  xs: definePartsStyle((props) => {
+    return {
+      country: {
+        ...Input.sizes?.xs(props).addon,
+        px: '0.5rem',
+      },
+      icon: {
+        fontSize: '0.75rem',
+      },
+    }
   }),
-  sm: definePartsStyle({
-    country: {
-      ...Input.sizes?.sm.addon,
-      px: '0.5rem',
-    },
-    icon: {
-      fontSize: '1rem',
-    },
+  sm: definePartsStyle((props) => {
+    return {
+      country: {
+        ...Input.sizes?.sm(props).addon,
+        px: '0.5rem',
+      },
+      icon: {
+        fontSize: '1rem',
+      },
+    }
   }),
-  md: definePartsStyle({
-    country: {
-      ...Input.sizes?.md.addon,
+  md: definePartsStyle((props) => {
+    return {
+      country: {
+        ...Input.sizes?.md(props).addon,
 
-      px: '0.5rem',
-    },
-    icon: {
-      fontSize: '1rem',
-    },
+        px: '0.5rem',
+      },
+      icon: {
+        fontSize: '1rem',
+      },
+    }
   }),
 }
 
