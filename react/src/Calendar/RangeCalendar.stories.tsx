@@ -88,3 +88,15 @@ RangeCalendarWithDefaultFocusedDateOverriddenByDefaultValue.args = {
   defaultFocusedDate: new Date('2010-01-01'),
   defaultValue: [new Date('2001-01-01'), null],
 }
+
+export const RangeCalendarWithOnMonthYearChangeCallback =
+  RangeCalendarOnlyTemplate.bind({})
+RangeCalendarWithOnMonthYearChangeCallback.args = {
+  onMonthChange: (month) => alert(`month changed to: ${month}`),
+  onYearChange: (year) => alert(`year changed to: ${year}`),
+}
+
+export const Loading = RangeCalendarOnlyTemplate.bind({})
+Loading.args = {
+  isLoading: true,
+}

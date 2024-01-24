@@ -81,3 +81,16 @@ CalendarWithDefaultFocusedDateOverriddenByDefaultValue.args = {
   defaultFocusedDate: new Date('2010-05-01'),
   defaultValue: new Date('2001-01-01'),
 }
+
+export const CalendarWithOnMonthYearChangeCallback = CalendarOnlyTemplate.bind(
+  {},
+)
+CalendarWithOnMonthYearChangeCallback.args = {
+  onMonthChange: (month) => alert(`month changed to: ${month}`),
+  onYearChange: (year) => alert(`year changed to: ${year}`),
+}
+
+export const Loading = CalendarOnlyTemplate.bind({})
+Loading.args = {
+  isLoading: true,
+}

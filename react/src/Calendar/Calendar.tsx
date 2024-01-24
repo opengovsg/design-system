@@ -31,21 +31,40 @@ export interface CalendarProps
    * @param {Date | null} date The new selected date.
    */
   onChange?: (date: Date | null) => void
+  /**
+   * Callback fired when the currently viewed month changes.
+   * @param {number} currMonth The new month being viewed.
+   */
+  onMonthChange?: (currMonth: number) => void
+  /**
+   * Callback fired when the currently viewed year changes.
+   * @param {number} currYear The new year being viewed.
+   */
+  onYearChange?: (currYear: number) => void
   /** The default selected date, used if input is uncontrolled */
   defaultValue?: Date | null
   /** Function to determine whether a date should be made unavailable. */
   isDateUnavailable?: (d: Date) => boolean
+  /** Whether to render a loading state. */
+  isLoading?: boolean
   /** Color scheme for component */
   colorScheme?: ThemingProps<'Calendar'>['colorScheme']
 }
 
 export const Calendar = forwardRef<CalendarProps, 'input'>(
   (
-    { value, onChange, defaultValue, showTodayButton = true, ...props },
+    {
+      value,
+      onChange,
+      onMonthChange,
+      onYearChange,
+      defaultValue,
+      showTodayButton = true,
+      ...props
+    },
     initialFocusRef,
   ) => {
     const styles = useMultiStyleConfig('Calendar', props)
-
     const [internalValue, setInternalValue] = useControllableState({
       value,
       onChange,
@@ -57,6 +76,8 @@ export const Calendar = forwardRef<CalendarProps, 'input'>(
         {...props}
         selectedDates={internalValue ?? undefined}
         onSelectDate={setInternalValue}
+        onMonthChange={onMonthChange}
+        onYearChange={onYearChange}
       >
         <CalendarStylesProvider value={styles}>
           <CalendarAria />

@@ -31,6 +31,18 @@ export interface RangeCalendarProps extends CalendarBaseProps {
   onChange?: (value: DateRangeValue) => void
   /** The default selected date, used if input is uncontrolled */
   defaultValue?: DateRangeValue
+  /**
+   * Callback fired when the currently viewed month changes.
+   * @param {number} currMonth The new, 1st month being viewed.
+   */
+  onMonthChange?: (currMonth: number) => void
+  /**
+   * Callback fired when the currently viewed year changes.
+   * @param {number} currYear The new, 1st year being viewed.
+   */
+  onYearChange?: (currYear: number) => void
+  /** Whether to render a loading state. */
+  isLoading?: boolean
 }
 
 export const RangeCalendar = forwardRef<RangeCalendarProps, 'input'>(
@@ -41,6 +53,8 @@ export const RangeCalendar = forwardRef<RangeCalendarProps, 'input'>(
       defaultValue = [null, null],
       monthsToDisplay = 2,
       showTodayButton = true,
+      onMonthChange,
+      onYearChange,
       ...props
     },
     initialFocusRef,
@@ -136,6 +150,8 @@ export const RangeCalendar = forwardRef<RangeCalendarProps, 'input'>(
         monthsToDisplay={monthsToDisplay}
         selectedDates={internalValue ?? undefined}
         onSelectDate={handleOnDateSelected}
+        onMonthChange={onMonthChange}
+        onYearChange={onYearChange}
         hoveredDate={hoveredDate}
         onMouseEnterHighlight={onMouseEnterHighlight}
         onMouseLeaveCalendar={onMouseLeaveCalendar}
