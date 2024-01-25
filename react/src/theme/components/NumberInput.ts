@@ -45,41 +45,47 @@ const baseStyle = definePartsStyle({
 })
 
 const sizes = {
-  xs: definePartsStyle({
-    stepper: {
-      fontSize: '1rem',
-    },
-    stepperWrapper: {
-      h: Input.sizes?.xs.field.h,
-    },
-    field: Input.sizes?.xs.field,
-    stepperDivider: {
-      h: '1rem',
-    },
+  xs: definePartsStyle((props) => {
+    return {
+      stepper: {
+        fontSize: '1rem',
+      },
+      stepperWrapper: {
+        h: Input.sizes?.xs(props).field.h,
+      },
+      field: Input.sizes?.xs(props).field,
+      stepperDivider: {
+        h: '1rem',
+      },
+    }
   }),
-  sm: definePartsStyle({
-    stepper: {
-      fontSize: '1rem',
-    },
-    stepperWrapper: {
-      h: Input.sizes?.sm.field.h,
-    },
-    field: Input.sizes?.sm.field,
-    stepperDivider: {
-      h: '1rem',
-    },
+  sm: definePartsStyle((props) => {
+    return {
+      stepper: {
+        fontSize: '1rem',
+      },
+      stepperWrapper: {
+        h: Input.sizes?.sm(props).field.h,
+      },
+      field: Input.sizes?.sm(props).field,
+      stepperDivider: {
+        h: '1rem',
+      },
+    }
   }),
-  md: definePartsStyle({
-    stepper: {
-      fontSize: '1rem',
-    },
-    stepperWrapper: {
-      h: Input.sizes?.md.field.h,
-    },
-    field: Input.sizes?.md.field,
-    stepperDivider: {
-      h: '1.25rem',
-    },
+  md: definePartsStyle((props) => {
+    return {
+      stepper: {
+        fontSize: '1rem',
+      },
+      stepperWrapper: {
+        h: Input.sizes?.md(props).field.h,
+      },
+      field: Input.sizes?.md(props).field,
+      stepperDivider: {
+        h: '1.25rem',
+      },
+    }
   }),
 }
 

@@ -1,9 +1,9 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 import { getColor, StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { memoizedGet as get } from '@chakra-ui/utils'
 import { merge } from 'lodash'
 
 import { layerStyles } from '../layerStyles'
-import { textStyles } from '../textStyles'
 import { getContrastColor } from '../utils'
 import { hexToRgba } from '../utils/hexToRgba'
 
@@ -266,44 +266,65 @@ const variants = {
   inputAttached: variantInputAttached,
 }
 
-const baseStyle = defineStyle({
-  ...textStyles['subhead-1'],
-  whiteSpace: 'pre-wrap',
-  borderRadius: 'base',
-  border: '1px solid',
-  flexShrink: 0,
-  // -1px for border
-  px: '15px',
-  py: '9px',
-  _disabled: {
-    bg: 'interaction.support.disabled',
-    borderColor: 'interaction.support.disabled',
-    opacity: 1,
-    color: 'interaction.support.disabled-content',
-  },
-  ...layerStyles.focusRing.default,
+const baseStyle = defineStyle(({ theme }) => {
+  const focusRingStyle = get(
+    theme,
+    'layerStyles.focusRing.default',
+    layerStyles.focusRing.default,
+  )
+  const themeTextStyles = get(theme, 'textStyles')
+
+  return {
+    ...themeTextStyles['subhead-1'],
+    whiteSpace: 'pre-wrap',
+    borderRadius: 'base',
+    border: '1px solid',
+    flexShrink: 0,
+    // -1px for border
+    px: '15px',
+    py: '9px',
+    _disabled: {
+      bg: 'interaction.support.disabled',
+      borderColor: 'interaction.support.disabled',
+      opacity: 1,
+      color: 'interaction.support.disabled-content',
+    },
+    ...focusRingStyle,
+  }
 })
 
 const sizes = {
-  xs: defineStyle({
-    ...textStyles['subhead-2'],
-    minH: '2.25rem',
-    minW: '2.25rem',
+  xs: defineStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      ...themeTextStyles['subhead-2'],
+      minH: '2.25rem',
+      minW: '2.25rem',
+    }
   }),
-  sm: defineStyle({
-    ...textStyles['subhead-1'],
-    minH: '2.5rem',
-    minW: '2.5rem',
+  sm: defineStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      ...themeTextStyles['subhead-1'],
+      minH: '2.5rem',
+      minW: '2.5rem',
+    }
   }),
-  md: defineStyle({
-    ...textStyles['subhead-1'],
-    minH: '2.75rem',
-    minW: '2.75rem',
+  md: defineStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      ...themeTextStyles['subhead-1'],
+      minH: '2.75rem',
+      minW: '2.75rem',
+    }
   }),
-  lg: defineStyle({
-    ...textStyles['subhead-1'],
-    minH: '3rem',
-    minW: '3rem',
+  lg: defineStyle(({ theme }) => {
+    const themeTextStyles = get(theme, 'textStyles')
+    return {
+      ...themeTextStyles['subhead-1'],
+      minH: '3rem',
+      minW: '3rem',
+    }
   }),
 }
 

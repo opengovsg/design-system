@@ -39,13 +39,13 @@ const variants = {
 }
 
 const sizes = {
-  xs: definePartsStyle(({ isSuccess }) => {
+  xs: definePartsStyle((props) => {
     return {
       field: {
-        paddingInlineEnd: isSuccess ? '4rem' : undefined,
+        paddingInlineEnd: props.isSuccess ? '4rem' : undefined,
       },
       iconContainer: {
-        ...Input.sizes?.xs.element,
+        ...Input.sizes?.xs(props).element,
         w: 'auto',
         px: '0.5rem',
       },
@@ -54,13 +54,13 @@ const sizes = {
       },
     }
   }),
-  sm: definePartsStyle(({ isSuccess }) => {
+  sm: definePartsStyle((props) => {
     return {
       field: {
-        paddingInlineEnd: isSuccess ? '4.75rem' : undefined,
+        paddingInlineEnd: props.isSuccess ? '4.75rem' : undefined,
       },
       iconContainer: {
-        ...Input.sizes?.sm.element,
+        ...Input.sizes?.sm(props).element,
         w: 'auto',
         px: '0.5rem',
       },
@@ -69,16 +69,16 @@ const sizes = {
       },
     }
   }),
-  md: definePartsStyle(({ isSuccess }) => {
+  md: definePartsStyle((props) => {
     return {
       field: {
-        paddingInlineEnd: isSuccess ? '4.75rem' : undefined,
+        paddingInlineEnd: props.isSuccess ? '4.75rem' : undefined,
       },
       icon: {
         fontSize: '1rem',
       },
       iconContainer: {
-        ...Input.sizes?.md.element,
+        ...Input.sizes?.md(props).element,
         w: 'auto',
         px: '0.5rem',
       },

@@ -1,5 +1,6 @@
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 import { anatomy, StyleFunctionProps } from '@chakra-ui/theme-tools'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 import { layerStyles } from '../layerStyles'
 
@@ -79,29 +80,37 @@ const variants = {
   solid: variantSolid,
 }
 
-const baseStyle = definePartsStyle({
-  button: {
-    px: '0',
-    bg: 'transparent',
-    color: 'base.content.strong',
-    _hover: {
+const baseStyle = definePartsStyle(({ theme }) => {
+  const focusRingStyle = get(
+    theme,
+    'layerStyles.focusRing.default._focusVisible',
+    layerStyles.focusRing.default._focusVisible,
+  )
+
+  return {
+    button: {
+      px: '0',
       bg: 'transparent',
+      color: 'base.content.strong',
+      _hover: {
+        bg: 'transparent',
+      },
+      _active: {
+        bg: 'transparent',
+      },
+      _focusVisible: {
+        outline: 'none',
+      },
     },
-    _active: {
-      bg: 'transparent',
+    avatar: {
+      transitionProperty: 'common',
+      transitionDuration: 'normal',
+      _groupFocus: focusRingStyle,
+      _groupActive: {
+        ...focusRingStyle,
+      },
     },
-    _focusVisible: {
-      outline: 'none',
-    },
-  },
-  avatar: {
-    transitionProperty: 'common',
-    transitionDuration: 'normal',
-    _groupFocus: layerStyles.focusRing.default._focusVisible,
-    _groupActive: {
-      ...layerStyles.focusRing.default._focusVisible,
-    },
-  },
+  }
 })
 
 const sizes = {

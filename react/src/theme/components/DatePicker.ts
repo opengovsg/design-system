@@ -1,7 +1,6 @@
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 import { anatomy } from '@chakra-ui/theme-tools'
-
-import { textStyles } from '../textStyles'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 export const datepickerAnatomy = anatomy('datepicker').parts(
   'header',
@@ -30,8 +29,9 @@ const sizes = {
   }),
 }
 
-export const DatePicker = defineMultiStyleConfig({
-  baseStyle: {
+const baseStyle = definePartsStyle(({ theme }) => {
+  const themeTextStyles = get(theme, 'textStyles')
+  return {
     container: {
       bg: 'utility.ui',
     },
@@ -53,7 +53,7 @@ export const DatePicker = defineMultiStyleConfig({
       alignItems: 'center',
       color: 'base.content.strong',
       px: '1.5rem',
-      ...textStyles['subhead-2'],
+      ...themeTextStyles['subhead-2'],
     },
     inputButton: {
       color: 'base.content.strong',
@@ -61,6 +61,10 @@ export const DatePicker = defineMultiStyleConfig({
         color: 'interaction.support.disabled-content',
       },
     },
-  },
+  }
+})
+
+export const DatePicker = defineMultiStyleConfig({
+  baseStyle,
   sizes,
 })

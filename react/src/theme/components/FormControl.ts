@@ -4,8 +4,7 @@ import {
   cssVar,
   defineStyle,
 } from '@chakra-ui/styled-system'
-
-import { textStyles } from '../textStyles'
+import { memoizedGet as get } from '@chakra-ui/utils'
 
 const parts = formAnatomy.extend('icon', 'optionalIndicator')
 
@@ -20,30 +19,40 @@ const baseStyleRequiredIndicator = defineStyle({
   color: $fg.reference,
 })
 
-const baseStyleHelperText = defineStyle({
-  [$fg.variable]: 'colors.base.content.medium',
-  color: $fg.reference,
-  ...textStyles['body-2'],
-  mt: 0,
+const baseStyleHelperText = defineStyle(({ theme }) => {
+  const themeTextStyles = get(theme, 'textStyles')
+
+  return {
+    [$fg.variable]: 'colors.base.content.medium',
+    color: $fg.reference,
+    ...themeTextStyles['body-2'],
+    mt: 0,
+  }
 })
 
-const baseStyleOptionalIndicator = defineStyle({
-  color: 'base.content.medium',
-  ...textStyles['body-2'],
-  ml: '0.5rem',
-  lineHeight: 0,
+const baseStyleOptionalIndicator = defineStyle(({ theme }) => {
+  const themeTextStyles = get(theme, 'textStyles')
+
+  return {
+    color: 'base.content.medium',
+    ...themeTextStyles['body-2'],
+    ml: '0.5rem',
+    lineHeight: 0,
+  }
 })
 
-const baseStyle = definePartsStyle({
-  requiredIndicator: baseStyleRequiredIndicator,
-  helperText: baseStyleHelperText,
-  optionalIndicator: baseStyleOptionalIndicator,
-  icon: {
-    marginEnd: '0.5em',
-    fontSize: '1rem',
-    height: '1.25em',
-    verticalAlign: 'bottom',
-  },
+const baseStyle = definePartsStyle((props) => {
+  return {
+    requiredIndicator: baseStyleRequiredIndicator,
+    helperText: baseStyleHelperText(props),
+    optionalIndicator: baseStyleOptionalIndicator(props),
+    icon: {
+      marginEnd: '0.5em',
+      fontSize: '1rem',
+      height: '1.25em',
+      verticalAlign: 'bottom',
+    },
+  }
 })
 
 const variantSuccess = definePartsStyle({
