@@ -37,7 +37,7 @@ export const TouchableTooltip = ({
   const [isLabelOpen, setIsLabelOpen] = useState(!!props.isOpen)
   return (
     <>
-      <ChakraTooltip {...props} hasArrow isOpen={isLabelOpen}>
+      <ChakraTooltip hasArrow {...props} isOpen={isLabelOpen}>
         <Box
           as="span"
           onMouseEnter={() => setIsLabelOpen(true)}

@@ -1,4 +1,4 @@
-import { Box, Icon, Placement, VStack } from '@chakra-ui/react'
+import { Box, Button, Icon, Placement, VStack } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { BxsHelpCircle } from '~/icons/BxsHelpCircle'
@@ -13,49 +13,74 @@ export default {
   decorators: [],
 } as Meta
 
-const TouchableTooltipStack = (
+const Template: StoryFn<TouchableTooltipProps> = ({ children, ...args }) => (
+  <TouchableTooltip {...args}>{children}</TouchableTooltip>
+)
+
+export const Default = Template.bind({})
+Default.args = {
+  label: 'Tooltip content goes here',
+  children: <Icon as={BxsHelpCircle} aria-hidden ml="0.5rem" />,
+}
+
+export const NoArrow = Template.bind({})
+NoArrow.args = {
+  label: 'Tooltip content goes here',
+  children: <Icon as={BxsHelpCircle} aria-hidden ml="0.5rem" />,
+  hasArrow: false,
+}
+
+export const CustomChild = Template.bind({})
+CustomChild.args = {
+  label: 'Tooltip content goes here',
+  children: <Button>Button</Button>,
+  as: 'div',
+  h: 'fit-content',
+  w: 'fit-content',
+}
+
+const TouchableTooltipStack: StoryFn<
+  TouchableTooltipProps & { labels: { value: string; placement: Placement }[] }
+> = (
   args: TouchableTooltipProps & {
     labels: { value: string; placement: Placement }[]
   },
-): JSX.Element => {
-  return (
-    // bottom margin just so that story snapshot does not get cut off at bottom
-    <VStack align="left" spacing="4rem" mb="4rem">
-      {args.labels.map(({ value, placement }, idx) => (
-        <Box key={idx}>
-          {value}
-          <TouchableTooltip
-            {...args}
-            label="Tooltip content goes here"
-            placement={placement}
-          >
-            <Icon as={BxsHelpCircle} aria-hidden ml="0.5rem" />
-          </TouchableTooltip>
-        </Box>
-      ))}
-    </VStack>
-  )
-}
+) => (
+  // bottom margin just so that story snapshot does not get cut off at bottom
+  <VStack align="left" spacing="4rem" mb="4rem">
+    {args.labels.map(({ value, placement }, idx) => (
+      <Box key={idx}>
+        {value}
+        <TouchableTooltip
+          {...args}
+          label="Tooltip content goes here"
+          placement={placement}
+        >
+          <Icon as={BxsHelpCircle} aria-hidden ml="0.5rem" />
+        </TouchableTooltip>
+      </Box>
+    ))}
+  </VStack>
+)
 
-const Template: StoryFn<TouchableTooltipProps> = (args) => {
-  return (
-    <TouchableTooltipStack
-      {...args}
-      labels={[
-        { value: 'Tooltip on the right', placement: 'right' },
-        {
-          value: "Left (requires longer text so it doesn't flip right)",
-          placement: 'left',
-        },
-        { value: 'Tooltip on top', placement: 'top' },
-        { value: 'Tooltip at bottom', placement: 'bottom' },
-      ]}
-    />
-  )
-}
-export const OnHover = Template.bind({})
+const TemplateGroup: StoryFn<TouchableTooltipProps> = (args) => (
+  <TouchableTooltipStack
+    {...args}
+    labels={[
+      { value: 'Tooltip on the right', placement: 'right' },
+      {
+        value: "Left (requires longer text so it doesn't flip right)",
+        placement: 'left',
+      },
+      { value: 'Tooltip on top', placement: 'top' },
+      { value: 'Tooltip at bottom', placement: 'bottom' },
+    ]}
+  />
+)
 
-export const OpenTooltip = Template.bind({})
+export const OnHover = TemplateGroup.bind({})
+
+export const OpenTooltip = TemplateGroup.bind({})
 OpenTooltip.args = {
   isOpen: true,
 }
