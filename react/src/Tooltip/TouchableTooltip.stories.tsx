@@ -34,9 +34,11 @@ export const CustomChild = Template.bind({})
 CustomChild.args = {
   label: 'Tooltip content goes here',
   children: <Button>Button</Button>,
-  as: 'div',
-  h: 'fit-content',
-  w: 'fit-content',
+  wrapperAs: 'div',
+  wrapperStyles: {
+    h: 'fit-content',
+    w: 'fit-content',
+  },
 }
 
 const TouchableTooltipStack: StoryFn<
