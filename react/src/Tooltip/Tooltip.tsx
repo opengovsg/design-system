@@ -54,6 +54,8 @@ export const TouchableTooltip = ({
   )
 }
 
+TouchableTooltip.displayName = 'TouchableTooltip'
+
 /**
  * @deprecated Use `TouchableTooltip` instead.
  *
