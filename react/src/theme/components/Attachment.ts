@@ -11,6 +11,10 @@ const parts = anatomy('attachment').parts(
   'fileInfo',
   'fileInfoDescription',
   'fileInfoImage',
+  'fileInfoTitle',
+  'fileInfoIcon',
+  'fileErrorIcon',
+  'fileErrorMessage',
 )
 
 const { definePartsStyle, defineMultiStyleConfig } =
@@ -25,7 +29,7 @@ const baseStyle = definePartsStyle({
     borderRadius: 'base',
     border: '1px solid',
     borderColor: 'base.divider.medium',
-    bg: 'interaction.main-subtle.default',
+    bg: 'utility.ui',
     color: 'base.content.default',
     _disabled: {
       bg: 'interaction.support.disabled',
@@ -37,10 +41,25 @@ const baseStyle = definePartsStyle({
   fileInfo: {
     display: 'inline-flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
     flex: 1,
+  },
+  fileInfoTitle: {
+    color: 'base.content.strong',
+    _disabled: {
+      color: 'interaction.support.disabled-content',
+    },
+    textStyle: 'subhead-2',
   },
   fileInfoDescription: {
     color: 'base.content.medium',
+    _disabled: {
+      color: 'interaction.support.disabled-content',
+    },
+    textStyle: 'caption-2',
+  },
+  fileErrorMessage: {
+    textColor: 'interaction.critical.default',
     _disabled: {
       color: 'interaction.support.disabled-content',
     },
@@ -50,6 +69,16 @@ const baseStyle = definePartsStyle({
     borderRight: '1px solid',
     borderColor: 'inherit',
     bg: 'utility.ui',
+  },
+  fileInfoIcon: {
+    height: '1.3rem',
+    weight: '1.3rem',
+    color: 'interaction.success.default',
+  },
+  fileErrorIcon: {
+    height: '1.3rem',
+    weight: '1.3rem',
+    color: 'interaction.critical.default',
   },
 })
 

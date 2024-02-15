@@ -16,7 +16,7 @@ export const AttachmentDropzone = ({
   isDragActive,
 }: AttachmentDropzoneProps): JSX.Element => {
   const styles = useAttachmentStyles()
-
+  const filePlural = inputProps.multiple ? 'files' : 'file'
   return (
     <>
       <chakra.input {...inputProps} data-testid={inputProps.name} />
@@ -26,8 +26,8 @@ export const AttachmentDropzone = ({
         <Text>Drop the file here ...</Text>
       ) : (
         <Text>
-          <Link isDisabled={inputProps.disabled}>Choose file</Link> or drag and
-          drop here
+          <Link isDisabled={inputProps.disabled}>{`Choose ${filePlural}`}</Link>{' '}
+          or drag and drop here
         </Text>
       )}
     </>

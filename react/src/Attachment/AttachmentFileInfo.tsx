@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import {
   Flex,
   forwardRef,
+  Icon,
   Image,
   Stack,
   Text,
@@ -10,7 +11,7 @@ import {
 import { dataAttr } from '@chakra-ui/utils'
 
 import { IconButton } from '~/IconButton'
-import { BxTrash } from '~/icons'
+import { BxsCheckCircle, BxTrash } from '~/icons'
 
 import { getReadableFileSize } from './utils/getReadableFileSize'
 import { useAttachmentStyles } from './AttachmentContext'
@@ -62,15 +63,20 @@ export const AttachmentFileInfo = forwardRef<AttachmentFileInfoProps, 'div'>(
           />
         )}
         <Flex sx={styles.fileInfo}>
-          <Stack spacing="0.25rem" flexDir="column" aria-hidden>
-            <Text>{file.name}</Text>
-            <Text
-              data-disabled={dataAttr(isDisabled)}
-              sx={styles.fileInfoDescription}
-            >
-              {readableFileSize}
-            </Text>
-          </Stack>
+          <Flex gap="0.5rem">
+            {imagePreview === undefined && (
+              <Icon as={BxsCheckCircle} sx={styles.fileInfoIcon} />
+            )}
+            <Stack spacing="0.25rem" flexDir="column" aria-hidden>
+              <Text sx={styles.fileInfoTitle}>{file.name}</Text>
+              <Text
+                data-disabled={dataAttr(isDisabled)}
+                sx={styles.fileInfoDescription}
+              >
+                {readableFileSize}
+              </Text>
+            </Stack>
+          </Flex>
           <IconButton
             variant="clear"
             colorScheme="critical"
