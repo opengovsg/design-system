@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ErrorCode, FileRejection } from 'react-dropzone'
+import { useControllableState } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 import { Buffer } from 'buffer'
 
@@ -48,11 +49,39 @@ export default {
     name: 'Test-input',
     maxSize: 23000,
   },
-} as Meta<AttachmentProps>
+} as Meta<AttachmentProps<false>>
 
-const Template: StoryFn<AttachmentProps> = ({
+const SingleTemplate: StoryFn<AttachmentProps<false>> = ({
+  value,
+  onChange,
+  rejections,
+  multiple,
+  ...args
+}) => {
+  const [files, onFileChange] = useControllableState<File | undefined>({
+    value,
+    onChange,
+  })
+  const [fileRejections, setFileRejections] = useState<
+    FileRejection[] | undefined
+  >(rejections)
+
+  return (
+    <Attachment
+      {...args}
+      multiple={multiple}
+      value={files}
+      onChange={onFileChange}
+      rejections={fileRejections}
+      onRejection={setFileRejections}
+    />
+  )
+}
+
+const MultipleTemplate: StoryFn<AttachmentProps<true>> = ({
   value = [],
   rejections,
+  multiple = true,
   ...args
 }) => {
   const [files, setFiles] = useState<File[]>(value)
@@ -63,6 +92,7 @@ const Template: StoryFn<AttachmentProps> = ({
   return (
     <Attachment
       {...args}
+      multiple={multiple}
       value={files}
       onChange={setFiles}
       rejections={fileRejections}
@@ -71,64 +101,65 @@ const Template: StoryFn<AttachmentProps> = ({
   )
 }
 
-export const Default = Template.bind({})
+export const Default = SingleTemplate.bind({})
 
-export const OnlyAcceptImages = Template.bind({})
+export const OnlyAcceptImages = SingleTemplate.bind({})
 OnlyAcceptImages.args = {
   accept: ['image/*'],
 }
 
-export const ShowMaxSize = Template.bind({})
-ShowMaxSize.args = {
-  showFileSize: true,
-}
-
-export const Invalid = Template.bind({})
+export const Invalid = SingleTemplate.bind({})
 Invalid.args = {
   isInvalid: true,
 }
 
-export const Disabled = Template.bind({})
+export const Disabled = SingleTemplate.bind({})
 Disabled.args = {
   isDisabled: true,
 }
 
-export const WithUploadedFile = Template.bind({})
+export const WithUploadedFile = SingleTemplate.bind({})
 WithUploadedFile.args = {
-  value: [MOCK_OGP_LOGO_FILE],
+  value: MOCK_OGP_LOGO_FILE,
 }
 
-export const WithUploadedFileDisabled = Template.bind({})
+export const WithUploadedFileDisabled = SingleTemplate.bind({})
 WithUploadedFileDisabled.args = {
   ...WithUploadedFile.args,
   isDisabled: true,
 }
 
-export const WithSmallImagePreview = Template.bind({})
+export const WithSmallImagePreview = SingleTemplate.bind({})
 WithSmallImagePreview.args = {
   ...WithUploadedFile.args,
   imagePreview: 'small',
 }
 
-export const WithLargeImagePreview = Template.bind({})
+export const WithLargeImagePreview = SingleTemplate.bind({})
 WithLargeImagePreview.args = {
   ...WithUploadedFile.args,
   imagePreview: 'large',
 }
 WithLargeImagePreview.parameters = getMobileViewParameters()
 
-export const WithMultipleUpload = Template.bind({})
+export const WithMultipleUpload = MultipleTemplate.bind({})
 WithMultipleUpload.args = {
   multiple: true,
 }
 
-export const WithMultipleUploadedFiles = Template.bind({})
+export const ShowMaxSize = MultipleTemplate.bind({})
+ShowMaxSize.args = {
+  ...WithMultipleUpload.args,
+  showFileSize: true,
+}
+
+export const WithMultipleUploadedFiles = MultipleTemplate.bind({})
 WithMultipleUploadedFiles.args = {
   ...WithMultipleUpload.args,
   value: [MOCK_OGP_LOGO_FILE, MOCK_OGP_ICON_FILE],
 }
 
-export const WithRejectedFile = Template.bind({})
+export const WithRejectedFile = SingleTemplate.bind({})
 WithRejectedFile.args = {
   rejections: [MOCK_REJECTED_FILE],
 }

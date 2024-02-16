@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react'
+import { ForwardedRef, forwardRef, useCallback, useMemo } from 'react'
 import {
   DropzoneProps,
   ErrorCode,
@@ -7,7 +7,6 @@ import {
 } from 'react-dropzone'
 import {
   Box,
-  forwardRef,
   Stack,
   Text,
   ThemingProps,
@@ -17,7 +16,7 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 import { dataAttr } from '@chakra-ui/utils'
-import { isNil, omit } from 'lodash'
+import { omit } from 'lodash'
 import type { Promisable } from 'type-fest'
 
 import { getErrorMessage } from './utils/getErrorMessage'
@@ -27,77 +26,104 @@ import { AttachmentError } from './AttachmentError'
 import { AttachmentFileInfo } from './AttachmentFileInfo'
 import { getReadableFileSize } from './utils'
 
-export interface AttachmentProps extends UseFormControlProps<HTMLElement> {
-  /**
-   * Callback to be invoked when the file is attached or removed.
-   */
-  onChange: (files: File[]) => void
-
-  /**
-   * If exists, callback to be invoked when file has errors.
-   */
-  onError?: (errMsg: string) => void
-  /**
-   * Current value of the input.
-   */
-  value: File[]
-  /**
-   * Name of the input.
-   */
-  name: string
-  /**
-   * One or more
-   * [unique file type specifiers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers)
-   * describing file types to allow
-   */
-  accept?: DropzoneProps['accept']
-  /**
-   * If exists, files cannot be attached if they are above the maximum size
-   * (in bytes).
-   */
-  maxSize?: DropzoneProps['maxSize']
-  /**
-   * Boolean flag on whether to show the file size helper message below the
-   * input.
-   */
-  showFileSize?: boolean
-
-  /**
-   * If provided, the image preview will be shown in the given size variant.
-   */
-  imagePreview?: 'small' | 'large'
-
-  /**
-   * Color scheme of the component.
-   */
-  colorScheme?: ThemingProps<'Attachment'>['colorScheme']
-
-  /**
-   * If provided, the file will be validated against the given function.
-   * If the function returns a string, the file will be considered invalid
-   * and the string will be used as the error message.
-   * If the function returns null, the file will be considered valid.
-   */
-  onFileValidation?: (file: File) => Promisable<string | null>
-
-  /**
-   * Boolean flag on whether to support multiple file upload.
-   */
-  multiple?: boolean
-
-  /**
-   * If provided, files that have been rejected will be displayed along with the reasons for rejection.
-   */
-  rejections?: FileRejection[]
-
-  /**
-   * If exists, callback to be invoked when file has errors.
-   */
-  onRejection?: (rejections: FileRejection[]) => void
+interface WithForwardRefType<M extends boolean>
+  extends React.FC<AttachmentProps<M>> {
+  <M extends boolean>(
+    props: AttachmentProps<M>,
+  ): ReturnType<React.FC<AttachmentProps<M>>>
 }
 
-export const Attachment = forwardRef<AttachmentProps, 'div'>(
-  (
+type AttachmentValueProp<Multiple extends boolean> = Multiple extends true
+  ? {
+      /**
+       * Boolean flag on whether to support multiple file upload.
+       */
+      multiple: true
+      /**
+       * Callback to be invoked when the file is attached or removed.
+       */
+      onChange: (files: File[]) => void
+      /**
+       * Current value of the input.
+       */
+      value: File[]
+    }
+  : {
+      /**
+       * Boolean flag on whether to support multiple file upload.
+       */
+      multiple?: false
+      /**
+       * Callback to be invoked when the file is attached or removed.
+       */
+      onChange: (file?: File) => void
+      /**
+       * Current value of the input.
+`       */
+      value: File | undefined
+    }
+
+export type AttachmentProps<Multiple extends boolean> =
+  UseFormControlProps<HTMLElement> & {
+    /**
+     * If exists, callback to be invoked when file has errors.
+     */
+    onError?: (errMsg: string) => void
+    /**
+     * Name of the input.
+     */
+    name: string
+    /**
+     * One or more
+     * [unique file type specifiers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers)
+     * describing file types to allow
+     */
+    accept?: DropzoneProps['accept']
+    /**
+     * If exists, files cannot be attached if they are above the maximum size
+     * (in bytes).
+     */
+    maxSize?: DropzoneProps['maxSize']
+    /**
+     * Boolean flag on whether to show the file size helper message below the
+     * input.
+     */
+    showFileSize?: boolean
+
+    /**
+     * If provided, the image preview will be shown in the given size variant.
+     */
+    imagePreview?: 'small' | 'large'
+
+    /**
+     * Color scheme of the component.
+     */
+    colorScheme?: ThemingProps<'Attachment'>['colorScheme']
+
+    /**
+     * If provided, the file will be validated against the given function.
+     * If the function returns a string, the file will be considered invalid
+     * and the string will be used as the error message.
+     * If the function returns null, the file will be considered valid.
+     */
+    onFileValidation?: (file: File) => Promisable<string | null>
+
+    /**
+     * If provided, files that have been rejected will be displayed along with the reasons for rejection.
+     */
+    rejections?: FileRejection[]
+
+    /**
+     * If exists, callback to be invoked when file has errors.
+     */
+    onRejection?: (rejections: FileRejection[]) => void
+  } & AttachmentValueProp<Multiple>
+
+export const Attachment: WithForwardRefType<boolean> = forwardRef<
+  HTMLDivElement,
+  AttachmentProps<boolean>
+>(
+  <M extends boolean>(
     {
       onChange,
       onError,
@@ -113,8 +139,8 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
       rejections,
       onRejection,
       ...props
-    },
-    ref,
+    }: AttachmentProps<M>,
+    ref: ForwardedRef<HTMLDivElement>,
   ) => {
     // Merge given props with any form control props, if they exist.
     const inputProps = useFormControl(props)
@@ -126,10 +152,18 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
       [maxSize],
     )
 
-    const showMaxSize = useMemo(
-      () => value.length === 0 && showFileSize && readableMaxSize,
-      [value, readableMaxSize, showFileSize],
+    const hasValue = useMemo(
+      () => (multiple ? value.length > 0 : !!value),
+      [multiple, value],
     )
+
+    const filesArrayForRender = useMemo(() => {
+      return multiple ? value : value ? [value] : []
+    }, [multiple, value])
+
+    const showMaxSize = useMemo(() => {
+      return !hasValue && showFileSize && readableMaxSize
+    }, [hasValue, showFileSize, readableMaxSize])
 
     const ariaDescribedBy = useMemo(() => {
       const describedByIds = new Set<string>()
@@ -173,7 +207,7 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
         await Promise.all(
           acceptedFiles.map(async (file) => {
             const fileValidationErrorMessage = await onFileValidation?.(file)
-            if (isNil(fileValidationErrorMessage)) {
+            if (!fileValidationErrorMessage) {
               validatedFiles.push(file)
             } else {
               rejects.push({
@@ -192,9 +226,13 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
           onError?.(getErrorMessage(rejects[0]))
         }
         onRejection?.(rejects)
-        onChange(validatedFiles)
+        if (multiple) {
+          onChange(validatedFiles)
+        } else {
+          onChange(validatedFiles[0])
+        }
       },
-      [onChange, onError, onRejection, onFileValidation],
+      [multiple, onFileValidation, onError, onRejection, onChange],
     )
 
     const { getRootProps, getInputProps, isDragActive, rootRef } = useDropzone({
@@ -202,9 +240,9 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
       accept,
       disabled: inputProps.disabled,
       validator: fileValidator,
-      noKeyboard: inputProps.readOnly || value.length > 0,
-      noClick: inputProps.readOnly || value.length > 0,
-      noDrag: inputProps.readOnly || value.length > 0,
+      noKeyboard: inputProps.readOnly || hasValue,
+      noClick: inputProps.readOnly || hasValue,
+      noDrag: inputProps.readOnly || hasValue,
       onDrop: handleFileDrop,
     })
 
@@ -218,24 +256,34 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
 
     const handleRemoveFile = useCallback(
       (target: File) => {
-        if (value.length === 0) {
-          rootRef.current?.focus()
-        } else {
+        if (multiple) {
           const attachedFiles = value.filter((file) => file !== target)
           onChange(attachedFiles)
+          if (attachedFiles.length === 0) {
+            rootRef.current?.focus()
+          }
+          return
         }
+
+        onChange(undefined)
+        rootRef.current?.focus()
       },
-      [onChange, rootRef, value],
+      [multiple, onChange, rootRef, value],
     )
 
     const handleDismissError = useCallback(
       (target: FileRejection) => {
-        if (rejections && rejections.length > 0) {
+        if (!rejections) return
+        if (multiple) {
           const rejects = rejections.filter((reject) => reject !== target)
-          onRejection?.(rejects)
+          if (rejects) {
+            onRejection?.(rejects)
+          }
+          return
         }
+        onRejection?.([])
       },
-      [onRejection, rejections],
+      [multiple, onRejection, rejections],
     )
 
     // Bunch of memoization to avoid unnecessary re-renders.
@@ -274,8 +322,8 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
                 />
               ))
             : null}
-          {value && value.length > 0 ? (
-            value.map((file, index) => (
+          {hasValue ? (
+            filesArrayForRender.map((file, index) => (
               <AttachmentFileInfo
                 key={`${file.name}${file.size}${index}`}
                 file={file}
