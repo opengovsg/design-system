@@ -63,9 +63,6 @@ export const AttachmentFileInfo = forwardRef<AttachmentFileInfoProps, 'div'>(
         )}
         <Flex sx={styles.fileInfo}>
           <Flex gap="0.5rem">
-            {imagePreview === undefined && (
-              <Icon as={BxsCheckCircle} sx={styles.fileInfoIcon} />
-            )}
             <Stack spacing="0.25rem" flexDir="column" aria-hidden>
               <Text sx={styles.fileInfoTitle}>{file.name}</Text>
               <Text

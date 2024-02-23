@@ -29,7 +29,7 @@ const baseStyle = definePartsStyle({
     borderRadius: 'base',
     border: '1px solid',
     borderColor: 'base.divider.medium',
-    bg: 'utility.ui',
+    bg: 'interaction.main-subtle.default',
     color: 'base.content.default',
     _disabled: {
       bg: 'interaction.support.disabled',
@@ -44,19 +44,12 @@ const baseStyle = definePartsStyle({
     alignItems: 'center',
     flex: 1,
   },
-  fileInfoTitle: {
-    color: 'base.content.strong',
-    _disabled: {
-      color: 'interaction.support.disabled-content',
-    },
-    textStyle: 'subhead-2',
-  },
   fileInfoDescription: {
     color: 'base.content.medium',
     _disabled: {
       color: 'interaction.support.disabled-content',
     },
-    textStyle: 'caption-2',
+    textStyle: 'caption-1',
   },
   fileErrorMessage: {
     textColor: 'interaction.critical.default',
@@ -69,11 +62,6 @@ const baseStyle = definePartsStyle({
     borderRight: '1px solid',
     borderColor: 'inherit',
     bg: 'utility.ui',
-  },
-  fileInfoIcon: {
-    height: '1.3rem',
-    weight: '1.3rem',
-    color: 'interaction.success.default',
   },
   fileErrorIcon: {
     height: '1.3rem',

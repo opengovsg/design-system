@@ -4,14 +4,11 @@ import {
   Button,
   Flex,
   forwardRef,
-  Icon,
   Stack,
   Text,
   VisuallyHidden,
 } from '@chakra-ui/react'
 import { dataAttr } from '@chakra-ui/utils'
-
-import { BxCrossCircle } from '~/icons/BxCrossCircle'
 
 import { getErrorMessage } from './utils/getErrorMessage'
 import { useAttachmentStyles } from './AttachmentContext'
@@ -46,7 +43,6 @@ export const AttachmentError = forwardRef<AttachmentErrorProps, 'div'>(
         </VisuallyHidden>
         <Flex sx={styles.fileInfo}>
           <Flex gap="0.5rem">
-            <Icon as={BxCrossCircle} sx={styles.fileErrorIcon} />
             <Stack spacing="0.25rem" flexDir="column" aria-hidden>
               <Text sx={styles.fileInfoTitle}>{file.name}</Text>
               <Text
