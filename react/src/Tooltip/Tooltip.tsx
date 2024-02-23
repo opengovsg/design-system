@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import {
+  As,
   Box,
   SystemStyleObject,
   Tooltip as ChakraTooltip,
@@ -13,6 +14,7 @@ export interface TouchableTooltipProps
    * Styles for the container which wraps the children.
    */
   wrapperStyles?: SystemStyleObject
+  wrapperAs?: As
 }
 
 /** @deprecated Use TouchableTooltipProps instead */
@@ -29,6 +31,7 @@ export interface TooltipProps extends TouchableTooltipProps {}
 export const TouchableTooltip = ({
   children,
   wrapperStyles,
+  wrapperAs,
   ...props
 }: TouchableTooltipProps): JSX.Element => {
   // ChakraTooltip does not work on mobile by design. (see
@@ -37,9 +40,9 @@ export const TouchableTooltip = ({
   const [isLabelOpen, setIsLabelOpen] = useState(!!props.isOpen)
   return (
     <>
-      <ChakraTooltip {...props} hasArrow isOpen={isLabelOpen}>
+      <ChakraTooltip hasArrow {...props} isOpen={isLabelOpen}>
         <Box
-          as="span"
+          as={wrapperAs ?? 'span'}
           onMouseEnter={() => setIsLabelOpen(true)}
           onMouseLeave={() => setIsLabelOpen(false)}
           onClick={() => setIsLabelOpen((currentState) => !currentState)}
@@ -53,6 +56,8 @@ export const TouchableTooltip = ({
     </>
   )
 }
+
+TouchableTooltip.displayName = 'TouchableTooltip'
 
 /**
  * @deprecated Use `TouchableTooltip` instead.
