@@ -4,19 +4,15 @@ import { getFileExtension } from './getFileExtension'
 
 export const getErrorMessage = (rejectedFile: FileRejection): string => {
   const firstError = rejectedFile.errors[0]
-  let errorMessage
   switch (firstError.code) {
     case ErrorCode.FileInvalidType: {
       const fileExt = getFileExtension(rejectedFile.file.name)
-      errorMessage = `Your file's extension ending in *${fileExt} is not allowed`
-      break
+      return `Your file's extension ending in *${fileExt} is not allowed`
     }
     case ErrorCode.TooManyFiles: {
-      errorMessage = 'You can only upload a single file in this input'
-      break
+      return 'You can only upload a single file in this input'
     }
     default:
-      errorMessage = firstError.message
+      return firstError.message
   }
-  return errorMessage
 }

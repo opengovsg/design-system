@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react'
 import {
   Flex,
   forwardRef,
-  Icon,
   Image,
   Stack,
   Text,
@@ -11,7 +10,7 @@ import {
 import { dataAttr } from '@chakra-ui/utils'
 
 import { IconButton } from '~/IconButton'
-import { BxsCheckCircle, BxTrash } from '~/icons'
+import { BxTrash } from '~/icons'
 
 import { getReadableFileSize } from './utils/getReadableFileSize'
 import { useAttachmentStyles } from './AttachmentContext'

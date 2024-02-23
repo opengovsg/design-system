@@ -42,7 +42,7 @@ export const AttachmentError = forwardRef<AttachmentErrorProps, 'div'>(
         sx={{ ...styles.fileInfoContainer, maxHeight: 'fit-content' }}
       >
         <VisuallyHidden>
-          File attached: {file.name} with file size of {readableFileSize}
+          Invalid file: {getErrorMessage(fileRejection)}
         </VisuallyHidden>
         <Flex sx={styles.fileInfo}>
           <Flex gap="0.5rem">
@@ -63,7 +63,7 @@ export const AttachmentError = forwardRef<AttachmentErrorProps, 'div'>(
           <Button
             size="xs"
             variant="clear"
-            aria-label="Remove file"
+            aria-label="Dismiss error"
             onClick={() => handleDismiss(fileRejection)}
             isDisabled={isDisabled || isReadOnly}
           >
@@ -75,4 +75,4 @@ export const AttachmentError = forwardRef<AttachmentErrorProps, 'div'>(
   },
 )
 
-AttachmentError.displayName = 'AttachmentFileInfo'
+AttachmentError.displayName = 'AttachmentError'

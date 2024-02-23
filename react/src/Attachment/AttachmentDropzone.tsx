@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { DropzoneInputProps, DropzoneState } from 'react-dropzone'
 import { chakra, Icon, Text } from '@chakra-ui/react'
 
@@ -16,7 +17,10 @@ export const AttachmentDropzone = ({
   isDragActive,
 }: AttachmentDropzoneProps): JSX.Element => {
   const styles = useAttachmentStyles()
-  const filePlural = inputProps.multiple ? 'files' : 'file'
+  const chooseFileText = useMemo(
+    () => `Choose file${inputProps.multiple ? 's' : ''}`,
+    [inputProps.multiple],
+  )
   return (
     <>
       <chakra.input {...inputProps} data-testid={inputProps.name} />
@@ -26,8 +30,8 @@ export const AttachmentDropzone = ({
         <Text>Drop the file here ...</Text>
       ) : (
         <Text>
-          <Link isDisabled={inputProps.disabled}>{`Choose ${filePlural}`}</Link>{' '}
-          or drag and drop here
+          <Link isDisabled={inputProps.disabled}>{chooseFileText}</Link> or drag
+          and drop here
         </Text>
       )}
     </>

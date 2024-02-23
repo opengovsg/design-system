@@ -165,6 +165,12 @@ export const Attachment: WithForwardRefType<boolean> = forwardRef<
       return !hasValue && showFileSize && readableMaxSize
     }, [hasValue, showFileSize, readableMaxSize])
 
+    const chooseMaxSizeText = useMemo(
+      () =>
+        `${multiple ? 'You can upload multiple files at once.' : ''} Maximum file size: ${readableMaxSize}`,
+      [multiple, readableMaxSize],
+    )
+
     const ariaDescribedBy = useMemo(() => {
       const describedByIds = new Set<string>()
       // Must be in this order so the screen reader reads out something coherent.
@@ -354,8 +360,7 @@ export const Attachment: WithForwardRefType<boolean> = forwardRef<
             mt="0.5rem"
             textStyle="body-2"
           >
-            You can upload multiple files at once. Maximum file size:{' '}
-            {readableMaxSize}
+            {chooseMaxSizeText}
           </Text>
         ) : null}
       </AttachmentStylesProvider>
