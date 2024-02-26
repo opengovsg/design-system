@@ -157,6 +157,12 @@ export const Attachment: WithForwardRefType<boolean> = forwardRef<
       [multiple, value],
     )
 
+    // Dropzone is displayed when (1) Multiple upload (2) Single upload but no file attached.
+    const showDropzone = useMemo(
+      () => multiple || !hasValue,
+      [multiple, hasValue],
+    )
+
     const filesArrayForRender = useMemo(() => {
       return multiple ? value : value ? [value] : []
     }, [multiple, value])
@@ -319,27 +325,7 @@ export const Attachment: WithForwardRefType<boolean> = forwardRef<
     return (
       <AttachmentStylesProvider value={styles}>
         <Stack gap="1rem">
-          {rejections && rejections.length > 0
-            ? rejections.map((fileRejection, index) => (
-                <AttachmentError
-                  key={`${fileRejection.file.name}${fileRejection.file.size}${index}`}
-                  fileRejection={fileRejection}
-                  handleDismiss={handleDismissError}
-                />
-              ))
-            : null}
-          {hasValue ? (
-            filesArrayForRender.map((file, index) => (
-              <AttachmentFileInfo
-                key={`${file.name}${file.size}${index}`}
-                file={file}
-                imagePreview={imagePreview}
-                isDisabled={inputProps.disabled}
-                isReadOnly={inputProps.readOnly}
-                handleRemoveFile={() => handleRemoveFile(file)}
-              />
-            ))
-          ) : (
+          {showDropzone ? (
             <Box
               {...processedRootProps}
               ref={mergedRefs}
@@ -351,7 +337,28 @@ export const Attachment: WithForwardRefType<boolean> = forwardRef<
                 inputProps={processedInputProps}
               />
             </Box>
-          )}
+          ) : null}
+          {rejections && rejections.length > 0
+            ? rejections.map((fileRejection, index) => (
+                <AttachmentError
+                  key={`${fileRejection.file.name}${fileRejection.file.size}${index}`}
+                  fileRejection={fileRejection}
+                  handleDismiss={handleDismissError}
+                />
+              ))
+            : null}
+          {hasValue
+            ? filesArrayForRender.map((file, index) => (
+                <AttachmentFileInfo
+                  key={`${file.name}${file.size}${index}`}
+                  file={file}
+                  imagePreview={imagePreview}
+                  isDisabled={inputProps.disabled}
+                  isReadOnly={inputProps.readOnly}
+                  handleRemoveFile={() => handleRemoveFile(file)}
+                />
+              ))
+            : null}
         </Stack>
         {showMaxSize ? (
           <Text
