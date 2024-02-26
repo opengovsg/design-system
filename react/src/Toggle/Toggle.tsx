@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { ReactNode, useMemo } from 'react'
 import {
   Box,
   Flex,
@@ -19,7 +19,7 @@ export interface ToggleProps extends SwitchProps {
   /**
    * Secondary description text
    */
-  description?: string | Element
+  description?: string | ReactNode
   /**
    * Overriding styles for the container which wraps the text
    * as well as the switch
