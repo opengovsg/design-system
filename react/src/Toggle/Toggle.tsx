@@ -19,7 +19,7 @@ export interface ToggleProps extends SwitchProps {
   /**
    * Secondary description text
    */
-  description?: string | ReactNode
+  description?: ReactNode
   /**
    * Overriding styles for the container which wraps the text
    * as well as the switch
