@@ -1,8 +1,13 @@
-import { useCallback, useMemo } from 'react'
-import { DropzoneProps, useDropzone } from 'react-dropzone'
+import { ForwardedRef, forwardRef, useCallback, useMemo } from 'react'
+import {
+  DropzoneProps,
+  ErrorCode,
+  FileRejection,
+  useDropzone,
+} from 'react-dropzone'
 import {
   Box,
-  forwardRef,
+  Stack,
   Text,
   ThemingProps,
   useFormControl,
@@ -14,66 +19,111 @@ import { dataAttr } from '@chakra-ui/utils'
 import { omit } from 'lodash'
 import type { Promisable } from 'type-fest'
 
+import { getErrorMessage } from './utils/getErrorMessage'
 import { AttachmentStylesProvider } from './AttachmentContext'
 import { AttachmentDropzone } from './AttachmentDropzone'
+import { AttachmentError } from './AttachmentError'
 import { AttachmentFileInfo } from './AttachmentFileInfo'
-import { getFileExtension, getReadableFileSize } from './utils'
+import { getReadableFileSize } from './utils'
 
-export interface AttachmentProps extends UseFormControlProps<HTMLElement> {
-  /**
-   * Callback to be invoked when the file is attached or removed.
-   */
-  onChange: (file?: File) => void
-  /**
-   * If exists, callback to be invoked when file has errors.
-   */
-  onError?: (errMsg: string) => void
-  /**
-   * Current value of the input.
-   */
-  value: File | undefined
-  /**
-   * Name of the input.
-   */
-  name: string
-  /**
-   * One or more
-   * [unique file type specifiers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers)
-   * describing file types to allow
-   */
-  accept?: DropzoneProps['accept']
-  /**
-   * If exists, files cannot be attached if they are above the maximum size
-   * (in bytes).
-   */
-  maxSize?: DropzoneProps['maxSize']
-  /**
-   * Boolean flag on whether to show the file size helper message below the
-   * input.
-   */
-  showFileSize?: boolean
-
-  /**
-   * If provided, the image preview will be shown in the given size variant.
-   */
-  imagePreview?: 'small' | 'large'
-
-  /**
-   * Color scheme of the component.
-   */
-  colorScheme?: ThemingProps<'Attachment'>['colorScheme']
-
-  /**
-   * If provided, the file will be validated against the given function.
-   * If the function returns a string, the file will be considered invalid
-   * and the string will be used as the error message.
-   * If the function returns null, the file will be considered valid.
-   */
-  onFileValidation?: (file: File) => Promisable<string | null>
+interface WithForwardRefType<M extends boolean>
+  extends React.FC<AttachmentProps<M>> {
+  <M extends boolean>(
+    props: AttachmentProps<M>,
+  ): ReturnType<React.FC<AttachmentProps<M>>>
 }
 
-export const Attachment = forwardRef<AttachmentProps, 'div'>(
-  (
+type AttachmentValueProp<Multiple extends boolean> = Multiple extends true
+  ? {
+      /**
+       * Boolean flag on whether to support multiple file upload.
+       */
+      multiple: true
+      /**
+       * Callback to be invoked when the file is attached or removed.
+       */
+      onChange: (files: File[]) => void
+      /**
+       * Current value of the input.
+       */
+      value: File[]
+    }
+  : {
+      /**
+       * Boolean flag on whether to support multiple file upload.
+       */
+      multiple?: false
+      /**
+       * Callback to be invoked when the file is attached or removed.
+       */
+      onChange: (file?: File) => void
+      /**
+       * Current value of the input.
+`       */
+      value: File | undefined
+    }
+
+export type AttachmentProps<Multiple extends boolean> =
+  UseFormControlProps<HTMLElement> & {
+    /**
+     * If exists, callback to be invoked when file has errors.
+     */
+    onError?: (errMsg: string) => void
+    /**
+     * Name of the input.
+     */
+    name: string
+    /**
+     * One or more
+     * [unique file type specifiers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers)
+     * describing file types to allow
+     */
+    accept?: DropzoneProps['accept']
+    /**
+     * If exists, files cannot be attached if they are above the maximum size
+     * (in bytes).
+     */
+    maxSize?: DropzoneProps['maxSize']
+    /**
+     * Boolean flag on whether to show the file size helper message below the
+     * input.
+     */
+    showFileSize?: boolean
+
+    /**
+     * If provided, the image preview will be shown in the given size variant.
+     */
+    imagePreview?: 'small' | 'large'
+
+    /**
+     * Color scheme of the component.
+     */
+    colorScheme?: ThemingProps<'Attachment'>['colorScheme']
+
+    /**
+     * If provided, the file will be validated against the given function.
+     * If the function returns a string, the file will be considered invalid
+     * and the string will be used as the error message.
+     * If the function returns null, the file will be considered valid.
+     */
+    onFileValidation?: (file: File) => Promisable<string | null>
+
+    /**
+     * If provided, files that have been rejected will be displayed along with the reasons for rejection.
+     */
+    rejections?: FileRejection[]
+
+    /**
+     * If exists, callback to be invoked when file has errors.
+     */
+    onRejection?: (rejections: FileRejection[]) => void
+  } & AttachmentValueProp<Multiple>
+
+export const Attachment: WithForwardRefType<boolean> = forwardRef<
+  HTMLDivElement,
+  AttachmentProps<boolean>
+>(
+  <M extends boolean>(
     {
       onChange,
       onError,
@@ -85,9 +135,12 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
       colorScheme,
       imagePreview,
       onFileValidation,
+      multiple,
+      rejections,
+      onRejection,
       ...props
-    },
-    ref,
+    }: AttachmentProps<M>,
+    ref: ForwardedRef<HTMLDivElement>,
   ) => {
     // Merge given props with any form control props, if they exist.
     const inputProps = useFormControl(props)
@@ -99,9 +152,29 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
       [maxSize],
     )
 
-    const showMaxSize = useMemo(
-      () => !value && showFileSize && readableMaxSize,
-      [value, readableMaxSize, showFileSize],
+    const hasValue = useMemo(
+      () => (multiple ? value.length > 0 : !!value),
+      [multiple, value],
+    )
+
+    // Dropzone is displayed when (1) Multiple upload (2) Single upload but no file attached.
+    const showDropzone = useMemo(
+      () => multiple || !hasValue,
+      [multiple, hasValue],
+    )
+
+    const filesArrayForRender = useMemo(() => {
+      return multiple ? value : value ? [value] : []
+    }, [multiple, value])
+
+    const showMaxSize = useMemo(() => {
+      return !hasValue && showFileSize && readableMaxSize
+    }, [hasValue, showFileSize, readableMaxSize])
+
+    const chooseMaxSizeText = useMemo(
+      () =>
+        `${multiple ? 'You can upload multiple files at once.' : ''} Maximum file size: ${readableMaxSize}`,
+      [multiple, readableMaxSize],
     )
 
     const ariaDescribedBy = useMemo(() => {
@@ -126,43 +199,12 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
       return Array.from(describedByIds).filter(Boolean).join(' ').trim()
     }, [inputProps, maxSizeTextId, showMaxSize])
 
-    const handleFileDrop = useCallback<NonNullable<DropzoneProps['onDrop']>>(
-      async ([acceptedFile], rejectedFiles) => {
-        if (rejectedFiles.length > 0) {
-          const firstError = rejectedFiles[0].errors[0]
-          let errorMessage
-          switch (firstError.code) {
-            case 'file-invalid-type': {
-              const fileExt = getFileExtension(rejectedFiles[0].file.name)
-              errorMessage = `Your file's extension ending in *${fileExt} is not allowed`
-              break
-            }
-            case 'too-many-files': {
-              errorMessage = 'You can only upload a single file in this input'
-              break
-            }
-            default:
-              errorMessage = firstError.message
-          }
-          return onError?.(errorMessage)
-        }
-        const fileValidationErrorMessage =
-          await onFileValidation?.(acceptedFile)
-        if (fileValidationErrorMessage) {
-          return onError?.(fileValidationErrorMessage)
-        }
-
-        onChange(acceptedFile)
-      },
-      [onChange, onError, onFileValidation],
-    )
-
     const fileValidator = useCallback<NonNullable<DropzoneProps['validator']>>(
       (file) => {
         if (maxSize && file.size > maxSize) {
           return {
-            code: 'file-too-large',
-            message: `You have exceeded the limit, please upload a file below ${readableMaxSize}`,
+            code: ErrorCode.FileTooLarge,
+            message: `Failed to upload. This file exceeds the size limit. Please upload a file that is under ${readableMaxSize}`,
           }
         }
         return null
@@ -170,14 +212,49 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
       [maxSize, readableMaxSize],
     )
 
+    const handleFileDrop = useCallback<NonNullable<DropzoneProps['onDrop']>>(
+      async (acceptedFiles, rejectedFiles) => {
+        const validatedFiles: File[] = []
+        const rejects: FileRejection[] = [...rejectedFiles]
+        await Promise.all(
+          acceptedFiles.map(async (file) => {
+            const fileValidationErrorMessage = await onFileValidation?.(file)
+            if (!fileValidationErrorMessage) {
+              validatedFiles.push(file)
+            } else {
+              rejects.push({
+                file,
+                errors: [
+                  {
+                    code: 'file-validation-error',
+                    message: fileValidationErrorMessage,
+                  },
+                ],
+              })
+            }
+          }),
+        )
+        if (rejects.length > 0) {
+          onError?.(getErrorMessage(rejects[0]))
+        }
+        onRejection?.(rejects)
+        if (multiple) {
+          onChange(validatedFiles)
+        } else {
+          onChange(validatedFiles[0])
+        }
+      },
+      [multiple, onFileValidation, onError, onRejection, onChange],
+    )
+
     const { getRootProps, getInputProps, isDragActive, rootRef } = useDropzone({
-      multiple: false,
+      multiple,
       accept,
       disabled: inputProps.disabled,
       validator: fileValidator,
-      noKeyboard: inputProps.readOnly || value !== undefined,
-      noClick: inputProps.readOnly || value !== undefined,
-      noDrag: inputProps.readOnly || value !== undefined,
+      noKeyboard: inputProps.readOnly || hasValue,
+      noClick: inputProps.readOnly || hasValue,
+      noDrag: inputProps.readOnly || hasValue,
       onDrop: handleFileDrop,
     })
 
@@ -189,10 +266,37 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
       imagePreview,
     })
 
-    const handleRemoveFile = useCallback(() => {
-      onChange(undefined)
-      rootRef.current?.focus()
-    }, [onChange, rootRef])
+    const handleRemoveFile = useCallback(
+      (target: File) => {
+        if (multiple) {
+          const attachedFiles = value.filter((file) => file !== target)
+          onChange(attachedFiles)
+          if (attachedFiles.length === 0) {
+            rootRef.current?.focus()
+          }
+          return
+        }
+
+        onChange(undefined)
+        rootRef.current?.focus()
+      },
+      [multiple, onChange, rootRef, value],
+    )
+
+    const handleDismissError = useCallback(
+      (target: FileRejection) => {
+        if (!rejections) return
+        if (multiple) {
+          const rejects = rejections.filter((reject) => reject !== target)
+          if (rejects) {
+            onRejection?.(rejects)
+          }
+          return
+        }
+        onRejection?.([])
+      },
+      [multiple, onRejection, rejections],
+    )
 
     // Bunch of memoization to avoid unnecessary re-renders.
     const processedRootProps = useMemo(() => {
@@ -220,39 +324,52 @@ export const Attachment = forwardRef<AttachmentProps, 'div'>(
 
     return (
       <AttachmentStylesProvider value={styles}>
-        <Box __css={styles.container}>
-          <Box
-            {...processedRootProps}
-            ref={mergedRefs}
-            data-active={dataAttr(isDragActive)}
-            __css={value ? undefined : styles.dropzone}
-          >
-            {value ? (
-              <AttachmentFileInfo
-                file={value}
-                imagePreview={imagePreview}
-                handleRemoveFile={handleRemoveFile}
-                isDisabled={inputProps.disabled}
-                isReadOnly={inputProps.readOnly}
-              />
-            ) : (
+        <Stack gap="1rem">
+          {showDropzone ? (
+            <Box
+              {...processedRootProps}
+              ref={mergedRefs}
+              data-active={dataAttr(isDragActive)}
+              __css={styles.dropzone}
+            >
               <AttachmentDropzone
                 isDragActive={isDragActive}
                 inputProps={processedInputProps}
               />
-            )}
-          </Box>
-          {showMaxSize ? (
-            <Text
-              id={maxSizeTextId}
-              color="base.content.medium"
-              mt="0.5rem"
-              textStyle="body-2"
-            >
-              Maximum file size: {readableMaxSize}
-            </Text>
+            </Box>
           ) : null}
-        </Box>
+          {rejections && rejections.length > 0
+            ? rejections.map((fileRejection, index) => (
+                <AttachmentError
+                  key={`${fileRejection.file.name}${fileRejection.file.size}${index}`}
+                  fileRejection={fileRejection}
+                  handleDismiss={handleDismissError}
+                />
+              ))
+            : null}
+          {hasValue
+            ? filesArrayForRender.map((file, index) => (
+                <AttachmentFileInfo
+                  key={`${file.name}${file.size}${index}`}
+                  file={file}
+                  imagePreview={imagePreview}
+                  isDisabled={inputProps.disabled}
+                  isReadOnly={inputProps.readOnly}
+                  handleRemoveFile={() => handleRemoveFile(file)}
+                />
+              ))
+            : null}
+        </Stack>
+        {showMaxSize ? (
+          <Text
+            id={maxSizeTextId}
+            color="base.content.medium"
+            mt="0.5rem"
+            textStyle="body-2"
+          >
+            {chooseMaxSizeText}
+          </Text>
+        ) : null}
       </AttachmentStylesProvider>
     )
   },

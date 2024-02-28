@@ -62,15 +62,17 @@ export const AttachmentFileInfo = forwardRef<AttachmentFileInfoProps, 'div'>(
           />
         )}
         <Flex sx={styles.fileInfo}>
-          <Stack spacing="0.25rem" flexDir="column" aria-hidden>
-            <Text>{file.name}</Text>
-            <Text
-              data-disabled={dataAttr(isDisabled)}
-              sx={styles.fileInfoDescription}
-            >
-              {readableFileSize}
-            </Text>
-          </Stack>
+          <Flex gap="0.5rem">
+            <Stack spacing="0.25rem" flexDir="column" aria-hidden>
+              <Text sx={styles.fileInfoTitle}>{file.name}</Text>
+              <Text
+                data-disabled={dataAttr(isDisabled)}
+                sx={styles.fileInfoDescription}
+              >
+                {readableFileSize}
+              </Text>
+            </Stack>
+          </Flex>
           <IconButton
             variant="clear"
             colorScheme="critical"

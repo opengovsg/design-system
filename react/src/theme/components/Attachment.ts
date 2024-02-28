@@ -11,6 +11,10 @@ const parts = anatomy('attachment').parts(
   'fileInfo',
   'fileInfoDescription',
   'fileInfoImage',
+  'fileInfoTitle',
+  'fileInfoIcon',
+  'fileErrorIcon',
+  'fileErrorMessage',
 )
 
 const { definePartsStyle, defineMultiStyleConfig } =
@@ -37,6 +41,7 @@ const baseStyle = definePartsStyle({
   fileInfo: {
     display: 'inline-flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
     flex: 1,
   },
   fileInfoDescription: {
@@ -46,10 +51,22 @@ const baseStyle = definePartsStyle({
     },
     textStyle: 'caption-1',
   },
+  fileErrorMessage: {
+    textColor: 'interaction.critical.default',
+    _disabled: {
+      color: 'interaction.support.disabled-content',
+    },
+    textStyle: 'caption-1',
+  },
   fileInfoImage: {
     borderRight: '1px solid',
     borderColor: 'inherit',
     bg: 'utility.ui',
+  },
+  fileErrorIcon: {
+    height: '1.3rem',
+    weight: '1.3rem',
+    color: 'interaction.critical.default',
   },
 })
 
