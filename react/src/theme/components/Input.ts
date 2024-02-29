@@ -78,6 +78,8 @@ const coreSizes = {
       fontSize: themeTextStyles['body-2'].fontSize,
       px: '0.75rem',
       h: '2.25rem',
+      // Override both as Chakra base theme now uses `height`.
+      height: '2.25rem',
     }
   }),
   sm: defineStyle(({ theme }) => {
@@ -87,6 +89,7 @@ const coreSizes = {
       fontSize: themeTextStyles['body-2'].fontSize,
       px: '0.75rem',
       h: '2.5rem',
+      height: '2.5rem',
     }
   }),
   md: defineStyle(({ theme }) => {
@@ -94,6 +97,7 @@ const coreSizes = {
     return {
       px: '1rem',
       h: '2.75rem',
+      height: '2.75rem',
       textStyle: 'body-1',
       fontSize: themeTextStyles['body-1'].fontSize,
     }
