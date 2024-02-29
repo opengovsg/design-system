@@ -54,6 +54,7 @@ const baseStyle = definePartsStyle((props) => {
     icon: {
       display: 'inline-flex',
       h: 'fit-content',
+      height: 'fit-content',
     },
     checkContainer: {
       flexShrink: 0,
@@ -67,6 +68,7 @@ const baseStyle = definePartsStyle((props) => {
     tagIcon: {
       display: 'inline-flex',
       h: 'fit-content',
+      height: 'fit-content',
     },
     field: {
       flexGrow: 1,
@@ -89,6 +91,7 @@ const baseStyle = definePartsStyle((props) => {
             minW: 0,
             minH: 0,
             h: 0,
+            height: 0,
             w: 0,
             opacity: 0,
           }
@@ -145,6 +148,7 @@ const sizes = {
         p: '0.5rem',
         minH: SingleSelect.sizes?.xs(props).field?.h,
         h: 'auto',
+        height: 'auto',
       },
     }),
   ),
@@ -171,6 +175,7 @@ const sizes = {
         p: '0.5rem',
         minH: SingleSelect.sizes?.sm(props).field?.h,
         h: 'auto',
+        height: 'auto',
       },
     }),
   ),
@@ -197,6 +202,7 @@ const sizes = {
         p: '0.5rem',
         minH: SingleSelect.sizes?.md(props).field?.h,
         h: 'auto',
+        height: 'auto',
       },
     }),
   ),
