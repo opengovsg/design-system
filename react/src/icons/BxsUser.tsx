@@ -1,5 +1,5 @@
-// Retrieved from https://reactsvgicons.com/boxicons
-
+// icon:bxs-user | Boxicons https://boxicons.com/ | Atisa
+/** This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/) */
 export const BxsUser = (props: React.SVGProps<SVGSVGElement>): JSX.Element => {
   return (
     <svg

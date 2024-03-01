@@ -1,5 +1,5 @@
 // icon:bx-mail-send | Boxicons https://boxicons.com/ | Atisa
-
+/** This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/) */
 import { chakra } from '@chakra-ui/react'
 
 export const BxMailSend = chakra((props: React.SVGProps<SVGSVGElement>) => {
