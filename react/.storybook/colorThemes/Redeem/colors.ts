@@ -1,10 +1,10 @@
 /**
  * Do not edit directly
- * Generated on Fri, 23 Jun 2023 09:14:33 GMT
+ * Generated on Tue, 12 Mar 2024 09:54:33 GMT
  */
 
 export const colors = {
-  blue: {
+  purple: {
     '50': '#F9F9FC',
     '100': '#E8E9F3',
     '200': '#BABDDB',
@@ -15,18 +15,6 @@ export const colors = {
     '700': '#3E4477',
     '800': '#353A66',
     '900': '#282C4C',
-  },
-  red: {
-    '50': '#FDF9F9',
-    '100': '#F9E6E6',
-    '200': '#EFAEAE',
-    '300': '#EA8383',
-    '400': '#E74E4E',
-    '500': '#BE3535',
-    '600': '#9A2929',
-    '700': '#872222',
-    '800': '#751C1C',
-    '900': '#5A1414',
   },
   brand: {
     primary: {
@@ -42,17 +30,41 @@ export const colors = {
       '900': '#282C4C',
     },
     secondary: {
-      '50': '#FDF9F9',
-      '100': '#F9E6E6',
-      '200': '#EFAEAE',
-      '300': '#EA8383',
-      '400': '#E74E4E',
-      '500': '#BE3535',
-      '600': '#9A2929',
-      '700': '#872222',
-      '800': '#751C1C',
-      '900': '#5A1414',
+      '50': '#f8f9fa',
+      '100': '#e9eaee',
+      '200': '#babecb',
+      '300': '#9aa0b3',
+      '400': '#7b849c',
+      '500': '#5d6785',
+      '600': '#465173',
+      '700': '#3c4764',
+      '800': '#333c56',
+      '900': '#272d41',
     },
+  },
+  blue: {
+    '50': '#F7F9FE',
+    '100': '#E7EFFC',
+    '200': '#ACC7FA',
+    '300': '#82ABF7',
+    '400': '#568DF4',
+    '500': '#1361F0',
+    '600': '#0D4FCA',
+    '700': '#0B44AC',
+    '800': '#093890',
+    '900': '#072A69',
+  },
+  red: {
+    '50': '#fef7f7',
+    '100': '#FBE9E9',
+    '200': '#f4acac',
+    '300': '#ee8080',
+    '400': '#e74f4f',
+    '500': '#c03434',
+    '600': '#992a2a',
+    '700': '#852424',
+    '800': '#721f1f',
+    '900': '#571717',
   },
   green: {
     '50': '#F5FAFA',
@@ -156,24 +168,24 @@ export const colors = {
       active: '#999EC9',
     },
     sub: {
-      default: '#BE3535',
-      hover: '#9A2929',
-      active: '#872222',
+      default: '#5d6785',
+      hover: '#465173',
+      active: '#3c4764',
     },
     'sub-subtle': {
-      default: '#F9E6E6',
-      hover: '#EFAEAE',
-      active: '#EA8383',
+      default: '#e9eaee',
+      hover: '#babecb',
+      active: '#9aa0b3',
     },
     critical: {
-      default: '#BE3535',
-      hover: '#9A2929',
-      active: '#872222',
+      default: '#c03434',
+      hover: '#992a2a',
+      active: '#852424',
     },
     'critical-subtle': {
-      default: '#F9E6E6',
-      hover: '#EFAEAE',
-      active: '#EA8383',
+      default: '#FBE9E9',
+      hover: '#f4acac',
+      active: '#ee8080',
     },
     warning: {
       default: '#FFDA68',
@@ -201,9 +213,9 @@ export const colors = {
       active: '#454953',
     },
     'neutral-subtle': {
-      default: '#F8F9F9',
-      hover: '#EDEDED',
-      active: '#BFC2C8',
+      default: '#EDEDED',
+      hover: '#BFC2C8',
+      active: '#A0A4AD',
     },
     muted: {
       main: {
@@ -211,12 +223,12 @@ export const colors = {
         active: '#E8E9F3',
       },
       sub: {
-        hover: '#FDF9F9',
-        active: '#F9E6E6',
+        hover: '#f8f9fa',
+        active: '#e9eaee',
       },
       critical: {
-        hover: '#FDF9F9',
-        active: '#F9E6E6',
+        hover: '#fef7f7',
+        active: '#FBE9E9',
       },
       neutral: {
         hover: '#F8F9F9',
@@ -229,12 +241,12 @@ export const colors = {
         active: 'rgba(91, 98, 168, 0.12)',
       },
       sub: {
-        hover: 'rgba(190, 53, 53, 0.04)',
-        active: 'rgba(190, 53, 53, 0.12)',
+        hover: 'rgba(93, 103, 133, 0.04)',
+        active: 'rgba(93, 103, 133, 0.12)',
       },
       critical: {
-        hover: 'rgba(190, 53, 53, 0.04)',
-        active: 'rgba(190, 53, 53, 0.12)',
+        hover: 'rgba(192, 52, 52, 0.04)',
+        active: 'rgba(192, 52, 52, 0.12)',
       },
       neutral: {
         hover: 'rgba(0, 0, 0, 0.1)',
@@ -251,7 +263,7 @@ export const colors = {
       'unselected-strong': '#666C7A',
       disabled: '#EDEDED',
       'disabled-content': '#A0A4AD',
-      placeholder: '#A0A4AD',
+      placeholder: '#838894',
     },
     links: {
       default: '#5B62A8',
@@ -264,16 +276,16 @@ export const colors = {
   },
   utility: {
     feedback: {
-      info: '#5B62A8',
-      'info-subtle': '#F9F9FC',
+      info: '#1361F0',
+      'info-subtle': '#F7F9FE',
       warning: '#FFDA68',
       'warning-subtle': '#fffae1',
       success: '#0F796F',
       'success-subtle': '#F5FAFA',
-      critical: '#BE3535',
-      'critical-subtle': '#FDF9F9',
+      critical: '#c03434',
+      'critical-subtle': '#fef7f7',
     },
-    'focus-default': '#5B62A8',
+    'focus-default': '#1361F0',
     'focus-inverse': '#ffffff',
     'input-prefilled': '#fffae1',
     ui: '#ffffff',
