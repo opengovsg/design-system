@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 23 Jun 2023 09:14:33 GMT
+ * Generated on Tue, 12 Mar 2024 09:54:33 GMT
  */
 
 export const colors = {
@@ -153,8 +153,8 @@ export const colors = {
   },
   utility: {
     feedback: {
-      info: '#82ABF7',
-      'info-subtle': '#072A69',
+      info: '#63B1AA',
+      'info-subtle': '#073430',
       warning: '#FFDA68',
       'warning-subtle': '#3f2b00',
       success: '#2D978C',
@@ -162,7 +162,7 @@ export const colors = {
       critical: '#e74f4f',
       'critical-subtle': '#571717',
     },
-    'focus-default': '#82ABF7',
+    'focus-default': '#63B1AA',
     'focus-inverse': '#111111',
     'input-prefilled': '#3f2b00',
     ui: '#111111',
