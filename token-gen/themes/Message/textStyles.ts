@@ -1,9 +1,17 @@
 /**
  * Do not edit directly
- * Generated on Thu, 28 Dec 2023 08:07:08 GMT
+ * Generated on Tue, 12 Mar 2024 09:54:33 GMT
  */
 
 export const textStyles = {
+  'subhead-4': {
+    fontWeight: 500,
+    fontSize: '0.75rem',
+    lineHeight: '1rem',
+    letterSpacing: '0.080em',
+    fontFamily: 'body',
+    textTransform: 'uppercase',
+  },
   'responsive-display': {
     'heavy-1280': {
       fontWeight: 700,
@@ -190,6 +198,14 @@ export const textStyles = {
     fontSize: '0.75rem',
     letterSpacing: 0,
     fontFamily: 'body',
+  },
+  'caption-3': {
+    fontWeight: 500,
+    fontSize: '0.625rem',
+    lineHeight: '1rem',
+    letterSpacing: '0.080em',
+    fontFamily: 'body',
+    textTransform: 'uppercase',
   },
   'code-1': {
     fontWeight: 400,
