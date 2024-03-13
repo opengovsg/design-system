@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { FormControl, Stack } from '@chakra-ui/react'
-import { useArgs } from '@storybook/client-api'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { BxGitMerge, BxHeart } from '~/icons'
@@ -75,9 +74,8 @@ export default {
 } as Meta<SingleSelectProps>
 
 const Template: StoryFn<SingleSelectProps> = (args) => {
-  const [{ value = '' }, updateArgs] = useArgs()
-  const onChange = (value: string) => updateArgs({ value })
-  return <SingleSelect {...args} value={value} onChange={onChange} />
+  const [value, setValue] = useState<string>('')
+  return <SingleSelect {...args} value={value} onChange={setValue} />
 }
 
 export const Default = Template.bind({})

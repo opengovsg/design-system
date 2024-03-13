@@ -23,7 +23,6 @@ const backgrounds = {
 }
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
   docs: {
     theme: StorybookTheme.docs,
     inlineStories: true,
