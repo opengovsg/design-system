@@ -72,7 +72,7 @@
     "@storybook/client-api": "7.5.3",
     "@storybook/react": "7.5.3",
     "@storybook/react-vite": "7.5.3",
-    "@storybook/testing-library": "0.2.2",
+    "@storybook/test": "7.5.3",
     "@storybook/theming": "7.5.3",
     "@types/country-flag-icons": "^1.2.0",
     "@types/react": "^18.0.14",
