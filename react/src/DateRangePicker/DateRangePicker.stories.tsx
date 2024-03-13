@@ -95,6 +95,8 @@ ControlledInput.play = async ({ canvasElement }) => {
   const button = canvas.getByText('Click to set date')
   await userEvent.click(button)
   await expect(
-    canvas.getByText('Selected date range: 25/12/2021 to 26/12/2021'),
+    canvas.getByLabelText(
+      'Select from date picker. Selected date range is Sat Dec 25 2021 to Sun Dec 26 2021.',
+    ),
   ).toBeInTheDocument()
 }
