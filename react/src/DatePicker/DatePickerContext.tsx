@@ -7,6 +7,7 @@ import React, {
   RefObject,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useRef,
 } from 'react'
@@ -158,6 +159,11 @@ const useProvideDatePicker = ({
     value: inputValue,
     onChange: onInputValueChange,
   })
+
+  // This effect is responsible for updating the rendered values when the value prop changes.
+  useEffect(() => {
+    setInternalInputValue(formatInputValue(internalValue))
+  }, [formatInputValue, internalValue, setInternalInputValue])
 
   const fcProps = useFormControlProps({
     isInvalid: isInvalidProp,
