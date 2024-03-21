@@ -7,6 +7,7 @@ import {
   RefObject,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -28,6 +29,7 @@ import { pickCalendarProps } from '~/DatePicker/utils'
 import { useIsMobile } from '~/hooks/useIsMobile'
 
 import { DateRangePickerProps } from './DateRangePicker'
+import { validateDateRange } from './utils'
 
 interface DateRangePickerContextReturn {
   isMobile: boolean
@@ -158,37 +160,46 @@ const useProvideDateRangePicker = ({
 
   const handleUpdateInputs = useCallback(
     (nextRange: DateRangeValue) => {
-      const sortedRange = nextRange.sort((a, b) =>
-        a && b ? a.getTime() - b.getTime() : 0,
-      )
+      const { start, end } = validateDateRange(nextRange)
 
-      // Replace invalid dates with null
-      const validRange = sortedRange.map((date) =>
-        isValid(date) ? date : null,
-      ) as DateRangeValue
-
-      const [nextStart, nextEnd] = sortedRange
-      if (nextStart) {
-        if (isValid(nextStart)) {
-          setStartInputDisplay(format(nextStart, displayFormat, { locale }))
+      if (start.date) {
+        if (start.isValid) {
+          setStartInputDisplay(format(start.date, displayFormat, { locale }))
         } else if (!allowInvalidDates) {
           setStartInputDisplay('')
         }
       } else {
         setStartInputDisplay('')
       }
-      if (nextEnd) {
-        if (isValid(nextEnd)) {
-          setEndInputDisplay(format(nextEnd, displayFormat, { locale }))
+      if (end.date) {
+        if (end.isValid) {
+          setEndInputDisplay(format(end.date, displayFormat, { locale }))
         } else if (!allowInvalidDates) {
           setEndInputDisplay('')
         }
       } else {
         setEndInputDisplay('')
       }
+
+      return [start.date, end.date] as DateRangeValue
+    },
+    [allowInvalidDates, displayFormat, locale],
+  )
+
+  // This effect is responsible for updating the rendered values when the value prop changes.
+  useEffect(() => {
+    const { start, end } = validateDateRange(internalValue)
+    if (start.isValid && end.isValid) {
+      handleUpdateInputs(internalValue)
+    }
+  }, [handleUpdateInputs, internalValue])
+
+  const handleUpdateInputsAndRender = useCallback(
+    (nextRange: DateRangeValue) => {
+      const validRange = handleUpdateInputs(nextRange)
       setInternalValue(validRange)
     },
-    [allowInvalidDates, displayFormat, locale, setInternalValue],
+    [handleUpdateInputs, setInternalValue],
   )
 
   const fcProps = useFormControlProps({
@@ -212,7 +223,7 @@ const useProvideDateRangePicker = ({
       if (!allowInvalidDates && !isValid(endDate)) {
         setEndInputDisplay('')
       }
-      handleUpdateInputs([startDate, endDate])
+      handleUpdateInputsAndRender([startDate, endDate])
       onBlur?.(e)
     },
     [
@@ -220,7 +231,7 @@ const useProvideDateRangePicker = ({
       dateFormat,
       endInputDisplay,
       allowInvalidDates,
-      handleUpdateInputs,
+      handleUpdateInputsAndRender,
       onBlur,
     ],
   )
