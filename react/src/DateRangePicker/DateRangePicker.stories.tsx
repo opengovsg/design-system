@@ -1,6 +1,12 @@
+import { useState } from 'react'
+import { FormControl, Stack } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
+import { expect, userEvent, within } from '@storybook/test'
+import { addDays } from 'date-fns'
 
 import { getMobileViewParameters, mockDateDecorator } from '~/utils/storybook'
+
+import { Button, DateRangeValue, FormLabel } from '..'
 
 import { DateRangePicker, DateRangePickerProps } from './DateRangePicker'
 
@@ -62,4 +68,35 @@ SizeSmall.args = {
 export const SizeXs = Template.bind({})
 SizeXs.args = {
   size: 'xs',
+}
+
+const ControlledTemplate: StoryFn<DateRangePickerProps> = (args) => {
+  const [datestate, setDatestate] = useState<DateRangeValue>([null, null])
+
+  return (
+    <Stack>
+      <FormControl>
+        <FormLabel>Date Range Picker</FormLabel>
+        <DateRangePicker {...args} value={datestate} onChange={setDatestate} />
+      </FormControl>
+      <Button
+        onClick={() => setDatestate([new Date(), addDays(new Date(), 1)])}
+      >
+        Click to set date
+      </Button>
+    </Stack>
+  )
+}
+
+export const ControlledInput = ControlledTemplate.bind({})
+ControlledInput.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  await expect(canvas.getByText('No date selected')).toBeInTheDocument()
+  const button = canvas.getByText('Click to set date')
+  await userEvent.click(button)
+  await expect(
+    canvas.getByLabelText(
+      'Select from date picker. Selected date range is Sat Dec 25 2021 to Sun Dec 26 2021.',
+    ),
+  ).toBeInTheDocument()
 }
