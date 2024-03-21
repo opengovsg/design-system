@@ -199,7 +199,7 @@ const useProvideDatePicker = ({
     let ariaLabel = 'Select from date picker. '
     if (internalValue) {
       if (isValid(internalValue)) {
-        ariaLabel += `Selected date is ${internalValue.toLocaleDateString()}.`
+        ariaLabel += `Selected date is ${internalValue.toDateString()}.`
       } else {
         ariaLabel += 'The current selected date is invalid.'
       }
