@@ -129,7 +129,7 @@ ControlledInput.play = async ({ canvasElement }) => {
   await userEvent.click(button)
   await expect(
     canvas.getByLabelText(
-      'Select from date picker. Selected date is 25/12/2021.',
+      'Select from date picker. Selected date is Sat Dec 25 2021.',
     ),
   ).toBeInTheDocument()
 }
