@@ -1,7 +1,17 @@
-import { Button, forwardRef, useMergeRefs } from '@chakra-ui/react'
+import { useState } from 'react'
+import {
+  Button,
+  FormControl,
+  forwardRef,
+  Stack,
+  useMergeRefs,
+} from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
+import { expect, userEvent, within } from '@storybook/test'
 
 import { getMobileViewParameters, mockDateDecorator } from '~/utils/storybook'
+
+import { FormLabel } from '..'
 
 import { DatePicker, DatePickerProps } from './DatePicker'
 import { useDatePicker } from './DatePickerContext'
@@ -94,3 +104,32 @@ MobileCustomInput.args = {
   inputElement: <CustomInputButton />,
 }
 MobileCustomInput.parameters = getMobileViewParameters()
+
+const ControlledTemplate: StoryFn<DatePickerProps> = (args) => {
+  const [datestate, setDatestate] = useState<DatePickerProps['value']>()
+
+  return (
+    <Stack>
+      <FormControl>
+        <FormLabel>Date Range Picker</FormLabel>
+        <DatePicker {...args} value={datestate} onChange={setDatestate} />
+      </FormControl>
+      <Button onClick={() => setDatestate(new Date())}>
+        Click to set date
+      </Button>
+    </Stack>
+  )
+}
+
+export const ControlledInput = ControlledTemplate.bind({})
+ControlledInput.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  await expect(canvas.getByText('No date selected')).toBeInTheDocument()
+  const button = canvas.getByText('Click to set date')
+  await userEvent.click(button)
+  await expect(
+    canvas.getByLabelText(
+      'Select from date picker. Selected date is Sat Dec 25 2021.',
+    ),
+  ).toBeInTheDocument()
+}
