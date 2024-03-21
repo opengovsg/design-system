@@ -7,6 +7,7 @@ import React, {
   RefObject,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useRef,
 } from 'react'
@@ -159,6 +160,11 @@ const useProvideDatePicker = ({
     onChange: onInputValueChange,
   })
 
+  // This effect is responsible for updating the rendered values when the value prop changes.
+  useEffect(() => {
+    setInternalInputValue(formatInputValue(internalValue))
+  }, [formatInputValue, internalValue, setInternalInputValue])
+
   const fcProps = useFormControlProps({
     isInvalid: isInvalidProp,
     isDisabled: isDisabledProp,
@@ -193,7 +199,7 @@ const useProvideDatePicker = ({
     let ariaLabel = 'Select from date picker. '
     if (internalValue) {
       if (isValid(internalValue)) {
-        ariaLabel += `Selected date is ${internalValue.toLocaleDateString()}.`
+        ariaLabel += `Selected date is ${internalValue.toDateString()}.`
       } else {
         ariaLabel += 'The current selected date is invalid.'
       }
