@@ -160,10 +160,13 @@ const useProvideDatePicker = ({
     onChange: onInputValueChange,
   })
 
-  // This effect is responsible for updating the rendered values when the value prop changes.
+  // Update input value when internal value changes.
+  // This allows for any controlled state to update the rendered string too.
   useEffect(() => {
     setInternalInputValue(formatInputValue(internalValue))
-  }, [formatInputValue, internalValue, setInternalInputValue])
+    // Intentionally not including setInternalInputValue so internal input value can actually be changed.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [internalValue, formatInputValue])
 
   const fcProps = useFormControlProps({
     isInvalid: isInvalidProp,
