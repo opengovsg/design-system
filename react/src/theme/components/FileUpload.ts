@@ -93,7 +93,7 @@ const baseStyle = definePartsStyle(({ imagePreview }) => {
     },
     itemPreviewImage: {
       aspectRatio: '1',
-      objectFit: imagePreview === 'large' ? 'contain' : 'cover',
+      objectFit: imagePreview === 'large' ? 'contain' : 'scale-down',
       borderRight: imagePreview !== 'large' ? '1px solid' : undefined,
       borderBottom: imagePreview === 'large' ? '1px solid' : undefined,
       borderColor: 'base.divider.medium',
