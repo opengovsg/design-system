@@ -8,12 +8,11 @@ import { useFileUploadStyles } from '../FileUploadStyleContext'
 import { getFileExtension } from '../utils/getFileExtension'
 import { getReadableFileSize } from '../utils/getReadableFizeSize'
 
-export interface FileUploadRejectedErrorTextProps
-  extends HTMLChakraProps<'div'> {}
+export interface FileUploadItemErrorTextProps extends HTMLChakraProps<'div'> {}
 
-export const FileUploadRejectedErrorText = forwardRef<
+export const FileUploadItemErrorText = forwardRef<
   HTMLDivElement,
-  FileUploadRejectedErrorTextProps
+  FileUploadItemErrorTextProps
 >((props, ref) => {
   const { children, ...rest } = props
   const {
@@ -78,4 +77,4 @@ export const FileUploadRejectedErrorText = forwardRef<
   )
 })
 
-FileUploadRejectedErrorText.displayName = 'FileUploadRejectedErrorText'
+FileUploadItemErrorText.displayName = 'FileUploadRejectedErrorText'
