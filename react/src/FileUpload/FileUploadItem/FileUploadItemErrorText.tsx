@@ -71,10 +71,10 @@ export const FileUploadItemErrorText = forwardRef<
   }
 
   return (
-    <chakra.div __css={styles.rejectedErrorText} {...mergedProps} ref={ref}>
+    <chakra.div __css={styles.itemErrorText} {...mergedProps} ref={ref}>
       {errorToDisplay}
     </chakra.div>
   )
 })
 
-FileUploadItemErrorText.displayName = 'FileUploadRejectedErrorText'
+FileUploadItemErrorText.displayName = 'FileUploadItemErrorText'

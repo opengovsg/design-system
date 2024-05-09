@@ -16,7 +16,7 @@ const { definePartsStyle, defineMultiStyleConfig } =
     'itemSizeText',
     'label',
     'trigger',
-    'rejectedErrorText',
+    'itemErrorText',
   ])
 
 const baseStyle = definePartsStyle(({ imagePreview }) => {
@@ -64,7 +64,7 @@ const baseStyle = definePartsStyle(({ imagePreview }) => {
           ? `"preview preview preview" "name name delete" "size size delete" "error error delete"`
           : `"preview name delete" "preview size delete" "error error delete"`,
     },
-    rejectedErrorText: {
+    itemErrorText: {
       gridArea: 'error',
       textColor: 'interaction.critical.default',
       _disabled: {
