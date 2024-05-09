@@ -2,7 +2,6 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Buffer } from 'buffer'
 
-import { FileUploadItemErrorDismissTrigger } from './FileUploadItem/FileUploadItemErrorDismissTrigger'
 import { FileUpload, FileUploadProps, FileUploadRootProps } from './FileUpload'
 
 const MOCK_OGP_LOGO_FILE = new File(
@@ -51,8 +50,8 @@ export const WithParts = (args: FileUploadRootProps) => {
         <FileUpload.DraggingLabel />
       </FileUpload.Dropzone>
       <FileUpload.Context>
-        {({ acceptedFiles, rejectedFiles }) =>
-          (acceptedFiles.length !== 0 || rejectedFiles.length !== 0) && (
+        {({ acceptedFiles }) =>
+          acceptedFiles.length !== 0 && (
             <FileUpload.ItemGroup>
               {acceptedFiles.map((file, index) => (
                 <FileUpload.Item key={`${file.name}-${index}`} file={file}>
@@ -62,18 +61,6 @@ export const WithParts = (args: FileUploadRootProps) => {
                   <FileUpload.ItemName />
                   <FileUpload.ItemSizeText />
                   <FileUpload.ItemDeleteTrigger />
-                </FileUpload.Item>
-              ))}
-              {rejectedFiles.map(({ file, errors }, index) => (
-                <FileUpload.Item
-                  key={`${file.name}-${index}`}
-                  file={file}
-                  errors={errors}
-                >
-                  <FileUpload.ItemName />
-                  <FileUpload.ItemSizeText />
-                  <FileUpload.ItemErrorText />
-                  <FileUploadItemErrorDismissTrigger />
                 </FileUpload.Item>
               ))}
             </FileUpload.ItemGroup>

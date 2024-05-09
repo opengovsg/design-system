@@ -19,7 +19,10 @@ import { useFileUpload, UseFileUploadProps } from './useFileUpload'
 export interface FileUploadRootProps
   extends Omit<UseFileUploadProps, 'disabled'>,
     FileUploadPassthroughProps,
-    Omit<HTMLChakraProps<'div'>, 'dir' | 'defaultValue' | 'onError'> {
+    Omit<
+      HTMLChakraProps<'div'>,
+      'dir' | 'defaultValue' | 'onError' | 'onChange'
+    > {
   /**
    * Color scheme of the component.
    */
