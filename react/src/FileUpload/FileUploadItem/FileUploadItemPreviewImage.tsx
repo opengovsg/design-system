@@ -20,8 +20,12 @@ export const FileUploadItemPreviewImage = forwardRef<
 
   const styles = useFileUploadStyles()
 
+  const itemPreviewImageProps = itemProps.file.type.startsWith('image/')
+    ? fileUpload.getItemPreviewImageProps({ ...itemProps, url })
+    : {}
+
   const mergedProps = mergeProps(
-    fileUpload.getItemPreviewImageProps({ ...itemProps, url }),
+    itemPreviewImageProps,
     // @ts-expect-error types are not correct
     props,
   )
