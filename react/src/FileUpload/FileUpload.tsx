@@ -10,8 +10,11 @@ import { FileUploadItemPreview } from './FileUploadItem/FileUploadItemPreview'
 import { FileUploadItemPreviewImage } from './FileUploadItem/FileUploadItemPreviewImage'
 import { FileUploadItemSizeText } from './FileUploadItem/FileUploadItemSizeText'
 import { FileUploadContext } from './FileUploadContext'
+import { FileUploadErrorText } from './FileUploadErrorText'
+import { FileUploadHelperText } from './FileUploadHelperText'
 import { FileUploadHiddenInput } from './FileUploadHiddenInput'
 import { FileUploadItemGroup } from './FileUploadItemGroup'
+import { FileUploadMaxSizeHelperText } from './FileUploadMaxSizeHelperText'
 import { FileUploadRoot } from './FileUploadRoot'
 
 export type { FileUploadDropzoneProps } from './FileUploadDropzone/FileUploadDropzone'
@@ -53,3 +56,12 @@ FileUpload.ItemDeleteTrigger.displayName = 'FileUpload.ItemDeleteTrigger'
 
 FileUpload.ItemErrorText = FileUploadItemErrorText
 FileUpload.ItemErrorText.displayName = 'FileUpload.ItemErrorText'
+
+FileUpload.ErrorText = FileUploadErrorText
+FileUpload.ErrorText.displayName = 'FileUpload.ErrorText'
+
+FileUpload.MaxSizeHelperText = FileUploadMaxSizeHelperText
+FileUpload.MaxSizeHelperText.displayName = 'FileUpload.MaxSizeHelperText'
+
+FileUpload.HelperText = FileUploadHelperText
+FileUpload.HelperText.displayName = 'FileUpload.HelperText'

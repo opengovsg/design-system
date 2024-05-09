@@ -17,6 +17,8 @@ const { definePartsStyle, defineMultiStyleConfig } =
     'label',
     'trigger',
     'itemErrorText',
+    'errorText',
+    'helperText',
   ])
 
 const baseStyle = definePartsStyle(({ imagePreview }) => {
@@ -24,7 +26,7 @@ const baseStyle = definePartsStyle(({ imagePreview }) => {
     root: {
       display: 'flex',
       flexDirection: 'column',
-      gap: '1rem',
+      gap: '0.5rem',
       width: '100%',
     },
     label: {
@@ -73,6 +75,30 @@ const baseStyle = definePartsStyle(({ imagePreview }) => {
       textStyle: 'caption-1',
       mt: '0.25rem',
     },
+    helperText: {
+      display: 'flex',
+      gap: '0.5rem',
+      flexDirection: 'row',
+      textColor: 'base.content.medium',
+      _disabled: {
+        color: 'interaction.support.disabled-content',
+      },
+      textStyle: 'body-2',
+    },
+    errorText: {
+      display: 'flex',
+      gap: '0.5rem',
+      flexDirection: 'row',
+      textColor: 'interaction.critical.default',
+      _disabled: {
+        color: 'interaction.support.disabled-content',
+      },
+      textStyle: 'body-2',
+      '& svg': {
+        mt: '0.125rem',
+        fontSize: '1rem',
+      },
+    },
     itemPreview: {
       gridArea: 'preview',
       mt: '-0.875rem',
@@ -83,6 +109,7 @@ const baseStyle = definePartsStyle(({ imagePreview }) => {
     },
     itemName: {
       color: 'base.content.default',
+      noOfLines: 2,
       _disabled: {
         color: 'interaction.support.disabled-content',
       },
