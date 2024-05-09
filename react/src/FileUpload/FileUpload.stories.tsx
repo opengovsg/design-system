@@ -14,8 +14,8 @@ const Template = (args: FileUploadRootProps) => {
         <FileUpload.Context>
           {({ acceptedFiles, rejectedFiles }) => (
             <>
-              {acceptedFiles.map((file) => (
-                <FileUpload.Item key={file.name} file={file}>
+              {acceptedFiles.map((file, index) => (
+                <FileUpload.Item key={`${file.name}-${index}`} file={file}>
                   <FileUpload.ItemPreview type="image/*">
                     <FileUpload.ItemPreviewImage />
                   </FileUpload.ItemPreview>
@@ -24,11 +24,14 @@ const Template = (args: FileUploadRootProps) => {
                   <FileUpload.ItemDeleteTrigger />
                 </FileUpload.Item>
               ))}
-              {rejectedFiles.map(({ file, errors }) => (
-                <FileUpload.Item key={file.name} file={file} errors={errors}>
+              {rejectedFiles.map(({ file, errors }, index) => (
+                <FileUpload.Item
+                  key={`${file.name}-${index}`}
+                  file={file}
+                  errors={errors}
+                >
                   <FileUpload.ItemName />
                   <FileUpload.ItemSizeText />
-                  {/* <FileUpload.RejectedDismissTrigger /> */}
                   <FileUpload.RejectedErrorText />
                 </FileUpload.Item>
               ))}
