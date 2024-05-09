@@ -9,19 +9,76 @@ import { FileUploadItemName } from './FileUploadItem/FileUploadItemName'
 import { FileUploadItemPreview } from './FileUploadItem/FileUploadItemPreview'
 import { FileUploadItemPreviewImage } from './FileUploadItem/FileUploadItemPreviewImage'
 import { FileUploadItemSizeText } from './FileUploadItem/FileUploadItemSizeText'
+import { getFileError } from './utils/getFileError'
+import { FileUploadContainer } from './FileUploadContainer'
 import { FileUploadContext } from './FileUploadContext'
 import { FileUploadErrorText } from './FileUploadErrorText'
 import { FileUploadHelperText } from './FileUploadHelperText'
 import { FileUploadHiddenInput } from './FileUploadHiddenInput'
 import { FileUploadItemGroup } from './FileUploadItemGroup'
 import { FileUploadMaxSizeHelperText } from './FileUploadMaxSizeHelperText'
-import { FileUploadRoot } from './FileUploadRoot'
+import { FileUploadRoot, FileUploadRootProps } from './FileUploadRoot'
 
 export type { FileUploadDropzoneProps } from './FileUploadDropzone/FileUploadDropzone'
 export type { FileUploadRootProps } from './FileUploadRoot'
 
-export const FileUpload = () => {
-  return null
+export interface FileUploadProps extends FileUploadRootProps {
+  /**
+   * Boolean flag on whether to show the file size helper message below the
+   * input.
+   * @default true
+   */
+  showFileSize?: boolean
+
+  /**
+   * If exists, callback to be invoked with the error string when file has errors.
+   */
+  onError?: (error: string) => void
+
+  /**
+   * The maximum number of files.
+   * @default 1
+   */
+  maxFiles?: number
+}
+
+/**
+ * Default implementation of FileUpload component. For more control over the
+ * layout, use the individual subcomponents exposed in `FileUpload.*`
+ */
+export const FileUpload = ({
+  showFileSize = true,
+  onError,
+  maxFiles = 1,
+  ...props
+}: FileUploadProps) => {
+  const handleFileRejection: FileUploadRootProps['onFileReject'] = (
+    details,
+  ) => {
+    if (details.files.length === 0) return
+    const firstError = details.files[0].errors[0]
+    const errorMessage = getFileError({
+      context: {
+        maxFiles: maxFiles,
+        maxFileSize: props.maxFileSize,
+        minFileSize: props.minFileSize,
+      },
+      file: details.files[0].file,
+      error: firstError,
+    })
+    props.onFileReject?.(details)
+    onError?.(errorMessage)
+  }
+
+  return (
+    <FileUploadRoot
+      {...props}
+      maxFiles={maxFiles}
+      onFileReject={handleFileRejection}
+    >
+      <FileUploadContainer showFileSize={showFileSize} />
+    </FileUploadRoot>
+  )
 }
 
 FileUpload.Root = FileUploadRoot

@@ -9,19 +9,14 @@ export interface FileUploadHelperTextProps extends HTMLChakraProps<'div'> {}
 
 /**
  * Helper text at the bottom of the file upload component showing the maximum file size allowed.
- * Will be hidden if there are any errors.
  */
 export const FileUploadMaxSizeHelperText = forwardRef<
   HTMLDivElement,
   FileUploadHelperTextProps
 >((props, ref) => {
-  const { fileUpload, context } = useFileUploadContext()
+  const { context } = useFileUploadContext()
 
-  const hasError =
-    fileUpload.rejectedFiles.length !== 0 &&
-    fileUpload.rejectedFiles[0].errors.length !== 0
-
-  if (context.maxFileSize === undefined || hasError) return null
+  if (context.maxFileSize === undefined) return null
 
   return (
     <FileUploadHelperText ref={ref} {...props}>

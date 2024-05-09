@@ -61,6 +61,7 @@ const baseStyle = definePartsStyle(({ imagePreview }) => {
         color: 'interaction.support.disabled-content',
       },
       gridTemplateColumns: 'auto 1fr auto',
+      gridTemplateRows: 'min-content min-content min-content',
       gridTemplateAreas:
         imagePreview === 'large'
           ? `"preview preview preview" "name name delete" "size size delete" "error error delete"`
@@ -133,7 +134,7 @@ const baseStyle = definePartsStyle(({ imagePreview }) => {
       gridArea: 'delete',
     },
     itemPreviewImage: {
-      aspectRatio: '1',
+      aspectRatio: imagePreview !== 'large' ? '1' : undefined,
       objectFit: imagePreview === 'large' ? 'contain' : 'scale-down',
       borderRight: imagePreview !== 'large' ? '1px solid' : undefined,
       borderBottom: imagePreview === 'large' ? '1px solid' : undefined,

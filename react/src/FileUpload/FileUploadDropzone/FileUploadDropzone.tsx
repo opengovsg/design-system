@@ -15,6 +15,10 @@ export const FileUploadDropzone = forwardRef<
   const { fileUpload } = useFileUploadContext()
   const styles = useFileUploadStyles()
 
+  const hasError =
+    fileUpload.rejectedFiles.length !== 0 &&
+    fileUpload.rejectedFiles[0].errors.length !== 0
+
   // @ts-expect-error types are not correct
   const mergedProps = mergeProps(fileUpload.dropzoneProps, props)
 
@@ -22,6 +26,7 @@ export const FileUploadDropzone = forwardRef<
     <Box
       data-active={dataAttr(fileUpload.dragging)}
       {...mergedProps}
+      data-invalid={dataAttr(hasError)}
       __css={styles.dropzone}
       ref={ref}
     >
