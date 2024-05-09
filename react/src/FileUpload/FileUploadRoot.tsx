@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, useEffect } from 'react'
 import {
   chakra,
   HTMLChakraProps,
@@ -7,6 +7,7 @@ import {
 } from '@chakra-ui/react'
 import { splitProps } from '@zag-js/file-upload'
 import { mergeProps } from '@zag-js/react'
+import { isEqual } from 'lodash'
 
 import {
   FileUploadPassthroughProps,
@@ -18,16 +19,21 @@ import { useFileUpload, UseFileUploadProps } from './useFileUpload'
 export interface FileUploadRootProps
   extends Omit<UseFileUploadProps, 'disabled'>,
     FileUploadPassthroughProps,
-    Omit<HTMLChakraProps<'div'>, 'dir'> {
+    Omit<HTMLChakraProps<'div'>, 'dir' | 'defaultValue'> {
   /**
    * Color scheme of the component.
    */
   colorScheme?: ThemingProps<'Attachment'>['colorScheme']
   isDisabled?: boolean
+
+  /**
+   * If provided, the component will be a controlled component.
+   */
+  value?: File[]
 }
 
 export const FileUploadRoot = forwardRef<HTMLDivElement, FileUploadRootProps>(
-  ({ isDisabled, imagePreview, ...props }, ref) => {
+  ({ isDisabled, imagePreview, value, ...props }, ref) => {
     const [fileUploadProps, restProps] = splitProps(props)
 
     const styles = useMultiStyleConfig('FileUpload', { ...props, imagePreview })
@@ -36,9 +42,19 @@ export const FileUploadRoot = forwardRef<HTMLDivElement, FileUploadRootProps>(
       ...fileUploadProps,
       disabled: isDisabled,
     }
+
     const fileUpload = useFileUpload(fileUploadContext)
     // @ts-expect-error types are not correct
     const mergedProps = mergeProps(fileUpload.rootProps, restProps)
+
+    useEffect(() => {
+      if (value) {
+        if (isEqual(value, fileUpload.acceptedFiles)) return
+        fileUpload.setFiles(value)
+      }
+      // Should only rerender if value changes
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [value])
 
     return (
       <FileUploadStylesProvider value={styles}>

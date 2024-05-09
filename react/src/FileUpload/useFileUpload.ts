@@ -1,4 +1,4 @@
-import { useId } from 'react'
+import { useId, useMemo, useRef } from 'react'
 import { type Api, connect, type Context, machine } from '@zag-js/file-upload'
 import { normalizeProps, type PropTypes, useMachine } from '@zag-js/react'
 
@@ -28,5 +28,9 @@ export const useFileUpload = (
   const [state, send] = useMachine(machine(initialContext), {
     context,
   })
-  return connect(state, send, normalizeProps)
+
+  const apiRef = useRef<Api<PropTypes>>()
+  const api = connect(state, send, normalizeProps)
+  apiRef.current = api
+  return api
 }
