@@ -15,6 +15,7 @@ const parts = anatomy('attachment').parts(
   'fileInfoIcon',
   'fileErrorIcon',
   'fileErrorMessage',
+  'fileItemGroup',
 )
 
 const { definePartsStyle, defineMultiStyleConfig } =
@@ -25,7 +26,13 @@ const baseStyle = definePartsStyle({
     transitionProperty: 'common',
     transitionDuration: 'normal',
   },
+  fileItemGroup: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1rem',
+  },
   fileInfoContainer: {
+    display: 'flex',
     borderRadius: 'base',
     border: '1px solid',
     borderColor: 'base.divider.medium',
