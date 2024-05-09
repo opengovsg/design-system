@@ -1,5 +1,10 @@
 import { forwardRef } from 'react'
-import { chakra, ThemingProps, useMultiStyleConfig } from '@chakra-ui/react'
+import {
+  chakra,
+  HTMLChakraProps,
+  ThemingProps,
+  useMultiStyleConfig,
+} from '@chakra-ui/react'
 import { splitProps } from '@zag-js/file-upload'
 import { mergeProps } from '@zag-js/react'
 
@@ -12,7 +17,8 @@ import { useFileUpload, UseFileUploadProps } from './useFileUpload'
 
 export interface FileUploadRootProps
   extends Omit<UseFileUploadProps, 'disabled'>,
-    FileUploadPassthroughProps {
+    FileUploadPassthroughProps,
+    Omit<HTMLChakraProps<'div'>, 'dir'> {
   /**
    * Color scheme of the component.
    */

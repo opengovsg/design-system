@@ -28,6 +28,7 @@ const baseStyle = definePartsStyle(({ imagePreview }) => {
       width: '100%',
     },
     label: {
+      cursor: 'pointer',
       textStyle: 'subhead-1',
     },
     dropzone: {
