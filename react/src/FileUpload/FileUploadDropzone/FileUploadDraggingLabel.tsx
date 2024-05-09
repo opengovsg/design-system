@@ -10,19 +10,16 @@ export const FileUploadDraggingLabel = forwardRef<
   HTMLParagraphElement,
   FileUploadDraggingLabelProps
 >(({ children, ...props }, ref) => {
-  const { fileUpload } = useFileUploadContext()
+  const { fileUpload, dropzoneDraggingLabel } = useFileUploadContext()
   const styles = useFileUploadStyles()
 
   if (!fileUpload.dragging) {
     return null
   }
-  if (children && typeof children !== 'string') {
-    return children
-  }
 
   return (
-    <Text __css={styles.label} {...props} ref={ref}>
-      {children || 'Drop the file here...'}
+    <Text as="span" __css={styles.label} {...props} ref={ref}>
+      {children || dropzoneDraggingLabel || 'Drop the file here...'}
     </Text>
   )
 })

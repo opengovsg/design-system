@@ -13,7 +13,7 @@ export const FileUploadLabel = forwardRef<
   HTMLLabelElement,
   FileUploadLabelProps
 >(({ children, ...props }, ref) => {
-  const { fileUpload, context } = useFileUploadContext()
+  const { fileUpload, context, dropzoneLabel } = useFileUploadContext()
   const styles = useFileUploadStyles()
 
   const chooseFileText = useMemo(
@@ -37,13 +37,10 @@ export const FileUploadLabel = forwardRef<
   if (fileUpload.dragging) {
     return null
   }
-  if (children && typeof children !== 'string') {
-    return children
-  }
 
   return (
     <chakra.label __css={styles.label} {...mergedProps} ref={ref}>
-      {children || (
+      {children || dropzoneLabel || (
         <>
           <Link colorScheme="neutral" isDisabled={context.disabled}>
             {chooseFileText}

@@ -33,7 +33,17 @@ export interface FileUploadRootProps
 }
 
 export const FileUploadRoot = forwardRef<HTMLDivElement, FileUploadRootProps>(
-  ({ isDisabled, imagePreview, value, ...props }, ref) => {
+  (
+    {
+      isDisabled,
+      imagePreview,
+      dropzoneDraggingLabel,
+      dropzoneLabel,
+      value,
+      ...props
+    },
+    ref,
+  ) => {
     const [fileUploadProps, restProps] = splitProps(props)
 
     const styles = useMultiStyleConfig('FileUpload', { ...props, imagePreview })
@@ -63,6 +73,8 @@ export const FileUploadRoot = forwardRef<HTMLDivElement, FileUploadRootProps>(
             fileUpload,
             context: fileUploadContext,
             imagePreview,
+            dropzoneDraggingLabel,
+            dropzoneLabel,
           }}
         >
           <chakra.div __css={styles.root} {...mergedProps} ref={ref} />

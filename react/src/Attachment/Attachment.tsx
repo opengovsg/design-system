@@ -119,6 +119,9 @@ export type AttachmentProps<Multiple extends boolean> =
     onRejection?: (rejections: FileRejection[]) => void
   } & AttachmentValueProp<Multiple>
 
+/**
+ * @deprecated Use `FileInput` component instead, as that is much more customisable.
+ */
 export const Attachment: WithForwardRefType<boolean> = forwardRef<
   HTMLDivElement,
   AttachmentProps<boolean>
