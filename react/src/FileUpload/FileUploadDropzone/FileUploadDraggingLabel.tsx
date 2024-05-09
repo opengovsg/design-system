@@ -1,21 +1,30 @@
-import { PropsWithChildren } from 'react'
-import { Text } from '@chakra-ui/react'
+import { forwardRef } from 'react'
+import { Text, TextProps } from '@chakra-ui/react'
 
 import { useFileUploadContext } from '../FileUploadProvider'
+import { useFileUploadStyles } from '../FileUploadStyleContext'
 
-export interface FileUploadDraggingLabelProps extends PropsWithChildren {}
+export interface FileUploadDraggingLabelProps extends TextProps {}
 
-export const FileUploadDraggingLabel = ({
-  children,
-}: FileUploadDraggingLabelProps) => {
+export const FileUploadDraggingLabel = forwardRef<
+  HTMLParagraphElement,
+  FileUploadDraggingLabelProps
+>(({ children, ...props }, ref) => {
   const { fileUpload } = useFileUploadContext()
+  const styles = useFileUploadStyles()
 
   if (!fileUpload.dragging) {
     return null
   }
-  if (children) {
+  if (children && typeof children !== 'string') {
     return children
   }
 
-  return <Text>Drop the file here...</Text>
-}
+  return (
+    <Text __css={styles.label} {...props} ref={ref}>
+      {children || 'Drop the file here...'}
+    </Text>
+  )
+})
+
+FileUploadDraggingLabel.displayName = 'FileUploadDraggingLabel'
