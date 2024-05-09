@@ -31,8 +31,8 @@ export const FileUploadLabel = forwardRef<
     <Text __css={styles.label} {...props} ref={ref}>
       {children || (
         <>
-          <Link isDisabled={context.disabled}>{chooseFileText}</Link> or drag
-          and drop here
+          <Link isDisabled={context.disabled}>{chooseFileText}</Link>
+          {context.allowDrop ? ' or drag and drop here' : ''}
         </>
       )}
     </Text>
