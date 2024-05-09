@@ -12,34 +12,32 @@ export default {
 
 const Template = (args: FileUploadRootProps) => {
   return (
-    <>
-      <FileUpload.Root {...args}>
-        <FileUpload.Dropzone>
-          <FileUpload.DropzoneIcon />
-          <FileUpload.Label />
-          <FileUpload.DraggingLabel />
-        </FileUpload.Dropzone>
-        <FileUpload.ItemGroup>
-          <FileUpload.Context>
-            {({ acceptedFiles, rejectedFiles }) => (
-              <>
-                {acceptedFiles.map((file) => (
-                  <FileUpload.Item key={file.name} file={file}>
-                    <FileUpload.ItemPreview type="image/*">
-                      <FileUpload.ItemPreviewImage />
-                    </FileUpload.ItemPreview>
-                    <FileUpload.ItemName />
-                    <FileUpload.ItemSizeText />
-                    <FileUpload.ItemDeleteTrigger />
-                  </FileUpload.Item>
-                ))}
-              </>
-            )}
-          </FileUpload.Context>
-        </FileUpload.ItemGroup>
-        <FileUpload.HiddenInput />
-      </FileUpload.Root>
-    </>
+    <FileUpload.Root {...args}>
+      <FileUpload.Dropzone>
+        <FileUpload.DropzoneIcon />
+        <FileUpload.Label />
+        <FileUpload.DraggingLabel />
+      </FileUpload.Dropzone>
+      <FileUpload.ItemGroup>
+        <FileUpload.Context>
+          {({ acceptedFiles, rejectedFiles }) => (
+            <>
+              {acceptedFiles.map((file) => (
+                <FileUpload.Item key={file.name} file={file}>
+                  <FileUpload.ItemPreview type="image/*">
+                    <FileUpload.ItemPreviewImage />
+                  </FileUpload.ItemPreview>
+                  <FileUpload.ItemName />
+                  <FileUpload.ItemSizeText />
+                  <FileUpload.ItemDeleteTrigger />
+                </FileUpload.Item>
+              ))}
+            </>
+          )}
+        </FileUpload.Context>
+      </FileUpload.ItemGroup>
+      <FileUpload.HiddenInput />
+    </FileUpload.Root>
   )
 }
 
