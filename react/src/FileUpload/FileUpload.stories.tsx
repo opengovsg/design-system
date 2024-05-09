@@ -1,14 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { FileUpload, FileUploadRootProps } from './FileUpload'
-
-export default {
-  title: 'Components/FileUpload',
-  tags: ['autodocs'],
-  argTypes: {
-    imagePreview: { control: 'select', options: ['small', 'large', undefined] },
-  },
-} as Meta
 
 const Template = (args: FileUploadRootProps) => {
   return (
@@ -32,6 +24,14 @@ const Template = (args: FileUploadRootProps) => {
                   <FileUpload.ItemDeleteTrigger />
                 </FileUpload.Item>
               ))}
+              {rejectedFiles.map(({ file, errors }) => (
+                <FileUpload.Item key={file.name} file={file} errors={errors}>
+                  <FileUpload.ItemName />
+                  <FileUpload.ItemSizeText />
+                  {/* <FileUpload.RejectedDismissTrigger /> */}
+                  <FileUpload.RejectedErrorText />
+                </FileUpload.Item>
+              ))}
             </>
           )}
         </FileUpload.Context>
@@ -41,11 +41,15 @@ const Template = (args: FileUploadRootProps) => {
   )
 }
 
-export const WithParts: StoryObj<FileUploadRootProps> = {
+export default {
+  title: 'Components/FileUpload',
+  tags: ['autodocs'],
+  argTypes: {
+    imagePreview: { control: 'select', options: ['small', 'large', undefined] },
+  },
   args: {
     maxFiles: 5,
-    maxFileSize: 10000,
-    isDisabled: true,
+    isDisabled: false,
     imagePreview: 'small',
     onFileAccept: (file) => {
       console.log('file accepted', file)
@@ -55,4 +59,25 @@ export const WithParts: StoryObj<FileUploadRootProps> = {
     },
   },
   render: Template,
+} as Meta<FileUploadRootProps>
+
+export const WithParts: StoryObj<FileUploadRootProps> = {}
+
+export const MaxSize: StoryObj<FileUploadRootProps> = {
+  args: {
+    maxFileSize: 1,
+  },
+}
+
+export const OnlyAcceptImage: StoryObj<FileUploadRootProps> = {
+  args: {
+    accept: 'image/*',
+  },
+}
+
+export const LargeImagePreview: StoryObj<FileUploadRootProps> = {
+  args: {
+    accept: 'image/*',
+    imagePreview: 'large',
+  },
 }

@@ -16,6 +16,7 @@ const { definePartsStyle, defineMultiStyleConfig } =
     'itemSizeText',
     'label',
     'trigger',
+    'rejectedErrorText',
   ])
 
 const baseStyle = definePartsStyle(({ imagePreview }) => {
@@ -39,6 +40,9 @@ const baseStyle = definePartsStyle(({ imagePreview }) => {
       gap: '1rem',
     },
     item: {
+      _invalid: {
+        borderColor: 'interaction.critical.default',
+      },
       py: '0.875rem',
       px: '1rem',
       display: 'grid',
@@ -56,8 +60,17 @@ const baseStyle = definePartsStyle(({ imagePreview }) => {
       gridTemplateColumns: 'auto 1fr auto',
       gridTemplateAreas:
         imagePreview === 'large'
-          ? `"preview preview preview" "name name delete" "size size delete"`
-          : `"preview name delete" "preview size delete"`,
+          ? `"preview preview preview" "name name delete" "size size delete" "error error delete"`
+          : `"preview name delete" "preview size delete" "error error delete"`,
+    },
+    rejectedErrorText: {
+      gridArea: 'error',
+      textColor: 'interaction.critical.default',
+      _disabled: {
+        color: 'interaction.support.disabled-content',
+      },
+      textStyle: 'caption-1',
+      mt: '0.25rem',
     },
     itemPreview: {
       gridArea: 'preview',
@@ -100,36 +113,6 @@ const baseStyle = definePartsStyle(({ imagePreview }) => {
       borderLeftRadius: imagePreview !== 'large' ? 'base' : undefined,
       borderTopRadius: imagePreview === 'large' ? 'base' : undefined,
     },
-    // fileInfo: {
-    //   display: 'inline-flex',
-    //   justifyContent: 'space-between',
-    //   alignItems: 'center',
-    //   flex: 1,
-    // },
-    // fileInfoDescription: {
-    //   color: 'base.content.medium',
-    //   _disabled: {
-    //     color: 'interaction.support.disabled-content',
-    //   },
-    //   textStyle: 'caption-1',
-    // },
-    // fileErrorMessage: {
-    //   textColor: 'interaction.critical.default',
-    //   _disabled: {
-    //     color: 'interaction.support.disabled-content',
-    //   },
-    //   textStyle: 'caption-1',
-    // },
-    // fileInfoImage: {
-    //   borderRight: '1px solid',
-    //   borderColor: 'inherit',
-    //   bg: 'utility.ui',
-    // },
-    // fileErrorIcon: {
-    //   height: '1.3rem',
-    //   weight: '1.3rem',
-    //   color: 'interaction.critical.default',
-    // },
   }
 })
 

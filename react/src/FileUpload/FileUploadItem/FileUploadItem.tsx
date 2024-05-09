@@ -1,6 +1,7 @@
 import { forwardRef } from 'react'
 import { chakra, HTMLChakraProps } from '@chakra-ui/react'
-import { type ItemProps } from '@zag-js/file-upload'
+import { dataAttr } from '@chakra-ui/utils'
+import { FileError, type ItemProps } from '@zag-js/file-upload'
 import { mergeProps } from '@zag-js/react'
 
 import { useFileUploadContext } from '../FileUploadProvider'
@@ -10,10 +11,12 @@ import { FileUploadItemProvider } from './FileUploadItemProvider'
 
 export interface FileUploadItemProps
   extends Omit<HTMLChakraProps<'ul'>, keyof ItemProps>,
-    ItemProps {}
+    ItemProps {
+  errors?: FileError[]
+}
 
 export const FileUploadItem = forwardRef<HTMLLIElement, FileUploadItemProps>(
-  ({ file, ...localProps }, ref) => {
+  ({ file, errors, ...localProps }, ref) => {
     const { fileUpload } = useFileUploadContext()
     const styles = useFileUploadStyles()
 
@@ -24,8 +27,9 @@ export const FileUploadItem = forwardRef<HTMLLIElement, FileUploadItemProps>(
     )
 
     return (
-      <FileUploadItemProvider value={{ file }}>
+      <FileUploadItemProvider value={{ file, errors }}>
         <chakra.li
+          data-invalid={dataAttr((errors?.length ?? 0) > 0)}
           listStyleType="none"
           __css={styles.item}
           {...mergedProps}

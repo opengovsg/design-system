@@ -8,6 +8,7 @@ import { FileUploadItemName } from './FileUploadItem/FileUploadItemName'
 import { FileUploadItemPreview } from './FileUploadItem/FileUploadItemPreview'
 import { FileUploadItemPreviewImage } from './FileUploadItem/FileUploadItemPreviewImage'
 import { FileUploadItemSizeText } from './FileUploadItem/FileUploadItemSizeText'
+import { FileUploadRejectedErrorText } from './FileUploadRejected/FileUploadRejectedErrorText'
 import { FileUploadContext } from './FileUploadContext'
 import { FileUploadHiddenInput } from './FileUploadHiddenInput'
 import { FileUploadItemGroup } from './FileUploadItemGroup'
@@ -49,3 +50,6 @@ FileUpload.ItemPreviewImage = FileUploadItemPreviewImage
 FileUpload.ItemPreviewImage.displayName = 'FileUpload.ItemPreviewImage'
 FileUpload.ItemDeleteTrigger = FileUploadItemDeleteTrigger
 FileUpload.ItemDeleteTrigger.displayName = 'FileUpload.ItemDeleteTrigger'
+
+FileUpload.RejectedErrorText = FileUploadRejectedErrorText
+FileUpload.RejectedErrorText.displayName = 'FileUpload.RejectedErrorText'
