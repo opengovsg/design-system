@@ -52,6 +52,8 @@ export interface TagInputProps
    * If true, duplicate tags will not be created. Defaults to `true`.
    */
   preventDuplicates?: boolean
+  /** Separator used to split a single input into multiple tags. Defaults to `,` */
+  splitTagSeparator?: string | null
 }
 
 export const TagInput = forwardRef<TagInputProps, 'input'>(
@@ -66,6 +68,7 @@ export const TagInput = forwardRef<TagInputProps, 'input'>(
       tagColorScheme = 'main',
       tagValidation = () => true,
       preventDuplicates = true,
+      splitTagSeparator = ',',
       size,
       ...props
     },
@@ -92,12 +95,25 @@ export const TagInput = forwardRef<TagInputProps, 'input'>(
         if (event.isDefaultPrevented()) return
         if (preventDuplicates) {
           if (value.includes(tag)) return
-          onChange(Array.from(new Set([...value, ...tag.split(',')])))
+          onChange(
+            Array.from(
+              new Set([
+                ...value,
+                ...(splitTagSeparator === null
+                  ? [tag]
+                  : tag.split(splitTagSeparator)),
+              ]),
+            ),
+          )
         } else {
-          onChange(value.concat(tag.split(',')))
+          onChange(
+            value.concat(
+              splitTagSeparator === null ? tag : tag.split(splitTagSeparator),
+            ),
+          )
         }
       },
-      [onChange, preventDuplicates, value],
+      [onChange, preventDuplicates, splitTagSeparator, value],
     )
     const removeTag = useCallback(
       (event: SyntheticEvent, index: number) => {
