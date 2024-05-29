@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import ReactInputMask from 'react-input-mask'
 import {
+  ComponentWithAs as _,
   forwardRef,
   InputGroup,
   InputRightAddon,

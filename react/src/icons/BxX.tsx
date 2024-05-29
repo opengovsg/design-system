@@ -1,4 +1,4 @@
-import { chakra } from '@chakra-ui/react'
+import { chakra, ChakraComponent as _ } from '@chakra-ui/react'
 
 export const BxX = chakra(
   (props: React.SVGProps<SVGSVGElement>): JSX.Element => {

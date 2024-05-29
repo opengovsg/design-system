@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 import {
+  ComponentWithAs as _,
   forwardRef,
   Stack,
   StackDivider,

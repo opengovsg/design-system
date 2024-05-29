@@ -1,4 +1,4 @@
-import { chakra } from '@chakra-ui/react'
+import { chakra, ChakraComponent as _ } from '@chakra-ui/react'
 
 // icon:bx-link-external | Boxicons https://boxicons.com/ | Atisa
 export const BxLinkExternal = chakra((props: React.SVGProps<SVGSVGElement>) => {

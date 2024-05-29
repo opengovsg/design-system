@@ -5,7 +5,12 @@ import {
   useRef,
 } from 'react'
 import { useFocusEffect, useRovingTabIndex } from 'react-roving-tabindex'
-import { chakra, forwardRef, useMergeRefs } from '@chakra-ui/react'
+import {
+  chakra,
+  ComponentWithAs as _,
+  forwardRef,
+  useMergeRefs,
+} from '@chakra-ui/react'
 
 import { InputProps } from '~/Input'
 

@@ -1,6 +1,6 @@
 // icon:bx-right-arrow-alt | Boxicons https://boxicons.com/ | Atisa
 
-import { chakra } from '@chakra-ui/react'
+import { chakra, ChakraComponent as _ } from '@chakra-ui/react'
 
 export const BxRightArrowAlt = chakra(
   (props: React.SVGProps<SVGSVGElement>) => {

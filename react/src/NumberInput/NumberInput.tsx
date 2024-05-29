@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import {
   Box,
   chakra,
+  ComponentWithAs as _,
   Divider,
   forwardRef,
   NumberInputProps as ChakraNumberInputProps,

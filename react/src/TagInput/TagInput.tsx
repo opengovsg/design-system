@@ -8,6 +8,7 @@ import {
 import { RovingTabIndexProvider } from 'react-roving-tabindex'
 import {
   Box,
+  ComponentWithAs as _,
   forwardRef,
   useControllableState,
   useFormControl,

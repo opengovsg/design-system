@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import {
+  ComponentWithAs as _,
   forwardRef,
   IconButton as ChakraIconButton,
   IconButtonProps as ChakraIconButtonProps,

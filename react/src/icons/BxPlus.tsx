@@ -1,5 +1,5 @@
 // icon:bx-plus | Boxicons https://boxicons.com/ | Atisa
-import { chakra } from '@chakra-ui/react'
+import { chakra, ChakraComponent as _ } from '@chakra-ui/react'
 
 export const BxPlus = chakra((props: React.SVGProps<SVGSVGElement>) => {
   return (

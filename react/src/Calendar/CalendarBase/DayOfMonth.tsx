@@ -2,6 +2,7 @@ import { useCallback, useMemo } from 'react'
 import {
   ButtonProps,
   chakra,
+  ComponentWithAs as _,
   Flex,
   forwardRef,
   Skeleton,
