@@ -6,7 +6,12 @@
 
 import { useMemo } from 'react'
 import { useCheckbox, UseCheckboxProps } from '@chakra-ui/checkbox'
-import { Icon, keyframes, usePrefersReducedMotion } from '@chakra-ui/react'
+import {
+  ComponentWithAs as _,
+  Icon,
+  keyframes,
+  usePrefersReducedMotion,
+} from '@chakra-ui/react'
 import {
   chakra,
   forwardRef,

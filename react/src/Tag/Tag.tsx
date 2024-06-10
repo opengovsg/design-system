@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ComponentWithAs as _,
   createStylesContext,
   forwardRef,
   HTMLChakraProps,

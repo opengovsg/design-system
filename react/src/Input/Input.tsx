@@ -1,4 +1,5 @@
 import {
+  ComponentWithAs as _,
   forwardRef,
   Icon,
   Input as ChakraInput,

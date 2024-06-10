@@ -1,5 +1,11 @@
 import { useMemo } from 'react'
-import { Box, chakra, forwardRef, Icon } from '@chakra-ui/react'
+import {
+  Box,
+  chakra,
+  ComponentWithAs as _,
+  forwardRef,
+  Icon,
+} from '@chakra-ui/react'
 import { dataAttr, isFunction } from '@chakra-ui/utils'
 import { merge } from 'lodash'
 

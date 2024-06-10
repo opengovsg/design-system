@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { FileRejection } from 'react-dropzone'
 import {
   Button,
+  ComponentWithAs as _,
   Flex,
   forwardRef,
   Stack,
