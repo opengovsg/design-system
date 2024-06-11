@@ -100,4 +100,7 @@ ControlledInput.play = async ({ canvasElement }) => {
       'Select from date picker. Selected date range is Sat Dec 25 2021 to Sun Dec 26 2021.',
     ),
   ).toBeInTheDocument()
+  const resetButton = canvas.getByText('Click to reset')
+  await userEvent.click(resetButton)
+  await expect(canvas.getByText('No date selected')).toBeInTheDocument()
 }
