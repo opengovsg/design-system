@@ -10,11 +10,11 @@ export const validateDateRange = (dateRange: DateRangeValue) => {
   const [start, end] = sortedRange
   return {
     start: {
-      isValid: isValid(start),
+      isValid: isValid(start) || start === null,
       date: start,
     },
     end: {
-      isValid: isValid(end),
+      isValid: isValid(end) || end === null,
       date: end,
     },
   }

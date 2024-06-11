@@ -84,6 +84,7 @@ const ControlledTemplate: StoryFn<DateRangePickerProps> = (args) => {
       >
         Click to set date
       </Button>
+      <Button onClick={() => setDatestate([null, null])}>Click to reset</Button>
     </Stack>
   )
 }
