@@ -93,6 +93,11 @@ HasValueSelected.args = {
   initialIsOpen: true,
 }
 
+export const AllowCustomInput = Template.bind({})
+AllowCustomInput.args = {
+  allowCustomInput: true,
+}
+
 export const Sizes = () => {
   const items = ['xs', 'sm', 'md']
   const [first, setFirst] = useState('')

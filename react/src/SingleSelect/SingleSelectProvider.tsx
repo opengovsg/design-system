@@ -16,6 +16,14 @@ import { VIRTUAL_LIST_ITEM_HEIGHT } from './constants'
 import { SelectContext, SharedSelectContextReturnProps } from './SelectContext'
 import { ComboboxItem } from './types'
 
+const getItemFromCustomInput = (value: string) => {
+  return {
+    value,
+    label: `Custom: ${value}`,
+    description: 'Your custom value',
+  }
+}
+
 export interface SingleSelectProviderProps<
   Item extends ComboboxItem = ComboboxItem,
 > extends SharedSelectContextReturnProps<Item>,
@@ -39,7 +47,9 @@ export interface SingleSelectProviderProps<
   /** Color scheme of component */
   colorScheme?: ThemingProps<'SingleSelect'>['colorScheme']
   fixedItemHeight?: number
+  allowCustomInput?: boolean
 }
+
 export const SingleSelectProvider = ({
   items: rawItems,
   value,
@@ -62,6 +72,7 @@ export const SingleSelectProvider = ({
   size: _size,
   comboboxProps = {},
   fixedItemHeight,
+  allowCustomInput,
 }: SingleSelectProviderProps): JSX.Element => {
   const theme = useTheme()
   // Required in case size is set in theme, we should respect the one set in theme.
@@ -74,7 +85,18 @@ export const SingleSelectProvider = ({
     [_size, theme?.components?.SingleSelect?.defaultProps?.size],
   )
 
+  const [createdItem, setCreatedItem] = useState<string>()
+  const [selectedCreatedItem, setSelectedCreatedItem] = useState<string>()
   const { items, getItemByValue } = useItems({ rawItems })
+  const itemSet = useMemo(
+    () =>
+      new Set(
+        items
+          .map((item) => (typeof item === 'string' ? item : item?.value))
+          .filter((value): value is string => value !== undefined),
+      ),
+    [items],
+  )
   const [isFocused, setIsFocused] = useState(false)
 
   const { isInvalid, isDisabled, isReadOnly, isRequired } = useFormControlProps(
@@ -103,16 +125,53 @@ export const SingleSelectProvider = ({
   )
 
   const memoizedSelectedItem = useMemo(() => {
-    return getItemByValue(value)?.item ?? null
-  }, [getItemByValue, value])
+    const fromItems = getItemByValue(value)
+    if (fromItems) {
+      return fromItems.item
+    }
+    if (value && selectedCreatedItem === value) {
+      return getItemFromCustomInput(value)
+    }
+    return null
+  }, [getItemByValue, selectedCreatedItem, value])
 
-  const resetItems = useCallback(
-    () => setFilteredItems(getFilteredItems()),
-    [getFilteredItems],
-  )
+  const resetItems = useCallback(() => {
+    setFilteredItems(getFilteredItems())
+    setCreatedItem(undefined)
+  }, [getFilteredItems])
 
   const virtualListRef = useRef<VirtuosoHandle>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  const handleInputChange = useCallback(
+    (inputValue: string | undefined) => {
+      const filteredItems = getFilteredItems(inputValue)
+      setFilteredItems(filteredItems)
+      if (!allowCustomInput) {
+        return
+      }
+
+      if (!inputValue) {
+        return
+      }
+      if (itemSet.has(inputValue)) {
+        setCreatedItem(undefined)
+        return
+      }
+
+      setCreatedItem(inputValue)
+    },
+    [allowCustomInput, getFilteredItems, itemSet],
+  )
+
+  const allItems = [...filteredItems]
+  if (createdItem) {
+    allItems.push(getItemFromCustomInput(createdItem))
+  } else if (selectedCreatedItem && selectedCreatedItem !== createdItem) {
+    allItems.push(getItemFromCustomInput(selectedCreatedItem))
+  }
+
+  console.log(selectedCreatedItem)
 
   const {
     toggleMenu,
@@ -133,17 +192,10 @@ export const SingleSelectProvider = ({
     inputId: name,
     defaultInputValue: '',
     defaultHighlightedIndex: 0,
-    items: filteredItems,
+    items: allItems,
     initialIsOpen,
     selectedItem: memoizedSelectedItem,
     itemToString: itemToValue,
-    onSelectedItemChange: ({ selectedItem }) => {
-      if (!selectedItem || !isItemDisabled(selectedItem)) {
-        onChange(itemToValue(selectedItem))
-      }
-    },
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    scrollIntoView: () => {},
     onHighlightedIndexChange: ({ highlightedIndex }) => {
       if (
         highlightedIndex !== undefined &&
@@ -159,7 +211,7 @@ export const SingleSelectProvider = ({
       switch (type) {
         case useCombobox.stateChangeTypes.FunctionSetInputValue:
         case useCombobox.stateChangeTypes.InputChange:
-          setFilteredItems(getFilteredItems(inputValue))
+          handleInputChange(inputValue)
           break
         default:
           return
@@ -174,6 +226,10 @@ export const SingleSelectProvider = ({
           // This can only happen on first mount, since inputValue will be empty string
           // on future actions.
           if (state.inputValue && !changes.selectedItem) {
+            return { ...changes, inputValue: state.inputValue }
+          }
+          // If we support creating new items, we do not clear the input value yet.
+          if (state.inputValue && state.inputValue === createdItem) {
             return { ...changes, inputValue: state.inputValue }
           }
           return {
@@ -192,7 +248,27 @@ export const SingleSelectProvider = ({
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.InputBlur:
         case useCombobox.stateChangeTypes.ItemClick: {
+          if (
+            typeof changes.selectedItem === 'string' &&
+            changes.selectedItem === createdItem
+          ) {
+            setSelectedCreatedItem(state.inputValue)
+          } else if (
+            typeof changes.selectedItem === 'object' &&
+            changes.selectedItem !== null &&
+            changes.selectedItem.value === createdItem
+          ) {
+            setSelectedCreatedItem(state.inputValue)
+          } else if (!changes.selectedItem) {
+            setSelectedCreatedItem(undefined)
+          }
+
           resetItems()
+
+          if (!changes.selectedItem || !isItemDisabled(changes.selectedItem)) {
+            onChange(itemToValue(changes.selectedItem))
+          }
+
           return {
             ...changes,
             // Clear inputValue on item selection
@@ -241,8 +317,14 @@ export const SingleSelectProvider = ({
     const itemHeight = fixedItemHeight ?? VIRTUAL_LIST_ITEM_HEIGHT[size]
     // If the total height is less than the max height, just return the total height.
     // Otherwise, return the max height.
-    return Math.min(filteredItems.length, 4) * itemHeight
-  }, [filteredItems.length, fixedItemHeight, size])
+    if (!createdItem) {
+      return Math.min(filteredItems.length, 4) * itemHeight
+    }
+    return (
+      Math.min(filteredItems.length, 4) * itemHeight +
+      VIRTUAL_LIST_ITEM_HEIGHT[size] * 1.45
+    )
+  }, [createdItem, filteredItems.length, fixedItemHeight, size])
 
   return (
     <SelectContext.Provider
@@ -260,7 +342,7 @@ export const SingleSelectProvider = ({
         getToggleButtonProps,
         selectItem,
         highlightedIndex,
-        items: filteredItems,
+        items: allItems,
         nothingFoundLabel,
         inputValue,
         isSearchable,
