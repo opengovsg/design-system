@@ -95,7 +95,12 @@ HasValueSelected.args = {
 
 export const AllowCustomInput = Template.bind({})
 AllowCustomInput.args = {
-  allowCustomInput: true,
+  allowArbitraryInput: true,
+}
+
+export const AllowCustomInputWithoutPrefix = Template.bind({})
+AllowCustomInputWithoutPrefix.args = {
+  allowArbitraryInput: {},
 }
 
 export const Sizes = () => {

@@ -16,10 +16,10 @@ import { VIRTUAL_LIST_ITEM_HEIGHT } from './constants'
 import { SelectContext, SharedSelectContextReturnProps } from './SelectContext'
 import { ComboboxItem } from './types'
 
-const getItemFromCustomInput = (value: string) => {
+const getItemFromCustomInput = (value: string, prefix?: string) => {
   return {
     value,
-    label: `Custom: ${value}`,
+    label: `${prefix ? `${prefix}: ` : ''}${value}`,
     description: 'Your custom value',
   }
 }
@@ -47,7 +47,11 @@ export interface SingleSelectProviderProps<
   /** Color scheme of component */
   colorScheme?: ThemingProps<'SingleSelect'>['colorScheme']
   fixedItemHeight?: number
-  allowCustomInput?: boolean
+  allowArbitraryInput?:
+    | boolean
+    | {
+        prefix?: string
+      }
 }
 
 export const SingleSelectProvider = ({
@@ -72,7 +76,7 @@ export const SingleSelectProvider = ({
   size: _size,
   comboboxProps = {},
   fixedItemHeight,
-  allowCustomInput,
+  allowArbitraryInput,
 }: SingleSelectProviderProps): JSX.Element => {
   const theme = useTheme()
   // Required in case size is set in theme, we should respect the one set in theme.
@@ -98,6 +102,11 @@ export const SingleSelectProvider = ({
     [items],
   )
   const [isFocused, setIsFocused] = useState(false)
+
+  const prefix =
+    typeof allowArbitraryInput === 'object'
+      ? allowArbitraryInput.prefix
+      : 'Custom'
 
   const { isInvalid, isDisabled, isReadOnly, isRequired } = useFormControlProps(
     {
@@ -130,10 +139,10 @@ export const SingleSelectProvider = ({
       return fromItems.item
     }
     if (value && selectedCreatedItem === value) {
-      return getItemFromCustomInput(value)
+      return getItemFromCustomInput(value, prefix)
     }
     return null
-  }, [getItemByValue, selectedCreatedItem, value])
+  }, [getItemByValue, selectedCreatedItem, prefix, value])
 
   const resetItems = useCallback(() => {
     setFilteredItems(getFilteredItems())
@@ -147,7 +156,7 @@ export const SingleSelectProvider = ({
     (inputValue: string | undefined) => {
       const filteredItems = getFilteredItems(inputValue)
       setFilteredItems(filteredItems)
-      if (!allowCustomInput) {
+      if (!allowArbitraryInput) {
         return
       }
 
@@ -161,17 +170,15 @@ export const SingleSelectProvider = ({
 
       setCreatedItem(inputValue)
     },
-    [allowCustomInput, getFilteredItems, itemSet],
+    [allowArbitraryInput, getFilteredItems, itemSet],
   )
 
   const allItems = [...filteredItems]
   if (createdItem) {
-    allItems.push(getItemFromCustomInput(createdItem))
+    allItems.push(getItemFromCustomInput(createdItem, prefix))
   } else if (selectedCreatedItem && selectedCreatedItem !== createdItem) {
-    allItems.push(getItemFromCustomInput(selectedCreatedItem))
+    allItems.push(getItemFromCustomInput(selectedCreatedItem, prefix))
   }
-
-  console.log(selectedCreatedItem)
 
   const {
     toggleMenu,
