@@ -13,6 +13,7 @@ import { DatePicker } from './DatePicker'
 import { DateRangePicker } from './DateRangePicker'
 import { Divider } from './Divider'
 import { Drawer } from './Drawer'
+import { FileUpload } from './FileUpload'
 import { Footer } from './Footer'
 import { FormControl } from './FormControl'
 import { FormError } from './FormError'
@@ -59,6 +60,7 @@ export const components = {
   DateRangePicker,
   Divider,
   Drawer,
+  FileUpload,
   Footer,
   Form: FormControl,
   FormError,

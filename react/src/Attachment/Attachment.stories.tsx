@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ErrorCode, FileRejection } from 'react-dropzone'
 import { useControllableState } from '@chakra-ui/react'
-import { Meta, StoryFn } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import { Buffer } from 'buffer'
 
 import { getMobileViewParameters } from '~/utils/storybook'
@@ -51,13 +51,16 @@ export default {
   },
 } as Meta<AttachmentProps<false>>
 
-const SingleTemplate: StoryFn<AttachmentProps<false>> = ({
+type SingleAttachmentStory = StoryObj<AttachmentProps<false>>
+type MultiAttachmentStory = StoryObj<AttachmentProps<true>>
+
+const SingleTemplate = ({
   value,
   onChange,
   rejections,
   multiple,
   ...args
-}) => {
+}: AttachmentProps<false>) => {
   const [files, onFileChange] = useControllableState<File | undefined>({
     value,
     onChange,
@@ -78,12 +81,12 @@ const SingleTemplate: StoryFn<AttachmentProps<false>> = ({
   )
 }
 
-const MultipleTemplate: StoryFn<AttachmentProps<true>> = ({
+const MultipleTemplate = ({
   value = [],
   rejections,
   multiple = true,
   ...args
-}) => {
+}: AttachmentProps<true>) => {
   const [files, setFiles] = useState<File[]>(value)
   const [fileRejections, setFileRejections] = useState<
     FileRejection[] | undefined
@@ -101,65 +104,89 @@ const MultipleTemplate: StoryFn<AttachmentProps<true>> = ({
   )
 }
 
-export const Default = SingleTemplate.bind({})
-
-export const OnlyAcceptImages = SingleTemplate.bind({})
-OnlyAcceptImages.args = {
-  accept: ['image/*'],
+export const Default: SingleAttachmentStory = {
+  render: SingleTemplate,
 }
 
-export const Invalid = SingleTemplate.bind({})
-Invalid.args = {
-  isInvalid: true,
+export const OnlyAcceptImages: SingleAttachmentStory = {
+  render: SingleTemplate,
+  args: {
+    accept: ['image/*'],
+  },
 }
 
-export const Disabled = SingleTemplate.bind({})
-Disabled.args = {
-  isDisabled: true,
+export const Invalid: SingleAttachmentStory = {
+  render: SingleTemplate,
+  args: {
+    isInvalid: true,
+  },
 }
 
-export const WithUploadedFile = SingleTemplate.bind({})
-WithUploadedFile.args = {
-  value: MOCK_OGP_LOGO_FILE,
+export const Disabled: SingleAttachmentStory = {
+  render: SingleTemplate,
+  args: {
+    isDisabled: true,
+  },
 }
 
-export const WithUploadedFileDisabled = SingleTemplate.bind({})
-WithUploadedFileDisabled.args = {
-  ...WithUploadedFile.args,
-  isDisabled: true,
+export const WithUploadedFile: SingleAttachmentStory = {
+  render: SingleTemplate,
+  args: {
+    value: MOCK_OGP_LOGO_FILE,
+  },
 }
 
-export const WithSmallImagePreview = SingleTemplate.bind({})
-WithSmallImagePreview.args = {
-  ...WithUploadedFile.args,
-  imagePreview: 'small',
+export const WithUploadedFileDisabled: SingleAttachmentStory = {
+  render: SingleTemplate,
+  args: {
+    ...WithUploadedFile.args,
+    isDisabled: true,
+  },
 }
 
-export const WithLargeImagePreview = SingleTemplate.bind({})
-WithLargeImagePreview.args = {
-  ...WithUploadedFile.args,
-  imagePreview: 'large',
-}
-WithLargeImagePreview.parameters = getMobileViewParameters()
-
-export const WithMultipleUpload = MultipleTemplate.bind({})
-WithMultipleUpload.args = {
-  multiple: true,
+export const WithSmallImagePreview: SingleAttachmentStory = {
+  render: SingleTemplate,
+  args: {
+    ...WithUploadedFile.args,
+    imagePreview: 'small',
+  },
 }
 
-export const ShowMaxSize = MultipleTemplate.bind({})
-ShowMaxSize.args = {
-  ...WithMultipleUpload.args,
-  showFileSize: true,
+export const WithLargeImagePreview: SingleAttachmentStory = {
+  render: SingleTemplate,
+  args: {
+    ...WithUploadedFile.args,
+    imagePreview: 'large',
+  },
+  parameters: getMobileViewParameters(),
 }
 
-export const WithMultipleUploadedFiles = MultipleTemplate.bind({})
-WithMultipleUploadedFiles.args = {
-  ...WithMultipleUpload.args,
-  value: [MOCK_OGP_LOGO_FILE, MOCK_OGP_ICON_FILE],
+export const WithMultipleUpload: MultiAttachmentStory = {
+  render: MultipleTemplate,
+  args: {
+    multiple: true,
+  },
 }
 
-export const WithRejectedFile = SingleTemplate.bind({})
-WithRejectedFile.args = {
-  rejections: [MOCK_REJECTED_FILE],
+export const ShowMaxSize: MultiAttachmentStory = {
+  render: MultipleTemplate,
+  args: {
+    ...WithMultipleUpload.args,
+    showFileSize: true,
+  },
+}
+
+export const WithMultipleUploadedFiles: MultiAttachmentStory = {
+  render: MultipleTemplate,
+  args: {
+    ...WithMultipleUpload.args,
+    value: [MOCK_OGP_LOGO_FILE, MOCK_OGP_ICON_FILE],
+  },
+}
+
+export const WithRejectedFile: MultiAttachmentStory = {
+  render: MultipleTemplate,
+  args: {
+    rejections: [MOCK_REJECTED_FILE],
+  },
 }
