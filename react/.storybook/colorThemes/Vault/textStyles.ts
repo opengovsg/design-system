@@ -1,28 +1,28 @@
 /**
  * Do not edit directly
- * Generated on Fri, 23 Jun 2023 09:14:33 GMT
+ * Generated on Tue, 12 Mar 2024 09:54:33 GMT
  */
 
 export const textStyles = {
-  'subhead-1': {
+  'subhead-4': {
     fontWeight: 600,
     lineHeight: '1.5rem',
     fontSize: '1rem',
     letterSpacing: '-0.006em',
     fontFamily: 'body',
   },
-  'subhead-2': {
+  'subhead-5': {
     fontWeight: 600,
     lineHeight: '1.25rem',
     fontSize: '0.875rem',
     letterSpacing: 0,
     fontFamily: 'body',
   },
-  h6: {
+  h7: {
     fontWeight: 600,
     lineHeight: '1.5rem',
     fontSize: '1.125rem',
-    letterSpacing: '-0.006em',
+    letterSpacing: '-0.014em',
     fontFamily: 'body',
   },
   'responsive-display': {
@@ -148,6 +148,27 @@ export const textStyles = {
     letterSpacing: '-0.014em',
     fontFamily: 'body',
   },
+  h6: {
+    fontWeight: 500,
+    lineHeight: '1.5rem',
+    fontSize: '1.125rem',
+    letterSpacing: '-0.014em',
+    fontFamily: 'body',
+  },
+  'subhead-1': {
+    fontWeight: 500,
+    lineHeight: '1.5rem',
+    fontSize: '1rem',
+    letterSpacing: '-0.006em',
+    fontFamily: 'body',
+  },
+  'subhead-2': {
+    fontWeight: 500,
+    lineHeight: '1.25rem',
+    fontSize: '0.875rem',
+    letterSpacing: 0,
+    fontFamily: 'body',
+  },
   'subhead-3': {
     fontWeight: 600,
     lineHeight: '1.5rem',
@@ -190,6 +211,14 @@ export const textStyles = {
     fontSize: '0.75rem',
     letterSpacing: 0,
     fontFamily: 'body',
+  },
+  'caption-3': {
+    fontWeight: 500,
+    fontSize: '0.625rem',
+    lineHeight: '1rem',
+    letterSpacing: '0.080em',
+    fontFamily: 'body',
+    textTransform: 'uppercase',
   },
   'code-1': {
     fontWeight: 400,

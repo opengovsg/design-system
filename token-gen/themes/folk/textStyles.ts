@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 28 Dec 2023 08:07:08 GMT
+ * Generated on Tue, 12 Mar 2024 09:54:33 GMT
  */
 
 export const textStyles = {
@@ -211,5 +211,13 @@ export const textStyles = {
     fontSize: '0.625rem',
     letterSpacing: 0,
     fontFamily: 'body',
+  },
+  'caption-3': {
+    fontWeight: 500,
+    fontSize: '0.625rem',
+    lineHeight: '1rem',
+    letterSpacing: '0.080em',
+    fontFamily: 'body',
+    textTransform: 'uppercase',
   },
 }
