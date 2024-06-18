@@ -3,6 +3,7 @@ import {
   Box,
   chakra,
   Collapse,
+  ComponentWithAs as _,
   forwardRef,
   HTMLChakraProps,
   Icon,

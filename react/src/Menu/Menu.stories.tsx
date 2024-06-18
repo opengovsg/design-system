@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
-import { MenuVariant } from '~/theme/components/Menu'
+import { Menu as MenuVariant } from '~/theme/components/Menu'
 
 import { Menu, MenuButtonProps } from './Menu'
 
@@ -27,7 +27,7 @@ type MenuTemplateProps = MenuButtonProps & {
   size?: ThemingProps<'Menu'>['size']
 }
 type MenuGroupTemplateProps = {
-  variant: MenuVariant
+  variant: keyof NonNullable<(typeof MenuVariant)['variants']>
   size?: ThemingProps<'Menu'>['size']
 }
 

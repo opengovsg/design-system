@@ -1,6 +1,7 @@
 import {
   Button as ChakraButton,
   ButtonProps as ChakraButtonProps,
+  ComponentWithAs as _,
   forwardRef,
   IconProps,
   ThemingProps,

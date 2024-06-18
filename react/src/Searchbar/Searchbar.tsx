@@ -1,6 +1,7 @@
 import { KeyboardEvent, useCallback, useRef } from 'react'
 import {
   Box,
+  ComponentWithAs as _,
   forwardRef,
   Icon,
   Input,

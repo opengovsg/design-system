@@ -1,4 +1,4 @@
-import { forwardRef } from '@chakra-ui/react'
+import { ComponentWithAs as _, forwardRef } from '@chakra-ui/react'
 
 import { RangeCalendarProps } from '~/Calendar'
 import { DatePickerBaseProps } from '~/DatePicker'

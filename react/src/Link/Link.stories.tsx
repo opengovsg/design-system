@@ -1,5 +1,4 @@
-import Icon from '@chakra-ui/icon'
-import { SimpleGrid, Stack, Text } from '@chakra-ui/react'
+import { Icon, SimpleGrid, Stack, Text } from '@chakra-ui/react'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { BxRightArrowAlt } from '~/icons'

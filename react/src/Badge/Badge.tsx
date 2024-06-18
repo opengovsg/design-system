@@ -1,6 +1,7 @@
 import {
   Badge as ChakraBadge,
   BadgeProps as ChakraBadgeProps,
+  ComponentWithAs as _,
   createStylesContext,
   forwardRef,
   Icon,

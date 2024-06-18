@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import {
+  ComponentWithAs as _,
   Flex,
   forwardRef,
   Image,

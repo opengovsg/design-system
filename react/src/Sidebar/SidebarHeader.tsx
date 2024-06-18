@@ -1,4 +1,10 @@
-import { Box, chakra, forwardRef, Icon } from '@chakra-ui/react'
+import {
+  Box,
+  chakra,
+  ComponentWithAs as _,
+  forwardRef,
+  Icon,
+} from '@chakra-ui/react'
 
 import { useSidebarStyles } from './SidebarContext'
 import type { BaseSidebarItemProps } from './types'

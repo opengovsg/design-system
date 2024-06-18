@@ -7,6 +7,7 @@
 import { ChangeEvent, FC, useCallback, useMemo } from 'react'
 import {
   chakra,
+  ComponentWithAs as _,
   createStylesContext,
   Flex,
   forwardRef,
