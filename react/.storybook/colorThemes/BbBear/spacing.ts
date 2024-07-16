@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 23 Jun 2023 09:14:33 GMT
+ * Generated on Tue, 12 Mar 2024 09:54:33 GMT
  */
 
 export const spacing = {

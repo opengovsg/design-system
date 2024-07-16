@@ -1,6 +1,6 @@
 {
   "name": "@opengovsg/design-system-react",
-  "version": "1.21.0",
+  "version": "1.22.0",
   "description": "React components",
   "homepage": "https://github.com/opengovsg/design-system/react#readme",
   "bugs": "https://github.com/opengovsg/design-system/issues",
@@ -35,7 +35,7 @@
     "version": "auto-changelog -p && git add CHANGELOG.md && npm run lint-fix"
   },
   "dependencies": {
-    "@chakra-ui/utils": "^2.0.12",
+    "@chakra-ui/utils": "^2.0.14",
     "@floating-ui/react": "^0.26.1",
     "@fontsource/ibm-plex-mono": "^5.0.3",
     "country-flag-icons": "^1.4.19",
@@ -56,12 +56,12 @@
     "use-draggable-scroll": "^0.1.0"
   },
   "peerDependencies": {
-    "@chakra-ui/react": "^2.6.1",
+    "@chakra-ui/react": "^2.8.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@chakra-ui/cli": "^2.4.0",
+    "@chakra-ui/cli": "^2.4.1",
     "@storybook/addon-a11y": "8.0.0",
     "@storybook/addon-essentials": "8.0.0",
     "@storybook/addon-interactions": "8.0.0",

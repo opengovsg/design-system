@@ -1,6 +1,7 @@
 import { ReactNode, useMemo } from 'react'
 import {
   Box,
+  ComponentWithAs as _,
   Flex,
   forwardRef,
   mergeThemeOverride,

@@ -1,6 +1,7 @@
 import { useCallback } from 'react'
 import {
   chakra,
+  ComponentWithAs as _,
   forwardRef,
   Stack,
   Text,

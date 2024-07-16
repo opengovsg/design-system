@@ -4,7 +4,11 @@
  * https://www.npmjs.com/package/react-headless-phone-input but adapted for the
  * application's needs.
  */
-import { forwardRef, useControllableState } from '@chakra-ui/react'
+import {
+  ComponentWithAs as _,
+  forwardRef,
+  useControllableState,
+} from '@chakra-ui/react'
 import { CountryCode, NationalNumber } from 'libphonenumber-js/min'
 
 import { InputProps } from '~/Input'

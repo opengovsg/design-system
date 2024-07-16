@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 23 Jun 2023 09:14:33 GMT
+ * Generated on Tue, 12 Mar 2024 09:54:33 GMT
  */
 
 export const colors = {
@@ -34,7 +34,7 @@ export const colors = {
       '100': '#E6EFFE',
       '200': '#ADC9FA',
       '300': '#7CA9F7',
-      '400': '#7CA9F7',
+      '400': '#4A89F4',
       '500': '#2164DA',
       '600': '#1552BC',
       '700': '#1248A4',
@@ -225,9 +225,9 @@ export const colors = {
       active: '#454953',
     },
     'neutral-subtle': {
-      default: '#F8F9F9',
-      hover: '#EDEDED',
-      active: '#BFC2C8',
+      default: '#EDEDED',
+      hover: '#BFC2C8',
+      active: '#A0A4AD',
     },
     muted: {
       main: {
@@ -275,7 +275,7 @@ export const colors = {
       'unselected-strong': '#666C7A',
       disabled: '#EDEDED',
       'disabled-content': '#A0A4AD',
-      placeholder: '#A0A4AD',
+      placeholder: '#838894',
     },
     links: {
       default: '#2164DA',

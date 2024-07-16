@@ -1,4 +1,10 @@
-import { Flex, forwardRef, Popover, PopoverAnchor } from '@chakra-ui/react'
+import {
+  ComponentWithAs as _,
+  Flex,
+  forwardRef,
+  Popover,
+  PopoverAnchor,
+} from '@chakra-ui/react'
 
 import { useDateRangePicker } from '../DateRangePickerContext'
 

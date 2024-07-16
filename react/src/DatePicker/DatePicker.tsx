@@ -1,4 +1,4 @@
-import { forwardRef } from '@chakra-ui/react'
+import { ComponentWithAs as _, forwardRef } from '@chakra-ui/react'
 
 import { CalendarProps } from '~/Calendar'
 

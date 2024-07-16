@@ -1,11 +1,15 @@
 import { FC, useMemo } from 'react'
 import {
+  ComponentWithAs as _,
   Icon,
   Menu as ChakraMenu,
   MenuButton as ChakraMenuButton,
   MenuDivider as ChakraMenuDivider,
+  MenuDividerProps,
   MenuItem as ChakraMenuItem,
+  MenuItemProps,
   MenuList as ChakraMenuList,
+  MenuListProps,
   MenuProps as ChakraMenuProps,
   ThemingProps,
   useMultiStyleConfig,

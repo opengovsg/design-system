@@ -2,6 +2,7 @@ import { FC, useMemo } from 'react'
 import {
   Box,
   chakra,
+  ComponentWithAs as _,
   FormHelperText,
   FormLabel as ChakraFormLabel,
   FormLabelProps as ChakraFormLabelProps,

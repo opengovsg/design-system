@@ -1,5 +1,6 @@
 import ResizeTextarea, { TextareaAutosizeProps } from 'react-textarea-autosize'
 import {
+  ComponentWithAs as _,
   forwardRef,
   Textarea as ChakraTextarea,
   TextareaProps as ChakraTextareaProps,
