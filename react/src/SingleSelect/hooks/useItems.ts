@@ -3,7 +3,6 @@
 import { useCallback, useMemo } from 'react'
 
 import { ComboboxItem } from '../types'
-import { itemToValue } from '../utils/itemUtils'
 
 export type ItemWithIndex<Item extends ComboboxItem = ComboboxItem> = {
   item: Item
@@ -16,10 +15,12 @@ export type UseItemsReturn<Item extends ComboboxItem = ComboboxItem> = {
 
 interface UseItemProps<Item extends ComboboxItem = ComboboxItem> {
   rawItems: Item[]
+  itemToValue: <Item extends ComboboxItem>(item?: Item | undefined) => string
 }
 
 export const useItems = <Item extends ComboboxItem = ComboboxItem>({
   rawItems,
+  itemToValue,
 }: UseItemProps<Item>) => {
   const normalizedItems = useMemo(() => {
     const initialStore: UseItemsReturn<Item> = {
@@ -45,7 +46,7 @@ export const useItems = <Item extends ComboboxItem = ComboboxItem>({
       itemIndex++
       return store
     }, initialStore)
-  }, [rawItems])
+  }, [rawItems, itemToValue])
 
   const getItemByValue = useCallback(
     (value: string): ItemWithIndex<Item> | null => {

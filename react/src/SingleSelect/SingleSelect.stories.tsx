@@ -195,3 +195,50 @@ export const FormInput: StoryFn<SingleSelectProps> = (args) => {
     </FormControl>
   )
 }
+
+export const CustomItemToValueTransformerSingleSelect: StoryFn<
+  SingleSelectProps
+> = (args) => {
+  const [value, setValue] = useState<string>(args.value)
+  const items = [
+    {
+      value: 'A',
+      label: 'A',
+      id: 'ID_1',
+      description: 'Label A with value A',
+    },
+    {
+      value: 'A',
+      label: 'B',
+      id: 'ID_2',
+      description: 'Label B with value A',
+    },
+    {
+      value: 'C',
+      label: 'C',
+      id: 'ID_3',
+      description: 'Label C with value C',
+    },
+  ]
+
+  type Item = {
+    value: string
+    label: string
+    id: string
+    description: string
+  }
+
+  function itemToValue(item?: Item) {
+    return item?.id || ''
+  }
+
+  return (
+    <SingleSelect
+      name="test"
+      value={value}
+      onChange={setValue}
+      items={items}
+      itemToValue={itemToValue}
+    />
+  )
+}

@@ -22,7 +22,7 @@ export const DropdownItem = ({
   item,
   index,
 }: DropdownItemProps): JSX.Element => {
-  const { getItemProps, isItemSelected, inputValue, styles } =
+  const { getItemProps, isItemSelected, selectedItem, inputValue, styles } =
     useSelectContext()
 
   const { icon, label, description, isDisabled, isActive } = useMemo(
@@ -31,9 +31,9 @@ export const DropdownItem = ({
       label: itemToLabelString(item),
       description: itemToDescriptionString(item),
       isDisabled: isItemDisabled(item),
-      isActive: isItemSelected(item),
+      isActive: isItemSelected(item, selectedItem),
     }),
-    [isItemSelected, item],
+    [isItemSelected, selectedItem, item],
   )
 
   return (

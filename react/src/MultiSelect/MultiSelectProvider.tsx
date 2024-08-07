@@ -25,7 +25,7 @@ import {
   defaultFilter,
   isItemDisabled,
   itemToLabelString,
-  itemToValue,
+  itemToValue as _itemToValue,
 } from '~/SingleSelect/utils'
 
 import { MultiSelectContext } from './MultiSelectContext'
@@ -70,6 +70,10 @@ export interface MultiSelectProviderProps<
    * If `true`, the selected items will take up the full width of the input container. Defaults to `false`.
    */
   isStretchLayout?: boolean
+  /**
+   * Custom transformer to determine the unique identifier for the menu items. Default to using value if not provided.
+   */
+  itemToValue?(item?: Item): string
 }
 export const MultiSelectProvider = ({
   items: rawItems,
@@ -95,6 +99,7 @@ export const MultiSelectProvider = ({
   colorScheme,
   fixedItemHeight,
   isStretchLayout,
+  itemToValue = _itemToValue,
 }: MultiSelectProviderProps): JSX.Element => {
   const theme = useTheme()
   // Required in case size is set in theme, we should respect the one set in theme.
@@ -107,7 +112,7 @@ export const MultiSelectProvider = ({
     [_size, theme?.components?.MultiSelect?.defaultProps?.size],
   )
 
-  const { items, getItemByValue } = useItems({ rawItems })
+  const { items, getItemByValue } = useItems({ rawItems, itemToValue })
   const [isFocused, setIsFocused] = useState(false)
 
   // Inject for components to manipulate

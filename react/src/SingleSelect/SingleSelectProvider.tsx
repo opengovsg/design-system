@@ -11,7 +11,7 @@ import { useCombobox, UseComboboxProps } from 'downshift'
 
 import { useItems } from './hooks/useItems'
 import { defaultFilter } from './utils/defaultFilter'
-import { isItemDisabled, itemToValue } from './utils/itemUtils'
+import { isItemDisabled, itemToValue as _itemToValue } from './utils/itemUtils'
 import { VIRTUAL_LIST_ITEM_HEIGHT } from './constants'
 import { SelectContext, SharedSelectContextReturnProps } from './SelectContext'
 import { ComboboxItem } from './types'
@@ -39,6 +39,10 @@ export interface SingleSelectProviderProps<
   /** Color scheme of component */
   colorScheme?: ThemingProps<'SingleSelect'>['colorScheme']
   fixedItemHeight?: number
+  /**
+   * Custom transformer to determine the unique identifier for the menu items. Default to using value if not provided.
+   */
+  itemToValue?(item?: Item): string
 }
 export const SingleSelectProvider = ({
   items: rawItems,
@@ -62,6 +66,7 @@ export const SingleSelectProvider = ({
   size: _size,
   comboboxProps = {},
   fixedItemHeight,
+  itemToValue = _itemToValue,
 }: SingleSelectProviderProps): JSX.Element => {
   const theme = useTheme()
   // Required in case size is set in theme, we should respect the one set in theme.
@@ -74,7 +79,7 @@ export const SingleSelectProvider = ({
     [_size, theme?.components?.SingleSelect?.defaultProps?.size],
   )
 
-  const { items, getItemByValue } = useItems({ rawItems })
+  const { items, getItemByValue } = useItems({ rawItems, itemToValue })
   const [isFocused, setIsFocused] = useState(false)
 
   const { isInvalid, isDisabled, isReadOnly, isRequired } = useFormControlProps(
@@ -226,7 +231,7 @@ export const SingleSelectProvider = ({
     (item: ComboboxItem) => {
       return !!selectedItem && itemToValue(selectedItem) === itemToValue(item)
     },
-    [selectedItem],
+    [itemToValue, selectedItem],
   )
 
   const resetInputValue = useCallback(() => setInputValue(''), [setInputValue])

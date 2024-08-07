@@ -177,3 +177,50 @@ export const FormInput: StoryFn<MultiSelectProps> = (args) => {
     </FormControl>
   )
 }
+
+export const CustomItemToValueTransformerMultiSelect: StoryFn<
+  MultiSelectProps
+> = (args) => {
+  const [values, setValues] = useState<string[]>(args.values)
+  const items = [
+    {
+      value: 'A',
+      label: 'A',
+      id: 'ID_1',
+      description: 'Label A with value A',
+    },
+    {
+      value: 'A',
+      label: 'B',
+      id: 'ID_2',
+      description: 'Label B with value A',
+    },
+    {
+      value: 'C',
+      label: 'C',
+      id: 'ID_3',
+      description: 'Label C with value C',
+    },
+  ]
+
+  type Item = {
+    value: string
+    label: string
+    id: string
+    description: string
+  }
+
+  function itemToValue(item?: Item) {
+    return item?.id || ''
+  }
+
+  return (
+    <MultiSelect
+      name="test"
+      values={values}
+      onChange={setValues}
+      items={items}
+      itemToValue={itemToValue}
+    />
+  )
+}
