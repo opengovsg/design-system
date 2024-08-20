@@ -48,6 +48,7 @@ interface DatePickerContextReturn {
   colorScheme?: ThemingProps<'DatePicker'>['colorScheme']
   size?: ThemingProps<'DatePicker'>['size']
   disclosureProps: UseDisclosureReturn
+  renderInputElement?: () => React.ReactNode
   inputElement?: React.ReactNode
   innerRef?: React.Ref<HTMLElement>
   calendarProps: Pick<
@@ -114,6 +115,7 @@ const useProvideDatePicker = ({
   size,
   experimental_forceIosNumberKeyboard,
   inputElement,
+  renderInputElement,
   innerRef,
   ...props
 }: DatePickerProviderProps): DatePickerContextReturn => {
@@ -287,6 +289,7 @@ const useProvideDatePicker = ({
     calendarProps,
     inputPattern,
     inputElement,
+    renderInputElement,
     innerRef,
   }
 }

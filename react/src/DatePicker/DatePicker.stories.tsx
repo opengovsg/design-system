@@ -96,12 +96,12 @@ const CustomInputButton = forwardRef<object, 'button'>((_props, ref) => {
 
 export const CustomInput = Template.bind({})
 CustomInput.args = {
-  inputElement: <CustomInputButton />,
+  renderInputElement: () => <CustomInputButton />,
 }
 
 export const MobileCustomInput = Template.bind({})
 MobileCustomInput.args = {
-  inputElement: <CustomInputButton />,
+  renderInputElement: () => <CustomInputButton />,
 }
 MobileCustomInput.parameters = getMobileViewParameters()
 
