@@ -48,5 +48,14 @@ export interface DatePickerBaseProps
   refocusOnClose?: boolean
   /** date-fns's Locale of the date to be applied if provided. */
   locale?: Locale
+  /**
+   * @deprecated use `renderInputElement` instead. If `renderInputElement` is provided,
+   * that will take precedence over `inputElement`.
+   */
   inputElement?: React.ReactElement
+  /**
+   * If provided, the value will be used instead of the default `DatePickerInput` component.
+   * @returns
+   */
+  renderInputElement?: () => React.ReactElement
 }
