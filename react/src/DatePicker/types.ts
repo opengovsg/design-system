@@ -48,5 +48,5 @@ export interface DatePickerBaseProps
   refocusOnClose?: boolean
   /** date-fns's Locale of the date to be applied if provided. */
   locale?: Locale
-  inputElement?: React.ReactElement
+  renderInputElement?: () => React.ReactElement
 }

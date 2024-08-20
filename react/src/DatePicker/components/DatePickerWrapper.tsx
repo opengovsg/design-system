@@ -12,12 +12,12 @@ export const DatePickerWrapper = ({ children }: PropsWithChildren) => {
     initialFocusRef,
     closeCalendarOnChange,
     isMobile,
-    inputElement,
+    renderInputElement,
   } = useDatePicker()
 
   const inputToRender = useMemo(() => {
-    return inputElement ?? <DatePickerInput />
-  }, [inputElement])
+    return renderInputElement?.() ?? <DatePickerInput />
+  }, [renderInputElement])
 
   if (isMobile) {
     return (
