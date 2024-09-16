@@ -32,7 +32,13 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
 
   // Return normal input component if not success state.
   if (!props.isSuccess) {
-    return <ChakraInput ref={ref} __css={inputStyles.field} {...inputProps} />
+    return (
+      <ChakraInput
+        ref={ref}
+        sx={merge({}, inputStyles.field, props.sx)}
+        {...inputProps}
+      />
+    )
   }
 
   return (
