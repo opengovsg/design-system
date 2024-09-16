@@ -103,6 +103,7 @@ const useProvideDateRangePicker = ({
   isReadOnly: isReadOnlyProp,
   isRequired: isRequiredProp,
   isInvalid: isInvalidProp,
+  isPrefilled,
   locale,
   allowManualInput = true,
   allowInvalidDates = true,
@@ -333,6 +334,7 @@ const useProvideDateRangePicker = ({
   const styles = useMultiStyleConfig('DateRangePicker', {
     size,
     colorScheme,
+    isPrefilled,
   })
 
   const placeholder = useMemo(

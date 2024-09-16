@@ -180,6 +180,12 @@ Disabled.args = {
   isDisabled: true,
 }
 
+export const Prefilled = Template.bind({})
+Prefilled.args = {
+  isPrefilled: true,
+  value: itemToValue(INITIAL_COMBOBOX_ITEMS[2]),
+}
+
 export const FormInput: StoryFn<SingleSelectProps> = (args) => {
   const [value, setValue] = useState<string>(args.value)
 

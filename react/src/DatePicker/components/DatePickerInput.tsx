@@ -30,6 +30,7 @@ export const DatePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
     size,
     inputPattern,
     innerRef,
+    styles,
   } = useDatePicker()
 
   const mergedInputRef = useMergeRefs(inputRef, innerRef, ref)
@@ -71,6 +72,7 @@ export const DatePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
             onBlur={handleInputBlur}
             onClick={handleInputClick}
             isReadOnly={fcProps.isReadOnly || !allowManualInput}
+            sx={styles.field}
           />
         ) : (
           <Input
@@ -78,6 +80,7 @@ export const DatePickerInput = forwardRef<{}, 'input'>((_props, ref) => {
             inputMode="numeric"
             placeholder={placeholder}
             pattern={inputPattern}
+            sx={styles.field}
           />
         )}
         <InputRightAddon p={0} border="none">
