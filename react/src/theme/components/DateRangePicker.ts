@@ -1,4 +1,5 @@
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+import omit from 'lodash/omit'
 
 import { DatePicker, datepickerAnatomy } from './DatePicker'
 import { Input } from './Input'
@@ -64,7 +65,7 @@ const variants = {
 export const DateRangePicker = defineMultiStyleConfig({
   variants,
   sizes,
-  baseStyle: DatePicker.baseStyle,
+  baseStyle: (props) => omit(DatePicker.baseStyle?.(props), 'field'),
   defaultProps: {
     variant: 'outline',
     size: 'md',

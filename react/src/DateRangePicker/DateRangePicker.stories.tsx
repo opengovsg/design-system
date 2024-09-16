@@ -57,6 +57,12 @@ DatePickerDisabled.args = {
   defaultValue: [new Date('2001-01-01'), new Date('2002-01-03')],
 }
 
+export const Prefilled = Template.bind({})
+Prefilled.args = {
+  isPrefilled: true,
+  defaultValue: [new Date('2001-01-01'), new Date('2002-01-03')],
+}
+
 export const Mobile = Template.bind({})
 Mobile.parameters = getMobileViewParameters()
 
