@@ -103,6 +103,12 @@ DisabledWithSelection.args = {
   values: ['What happens when the label is fairly long', 'Bat'],
 }
 
+export const Prefilled = Template.bind({})
+Prefilled.args = {
+  isPrefilled: true,
+  values: ['What happens when the label is fairly long', 'Bat'],
+}
+
 export const WithFixedItemHeight = Template.bind({})
 WithFixedItemHeight.args = {
   size: 'md',

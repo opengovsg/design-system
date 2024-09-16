@@ -39,6 +39,10 @@ export interface SingleSelectProviderProps<
   /** Color scheme of component */
   colorScheme?: ThemingProps<'SingleSelect'>['colorScheme']
   fixedItemHeight?: number
+  /**
+   * Whether the input is in a prefilled state.
+   */
+  isPrefilled?: boolean
 }
 export const SingleSelectProvider = ({
   items: rawItems,
@@ -51,6 +55,7 @@ export const SingleSelectProvider = ({
   clearButtonLabel = 'Clear selection',
   isClearable = true,
   isSearchable = true,
+  isPrefilled = false,
   initialIsOpen,
   isInvalid: isInvalidProp,
   isReadOnly: isReadOnlyProp,
@@ -234,6 +239,7 @@ export const SingleSelectProvider = ({
   const styles = useMultiStyleConfig('SingleSelect', {
     size,
     isClearable,
+    isPrefilled,
     colorScheme,
   })
 
