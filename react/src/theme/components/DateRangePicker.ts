@@ -40,19 +40,19 @@ const sizes = {
   xs: definePartsStyle((props) => {
     return {
       fieldwrapper: Input.sizes?.xs(props).field,
-      inputButton: DatePicker.sizes?.xs.inputButton,
+      inputButton: DatePicker.sizes?.xs(props).inputButton,
     }
   }),
   sm: definePartsStyle((props) => {
     return {
       fieldwrapper: Input.sizes?.sm(props).field,
-      inputButton: DatePicker.sizes?.sm.inputButton,
+      inputButton: DatePicker.sizes?.sm(props).inputButton,
     }
   }),
   md: definePartsStyle((props) => {
     return {
       fieldwrapper: Input.sizes?.md(props).field,
-      inputButton: DatePicker.sizes?.md.inputButton,
+      inputButton: DatePicker.sizes?.md(props).inputButton,
     }
   }),
 }
