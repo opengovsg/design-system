@@ -25,6 +25,10 @@ export interface DatePickerBaseProps
    */
   allowInvalidDates?: boolean
   /**
+   * Whether the input is in a prefilled state.
+   */
+  isPrefilled?: boolean
+  /**
    * Whether the calendar will close once a date is selected.
    * @defaultValue `true`
    */

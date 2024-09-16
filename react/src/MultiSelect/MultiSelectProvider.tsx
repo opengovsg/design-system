@@ -70,6 +70,10 @@ export interface MultiSelectProviderProps<
    * If `true`, the selected items will take up the full width of the input container. Defaults to `false`.
    */
   isStretchLayout?: boolean
+  /**
+   * Whether the input is in a prefilled state.
+   */
+  isPrefilled?: boolean
 }
 export const MultiSelectProvider = ({
   items: rawItems,
@@ -81,6 +85,7 @@ export const MultiSelectProvider = ({
   placeholder: placeholderProp,
   clearButtonLabel = 'Clear selection',
   isSearchable = true,
+  isPrefilled = false,
   defaultIsOpen,
   isInvalid: isInvalidProp,
   isReadOnly: isReadOnlyProp,
@@ -297,6 +302,7 @@ export const MultiSelectProvider = ({
     size,
     isFocused: isFocused || isOpen,
     isEmpty: selectedItems.length === 0,
+    isPrefilled,
   })
 
   const virtualListHeight = useMemo(() => {

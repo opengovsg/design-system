@@ -62,6 +62,11 @@ FixedHeightCalendarPopover.args = {
   isCalendarFixedHeight: true,
 }
 
+export const Prefilled = Template.bind({})
+Prefilled.args = {
+  isPrefilled: true,
+}
+
 export const SizeSmall = Template.bind({})
 SizeSmall.args = {
   size: 'sm',
