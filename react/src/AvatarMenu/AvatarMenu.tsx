@@ -6,6 +6,7 @@ import {
   MenuDivider,
   MenuListProps,
   MenuProps,
+  Portal,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 import { merge } from 'lodash'
@@ -78,9 +79,11 @@ export const AvatarMenu = ({
               {hasNotification && badge}
             </Avatar>
           </AvatarMenuButton>
-          <Menu.List role="menu" sx={styles.list} {...menuListProps}>
-            {children}
-          </Menu.List>
+          <Portal>
+            <Menu.List role="menu" sx={styles.list} {...menuListProps}>
+              {children}
+            </Menu.List>
+          </Portal>
         </>
       )}
     </Menu>
