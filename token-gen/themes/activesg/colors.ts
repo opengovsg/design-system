@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 12 Mar 2024 09:54:33 GMT
+ * Generated on Tue, 08 Oct 2024 07:57:33 GMT
  */
 
 export const colors = {
@@ -30,16 +30,16 @@ export const colors = {
       '900': '#580D0F',
     },
     secondary: {
-      '50': '#f8f9fa',
-      '100': '#e9eaee',
-      '200': '#babecb',
-      '300': '#9aa0b3',
-      '400': '#7b849c',
-      '500': '#5d6785',
-      '600': '#465173',
-      '700': '#3c4764',
-      '800': '#333c56',
-      '900': '#272d41',
+      '50': '#FAFAFA',
+      '100': '#E5E5E5',
+      '200': '#D4D4D4',
+      '300': '#B0B0B0',
+      '400': '#737373',
+      '500': '#525252',
+      '600': '#404040',
+      '700': '#262626',
+      '800': '#171717',
+      '900': '#0a0a0a',
     },
   },
   pink: {
@@ -47,14 +47,14 @@ export const colors = {
   },
   interaction: {
     main: {
-      default: 'linear-gradient (45 deg, #CB0935 0%, #FF383E 100%)',
-      hover: 'linear-gradient (45deg, #A4092B 0%, #CC2D32 100%)',
-      active: 'linear-gradient (45 deg, #7A0620 0%, #992226 100%)',
+      default: '#CB0935',
+      hover: '#AC0B2F',
+      active: '#880D27',
     },
     sub: {
-      default: '#272d41',
-      hover: '#333c56',
-      active: '#3c4764',
+      default: '#171717',
+      hover: '#0a0a0a',
+      active: '#0a0a0a',
     },
     'main-subtle': {
       default: '#FBE9E9',
@@ -62,9 +62,9 @@ export const colors = {
       active: '#EA8181',
     },
     'sub-subtle': {
-      default: '#e9eaee',
-      hover: '#babecb',
-      active: '#9aa0b3',
+      default: '#E5E5E5',
+      hover: '#D4D4D4',
+      active: '#B0B0B0',
     },
     critical: {
       default: '#CB0935',
@@ -97,14 +97,14 @@ export const colors = {
       active: '#63B1AA',
     },
     neutral: {
-      default: '#666C7A',
-      hover: '#505660',
-      active: '#454953',
+      default: '#525252',
+      hover: '#404040',
+      active: '#262626',
     },
     'neutral-subtle': {
-      default: '#EDEDED',
-      hover: '#BFC2C8',
-      active: '#A0A4AD',
+      default: '#E5E5E5',
+      hover: '#D4D4D4',
+      active: '#B0B0B0',
     },
     muted: {
       main: {
@@ -112,16 +112,16 @@ export const colors = {
         active: '#FBE9E9',
       },
       sub: {
-        hover: '#f8f9fa',
-        active: '#e9eaee',
+        hover: '#FAFAFA',
+        active: '#E5E5E5',
       },
       critical: {
         hover: '#FEF7F7',
         active: '#FBE9E9',
       },
       neutral: {
-        hover: '#F8F9F9',
-        active: '#EDEDED',
+        hover: '#FAFAFA',
+        active: '#E5E5E5',
       },
     },
     tinted: {
@@ -130,8 +130,8 @@ export const colors = {
         active: 'rgba(203, 9, 53, 0.12)',
       },
       sub: {
-        hover: 'rgba(93, 103, 133, 0.04)',
-        active: 'rgba(93, 103, 133, 0.12)',
+        hover: 'rgba(82, 82, 82, 0.04)',
+        active: 'rgba(82, 82, 82, 0.12)',
       },
       critical: {
         hover: 'rgba(203, 9, 53, 0.04)',
@@ -147,21 +147,74 @@ export const colors = {
       },
     },
     support: {
-      unselected: '#A0A4AD',
-      selected: '#666C7A',
-      'unselected-strong': '#666C7A',
-      disabled: '#EDEDED',
-      'disabled-content': '#A0A4AD',
-      placeholder: '#838894',
+      unselected: '#B0B0B0',
+      selected: '#525252',
+      'unselected-strong': '#525252',
+      disabled: '#E5E5E5',
+      'disabled-content': '#B0B0B0',
+      placeholder: '#737373',
     },
     links: {
       default: '#CB0935',
       hover: '#AC0B2F',
-      'neutral-default': '#454953',
-      'neutral-hover': '#2C2E34',
+      'neutral-default': '#262626',
+      'neutral-hover': '#0a0a0a',
       'inverse-default': '#ffffff',
-      'inverse-hover': '#EDEDED',
+      'inverse-hover': '#E5E5E5',
     },
+  },
+  grey: {
+    '50': '#FAFAFA',
+    '100': '#E5E5E5',
+    '200': '#D4D4D4',
+    '300': '#B0B0B0',
+    '400': '#737373',
+    '500': '#525252',
+    '600': '#404040',
+    '700': '#262626',
+    '800': '#171717',
+    '900': '#0a0a0a',
+  },
+  base: {
+    divider: {
+      subtle: '#FAFAFA',
+      medium: '#E5E5E5',
+      strong: '#B0B0B0',
+      inverse: '#ffffff',
+      brand: '#CB0935',
+    },
+    content: {
+      default: '#525252',
+      strong: '#262626',
+      medium: '#737373',
+      brand: '#CB0935',
+      inverse: '#ffffff',
+    },
+    canvas: {
+      default: '#ffffff',
+      alt: '#FAFAFA',
+      backdrop: '#E5E5E5',
+      'brand-subtle': '#FEF7F7',
+      inverse: '#171717',
+      overlay: 'rgba(23, 23, 23, 0.8)',
+    },
+  },
+  utility: {
+    feedback: {
+      info: '#171717',
+      'info-subtle': '#FAFAFA',
+      warning: '#FFDA68',
+      'warning-subtle': '#fffae1',
+      success: '#0F796F',
+      'success-subtle': '#F5FAFA',
+      critical: '#CB0935',
+      'critical-subtle': '#FEF7F7',
+    },
+    'focus-default': '#171717',
+    'focus-inverse': '#ffffff',
+    'input-prefilled': '#fffae1',
+    ui: '#ffffff',
+    'ui-clear': 'rgba(255, 255, 255, 0)',
   },
   blue: {
     '50': '#F7F9FE',
@@ -211,18 +264,6 @@ export const colors = {
     '800': '#333c56',
     '900': '#272d41',
   },
-  grey: {
-    '50': '#F8F9F9',
-    '100': '#EDEDED',
-    '200': '#BFC2C8',
-    '300': '#A0A4AD',
-    '400': '#838894',
-    '500': '#666C7A',
-    '600': '#505660',
-    '700': '#454953',
-    '800': '#3A3E46',
-    '900': '#2C2E34',
-  },
   standard: {
     white: '#ffffff',
     black: '#000000',
@@ -240,46 +281,5 @@ export const colors = {
     '5shadow': '#8B5544',
     '6base': '#764738',
     '6shadow': '#633D32',
-  },
-  base: {
-    canvas: {
-      default: '#ffffff',
-      alt: '#F8F9F9',
-      backdrop: '#EDEDED',
-      'brand-subtle': '#FEF7F7',
-      inverse: '#3A3E46',
-      overlay: 'rgba(58, 62, 70, 0.8)',
-    },
-    content: {
-      default: '#454953',
-      strong: '#2C2E34',
-      medium: '#666C7A',
-      brand: '#CB0935',
-      inverse: '#ffffff',
-    },
-    divider: {
-      subtle: '#F8F9F9',
-      medium: '#EDEDED',
-      strong: '#BFC2C8',
-      inverse: '#ffffff',
-      brand: '#CB0935',
-    },
-  },
-  utility: {
-    feedback: {
-      info: '#1361F0',
-      'info-subtle': '#F7F9FE',
-      warning: '#FFDA68',
-      'warning-subtle': '#fffae1',
-      success: '#0F796F',
-      'success-subtle': '#F5FAFA',
-      critical: '#CB0935',
-      'critical-subtle': '#FEF7F7',
-    },
-    'focus-default': '#1361F0',
-    'focus-inverse': '#ffffff',
-    'input-prefilled': '#fffae1',
-    ui: '#ffffff',
-    'ui-clear': 'rgba(255, 255, 255, 0)',
   },
 }

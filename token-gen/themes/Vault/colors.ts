@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 12 Mar 2024 09:54:33 GMT
+ * Generated on Tue, 08 Oct 2024 07:57:33 GMT
  */
 
 export const colors = {
@@ -11,10 +11,10 @@ export const colors = {
     '300': '#A89FF2',
     '400': '#877cee',
     '500': '#6253E8',
-    '600': '#4D3DD8',
-    '700': '#4335BD',
-    '800': '#3B2eA4',
-    '900': '#2B227A',
+    '600': '#4E49A8',
+    '700': '#44418B',
+    '800': '#2E2F55',
+    '900': '#151523',
   },
   brand: {
     primary: {
@@ -24,10 +24,10 @@ export const colors = {
       '300': '#A89FF2',
       '400': '#877cee',
       '500': '#6253E8',
-      '600': '#4D3DD8',
-      '700': '#4335BD',
-      '800': '#3B2eA4',
-      '900': '#2B227A',
+      '600': '#4E49A8',
+      '700': '#44418B',
+      '800': '#2E2F55',
+      '900': '#151523',
     },
     secondary: {
       '50': '#F9F9F9',
@@ -54,23 +54,16 @@ export const colors = {
     '800': '#3D3D3D',
     '900': '#2E2E2E',
   },
-  chart: {
-    sky: '#61B8F6',
-    bumblebee: '#EFC200',
-    pink: '#DA627D',
-    pandan: '#00CB2D',
-    violet: '#7731BE',
-  },
   interaction: {
     main: {
-      active: '#4D3DD8',
+      active: '#4E49A8',
       default: '#6253E8',
-      hover: '#4D3DD8',
+      hover: '#4E49A8',
     },
     sub: {
-      default: '#2E2E2E',
-      hover: '#000000',
-      active: '#000000',
+      default: '#151523',
+      hover: '#2E2F55',
+      active: '#44418B',
     },
     support: {
       placeholder: '#848484',
@@ -172,7 +165,7 @@ export const colors = {
     },
     links: {
       default: '#6253E8',
-      hover: '#4D3DD8',
+      hover: '#4E49A8',
       'neutral-default': '#474747',
       'neutral-hover': '#2E2E2E',
       'inverse-default': '#ffffff',
@@ -181,7 +174,7 @@ export const colors = {
   },
   base: {
     canvas: {
-      inverse: '#2E2E2E',
+      inverse: '#151523',
       default: '#ffffff',
       alt: '#F9F9F9',
       backdrop: '#E9EAEE',
@@ -221,6 +214,99 @@ export const colors = {
     'input-prefilled': '#fffae1',
     ui: '#ffffff',
     'ui-clear': 'rgba(255, 255, 255, 0)',
+  },
+  visualisation: {
+    green: {
+      '100': '#E4F1DA',
+      '300': '#83B35D',
+      '500': '#5A7B40',
+      '700': '#364926',
+    },
+    teal: {
+      '100': '#EBF6F5',
+      '300': '#5EB3AD',
+      '500': '#247F79',
+      '700': '#154B48',
+    },
+    turqoise: {
+      '100': '#E5F6FA',
+      '300': '#34B3D1',
+      '500': '#247C91',
+      '700': '#154956',
+    },
+    blue: {
+      '100': '#ECF4FF',
+      '300': '#65A7FF',
+      '500': '#3072C9',
+      '700': '#1C4477',
+    },
+    azure: {
+      '100': '#F1F3FF',
+      '300': '#8CA0FD',
+      '500': '#566BCD',
+      '700': '#333F79',
+    },
+    violet: {
+      '100': '#F8F2FB',
+      '300': '#C493DB',
+      '500': '#9E50C5',
+      '700': '#622A7E',
+    },
+    pink: {
+      '100': '#FEF1F8',
+      '300': '#F47EBD',
+      '500': '#CD3284',
+      '700': '#7B1E4F',
+    },
+    crimson: {
+      '100': '#FCF0F0',
+      '300': '#E78C8C',
+      '500': '#D43636',
+      '700': '#7F2020',
+    },
+    orange: {
+      '100': '#FFF2DC',
+      '300': '#E79300',
+      '500': '#A06600',
+      '700': '#5F3C00',
+    },
+    sequential: {
+      '100': '#ecda9a',
+      '200': '#efc47e',
+      '300': '#f3ad6a',
+      '400': '#f7945d',
+      '500': '#f97b57',
+      '600': '#f66356',
+      '700': '#ee4d5a',
+    },
+    diverging: {
+      '100': '#fadaec',
+      '200': '#d75da2',
+      '300': '#bb1f78',
+      '400': '#eaf5dc',
+      '500': '#cceaa8',
+      '600': '#5e9f2c',
+      '700': '#276419',
+    },
+    qualitative: {
+      teal: '#66c4cc',
+      yellow: '#f6d071',
+      orange: '#f89c74',
+      lightpurple: '#dcaff1',
+      green: '#86c55e',
+      blue: '#9eb9f3',
+      pink: '#fd88b1',
+      lime: '#c9db74',
+      mint: '#8ce0a4',
+      purple: '#b497e6',
+      brown: '#d3b484',
+      grey: '#b3b3b3',
+    },
+  },
+  gradient: {
+    purple: 'linear-gradient(180deg, #f8f2fb 0%, #f8f2fb00 100%)',
+    darkpurple: 'linear-gradient(180deg, #f7e6ff 0%, #f8f2fb00 100%)',
+    red: 'linear-gradient(180deg, #ffe7e7 0%, #fcf0f000 100%)',
   },
   blue: {
     '50': '#F7F9FE',
