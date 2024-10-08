@@ -1,12 +1,17 @@
 import { FC, useMemo } from 'react'
 import {
-  ComponentWithAs as _,
+  ComponentWithAs as _ComponentWithAs,
   Icon,
   Menu as ChakraMenu,
   MenuButton as ChakraMenuButton,
   MenuDivider as ChakraMenuDivider,
+  // Importing due to type error
+  // The inferred type of 'Menu' cannot be named without a reference to '../../node_modules/@chakra-ui/menu/dist/menu-divider'. This is likely not portable. A type annotation is necessary.
+  MenuDividerProps as _MenuDividerProps,
   MenuItem as ChakraMenuItem,
+  MenuItemProps as _MenuItemProps,
   MenuList as ChakraMenuList,
+  MenuListProps as _MenuListProps,
   MenuProps as ChakraMenuProps,
   ThemingProps,
   useMultiStyleConfig,
