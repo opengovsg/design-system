@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 12 Mar 2024 09:54:33 GMT
+ * Generated on Tue, 08 Oct 2024 07:57:33 GMT
  */
 
 export const colors = {
@@ -42,16 +42,16 @@ export const colors = {
       '900': '#193234',
     },
     secondary: {
-      '50': '#F7FBF7',
-      '100': '#E3F1DF',
-      '200': '#B7C2B4',
-      '300': '#9AA397',
-      '400': '#7E867C',
-      '500': '#636A62',
-      '600': '#50544E',
-      '700': '#454944',
-      '800': '#3B3E3A',
-      '900': '#2C2F2B',
+      '50': '#F7F9FE',
+      '100': '#E7EFFC',
+      '200': '#ACC7FA',
+      '300': '#82ABF7',
+      '400': '#568DF4',
+      '500': '#1361F0',
+      '600': '#0D4FCA',
+      '700': '#0B44AC',
+      '800': '#093890',
+      '900': '#072A69',
     },
   },
   utility: {
@@ -185,14 +185,14 @@ export const colors = {
       active: '#64ABB4',
     },
     sub: {
-      default: '#636A62',
-      hover: '#50544E',
-      active: '#454944',
+      default: '#1361F0',
+      hover: '#0D4FCA',
+      active: '#0B44AC',
     },
     'sub-subtle': {
-      default: '#E3F1DF',
-      hover: '#B7C2B4',
-      active: '#9AA397',
+      default: '#E7EFFC',
+      hover: '#ACC7FA',
+      active: '#82ABF7',
     },
     critical: {
       default: '#c03434',
@@ -240,8 +240,8 @@ export const colors = {
         active: '#DCECEE',
       },
       sub: {
-        hover: '#F7FBF7',
-        active: '#E3F1DF',
+        hover: '#F7F9FE',
+        active: '#E7EFFC',
       },
       critical: {
         hover: '#fef7f7',
@@ -258,8 +258,8 @@ export const colors = {
         active: 'rgba(58, 112, 118, 0.12)',
       },
       sub: {
-        hover: 'rgba(99, 106, 98, 0.04)',
-        active: 'rgba(99, 106, 98, 0.12)',
+        hover: 'rgba(19, 97, 240, 0.04)',
+        active: 'rgba(19, 97, 240, 0.12)',
       },
       critical: {
         hover: 'rgba(192, 52, 52, 0.04)',
