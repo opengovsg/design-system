@@ -4,6 +4,7 @@
 const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process')
+const { camelCase } = require('lodash')
 
 // src: token-gen/themes/<PRODUCT>
 // dest: react/.storybook/colorThemes/<PRODUCT>
@@ -55,3 +56,18 @@ export const theme = extendTheme(baseTheme, {
     fs.writeFileSync(themeFile, content)
   }
 })
+
+
+// react/.storybook/colorThemes/index.ts
+const storybookColorThemeDest = path.join(__dirname, '../../react/.storybook/colorThemes/index.ts')
+let storybookColorThemeIndex = ``
+// Create index theme file for Storybook
+products.forEach(product => {
+  storybookColorThemeIndex += `import { theme as ${camelCase(product)}Theme } from './${product}/theme'\n`
+})
+storybookColorThemeIndex += `\nexport const THEME_MAP: Record<string, typeof defaultTheme> = {`
+products.forEach(product => {
+  storybookColorThemeIndex += `\n  ${camelCase(product)}: ${camelCase(product)}Theme,`
+})
+storybookColorThemeIndex += `\n}\n`
+fs.writeFileSync(storybookColorThemeDest, storybookColorThemeIndex)
