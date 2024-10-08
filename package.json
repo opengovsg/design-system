@@ -3,7 +3,8 @@
   "description": "Repository containing the Open Government Products design system",
   "private": true,
   "devDependencies": {
-    "husky": "^9.0.11"
+    "husky": "^9.0.11",
+    "turbo": "^2.1.3"
   },
   "scripts": {
     "prepare": "husky install"
