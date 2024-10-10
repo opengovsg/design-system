@@ -13,7 +13,7 @@ import {
   ThemingProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
-import { merge } from 'lodash'
+import merge from 'lodash/merge'
 
 const [TileStylesProvider, useTileStyles] = createStylesContext('Tile')
 

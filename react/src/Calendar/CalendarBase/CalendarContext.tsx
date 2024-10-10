@@ -15,7 +15,7 @@ import {
   startOfDay,
 } from 'date-fns'
 import { Props as DayzedProps, RenderProps, useDayzed } from 'dayzed'
-import { inRange } from 'lodash'
+import inRange from 'lodash/inRange'
 import { customAlphabet } from 'nanoid/non-secure'
 import { useKey } from 'rooks'
 

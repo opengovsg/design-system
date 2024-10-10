@@ -5,6 +5,7 @@
   "homepage": "https://github.com/opengovsg/design-system/react#readme",
   "bugs": "https://github.com/opengovsg/design-system/issues",
   "license": "SEE LICENSE IN LICENSE.md",
+  "sideEffects": false,
   "files": [
     "build/main",
     "build/module",

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { omit } from 'lodash'
+import omit from 'lodash/omit'
 
 // icon:bx-check | Boxicons https://boxicons.com/ | Atisa
 /**
