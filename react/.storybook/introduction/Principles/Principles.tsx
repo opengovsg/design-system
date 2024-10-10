@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from '@chakra-ui/layout'
+import { Box, Heading, Text } from '@chakra-ui/react'
 
 export const Principles = (): JSX.Element => {
   return (

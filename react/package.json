@@ -1,6 +1,6 @@
 {
   "name": "@opengovsg/design-system-react",
-  "version": "1.24.0",
+  "version": "1.25.0",
   "description": "React components",
   "homepage": "https://github.com/opengovsg/design-system/react#readme",
   "bugs": "https://github.com/opengovsg/design-system/issues",
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@chakra-ui/utils": "^2.0.14",
+    "@emotion/react": "^11.13.3",
     "@floating-ui/react": "^0.26.1",
     "@fontsource/ibm-plex-mono": "^5.0.3",
     "country-flag-icons": "^1.4.19",

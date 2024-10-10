@@ -5,24 +5,23 @@
  */
 
 import { useMemo } from 'react'
-import { useCheckbox, UseCheckboxProps } from '@chakra-ui/checkbox'
-import {
-  ComponentWithAs as _,
-  Icon,
-  keyframes,
-  usePrefersReducedMotion,
-} from '@chakra-ui/react'
 import {
   chakra,
+  ComponentWithAs as _,
   forwardRef,
   HTMLChakraProps,
+  Icon,
   omitThemingProps,
   SystemProps,
   SystemStyleObject,
   ThemingProps,
+  useCheckbox,
+  UseCheckboxProps,
   useMultiStyleConfig,
-} from '@chakra-ui/system'
+  usePrefersReducedMotion,
+} from '@chakra-ui/react'
 import { cx, dataAttr } from '@chakra-ui/utils'
+import { keyframes } from '@emotion/react'
 
 import { BxCheck, BxLoader, BxLockAlt, BxX } from '~/icons'
 
