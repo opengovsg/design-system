@@ -4,7 +4,7 @@ import {
   useToast as useChakraToast,
   UseToastOptions as ChakraUseToastOptions,
 } from '@chakra-ui/react'
-import { omit } from 'lodash'
+import omit from 'lodash/omit'
 
 import { Toast } from './Toast'
 

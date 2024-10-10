@@ -7,7 +7,7 @@ import {
   Icon,
 } from '@chakra-ui/react'
 import { dataAttr, isFunction } from '@chakra-ui/utils'
-import { merge } from 'lodash'
+import merge from 'lodash/merge'
 
 import { useSidebarNestContext, useSidebarStyles } from './SidebarContext'
 import type { BaseSidebarItemProps } from './types'

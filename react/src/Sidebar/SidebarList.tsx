@@ -11,7 +11,7 @@ import {
   type UseDisclosureReturn,
 } from '@chakra-ui/react'
 import { dataAttr, isFunction } from '@chakra-ui/utils'
-import { merge } from 'lodash'
+import merge from 'lodash/merge'
 
 import { ToggleChevron } from '~/icons'
 

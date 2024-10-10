@@ -20,7 +20,7 @@ import {
   isSunday,
 } from 'date-fns'
 import { DateObj } from 'dayzed'
-import { get } from 'lodash'
+import get from 'lodash/get'
 
 import { useCalendar } from './CalendarContext'
 
