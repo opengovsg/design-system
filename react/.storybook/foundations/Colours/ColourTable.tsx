@@ -3,12 +3,12 @@ import {
   TableCaption,
   Tbody,
   Td,
-  Th,
   Thead,
   Tr,
   useTheme,
 } from '@chakra-ui/react'
 import { get } from 'lodash'
+import { Th } from '~/Table'
 
 export interface ColourTableProps {
   label: string
@@ -25,7 +25,7 @@ export const ColourTable = ({
   const theme = useTheme()
 
   return (
-    <Table variant="simple">
+    <Table colorScheme='neutral'>
       <TableCaption>{label}</TableCaption>
       <Thead>
         <Tr>

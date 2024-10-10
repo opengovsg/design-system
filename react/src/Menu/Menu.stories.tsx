@@ -143,12 +143,12 @@ export const Playground: StoryFn = () => {
           </>
         )}
       </Menu>
-      <Table variant="simple" width="80%" mt="20px">
-        <Thead bgColor="#444">
+      <Table width="80%" mt="20px">
+        <Thead>
           <Tr>
-            <Th textColor="white">#</Th>
-            <Th textColor="white">Response ID</Th>
-            <Th textColor="white">Time</Th>
+            <Th>#</Th>
+            <Th>Response ID</Th>
+            <Th>Time</Th>
           </Tr>
         </Thead>
         <Tbody>
