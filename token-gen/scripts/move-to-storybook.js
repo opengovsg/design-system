@@ -57,17 +57,23 @@ export const theme = extendTheme(baseTheme, {
   }
 })
 
-
 // react/.storybook/colorThemes/index.ts
-const storybookColorThemeDest = path.join(__dirname, '../../react/.storybook/colorThemes/index.ts')
+const storybookColorThemeDest = path.join(
+  __dirname,
+  '../../react/.storybook/colorThemes/index.ts',
+)
 let storybookColorThemeIndex = ``
 // Create index theme file for Storybook
-products.forEach(product => {
-  storybookColorThemeIndex += `import { theme as ${camelCase(product)}Theme } from './${product}/theme'\n`
+products.forEach((product) => {
+  storybookColorThemeIndex += `import { theme as ${camelCase(
+    product,
+  )}Theme } from './${product}/theme'\n`
 })
 storybookColorThemeIndex += `\nexport const THEME_MAP: Record<string, typeof defaultTheme> = {`
-products.forEach(product => {
-  storybookColorThemeIndex += `\n  ${camelCase(product)}: ${camelCase(product)}Theme,`
+products.forEach((product) => {
+  storybookColorThemeIndex += `\n  ${camelCase(product)}: ${camelCase(
+    product,
+  )}Theme,`
 })
 storybookColorThemeIndex += `\n}\n`
 fs.writeFileSync(storybookColorThemeDest, storybookColorThemeIndex)
