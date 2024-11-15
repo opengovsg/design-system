@@ -8,7 +8,7 @@ import {
   MenuProps,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
-import { merge } from 'lodash'
+import merge from 'lodash/merge'
 
 import { Menu, MenuButtonProps } from '~/Menu'
 

@@ -16,7 +16,7 @@ import {
   useMultiStyleConfig,
 } from '@chakra-ui/react'
 import { dataAttr } from '@chakra-ui/utils'
-import { omit } from 'lodash'
+import omit from 'lodash/omit'
 import type { Promisable } from 'type-fest'
 
 import { getErrorMessage } from './utils/getErrorMessage'

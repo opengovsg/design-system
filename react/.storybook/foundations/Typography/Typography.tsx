@@ -10,7 +10,7 @@ import {
   Text,
   useTheme,
 } from '@chakra-ui/react'
-import { get } from 'lodash'
+import get from 'lodash/get'
 
 export const Typography: FC = () => {
   const theme = useTheme()

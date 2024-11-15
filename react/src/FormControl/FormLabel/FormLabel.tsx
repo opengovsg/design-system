@@ -16,7 +16,7 @@ import {
   useMultiStyleConfig,
   VisuallyHidden,
 } from '@chakra-ui/react'
-import { merge } from 'lodash'
+import merge from 'lodash/merge'
 
 import { BxsHelpCircle } from '~/icons/BxsHelpCircle'
 import { Tooltip } from '~/Tooltip'

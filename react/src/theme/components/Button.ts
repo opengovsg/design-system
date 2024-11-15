@@ -1,7 +1,7 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
 import { getColor, StyleFunctionProps } from '@chakra-ui/theme-tools'
 import { memoizedGet as get } from '@chakra-ui/utils'
-import { merge } from 'lodash'
+import merge from 'lodash/merge'
 
 import { layerStyles } from '../layerStyles'
 import { getContrastColor } from '../utils'

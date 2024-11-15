@@ -8,7 +8,7 @@ import {
   Tr,
   useTheme,
 } from '@chakra-ui/react'
-import { get } from 'lodash'
+import get from 'lodash/get'
 
 export interface ColourTableProps {
   label: string

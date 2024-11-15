@@ -3,7 +3,8 @@ import {
   mergeThemeOverride,
 } from '@chakra-ui/react'
 import { anatomy } from '@chakra-ui/theme-tools'
-import { omit, pick } from 'lodash'
+import omit from 'lodash/omit'
+import pick from 'lodash/pick'
 
 import { Input } from './Input'
 import { comboboxParts, SingleSelect } from './SingleSelect'
