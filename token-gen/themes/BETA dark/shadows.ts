@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 08 Oct 2024 07:57:33 GMT
+ * Generated on Thu, 24 Oct 2024 07:48:17 GMT
  */
 
 export const shadows = {
