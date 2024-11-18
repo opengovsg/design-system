@@ -7,7 +7,9 @@
   },
   "scripts": {
     "build": "turbo build",
-    "lint": "turbo lint"
+    "lint:ws": "npx sherif@0.10.0",
+    "lint:ws:fix": "npx sherif@0.10.0 --fix",
+    "postinstall": "npm run lint:ws"
   },
   "workspaces": [
     "packages/**",
