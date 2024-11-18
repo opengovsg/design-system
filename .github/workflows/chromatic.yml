@@ -3,10 +3,6 @@
 # Workflow name
 name: "Chromatic"
 
-defaults:
-  run:
-    working-directory: react
-
 # Event for the workflow
 on:
   push:
