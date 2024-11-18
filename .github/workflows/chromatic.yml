@@ -22,38 +22,35 @@ jobs:
     runs-on: ubuntu-latest
     # Set job outputs to values from filter step
     outputs:
-      react: ${{ steps.filter.outputs.react }}
+      camp: ${{ steps.filter.outputs.camp }}
       tokengen: ${{ steps.filter.outputs.tokengen }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: dorny/paths-filter@v2
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
         id: filter
         with:
           filters: |
-            react:
-              - react/**
+            camp:
+              - packages/camp/**
             tokengen:
-              - token-gen/**
+              - tooling/camp/token-gen/**
   chromatic-deployment:
     needs: [changes]
-    if: ${{ needs.changes.outputs.react == 'true' }}
+    if: ${{ needs.changes.outputs.camp == 'true' }}
     # Operating System
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: react
     # Job steps
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Required for v2
+          fetch-depth: 0 # Required for v4
       - name: Install dependencies
         run: npm i
       - name: Publish to Chromatic
-        uses: chromaui/action@v1
+        uses: chromaui/action@latest
         with:
-          workingDir: react
-          token: ${{ secrets.GITHUB_TOKEN }}
+          workingDir: packages/camp
+          storybookBaseDir: packages/camp
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           onlyChanged: true
           exitOnceUploaded: true
@@ -61,4 +58,4 @@ jobs:
           # Skip running Chromatic on dependabot PRs
           skip: dependabot/**
           # Ignore storybook colorTheme changes
-          untraced: "react/.storybook/colorThemes/**"
+          untraced: "packages/camp/.storybook/colorThemes/**"
