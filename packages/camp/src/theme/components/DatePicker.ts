@@ -1,7 +1,8 @@
-import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-import { anatomy } from '@chakra-ui/theme-tools'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
 import { memoizedGet as get } from '@chakra-ui/utils'
 import omit from 'lodash/omit'
+
+import { anatomy } from '~/utils/anatomy'
 
 import { Input } from './Input'
 

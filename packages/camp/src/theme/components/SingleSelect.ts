@@ -1,6 +1,7 @@
 import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
-import { anatomy } from '@chakra-ui/theme-tools'
 import merge from 'lodash/merge'
+
+import { anatomy } from '~/utils/anatomy'
 
 import { Input } from './Input'
 import { Menu } from './Menu'

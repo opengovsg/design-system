@@ -2,9 +2,10 @@ import {
   createMultiStyleConfigHelpers,
   mergeThemeOverride,
 } from '@chakra-ui/react'
-import { anatomy } from '@chakra-ui/theme-tools'
 import omit from 'lodash/omit'
 import pick from 'lodash/pick'
+
+import { anatomy } from '~/utils/anatomy'
 
 import { Input } from './Input'
 import { comboboxParts, SingleSelect } from './SingleSelect'

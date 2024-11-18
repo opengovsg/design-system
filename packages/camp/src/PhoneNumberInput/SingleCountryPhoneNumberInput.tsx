@@ -6,7 +6,7 @@ import {
   InputRightElement,
   useMultiStyleConfig,
 } from '@chakra-ui/react'
-import Flags from 'country-flag-icons/react/3x2'
+import * as Flags from 'country-flag-icons/react/3x2'
 
 import { Input } from '~/Input'
 

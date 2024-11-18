@@ -1,3 +1,5 @@
+import type { CountryCode, NationalNumber } from 'libphonenumber-js'
+
 export const MOBILE_EXAMPLES = {
   AC: '40123',
   AD: '312345',
@@ -244,7 +246,7 @@ export const MOBILE_EXAMPLES = {
   ZA: '711234567',
   ZM: '955123456',
   ZW: '712345678',
-} as const
+} as { [country in CountryCode]: NationalNumber }
 
 export const LANDLINE_EXAMPLES = {
   AC: '62889',
@@ -492,4 +494,4 @@ export const LANDLINE_EXAMPLES = {
   ZA: '010 123 4567',
   ZM: '0211 234 567',
   ZW: '013 12345',
-} as const
+} as { [country in CountryCode]: NationalNumber }

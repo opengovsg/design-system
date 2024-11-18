@@ -1,5 +1,6 @@
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
-import { anatomy } from '@chakra-ui/theme-tools'
+
+import { anatomy } from '~/utils/anatomy'
 
 import { Input } from './Input'
 
