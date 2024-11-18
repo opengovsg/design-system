@@ -7,11 +7,13 @@
   },
   "scripts": {
     "build": "turbo build",
-    "lint": "turbo lint"
+    "lint:ws": "npx sherif@0.10.0",
+    "lint:ws:fix": "npx sherif@0.10.0 --fix",
+    "postinstall": "npm run lint:ws"
   },
   "workspaces": [
     "packages/**",
-    "tooling/**"
+    "tooling/camp/**"
   ],
   "packageManager": "npm@10.9.0+sha512.65a9c38a8172948f617a53619762cd77e12b9950fe1f9239debcb8d62c652f2081824b986fee7c0af6c0a7df615becebe4bf56e17ec27214a87aa29d9e038b4b"
 }

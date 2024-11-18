@@ -14,8 +14,8 @@
   "devDependencies": {
     "json5": "^2.2.2",
     "lodash": "^4.17.21",
-    "prettier": "^2.8.7",
-    "rimraf": "^3.0.2",
+    "prettier": "3.2.5",
+    "rimraf": "^5.0.0",
     "style-dictionary": "^3.8.0",
     "tinycolor2": "^1.6.0",
     "token-transformer": "^0.0.33"
