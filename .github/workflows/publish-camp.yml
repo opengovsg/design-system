@@ -1,0 +1,55 @@
+name: Publish (Camp)
+
+defaults:
+  run:
+    working-directory: packages/camp
+
+on:
+  push:
+    branches:
+      - alpha
+      - beta
+      - latest
+
+permissions:
+  id-token: write
+  packages: write
+
+jobs:
+  # JOB to run change detection
+  changes:
+    runs-on: ubuntu-latest
+    # Set job outputs to values from filter step
+    outputs:
+      camp: ${{ steps.filter.outputs.camp }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            camp:
+              - packages/camp/**
+  publish:
+    needs: changes
+    runs-on: ubuntu-latest
+    if: ${{ needs.changes.outputs.camp == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: 'npm'
+          registry-url: "https://registry.npmjs.org"
+      - run: npm ci
+      - run: npm run build
+      - run: npm publish --tag ${{ github.ref_name }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          registry-url: "https://npm.pkg.github.com/"
+      - run: npm publish --tag ${{ github.ref_name }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
