@@ -2,7 +2,6 @@
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "build": {},
-    "clean": {},
     "storybook": {
       "cache": false
     },
@@ -10,18 +9,8 @@
       "inputs": ["!storybook-static/**"],
       "outputs": ["storybook-static/**"]
     },
-    "format": {
-      "dependsOn": ["^build"],
-      "outputs": ["node_modules/.cache/.prettiercache"],
-      "outputLogs": "new-only"
-    },
-    "lint": {
-      "dependsOn": ["^build"],
-      "outputs": ["node_modules/.cache/.eslintcache"]
-    },
-    "typecheck": {
-      "dependsOn": ["^build"],
-      "outputs": ["node_modules/.cache/tsbuildinfo.json"]
-    }
+    "format": {},
+    "lint": {},
+    "typecheck": {}
   }
 }
