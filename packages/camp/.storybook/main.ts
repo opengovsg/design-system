@@ -1,10 +1,8 @@
-import { mergeConfig, UserConfig } from 'vite'
-import turbosnap from 'vite-plugin-turbosnap'
 import path from 'path'
+import type { UserConfig } from 'vite'
+
 export default {
-  features: {
-    previewMdx2: true,
-  },
+  features: {},
   stories: [
     './introduction/Welcome/Welcome.stories.tsx',
     './introduction/Principles/Principles.stories.tsx',
@@ -16,7 +14,6 @@ export default {
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/addon-themes',
-    '@storybook/addon-mdx-gfm',
     '@storybook/addon-interactions',
   ],
   framework: '@storybook/react-vite',
@@ -24,23 +21,11 @@ export default {
   core: {
     disableTelemetry: true,
   },
-  async viteFinal(
-    config: UserConfig,
-    {
-      configType,
-    }: {
-      configType: string
-    },
-  ) {
+  async viteFinal(config: UserConfig) {
+    // Merge custom configuration into the default config
+    const { mergeConfig } = await import('vite')
+
     return mergeConfig(config, {
-      plugins:
-        configType === 'PRODUCTION'
-          ? [
-              turbosnap({
-                rootDir: config.root ?? process.cwd(),
-              }),
-            ]
-          : [],
       resolve: {
         alias: {
           '~': path.resolve(__dirname, '../src/'),
