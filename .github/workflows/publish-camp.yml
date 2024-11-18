@@ -38,16 +38,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: "lts/*"
           cache: 'npm'
-          cache-dependency-path: packages/camp/package-lock.json
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
       - run: npm run build
       - run: npm publish --tag ${{ github.ref_name }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
           registry-url: "https://npm.pkg.github.com/"
