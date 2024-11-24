@@ -65,7 +65,7 @@
   "devDependencies": {
     "@chakra-ui/cli": "2.4.1",
     "@chakra-ui/react": "2.8.2",
-    "@storybook/addon-a11y": "8.0.0",
+    "@storybook/addon-a11y": "8.4.5",
     "@storybook/addon-essentials": "8.0.0",
     "@storybook/addon-interactions": "8.0.0",
     "@storybook/addon-links": "8.0.0",
