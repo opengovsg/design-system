@@ -1,16 +1,8 @@
 import { useState } from 'react'
 import { SimpleGrid } from '@chakra-ui/react'
-import { Meta, StoryFn } from '@storybook/react'
+import { Meta, StoryFn, StoryObj } from '@storybook/react'
 
 import { PhoneNumberInput, PhoneNumberInputProps } from './PhoneNumberInput'
-
-export default {
-  title: 'Components/PhoneNumberInput/International',
-  component: PhoneNumberInput,
-  tags: ['autodocs'],
-  parameters: { actions: { argTypesRegex: '^on.*' } },
-  decorators: [],
-} as Meta
 
 const Template: StoryFn<PhoneNumberInputProps> = (args) => {
   const [value, setValue] = useState<string | undefined>(args.value ?? '')
@@ -25,32 +17,46 @@ const Template: StoryFn<PhoneNumberInputProps> = (args) => {
     />
   )
 }
-export const Default = Template.bind({})
-Default.args = {}
 
-export const Prefilled = Template.bind({})
-Prefilled.args = {
-  value: '+12015550123',
-  isPrefilled: true,
+export default {
+  title: 'Components/PhoneNumberInput/International',
+  component: PhoneNumberInput,
+  tags: ['autodocs'],
+  parameters: { actions: { argTypesRegex: '^on.*' } },
+  decorators: [],
+  render: (args) => <Template {...args} />,
+} as Meta
+
+type Story = StoryObj<PhoneNumberInputProps>
+
+export const Default: Story = {}
+
+export const Prefilled: Story = {
+  args: {
+    value: '+12015550123',
+    isPrefilled: true,
+  },
 }
 
-export const Error = Template.bind({})
-Error.args = {
-  isInvalid: true,
-  value: '999',
+export const Error: Story = {
+  args: {
+    isInvalid: true,
+    value: '999',
+  },
 }
 
-export const Success = Template.bind({})
-Success.args = {
-  isInvalid: false,
-  isSuccess: true,
-
-  value: '+6598765432',
+export const Success: Story = {
+  args: {
+    isInvalid: false,
+    isSuccess: true,
+    value: '+6598765432',
+  },
 }
-export const Disabled = Template.bind({})
-Disabled.args = {
-  value: '123',
-  isDisabled: true,
+export const Disabled: Story = {
+  args: {
+    value: '123',
+    isDisabled: true,
+  },
 }
 
 export const Sizes: StoryFn = (args) => {
