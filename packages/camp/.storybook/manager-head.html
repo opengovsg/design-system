@@ -60,13 +60,12 @@
     color: #445072;
   }
 
-  .search-field > input {
+  .search-field {
     border-radius: 4px;
-    border: 1px solid #c9cccf;
     background: white;
   }
 
-  .search-field > input:focus {
-    background: white;
+  .search-field:has(input:focus) {
+    background: white !important;
   }
 </style>

@@ -34,8 +34,10 @@ export default {
     })
   },
   refs: {
-    // Prevent other design systems from being linked, like Chakra-UI.
-    'package-name': { disable: true },
+    // Prevent Chakra-UI's design systems from being linked
+    '@chakra-ui/react': {
+      disable: true,
+    },
   },
   docs: {
     autodocs: 'tag',
