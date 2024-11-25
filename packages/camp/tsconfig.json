@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "incremental": true,
-    "target": "es2017",
+    "target": "es2019",
     "outDir": "build/main",
     "rootDirs": ["src"],
     "moduleResolution": "node",
@@ -38,7 +38,7 @@
     // "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
 
     "typeRoots": ["node_modules/@types", "src/types"],
-    "lib": ["es2017", "dom"],
+    "lib": ["es2019", "dom"],
     "baseUrl": "./",
     "paths": {
       "~/*": ["./src/*"]
