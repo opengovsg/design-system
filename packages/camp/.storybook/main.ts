@@ -33,6 +33,12 @@ export default {
       },
     })
   },
+  refs: {
+    // Prevent Chakra-UI's design systems from being linked
+    '@chakra-ui/react': {
+      disable: true,
+    },
+  },
   docs: {
     autodocs: 'tag',
   },

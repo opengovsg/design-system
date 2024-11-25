@@ -1,24 +1,13 @@
 import { useControllableState } from '@chakra-ui/react'
-import { Meta, StoryFn } from '@storybook/react'
-import { userEvent, within } from '@storybook/test'
+import { Meta, StoryFn, StoryObj } from '@storybook/react'
+import { userEvent } from '@storybook/test'
 import { isWeekend } from 'date-fns'
 
 import { mockDateDecorator } from '~/utils/storybook'
 
 import { Calendar, CalendarProps } from './Calendar'
 
-export default {
-  title: 'Components/Calendar',
-  component: Calendar,
-  tags: ['autodocs'],
-  decorators: [mockDateDecorator],
-  parameters: {
-    layout: 'fullscreen',
-    mockdate: new Date('2021-12-25T06:22:27.219Z'),
-  },
-} as Meta<CalendarProps>
-
-const CalendarOnlyTemplate: StoryFn<CalendarProps> = ({
+const StatefulCalendar: StoryFn<CalendarProps> = ({
   value,
   onChange,
   ...args
@@ -33,64 +22,86 @@ const CalendarOnlyTemplate: StoryFn<CalendarProps> = ({
   )
 }
 
-export const Default = CalendarOnlyTemplate.bind({})
+export default {
+  title: 'Components/Calendar',
+  component: Calendar,
+  tags: ['autodocs'],
+  decorators: [mockDateDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    mockdate: new Date('2021-12-25T06:22:27.219Z'),
+  },
+  render: (args) => {
+    return <StatefulCalendar {...args} />
+  },
+} as Meta<CalendarProps>
 
-export const CalendarWithValue = CalendarOnlyTemplate.bind({})
-CalendarWithValue.args = {
-  value: new Date('2001-01-01'),
+type Story = StoryObj<CalendarProps>
+
+export const Default: Story = {}
+
+export const CalendarWithValue: Story = {
+  args: {
+    value: new Date('2001-01-01'),
+  },
 }
 
-export const SelectTodayWhenTodayButtonClicked = CalendarOnlyTemplate.bind({})
-SelectTodayWhenTodayButtonClicked.args = {
-  shouldSetDateOnTodayButtonClick: true,
-}
-SelectTodayWhenTodayButtonClicked.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const todayButton = canvas.getByText('Today')
-  userEvent.click(todayButton)
-}
-
-export const HideOutsideDays = CalendarOnlyTemplate.bind({})
-HideOutsideDays.args = {
-  showOutsideDays: false,
+export const SelectTodayWhenTodayButtonClicked: Story = {
+  args: {
+    shouldSetDateOnTodayButtonClick: true,
+  },
+  play: async ({ canvas }) => {
+    const todayButton = canvas.getByText('Today')
+    userEvent.click(todayButton)
+  },
 }
 
-export const HideTodayButton = CalendarOnlyTemplate.bind({})
-HideTodayButton.args = {
-  showTodayButton: false,
+export const HideOutsideDays: Story = {
+  args: {
+    showOutsideDays: false,
+  },
 }
 
-export const CalendarWeekdayOnly = CalendarOnlyTemplate.bind({})
-CalendarWeekdayOnly.args = {
-  isDateUnavailable: (d) => isWeekend(d),
+export const HideTodayButton: Story = {
+  args: {
+    showTodayButton: false,
+  },
 }
 
-export const SizeSmall = CalendarOnlyTemplate.bind({})
-SizeSmall.args = {
-  size: 'sm',
+export const CalendarWeekdayOnly: Story = {
+  args: {
+    isDateUnavailable: (d) => isWeekend(d),
+  },
 }
 
-export const CalendarWithDefaultFocusedDate = CalendarOnlyTemplate.bind({})
-CalendarWithDefaultFocusedDate.args = {
-  defaultFocusedDate: new Date('2010-01-01'),
+export const SizeSmall: Story = {
+  args: {
+    size: 'sm',
+  },
 }
 
-export const CalendarWithDefaultFocusedDateOverriddenByDefaultValue =
-  CalendarOnlyTemplate.bind({})
-CalendarWithDefaultFocusedDateOverriddenByDefaultValue.args = {
-  defaultFocusedDate: new Date('2010-05-01'),
-  defaultValue: new Date('2001-01-01'),
+export const CalendarWithDefaultFocusedDate: Story = {
+  args: {
+    defaultFocusedDate: new Date('2010-01-01'),
+  },
 }
 
-export const CalendarWithOnMonthYearChangeCallback = CalendarOnlyTemplate.bind(
-  {},
-)
-CalendarWithOnMonthYearChangeCallback.args = {
-  onMonthChange: (month) => alert(`month changed to: ${month}`),
-  onYearChange: (year) => alert(`year changed to: ${year}`),
+export const CalendarWithDefaultFocusedDateOverriddenByDefaultValue: Story = {
+  args: {
+    defaultFocusedDate: new Date('2010-05-01'),
+    defaultValue: new Date('2001-01-01'),
+  },
 }
 
-export const Loading = CalendarOnlyTemplate.bind({})
-Loading.args = {
-  isLoading: true,
+export const CalendarWithOnMonthYearChangeCallback: Story = {
+  args: {
+    onMonthChange: (month) => alert(`month changed to: ${month}`),
+    onYearChange: (year) => alert(`year changed to: ${year}`),
+  },
+}
+
+export const Loading: Story = {
+  args: {
+    isLoading: true,
+  },
 }

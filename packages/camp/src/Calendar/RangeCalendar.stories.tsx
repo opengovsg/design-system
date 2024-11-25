@@ -1,24 +1,13 @@
 import { useControllableState } from '@chakra-ui/react'
-import { Meta, StoryFn } from '@storybook/react'
-import { userEvent, within } from '@storybook/test'
+import { Meta, StoryFn, StoryObj } from '@storybook/react'
+import { userEvent } from '@storybook/test'
 import { isWeekend } from 'date-fns'
 
 import { mockDateDecorator } from '~/utils/storybook'
 
 import { RangeCalendar, RangeCalendarProps } from './RangeCalendar'
 
-export default {
-  title: 'Components/RangeCalendar',
-  component: RangeCalendar,
-  tags: ['autodocs'],
-  decorators: [mockDateDecorator],
-  parameters: {
-    layout: 'fullscreen',
-    mockdate: new Date('2021-12-25T06:22:27.219Z'),
-  },
-} as Meta<RangeCalendarProps>
-
-const RangeCalendarOnlyTemplate: StoryFn<RangeCalendarProps> = ({
+const StatefulRangeCalendar: StoryFn<RangeCalendarProps> = ({
   value,
   onChange,
   ...args
@@ -37,66 +26,85 @@ const RangeCalendarOnlyTemplate: StoryFn<RangeCalendarProps> = ({
   )
 }
 
-export const Default = RangeCalendarOnlyTemplate.bind({})
+export default {
+  title: 'Components/RangeCalendar',
+  component: RangeCalendar,
+  tags: ['autodocs'],
+  decorators: [mockDateDecorator],
+  parameters: {
+    layout: 'fullscreen',
+    mockdate: new Date('2021-12-25T06:22:27.219Z'),
+  },
+  render: (args) => <StatefulRangeCalendar {...args} />,
+} as Meta<RangeCalendarProps>
 
-export const RangeCalendarWithValue = RangeCalendarOnlyTemplate.bind({})
-RangeCalendarWithValue.args = {
-  value: [new Date('2001-01-01'), null],
+type Story = StoryObj<RangeCalendarProps>
+
+export const Default: Story = {}
+
+export const RangeCalendarWithValue: Story = {
+  args: {
+    value: [new Date('2001-01-01'), null],
+  },
 }
 
-export const SelectTodayWhenTodayButtonClicked = RangeCalendarOnlyTemplate.bind(
-  {},
-)
-SelectTodayWhenTodayButtonClicked.args = {
-  shouldSetDateOnTodayButtonClick: true,
-}
-SelectTodayWhenTodayButtonClicked.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const todayButton = canvas.getByText('Today')
-  userEvent.click(todayButton)
+export const SelectTodayWhenTodayButtonClicked: Story = {
+  args: {
+    shouldSetDateOnTodayButtonClick: true,
+  },
+  play: async ({ canvas }) => {
+    const todayButton = canvas.getByText('Today')
+    userEvent.click(todayButton)
+  },
 }
 
-export const RangeCalendarWithRange = RangeCalendarOnlyTemplate.bind({})
-RangeCalendarWithRange.args = {
-  value: [new Date('2001-01-01'), new Date('2001-02-02')],
+export const RangeCalendarWithRange: Story = {
+  args: {
+    value: [new Date('2001-01-01'), new Date('2001-02-02')],
+  },
 }
 
-export const RangeCalendarWeekdayOnly = RangeCalendarOnlyTemplate.bind({})
-RangeCalendarWeekdayOnly.args = {
-  isDateUnavailable: (d) => isWeekend(d),
+export const RangeCalendarWeekdayOnly: Story = {
+  args: {
+    isDateUnavailable: (d) => isWeekend(d),
+  },
 }
 
-export const HideTodayButton = RangeCalendarOnlyTemplate.bind({})
-HideTodayButton.args = {
-  showTodayButton: false,
+export const HideTodayButton: Story = {
+  args: {
+    showTodayButton: false,
+  },
 }
 
-export const SizeSmall = RangeCalendarOnlyTemplate.bind({})
-SizeSmall.args = {
-  size: 'sm',
+export const SizeSmall: Story = {
+  args: {
+    size: 'sm',
+  },
 }
 
-export const RangeCalendarWithDefaultFocusedDate =
-  RangeCalendarOnlyTemplate.bind({})
-RangeCalendarWithDefaultFocusedDate.args = {
-  defaultFocusedDate: new Date('2010-01-01'),
+export const RangeCalendarWithDefaultFocusedDate: Story = {
+  args: {
+    defaultFocusedDate: new Date('2010-01-01'),
+  },
 }
 
-export const RangeCalendarWithDefaultFocusedDateOverriddenByDefaultValue =
-  RangeCalendarOnlyTemplate.bind({})
-RangeCalendarWithDefaultFocusedDateOverriddenByDefaultValue.args = {
-  defaultFocusedDate: new Date('2010-01-01'),
-  defaultValue: [new Date('2001-01-01'), null],
+export const RangeCalendarWithDefaultFocusedDateOverriddenByDefaultValue: Story =
+  {
+    args: {
+      defaultFocusedDate: new Date('2010-01-01'),
+      defaultValue: [new Date('2001-01-01'), null],
+    },
+  }
+
+export const RangeCalendarWithOnMonthYearChangeCallback: Story = {
+  args: {
+    onMonthChange: (month) => alert(`month changed to: ${month}`),
+    onYearChange: (year) => alert(`year changed to: ${year}`),
+  },
 }
 
-export const RangeCalendarWithOnMonthYearChangeCallback =
-  RangeCalendarOnlyTemplate.bind({})
-RangeCalendarWithOnMonthYearChangeCallback.args = {
-  onMonthChange: (month) => alert(`month changed to: ${month}`),
-  onYearChange: (year) => alert(`year changed to: ${year}`),
-}
-
-export const Loading = RangeCalendarOnlyTemplate.bind({})
-Loading.args = {
-  isLoading: true,
+export const Loading: Story = {
+  args: {
+    isLoading: true,
+  },
 }

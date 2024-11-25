@@ -1,7 +1,22 @@
-import { Meta } from '@storybook/react'
+import { useState } from 'react'
+import { Meta, StoryFn, StoryObj } from '@storybook/react'
 
 import * as stories from './IntlPhoneNumberInput.stories'
 import { PhoneNumberInput, PhoneNumberInputProps } from './PhoneNumberInput'
+
+const Template: StoryFn<PhoneNumberInputProps> = (args) => {
+  const [value, setValue] = useState<string | undefined>(args.value ?? '')
+  return (
+    <PhoneNumberInput
+      {...args}
+      value={value}
+      onChange={(...params) => {
+        args.onChange?.(...params)
+        setValue(...params)
+      }}
+    />
+  )
+}
 
 export default {
   title: 'Components/PhoneNumberInput/SingleCountry',
@@ -12,24 +27,30 @@ export default {
     allowInternational: false,
   },
   decorators: [],
+  render: (args) => <Template {...args} />,
 } as Meta<PhoneNumberInputProps>
 
-export const Default = stories.Default.bind({})
-Default.args = stories.Default.args
+type Story = StoryObj<PhoneNumberInputProps>
 
-export const Prefilled = stories.Prefilled.bind({})
-Prefilled.args = {
-  ...stories.Prefilled.args,
-  defaultCountry: 'US',
+export const Default: Story = {}
+
+export const Prefilled: Story = {
+  args: {
+    ...stories.Prefilled.args,
+    defaultCountry: 'US',
+  },
 }
 
-export const Error = stories.Error.bind({})
-Error.args = stories.Error.args
+export const Error: Story = {
+  args: stories.Error.args,
+}
 
-export const Success = stories.Success.bind({})
-Success.args = stories.Success.args
+export const Success: Story = {
+  args: stories.Success.args,
+}
 
-export const Disabled = stories.Disabled.bind({})
-Disabled.args = stories.Disabled.args
+export const Disabled: Story = {
+  args: stories.Disabled.args,
+}
 
 export const Sizes = stories.Sizes.bind({})

@@ -16,7 +16,7 @@ updates:
       prefix-development: "chore"
       include: "scope"
   - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/react" # Location of package manifests
+    directory: "/packages/camp" # Location of package manifests
     schedule:
       interval: "weekly"
       time: "01:00"
