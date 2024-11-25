@@ -33,6 +33,10 @@ export default {
       },
     })
   },
+  refs: {
+    // Prevent other design systems from being linked, like Chakra-UI.
+    'package-name': { disable: true },
+  },
   docs: {
     autodocs: 'tag',
   },
