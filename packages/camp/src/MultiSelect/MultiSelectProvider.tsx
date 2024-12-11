@@ -164,9 +164,13 @@ export const MultiSelectProvider = ({
     selectedItems,
     onSelectedItemsChange: ({ selectedItems }) => {
       onChange(
-        selectedItems
-          ?.filter((item) => !isItemDisabled(item))
-          .map(itemToValue) ?? [],
+        [
+          ...new Set(
+            selectedItems
+              ?.filter((item) => !isItemDisabled(item))
+              .map(itemToValue),
+          ),
+        ] ?? [],
       )
     },
     itemToString: itemToLabelString,
