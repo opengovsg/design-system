@@ -163,15 +163,13 @@ export const MultiSelectProvider = ({
   } = useMultipleSelection<(typeof items)[0]>({
     selectedItems,
     onSelectedItemsChange: ({ selectedItems }) => {
-      onChange(
-        [
-          ...new Set(
-            selectedItems
-              ?.filter((item) => !isItemDisabled(item))
-              .map(itemToValue),
-          ),
-        ] ?? [],
-      )
+      onChange([
+        ...new Set(
+          selectedItems
+            ?.filter((item) => !isItemDisabled(item))
+            .map(itemToValue),
+        ),
+      ])
     },
     itemToString: itemToLabelString,
     stateReducer: (_state, { changes, type }) => {
