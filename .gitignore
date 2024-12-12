@@ -4,4 +4,6 @@ build-storybook.log
 storybook-static
 .DS_Store
 
-token-gen/tokens-generated
+**/token-gen/tokens-generated
+
+.turbo
