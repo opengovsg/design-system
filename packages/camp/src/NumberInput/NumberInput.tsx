@@ -1,17 +1,18 @@
-import type { Ref } from 'react'
-import { useRef } from 'react'
 import {
   Box,
   chakra,
-  ComponentWithAs as _,
+  NumberInputProps as ChakraNumberInputProps,
   Divider,
   forwardRef,
-  NumberInputProps as ChakraNumberInputProps,
+  mergeThemeOverride,
+  SystemStyleObject,
   useFormControlProps,
   useMergeRefs,
   useMultiStyleConfig,
   useNumberInput,
 } from '@chakra-ui/react'
+import type { Ref } from 'react'
+import { useMemo, useRef } from 'react'
 
 import { IconButton } from '~/IconButton'
 import { BxMinus, BxPlus } from '~/icons'
@@ -29,6 +30,8 @@ export interface NumberInputProps extends ChakraNumberInputProps {
    * Whether to show the increment and decrement steppers. Defaults to true.
    */
   showSteppers?: boolean
+
+  inputStyles?: SystemStyleObject
 }
 
 export const NumberInput = forwardRef<NumberInputProps, 'input'>(
@@ -38,6 +41,7 @@ export const NumberInput = forwardRef<NumberInputProps, 'input'>(
       clampValueOnBlur = false,
       isSuccess,
       isPrefilled,
+      inputStyles,
       ...props
     },
     ref,
@@ -47,6 +51,11 @@ export const NumberInput = forwardRef<NumberInputProps, 'input'>(
       isSuccess,
       isPrefilled,
     })
+
+    const mergedInputStyles = useMemo(
+      () => mergeThemeOverride(styles.field, inputStyles),
+      [inputStyles, styles.field],
+    )
 
     const stepperWrapperRef = useRef<HTMLDivElement | null>(null)
 
@@ -90,6 +99,7 @@ export const NumberInput = forwardRef<NumberInputProps, 'input'>(
           // is this input.
           ref={inputRef}
           __css={styles.field}
+          sx={mergedInputStyles}
         />
         {showSteppers && (
           <Box __css={styles.stepperWrapper} ref={stepperWrapperRef}>
