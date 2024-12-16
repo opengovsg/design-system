@@ -1,18 +1,18 @@
+import type { Ref } from 'react'
+import { useMemo, useRef } from 'react'
 import {
   Box,
   chakra,
-  NumberInputProps as ChakraNumberInputProps,
   Divider,
   forwardRef,
   mergeThemeOverride,
+  NumberInputProps as ChakraNumberInputProps,
   SystemStyleObject,
   useFormControlProps,
   useMergeRefs,
   useMultiStyleConfig,
   useNumberInput,
 } from '@chakra-ui/react'
-import type { Ref } from 'react'
-import { useMemo, useRef } from 'react'
 
 import { IconButton } from '~/IconButton'
 import { BxMinus, BxPlus } from '~/icons'
@@ -31,6 +31,9 @@ export interface NumberInputProps extends ChakraNumberInputProps {
    */
   showSteppers?: boolean
 
+  /**
+   * Merge styles for inner input field
+   */
   inputStyles?: SystemStyleObject
 }
 
