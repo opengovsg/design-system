@@ -100,3 +100,9 @@ export const FormInput: StoryFn<NumberInputProps> = (args) => {
     </FormControl>
   )
 }
+
+export const InputStyles = Template.bind({})
+InputStyles.args = {
+  placeholder: 'Pass in input styles',
+  inputStyles: { bgColor: 'gray.100' },
+}
