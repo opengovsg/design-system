@@ -1,11 +1,10 @@
 import type { Ref } from 'react'
-import { useMemo, useRef } from 'react'
+import { useRef } from 'react'
 import {
   Box,
   chakra,
   Divider,
   forwardRef,
-  mergeThemeOverride,
   NumberInputProps as ChakraNumberInputProps,
   SystemStyleObject,
   useFormControlProps,
@@ -55,11 +54,6 @@ export const NumberInput = forwardRef<NumberInputProps, 'input'>(
       isPrefilled,
     })
 
-    const mergedInputStyles = useMemo(
-      () => mergeThemeOverride(styles.field, inputStyles),
-      [inputStyles, styles.field],
-    )
-
     const stepperWrapperRef = useRef<HTMLDivElement | null>(null)
 
     /**
@@ -102,7 +96,7 @@ export const NumberInput = forwardRef<NumberInputProps, 'input'>(
           // is this input.
           ref={inputRef}
           __css={styles.field}
-          sx={mergedInputStyles}
+          sx={inputStyles}
         />
         {showSteppers && (
           <Box __css={styles.stepperWrapper} ref={stepperWrapperRef}>
