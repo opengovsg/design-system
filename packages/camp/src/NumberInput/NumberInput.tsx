@@ -3,10 +3,10 @@ import { useRef } from 'react'
 import {
   Box,
   chakra,
-  ComponentWithAs as _,
   Divider,
   forwardRef,
   NumberInputProps as ChakraNumberInputProps,
+  SystemStyleObject,
   useFormControlProps,
   useMergeRefs,
   useMultiStyleConfig,
@@ -29,6 +29,11 @@ export interface NumberInputProps extends ChakraNumberInputProps {
    * Whether to show the increment and decrement steppers. Defaults to true.
    */
   showSteppers?: boolean
+
+  /**
+   * Merge styles for inner input field
+   */
+  inputStyles?: SystemStyleObject
 }
 
 export const NumberInput = forwardRef<NumberInputProps, 'input'>(
@@ -38,6 +43,7 @@ export const NumberInput = forwardRef<NumberInputProps, 'input'>(
       clampValueOnBlur = false,
       isSuccess,
       isPrefilled,
+      inputStyles,
       ...props
     },
     ref,
@@ -90,6 +96,7 @@ export const NumberInput = forwardRef<NumberInputProps, 'input'>(
           // is this input.
           ref={inputRef}
           __css={styles.field}
+          sx={inputStyles}
         />
         {showSteppers && (
           <Box __css={styles.stepperWrapper} ref={stepperWrapperRef}>
